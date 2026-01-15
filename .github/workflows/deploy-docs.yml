@@ -34,7 +34,7 @@ jobs:
           cp -r contents/book3 site/docs/
           cp -r contents/frontmatter site/docs/
           cp -r contents/appendices site/docs/
-          cp frontmatter/home.md site/docs/index.md
+          cp contents/frontmatter/home.md site/docs/index.md
           find site | sort
 
       - name: Build documentation
