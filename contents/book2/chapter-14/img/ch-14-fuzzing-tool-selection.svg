@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" font-family="Libertinus Sans">
+  <defs>
+        <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset in="blur" dx="1" dy="2" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.5" result="color"/>
+      <feComposite in="color" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1e40af"/>
+      <stop offset="100%" style="stop-color:#3b82f6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Title -->
+  <text x="400" y="35" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">Fuzzing Tool Selection Guide</text>
+  <text x="400" y="55" text-anchor="middle" font-size="13" fill="#64748b">Choose the right fuzzer for your target language or technology</text>
+
+  <!-- Row 1 -->
+  <!-- C/C++ Card -->
+  <g filter="url(#cardShadow)">
+    <rect x="40" y="80" width="230" height="110" rx="8" fill="white" stroke="#e2e8f0" stroke-width="1"/>
+    <rect x="40" y="80" width="230" height="36" rx="8" fill="#1e40af"/>
+    <rect x="40" y="108" width="230" height="8" fill="#1e40af"/>
+    <text x="155" y="105" text-anchor="middle" font-size="14" font-weight="600" fill="white">C/C++ Libraries</text>
+    <text x="155" y="145" text-anchor="middle" font-size="13" fill="#334155">Recommended Tools:</text>
+    <text x="155" y="170" text-anchor="middle" font-size="15" font-weight="600" fill="#2563eb">libFuzzer, AFL++</text>
+  </g>
+
+  <!-- Java Card -->
+  <g filter="url(#cardShadow)">
+    <rect x="285" y="80" width="230" height="110" rx="8" fill="white" stroke="#e2e8f0" stroke-width="1"/>
+    <rect x="285" y="80" width="230" height="36" rx="8" fill="#dc2626"/>
+    <rect x="285" y="108" width="230" height="8" fill="#dc2626"/>
+    <text x="400" y="105" text-anchor="middle" font-size="14" font-weight="600" fill="white">Java Libraries</text>
+    <text x="400" y="145" text-anchor="middle" font-size="13" fill="#334155">Recommended Tools:</text>
+    <text x="400" y="170" text-anchor="middle" font-size="15" font-weight="600" fill="#dc2626">Jazzer</text>
+  </g>
+
+  <!-- Python Card -->
+  <g filter="url(#cardShadow)">
+    <rect x="530" y="80" width="230" height="110" rx="8" fill="white" stroke="#e2e8f0" stroke-width="1"/>
+    <rect x="530" y="80" width="230" height="36" rx="8" fill="#0d9488"/>
+    <rect x="530" y="108" width="230" height="8" fill="#0d9488"/>
+    <text x="645" y="105" text-anchor="middle" font-size="14" font-weight="600" fill="white">Python Libraries</text>
+    <text x="645" y="145" text-anchor="middle" font-size="13" fill="#334155">Recommended Tools:</text>
+    <text x="645" y="170" text-anchor="middle" font-size="15" font-weight="600" fill="#0d9488">Atheris</text>
+  </g>
+
+  <!-- Row 2 -->
+  <!-- Rust Card -->
+  <g filter="url(#cardShadow)">
+    <rect x="40" y="210" width="230" height="110" rx="8" fill="white" stroke="#e2e8f0" stroke-width="1"/>
+    <rect x="40" y="210" width="230" height="36" rx="8" fill="#ea580c"/>
+    <rect x="40" y="238" width="230" height="8" fill="#ea580c"/>
+    <text x="155" y="235" text-anchor="middle" font-size="14" font-weight="600" fill="white">Rust Libraries</text>
+    <text x="155" y="275" text-anchor="middle" font-size="13" fill="#334155">Recommended Tools:</text>
+    <text x="155" y="300" text-anchor="middle" font-size="15" font-weight="600" fill="#ea580c">cargo-fuzz (libFuzzer)</text>
+  </g>
+
+  <!-- Go Card -->
+  <g filter="url(#cardShadow)">
+    <rect x="285" y="210" width="230" height="110" rx="8" fill="white" stroke="#e2e8f0" stroke-width="1"/>
+    <rect x="285" y="210" width="230" height="36" rx="8" fill="#0891b2"/>
+    <rect x="285" y="238" width="230" height="8" fill="#0891b2"/>
+    <text x="400" y="235" text-anchor="middle" font-size="14" font-weight="600" fill="white">Go Libraries</text>
+    <text x="400" y="275" text-anchor="middle" font-size="13" fill="#334155">Recommended Tools:</text>
+    <text x="400" y="300" text-anchor="middle" font-size="15" font-weight="600" fill="#0891b2">go-fuzz</text>
+  </g>
+
+  <!-- Network Protocols Card -->
+  <g filter="url(#cardShadow)">
+    <rect x="530" y="210" width="230" height="110" rx="8" fill="white" stroke="#e2e8f0" stroke-width="1"/>
+    <rect x="530" y="210" width="230" height="36" rx="8" fill="#7c3aed"/>
+    <rect x="530" y="238" width="230" height="8" fill="#7c3aed"/>
+    <text x="645" y="235" text-anchor="middle" font-size="14" font-weight="600" fill="white">Network Protocols</text>
+    <text x="645" y="275" text-anchor="middle" font-size="13" fill="#334155">Recommended Tools:</text>
+    <text x="645" y="300" text-anchor="middle" font-size="15" font-weight="600" fill="#7c3aed">boofuzz, AFLNet</text>
+  </g>
+
+  <!-- Footer note -->
+  <rect x="40" y="350" width="720" height="110" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="60" y="378" font-size="13" font-weight="600" fill="#334155">Key Considerations:</text>
+  <circle cx="70" cy="403" r="4" fill="#3b82f6"/>
+  <text x="82" y="408" font-size="12" fill="#475569">All tools benefit from sanitizer integration (ASan, MSan, UBSan) for deeper bug detection</text>
+  <circle cx="70" cy="428" r="4" fill="#3b82f6"/>
+  <text x="82" y="433" font-size="12" fill="#475569">OSS-Fuzz provides free continuous fuzzing for critical open source projects</text>
+  <circle cx="70" cy="453" r="4" fill="#3b82f6"/>
+  <text x="82" y="458" font-size="12" fill="#475569">Start with seed corpus from existing tests and real-world inputs for better coverage</text>
+</svg>

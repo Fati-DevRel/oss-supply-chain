@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700">
+  <defs>
+        <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset in="blur" dx="1" dy="2" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.5" result="color"/>
+      <feComposite in="color" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="700" fill="#F8FAFC"/>
+
+  <!-- Title -->
+  <text x="450" y="35" font-family="Libertinus Sans" font-size="22" font-weight="bold" fill="#1E293B" text-anchor="middle">Emerging Security Technologies Landscape</text>
+  <text x="450" y="55" font-family="Libertinus Sans" font-size="13" fill="#64748B" text-anchor="middle">Technologies reshaping software supply chain security</text>
+
+  <!-- Maturity axis labels -->
+  <text x="450" y="85" font-family="Libertinus Sans" font-size="11" font-weight="bold" fill="#64748B" text-anchor="middle">MATURITY PROGRESSION</text>
+  <line x1="100" y1="95" x2="800" y2="95" stroke="#CBD5E1" stroke-width="2"/>
+
+  <text x="180" y="110" font-family="Libertinus Sans" font-size="9" fill="#64748B" text-anchor="middle">Emerging</text>
+  <text x="380" y="110" font-family="Libertinus Sans" font-size="9" fill="#64748B" text-anchor="middle">Developing</text>
+  <text x="580" y="110" font-family="Libertinus Sans" font-size="9" fill="#64748B" text-anchor="middle">Maturing</text>
+  <text x="750" y="110" font-family="Libertinus Sans" font-size="9" fill="#64748B" text-anchor="middle">Established</text>
+
+  <!-- Category 1: Memory Safety -->
+  <text x="50" y="145" font-family="Libertinus Sans" font-size="12" font-weight="bold" fill="#1E293B">Memory-Safe Languages</text>
+
+  <g filter="url(#shadow)">
+    <rect x="700" y="130" width="150" height="50" rx="6" fill="#10B981"/>
+    <text x="775" y="152" font-family="Libertinus Sans" font-size="11" font-weight="bold" fill="white" text-anchor="middle">Rust</text>
+    <text x="775" y="168" font-family="Libertinus Sans" font-size="9" fill="#D1FAE5" text-anchor="middle">Linux kernel, Android, AWS</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="520" y="130" width="130" height="50" rx="6" fill="#3B82F6"/>
+    <text x="585" y="152" font-family="Libertinus Sans" font-size="11" font-weight="bold" fill="white" text-anchor="middle">Go</text>
+    <text x="585" y="168" font-family="Libertinus Sans" font-size="9" fill="#DBEAFE" text-anchor="middle">Cloud native, K8s</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="280" y="130" width="130" height="50" rx="6" fill="#F59E0B"/>
+    <text x="345" y="152" font-family="Libertinus Sans" font-size="11" font-weight="bold" fill="white" text-anchor="middle">Carbon</text>
+    <text x="345" y="168" font-family="Libertinus Sans" font-size="9" fill="#FEF3C7" text-anchor="middle">C++ successor (Google)</text>
+  </g>
+
+  <!-- Category 2: AI-Assisted Security -->
+  <text x="50" y="215" font-family="Libertinus Sans" font-size="12" font-weight="bold" fill="#1E293B">AI-Assisted Security</text>
+
+  <g filter="url(#shadow)">
+    <rect x="550" y="200" width="150" height="50" rx="6" fill="#3B82F6"/>
+    <text x="625" y="222" font-family="Libertinus Sans" font-size="11" font-weight="bold" fill="white" text-anchor="middle">AI Code Scanning</text>
+    <text x="625" y="238" font-family="Libertinus Sans" font-size="9" fill="#DBEAFE" text-anchor="middle">Semgrep, CodeQL</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="320" y="200" width="160" height="50" rx="6" fill="#F59E0B"/>
+    <text x="400" y="222" font-family="Libertinus Sans" font-size="11" font-weight="bold" fill="white" text-anchor="middle">LLM Vuln Detection</text>
+    <text x="400" y="238" font-family="Libertinus Sans" font-size="9" fill="#FEF3C7" text-anchor="middle">Copilot, Claude analysis</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="100" y="200" width="160" height="50" rx="6" fill="#EF4444"/>
+    <text x="180" y="222" font-family="Libertinus Sans" font-size="11" font-weight="bold" fill="white" text-anchor="middle">Auto-Patching</text>
+    <text x="180" y="238" font-family="Libertinus Sans" font-size="9" fill="#FEE2E2" text-anchor="middle">AI-generated fixes</text>
+  </g>
+
+  <!-- Category 3: Formal Verification -->
+  <text x="50" y="285" font-family="Libertinus Sans" font-size="12" font-weight="bold" fill="#1E293B">Formal Verification</text>
+
+  <g filter="url(#shadow)">
+    <rect x="450" y="270" width="160" height="50" rx="6" fill="#8B5CF6"/>
+    <text x="530" y="292" font-family="Libertinus Sans" font-size="11" font-weight="bold" fill="white" text-anchor="middle">seL4 Microkernel</text>
+    <text x="530" y="308" font-family="Libertinus Sans" font-size="9" fill="#E9D5FF" text-anchor="middle">Proven secure</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="220" y="270" width="170" height="50" rx="6" fill="#F59E0B"/>
+    <text x="305" y="292" font-family="Libertinus Sans" font-size="11" font-weight="bold" fill="white" text-anchor="middle">Verified Cryptography</text>
+    <text x="305" y="308" font-family="Libertinus Sans" font-size="9" fill="#FEF3C7" text-anchor="middle">HACL*, EverCrypt</text>
+  </g>
+
+  <!-- Category 4: Hardware Security -->
+  <text x="50" y="355" font-family="Libertinus Sans" font-size="12" font-weight="bold" fill="#1E293B">Hardware-Assisted Security</text>
+
+  <g filter="url(#shadow)">
+    <rect x="600" y="340" width="150" height="50" rx="6" fill="#10B981"/>
+    <text x="675" y="362" font-family="Libertinus Sans" font-size="11" font-weight="bold" fill="white" text-anchor="middle">TPM 2.0</text>
+    <text x="675" y="378" font-family="Libertinus Sans" font-size="9" fill="#D1FAE5" text-anchor="middle">Secure boot, attestation</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="380" y="340" width="160" height="50" rx="6" fill="#3B82F6"/>
+    <text x="460" y="362" font-family="Libertinus Sans" font-size="11" font-weight="bold" fill="white" text-anchor="middle">Confidential VMs</text>
+    <text x="460" y="378" font-family="Libertinus Sans" font-size="9" fill="#DBEAFE" text-anchor="middle">AMD SEV, Intel TDX</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="150" y="340" width="160" height="50" rx="6" fill="#F59E0B"/>
+    <text x="230" y="362" font-family="Libertinus Sans" font-size="11" font-weight="bold" fill="white" text-anchor="middle">CHERI</text>
+    <text x="230" y="378" font-family="Libertinus Sans" font-size="9" fill="#FEF3C7" text-anchor="middle">Capability hardware</text>
+  </g>
+
+  <!-- Category 5: Supply Chain Verification -->
+  <text x="50" y="425" font-family="Libertinus Sans" font-size="12" font-weight="bold" fill="#1E293B">Supply Chain Verification</text>
+
+  <g filter="url(#shadow)">
+    <rect x="650" y="410" width="150" height="50" rx="6" fill="#10B981"/>
+    <text x="725" y="432" font-family="Libertinus Sans" font-size="11" font-weight="bold" fill="white" text-anchor="middle">Sigstore</text>
+    <text x="725" y="448" font-family="Libertinus Sans" font-size="9" fill="#D1FAE5" text-anchor="middle">Keyless signing</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="450" y="410" width="150" height="50" rx="6" fill="#10B981"/>
+    <text x="525" y="432" font-family="Libertinus Sans" font-size="11" font-weight="bold" fill="white" text-anchor="middle">SLSA</text>
+    <text x="525" y="448" font-family="Libertinus Sans" font-size="9" fill="#D1FAE5" text-anchor="middle">Build provenance</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="250" y="410" width="150" height="50" rx="6" fill="#3B82F6"/>
+    <text x="325" y="432" font-family="Libertinus Sans" font-size="11" font-weight="bold" fill="white" text-anchor="middle">in-toto</text>
+    <text x="325" y="448" font-family="Libertinus Sans" font-size="9" fill="#DBEAFE" text-anchor="middle">Layout verification</text>
+  </g>
+
+  <!-- Category 6: Policy and Automation -->
+  <text x="50" y="495" font-family="Libertinus Sans" font-size="12" font-weight="bold" fill="#1E293B">Policy-as-Code</text>
+
+  <g filter="url(#shadow)">
+    <rect x="550" y="480" width="150" height="50" rx="6" fill="#10B981"/>
+    <text x="625" y="502" font-family="Libertinus Sans" font-size="11" font-weight="bold" fill="white" text-anchor="middle">OPA/Rego</text>
+    <text x="625" y="518" font-family="Libertinus Sans" font-size="9" fill="#D1FAE5" text-anchor="middle">K8s admission</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="350" y="480" width="150" height="50" rx="6" fill="#3B82F6"/>
+    <text x="425" y="502" font-family="Libertinus Sans" font-size="11" font-weight="bold" fill="white" text-anchor="middle">Kyverno</text>
+    <text x="425" y="518" font-family="Libertinus Sans" font-size="9" fill="#DBEAFE" text-anchor="middle">Native K8s policies</text>
+  </g>
+
+  <!-- Legend -->
+  <rect x="50" y="560" width="800" height="130" rx="8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="450" y="585" font-family="Libertinus Sans" font-size="12" font-weight="bold" fill="#1E293B" text-anchor="middle">Maturity Indicators</text>
+
+  <rect x="80" y="605" width="20" height="20" rx="4" fill="#EF4444"/>
+  <text x="110" y="620" font-family="Libertinus Sans" font-size="10" fill="#475569">Research/Experimental - Limited production use, high potential</text>
+
+  <rect x="80" y="635" width="20" height="20" rx="4" fill="#F59E0B"/>
+  <text x="110" y="650" font-family="Libertinus Sans" font-size="10" fill="#475569">Developing - Growing adoption, active development, some production use</text>
+
+  <rect x="80" y="665" width="20" height="20" rx="4" fill="#3B82F6"/>
+  <text x="110" y="680" font-family="Libertinus Sans" font-size="10" fill="#475569">Maturing - Broad adoption, stable tooling, enterprise-ready</text>
+
+  <rect x="500" y="605" width="20" height="20" rx="4" fill="#10B981"/>
+  <text x="530" y="620" font-family="Libertinus Sans" font-size="10" fill="#475569">Established - Industry standard, proven at scale</text>
+
+  <rect x="500" y="635" width="20" height="20" rx="4" fill="#8B5CF6"/>
+  <text x="530" y="650" font-family="Libertinus Sans" font-size="10" fill="#475569">Specialized - Niche but proven in specific domains</text>
+</svg>

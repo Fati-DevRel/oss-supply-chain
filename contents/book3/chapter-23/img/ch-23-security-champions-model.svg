@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 480" font-family="Libertinus Sans">
+  <defs>
+    <linearGradient id="securityTeamGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e3a5f"/>
+      <stop offset="100%" style="stop-color:#2d5a87"/>
+    </linearGradient>
+    <linearGradient id="championGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#c9a227"/>
+      <stop offset="100%" style="stop-color:#a88b1e"/>
+    </linearGradient>
+    <linearGradient id="developerGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4a7c59"/>
+      <stop offset="100%" style="stop-color:#3d6649"/>
+    </linearGradient>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#666"/>
+    </marker>
+        <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset in="blur" dx="1" dy="2" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.5" result="color"/>
+      <feComposite in="color" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Title -->
+  <text x="350" y="30" text-anchor="middle" font-size="20" font-weight="bold" fill="#1e3a5f">Security Champions Model</text>
+
+  <!-- Central Security Team Box -->
+  <rect x="100" y="55" width="500" height="85" rx="8" fill="url(#securityTeamGrad)" filter="url(#shadow)"/>
+  <text x="350" y="85" text-anchor="middle" font-size="16" font-weight="bold" fill="white">Central Security Team</text>
+  <text x="120" y="108" font-size="11" fill="#e0e0e0">Sets strategy and policy</text>
+  <text x="290" y="108" font-size="11" fill="#e0e0e0">Provides tools and infrastructure</text>
+  <text x="120" y="125" font-size="11" fill="#e0e0e0">Handles complex security issues</text>
+  <text x="290" y="125" font-size="11" fill="#e0e0e0">Trains and supports champions</text>
+
+  <!-- Connection lines from Security Team to Champions -->
+  <line x1="200" y1="140" x2="150" y2="185" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="350" y1="140" x2="350" y2="185" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="500" y1="140" x2="550" y2="185" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- Champion A -->
+  <rect x="70" y="190" width="160" height="60" rx="6" fill="url(#championGrad)" filter="url(#shadow)"/>
+  <text x="150" y="215" text-anchor="middle" font-size="13" font-weight="bold" fill="white">Champion A</text>
+  <text x="150" y="235" text-anchor="middle" font-size="11" fill="#fff8e0">Team 1</text>
+
+  <!-- Champion B -->
+  <rect x="270" y="190" width="160" height="60" rx="6" fill="url(#championGrad)" filter="url(#shadow)"/>
+  <text x="350" y="215" text-anchor="middle" font-size="13" font-weight="bold" fill="white">Champion B</text>
+  <text x="350" y="235" text-anchor="middle" font-size="11" fill="#fff8e0">Team 2</text>
+
+  <!-- Champion C -->
+  <rect x="470" y="190" width="160" height="60" rx="6" fill="url(#championGrad)" filter="url(#shadow)"/>
+  <text x="550" y="215" text-anchor="middle" font-size="13" font-weight="bold" fill="white">Champion C</text>
+  <text x="550" y="235" text-anchor="middle" font-size="11" fill="#fff8e0">Team 3</text>
+
+  <!-- Connection lines from Champions to Developers -->
+  <line x1="150" y1="250" x2="150" y2="290" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="350" y1="250" x2="350" y2="290" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="550" y1="250" x2="550" y2="290" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- Developer Team 1 -->
+  <rect x="70" y="295" width="160" height="60" rx="6" fill="url(#developerGrad)" filter="url(#shadow)"/>
+  <text x="150" y="320" text-anchor="middle" font-size="13" font-weight="bold" fill="white">Developers</text>
+  <text x="150" y="340" text-anchor="middle" font-size="11" fill="#e0f0e0">Team 1</text>
+
+  <!-- Developer Team 2 -->
+  <rect x="270" y="295" width="160" height="60" rx="6" fill="url(#developerGrad)" filter="url(#shadow)"/>
+  <text x="350" y="320" text-anchor="middle" font-size="13" font-weight="bold" fill="white">Developers</text>
+  <text x="350" y="340" text-anchor="middle" font-size="11" fill="#e0f0e0">Team 2</text>
+
+  <!-- Developer Team 3 -->
+  <rect x="470" y="295" width="160" height="60" rx="6" fill="url(#developerGrad)" filter="url(#shadow)"/>
+  <text x="550" y="320" text-anchor="middle" font-size="13" font-weight="bold" fill="white">Developers</text>
+  <text x="550" y="340" text-anchor="middle" font-size="11" fill="#e0f0e0">Team 3</text>
+
+  <!-- Benefits Section -->
+  <rect x="50" y="380" width="600" height="90" rx="6" fill="#f5f5f5" stroke="#ddd"/>
+  <text x="350" y="405" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e3a5f">Why Champions Work for Supply Chain Security</text>
+
+  <!-- Benefit items -->
+  <circle cx="90" cy="430" r="4" fill="#c9a227"/>
+  <text x="100" y="434" font-size="11" fill="#333">Local expertise on the team</text>
+
+  <circle cx="90" cy="452" r="4" fill="#c9a227"/>
+  <text x="100" y="456" font-size="11" fill="#333">Faster response to alerts</text>
+
+  <circle cx="290" cy="430" r="4" fill="#c9a227"/>
+  <text x="300" y="434" font-size="11" fill="#333">Practical advocacy from peers</text>
+
+  <circle cx="290" cy="452" r="4" fill="#c9a227"/>
+  <text x="300" y="456" font-size="11" fill="#333">Scalable security coverage</text>
+
+  <circle cx="490" cy="430" r="4" fill="#c9a227"/>
+  <text x="500" y="434" font-size="11" fill="#333">Consistent practices across teams</text>
+
+  <!-- Legend -->
+  <rect x="540" y="50" width="15" height="15" rx="2" fill="url(#securityTeamGrad)"/>
+  <text x="560" y="62" font-size="10" fill="#666">Security Team</text>
+
+  <rect x="540" y="70" width="15" height="15" rx="2" fill="url(#championGrad)"/>
+  <text x="560" y="82" font-size="10" fill="#666">Champion</text>
+
+  <rect x="540" y="90" width="15" height="15" rx="2" fill="url(#developerGrad)"/>
+  <text x="560" y="102" font-size="10" fill="#666">Developers</text>
+</svg>

@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 280" font-family="Libertinus Sans">
+  <defs>
+    <linearGradient id="timelineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1a365d;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2c5282;stop-opacity:1" />
+    </linearGradient>
+        <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset in="blur" dx="1" dy="2" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.5" result="color"/>
+      <feComposite in="color" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="280" fill="#fff"/>
+
+  <!-- Title -->
+  <text x="450" y="35" text-anchor="middle" font-size="18" font-weight="600" fill="#1a365d">
+    Evolution of Package Managers: The Foundation of Modern Supply Chains
+  </text>
+
+  <!-- Main timeline axis -->
+  <line x1="60" y1="150" x2="840" y2="150" stroke="url(#timelineGrad)" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Timeline arrow -->
+  <polygon points="840,150 825,143 825,157" fill="#2c5282"/>
+
+  <!-- Year markers -->
+  <g font-size="12" fill="#4a5568" text-anchor="middle">
+    <line x1="100" y1="145" x2="100" y2="155" stroke="#4a5568" stroke-width="2"/>
+    <text x="100" y="175">1990s</text>
+    <text x="100" y="190" font-size="10" fill="#718096">Early OSS</text>
+
+    <line x1="260" y1="145" x2="260" y2="155" stroke="#4a5568" stroke-width="2"/>
+    <text x="260" y="175">2002</text>
+
+    <line x1="340" y1="145" x2="340" y2="155" stroke="#4a5568" stroke-width="2"/>
+    <text x="340" y="175">2003</text>
+
+    <line x1="420" y1="145" x2="420" y2="155" stroke="#4a5568" stroke-width="2"/>
+    <text x="420" y="175">2004</text>
+
+    <line x1="580" y1="145" x2="580" y2="155" stroke="#4a5568" stroke-width="2"/>
+    <text x="580" y="175">2010</text>
+
+    <line x1="740" y1="145" x2="740" y2="155" stroke="#4a5568" stroke-width="2"/>
+    <text x="740" y="175">Today</text>
+  </g>
+
+  <!-- Event nodes and labels -->
+  <!-- Maven Central -->
+  <g filter="url(#shadow)">
+    <circle cx="260" cy="150" r="12" fill="#e53e3e"/>
+    <rect x="200" y="60" width="120" height="55" rx="6" fill="#fff" stroke="#e53e3e" stroke-width="2"/>
+    <text x="260" y="80" text-anchor="middle" font-size="12" font-weight="600" fill="#1a365d">Maven Central</text>
+    <text x="260" y="95" text-anchor="middle" font-size="10" fill="#4a5568">Java ecosystem</text>
+    <text x="260" y="108" text-anchor="middle" font-size="9" fill="#718096">Centralized repos</text>
+    <line x1="260" y1="115" x2="260" y2="138" stroke="#e53e3e" stroke-width="2"/>
+  </g>
+
+  <!-- PyPI -->
+  <g filter="url(#shadow)">
+    <circle cx="340" cy="150" r="12" fill="#3182ce"/>
+    <rect x="280" y="185" width="120" height="55" rx="6" fill="#fff" stroke="#3182ce" stroke-width="2"/>
+    <text x="340" y="205" text-anchor="middle" font-size="12" font-weight="600" fill="#1a365d">PyPI</text>
+    <text x="340" y="220" text-anchor="middle" font-size="10" fill="#4a5568">Python ecosystem</text>
+    <text x="340" y="233" text-anchor="middle" font-size="9" fill="#718096">500K+ projects</text>
+    <line x1="340" y1="162" x2="340" y2="185" stroke="#3182ce" stroke-width="2"/>
+  </g>
+
+  <!-- RubyGems -->
+  <g filter="url(#shadow)">
+    <circle cx="420" cy="150" r="12" fill="#d53f8c"/>
+    <rect x="360" y="60" width="120" height="55" rx="6" fill="#fff" stroke="#d53f8c" stroke-width="2"/>
+    <text x="420" y="80" text-anchor="middle" font-size="12" font-weight="600" fill="#1a365d">RubyGems</text>
+    <text x="420" y="95" text-anchor="middle" font-size="10" fill="#4a5568">Ruby ecosystem</text>
+    <text x="420" y="108" text-anchor="middle" font-size="9" fill="#718096">Gem dependencies</text>
+    <line x1="420" y1="115" x2="420" y2="138" stroke="#d53f8c" stroke-width="2"/>
+  </g>
+
+  <!-- npm -->
+  <g filter="url(#shadow)">
+    <circle cx="580" cy="150" r="16" fill="#38a169" stroke="#276749" stroke-width="2"/>
+    <rect x="510" y="185" width="140" height="65" rx="6" fill="#fff" stroke="#38a169" stroke-width="2"/>
+    <text x="580" y="205" text-anchor="middle" font-size="12" font-weight="600" fill="#1a365d">npm</text>
+    <text x="580" y="220" text-anchor="middle" font-size="10" fill="#4a5568">JavaScript ecosystem</text>
+    <text x="580" y="235" text-anchor="middle" font-size="9" fill="#718096">2.5M+ packages</text>
+    <text x="580" y="247" text-anchor="middle" font-size="9" fill="#718096">200B+ downloads/mo</text>
+    <line x1="580" y1="162" x2="580" y2="185" stroke="#38a169" stroke-width="2"/>
+  </g>
+
+  <!-- Today marker -->
+  <g filter="url(#shadow)">
+    <circle cx="740" cy="150" r="12" fill="#805ad5"/>
+    <rect x="680" y="60" width="120" height="55" rx="6" fill="#fff" stroke="#805ad5" stroke-width="2"/>
+    <text x="740" y="80" text-anchor="middle" font-size="12" font-weight="600" fill="#1a365d">Modern Era</text>
+    <text x="740" y="95" text-anchor="middle" font-size="10" fill="#4a5568">6.6T downloads/year</text>
+    <text x="740" y="108" text-anchor="middle" font-size="9" fill="#718096">All ecosystems</text>
+    <line x1="740" y1="115" x2="740" y2="138" stroke="#805ad5" stroke-width="2"/>
+  </g>
+</svg>

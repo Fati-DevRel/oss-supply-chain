@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 650" font-family="Libertinus Sans">
+  <defs>
+    <linearGradient id="warningGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#fc8181"/>
+      <stop offset="100%" style="stop-color:#e53e3e"/>
+    </linearGradient>
+    <linearGradient id="defenseGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#68d391"/>
+      <stop offset="100%" style="stop-color:#38a169"/>
+    </linearGradient>
+        <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset in="blur" dx="1" dy="2" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.5" result="color"/>
+      <feComposite in="color" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="650" fill="#f7fafc"/>
+
+  <!-- Title -->
+  <text x="450" y="35" text-anchor="middle" font-size="20" font-weight="bold" fill="#1a202c">Social Engineering Red Flags for Maintainers</text>
+  <text x="450" y="55" text-anchor="middle" font-size="12" fill="#718096">Lessons from the XZ Utils compromise: Recognize manipulation patterns</text>
+
+  <!-- Warning Section - Left Side -->
+  <g transform="translate(30, 80)">
+    <rect x="0" y="0" width="420" height="530" rx="10" fill="white" stroke="#e53e3e" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="420" height="45" rx="10" fill="url(#warningGrad)"/>
+    <rect x="0" y="38" width="420" height="7" fill="url(#warningGrad)"/>
+
+    <!-- Warning icon -->
+    <polygon points="210,8 195,38 225,38" fill="#fefcbf" stroke="#744210" stroke-width="1"/>
+    <text x="210" y="33" text-anchor="middle" font-size="16" font-weight="bold" fill="#744210">!</text>
+    <text x="210" y="65" text-anchor="middle" font-size="14" font-weight="bold" fill="#742a2a">WARNING SIGNS</text>
+
+    <!-- Pattern 1: Manufactured Urgency -->
+    <g transform="translate(20, 85)">
+      <rect x="0" y="0" width="380" height="65" rx="6" fill="#fed7d7" stroke="#feb2b2" stroke-width="1"/>
+      <text x="10" y="18" font-size="11" font-weight="bold" fill="#742a2a">Manufactured Urgency</text>
+      <text x="10" y="34" font-size="9" fill="#4a5568">"Users are suffering! This needs to merge NOW!"</text>
+      <text x="10" y="48" font-size="9" fill="#4a5568">"Other projects already accepted this"</text>
+      <text x="10" y="58" font-size="8" font-style="italic" fill="#718096">Purpose: Bypass careful review</text>
+    </g>
+
+    <!-- Pattern 2: Sock Puppet Amplification -->
+    <g transform="translate(20, 160)">
+      <rect x="0" y="0" width="380" height="65" rx="6" fill="#fed7d7" stroke="#feb2b2" stroke-width="1"/>
+      <text x="10" y="18" font-size="11" font-weight="bold" fill="#742a2a">Sock Puppet Amplification</text>
+      <text x="10" y="34" font-size="9" fill="#4a5568">Multiple "users" demanding features or faster merges</text>
+      <text x="10" y="48" font-size="9" fill="#4a5568">Several accounts with similar patterns supporting one PR</text>
+      <text x="10" y="58" font-size="8" font-style="italic" fill="#718096">Purpose: Create illusion of consensus</text>
+    </g>
+
+    <!-- Pattern 3: Exploiting Burnout -->
+    <g transform="translate(20, 235)">
+      <rect x="0" y="0" width="380" height="65" rx="6" fill="#fed7d7" stroke="#feb2b2" stroke-width="1"/>
+      <text x="10" y="18" font-size="11" font-weight="bold" fill="#742a2a">Exploiting Burnout</text>
+      <text x="10" y="34" font-size="9" fill="#4a5568">Appearing helpful when you're visibly struggling</text>
+      <text x="10" y="48" font-size="9" fill="#4a5568">"Let me take this burden off your shoulders"</text>
+      <text x="10" y="58" font-size="8" font-style="italic" fill="#718096">Purpose: Gain trust through desperation</text>
+    </g>
+
+    <!-- Pattern 4: Guilt and Obligation -->
+    <g transform="translate(20, 310)">
+      <rect x="0" y="0" width="380" height="65" rx="6" fill="#fed7d7" stroke="#feb2b2" stroke-width="1"/>
+      <text x="10" y="18" font-size="11" font-weight="bold" fill="#742a2a">Guilt and Obligation</text>
+      <text x="10" y="34" font-size="9" fill="#4a5568">"After all I've contributed, you don't trust me?"</text>
+      <text x="10" y="48" font-size="9" fill="#4a5568">"I'm just trying to help the project..."</text>
+      <text x="10" y="58" font-size="8" font-style="italic" fill="#718096">Purpose: Emotional manipulation</text>
+    </g>
+
+    <!-- Pattern 5: Isolation Tactics -->
+    <g transform="translate(20, 385)">
+      <rect x="0" y="0" width="380" height="65" rx="6" fill="#fed7d7" stroke="#feb2b2" stroke-width="1"/>
+      <text x="10" y="18" font-size="11" font-weight="bold" fill="#742a2a">Isolation Tactics</text>
+      <text x="10" y="34" font-size="9" fill="#4a5568">Undermining other contributors' work</text>
+      <text x="10" y="48" font-size="9" fill="#4a5568">Becoming indispensable, discouraging other involvement</text>
+      <text x="10" y="58" font-size="8" font-style="italic" fill="#718096">Purpose: Create dependency on attacker</text>
+    </g>
+
+    <!-- Pattern 6: Build System Interest -->
+    <g transform="translate(20, 460)">
+      <rect x="0" y="0" width="380" height="55" rx="6" fill="#fed7d7" stroke="#feb2b2" stroke-width="1"/>
+      <text x="10" y="18" font-size="11" font-weight="bold" fill="#742a2a">Unusual Build System Interest</text>
+      <text x="10" y="34" font-size="9" fill="#4a5568">Complex CI/CD changes, test infrastructure modifications</text>
+      <text x="10" y="48" font-size="8" font-style="italic" fill="#718096">Purpose: Hide malicious code in build process</text>
+    </g>
+  </g>
+
+  <!-- Defense Section - Right Side -->
+  <g transform="translate(470, 80)">
+    <rect x="0" y="0" width="400" height="530" rx="10" fill="white" stroke="#38a169" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="400" height="45" rx="10" fill="url(#defenseGrad)"/>
+    <rect x="0" y="38" width="400" height="7" fill="url(#defenseGrad)"/>
+
+    <!-- Shield icon -->
+    <ellipse cx="200" cy="22" rx="12" ry="15" fill="#c6f6d5" stroke="#22543d" stroke-width="1"/>
+    <text x="200" y="28" text-anchor="middle" font-size="14" font-weight="bold" fill="#22543d">+</text>
+    <text x="200" y="65" text-anchor="middle" font-size="14" font-weight="bold" fill="#22543d">PROTECTIVE RESPONSES</text>
+
+    <!-- Response 1 -->
+    <g transform="translate(20, 85)">
+      <rect x="0" y="0" width="360" height="50" rx="6" fill="#c6f6d5" stroke="#9ae6b4" stroke-width="1"/>
+      <text x="10" y="18" font-size="10" font-weight="bold" fill="#22543d">When pressured to merge quickly:</text>
+      <text x="10" y="35" font-size="9" fill="#4a5568">"I appreciate your contribution, but I need to follow our</text>
+      <text x="10" y="46" font-size="9" fill="#4a5568">normal review process."</text>
+    </g>
+
+    <!-- Response 2 -->
+    <g transform="translate(20, 145)">
+      <rect x="0" y="0" width="360" height="50" rx="6" fill="#c6f6d5" stroke="#9ae6b4" stroke-width="1"/>
+      <text x="10" y="18" font-size="10" font-weight="bold" fill="#22543d">When overwhelmed with help offers:</text>
+      <text x="10" y="35" font-size="9" fill="#4a5568">"I'll review this when I have time to do it properly."</text>
+      <text x="10" y="46" font-size="9" fill="#4a5568">"I'd like another maintainer to look at this first."</text>
+    </g>
+
+    <!-- Response 3 -->
+    <g transform="translate(20, 205)">
+      <rect x="0" y="0" width="360" height="50" rx="6" fill="#c6f6d5" stroke="#9ae6b4" stroke-width="1"/>
+      <text x="10" y="18" font-size="10" font-weight="bold" fill="#22543d">When code is too complex to understand:</text>
+      <text x="10" y="35" font-size="9" fill="#4a5568">"Can you explain why this change is necessary?"</text>
+      <text x="10" y="46" font-size="9" fill="#4a5568">"This seems more complex than needed. Can we simplify?"</text>
+    </g>
+
+    <!-- Response 4 -->
+    <g transform="translate(20, 265)">
+      <rect x="0" y="0" width="360" height="50" rx="6" fill="#c6f6d5" stroke="#9ae6b4" stroke-width="1"/>
+      <text x="10" y="18" font-size="10" font-weight="bold" fill="#22543d">When facing guilt manipulation:</text>
+      <text x="10" y="35" font-size="9" fill="#4a5568">"I appreciate your contributions, but good security review</text>
+      <text x="10" y="46" font-size="9" fill="#4a5568">is how I keep all users safe, including you."</text>
+    </g>
+
+    <!-- Key principles box -->
+    <g transform="translate(20, 330)">
+      <rect x="0" y="0" width="360" height="185" rx="6" fill="#f0fff4" stroke="#38a169" stroke-width="1"/>
+      <text x="180" y="20" text-anchor="middle" font-size="11" font-weight="bold" fill="#22543d">MAINTAINER SELF-PROTECTION PRINCIPLES</text>
+
+      <g transform="translate(15, 35)">
+        <circle cx="8" cy="5" r="4" fill="#38a169"/>
+        <text x="20" y="9" font-size="9" fill="#4a5568">Trust your instincts when something feels wrong</text>
+
+        <circle cx="8" cy="28" r="4" fill="#38a169"/>
+        <text x="20" y="32" font-size="9" fill="#4a5568">Burnout is a security vulnerability - take care of yourself</text>
+
+        <circle cx="8" cy="51" r="4" fill="#38a169"/>
+        <text x="20" y="55" font-size="9" fill="#4a5568">Never merge code you don't understand</text>
+
+        <circle cx="8" cy="74" r="4" fill="#38a169"/>
+        <text x="20" y="78" font-size="9" fill="#4a5568">Require multi-person review for sensitive areas</text>
+
+        <circle cx="8" cy="97" r="4" fill="#38a169"/>
+        <text x="20" y="101" font-size="9" fill="#4a5568">Document concerns even if you ultimately merge</text>
+
+        <circle cx="8" cy="120" r="4" fill="#38a169"/>
+        <text x="20" y="124" font-size="9" fill="#4a5568">It's okay to step back when you're overwhelmed</text>
+
+        <circle cx="8" cy="143" r="4" fill="#38a169"/>
+        <text x="20" y="147" font-size="9" fill="#4a5568">Connect with peer maintainers for support</text>
+      </g>
+    </g>
+  </g>
+</svg>

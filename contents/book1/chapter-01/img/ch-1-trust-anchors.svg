@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" font-family="Libertinus Sans">
+  <defs>
+    <filter id="trustShadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset in="blur" dx="1" dy="2" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.5" result="color"/>
+      <feComposite in="color" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="identityGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4299e1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2b6cb0;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="infraGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#48bb78;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2f855a;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="processGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ed8936;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#c05621;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="450" fill="#fff"/>
+
+  <!-- Title -->
+  <text x="400" y="35" text-anchor="middle" font-size="18" font-weight="600" fill="#1a365d">
+    Trust Anchors in the Software Supply Chain
+  </text>
+  <text x="400" y="55" text-anchor="middle" font-size="12" fill="#718096">
+    Effective security layers multiple trust types for defense in depth
+  </text>
+
+  <!-- Three pillars -->
+
+  <!-- Identity-based Trust -->
+  <g filter="url(#trustShadow)">
+    <rect x="50" y="80" width="200" height="280" rx="10" fill="url(#identityGrad)"/>
+    <text x="150" y="115" text-anchor="middle" font-size="14" font-weight="600" fill="#fff">IDENTITY-BASED</text>
+    <text x="150" y="133" text-anchor="middle" font-size="14" font-weight="600" fill="#fff">TRUST</text>
+
+    <!-- Icon placeholder -->
+    <circle cx="150" cy="170" r="25" fill="rgba(255,255,255,0.2)"/>
+    <text x="150" y="177" text-anchor="middle" font-size="20" fill="#fff">ID</text>
+
+    <!-- Description -->
+    <rect x="65" y="210" width="170" height="135" rx="6" fill="rgba(255,255,255,0.15)"/>
+    <text x="150" y="230" text-anchor="middle" font-size="10" fill="#fff" font-weight="500">Trusting WHO</text>
+    <line x1="80" y1="240" x2="220" y2="240" stroke="rgba(255,255,255,0.3)"/>
+
+    <text x="75" y="260" font-size="9" fill="#e9f5ff">Maintainer reputation</text>
+    <text x="75" y="276" font-size="9" fill="#e9f5ff">GPG/SSH key verification</text>
+    <text x="75" y="292" font-size="9" fill="#e9f5ff">Organizational backing</text>
+    <text x="75" y="308" font-size="9" fill="#e9f5ff">Contributor vetting</text>
+
+    <line x1="80" y1="318" x2="220" y2="318" stroke="rgba(255,255,255,0.3)"/>
+    <text x="75" y="335" font-size="8" fill="#bee3f8" font-style="italic">Vulnerable to: account</text>
+    <text x="75" y="346" font-size="8" fill="#bee3f8" font-style="italic">compromise, social eng.</text>
+  </g>
+
+  <!-- Infrastructure-based Trust -->
+  <g filter="url(#trustShadow)">
+    <rect x="300" y="80" width="200" height="280" rx="10" fill="url(#infraGrad)"/>
+    <text x="400" y="115" text-anchor="middle" font-size="14" font-weight="600" fill="#fff">INFRASTRUCTURE</text>
+    <text x="400" y="133" text-anchor="middle" font-size="14" font-weight="600" fill="#fff">TRUST</text>
+
+    <!-- Icon placeholder -->
+    <rect x="375" y="150" width="50" height="40" rx="4" fill="rgba(255,255,255,0.2)"/>
+    <text x="400" y="177" text-anchor="middle" font-size="14" fill="#fff">SYS</text>
+
+    <!-- Description -->
+    <rect x="315" y="210" width="170" height="135" rx="6" fill="rgba(255,255,255,0.15)"/>
+    <text x="400" y="230" text-anchor="middle" font-size="10" fill="#fff" font-weight="500">Trusting WHAT</text>
+    <line x1="330" y1="240" x2="470" y2="240" stroke="rgba(255,255,255,0.3)"/>
+
+    <text x="325" y="260" font-size="9" fill="#e9fff0">Package registry security</text>
+    <text x="325" y="276" font-size="9" fill="#e9fff0">CI/CD platform controls</text>
+    <text x="325" y="292" font-size="9" fill="#e9fff0">Hosting platform (GitHub)</text>
+    <text x="325" y="308" font-size="9" fill="#e9fff0">TLS/network security</text>
+
+    <line x1="330" y1="318" x2="470" y2="318" stroke="rgba(255,255,255,0.3)"/>
+    <text x="325" y="335" font-size="8" fill="#c6f6d5" font-style="italic">Vulnerable to: platform</text>
+    <text x="325" y="346" font-size="8" fill="#c6f6d5" font-style="italic">breach, supply chain of infra</text>
+  </g>
+
+  <!-- Process-based Trust -->
+  <g filter="url(#trustShadow)">
+    <rect x="550" y="80" width="200" height="280" rx="10" fill="url(#processGrad2)"/>
+    <text x="650" y="115" text-anchor="middle" font-size="14" font-weight="600" fill="#fff">PROCESS-BASED</text>
+    <text x="650" y="133" text-anchor="middle" font-size="14" font-weight="600" fill="#fff">TRUST</text>
+
+    <!-- Icon placeholder -->
+    <rect x="630" y="150" width="40" height="40" rx="20" fill="rgba(255,255,255,0.2)"/>
+    <text x="650" y="177" text-anchor="middle" font-size="12" fill="#fff">PRO</text>
+
+    <!-- Description -->
+    <rect x="565" y="210" width="170" height="135" rx="6" fill="rgba(255,255,255,0.15)"/>
+    <text x="650" y="230" text-anchor="middle" font-size="10" fill="#fff" font-weight="500">Trusting HOW</text>
+    <line x1="580" y1="240" x2="720" y2="240" stroke="rgba(255,255,255,0.3)"/>
+
+    <text x="575" y="260" font-size="9" fill="#fff5e9">Reproducible builds</text>
+    <text x="575" y="276" font-size="9" fill="#fff5e9">Security audits</text>
+    <text x="575" y="292" font-size="9" fill="#fff5e9">SLSA attestations</text>
+    <text x="575" y="308" font-size="9" fill="#fff5e9">Multi-party review</text>
+
+    <line x1="580" y1="318" x2="720" y2="318" stroke="rgba(255,255,255,0.3)"/>
+    <text x="575" y="335" font-size="8" fill="#feebc8" font-style="italic">Vulnerable to: process</text>
+    <text x="575" y="346" font-size="8" fill="#feebc8" font-style="italic">circumvention, audit gaps</text>
+  </g>
+
+  <!-- Layered trust indicator -->
+  <g transform="translate(200, 380)">
+    <rect x="0" y="0" width="400" height="55" rx="8" fill="#fff" stroke="#2d3748" stroke-width="2" filter="url(#trustShadow)"/>
+    <text x="200" y="22" text-anchor="middle" font-size="12" font-weight="600" fill="#1a365d">Defense in Depth: Layer All Three</text>
+    <text x="200" y="42" text-anchor="middle" font-size="10" fill="#4a5568">
+      Each anchor compensates for potential failures in the others
+    </text>
+  </g>
+
+  <!-- Connecting indicators -->
+  <g stroke="#2d3748" stroke-width="1" stroke-dasharray="4,3" fill="none">
+    <path d="M 150 360 L 150 375 L 200 380"/>
+    <path d="M 400 360 L 400 380"/>
+    <path d="M 650 360 L 650 375 L 600 380"/>
+  </g>
+</svg>

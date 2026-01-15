@@ -1,0 +1,163 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 550" font-family="Libertinus Sans">
+  <defs>
+        <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset in="blur" dx="1" dy="2" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.5" result="color"/>
+      <feComposite in="color" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="redGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#fc8181"/>
+      <stop offset="100%" style="stop-color:#e53e3e"/>
+    </linearGradient>
+    <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#fbd38d"/>
+      <stop offset="100%" style="stop-color:#ed8936"/>
+    </linearGradient>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#90cdf4"/>
+      <stop offset="100%" style="stop-color:#3182ce"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="550" fill="#f7fafc"/>
+
+  <!-- Title -->
+  <text x="450" y="35" text-anchor="middle" font-size="20" font-weight="600" fill="#1a365d">
+    The Open Source Maintainer Crisis
+  </text>
+  <text x="450" y="55" text-anchor="middle" font-size="12" fill="#718096">
+    Data from Tidelift Maintainer Surveys 2023-2024
+  </text>
+
+  <!-- Main Statistics Row -->
+  <g transform="translate(50, 80)">
+    <!-- Stat 1: Unpaid -->
+    <g filter="url(#shadow)">
+      <rect x="0" y="0" width="185" height="120" rx="10" fill="#fff"/>
+      <rect x="0" y="0" width="185" height="45" rx="10" fill="url(#blueGrad)"/>
+      <rect x="0" y="37" width="185" height="8" fill="url(#blueGrad)"/>
+      <text x="92" y="30" text-anchor="middle" font-size="12" font-weight="600" fill="#fff">COMPENSATION</text>
+      <text x="92" y="80" text-anchor="middle" font-size="36" font-weight="700" fill="#2b6cb0">60%</text>
+      <text x="92" y="105" text-anchor="middle" font-size="11" fill="#4a5568">Unpaid hobbyists</text>
+    </g>
+
+    <!-- Stat 2: Quit/Considered -->
+    <g filter="url(#shadow)" transform="translate(205, 0)">
+      <rect x="0" y="0" width="185" height="120" rx="10" fill="#fff"/>
+      <rect x="0" y="0" width="185" height="45" rx="10" fill="url(#redGrad)"/>
+      <rect x="0" y="37" width="185" height="8" fill="url(#redGrad)"/>
+      <text x="92" y="30" text-anchor="middle" font-size="12" font-weight="600" fill="#fff">RETENTION</text>
+      <text x="92" y="80" text-anchor="middle" font-size="36" font-weight="700" fill="#c53030">60%</text>
+      <text x="92" y="105" text-anchor="middle" font-size="11" fill="#4a5568">Quit or considered quitting</text>
+    </g>
+
+    <!-- Stat 3: Burnout -->
+    <g filter="url(#shadow)" transform="translate(410, 0)">
+      <rect x="0" y="0" width="185" height="120" rx="10" fill="#fff"/>
+      <rect x="0" y="0" width="185" height="45" rx="10" fill="url(#orangeGrad)"/>
+      <rect x="0" y="37" width="185" height="8" fill="url(#orangeGrad)"/>
+      <text x="92" y="30" text-anchor="middle" font-size="12" font-weight="600" fill="#fff">BURNOUT</text>
+      <text x="92" y="80" text-anchor="middle" font-size="36" font-weight="700" fill="#c05621">59%</text>
+      <text x="92" y="105" text-anchor="middle" font-size="11" fill="#4a5568">Experienced burnout</text>
+    </g>
+
+    <!-- Stat 4: Harassment -->
+    <g filter="url(#shadow)" transform="translate(615, 0)">
+      <rect x="0" y="0" width="185" height="120" rx="10" fill="#fff"/>
+      <rect x="0" y="0" width="185" height="45" rx="10" fill="#718096"/>
+      <rect x="0" y="37" width="185" height="8" fill="#718096"/>
+      <text x="92" y="30" text-anchor="middle" font-size="12" font-weight="600" fill="#fff">HARASSMENT</text>
+      <text x="92" y="80" text-anchor="middle" font-size="36" font-weight="700" fill="#4a5568">35%</text>
+      <text x="92" y="105" text-anchor="middle" font-size="11" fill="#4a5568">Experienced toxic interactions</text>
+    </g>
+  </g>
+
+  <!-- Reasons for Quitting Chart -->
+  <g transform="translate(50, 225)">
+    <rect x="0" y="0" width="380" height="200" rx="8" fill="#fff" filter="url(#shadow)"/>
+    <text x="190" y="25" text-anchor="middle" font-size="13" font-weight="600" fill="#2d3748">Primary Reasons for Quitting</text>
+
+    <!-- Lack of compensation -->
+    <text x="15" y="55" font-size="10" fill="#4a5568">Lack of compensation</text>
+    <rect x="150" y="45" width="176" height="18" rx="3" fill="#e2e8f0"/>
+    <rect x="150" y="45" width="176" height="18" rx="3" fill="#e53e3e"/>
+    <text x="335" y="58" font-size="10" font-weight="600" fill="#2d3748">44%</text>
+
+    <!-- Lack of time -->
+    <text x="15" y="85" font-size="10" fill="#4a5568">Lack of time</text>
+    <rect x="150" y="75" width="176" height="18" rx="3" fill="#e2e8f0"/>
+    <rect x="150" y="75" width="168" height="18" rx="3" fill="#ed8936"/>
+    <text x="335" y="88" font-size="10" font-weight="600" fill="#2d3748">42%</text>
+
+    <!-- Burnout/stress -->
+    <text x="15" y="115" font-size="10" fill="#4a5568">Burnout or stress</text>
+    <rect x="150" y="105" width="176" height="18" rx="3" fill="#e2e8f0"/>
+    <rect x="150" y="105" width="144" height="18" rx="3" fill="#ecc94b"/>
+    <text x="335" y="118" font-size="10" font-weight="600" fill="#2d3748">36%</text>
+
+    <!-- Lack of recognition -->
+    <text x="15" y="145" font-size="10" fill="#4a5568">Lack of recognition</text>
+    <rect x="150" y="135" width="176" height="18" rx="3" fill="#e2e8f0"/>
+    <rect x="150" y="135" width="88" height="18" rx="3" fill="#48bb78"/>
+    <text x="335" y="148" font-size="10" font-weight="600" fill="#2d3748">22%</text>
+
+    <!-- Toxic community -->
+    <text x="15" y="175" font-size="10" fill="#4a5568">Toxic community</text>
+    <rect x="150" y="165" width="176" height="18" rx="3" fill="#e2e8f0"/>
+    <rect x="150" y="165" width="68" height="18" rx="3" fill="#4299e1"/>
+    <text x="335" y="178" font-size="10" font-weight="600" fill="#2d3748">17%</text>
+  </g>
+
+  <!-- Security Implications -->
+  <g transform="translate(450, 225)">
+    <rect x="0" y="0" width="400" height="200" rx="8" fill="#fff" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="400" height="35" rx="8" fill="#1a365d"/>
+    <rect x="0" y="27" width="400" height="8" fill="#1a365d"/>
+    <text x="200" y="24" text-anchor="middle" font-size="13" font-weight="600" fill="#fff">Security Implications</text>
+
+    <g transform="translate(15, 50)">
+      <circle cx="8" cy="8" r="6" fill="#e53e3e"/>
+      <text x="22" y="12" font-size="10" font-weight="500" fill="#2d3748">Burned-out maintainers make mistakes</text>
+      <text x="22" y="26" font-size="9" fill="#718096">Security review requires attention and time</text>
+    </g>
+
+    <g transform="translate(15, 85)">
+      <circle cx="8" cy="8" r="6" fill="#ed8936"/>
+      <text x="22" y="12" font-size="10" font-weight="500" fill="#2d3748">Overwhelmed maintainers delay patches</text>
+      <text x="22" y="26" font-size="9" fill="#718096">Critical fixes may take weeks instead of days</text>
+    </g>
+
+    <g transform="translate(15, 120)">
+      <circle cx="8" cy="8" r="6" fill="#ecc94b"/>
+      <text x="22" y="12" font-size="10" font-weight="500" fill="#2d3748">Desperate maintainers accept dangerous help</text>
+      <text x="22" y="26" font-size="9" fill="#718096">XZ Utils attack exploited this vulnerability</text>
+    </g>
+
+    <g transform="translate(15, 155)">
+      <circle cx="8" cy="8" r="6" fill="#718096"/>
+      <text x="22" y="12" font-size="10" font-weight="500" fill="#2d3748">Abandoned projects remain in use</text>
+      <text x="22" y="26" font-size="9" fill="#718096">Vulnerabilities may never be fixed</text>
+    </g>
+  </g>
+
+  <!-- Case Study Callout -->
+  <g transform="translate(50, 445)">
+    <rect x="0" y="0" width="800" height="85" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="1"/>
+    <text x="20" y="25" font-size="12" font-weight="600" fill="#92400e">Case Study: XZ Utils (2024)</text>
+    <text x="20" y="45" font-size="10" fill="#78350f">
+      The XZ Utils backdoor succeeded by exploiting maintainer burnout. Social engineering campaigns pressured
+    </text>
+    <text x="20" y="60" font-size="10" fill="#78350f">
+      an overwhelmed solo maintainer into accepting help from an attacker who spent 2+ years building trust.
+    </text>
+    <text x="20" y="75" font-size="10" fill="#78350f">
+      The attack weaponized the maintainer crisis itself.
+    </text>
+  </g>
+</svg>

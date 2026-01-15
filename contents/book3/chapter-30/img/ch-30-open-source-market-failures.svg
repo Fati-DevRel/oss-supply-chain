@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 650">
+  <defs>
+        <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset in="blur" dx="1" dy="2" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.5" result="color"/>
+      <feComposite in="color" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="650" fill="#F8FAFC"/>
+
+  <!-- Title -->
+  <text x="450" y="35" font-family="Libertinus Sans" font-size="22" font-weight="bold" fill="#1E293B" text-anchor="middle">Market Failures in Open Source Security</text>
+  <text x="450" y="55" font-family="Libertinus Sans" font-size="13" fill="#64748B" text-anchor="middle">Economic dynamics that undermine software supply chain security investment</text>
+
+  <!-- Central concept -->
+  <g filter="url(#shadow)">
+    <circle cx="450" cy="325" r="80" fill="#1E293B"/>
+    <text x="450" y="315" font-family="Libertinus Sans" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Open Source</text>
+    <text x="450" y="335" font-family="Libertinus Sans" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Security</text>
+    <text x="450" y="355" font-family="Libertinus Sans" font-size="11" fill="#94A3B8" text-anchor="middle">Underinvestment</text>
+  </g>
+
+  <!-- Market Failure 1: Public Goods -->
+  <g filter="url(#shadow)">
+    <rect x="50" y="100" width="250" height="140" rx="8" fill="#3B82F6"/>
+    <text x="175" y="130" font-family="Libertinus Sans" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Public Goods Problem</text>
+    <text x="70" y="155" font-family="Libertinus Sans" font-size="10" fill="#DBEAFE">Non-excludable: Anyone can use</text>
+    <text x="70" y="172" font-family="Libertinus Sans" font-size="10" fill="#DBEAFE">Non-rivalrous: Use doesn't diminish</text>
+    <line x1="70" y1="185" x2="280" y2="185" stroke="#60A5FA" stroke-width="1"/>
+    <text x="70" y="205" font-family="Libertinus Sans" font-size="9" fill="#BFDBFE">Result: No incentive to invest in</text>
+    <text x="70" y="218" font-family="Libertinus Sans" font-size="9" fill="#BFDBFE">security that benefits everyone</text>
+  </g>
+  <line x1="300" y1="170" x2="375" y2="280" stroke="#3B82F6" stroke-width="2"/>
+
+  <!-- Market Failure 2: Free Rider -->
+  <g filter="url(#shadow)">
+    <rect x="600" y="100" width="250" height="140" rx="8" fill="#8B5CF6"/>
+    <text x="725" y="130" font-family="Libertinus Sans" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Free-Rider Problem</text>
+    <text x="620" y="155" font-family="Libertinus Sans" font-size="10" fill="#E9D5FF">Companies benefit from OSS</text>
+    <text x="620" y="172" font-family="Libertinus Sans" font-size="10" fill="#E9D5FF">without contributing to security</text>
+    <line x1="620" y1="185" x2="830" y2="185" stroke="#A78BFA" stroke-width="1"/>
+    <text x="620" y="205" font-family="Libertinus Sans" font-size="9" fill="#DDD6FE">Result: Maintainers lack resources;</text>
+    <text x="620" y="218" font-family="Libertinus Sans" font-size="9" fill="#DDD6FE">security remains unfunded</text>
+  </g>
+  <line x1="600" y1="170" x2="525" y2="280" stroke="#8B5CF6" stroke-width="2"/>
+
+  <!-- Market Failure 3: Information Asymmetry -->
+  <g filter="url(#shadow)">
+    <rect x="50" y="385" width="250" height="140" rx="8" fill="#F59E0B"/>
+    <text x="175" y="415" font-family="Libertinus Sans" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Information Asymmetry</text>
+    <text x="70" y="440" font-family="Libertinus Sans" font-size="10" fill="#FEF3C7">Users can't assess security quality</text>
+    <text x="70" y="457" font-family="Libertinus Sans" font-size="10" fill="#FEF3C7">Downloads != security investment</text>
+    <line x1="70" y1="470" x2="280" y2="470" stroke="#FCD34D" stroke-width="1"/>
+    <text x="70" y="490" font-family="Libertinus Sans" font-size="9" fill="#FDE68A">Result: Market doesn't reward</text>
+    <text x="70" y="503" font-family="Libertinus Sans" font-size="9" fill="#FDE68A">secure software development</text>
+  </g>
+  <line x1="300" y1="455" x2="375" y2="370" stroke="#F59E0B" stroke-width="2"/>
+
+  <!-- Market Failure 4: Negative Externalities -->
+  <g filter="url(#shadow)">
+    <rect x="600" y="385" width="250" height="140" rx="8" fill="#EF4444"/>
+    <text x="725" y="415" font-family="Libertinus Sans" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Negative Externalities</text>
+    <text x="620" y="440" font-family="Libertinus Sans" font-size="10" fill="#FEE2E2">Insecure code harms downstream</text>
+    <text x="620" y="457" font-family="Libertinus Sans" font-size="10" fill="#FEE2E2">users who bear the costs</text>
+    <line x1="620" y1="470" x2="830" y2="470" stroke="#FCA5A5" stroke-width="1"/>
+    <text x="620" y="490" font-family="Libertinus Sans" font-size="9" fill="#FECACA">Result: Producers don't internalize</text>
+    <text x="620" y="503" font-family="Libertinus Sans" font-size="9" fill="#FECACA">the true cost of vulnerabilities</text>
+  </g>
+  <line x1="600" y1="455" x2="525" y2="370" stroke="#EF4444" stroke-width="2"/>
+
+  <!-- Tragedy of Commons (bottom center) -->
+  <g filter="url(#shadow)">
+    <rect x="325" y="540" width="250" height="95" rx="8" fill="#10B981"/>
+    <text x="450" y="570" font-family="Libertinus Sans" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Tragedy of the Commons</text>
+    <text x="345" y="595" font-family="Libertinus Sans" font-size="10" fill="#D1FAE5">Shared infrastructure is overused</text>
+    <text x="345" y="612" font-family="Libertinus Sans" font-size="10" fill="#D1FAE5">but under-maintained; critical</text>
+    <text x="345" y="629" font-family="Libertinus Sans" font-size="10" fill="#D1FAE5">packages supported by few</text>
+  </g>
+  <line x1="450" y1="405" x2="450" y2="540" stroke="#10B981" stroke-width="2"/>
+
+  <!-- Solutions hint box -->
+  <rect x="50" y="560" width="250" height="75" rx="6" fill="#F0FDF4" stroke="#86EFAC" stroke-width="1"/>
+  <text x="175" y="582" font-family="Libertinus Sans" font-size="11" font-weight="bold" fill="#166534" text-anchor="middle">Potential Interventions</text>
+  <text x="65" y="600" font-family="Libertinus Sans" font-size="9" fill="#166534">- Government funding (OpenSSF, CISA)</text>
+  <text x="65" y="615" font-family="Libertinus Sans" font-size="9" fill="#166534">- Collective action models</text>
+  <text x="65" y="630" font-family="Libertinus Sans" font-size="9" fill="#166534">- Regulatory requirements (EU CRA)</text>
+
+  <rect x="600" y="560" width="250" height="75" rx="6" fill="#FEF2F2" stroke="#FECACA" stroke-width="1"/>
+  <text x="725" y="582" font-family="Libertinus Sans" font-size="11" font-weight="bold" fill="#DC2626" text-anchor="middle">Real-World Impact</text>
+  <text x="615" y="600" font-family="Libertinus Sans" font-size="9" fill="#7F1D1D">- Log4j: Global critical infrastructure</text>
+  <text x="615" y="615" font-family="Libertinus Sans" font-size="9" fill="#7F1D1D">- OpenSSL: 2 full-time maintainers</text>
+  <text x="615" y="630" font-family="Libertinus Sans" font-size="9" fill="#7F1D1D">- core-js: Solo maintainer burnout</text>
+</svg>

@@ -1,0 +1,12 @@
+# Chapter 25: Vendor and Third-Party Risk Management
+
+Organizations depend on software from vendors and open source communities, making third-party risk management essential to supply chain security. This chapter provides a comprehensive framework for evaluating, contracting with, and monitoring external software suppliers.
+
+Vendor evaluation begins with structured assessments using questionnaires like SIG and CAIQ, supplemented by supply chain-specific questions about SBOMs, build integrity, and dependency management. Maturity frameworks such as SLSA and OpenSSF Scorecard provide objective criteria for assessing vendor security posture. Organizations should tier vendors by criticality, applying rigorous assessment and continuous monitoring to critical suppliers while using lighter-touch approaches for low-risk relationships.
+
+Contracts transform vendor security claims into enforceable obligations. Key provisions include SBOM delivery requirements in standard formats, vulnerability notification timelines based on severity, patch SLAs with escalation procedures, audit rights, and termination triggers for security failures. Without contractual language, vendors have no legal obligation to maintain security practices or notify customers of issues.
+
+Internal governance requires open source consumption policies that balance developer productivity with security and compliance. Effective policies establish tiered approval workflows, clearly define prohibited licenses and packages, provide workable exception processes, and enforce requirements through integrated tooling rather than manual review.
+
+Commercial software typically contains 70-90% open source components, creating hidden supply chain dependencies. Organizations should request vendor SBOMs, correlate them with vulnerability databases for proactive detection, coordinate with vendors on remediation, and apply compensating controls when patches are delayed. Appliances and embedded systems present particular challenges due to limited visibility and long patch cycles. End-of-life planning and formal risk acceptance processes address scenarios where unsupported software must temporarily remain in production.
+

@@ -1,0 +1,144 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 580" font-family="Libertinus Sans">
+  <defs>
+        <filter id="decisionShadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset in="blur" dx="1" dy="2" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.5" result="color"/>
+      <feComposite in="color" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <marker id="yesArrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#10b981"/>
+    </marker>
+    <marker id="noArrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ef4444"/>
+    </marker>
+    <marker id="neutralArrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#64748b"/>
+    </marker>
+    <linearGradient id="startDecGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="100%" style="stop-color:#1d4ed8"/>
+    </linearGradient>
+    <linearGradient id="useLibGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1"/>
+      <stop offset="100%" style="stop-color:#4f46e5"/>
+    </linearGradient>
+    <linearGradient id="buildGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981"/>
+      <stop offset="100%" style="stop-color:#059669"/>
+    </linearGradient>
+    <linearGradient id="evaluateGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b"/>
+      <stop offset="100%" style="stop-color:#d97706"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Title -->
+  <text x="425" y="35" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">Build vs. Borrow Decision Framework</text>
+  <text x="425" y="55" text-anchor="middle" font-size="13" fill="#64748b">When to implement yourself vs. use a dependency</text>
+
+  <!-- Start: Need functionality -->
+  <g filter="url(#decisionShadow)">
+    <rect x="300" y="75" width="250" height="50" rx="25" fill="url(#startDecGrad)"/>
+    <text x="425" y="105" text-anchor="middle" font-size="14" font-weight="600" fill="white">Need Functionality</text>
+  </g>
+
+  <!-- Arrow down -->
+  <line x1="425" y1="125" x2="425" y2="155" stroke="#64748b" stroke-width="2" marker-end="url(#neutralArrow)"/>
+
+  <!-- Decision 1: Security sensitive? -->
+  <g filter="url(#decisionShadow)">
+    <polygon points="425,160 580,220 425,280 270,220" fill="white" stroke="#3b82f6" stroke-width="2"/>
+    <text x="425" y="210" text-anchor="middle" font-size="13" font-weight="500" fill="#1e293b">Is this security-sensitive?</text>
+    <text x="425" y="230" text-anchor="middle" font-size="11" fill="#64748b">(crypto, auth, parsing)</text>
+  </g>
+
+  <!-- Yes branch -> Use battle-tested library -->
+  <line x1="580" y1="220" x2="680" y2="220" stroke="#10b981" stroke-width="2" marker-end="url(#yesArrow)"/>
+  <text x="620" y="210" font-size="12" font-weight="600" fill="#10b981">Yes</text>
+
+  <g filter="url(#decisionShadow)">
+    <rect x="690" y="185" width="140" height="70" rx="8" fill="url(#useLibGrad)"/>
+    <text x="760" y="212" text-anchor="middle" font-size="12" font-weight="600" fill="white">Use Battle-Tested</text>
+    <text x="760" y="230" text-anchor="middle" font-size="12" font-weight="600" fill="white">Library</text>
+    <text x="760" y="248" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.85)">Crypto, auth, etc.</text>
+  </g>
+
+  <!-- No arrow down -->
+  <line x1="425" y1="280" x2="425" y2="310" stroke="#ef4444" stroke-width="2" marker-end="url(#noArrow)"/>
+  <text x="440" y="298" font-size="12" font-weight="600" fill="#ef4444">No</text>
+
+  <!-- Decision 2: Implement in 1 hour? -->
+  <g filter="url(#decisionShadow)">
+    <polygon points="425,315 580,375 425,435 270,375" fill="white" stroke="#3b82f6" stroke-width="2"/>
+    <text x="425" y="365" text-anchor="middle" font-size="13" font-weight="500" fill="#1e293b">Could I implement this</text>
+    <text x="425" y="385" text-anchor="middle" font-size="13" font-weight="500" fill="#1e293b">in 1 hour?</text>
+  </g>
+
+  <!-- No branch -> Evaluate packages -->
+  <line x1="270" y1="375" x2="170" y2="375" stroke="#ef4444" stroke-width="2" marker-end="url(#noArrow)"/>
+  <text x="230" y="365" font-size="12" font-weight="600" fill="#ef4444">No</text>
+
+  <g filter="url(#decisionShadow)">
+    <rect x="20" y="340" width="150" height="70" rx="8" fill="url(#evaluateGrad)"/>
+    <text x="95" y="367" text-anchor="middle" font-size="12" font-weight="600" fill="white">Evaluate Packages</text>
+    <text x="95" y="385" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.85)">Use Section 13.1</text>
+    <text x="95" y="400" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.85)">vetting criteria</text>
+  </g>
+
+  <!-- Yes arrow down -->
+  <line x1="425" y1="435" x2="425" y2="465" stroke="#10b981" stroke-width="2" marker-end="url(#yesArrow)"/>
+  <text x="440" y="453" font-size="12" font-weight="600" fill="#10b981">Yes</text>
+
+  <!-- Decision 3: Transitive count -->
+  <g filter="url(#decisionShadow)">
+    <polygon points="425,470 580,520 425,570 270,520" fill="white" stroke="#3b82f6" stroke-width="2"/>
+    <text x="425" y="510" text-anchor="middle" font-size="13" font-weight="500" fill="#1e293b">How many transitive</text>
+    <text x="425" y="530" text-anchor="middle" font-size="13" font-weight="500" fill="#1e293b">dependencies?</text>
+  </g>
+
+  <!-- >5 branch -> Implement yourself -->
+  <line x1="580" y1="520" x2="680" y2="520" stroke="#ef4444" stroke-width="2" marker-end="url(#noArrow)"/>
+  <text x="620" y="510" font-size="12" font-weight="600" fill="#ef4444">&gt; 5</text>
+
+  <g filter="url(#decisionShadow)">
+    <rect x="690" y="485" width="140" height="70" rx="8" fill="url(#buildGrad)"/>
+    <text x="760" y="512" text-anchor="middle" font-size="12" font-weight="600" fill="white">Implement</text>
+    <text x="760" y="530" text-anchor="middle" font-size="12" font-weight="600" fill="white">Yourself</text>
+    <text x="760" y="548" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.85)">Too many deps</text>
+  </g>
+
+  <!-- <5 branch -> Consider implementing -->
+  <line x1="270" y1="520" x2="170" y2="520" stroke="#10b981" stroke-width="2" marker-end="url(#yesArrow)"/>
+  <text x="230" y="510" font-size="12" font-weight="600" fill="#10b981">&lt; 5</text>
+
+  <g filter="url(#decisionShadow)">
+    <rect x="20" y="485" width="150" height="70" rx="8" fill="#f0fdf4" stroke="#10b981" stroke-width="2"/>
+    <text x="95" y="510" text-anchor="middle" font-size="12" font-weight="600" fill="#047857">Consider</text>
+    <text x="95" y="528" text-anchor="middle" font-size="12" font-weight="600" fill="#047857">Implementing</text>
+    <text x="95" y="546" text-anchor="middle" font-size="10" fill="#065f46">Low dep count OK</text>
+  </g>
+
+  <!-- Legend box -->
+  <rect x="20" y="75" width="200" height="110" rx="6" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="35" y="97" font-size="12" font-weight="600" fill="#334155">Decision Legend</text>
+
+  <polygon points="45,115 65,125 45,135 25,125" fill="white" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="75" y="129" font-size="11" fill="#475569">Decision point</text>
+
+  <rect x="25" y="145" width="40" height="22" rx="4" fill="url(#buildGrad)"/>
+  <text x="75" y="160" font-size="11" fill="#475569">Implement yourself</text>
+
+  <rect x="25" y="175" width="40" height="22" rx="4" fill="url(#evaluateGrad)"/>
+  <text x="75" y="190" font-size="11" fill="#475569">Evaluate packages</text>
+
+  <!-- Guiding principle box -->
+  <rect x="20" y="195" width="200" height="60" rx="6" fill="#eff6ff" stroke="#3b82f6" stroke-width="1"/>
+  <text x="35" y="217" font-size="11" font-weight="600" fill="#1d4ed8">Guiding Principle:</text>
+  <text x="35" y="235" font-size="10" fill="#1e40af">If you can explain it to a</text>
+  <text x="35" y="248" font-size="10" fill="#1e40af">junior dev in 5 min, build it.</text>
+</svg>

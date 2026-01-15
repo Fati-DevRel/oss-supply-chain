@@ -1,0 +1,222 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 650" font-family="Libertinus Sans">
+  <defs>
+        <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset in="blur" dx="1" dy="2" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.5" result="color"/>
+      <feComposite in="color" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1a365d"/>
+      <stop offset="100%" style="stop-color:#2c5282"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="650" fill="#f7fafc"/>
+
+  <!-- Title -->
+  <text x="450" y="35" text-anchor="middle" font-size="20" font-weight="600" fill="#1a365d">
+    Open Source Governance Models
+  </text>
+  <text x="450" y="55" text-anchor="middle" font-size="12" fill="#718096">
+    A spectrum from concentrated to distributed decision-making authority
+  </text>
+
+  <!-- Spectrum arrow -->
+  <defs>
+    <linearGradient id="spectrumGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#e53e3e"/>
+      <stop offset="50%" style="stop-color:#d69e2e"/>
+      <stop offset="100%" style="stop-color:#38a169"/>
+    </linearGradient>
+  </defs>
+  <rect x="80" y="75" width="740" height="8" rx="4" fill="url(#spectrumGrad)"/>
+  <text x="80" y="100" font-size="10" fill="#718096">Concentrated Authority</text>
+  <text x="820" y="100" text-anchor="end" font-size="10" fill="#718096">Distributed Authority</text>
+
+  <!-- BDFL Model -->
+  <g filter="url(#cardShadow)" transform="translate(40, 115)">
+    <rect x="0" y="0" width="160" height="220" rx="8" fill="#fff"/>
+    <rect x="0" y="0" width="160" height="40" rx="8" fill="#e53e3e"/>
+    <rect x="0" y="32" width="160" height="8" fill="#e53e3e"/>
+    <text x="80" y="26" text-anchor="middle" font-size="13" font-weight="600" fill="#fff">BDFL</text>
+    <text x="80" y="60" text-anchor="middle" font-size="10" fill="#4a5568">Benevolent Dictator</text>
+    <text x="80" y="73" text-anchor="middle" font-size="10" fill="#4a5568">For Life</text>
+
+    <line x1="15" y1="85" x2="145" y2="85" stroke="#e2e8f0"/>
+
+    <text x="15" y="105" font-size="9" fill="#2d3748" font-weight="500">Characteristics:</text>
+    <text x="15" y="120" font-size="9" fill="#4a5568">Single decision maker</text>
+    <text x="15" y="133" font-size="9" fill="#4a5568">Clear accountability</text>
+    <text x="15" y="146" font-size="9" fill="#4a5568">Rapid decisions</text>
+
+    <text x="15" y="166" font-size="9" fill="#2d3748" font-weight="500">Examples:</text>
+    <text x="15" y="181" font-size="9" fill="#4a5568">Python (until 2018)</text>
+    <text x="15" y="194" font-size="9" fill="#4a5568">Linux kernel</text>
+
+    <circle cx="130" cy="200" r="12" fill="#fed7d7"/>
+    <text x="130" y="204" text-anchor="middle" font-size="9" font-weight="600" fill="#c53030">!</text>
+  </g>
+
+  <!-- Steering Committee -->
+  <g filter="url(#cardShadow)" transform="translate(215, 115)">
+    <rect x="0" y="0" width="160" height="220" rx="8" fill="#fff"/>
+    <rect x="0" y="0" width="160" height="40" rx="8" fill="#ed8936"/>
+    <rect x="0" y="32" width="160" height="8" fill="#ed8936"/>
+    <text x="80" y="26" text-anchor="middle" font-size="13" font-weight="600" fill="#fff">Steering Committee</text>
+    <text x="80" y="60" text-anchor="middle" font-size="10" fill="#4a5568">Elected/Appointed</text>
+    <text x="80" y="73" text-anchor="middle" font-size="10" fill="#4a5568">Technical Leadership</text>
+
+    <line x1="15" y1="85" x2="145" y2="85" stroke="#e2e8f0"/>
+
+    <text x="15" y="105" font-size="9" fill="#2d3748" font-weight="500">Characteristics:</text>
+    <text x="15" y="120" font-size="9" fill="#4a5568">Small group authority</text>
+    <text x="15" y="133" font-size="9" fill="#4a5568">Resilient to departure</text>
+    <text x="15" y="146" font-size="9" fill="#4a5568">Multiple perspectives</text>
+
+    <text x="15" y="166" font-size="9" fill="#2d3748" font-weight="500">Examples:</text>
+    <text x="15" y="181" font-size="9" fill="#4a5568">Rust</text>
+    <text x="15" y="194" font-size="9" fill="#4a5568">Node.js TSC</text>
+
+    <circle cx="130" cy="200" r="12" fill="#feebc8"/>
+    <text x="130" y="204" text-anchor="middle" font-size="9" font-weight="600" fill="#c05621">~</text>
+  </g>
+
+  <!-- Foundation -->
+  <g filter="url(#cardShadow)" transform="translate(390, 115)">
+    <rect x="0" y="0" width="160" height="220" rx="8" fill="#fff"/>
+    <rect x="0" y="0" width="160" height="40" rx="8" fill="#48bb78"/>
+    <rect x="0" y="32" width="160" height="8" fill="#48bb78"/>
+    <text x="80" y="26" text-anchor="middle" font-size="13" font-weight="600" fill="#fff">Foundation</text>
+    <text x="80" y="60" text-anchor="middle" font-size="10" fill="#4a5568">Nonprofit Umbrella</text>
+    <text x="80" y="73" text-anchor="middle" font-size="10" fill="#4a5568">Organization</text>
+
+    <line x1="15" y1="85" x2="145" y2="85" stroke="#e2e8f0"/>
+
+    <text x="15" y="105" font-size="9" fill="#2d3748" font-weight="500">Characteristics:</text>
+    <text x="15" y="120" font-size="9" fill="#4a5568">Legal/financial infra</text>
+    <text x="15" y="133" font-size="9" fill="#4a5568">Formal processes</text>
+    <text x="15" y="146" font-size="9" fill="#4a5568">Long-term stability</text>
+
+    <text x="15" y="166" font-size="9" fill="#2d3748" font-weight="500">Examples:</text>
+    <text x="15" y="181" font-size="9" fill="#4a5568">Apache, Linux Fdn</text>
+    <text x="15" y="194" font-size="9" fill="#4a5568">CNCF, Eclipse</text>
+
+    <circle cx="130" cy="200" r="12" fill="#c6f6d5"/>
+    <text x="130" y="205" text-anchor="middle" font-size="12" fill="#276749">&#10003;</text>
+  </g>
+
+  <!-- Corporate-Backed -->
+  <g filter="url(#cardShadow)" transform="translate(565, 115)">
+    <rect x="0" y="0" width="160" height="220" rx="8" fill="#fff"/>
+    <rect x="0" y="0" width="160" height="40" rx="8" fill="#4299e1"/>
+    <rect x="0" y="32" width="160" height="8" fill="#4299e1"/>
+    <text x="80" y="26" text-anchor="middle" font-size="13" font-weight="600" fill="#fff">Corporate-Backed</text>
+    <text x="80" y="60" text-anchor="middle" font-size="10" fill="#4a5568">Company-Sponsored</text>
+    <text x="80" y="73" text-anchor="middle" font-size="10" fill="#4a5568">Open Source</text>
+
+    <line x1="15" y1="85" x2="145" y2="85" stroke="#e2e8f0"/>
+
+    <text x="15" y="105" font-size="9" fill="#2d3748" font-weight="500">Characteristics:</text>
+    <text x="15" y="120" font-size="9" fill="#4a5568">Dedicated resources</text>
+    <text x="15" y="133" font-size="9" fill="#4a5568">Professional security</text>
+    <text x="15" y="146" font-size="9" fill="#4a5568">Priority dependencies</text>
+
+    <text x="15" y="166" font-size="9" fill="#2d3748" font-weight="500">Examples:</text>
+    <text x="15" y="181" font-size="9" fill="#4a5568">React (Meta)</text>
+    <text x="15" y="194" font-size="9" fill="#4a5568">VS Code (Microsoft)</text>
+
+    <circle cx="130" cy="200" r="12" fill="#bee3f8"/>
+    <text x="130" y="204" text-anchor="middle" font-size="9" font-weight="600" fill="#2b6cb0">$</text>
+  </g>
+
+  <!-- Hobby/Minimal -->
+  <g filter="url(#cardShadow)" transform="translate(740, 115)">
+    <rect x="0" y="0" width="120" height="220" rx="8" fill="#fff"/>
+    <rect x="0" y="0" width="120" height="40" rx="8" fill="#a0aec0"/>
+    <rect x="0" y="32" width="120" height="8" fill="#a0aec0"/>
+    <text x="60" y="26" text-anchor="middle" font-size="13" font-weight="600" fill="#fff">Hobby</text>
+    <text x="60" y="60" text-anchor="middle" font-size="10" fill="#4a5568">Minimal/No</text>
+    <text x="60" y="73" text-anchor="middle" font-size="10" fill="#4a5568">Governance</text>
+
+    <line x1="10" y1="85" x2="110" y2="85" stroke="#e2e8f0"/>
+
+    <text x="10" y="105" font-size="9" fill="#2d3748" font-weight="500">Risks:</text>
+    <text x="10" y="120" font-size="9" fill="#4a5568">Bus factor = 1</text>
+    <text x="10" y="133" font-size="9" fill="#4a5568">No security policy</text>
+    <text x="10" y="146" font-size="9" fill="#4a5568">May be abandoned</text>
+
+    <text x="10" y="166" font-size="9" fill="#2d3748" font-weight="500">Note:</text>
+    <text x="10" y="181" font-size="9" fill="#4a5568">Many critical</text>
+    <text x="10" y="194" font-size="9" fill="#4a5568">deps started here</text>
+
+    <circle cx="90" cy="200" r="12" fill="#e2e8f0"/>
+    <text x="90" y="204" text-anchor="middle" font-size="9" font-weight="600" fill="#718096">?</text>
+  </g>
+
+  <!-- Security Implications Section -->
+  <g transform="translate(40, 355)">
+    <rect x="0" y="0" width="820" height="130" rx="8" fill="#fff" filter="url(#cardShadow)"/>
+    <rect x="0" y="0" width="820" height="35" rx="8" fill="url(#headerGrad)"/>
+    <rect x="0" y="27" width="820" height="8" fill="url(#headerGrad)"/>
+    <text x="410" y="24" text-anchor="middle" font-size="14" font-weight="600" fill="#fff">Security Implications by Governance Model</text>
+
+    <!-- Columns -->
+    <text x="50" y="60" font-size="10" font-weight="600" fill="#2d3748">Response Speed</text>
+    <text x="200" y="60" font-size="10" font-weight="600" fill="#2d3748">Single Point of Failure</text>
+    <text x="380" y="60" font-size="10" font-weight="600" fill="#2d3748">Review Process</text>
+    <text x="550" y="60" font-size="10" font-weight="600" fill="#2d3748">Funding Stability</text>
+    <text x="710" y="60" font-size="10" font-weight="600" fill="#2d3748">Best For</text>
+
+    <!-- BDFL row -->
+    <rect x="15" y="70" width="10" height="10" rx="2" fill="#e53e3e"/>
+    <text x="30" y="79" font-size="9" fill="#4a5568">Fast</text>
+    <text x="200" y="79" font-size="9" fill="#4a5568">High risk</text>
+    <text x="380" y="79" font-size="9" fill="#4a5568">Varies</text>
+    <text x="550" y="79" font-size="9" fill="#4a5568">Uncertain</text>
+    <text x="710" y="79" font-size="9" fill="#4a5568">Rapid iteration</text>
+
+    <!-- Committee row -->
+    <rect x="15" y="90" width="10" height="10" rx="2" fill="#ed8936"/>
+    <text x="30" y="99" font-size="9" fill="#4a5568">Moderate</text>
+    <text x="200" y="99" font-size="9" fill="#4a5568">Lower risk</text>
+    <text x="380" y="99" font-size="9" fill="#4a5568">Structured</text>
+    <text x="550" y="99" font-size="9" fill="#4a5568">Variable</text>
+    <text x="710" y="99" font-size="9" fill="#4a5568">Complex projects</text>
+
+    <!-- Foundation row -->
+    <rect x="15" y="110" width="10" height="10" rx="2" fill="#48bb78"/>
+    <text x="30" y="119" font-size="9" fill="#4a5568">Deliberate</text>
+    <text x="200" y="119" font-size="9" fill="#4a5568">Distributed</text>
+    <text x="380" y="119" font-size="9" fill="#4a5568">Formal</text>
+    <text x="550" y="119" font-size="9" fill="#4a5568">Sustainable</text>
+    <text x="710" y="119" font-size="9" fill="#4a5568">Critical infra</text>
+  </g>
+
+  <!-- Key Insight Box -->
+  <g transform="translate(40, 500)">
+    <rect x="0" y="0" width="820" height="70" rx="8" fill="#fffbeb" stroke="#f59e0b" stroke-width="1"/>
+    <text x="20" y="25" font-size="11" font-weight="600" fill="#92400e">Key Security Insight</text>
+    <text x="20" y="45" font-size="10" fill="#78350f">Governance model directly affects vulnerability response time, code review rigor, and succession planning.</text>
+    <text x="20" y="60" font-size="10" fill="#78350f">When evaluating dependencies, governance maturity should be weighted alongside code quality.</text>
+  </g>
+
+  <!-- Legend -->
+  <g transform="translate(40, 585)">
+    <text x="0" y="15" font-size="10" font-weight="600" fill="#4a5568">Risk Indicator:</text>
+    <circle cx="120" cy="11" r="8" fill="#fed7d7"/>
+    <text cx="120" cy="14" text-anchor="middle" font-size="8" font-weight="600" fill="#c53030">!</text>
+    <text x="135" y="15" font-size="9" fill="#718096">Higher SPOF risk</text>
+
+    <circle cx="250" cy="11" r="8" fill="#feebc8"/>
+    <text x="265" y="15" font-size="9" fill="#718096">Moderate risk</text>
+
+    <circle cx="360" cy="11" r="8" fill="#c6f6d5"/>
+    <text x="375" y="15" font-size="9" fill="#718096">Lower risk</text>
+  </g>
+</svg>

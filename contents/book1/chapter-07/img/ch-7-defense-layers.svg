@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 550" font-family="Libertinus Sans">
+  <defs>
+        <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset in="blur" dx="1" dy="2" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.5" result="color"/>
+      <feComposite in="color" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="layer1Grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#166534;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#15803D;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="layer2Grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1E40AF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2563EB;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="layer3Grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#7C3AED;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8B5CF6;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="layer4Grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#EA580C;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F97316;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="550" fill="#F8FAFC"/>
+
+  <!-- Title -->
+  <text x="450" y="32" text-anchor="middle" font-size="18" font-weight="bold" fill="#1E293B">Defense in Depth: Dependency Confusion Prevention</text>
+  <text x="450" y="52" text-anchor="middle" font-size="11" fill="#64748B">Layered controls to prevent internal package substitution attacks</text>
+
+  <!-- Layer 1: Namespace Control -->
+  <g transform="translate(50, 80)">
+    <g filter="url(#shadow)">
+      <rect x="0" y="0" width="800" height="100" rx="8" fill="url(#layer1Grad)"/>
+      <text x="30" y="35" font-size="14" font-weight="bold" fill="white">LAYER 1: Namespace Control</text>
+      <text x="30" y="55" font-size="11" fill="#DCFCE7">Prevent name collisions by design</text>
+
+      <!-- Controls -->
+      <g transform="translate(30, 65)">
+        <rect x="0" y="0" width="220" height="28" rx="4" fill="white" fill-opacity="0.95"/>
+        <text x="110" y="18" text-anchor="middle" font-size="10" fill="#166534">Use scoped packages</text>
+      </g>
+
+      <g transform="translate(270, 65)">
+        <rect x="0" y="0" width="220" height="28" rx="4" fill="white" fill-opacity="0.95"/>
+        <text x="110" y="18" text-anchor="middle" font-size="10" fill="#166534">Register placeholders publicly</text>
+      </g>
+
+      <g transform="translate(510, 65)">
+        <rect x="0" y="0" width="260" height="28" rx="4" fill="white" fill-opacity="0.95"/>
+        <text x="130" y="18" text-anchor="middle" font-size="10" fill="#166534">@company/pkg-name convention</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Layer 2: Registry Configuration -->
+  <g transform="translate(50, 195)">
+    <g filter="url(#shadow)">
+      <rect x="0" y="0" width="800" height="100" rx="8" fill="url(#layer2Grad)"/>
+      <text x="30" y="35" font-size="14" font-weight="bold" fill="white">LAYER 2: Registry Configuration</text>
+      <text x="30" y="55" font-size="11" fill="#DBEAFE">Control where packages are resolved from</text>
+
+      <!-- Controls -->
+      <g transform="translate(30, 65)">
+        <rect x="0" y="0" width="160" height="28" rx="4" fill="white" fill-opacity="0.95"/>
+        <text x="80" y="18" text-anchor="middle" font-size="10" fill="#1E40AF">Private registry first</text>
+      </g>
+
+      <g transform="translate(210, 65)">
+        <rect x="0" y="0" width="180" height="28" rx="4" fill="white" fill-opacity="0.95"/>
+        <text x="90" y="18" text-anchor="middle" font-size="10" fill="#1E40AF">Block public for internals</text>
+      </g>
+
+      <g transform="translate(410, 65)">
+        <rect x="0" y="0" width="170" height="28" rx="4" fill="white" fill-opacity="0.95"/>
+        <text x="85" y="18" text-anchor="middle" font-size="10" fill="#1E40AF">Scope-to-registry maps</text>
+      </g>
+
+      <g transform="translate(600, 65)">
+        <rect x="0" y="0" width="170" height="28" rx="4" fill="white" fill-opacity="0.95"/>
+        <text x="85" y="18" text-anchor="middle" font-size="10" fill="#1E40AF">Proxy with filtering</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Layer 3: Integrity Verification -->
+  <g transform="translate(50, 310)">
+    <g filter="url(#shadow)">
+      <rect x="0" y="0" width="800" height="100" rx="8" fill="url(#layer3Grad)"/>
+      <text x="30" y="35" font-size="14" font-weight="bold" fill="white">LAYER 3: Integrity Verification</text>
+      <text x="30" y="55" font-size="11" fill="#EDE9FE">Cryptographically verify packages</text>
+
+      <!-- Controls -->
+      <g transform="translate(30, 65)">
+        <rect x="0" y="0" width="170" height="28" rx="4" fill="white" fill-opacity="0.95"/>
+        <text x="85" y="18" text-anchor="middle" font-size="10" fill="#6D28D9">Lock files with hashes</text>
+      </g>
+
+      <g transform="translate(220, 65)">
+        <rect x="0" y="0" width="160" height="28" rx="4" fill="white" fill-opacity="0.95"/>
+        <text x="80" y="18" text-anchor="middle" font-size="10" fill="#6D28D9">Package signatures</text>
+      </g>
+
+      <g transform="translate(400, 65)">
+        <rect x="0" y="0" width="180" height="28" rx="4" fill="white" fill-opacity="0.95"/>
+        <text x="90" y="18" text-anchor="middle" font-size="10" fill="#6D28D9">SLSA provenance checks</text>
+      </g>
+
+      <g transform="translate(600, 65)">
+        <rect x="0" y="0" width="170" height="28" rx="4" fill="white" fill-opacity="0.95"/>
+        <text x="85" y="18" text-anchor="middle" font-size="10" fill="#6D28D9">Reproducible builds</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Layer 4: Monitoring & Detection -->
+  <g transform="translate(50, 425)">
+    <g filter="url(#shadow)">
+      <rect x="0" y="0" width="800" height="100" rx="8" fill="url(#layer4Grad)"/>
+      <text x="30" y="35" font-size="14" font-weight="bold" fill="white">LAYER 4: Monitoring and Detection</text>
+      <text x="30" y="55" font-size="11" fill="#FFEDD5">Detect attacks that bypass other layers</text>
+
+      <!-- Controls -->
+      <g transform="translate(30, 65)">
+        <rect x="0" y="0" width="180" height="28" rx="4" fill="white" fill-opacity="0.95"/>
+        <text x="90" y="18" text-anchor="middle" font-size="10" fill="#C2410C">Audit dependency sources</text>
+      </g>
+
+      <g transform="translate(230, 65)">
+        <rect x="0" y="0" width="180" height="28" rx="4" fill="white" fill-opacity="0.95"/>
+        <text x="90" y="18" text-anchor="middle" font-size="10" fill="#C2410C">Alert on new packages</text>
+      </g>
+
+      <g transform="translate(430, 65)">
+        <rect x="0" y="0" width="170" height="28" rx="4" fill="white" fill-opacity="0.95"/>
+        <text x="85" y="18" text-anchor="middle" font-size="10" fill="#C2410C">Version spike detection</text>
+      </g>
+
+      <g transform="translate(620, 65)">
+        <rect x="0" y="0" width="150" height="28" rx="4" fill="white" fill-opacity="0.95"/>
+        <text x="75" y="18" text-anchor="middle" font-size="10" fill="#C2410C">SBOM monitoring</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Effectiveness indicators on right side -->
+  <g transform="translate(870, 100)">
+    <text x="0" y="0" font-size="9" font-weight="600" fill="#64748B" transform="rotate(90)">Proactive</text>
+  </g>
+
+  <g transform="translate(870, 480)">
+    <text x="0" y="0" font-size="9" font-weight="600" fill="#64748B" transform="rotate(90)">Reactive</text>
+  </g>
+
+  <!-- Arrow on right side -->
+  <line x1="865" y1="85" x2="865" y2="520" stroke="#CBD5E1" stroke-width="2"/>
+  <polygon points="865,520 860,510 870,510" fill="#CBD5E1"/>
+</svg>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 550">
+  <defs>
+        <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset in="blur" dx="1" dy="2" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.5" result="color"/>
+      <feComposite in="color" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="550" fill="#F8FAFC"/>
+
+  <!-- Title -->
+  <text x="450" y="35" font-family="Libertinus Sans" font-size="22" font-weight="bold" fill="#1E293B" text-anchor="middle">Open Source License Types and Security Implications</text>
+  <text x="450" y="55" font-family="Libertinus Sans" font-size="13" fill="#64748B" text-anchor="middle">Understanding obligations when patching and distributing</text>
+
+  <!-- Permissive Licenses (Left) -->
+  <g filter="url(#shadow)">
+    <rect x="50" y="80" width="380" height="280" rx="10" fill="#10B981"/>
+    <text x="240" y="110" font-family="Libertinus Sans" font-size="18" font-weight="bold" fill="white" text-anchor="middle">Permissive Licenses</text>
+    <text x="240" y="130" font-family="Libertinus Sans" font-size="11" fill="#D1FAE5" text-anchor="middle">Minimal obligations for security patching</text>
+  </g>
+
+  <!-- Permissive examples -->
+  <rect x="70" y="145" width="80" height="30" rx="4" fill="white"/>
+  <text x="110" y="165" font-family="Libertinus Sans" font-size="11" font-weight="bold" fill="#10B981" text-anchor="middle">MIT</text>
+
+  <rect x="160" y="145" width="100" height="30" rx="4" fill="white"/>
+  <text x="210" y="165" font-family="Libertinus Sans" font-size="11" font-weight="bold" fill="#10B981" text-anchor="middle">Apache 2.0</text>
+
+  <rect x="270" y="145" width="70" height="30" rx="4" fill="white"/>
+  <text x="305" y="165" font-family="Libertinus Sans" font-size="11" font-weight="bold" fill="#10B981" text-anchor="middle">BSD</text>
+
+  <rect x="350" y="145" width="60" height="30" rx="4" fill="white"/>
+  <text x="380" y="165" font-family="Libertinus Sans" font-size="11" font-weight="bold" fill="#10B981" text-anchor="middle">ISC</text>
+
+  <!-- Permissive characteristics -->
+  <text x="70" y="200" font-family="Libertinus Sans" font-size="11" font-weight="bold" fill="white">When Patching:</text>
+  <text x="70" y="220" font-family="Libertinus Sans" font-size="10" fill="#D1FAE5">+ Keep patches proprietary if desired</text>
+  <text x="70" y="235" font-family="Libertinus Sans" font-size="10" fill="#D1FAE5">+ Distribute binaries without source</text>
+  <text x="70" y="250" font-family="Libertinus Sans" font-size="10" fill="#D1FAE5">+ Incorporate into closed-source products</text>
+
+  <text x="70" y="275" font-family="Libertinus Sans" font-size="11" font-weight="bold" fill="white">Requirements:</text>
+  <text x="70" y="295" font-family="Libertinus Sans" font-size="10" fill="#D1FAE5">- Maintain copyright notices</text>
+  <text x="70" y="310" font-family="Libertinus Sans" font-size="10" fill="#D1FAE5">- Include license text</text>
+  <text x="70" y="325" font-family="Libertinus Sans" font-size="10" fill="#D1FAE5">- Apache: include NOTICE file if present</text>
+
+  <!-- Copyleft Licenses (Right) -->
+  <g filter="url(#shadow)">
+    <rect x="470" y="80" width="380" height="280" rx="10" fill="#EF4444"/>
+    <text x="660" y="110" font-family="Libertinus Sans" font-size="18" font-weight="bold" fill="white" text-anchor="middle">Copyleft Licenses</text>
+    <text x="660" y="130" font-family="Libertinus Sans" font-size="11" fill="#FEE2E2" text-anchor="middle">Reciprocal obligations when distributing</text>
+  </g>
+
+  <!-- Copyleft examples -->
+  <rect x="490" y="145" width="70" height="30" rx="4" fill="white"/>
+  <text x="525" y="165" font-family="Libertinus Sans" font-size="11" font-weight="bold" fill="#EF4444" text-anchor="middle">GPL</text>
+
+  <rect x="570" y="145" width="70" height="30" rx="4" fill="white"/>
+  <text x="605" y="165" font-family="Libertinus Sans" font-size="11" font-weight="bold" fill="#EF4444" text-anchor="middle">LGPL</text>
+
+  <rect x="650" y="145" width="70" height="30" rx="4" fill="white"/>
+  <text x="685" y="165" font-family="Libertinus Sans" font-size="11" font-weight="bold" fill="#EF4444" text-anchor="middle">AGPL</text>
+
+  <rect x="730" y="145" width="100" height="30" rx="4" fill="white"/>
+  <text x="780" y="165" font-family="Libertinus Sans" font-size="11" font-weight="bold" fill="#EF4444" text-anchor="middle">MPL 2.0</text>
+
+  <!-- Copyleft characteristics -->
+  <text x="490" y="200" font-family="Libertinus Sans" font-size="11" font-weight="bold" fill="white">When Distributing Patches:</text>
+  <text x="490" y="220" font-family="Libertinus Sans" font-size="10" fill="#FEE2E2">GPL: Provide complete source, license under GPL</text>
+  <text x="490" y="235" font-family="Libertinus Sans" font-size="10" fill="#FEE2E2">LGPL: Modified library must be LGPL</text>
+  <text x="490" y="250" font-family="Libertinus Sans" font-size="10" fill="#FEE2E2">AGPL: Network users must access source</text>
+  <text x="490" y="265" font-family="Libertinus Sans" font-size="10" fill="#FEE2E2">MPL: Only modified files must stay MPL</text>
+
+  <text x="490" y="290" font-family="Libertinus Sans" font-size="11" font-weight="bold" fill="white">Internal Use Exception:</text>
+  <text x="490" y="310" font-family="Libertinus Sans" font-size="10" fill="#FEE2E2">Patching for internal systems generally</text>
+  <text x="490" y="325" font-family="Libertinus Sans" font-size="10" fill="#FEE2E2">does NOT trigger source disclosure</text>
+
+  <!-- Source-Available Section (Bottom) -->
+  <g filter="url(#shadow)">
+    <rect x="50" y="380" width="800" height="80" rx="8" fill="#F59E0B"/>
+    <text x="450" y="410" font-family="Libertinus Sans" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Source-Available (Not Open Source)</text>
+    <text x="120" y="435" font-family="Libertinus Sans" font-size="10" fill="#FEF3C7">BSL (Business Source License)</text>
+    <text x="280" y="435" font-family="Libertinus Sans" font-size="10" fill="#FEF3C7">SSPL (Server Side Public License)</text>
+    <text x="475" y="435" font-family="Libertinus Sans" font-size="10" fill="#FEF3C7">Elastic License</text>
+    <text x="620" y="435" font-family="Libertinus Sans" font-size="10" fill="#FEF3C7">Commons Clause</text>
+    <text x="450" y="450" font-family="Libertinus Sans" font-size="9" fill="#FDE68A" text-anchor="middle">May permit internal patching but restrict commercial use or distribution - check specific terms</text>
+  </g>
+
+  <!-- Key recommendations -->
+  <rect x="50" y="475" width="800" height="65" rx="6" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="450" y="498" font-family="Libertinus Sans" font-size="12" font-weight="bold" fill="#1E293B" text-anchor="middle">Security Patching Best Practices</text>
+  <text x="180" y="520" font-family="Libertinus Sans" font-size="10" fill="#475569">- Maintain license inventory alongside SBOM</text>
+  <text x="450" y="520" font-family="Libertinus Sans" font-size="10" fill="#475569">- Integrate license checks in CI/CD</text>
+  <text x="700" y="520" font-family="Libertinus Sans" font-size="10" fill="#475569">- Pre-establish legal relationships</text>
+</svg>

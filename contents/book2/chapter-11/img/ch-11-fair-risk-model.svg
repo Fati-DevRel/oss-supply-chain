@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 480" font-family="Libertinus Sans">
+  <defs>
+        <filter id="fairShadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset in="blur" dx="1" dy="2" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.5" result="color"/>
+      <feComposite in="color" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <marker id="decompArrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#64748b"/>
+    </marker>
+    <linearGradient id="riskGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ef4444"/>
+      <stop offset="100%" style="stop-color:#dc2626"/>
+    </linearGradient>
+    <linearGradient id="freqGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b"/>
+      <stop offset="100%" style="stop-color:#d97706"/>
+    </linearGradient>
+    <linearGradient id="magGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1"/>
+      <stop offset="100%" style="stop-color:#4f46e5"/>
+    </linearGradient>
+    <linearGradient id="threatGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f97316"/>
+      <stop offset="100%" style="stop-color:#ea580c"/>
+    </linearGradient>
+    <linearGradient id="vulnGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#eab308"/>
+      <stop offset="100%" style="stop-color:#ca8a04"/>
+    </linearGradient>
+    <linearGradient id="primaryGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6"/>
+      <stop offset="100%" style="stop-color:#7c3aed"/>
+    </linearGradient>
+    <linearGradient id="secondaryGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#a78bfa"/>
+      <stop offset="100%" style="stop-color:#8b5cf6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Title -->
+  <text x="425" y="35" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">FAIR Risk Decomposition Model</text>
+  <text x="425" y="55" text-anchor="middle" font-size="13" fill="#64748b">Factor Analysis of Information Risk - Quantitative Framework</text>
+
+  <!-- Level 1: Risk -->
+  <g filter="url(#fairShadow)">
+    <rect x="325" y="80" width="200" height="60" rx="10" fill="url(#riskGrad)"/>
+    <text x="425" y="112" text-anchor="middle" font-size="18" font-weight="700" fill="white">RISK</text>
+    <text x="425" y="130" text-anchor="middle" font-size="11" fill="rgba(255,255,255,0.9)">Probable Loss</text>
+  </g>
+
+  <!-- Formula -->
+  <rect x="325" y="150" width="200" height="25" rx="4" fill="#f8fafc"/>
+  <text x="425" y="167" text-anchor="middle" font-size="12" font-family="Libertinus Mono" fill="#334155">= Frequency x Magnitude</text>
+
+  <!-- Decomposition lines -->
+  <line x1="375" y1="175" x2="235" y2="220" stroke="#64748b" stroke-width="2"/>
+  <line x1="475" y1="175" x2="615" y2="220" stroke="#64748b" stroke-width="2"/>
+
+  <!-- Level 2: Loss Event Frequency -->
+  <g filter="url(#fairShadow)">
+    <rect x="105" y="220" width="260" height="60" rx="10" fill="url(#freqGrad)"/>
+    <text x="235" y="250" text-anchor="middle" font-size="15" font-weight="600" fill="white">Loss Event Frequency</text>
+    <text x="235" y="268" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.9)">How often losses occur</text>
+  </g>
+
+  <!-- Level 2: Loss Magnitude -->
+  <g filter="url(#fairShadow)">
+    <rect x="485" y="220" width="260" height="60" rx="10" fill="url(#magGrad)"/>
+    <text x="615" y="250" text-anchor="middle" font-size="15" font-weight="600" fill="white">Loss Magnitude</text>
+    <text x="615" y="268" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.9)">How much each loss costs</text>
+  </g>
+
+  <!-- Formulas for level 2 -->
+  <rect x="105" y="290" width="260" height="22" rx="4" fill="#fffbeb"/>
+  <text x="235" y="305" text-anchor="middle" font-size="10" font-family="Libertinus Mono" fill="#92400e">= Threat Event Freq x Vulnerability</text>
+
+  <rect x="485" y="290" width="260" height="22" rx="4" fill="#eef2ff"/>
+  <text x="615" y="305" text-anchor="middle" font-size="10" font-family="Libertinus Mono" fill="#4338ca">= Primary Loss + Secondary Loss</text>
+
+  <!-- Decomposition lines level 3 -->
+  <line x1="175" y1="312" x2="120" y2="355" stroke="#64748b" stroke-width="1.5"/>
+  <line x1="295" y1="312" x2="350" y2="355" stroke="#64748b" stroke-width="1.5"/>
+  <line x1="555" y1="312" x2="500" y2="355" stroke="#64748b" stroke-width="1.5"/>
+  <line x1="675" y1="312" x2="730" y2="355" stroke="#64748b" stroke-width="1.5"/>
+
+  <!-- Level 3: Threat Event Frequency -->
+  <g filter="url(#fairShadow)">
+    <rect x="40" y="355" width="160" height="100" rx="8" fill="url(#threatGrad)"/>
+    <text x="120" y="380" text-anchor="middle" font-size="12" font-weight="600" fill="white">Threat Event</text>
+    <text x="120" y="396" text-anchor="middle" font-size="12" font-weight="600" fill="white">Frequency</text>
+    <line x1="60" y1="408" x2="180" y2="408" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+    <text x="120" y="425" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.9)">Attack attempts</text>
+    <text x="120" y="440" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.9)">per time period</text>
+  </g>
+
+  <!-- Level 3: Vulnerability -->
+  <g filter="url(#fairShadow)">
+    <rect x="270" y="355" width="160" height="100" rx="8" fill="url(#vulnGrad)"/>
+    <text x="350" y="390" text-anchor="middle" font-size="12" font-weight="600" fill="white">Vulnerability</text>
+    <line x1="290" y1="402" x2="410" y2="402" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+    <text x="350" y="420" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.9)">% of attempts</text>
+    <text x="350" y="435" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.9)">that succeed</text>
+  </g>
+
+  <!-- Level 3: Primary Loss -->
+  <g filter="url(#fairShadow)">
+    <rect x="420" y="355" width="160" height="100" rx="8" fill="url(#primaryGrad)"/>
+    <text x="500" y="380" text-anchor="middle" font-size="12" font-weight="600" fill="white">Primary Loss</text>
+    <line x1="440" y1="392" x2="560" y2="392" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+    <text x="500" y="410" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.9)">Response costs</text>
+    <text x="500" y="425" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.9)">Remediation</text>
+    <text x="500" y="440" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.9)">Lost productivity</text>
+  </g>
+
+  <!-- Level 3: Secondary Loss -->
+  <g filter="url(#fairShadow)">
+    <rect x="650" y="355" width="160" height="100" rx="8" fill="url(#secondaryGrad)"/>
+    <text x="730" y="380" text-anchor="middle" font-size="12" font-weight="600" fill="white">Secondary Loss</text>
+    <line x1="670" y1="392" x2="790" y2="392" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+    <text x="730" y="410" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.9)">Reputation damage</text>
+    <text x="730" y="425" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.9)">Legal liability</text>
+    <text x="730" y="440" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.9)">Regulatory penalties</text>
+  </g>
+
+  <!-- Multiplication/Addition symbols -->
+  <circle cx="235" cy="335" r="12" fill="white" stroke="#f59e0b" stroke-width="2"/>
+  <text x="235" y="340" text-anchor="middle" font-size="14" font-weight="700" fill="#d97706">x</text>
+
+  <circle cx="615" cy="335" r="12" fill="white" stroke="#6366f1" stroke-width="2"/>
+  <text x="615" y="340" text-anchor="middle" font-size="14" font-weight="700" fill="#4f46e5">+</text>
+</svg>

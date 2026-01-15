@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600">
+  <defs>
+        <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset in="blur" dx="1" dy="2" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.5" result="color"/>
+      <feComposite in="color" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="600" fill="#F8FAFC"/>
+
+  <!-- Title -->
+  <text x="450" y="35" font-family="Libertinus Sans" font-size="22" font-weight="bold" fill="#1E293B" text-anchor="middle">Container Image Layer Model and Inherited Risk</text>
+  <text x="450" y="55" font-family="Libertinus Sans" font-size="13" fill="#64748B" text-anchor="middle">Understanding how vulnerabilities propagate through container layers</text>
+
+  <!-- Left side - Layer Stack -->
+  <g filter="url(#shadow)">
+    <!-- Layer 5 - Application -->
+    <rect x="80" y="90" width="300" height="60" rx="4" fill="#10B981"/>
+    <text x="230" y="115" font-family="Libertinus Sans" font-size="12" font-weight="bold" fill="white" text-anchor="middle">Layer 5: Application Code</text>
+    <text x="230" y="135" font-family="Libertinus Sans" font-size="10" fill="#D1FAE5" text-anchor="middle">COPY app.py . (Your code)</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <!-- Layer 4 - Dependencies -->
+    <rect x="80" y="160" width="300" height="60" rx="4" fill="#3B82F6"/>
+    <text x="230" y="185" font-family="Libertinus Sans" font-size="12" font-weight="bold" fill="white" text-anchor="middle">Layer 4: App Dependencies</text>
+    <text x="230" y="205" font-family="Libertinus Sans" font-size="10" fill="#DBEAFE" text-anchor="middle">RUN pip install -r requirements.txt</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <!-- Layer 3 - System Packages -->
+    <rect x="80" y="230" width="300" height="60" rx="4" fill="#8B5CF6"/>
+    <text x="230" y="255" font-family="Libertinus Sans" font-size="12" font-weight="bold" fill="white" text-anchor="middle">Layer 3: System Packages</text>
+    <text x="230" y="275" font-family="Libertinus Sans" font-size="10" fill="#E9D5FF" text-anchor="middle">RUN apt-get install python3</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <!-- Layer 2 - Updates -->
+    <rect x="80" y="300" width="300" height="60" rx="4" fill="#F59E0B"/>
+    <text x="230" y="325" font-family="Libertinus Sans" font-size="12" font-weight="bold" fill="white" text-anchor="middle">Layer 2: Package Updates</text>
+    <text x="230" y="345" font-family="Libertinus Sans" font-size="10" fill="#FEF3C7" text-anchor="middle">RUN apt-get update</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <!-- Layer 1 - Base OS -->
+    <rect x="80" y="370" width="300" height="70" rx="4" fill="#EF4444"/>
+    <text x="230" y="395" font-family="Libertinus Sans" font-size="12" font-weight="bold" fill="white" text-anchor="middle">Layer 1: Base Operating System</text>
+    <text x="230" y="415" font-family="Libertinus Sans" font-size="10" fill="#FEE2E2" text-anchor="middle">FROM ubuntu:22.04 (~77MB)</text>
+    <text x="230" y="430" font-family="Libertinus Sans" font-size="9" fill="#FECACA" text-anchor="middle">Contains: libc, openssl, coreutils, ...</text>
+  </g>
+
+  <!-- Arrow showing build direction -->
+  <defs>
+    <marker id="arrowUp" markerWidth="10" markerHeight="7" refX="5" refY="7" orient="auto-start-reverse">
+      <polygon points="0 7, 5 0, 10 7" fill="#64748B"/>
+    </marker>
+  </defs>
+  <line x1="40" y1="420" x2="40" y2="100" stroke="#64748B" stroke-width="2" marker-end="url(#arrowUp)"/>
+  <text x="25" y="260" font-family="Libertinus Sans" font-size="10" fill="#64748B" transform="rotate(-90 25 260)">Build Order</text>
+
+  <!-- Right side - Risk Propagation -->
+  <g filter="url(#shadow)">
+    <rect x="460" y="90" width="380" height="350" rx="8" fill="white" stroke="#DC2626" stroke-width="2"/>
+    <rect x="460" y="90" width="380" height="40" rx="8" fill="#DC2626"/>
+    <text x="650" y="117" font-family="Libertinus Sans" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Inherited Risk Analysis</text>
+  </g>
+
+  <!-- Risk items -->
+  <g>
+    <circle cx="490" cy="160" r="8" fill="#EF4444"/>
+    <text x="505" y="155" font-family="Libertinus Sans" font-size="11" font-weight="bold" fill="#DC2626">Base Image Vulnerabilities</text>
+    <text x="505" y="172" font-family="Libertinus Sans" font-size="10" fill="#475569">Every CVE in ubuntu:22.04 is inherited by</text>
+    <text x="505" y="186" font-family="Libertinus Sans" font-size="10" fill="#475569">your image, regardless of whether used</text>
+  </g>
+
+  <g>
+    <circle cx="490" cy="225" r="8" fill="#F59E0B"/>
+    <text x="505" y="220" font-family="Libertinus Sans" font-size="11" font-weight="bold" fill="#D97706">Layer Accumulation</text>
+    <text x="505" y="237" font-family="Libertinus Sans" font-size="10" fill="#475569">Files "deleted" in later layers remain</text>
+    <text x="505" y="251" font-family="Libertinus Sans" font-size="10" fill="#475569">accessible in image history</text>
+  </g>
+
+  <g>
+    <circle cx="490" cy="290" r="8" fill="#8B5CF6"/>
+    <text x="505" y="285" font-family="Libertinus Sans" font-size="11" font-weight="bold" fill="#7C3AED">Update Propagation</text>
+    <text x="505" y="302" font-family="Libertinus Sans" font-size="10" fill="#475569">Base image patches require rebuilding</text>
+    <text x="505" y="316" font-family="Libertinus Sans" font-size="10" fill="#475569">ALL derived images</text>
+  </g>
+
+  <g>
+    <circle cx="490" cy="355" r="8" fill="#3B82F6"/>
+    <text x="505" y="350" font-family="Libertinus Sans" font-size="11" font-weight="bold" fill="#2563EB">Dependency Confusion</text>
+    <text x="505" y="367" font-family="Libertinus Sans" font-size="10" fill="#475569">pip/npm/apt can pull malicious packages</text>
+    <text x="505" y="381" font-family="Libertinus Sans" font-size="10" fill="#475569">during build if not pinned</text>
+  </g>
+
+  <g>
+    <circle cx="490" cy="420" r="8" fill="#10B981"/>
+    <text x="505" y="415" font-family="Libertinus Sans" font-size="11" font-weight="bold" fill="#059669">Attack Surface Size</text>
+    <text x="505" y="432" font-family="Libertinus Sans" font-size="10" fill="#475569">Full OS: ~77MB with many packages</text>
+  </g>
+
+  <!-- Bottom statistics bar -->
+  <rect x="80" y="470" width="760" height="80" rx="8" fill="#FEF2F2" stroke="#FECACA" stroke-width="1"/>
+  <text x="100" y="495" font-family="Libertinus Sans" font-size="12" font-weight="bold" fill="#991B1B">Industry Research (Sysdig 2023):</text>
+  <text x="100" y="515" font-family="Libertinus Sans" font-size="11" fill="#7F1D1D">87% of container images contain at least one HIGH or CRITICAL vulnerability</text>
+  <text x="100" y="535" font-family="Libertinus Sans" font-size="11" fill="#7F1D1D">Average: 15 high/critical vulnerabilities per image - most inherited from base images</text>
+
+  <!-- Defense callout -->
+  <rect x="580" y="475" width="250" height="70" rx="6" fill="#F0FDF4" stroke="#86EFAC" stroke-width="1"/>
+  <text x="705" y="495" font-family="Libertinus Sans" font-size="11" font-weight="bold" fill="#166534" text-anchor="middle">Mitigation Strategies</text>
+  <text x="595" y="512" font-family="Libertinus Sans" font-size="10" fill="#166534">- Use minimal base images (Alpine, Distroless)</text>
+  <text x="595" y="527" font-family="Libertinus Sans" font-size="10" fill="#166534">- Regularly rebuild with updated bases</text>
+  <text x="595" y="542" font-family="Libertinus Sans" font-size="10" fill="#166534">- Scan images at all lifecycle stages</text>
+
+  <!-- Connecting lines -->
+  <line x1="380" y1="400" x2="460" y2="160" stroke="#EF4444" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="380" y1="260" x2="460" y2="225" stroke="#F59E0B" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="380" y1="260" x2="460" y2="290" stroke="#8B5CF6" stroke-width="1" stroke-dasharray="4,3"/>
+</svg>

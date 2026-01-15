@@ -1,0 +1,173 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 650" font-family="Libertinus Sans">
+  <defs>
+        <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset in="blur" dx="1" dy="2" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.5" result="color"/>
+      <feComposite in="color" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="650" fill="#f7fafc"/>
+
+  <!-- Title -->
+  <text x="450" y="35" text-anchor="middle" font-size="20" font-weight="600" fill="#1a365d">
+    Memory Safety and the 70% Problem
+  </text>
+  <text x="450" y="55" text-anchor="middle" font-size="12" fill="#718096">
+    Why the majority of critical vulnerabilities share a common root cause
+  </text>
+
+  <!-- Key Statistics -->
+  <g transform="translate(50, 80)">
+    <rect x="0" y="0" width="800" height="90" rx="8" fill="#fff" filter="url(#shadow)"/>
+    <text x="400" y="25" text-anchor="middle" font-size="13" font-weight="600" fill="#2d3748">Memory Safety Vulnerabilities Across Major Projects</text>
+    <line x1="30" y1="35" x2="770" y2="35" stroke="#e2e8f0"/>
+
+    <!-- Bar chart representation -->
+    <g transform="translate(50, 50)">
+      <!-- Microsoft -->
+      <g transform="translate(0, 0)">
+        <text x="0" y="12" font-size="10" fill="#4a5568">Microsoft</text>
+        <rect x="80" y="0" width="490" height="22" rx="3" fill="#e2e8f0"/>
+        <rect x="80" y="0" width="343" height="22" rx="3" fill="#e53e3e"/>
+        <text x="435" y="15" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">~70%</text>
+        <text x="580" y="15" font-size="9" fill="#718096">12+ years of CVEs</text>
+      </g>
+    </g>
+    <g transform="translate(50, 50)">
+      <g transform="translate(350, 0)">
+        <text x="0" y="12" font-size="10" fill="#4a5568">Chrome</text>
+        <rect x="50" y="0" width="300" height="22" rx="3" fill="#e2e8f0"/>
+        <rect x="50" y="0" width="210" height="22" rx="3" fill="#dd6b20"/>
+        <text x="155" y="15" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">~70%</text>
+        <text x="360" y="15" font-size="9" fill="#718096">High-severity bugs</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Memory Safety Vulnerability Types -->
+  <g transform="translate(50, 190)">
+    <rect x="0" y="0" width="400" height="220" rx="8" fill="#fff" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="400" height="35" rx="8" fill="#c53030"/>
+    <rect x="0" y="27" width="400" height="8" fill="#c53030"/>
+    <text x="200" y="24" text-anchor="middle" font-size="12" font-weight="600" fill="#fff">Memory Safety Vulnerability Classes</text>
+
+    <g transform="translate(20, 50)">
+      <g transform="translate(0, 0)">
+        <rect x="0" y="0" width="170" height="70" rx="4" fill="#fed7d7"/>
+        <text x="85" y="18" text-anchor="middle" font-size="10" font-weight="600" fill="#c53030">Buffer Overflow</text>
+        <text x="85" y="35" text-anchor="middle" font-size="8" fill="#742a2a">Write beyond allocated</text>
+        <text x="85" y="50" text-anchor="middle" font-size="8" fill="#742a2a">memory boundaries</text>
+        <text x="85" y="65" text-anchor="middle" font-size="7" fill="#9b2c2c">Stack/heap corruption</text>
+      </g>
+
+      <g transform="translate(190, 0)">
+        <rect x="0" y="0" width="170" height="70" rx="4" fill="#feebc8"/>
+        <text x="85" y="18" text-anchor="middle" font-size="10" font-weight="600" fill="#c05621">Use-After-Free</text>
+        <text x="85" y="35" text-anchor="middle" font-size="8" fill="#744210">Access memory after</text>
+        <text x="85" y="50" text-anchor="middle" font-size="8" fill="#744210">deallocation</text>
+        <text x="85" y="65" text-anchor="middle" font-size="7" fill="#9c4221">Dangling pointers</text>
+      </g>
+
+      <g transform="translate(0, 85)">
+        <rect x="0" y="0" width="170" height="70" rx="4" fill="#e9d8fd"/>
+        <text x="85" y="18" text-anchor="middle" font-size="10" font-weight="600" fill="#6b46c1">Double-Free</text>
+        <text x="85" y="35" text-anchor="middle" font-size="8" fill="#44337a">Deallocate memory</text>
+        <text x="85" y="50" text-anchor="middle" font-size="8" fill="#44337a">twice</text>
+        <text x="85" y="65" text-anchor="middle" font-size="7" fill="#553c9a">Heap corruption</text>
+      </g>
+
+      <g transform="translate(190, 85)">
+        <rect x="0" y="0" width="170" height="70" rx="4" fill="#bee3f8"/>
+        <text x="85" y="18" text-anchor="middle" font-size="10" font-weight="600" fill="#2b6cb0">Type Confusion</text>
+        <text x="85" y="35" text-anchor="middle" font-size="8" fill="#2a4365">Memory interpreted</text>
+        <text x="85" y="50" text-anchor="middle" font-size="8" fill="#2a4365">as wrong type</text>
+        <text x="85" y="65" text-anchor="middle" font-size="7" fill="#2c5282">Control flow hijack</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Language Safety Spectrum -->
+  <g transform="translate(470, 190)">
+    <rect x="0" y="0" width="380" height="220" rx="8" fill="#fff" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="380" height="35" rx="8" fill="#38a169"/>
+    <rect x="0" y="27" width="380" height="8" fill="#38a169"/>
+    <text x="190" y="24" text-anchor="middle" font-size="12" font-weight="600" fill="#fff">Language Safety Spectrum</text>
+
+    <g transform="translate(20, 50)">
+      <!-- Unsafe -->
+      <g transform="translate(0, 0)">
+        <rect x="0" y="0" width="160" height="75" rx="4" fill="#fed7d7" stroke="#e53e3e" stroke-width="2"/>
+        <text x="80" y="18" text-anchor="middle" font-size="10" font-weight="600" fill="#c53030">Memory Unsafe</text>
+        <text x="80" y="38" text-anchor="middle" font-size="9" fill="#742a2a">C, C++</text>
+        <text x="80" y="55" text-anchor="middle" font-size="8" fill="#9b2c2c">Manual memory mgmt</text>
+        <text x="80" y="68" text-anchor="middle" font-size="8" fill="#9b2c2c">70% of vuln source</text>
+      </g>
+
+      <!-- Safe (GC) -->
+      <g transform="translate(180, 0)">
+        <rect x="0" y="0" width="160" height="75" rx="4" fill="#c6f6d5" stroke="#38a169" stroke-width="2"/>
+        <text x="80" y="18" text-anchor="middle" font-size="10" font-weight="600" fill="#276749">Memory Safe (GC)</text>
+        <text x="80" y="38" text-anchor="middle" font-size="9" fill="#22543d">Java, Go, C#, Python</text>
+        <text x="80" y="55" text-anchor="middle" font-size="8" fill="#276749">Garbage collected</text>
+        <text x="80" y="68" text-anchor="middle" font-size="8" fill="#276749">Runtime overhead</text>
+      </g>
+
+      <!-- Rust -->
+      <g transform="translate(90, 90)">
+        <rect x="0" y="0" width="160" height="75" rx="4" fill="#faf5ff" stroke="#805ad5" stroke-width="2"/>
+        <text x="80" y="18" text-anchor="middle" font-size="10" font-weight="600" fill="#6b46c1">Memory Safe (No GC)</text>
+        <text x="80" y="38" text-anchor="middle" font-size="9" fill="#553c9a">Rust</text>
+        <text x="80" y="55" text-anchor="middle" font-size="8" fill="#6b46c1">Compile-time checks</text>
+        <text x="80" y="68" text-anchor="middle" font-size="8" fill="#6b46c1">C/C++ performance</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Government Guidance -->
+  <g transform="translate(50, 430)">
+    <rect x="0" y="0" width="400" height="100" rx="8" fill="#ebf8ff" filter="url(#shadow)"/>
+    <text x="200" y="25" text-anchor="middle" font-size="12" font-weight="600" fill="#2b6cb0">Government Guidance</text>
+
+    <g transform="translate(20, 40)">
+      <text x="0" y="12" font-size="10" font-weight="600" fill="#2b6cb0">NSA (Nov 2022):</text>
+      <text x="120" y="12" font-size="9" fill="#4a5568">"Use memory safe languages when possible"</text>
+
+      <text x="0" y="35" font-size="10" font-weight="600" fill="#2b6cb0">CISA (Dec 2023):</text>
+      <text x="120" y="35" font-size="9" fill="#4a5568">"Develop memory safe roadmaps"</text>
+
+      <text x="0" y="55" font-size="9" fill="#718096" font-style="italic">Both recommend: Rust, Go, C#, Java, Swift, Python</text>
+    </g>
+  </g>
+
+  <!-- Industry Adoption -->
+  <g transform="translate(470, 430)">
+    <rect x="0" y="0" width="380" height="100" rx="8" fill="#f0fff4" filter="url(#shadow)"/>
+    <text x="190" y="25" text-anchor="middle" font-size="12" font-weight="600" fill="#276749">Industry Adoption (Rust)</text>
+
+    <g transform="translate(20, 40)">
+      <text x="0" y="12" font-size="9" fill="#4a5568">Linux kernel: Rust drivers supported (6.1+)</text>
+      <text x="0" y="28" font-size="9" fill="#4a5568">Android: 21% new native code in Rust (2023)</text>
+      <text x="0" y="44" font-size="9" fill="#4a5568">Windows: Kernel components rewritten</text>
+      <text x="0" y="60" font-size="9" fill="#4a5568">curl: Rust HTTP backend (hyper)</text>
+    </g>
+  </g>
+
+  <!-- Recommendations -->
+  <g transform="translate(50, 550)">
+    <rect x="0" y="0" width="800" height="80" rx="8" fill="#fffbeb" stroke="#d97706" stroke-width="1"/>
+    <text x="30" y="25" font-size="11" font-weight="600" fill="#92400e">Practical Recommendations:</text>
+    <text x="30" y="45" font-size="10" fill="#78350f">
+      1. Favor memory-safe deps for new projects | 2. Track Rust alternatives for critical C/C++ deps | 3. Apply hardening (ASLR, stack canaries) to remaining unsafe code
+    </text>
+    <text x="30" y="65" font-size="10" fill="#78350f">
+      4. Support memory-safe rewrites (Prossimo) | 5. Set realistic expectations - transition takes decades | 6. Prioritize based on exposure (network-facing, parsers, crypto)
+    </text>
+  </g>
+</svg>

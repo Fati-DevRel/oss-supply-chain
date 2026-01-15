@@ -1,0 +1,32 @@
+# PDF build output
+dist/
+site/
+
+# MkDocs build output
+site/_site/
+site/docs/
+site/docs/book*/
+site/docs/frontmatter/
+site/docs/appendices/
+
+# Intermediate PDFs
+contents/**/img/*.pdf
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+venv/
+.venv/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+*~
+.idea/
+.vscode/

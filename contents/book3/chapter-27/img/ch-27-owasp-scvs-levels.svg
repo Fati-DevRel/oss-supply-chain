@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 650">
+  <defs>
+        <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset in="blur" dx="1" dy="2" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.5" result="color"/>
+      <feComposite in="color" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="650" fill="#F8FAFC"/>
+
+  <!-- Title -->
+  <text x="450" y="35" font-family="Libertinus Sans" font-size="22" font-weight="bold" fill="#1E293B" text-anchor="middle">OWASP Software Component Verification Standard (SCVS)</text>
+  <text x="450" y="55" font-family="Libertinus Sans" font-size="13" fill="#64748B" text-anchor="middle">Three verification levels with increasing rigor for supply chain security</text>
+
+  <!-- Level headers -->
+  <g filter="url(#shadow)">
+    <rect x="50" y="80" width="260" height="50" rx="8" fill="#64748B"/>
+    <text x="180" y="112" font-family="Libertinus Sans" font-size="16" font-weight="bold" fill="white" text-anchor="middle">Level 1: Basic</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="320" y="80" width="260" height="50" rx="8" fill="#3B82F6"/>
+    <text x="450" y="112" font-family="Libertinus Sans" font-size="16" font-weight="bold" fill="white" text-anchor="middle">Level 2: Standard</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="590" y="80" width="260" height="50" rx="8" fill="#10B981"/>
+    <text x="720" y="112" font-family="Libertinus Sans" font-size="16" font-weight="bold" fill="white" text-anchor="middle">Level 3: Advanced</text>
+  </g>
+
+  <!-- Category rows -->
+  <!-- V1: Inventory -->
+  <rect x="50" y="145" width="800" height="70" rx="4" fill="#F1F5F9"/>
+  <text x="70" y="170" font-family="Libertinus Sans" font-size="12" font-weight="bold" fill="#1E293B">V1: Inventory</text>
+  <text x="70" y="185" font-family="Libertinus Sans" font-size="10" fill="#64748B">Component tracking</text>
+
+  <text x="180" y="180" font-family="Libertinus Sans" font-size="10" fill="#475569" text-anchor="middle">Basic BOM</text>
+  <text x="180" y="195" font-family="Libertinus Sans" font-size="9" fill="#64748B" text-anchor="middle">exists</text>
+
+  <text x="450" y="175" font-family="Libertinus Sans" font-size="10" fill="#475569" text-anchor="middle">+ Transitive deps</text>
+  <text x="450" y="190" font-family="Libertinus Sans" font-size="10" fill="#475569" text-anchor="middle">+ Version tracking</text>
+
+  <text x="720" y="175" font-family="Libertinus Sans" font-size="10" fill="#475569" text-anchor="middle">+ Provenance data</text>
+  <text x="720" y="190" font-family="Libertinus Sans" font-size="10" fill="#475569" text-anchor="middle">+ SBOM automation</text>
+
+  <!-- V2: Software Bill of Materials -->
+  <rect x="50" y="220" width="800" height="70" rx="4" fill="white"/>
+  <text x="70" y="245" font-family="Libertinus Sans" font-size="12" font-weight="bold" fill="#1E293B">V2: SBOM</text>
+  <text x="70" y="260" font-family="Libertinus Sans" font-size="10" fill="#64748B">Format and content</text>
+
+  <text x="180" y="255" font-family="Libertinus Sans" font-size="10" fill="#475569" text-anchor="middle">Manual SBOM</text>
+  <text x="180" y="270" font-family="Libertinus Sans" font-size="9" fill="#64748B" text-anchor="middle">generation</text>
+
+  <text x="450" y="250" font-family="Libertinus Sans" font-size="10" fill="#475569" text-anchor="middle">+ CycloneDX/SPDX</text>
+  <text x="450" y="265" font-family="Libertinus Sans" font-size="10" fill="#475569" text-anchor="middle">+ License info</text>
+
+  <text x="720" y="250" font-family="Libertinus Sans" font-size="10" fill="#475569" text-anchor="middle">+ VEX documents</text>
+  <text x="720" y="265" font-family="Libertinus Sans" font-size="10" fill="#475569" text-anchor="middle">+ Signed SBOMs</text>
+
+  <!-- V3: Build Environment -->
+  <rect x="50" y="295" width="800" height="70" rx="4" fill="#F1F5F9"/>
+  <text x="70" y="320" font-family="Libertinus Sans" font-size="12" font-weight="bold" fill="#1E293B">V3: Build Environment</text>
+  <text x="70" y="335" font-family="Libertinus Sans" font-size="10" fill="#64748B">Build security</text>
+
+  <text x="180" y="330" font-family="Libertinus Sans" font-size="10" fill="#475569" text-anchor="middle">Documented</text>
+  <text x="180" y="345" font-family="Libertinus Sans" font-size="9" fill="#64748B" text-anchor="middle">build process</text>
+
+  <text x="450" y="325" font-family="Libertinus Sans" font-size="10" fill="#475569" text-anchor="middle">+ Reproducible builds</text>
+  <text x="450" y="340" font-family="Libertinus Sans" font-size="10" fill="#475569" text-anchor="middle">+ Hardened pipeline</text>
+
+  <text x="720" y="325" font-family="Libertinus Sans" font-size="10" fill="#475569" text-anchor="middle">+ SLSA Level 3</text>
+  <text x="720" y="340" font-family="Libertinus Sans" font-size="10" fill="#475569" text-anchor="middle">+ Hermetic builds</text>
+
+  <!-- V4: Package Management -->
+  <rect x="50" y="370" width="800" height="70" rx="4" fill="white"/>
+  <text x="70" y="395" font-family="Libertinus Sans" font-size="12" font-weight="bold" fill="#1E293B">V4: Package Mgmt</text>
+  <text x="70" y="410" font-family="Libertinus Sans" font-size="10" fill="#64748B">Dependency handling</text>
+
+  <text x="180" y="400" font-family="Libertinus Sans" font-size="10" fill="#475569" text-anchor="middle">Version</text>
+  <text x="180" y="415" font-family="Libertinus Sans" font-size="9" fill="#64748B" text-anchor="middle">constraints</text>
+
+  <text x="450" y="400" font-family="Libertinus Sans" font-size="10" fill="#475569" text-anchor="middle">+ Lock files</text>
+  <text x="450" y="415" font-family="Libertinus Sans" font-size="10" fill="#475569" text-anchor="middle">+ Hash verification</text>
+
+  <text x="720" y="400" font-family="Libertinus Sans" font-size="10" fill="#475569" text-anchor="middle">+ Private registry</text>
+  <text x="720" y="415" font-family="Libertinus Sans" font-size="10" fill="#475569" text-anchor="middle">+ Signature verification</text>
+
+  <!-- V5: Component Analysis -->
+  <rect x="50" y="445" width="800" height="70" rx="4" fill="#F1F5F9"/>
+  <text x="70" y="470" font-family="Libertinus Sans" font-size="12" font-weight="bold" fill="#1E293B">V5: Analysis</text>
+  <text x="70" y="485" font-family="Libertinus Sans" font-size="10" fill="#64748B">Vulnerability checking</text>
+
+  <text x="180" y="475" font-family="Libertinus Sans" font-size="10" fill="#475569" text-anchor="middle">Known vuln</text>
+  <text x="180" y="490" font-family="Libertinus Sans" font-size="9" fill="#64748B" text-anchor="middle">scanning</text>
+
+  <text x="450" y="470" font-family="Libertinus Sans" font-size="10" fill="#475569" text-anchor="middle">+ CI/CD integration</text>
+  <text x="450" y="485" font-family="Libertinus Sans" font-size="10" fill="#475569" text-anchor="middle">+ Policy gates</text>
+
+  <text x="720" y="470" font-family="Libertinus Sans" font-size="10" fill="#475569" text-anchor="middle">+ Static analysis</text>
+  <text x="720" y="485" font-family="Libertinus Sans" font-size="10" fill="#475569" text-anchor="middle">+ Behavioral analysis</text>
+
+  <!-- V6: Pedigree and Provenance -->
+  <rect x="50" y="520" width="800" height="70" rx="4" fill="white"/>
+  <text x="70" y="545" font-family="Libertinus Sans" font-size="12" font-weight="bold" fill="#1E293B">V6: Pedigree</text>
+  <text x="70" y="560" font-family="Libertinus Sans" font-size="10" fill="#64748B">Origin verification</text>
+
+  <text x="180" y="550" font-family="Libertinus Sans" font-size="10" fill="#475569" text-anchor="middle">Source</text>
+  <text x="180" y="565" font-family="Libertinus Sans" font-size="9" fill="#64748B" text-anchor="middle">documented</text>
+
+  <text x="450" y="545" font-family="Libertinus Sans" font-size="10" fill="#475569" text-anchor="middle">+ Commit verification</text>
+  <text x="450" y="560" font-family="Libertinus Sans" font-size="10" fill="#475569" text-anchor="middle">+ Maintainer trust</text>
+
+  <text x="720" y="545" font-family="Libertinus Sans" font-size="10" fill="#475569" text-anchor="middle">+ Full provenance</text>
+  <text x="720" y="560" font-family="Libertinus Sans" font-size="10" fill="#475569" text-anchor="middle">+ Cryptographic chain</text>
+
+  <!-- Use case recommendations -->
+  <g filter="url(#shadow)">
+    <rect x="50" y="600" width="260" height="40" rx="4" fill="white" stroke="#64748B" stroke-width="1"/>
+    <text x="180" y="625" font-family="Libertinus Sans" font-size="10" fill="#64748B" text-anchor="middle">Low-risk internal apps</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="320" y="600" width="260" height="40" rx="4" fill="white" stroke="#3B82F6" stroke-width="1"/>
+    <text x="450" y="625" font-family="Libertinus Sans" font-size="10" fill="#3B82F6" text-anchor="middle">Standard production software</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="590" y="600" width="260" height="40" rx="4" fill="white" stroke="#10B981" stroke-width="1"/>
+    <text x="720" y="625" font-family="Libertinus Sans" font-size="10" fill="#10B981" text-anchor="middle">Critical infrastructure, regulated</text>
+  </g>
+</svg>

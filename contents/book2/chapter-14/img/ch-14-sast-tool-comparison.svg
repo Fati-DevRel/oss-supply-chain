@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" font-family="Libertinus Sans">
+  <defs>
+        <filter id="tableShadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset in="blur" dx="1" dy="2" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.5" result="color"/>
+      <feComposite in="color" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="semgrepGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981"/>
+      <stop offset="100%" style="stop-color:#059669"/>
+    </linearGradient>
+    <linearGradient id="codeqlGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1"/>
+      <stop offset="100%" style="stop-color:#4f46e5"/>
+    </linearGradient>
+    <linearGradient id="sonarGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b"/>
+      <stop offset="100%" style="stop-color:#d97706"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Title -->
+  <text x="400" y="35" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">SAST Tool Comparison</text>
+  <text x="400" y="55" text-anchor="middle" font-size="13" fill="#64748b">Selecting the right static analysis tool for dependency scanning</text>
+
+  <!-- Main table container -->
+  <g filter="url(#tableShadow)">
+    <rect x="40" y="75" width="720" height="390" rx="8" fill="white" stroke="#e2e8f0" stroke-width="1"/>
+  </g>
+
+  <!-- Header row -->
+  <rect x="40" y="75" width="180" height="50" rx="8" fill="#1e293b"/>
+  <rect x="40" y="117" width="180" height="8" fill="#1e293b"/>
+  <text x="130" y="107" text-anchor="middle" font-size="14" font-weight="600" fill="white">Feature</text>
+
+  <rect x="220" y="75" width="170" height="50" fill="url(#semgrepGrad)"/>
+  <text x="305" y="107" text-anchor="middle" font-size="14" font-weight="600" fill="white">Semgrep</text>
+
+  <rect x="390" y="75" width="170" height="50" fill="url(#codeqlGrad)"/>
+  <text x="475" y="107" text-anchor="middle" font-size="14" font-weight="600" fill="white">CodeQL</text>
+
+  <rect x="560" y="75" width="200" height="50" rx="8" fill="url(#sonarGrad)"/>
+  <rect x="560" y="75" width="8" height="50" fill="url(#sonarGrad)"/>
+  <text x="660" y="107" text-anchor="middle" font-size="14" font-weight="600" fill="white">SonarQube</text>
+
+  <!-- Row 1: Speed -->
+  <rect x="40" y="125" width="720" height="44" fill="white"/>
+  <text x="130" y="152" text-anchor="middle" font-size="13" font-weight="500" fill="#334155">Speed</text>
+  <rect x="255" y="137" width="100" height="24" rx="12" fill="#d1fae5"/>
+  <text x="305" y="153" text-anchor="middle" font-size="12" font-weight="500" fill="#047857">Fast</text>
+  <rect x="425" y="137" width="100" height="24" rx="12" fill="#fee2e2"/>
+  <text x="475" y="153" text-anchor="middle" font-size="12" font-weight="500" fill="#b91c1c">Slow (build DB)</text>
+  <rect x="610" y="137" width="100" height="24" rx="12" fill="#fef3c7"/>
+  <text x="660" y="153" text-anchor="middle" font-size="12" font-weight="500" fill="#92400e">Medium</text>
+
+  <!-- Row 2: Custom rules -->
+  <rect x="40" y="169" width="720" height="44" fill="#f8fafc"/>
+  <text x="130" y="196" text-anchor="middle" font-size="13" font-weight="500" fill="#334155">Custom Rules</text>
+  <rect x="255" y="181" width="100" height="24" rx="12" fill="#d1fae5"/>
+  <text x="305" y="197" text-anchor="middle" font-size="12" font-weight="500" fill="#047857">Easy (YAML)</text>
+  <rect x="425" y="181" width="100" height="24" rx="12" fill="#fef3c7"/>
+  <text x="475" y="197" text-anchor="middle" font-size="12" font-weight="500" fill="#92400e">Moderate (QL)</text>
+  <rect x="610" y="181" width="100" height="24" rx="12" fill="#fee2e2"/>
+  <text x="660" y="197" text-anchor="middle" font-size="12" font-weight="500" fill="#b91c1c">Complex</text>
+
+  <!-- Row 3: Data flow -->
+  <rect x="40" y="213" width="720" height="44" fill="white"/>
+  <text x="130" y="240" text-anchor="middle" font-size="13" font-weight="500" fill="#334155">Data Flow</text>
+  <rect x="255" y="225" width="100" height="24" rx="12" fill="#fee2e2"/>
+  <text x="305" y="241" text-anchor="middle" font-size="12" font-weight="500" fill="#b91c1c">Limited</text>
+  <rect x="425" y="225" width="100" height="24" rx="12" fill="#d1fae5"/>
+  <text x="475" y="241" text-anchor="middle" font-size="12" font-weight="500" fill="#047857">Excellent</text>
+  <rect x="610" y="225" width="100" height="24" rx="12" fill="#dbeafe"/>
+  <text x="660" y="241" text-anchor="middle" font-size="12" font-weight="500" fill="#1d4ed8">Good</text>
+
+  <!-- Row 4: Languages -->
+  <rect x="40" y="257" width="720" height="44" fill="#f8fafc"/>
+  <text x="130" y="284" text-anchor="middle" font-size="13" font-weight="500" fill="#334155">Languages</text>
+  <rect x="255" y="269" width="100" height="24" rx="12" fill="#d1fae5"/>
+  <text x="305" y="285" text-anchor="middle" font-size="12" font-weight="500" fill="#047857">30+</text>
+  <rect x="425" y="269" width="100" height="24" rx="12" fill="#fef3c7"/>
+  <text x="475" y="285" text-anchor="middle" font-size="12" font-weight="500" fill="#92400e">10+</text>
+  <rect x="610" y="269" width="100" height="24" rx="12" fill="#dbeafe"/>
+  <text x="660" y="285" text-anchor="middle" font-size="12" font-weight="500" fill="#1d4ed8">25+</text>
+
+  <!-- Row 5: False positives -->
+  <rect x="40" y="301" width="720" height="44" fill="white"/>
+  <text x="130" y="328" text-anchor="middle" font-size="13" font-weight="500" fill="#334155">False Positives</text>
+  <rect x="255" y="313" width="100" height="24" rx="12" fill="#d1fae5"/>
+  <text x="305" y="329" text-anchor="middle" font-size="12" font-weight="500" fill="#047857">Low</text>
+  <rect x="425" y="313" width="100" height="24" rx="12" fill="#dbeafe"/>
+  <text x="475" y="329" text-anchor="middle" font-size="12" font-weight="500" fill="#1d4ed8">Low-Medium</text>
+  <rect x="610" y="313" width="100" height="24" rx="12" fill="#fef3c7"/>
+  <text x="660" y="329" text-anchor="middle" font-size="12" font-weight="500" fill="#92400e">Medium</text>
+
+  <!-- Row 6: Cost -->
+  <rect x="40" y="345" width="720" height="44" fill="#f8fafc"/>
+  <text x="130" y="372" text-anchor="middle" font-size="13" font-weight="500" fill="#334155">Cost</text>
+  <text x="305" y="365" text-anchor="middle" font-size="11" fill="#334155">Free (OSS)</text>
+  <text x="305" y="380" text-anchor="middle" font-size="10" fill="#64748b">Open source</text>
+  <text x="475" y="365" text-anchor="middle" font-size="11" fill="#334155">Free (public repos)</text>
+  <text x="475" y="380" text-anchor="middle" font-size="10" fill="#64748b">Paid for private</text>
+  <text x="660" y="365" text-anchor="middle" font-size="11" fill="#334155">Free tier</text>
+  <text x="660" y="380" text-anchor="middle" font-size="10" fill="#64748b">Commercial editions</text>
+
+  <!-- Best for section -->
+  <rect x="40" y="389" width="720" height="76" rx="8" fill="#f1f5f9"/>
+  <rect x="40" y="389" width="720" height="8" fill="#f1f5f9"/>
+  <text x="130" y="418" text-anchor="middle" font-size="13" font-weight="600" fill="#334155">Best For</text>
+
+  <text x="305" y="415" text-anchor="middle" font-size="11" font-weight="500" fill="#047857">Quick scans</text>
+  <text x="305" y="432" text-anchor="middle" font-size="10" fill="#475569">CI/CD integration</text>
+  <text x="305" y="448" text-anchor="middle" font-size="10" fill="#475569">Custom rule writing</text>
+
+  <text x="475" y="415" text-anchor="middle" font-size="11" font-weight="500" fill="#4f46e5">Deep analysis</text>
+  <text x="475" y="432" text-anchor="middle" font-size="10" fill="#475569">Complex vulnerabilities</text>
+  <text x="475" y="448" text-anchor="middle" font-size="10" fill="#475569">Data flow tracking</text>
+
+  <text x="660" y="415" text-anchor="middle" font-size="11" font-weight="500" fill="#d97706">Enterprise teams</text>
+  <text x="660" y="432" text-anchor="middle" font-size="10" fill="#475569">Quality gates</text>
+  <text x="660" y="448" text-anchor="middle" font-size="10" fill="#475569">Unified platform</text>
+</svg>

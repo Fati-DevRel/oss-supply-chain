@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 650">
+  <defs>
+        <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset in="blur" dx="1" dy="2" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.5" result="color"/>
+      <feComposite in="color" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="foundationGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#64748B;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#475569;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="practitionerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3B82F6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2563EB;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="specialistGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#8B5CF6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7C3AED;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="leadershipGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#10B981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="650" fill="#F8FAFC"/>
+
+  <!-- Title -->
+  <text x="450" y="35" font-family="Libertinus Sans" font-size="22" font-weight="bold" fill="#1E293B" text-anchor="middle">Supply Chain Security Training Curriculum Framework</text>
+  <text x="450" y="55" font-family="Libertinus Sans" font-size="13" fill="#64748B" text-anchor="middle">Progressive skill development from awareness to strategic leadership</text>
+
+  <!-- Level 4: Leadership (Top) -->
+  <g filter="url(#shadow)">
+    <rect x="250" y="80" width="400" height="100" rx="8" fill="url(#leadershipGrad)"/>
+    <text x="450" y="110" font-family="Libertinus Sans" font-size="16" font-weight="bold" fill="white" text-anchor="middle">LEVEL 4: LEADERSHIP</text>
+    <text x="450" y="130" font-family="Libertinus Sans" font-size="11" fill="#D1FAE5" text-anchor="middle">Executives, Security Directors, Engineering VPs</text>
+    <text x="270" y="155" font-family="Libertinus Sans" font-size="10" fill="#A7F3D0">- Strategic risk management</text>
+    <text x="270" y="170" font-family="Libertinus Sans" font-size="10" fill="#A7F3D0">- Investment prioritization</text>
+    <text x="450" y="155" font-family="Libertinus Sans" font-size="10" fill="#A7F3D0">- Regulatory strategy</text>
+    <text x="450" y="170" font-family="Libertinus Sans" font-size="10" fill="#A7F3D0">- Vendor governance</text>
+  </g>
+
+  <!-- Level 3: Specialist -->
+  <g filter="url(#shadow)">
+    <rect x="200" y="195" width="500" height="100" rx="8" fill="url(#specialistGrad)"/>
+    <text x="450" y="225" font-family="Libertinus Sans" font-size="16" font-weight="bold" fill="white" text-anchor="middle">LEVEL 3: SPECIALIST</text>
+    <text x="450" y="245" font-family="Libertinus Sans" font-size="11" fill="#E9D5FF" text-anchor="middle">Security Engineers, AppSec Leads, DevSecOps Engineers</text>
+    <text x="220" y="270" font-family="Libertinus Sans" font-size="10" fill="#DDD6FE">- Advanced threat modeling</text>
+    <text x="220" y="285" font-family="Libertinus Sans" font-size="10" fill="#DDD6FE">- SBOM implementation</text>
+    <text x="420" y="270" font-family="Libertinus Sans" font-size="10" fill="#DDD6FE">- Pipeline hardening</text>
+    <text x="420" y="285" font-family="Libertinus Sans" font-size="10" fill="#DDD6FE">- Incident response</text>
+    <text x="580" y="270" font-family="Libertinus Sans" font-size="10" fill="#DDD6FE">- Red teaming</text>
+    <text x="580" y="285" font-family="Libertinus Sans" font-size="10" fill="#DDD6FE">- Tool evaluation</text>
+  </g>
+
+  <!-- Level 2: Practitioner -->
+  <g filter="url(#shadow)">
+    <rect x="150" y="310" width="600" height="100" rx="8" fill="url(#practitionerGrad)"/>
+    <text x="450" y="340" font-family="Libertinus Sans" font-size="16" font-weight="bold" fill="white" text-anchor="middle">LEVEL 2: PRACTITIONER</text>
+    <text x="450" y="360" font-family="Libertinus Sans" font-size="11" fill="#DBEAFE" text-anchor="middle">Software Developers, DevOps Engineers, QA Engineers</text>
+    <text x="170" y="385" font-family="Libertinus Sans" font-size="10" fill="#BFDBFE">- Secure coding practices</text>
+    <text x="170" y="400" font-family="Libertinus Sans" font-size="10" fill="#BFDBFE">- Dependency management</text>
+    <text x="370" y="385" font-family="Libertinus Sans" font-size="10" fill="#BFDBFE">- Code review for security</text>
+    <text x="370" y="400" font-family="Libertinus Sans" font-size="10" fill="#BFDBFE">- Vulnerability triage</text>
+    <text x="570" y="385" font-family="Libertinus Sans" font-size="10" fill="#BFDBFE">- Secret management</text>
+    <text x="570" y="400" font-family="Libertinus Sans" font-size="10" fill="#BFDBFE">- Build security basics</text>
+  </g>
+
+  <!-- Level 1: Foundation -->
+  <g filter="url(#shadow)">
+    <rect x="100" y="425" width="700" height="100" rx="8" fill="url(#foundationGrad)"/>
+    <text x="450" y="455" font-family="Libertinus Sans" font-size="16" font-weight="bold" fill="white" text-anchor="middle">LEVEL 1: FOUNDATION</text>
+    <text x="450" y="475" font-family="Libertinus Sans" font-size="11" fill="#E2E8F0" text-anchor="middle">All Technical Staff, New Hires, Contractors</text>
+    <text x="120" y="500" font-family="Libertinus Sans" font-size="10" fill="#CBD5E1">- Supply chain threat awareness</text>
+    <text x="120" y="515" font-family="Libertinus Sans" font-size="10" fill="#CBD5E1">- Attack pattern recognition</text>
+    <text x="320" y="500" font-family="Libertinus Sans" font-size="10" fill="#CBD5E1">- Security policies/procedures</text>
+    <text x="320" y="515" font-family="Libertinus Sans" font-size="10" fill="#CBD5E1">- Reporting suspicious activity</text>
+    <text x="560" y="500" font-family="Libertinus Sans" font-size="10" fill="#CBD5E1">- Case study review</text>
+    <text x="560" y="515" font-family="Libertinus Sans" font-size="10" fill="#CBD5E1">- Phishing awareness</text>
+  </g>
+
+  <!-- Side annotations -->
+  <!-- Duration indicators -->
+  <g filter="url(#shadow)">
+    <rect x="680" y="85" width="170" height="40" rx="4" fill="white" stroke="#10B981" stroke-width="1"/>
+    <text x="765" y="105" font-family="Libertinus Sans" font-size="10" font-weight="bold" fill="#10B981" text-anchor="middle">Duration: 4-8 hours</text>
+    <text x="765" y="118" font-family="Libertinus Sans" font-size="9" fill="#475569" text-anchor="middle">Quarterly briefings</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="730" y="200" width="150" height="40" rx="4" fill="white" stroke="#8B5CF6" stroke-width="1"/>
+    <text x="805" y="220" font-family="Libertinus Sans" font-size="10" font-weight="bold" fill="#8B5CF6" text-anchor="middle">Duration: 40+ hours</text>
+    <text x="805" y="233" font-family="Libertinus Sans" font-size="9" fill="#475569" text-anchor="middle">Certification track</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="780" y="315" width="100" height="40" rx="4" fill="white" stroke="#3B82F6" stroke-width="1"/>
+    <text x="830" y="335" font-family="Libertinus Sans" font-size="10" font-weight="bold" fill="#3B82F6" text-anchor="middle">16-24 hours</text>
+    <text x="830" y="348" font-family="Libertinus Sans" font-size="9" fill="#475569" text-anchor="middle">Annual</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="830" y="430" width="60" height="40" rx="4" fill="white" stroke="#64748B" stroke-width="1"/>
+    <text x="860" y="450" font-family="Libertinus Sans" font-size="10" font-weight="bold" fill="#64748B" text-anchor="middle">2-4 hrs</text>
+    <text x="860" y="463" font-family="Libertinus Sans" font-size="9" fill="#475569" text-anchor="middle">Annual</text>
+  </g>
+
+  <!-- Connecting lines -->
+  <line x1="650" y1="130" x2="680" y2="105" stroke="#10B981" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="700" y1="245" x2="730" y2="220" stroke="#8B5CF6" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="750" y1="360" x2="780" y2="335" stroke="#3B82F6" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="800" y1="475" x2="830" y2="450" stroke="#64748B" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <!-- Bottom section: Key success factors -->
+  <rect x="100" y="545" width="700" height="90" rx="8" fill="#FEF3C7" stroke="#FCD34D" stroke-width="1"/>
+  <text x="450" y="570" font-family="Libertinus Sans" font-size="12" font-weight="bold" fill="#92400E" text-anchor="middle">Key Success Factors for Security Training Programs</text>
+
+  <text x="120" y="595" font-family="Libertinus Sans" font-size="10" fill="#78350F">- Role-specific content relevance</text>
+  <text x="120" y="610" font-family="Libertinus Sans" font-size="10" fill="#78350F">- Hands-on labs and exercises</text>
+  <text x="120" y="625" font-family="Libertinus Sans" font-size="10" fill="#78350F">- Real incident case studies</text>
+
+  <text x="350" y="595" font-family="Libertinus Sans" font-size="10" fill="#78350F">- Regular reinforcement</text>
+  <text x="350" y="610" font-family="Libertinus Sans" font-size="10" fill="#78350F">- Metrics and assessment</text>
+  <text x="350" y="625" font-family="Libertinus Sans" font-size="10" fill="#78350F">- Executive sponsorship</text>
+
+  <text x="560" y="595" font-family="Libertinus Sans" font-size="10" fill="#78350F">- Integration with workflows</text>
+  <text x="560" y="610" font-family="Libertinus Sans" font-size="10" fill="#78350F">- Gamification elements</text>
+  <text x="560" y="625" font-family="Libertinus Sans" font-size="10" fill="#78350F">- Continuous updates</text>
+
+  <!-- Progression arrow on left -->
+  <defs>
+    <marker id="arrowUp" markerWidth="10" markerHeight="7" refX="5" refY="7" orient="auto-start-reverse">
+      <polygon points="0 7, 5 0, 10 7" fill="#64748B"/>
+    </marker>
+  </defs>
+  <line x1="60" y1="510" x2="60" y2="100" stroke="#64748B" stroke-width="2" marker-end="url(#arrowUp)"/>
+  <text x="45" y="310" font-family="Libertinus Sans" font-size="11" fill="#64748B" transform="rotate(-90 45 310)">Skill Progression</text>
+</svg>

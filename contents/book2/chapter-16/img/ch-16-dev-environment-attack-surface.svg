@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 650">
+  <defs>
+        <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset in="blur" dx="1" dy="2" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.5" result="color"/>
+      <feComposite in="color" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="dangerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#FEE2E2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FECACA;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="650" fill="#F8FAFC"/>
+
+  <!-- Title -->
+  <text x="450" y="35" font-family="Libertinus Sans" font-size="22" font-weight="bold" fill="#1E293B" text-anchor="middle">Developer Environment Attack Surface</text>
+  <text x="450" y="55" font-family="Libertinus Sans" font-size="13" fill="#64748B" text-anchor="middle">Potential entry points and vulnerabilities in the development environment</text>
+
+  <!-- Central Developer Workstation -->
+  <g filter="url(#shadow)">
+    <rect x="350" y="250" width="200" height="120" rx="12" fill="white" stroke="#1E293B" stroke-width="3"/>
+    <rect x="380" y="270" width="140" height="70" rx="4" fill="#E2E8F0"/>
+    <rect x="400" y="340" width="100" height="10" rx="2" fill="#94A3B8"/>
+    <text x="450" y="310" font-family="Libertinus Sans" font-size="14" font-weight="bold" fill="#1E293B" text-anchor="middle">Developer</text>
+    <text x="450" y="328" font-family="Libertinus Sans" font-size="14" font-weight="bold" fill="#1E293B" text-anchor="middle">Workstation</text>
+  </g>
+
+  <!-- Attack Vectors - surrounding the workstation -->
+
+  <!-- 1. IDE Extensions (Top Left) -->
+  <g filter="url(#shadow)">
+    <rect x="80" y="100" width="180" height="100" rx="8" fill="url(#dangerGrad)" stroke="#EF4444" stroke-width="2"/>
+    <circle cx="100" cy="120" r="12" fill="#EF4444"/>
+    <text x="100" y="125" font-family="Libertinus Sans" font-size="12" font-weight="bold" fill="white" text-anchor="middle">1</text>
+    <text x="170" y="125" font-family="Libertinus Sans" font-size="13" font-weight="bold" fill="#991B1B">IDE Extensions</text>
+    <text x="90" y="145" font-family="Libertinus Sans" font-size="10" fill="#7F1D1D">- Malicious plugins</text>
+    <text x="90" y="160" font-family="Libertinus Sans" font-size="10" fill="#7F1D1D">- Supply chain compromise</text>
+    <text x="90" y="175" font-family="Libertinus Sans" font-size="10" fill="#7F1D1D">- Data exfiltration</text>
+    <text x="90" y="190" font-family="Libertinus Sans" font-size="10" fill="#7F1D1D">- Credential theft</text>
+  </g>
+  <line x1="260" y1="150" x2="350" y2="270" stroke="#EF4444" stroke-width="2" stroke-dasharray="5,3"/>
+
+  <!-- 2. Package Managers (Top Center) -->
+  <g filter="url(#shadow)">
+    <rect x="360" y="80" width="180" height="100" rx="8" fill="url(#dangerGrad)" stroke="#EF4444" stroke-width="2"/>
+    <circle cx="380" cy="100" r="12" fill="#EF4444"/>
+    <text x="380" y="105" font-family="Libertinus Sans" font-size="12" font-weight="bold" fill="white" text-anchor="middle">2</text>
+    <text x="450" y="105" font-family="Libertinus Sans" font-size="13" font-weight="bold" fill="#991B1B">Package Managers</text>
+    <text x="370" y="125" font-family="Libertinus Sans" font-size="10" fill="#7F1D1D">- Dependency confusion</text>
+    <text x="370" y="140" font-family="Libertinus Sans" font-size="10" fill="#7F1D1D">- Typosquatting</text>
+    <text x="370" y="155" font-family="Libertinus Sans" font-size="10" fill="#7F1D1D">- Malicious packages</text>
+    <text x="370" y="170" font-family="Libertinus Sans" font-size="10" fill="#7F1D1D">- Install scripts</text>
+  </g>
+  <line x1="450" y1="180" x2="450" y2="250" stroke="#EF4444" stroke-width="2" stroke-dasharray="5,3"/>
+
+  <!-- 3. Git Repositories (Top Right) -->
+  <g filter="url(#shadow)">
+    <rect x="640" y="100" width="180" height="100" rx="8" fill="url(#dangerGrad)" stroke="#EF4444" stroke-width="2"/>
+    <circle cx="660" cy="120" r="12" fill="#EF4444"/>
+    <text x="660" y="125" font-family="Libertinus Sans" font-size="12" font-weight="bold" fill="white" text-anchor="middle">3</text>
+    <text x="730" y="125" font-family="Libertinus Sans" font-size="13" font-weight="bold" fill="#991B1B">Git Repositories</text>
+    <text x="650" y="145" font-family="Libertinus Sans" font-size="10" fill="#7F1D1D">- Malicious commits</text>
+    <text x="650" y="160" font-family="Libertinus Sans" font-size="10" fill="#7F1D1D">- Git hooks exploitation</text>
+    <text x="650" y="175" font-family="Libertinus Sans" font-size="10" fill="#7F1D1D">- Secrets in history</text>
+    <text x="650" y="190" font-family="Libertinus Sans" font-size="10" fill="#7F1D1D">- Submodule attacks</text>
+  </g>
+  <line x1="640" y1="150" x2="550" y2="270" stroke="#EF4444" stroke-width="2" stroke-dasharray="5,3"/>
+
+  <!-- 4. Browser/Web (Middle Left) -->
+  <g filter="url(#shadow)">
+    <rect x="50" y="270" width="180" height="100" rx="8" fill="url(#dangerGrad)" stroke="#EF4444" stroke-width="2"/>
+    <circle cx="70" cy="290" r="12" fill="#EF4444"/>
+    <text x="70" y="295" font-family="Libertinus Sans" font-size="12" font-weight="bold" fill="white" text-anchor="middle">4</text>
+    <text x="140" y="295" font-family="Libertinus Sans" font-size="13" font-weight="bold" fill="#991B1B">Browser / Web</text>
+    <text x="60" y="315" font-family="Libertinus Sans" font-size="10" fill="#7F1D1D">- Phishing attacks</text>
+    <text x="60" y="330" font-family="Libertinus Sans" font-size="10" fill="#7F1D1D">- Watering hole</text>
+    <text x="60" y="345" font-family="Libertinus Sans" font-size="10" fill="#7F1D1D">- OAuth token theft</text>
+    <text x="60" y="360" font-family="Libertinus Sans" font-size="10" fill="#7F1D1D">- Malicious downloads</text>
+  </g>
+  <line x1="230" y1="310" x2="350" y2="310" stroke="#EF4444" stroke-width="2" stroke-dasharray="5,3"/>
+
+  <!-- 5. Cloud Services (Middle Right) -->
+  <g filter="url(#shadow)">
+    <rect x="670" y="270" width="180" height="100" rx="8" fill="url(#dangerGrad)" stroke="#EF4444" stroke-width="2"/>
+    <circle cx="690" cy="290" r="12" fill="#EF4444"/>
+    <text x="690" y="295" font-family="Libertinus Sans" font-size="12" font-weight="bold" fill="white" text-anchor="middle">5</text>
+    <text x="760" y="295" font-family="Libertinus Sans" font-size="13" font-weight="bold" fill="#991B1B">Cloud Services</text>
+    <text x="680" y="315" font-family="Libertinus Sans" font-size="10" fill="#7F1D1D">- API key exposure</text>
+    <text x="680" y="330" font-family="Libertinus Sans" font-size="10" fill="#7F1D1D">- Misconfigured access</text>
+    <text x="680" y="345" font-family="Libertinus Sans" font-size="10" fill="#7F1D1D">- Token hijacking</text>
+    <text x="680" y="360" font-family="Libertinus Sans" font-size="10" fill="#7F1D1D">- Session persistence</text>
+  </g>
+  <line x1="670" y1="310" x2="550" y2="310" stroke="#EF4444" stroke-width="2" stroke-dasharray="5,3"/>
+
+  <!-- 6. Local Tools (Bottom Left) -->
+  <g filter="url(#shadow)">
+    <rect x="80" y="440" width="180" height="100" rx="8" fill="url(#dangerGrad)" stroke="#EF4444" stroke-width="2"/>
+    <circle cx="100" cy="460" r="12" fill="#EF4444"/>
+    <text x="100" y="465" font-family="Libertinus Sans" font-size="12" font-weight="bold" fill="white" text-anchor="middle">6</text>
+    <text x="170" y="465" font-family="Libertinus Sans" font-size="13" font-weight="bold" fill="#991B1B">Local Tools</text>
+    <text x="90" y="485" font-family="Libertinus Sans" font-size="10" fill="#7F1D1D">- Trojanized binaries</text>
+    <text x="90" y="500" font-family="Libertinus Sans" font-size="10" fill="#7F1D1D">- Outdated software</text>
+    <text x="90" y="515" font-family="Libertinus Sans" font-size="10" fill="#7F1D1D">- Unsigned tools</text>
+    <text x="90" y="530" font-family="Libertinus Sans" font-size="10" fill="#7F1D1D">- PATH hijacking</text>
+  </g>
+  <line x1="260" y1="480" x2="350" y2="370" stroke="#EF4444" stroke-width="2" stroke-dasharray="5,3"/>
+
+  <!-- 7. Credentials (Bottom Center) -->
+  <g filter="url(#shadow)">
+    <rect x="360" y="440" width="180" height="100" rx="8" fill="url(#dangerGrad)" stroke="#EF4444" stroke-width="2"/>
+    <circle cx="380" cy="460" r="12" fill="#EF4444"/>
+    <text x="380" y="465" font-family="Libertinus Sans" font-size="12" font-weight="bold" fill="white" text-anchor="middle">7</text>
+    <text x="450" y="465" font-family="Libertinus Sans" font-size="13" font-weight="bold" fill="#991B1B">Credentials</text>
+    <text x="370" y="485" font-family="Libertinus Sans" font-size="10" fill="#7F1D1D">- Hardcoded secrets</text>
+    <text x="370" y="500" font-family="Libertinus Sans" font-size="10" fill="#7F1D1D">- SSH key exposure</text>
+    <text x="370" y="515" font-family="Libertinus Sans" font-size="10" fill="#7F1D1D">- .env file leakage</text>
+    <text x="370" y="530" font-family="Libertinus Sans" font-size="10" fill="#7F1D1D">- Credential reuse</text>
+  </g>
+  <line x1="450" y1="440" x2="450" y2="370" stroke="#EF4444" stroke-width="2" stroke-dasharray="5,3"/>
+
+  <!-- 8. Network (Bottom Right) -->
+  <g filter="url(#shadow)">
+    <rect x="640" y="440" width="180" height="100" rx="8" fill="url(#dangerGrad)" stroke="#EF4444" stroke-width="2"/>
+    <circle cx="660" cy="460" r="12" fill="#EF4444"/>
+    <text x="660" y="465" font-family="Libertinus Sans" font-size="12" font-weight="bold" fill="white" text-anchor="middle">8</text>
+    <text x="730" y="465" font-family="Libertinus Sans" font-size="13" font-weight="bold" fill="#991B1B">Network</text>
+    <text x="650" y="485" font-family="Libertinus Sans" font-size="10" fill="#7F1D1D">- Public WiFi risks</text>
+    <text x="650" y="500" font-family="Libertinus Sans" font-size="10" fill="#7F1D1D">- MITM attacks</text>
+    <text x="650" y="515" font-family="Libertinus Sans" font-size="10" fill="#7F1D1D">- DNS spoofing</text>
+    <text x="650" y="530" font-family="Libertinus Sans" font-size="10" fill="#7F1D1D">- Unencrypted traffic</text>
+  </g>
+  <line x1="640" y1="480" x2="550" y2="370" stroke="#EF4444" stroke-width="2" stroke-dasharray="5,3"/>
+
+  <!-- Legend -->
+  <rect x="50" y="580" width="800" height="50" rx="8" fill="#FEF3C7" stroke="#F59E0B" stroke-width="1"/>
+  <text x="70" y="605" font-family="Libertinus Sans" font-size="12" font-weight="bold" fill="#92400E">Key Insight:</text>
+  <text x="155" y="605" font-family="Libertinus Sans" font-size="12" fill="#92400E">Developer workstations are high-value targets with access to source code, credentials, and infrastructure.</text>
+  <text x="70" y="622" font-family="Libertinus Sans" font-size="12" fill="#92400E">Compromising a single developer can provide access to the entire software supply chain.</text>
+</svg>

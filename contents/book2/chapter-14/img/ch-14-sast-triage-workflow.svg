@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 680" font-family="Libertinus Sans">
+  <defs>
+        <filter id="boxShadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset in="blur" dx="1" dy="2" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.5" result="color"/>
+      <feComposite in="color" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#3b82f6"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#10b981"/>
+    </marker>
+    <marker id="arrowAmber" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#f59e0b"/>
+    </marker>
+    <linearGradient id="startGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="100%" style="stop-color:#1d4ed8"/>
+    </linearGradient>
+    <linearGradient id="actionGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981"/>
+      <stop offset="100%" style="stop-color:#059669"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Title -->
+  <text x="400" y="30" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">SAST Finding Triage Workflow</text>
+  <text x="400" y="50" text-anchor="middle" font-size="13" fill="#64748b">Decision process for third-party dependency findings</text>
+
+  <!-- Start: Finding Detected -->
+  <g filter="url(#boxShadow)">
+    <rect x="300" y="70" width="200" height="50" rx="25" fill="url(#startGrad)"/>
+    <text x="400" y="100" text-anchor="middle" font-size="14" font-weight="600" fill="white">Finding Detected</text>
+  </g>
+
+  <!-- Arrow down -->
+  <line x1="400" y1="120" x2="400" y2="145" stroke="#3b82f6" stroke-width="2" marker-end="url(#arrowBlue)"/>
+
+  <!-- Decision 1: Production path? -->
+  <g filter="url(#boxShadow)">
+    <polygon points="400,150 540,200 400,250 260,200" fill="white" stroke="#3b82f6" stroke-width="2"/>
+    <text x="400" y="193" text-anchor="middle" font-size="12" font-weight="500" fill="#1e293b">Is this package in</text>
+    <text x="400" y="210" text-anchor="middle" font-size="12" font-weight="500" fill="#1e293b">production path?</text>
+  </g>
+
+  <!-- No branch - Lower priority -->
+  <line x1="540" y1="200" x2="620" y2="200" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrowAmber)"/>
+  <text x="570" y="190" font-size="11" fill="#64748b">No</text>
+  <g filter="url(#boxShadow)">
+    <rect x="625" y="175" width="130" height="50" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+    <text x="690" y="200" text-anchor="middle" font-size="12" font-weight="500" fill="#92400e">Lower Priority</text>
+    <text x="690" y="215" text-anchor="middle" font-size="10" fill="#a16207">Queue for review</text>
+  </g>
+
+  <!-- Yes arrow down -->
+  <line x1="400" y1="250" x2="400" y2="285" stroke="#3b82f6" stroke-width="2" marker-end="url(#arrowBlue)"/>
+  <text x="410" y="270" font-size="11" fill="#3b82f6" font-weight="500">Yes</text>
+
+  <!-- Decision 2: Code you use? -->
+  <g filter="url(#boxShadow)">
+    <polygon points="400,290 540,340 400,390 260,340" fill="white" stroke="#3b82f6" stroke-width="2"/>
+    <text x="400" y="333" text-anchor="middle" font-size="12" font-weight="500" fill="#1e293b">Is finding in code</text>
+    <text x="400" y="350" text-anchor="middle" font-size="12" font-weight="500" fill="#1e293b">you actually use?</text>
+  </g>
+
+  <!-- No branch - Flag but don't block -->
+  <line x1="540" y1="340" x2="620" y2="340" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrowAmber)"/>
+  <text x="570" y="330" font-size="11" fill="#64748b">No</text>
+  <g filter="url(#boxShadow)">
+    <rect x="625" y="315" width="130" height="50" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+    <text x="690" y="337" text-anchor="middle" font-size="12" font-weight="500" fill="#92400e">Flag But</text>
+    <text x="690" y="353" text-anchor="middle" font-size="12" font-weight="500" fill="#92400e">Don't Block</text>
+  </g>
+
+  <!-- Yes arrow down -->
+  <line x1="400" y1="390" x2="400" y2="425" stroke="#3b82f6" stroke-width="2" marker-end="url(#arrowBlue)"/>
+  <text x="410" y="410" font-size="11" fill="#3b82f6" font-weight="500">Yes</text>
+
+  <!-- Decision 3: Known intentional? -->
+  <g filter="url(#boxShadow)">
+    <polygon points="400,430 540,480 400,530 260,480" fill="white" stroke="#3b82f6" stroke-width="2"/>
+    <text x="400" y="473" text-anchor="middle" font-size="12" font-weight="500" fill="#1e293b">Is this a known</text>
+    <text x="400" y="490" text-anchor="middle" font-size="12" font-weight="500" fill="#1e293b">intentional pattern?</text>
+  </g>
+
+  <!-- Yes branch - Document, accept -->
+  <line x1="540" y1="480" x2="620" y2="480" stroke="#10b981" stroke-width="2" marker-end="url(#arrowGreen)"/>
+  <text x="570" y="470" font-size="11" fill="#10b981" font-weight="500">Yes</text>
+  <g filter="url(#boxShadow)">
+    <rect x="625" y="455" width="130" height="50" rx="6" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+    <text x="690" y="477" text-anchor="middle" font-size="12" font-weight="500" fill="#047857">Document</text>
+    <text x="690" y="493" text-anchor="middle" font-size="12" font-weight="500" fill="#047857">and Accept</text>
+  </g>
+
+  <!-- No arrow down -->
+  <line x1="400" y1="530" x2="400" y2="555" stroke="#3b82f6" stroke-width="2" marker-end="url(#arrowBlue)"/>
+  <text x="385" y="545" font-size="11" fill="#ef4444" font-weight="500">No</text>
+
+  <!-- Investigate box -->
+  <g filter="url(#boxShadow)">
+    <rect x="280" y="560" width="240" height="70" rx="8" fill="white" stroke="#3b82f6" stroke-width="2"/>
+    <text x="400" y="582" text-anchor="middle" font-size="13" font-weight="600" fill="#1e293b">Investigate</text>
+    <text x="400" y="600" text-anchor="middle" font-size="11" fill="#475569">Review code context</text>
+    <text x="400" y="615" text-anchor="middle" font-size="11" fill="#475569">Check maintainer / Search for reports</text>
+  </g>
+
+  <!-- Arrow to final action -->
+  <line x1="400" y1="630" x2="400" y2="650" stroke="#3b82f6" stroke-width="2" marker-end="url(#arrowBlue)"/>
+
+  <!-- Action Decision -->
+  <g filter="url(#boxShadow)">
+    <rect x="250" y="655" width="300" height="45" rx="8" fill="url(#actionGrad)"/>
+    <text x="400" y="678" text-anchor="middle" font-size="13" font-weight="600" fill="white">Action: Report / Replace / Accept</text>
+    <text x="400" y="693" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.9)">Document decision with justification</text>
+  </g>
+
+  <!-- Legend -->
+  <rect x="40" y="560" width="180" height="140" rx="6" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="55" y="582" font-size="12" font-weight="600" fill="#334155">Legend</text>
+
+  <rect x="55" y="595" width="16" height="16" rx="8" fill="#3b82f6"/>
+  <text x="80" y="607" font-size="11" fill="#475569">Decision point</text>
+
+  <rect x="55" y="620" width="16" height="16" rx="4" fill="#d1fae5" stroke="#10b981"/>
+  <text x="80" y="632" font-size="11" fill="#475569">Resolved (accept)</text>
+
+  <rect x="55" y="645" width="16" height="16" rx="4" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="80" y="657" font-size="11" fill="#475569">Deferred/flagged</text>
+
+  <rect x="55" y="670" width="16" height="16" rx="4" fill="url(#actionGrad)"/>
+  <text x="80" y="682" font-size="11" fill="#475569">Requires action</text>
+</svg>

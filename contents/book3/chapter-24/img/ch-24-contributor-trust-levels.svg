@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" font-family="Libertinus Sans">
+  <defs>
+    <linearGradient id="level1Grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f7fafc"/>
+      <stop offset="100%" style="stop-color:#e2e8f0"/>
+    </linearGradient>
+    <linearGradient id="level2Grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#c6f6d5"/>
+      <stop offset="100%" style="stop-color:#9ae6b4"/>
+    </linearGradient>
+    <linearGradient id="level3Grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#90cdf4"/>
+      <stop offset="100%" style="stop-color:#63b3ed"/>
+    </linearGradient>
+    <linearGradient id="level4Grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#faf089"/>
+      <stop offset="100%" style="stop-color:#ecc94b"/>
+    </linearGradient>
+        <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset in="blur" dx="1" dy="2" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.5" result="color"/>
+      <feComposite in="color" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <marker id="arrowUp" markerWidth="10" markerHeight="10" refX="5" refY="10" orient="auto">
+      <polygon points="5 0, 0 10, 10 10" fill="#718096"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="600" fill="#f7fafc"/>
+
+  <!-- Title -->
+  <text x="450" y="35" text-anchor="middle" font-size="20" font-weight="bold" fill="#1a202c">Graduated Trust Model for Contributors</text>
+  <text x="450" y="55" text-anchor="middle" font-size="12" fill="#718096">XZ Utils-informed approach: Trust is earned incrementally over time</text>
+
+  <!-- Pyramid structure -->
+  <g transform="translate(50, 90)">
+
+    <!-- Level 4: Maintainer (Top) -->
+    <g transform="translate(200, 0)">
+      <polygon points="200,0 350,80 50,80" fill="url(#level4Grad)" stroke="#d69e2e" stroke-width="2" filter="url(#shadow)"/>
+      <text x="200" y="35" text-anchor="middle" font-size="13" font-weight="bold" fill="#744210">Level 4: Maintainer</text>
+      <text x="200" y="52" text-anchor="middle" font-size="9" fill="#975a16">Years of trust, verified identity</text>
+      <text x="200" y="68" text-anchor="middle" font-size="9" fill="#975a16">Full access + security response</text>
+    </g>
+
+    <!-- Level 3: Trusted Contributor -->
+    <g transform="translate(150, 85)">
+      <polygon points="250,0 425,90 75,90" fill="url(#level3Grad)" stroke="#3182ce" stroke-width="2" filter="url(#shadow)"/>
+      <text x="250" y="30" text-anchor="middle" font-size="13" font-weight="bold" fill="#2a4365">Level 3: Trusted Contributor</text>
+      <text x="250" y="47" text-anchor="middle" font-size="9" fill="#2c5282">Extended track record</text>
+      <text x="250" y="62" text-anchor="middle" font-size="9" fill="#2c5282">Can merge low-sensitivity PRs after review</text>
+      <text x="250" y="77" text-anchor="middle" font-size="9" fill="#2c5282">Invited to security discussions</text>
+    </g>
+
+    <!-- Level 2: Recognized Contributor -->
+    <g transform="translate(100, 180)">
+      <polygon points="300,0 500,100 100,100" fill="url(#level2Grad)" stroke="#38a169" stroke-width="2" filter="url(#shadow)"/>
+      <text x="300" y="30" text-anchor="middle" font-size="13" font-weight="bold" fill="#22543d">Level 2: Recognized Contributor</text>
+      <text x="300" y="47" text-anchor="middle" font-size="9" fill="#276749">Months of quality contributions</text>
+      <text x="300" y="62" text-anchor="middle" font-size="9" fill="#276749">PRs still require review</text>
+      <text x="300" y="77" text-anchor="middle" font-size="9" fill="#276749">May receive triage permissions</text>
+    </g>
+
+    <!-- Level 1: First Contribution (Bottom) -->
+    <g transform="translate(50, 285)">
+      <polygon points="350,0 600,110 100,110" fill="url(#level1Grad)" stroke="#a0aec0" stroke-width="2" filter="url(#shadow)"/>
+      <text x="350" y="30" text-anchor="middle" font-size="13" font-weight="bold" fill="#4a5568">Level 1: First Contribution</text>
+      <text x="350" y="47" text-anchor="middle" font-size="9" fill="#718096">All PRs require maintainer review</text>
+      <text x="350" y="62" text-anchor="middle" font-size="9" fill="#718096">No merge access</text>
+      <text x="350" y="77" text-anchor="middle" font-size="9" fill="#718096">Cannot modify CI/CD or dependencies</text>
+      <text x="350" y="92" text-anchor="middle" font-size="9" fill="#718096">Standard code review</text>
+    </g>
+
+    <!-- Time arrow on left -->
+    <g transform="translate(30, 100)">
+      <line x1="0" y1="295" x2="0" y2="20" stroke="#718096" stroke-width="2" marker-end="url(#arrowUp)"/>
+      <text x="0" y="160" text-anchor="middle" font-size="10" font-weight="bold" fill="#718096" transform="rotate(-90, 0, 160)">TIME + TRUST</text>
+    </g>
+
+    <!-- Access arrow on right -->
+    <g transform="translate(770, 100)">
+      <line x1="0" y1="295" x2="0" y2="20" stroke="#718096" stroke-width="2" marker-end="url(#arrowUp)"/>
+      <text x="0" y="160" text-anchor="middle" font-size="10" font-weight="bold" fill="#718096" transform="rotate(90, 0, 160)">ACCESS LEVEL</text>
+    </g>
+  </g>
+
+  <!-- Key Principle Box -->
+  <g transform="translate(50, 430)">
+    <rect x="0" y="0" width="380" height="150" rx="8" fill="white" stroke="#e53e3e" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="380" height="35" rx="8" fill="#e53e3e"/>
+    <rect x="0" y="28" width="380" height="7" fill="#e53e3e"/>
+    <text x="190" y="23" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Key Principle: Defense in Depth</text>
+
+    <g transform="translate(20, 50)">
+      <rect x="0" y="0" width="340" height="45" rx="4" fill="#fed7d7"/>
+      <text x="170" y="20" text-anchor="middle" font-size="10" font-weight="bold" fill="#742a2a">NO ONE should be able to unilaterally modify</text>
+      <text x="170" y="35" text-anchor="middle" font-size="10" font-weight="bold" fill="#742a2a">security-sensitive code, regardless of trust level</text>
+    </g>
+
+    <g transform="translate(20, 105)">
+      <text x="0" y="0" font-size="9" fill="#4a5568">Even trusted maintainers require a second set of eyes</text>
+      <text x="0" y="15" font-size="9" fill="#4a5568">on authentication, cryptography, and build systems.</text>
+      <text x="0" y="30" font-size="9" fill="#4a5568">This principle would have prevented the XZ attack.</text>
+    </g>
+  </g>
+
+  <!-- XZ Lessons Box -->
+  <g transform="translate(460, 430)">
+    <rect x="0" y="0" width="390" height="150" rx="8" fill="white" stroke="#6b46c1" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="390" height="35" rx="8" fill="#6b46c1"/>
+    <rect x="0" y="28" width="390" height="7" fill="#6b46c1"/>
+    <text x="195" y="23" text-anchor="middle" font-size="12" font-weight="bold" fill="white">XZ Utils Attack Patterns to Watch For</text>
+
+    <g transform="translate(20, 50)">
+      <circle cx="8" cy="5" r="4" fill="#e53e3e"/>
+      <text x="20" y="9" font-size="9" fill="#4a5568">Manufactured urgency ("Users are suffering!")</text>
+
+      <circle cx="8" cy="25" r="4" fill="#e53e3e"/>
+      <text x="20" y="29" font-size="9" fill="#4a5568">Sock puppet amplification (fake "users" pushing)</text>
+
+      <circle cx="8" cy="45" r="4" fill="#e53e3e"/>
+      <text x="20" y="49" font-size="9" fill="#4a5568">Exploiting maintainer burnout</text>
+
+      <circle cx="8" cy="65" r="4" fill="#e53e3e"/>
+      <text x="20" y="69" font-size="9" fill="#4a5568">Unusual interest in build systems/CI/CD</text>
+
+      <circle cx="8" cy="85" r="4" fill="#e53e3e"/>
+      <text x="20" y="89" font-size="9" fill="#4a5568">Pressure for faster elevated access</text>
+    </g>
+  </g>
+</svg>

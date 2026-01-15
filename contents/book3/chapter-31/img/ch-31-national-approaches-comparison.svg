@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600">
+  <defs>
+        <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset in="blur" dx="1" dy="2" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.5" result="color"/>
+      <feComposite in="color" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="600" fill="#F8FAFC"/>
+
+  <!-- Title -->
+  <text x="450" y="35" font-family="Libertinus Sans" font-size="22" font-weight="bold" fill="#1E293B" text-anchor="middle">National Approaches to Open Source Security</text>
+  <text x="450" y="55" font-family="Libertinus Sans" font-size="13" fill="#64748B" text-anchor="middle">Comparing strategies across major technology powers</text>
+
+  <!-- Column Headers -->
+  <g filter="url(#shadow)">
+    <rect x="270" y="80" width="180" height="50" rx="8" fill="#3B82F6"/>
+    <text x="360" y="112" font-family="Libertinus Sans" font-size="14" font-weight="bold" fill="white" text-anchor="middle">United States</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="460" y="80" width="180" height="50" rx="8" fill="#F59E0B"/>
+    <text x="550" y="112" font-family="Libertinus Sans" font-size="14" font-weight="bold" fill="white" text-anchor="middle">European Union</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="650" y="80" width="180" height="50" rx="8" fill="#EF4444"/>
+    <text x="740" y="112" font-family="Libertinus Sans" font-size="14" font-weight="bold" fill="white" text-anchor="middle">China</text>
+  </g>
+
+  <!-- Row labels -->
+  <text x="135" y="170" font-family="Libertinus Sans" font-size="11" font-weight="bold" fill="#1E293B" text-anchor="middle">Primary Driver</text>
+  <text x="135" y="230" font-family="Libertinus Sans" font-size="11" font-weight="bold" fill="#1E293B" text-anchor="middle">Investment Model</text>
+  <text x="135" y="290" font-family="Libertinus Sans" font-size="11" font-weight="bold" fill="#1E293B" text-anchor="middle">Platform Hosting</text>
+  <text x="135" y="350" font-family="Libertinus Sans" font-size="11" font-weight="bold" fill="#1E293B" text-anchor="middle">Standards Approach</text>
+  <text x="135" y="410" font-family="Libertinus Sans" font-size="11" font-weight="bold" fill="#1E293B" text-anchor="middle">Security Focus</text>
+  <text x="135" y="470" font-family="Libertinus Sans" font-size="11" font-weight="bold" fill="#1E293B" text-anchor="middle">Key Initiatives</text>
+
+  <!-- Grid lines -->
+  <line x1="260" y1="140" x2="260" y2="520" stroke="#E2E8F0" stroke-width="1"/>
+  <line x1="450" y1="140" x2="450" y2="520" stroke="#E2E8F0" stroke-width="1"/>
+  <line x1="640" y1="140" x2="640" y2="520" stroke="#E2E8F0" stroke-width="1"/>
+  <line x1="830" y1="140" x2="830" y2="520" stroke="#E2E8F0" stroke-width="1"/>
+
+  <line x1="70" y1="195" x2="830" y2="195" stroke="#E2E8F0" stroke-width="1"/>
+  <line x1="70" y1="255" x2="830" y2="255" stroke="#E2E8F0" stroke-width="1"/>
+  <line x1="70" y1="315" x2="830" y2="315" stroke="#E2E8F0" stroke-width="1"/>
+  <line x1="70" y1="375" x2="830" y2="375" stroke="#E2E8F0" stroke-width="1"/>
+  <line x1="70" y1="435" x2="830" y2="435" stroke="#E2E8F0" stroke-width="1"/>
+
+  <!-- US Column -->
+  <rect x="270" y="145" width="180" height="45" fill="#EFF6FF"/>
+  <text x="360" y="170" font-family="Libertinus Sans" font-size="10" fill="#1E40AF" text-anchor="middle">Private Sector</text>
+
+  <rect x="270" y="205" width="180" height="45" fill="white"/>
+  <text x="360" y="230" font-family="Libertinus Sans" font-size="10" fill="#475569" text-anchor="middle">Corporate-led</text>
+
+  <rect x="270" y="265" width="180" height="45" fill="#EFF6FF"/>
+  <text x="360" y="285" font-family="Libertinus Sans" font-size="10" fill="#1E40AF" text-anchor="middle">Dominant</text>
+  <text x="360" y="298" font-family="Libertinus Sans" font-size="9" fill="#64748B" text-anchor="middle">(GitHub, major clouds)</text>
+
+  <rect x="270" y="325" width="180" height="45" fill="white"/>
+  <text x="360" y="345" font-family="Libertinus Sans" font-size="10" fill="#475569" text-anchor="middle">De facto via market</text>
+  <text x="360" y="358" font-family="Libertinus Sans" font-size="9" fill="#64748B" text-anchor="middle">(NIST frameworks)</text>
+
+  <rect x="270" y="385" width="180" height="45" fill="#EFF6FF"/>
+  <text x="360" y="410" font-family="Libertinus Sans" font-size="10" fill="#1E40AF" text-anchor="middle">Market incentives</text>
+
+  <rect x="270" y="445" width="180" height="65" fill="white"/>
+  <text x="360" y="465" font-family="Libertinus Sans" font-size="9" fill="#475569" text-anchor="middle">EO 14028</text>
+  <text x="360" y="478" font-family="Libertinus Sans" font-size="9" fill="#475569" text-anchor="middle">CISA OSS initiatives</text>
+  <text x="360" y="491" font-family="Libertinus Sans" font-size="9" fill="#475569" text-anchor="middle">OpenSSF funding</text>
+
+  <!-- EU Column -->
+  <rect x="460" y="145" width="180" height="45" fill="#FFFBEB"/>
+  <text x="550" y="170" font-family="Libertinus Sans" font-size="10" fill="#92400E" text-anchor="middle">Regulation / Sovereignty</text>
+
+  <rect x="460" y="205" width="180" height="45" fill="white"/>
+  <text x="550" y="230" font-family="Libertinus Sans" font-size="10" fill="#475569" text-anchor="middle">Public funding expanding</text>
+
+  <rect x="460" y="265" width="180" height="45" fill="#FFFBEB"/>
+  <text x="550" y="285" font-family="Libertinus Sans" font-size="10" fill="#92400E" text-anchor="middle">Seeking alternatives</text>
+  <text x="550" y="298" font-family="Libertinus Sans" font-size="9" fill="#64748B" text-anchor="middle">(Eclipse to EU)</text>
+
+  <rect x="460" y="325" width="180" height="45" fill="white"/>
+  <text x="550" y="345" font-family="Libertinus Sans" font-size="10" fill="#475569" text-anchor="middle">De jure via regulation</text>
+  <text x="550" y="358" font-family="Libertinus Sans" font-size="9" fill="#64748B" text-anchor="middle">(EU CRA)</text>
+
+  <rect x="460" y="385" width="180" height="45" fill="#FFFBEB"/>
+  <text x="550" y="410" font-family="Libertinus Sans" font-size="10" fill="#92400E" text-anchor="middle">Mandatory requirements</text>
+
+  <rect x="460" y="445" width="180" height="65" fill="white"/>
+  <text x="550" y="465" font-family="Libertinus Sans" font-size="9" fill="#475569" text-anchor="middle">Cyber Resilience Act</text>
+  <text x="550" y="478" font-family="Libertinus Sans" font-size="9" fill="#475569" text-anchor="middle">Sovereign Tech Fund</text>
+  <text x="550" y="491" font-family="Libertinus Sans" font-size="9" fill="#475569" text-anchor="middle">EU-FOSSA, NLnet</text>
+
+  <!-- China Column -->
+  <rect x="650" y="145" width="180" height="45" fill="#FEF2F2"/>
+  <text x="740" y="170" font-family="Libertinus Sans" font-size="10" fill="#991B1B" text-anchor="middle">State Strategic Goals</text>
+
+  <rect x="650" y="205" width="180" height="45" fill="white"/>
+  <text x="740" y="230" font-family="Libertinus Sans" font-size="10" fill="#475569" text-anchor="middle">State-influenced</text>
+
+  <rect x="650" y="265" width="180" height="45" fill="#FEF2F2"/>
+  <text x="740" y="285" font-family="Libertinus Sans" font-size="10" fill="#991B1B" text-anchor="middle">Domestic alternatives</text>
+  <text x="740" y="298" font-family="Libertinus Sans" font-size="9" fill="#64748B" text-anchor="middle">(Gitee)</text>
+
+  <rect x="650" y="325" width="180" height="45" fill="white"/>
+  <text x="740" y="345" font-family="Libertinus Sans" font-size="10" fill="#475569" text-anchor="middle">Increasing participation</text>
+  <text x="740" y="358" font-family="Libertinus Sans" font-size="9" fill="#64748B" text-anchor="middle">(ISO, standards bodies)</text>
+
+  <rect x="650" y="385" width="180" height="45" fill="#FEF2F2"/>
+  <text x="740" y="410" font-family="Libertinus Sans" font-size="10" fill="#991B1B" text-anchor="middle">Self-reliance</text>
+
+  <rect x="650" y="445" width="180" height="65" fill="white"/>
+  <text x="740" y="465" font-family="Libertinus Sans" font-size="9" fill="#475569" text-anchor="middle">Domestic foundations</text>
+  <text x="740" y="478" font-family="Libertinus Sans" font-size="9" fill="#475569" text-anchor="middle">Growing global contrib.</text>
+  <text x="740" y="491" font-family="Libertinus Sans" font-size="9" fill="#475569" text-anchor="middle">Platform independence</text>
+
+  <!-- Key insight box -->
+  <rect x="70" y="530" width="760" height="60" rx="8" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="450" y="555" font-family="Libertinus Sans" font-size="11" font-weight="bold" fill="#1E293B" text-anchor="middle">Key Tension: Global Commons vs. National Interests</text>
+  <text x="450" y="575" font-family="Libertinus Sans" font-size="10" fill="#475569" text-anchor="middle">Open source benefits from global collaboration but faces fragmentation pressures from sovereignty and security concerns</text>
+</svg>

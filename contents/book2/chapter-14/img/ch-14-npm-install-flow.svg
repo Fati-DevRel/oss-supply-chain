@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 680" font-family="Libertinus Sans">
+  <defs>
+        <filter id="stepShadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset in="blur" dx="1" dy="2" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.5" result="color"/>
+      <feComposite in="color" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <marker id="flowArrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#64748b"/>
+    </marker>
+    <linearGradient id="commandGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e293b"/>
+      <stop offset="100%" style="stop-color:#0f172a"/>
+    </linearGradient>
+    <linearGradient id="safeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="100%" style="stop-color:#1d4ed8"/>
+    </linearGradient>
+    <linearGradient id="dangerGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ef4444"/>
+      <stop offset="100%" style="stop-color:#dc2626"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Title -->
+  <text x="350" y="35" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">npm Install Process Flow</text>
+  <text x="350" y="55" text-anchor="middle" font-size="13" fill="#64748b">Security-critical execution points during package installation</text>
+
+  <!-- Command box -->
+  <g filter="url(#stepShadow)">
+    <rect x="175" y="80" width="350" height="50" rx="8" fill="url(#commandGrad)"/>
+    <text x="350" y="110" text-anchor="middle" font-size="14" font-weight="600" fill="white" font-family="Libertinus Mono">npm install package-name</text>
+  </g>
+
+  <!-- Arrow -->
+  <line x1="350" y1="130" x2="350" y2="160" stroke="#64748b" stroke-width="2" marker-end="url(#flowArrow)"/>
+
+  <!-- Step 1: Download -->
+  <g filter="url(#stepShadow)">
+    <rect x="175" y="165" width="350" height="60" rx="8" fill="white" stroke="#3b82f6" stroke-width="2"/>
+    <rect x="175" y="165" width="8" height="60" rx="4" fill="url(#safeGrad)"/>
+    <circle cx="210" cy="195" r="16" fill="#dbeafe"/>
+    <text x="210" y="200" text-anchor="middle" font-size="14" font-weight="600" fill="#3b82f6">1</text>
+    <text x="235" y="190" font-size="14" font-weight="500" fill="#1e293b">Download package</text>
+    <text x="235" y="208" font-size="12" fill="#64748b">Fetch tarball from registry</text>
+  </g>
+
+  <!-- Arrow -->
+  <line x1="350" y1="225" x2="350" y2="255" stroke="#64748b" stroke-width="2" marker-end="url(#flowArrow)"/>
+
+  <!-- Step 2: Extract -->
+  <g filter="url(#stepShadow)">
+    <rect x="175" y="260" width="350" height="60" rx="8" fill="white" stroke="#3b82f6" stroke-width="2"/>
+    <rect x="175" y="260" width="8" height="60" rx="4" fill="url(#safeGrad)"/>
+    <circle cx="210" cy="290" r="16" fill="#dbeafe"/>
+    <text x="210" y="295" text-anchor="middle" font-size="14" font-weight="600" fill="#3b82f6">2</text>
+    <text x="235" y="285" font-size="14" font-weight="500" fill="#1e293b">Extract to node_modules</text>
+    <text x="235" y="303" font-size="12" fill="#64748b">Unpack files to file system</text>
+  </g>
+
+  <!-- Arrow -->
+  <line x1="350" y1="320" x2="350" y2="350" stroke="#64748b" stroke-width="2" marker-end="url(#flowArrow)"/>
+
+  <!-- Step 3: Preinstall (DANGER) -->
+  <g filter="url(#stepShadow)">
+    <rect x="175" y="355" width="350" height="70" rx="8" fill="#fef2f2" stroke="#ef4444" stroke-width="2"/>
+    <rect x="175" y="355" width="8" height="70" rx="4" fill="url(#dangerGrad)"/>
+    <circle cx="210" cy="390" r="16" fill="#fee2e2"/>
+    <text x="210" y="395" text-anchor="middle" font-size="14" font-weight="600" fill="#ef4444">3</text>
+    <text x="235" y="382" font-size="14" font-weight="500" fill="#1e293b">Run preinstall script</text>
+    <text x="235" y="400" font-size="12" fill="#64748b">Executes with user privileges</text>
+    <text x="235" y="416" font-size="11" font-weight="500" fill="#ef4444">CODE EXECUTION OPPORTUNITY</text>
+  </g>
+
+  <!-- Warning callout -->
+  <rect x="540" y="360" width="130" height="60" rx="6" fill="#fef2f2" stroke="#fca5a5" stroke-width="1"/>
+  <text x="605" y="380" text-anchor="middle" font-size="11" font-weight="600" fill="#b91c1c">WARNING</text>
+  <text x="605" y="395" text-anchor="middle" font-size="10" fill="#dc2626">Can access files,</text>
+  <text x="605" y="408" text-anchor="middle" font-size="10" fill="#dc2626">network, env vars</text>
+  <line x1="525" y1="390" x2="540" y2="390" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,2"/>
+
+  <!-- Arrow -->
+  <line x1="350" y1="425" x2="350" y2="455" stroke="#64748b" stroke-width="2" marker-end="url(#flowArrow)"/>
+
+  <!-- Step 4: Install dependencies -->
+  <g filter="url(#stepShadow)">
+    <rect x="175" y="460" width="350" height="60" rx="8" fill="white" stroke="#3b82f6" stroke-width="2"/>
+    <rect x="175" y="460" width="8" height="60" rx="4" fill="url(#safeGrad)"/>
+    <circle cx="210" cy="490" r="16" fill="#dbeafe"/>
+    <text x="210" y="495" text-anchor="middle" font-size="14" font-weight="600" fill="#3b82f6">4</text>
+    <text x="235" y="485" font-size="14" font-weight="500" fill="#1e293b">Install dependencies</text>
+    <text x="235" y="503" font-size="12" fill="#64748b">Recursive install of transitive deps</text>
+  </g>
+
+  <!-- Arrow -->
+  <line x1="350" y1="520" x2="350" y2="550" stroke="#64748b" stroke-width="2" marker-end="url(#flowArrow)"/>
+
+  <!-- Step 5: Postinstall (DANGER) -->
+  <g filter="url(#stepShadow)">
+    <rect x="175" y="555" width="350" height="70" rx="8" fill="#fef2f2" stroke="#ef4444" stroke-width="2"/>
+    <rect x="175" y="555" width="8" height="70" rx="4" fill="url(#dangerGrad)"/>
+    <circle cx="210" cy="590" r="16" fill="#fee2e2"/>
+    <text x="210" y="595" text-anchor="middle" font-size="14" font-weight="600" fill="#ef4444">5</text>
+    <text x="235" y="582" font-size="14" font-weight="500" fill="#1e293b">Run postinstall script</text>
+    <text x="235" y="600" font-size="12" fill="#64748b">Executes with user privileges</text>
+    <text x="235" y="616" font-size="11" font-weight="500" fill="#ef4444">CODE EXECUTION OPPORTUNITY</text>
+  </g>
+
+  <!-- Warning callout -->
+  <rect x="540" y="560" width="130" height="60" rx="6" fill="#fef2f2" stroke="#fca5a5" stroke-width="1"/>
+  <text x="605" y="580" text-anchor="middle" font-size="11" font-weight="600" fill="#b91c1c">WARNING</text>
+  <text x="605" y="595" text-anchor="middle" font-size="10" fill="#dc2626">Full system access</text>
+  <text x="605" y="608" text-anchor="middle" font-size="10" fill="#dc2626">before app runs</text>
+  <line x1="525" y1="590" x2="540" y2="590" stroke="#fca5a5" stroke-width="1" stroke-dasharray="3,2"/>
+
+  <!-- Legend -->
+  <rect x="30" y="360" width="120" height="95" rx="6" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="45" y="382" font-size="11" font-weight="600" fill="#334155">Legend</text>
+
+  <rect x="45" y="395" width="14" height="14" rx="3" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="68" y="406" font-size="10" fill="#475569">Safe step</text>
+
+  <rect x="45" y="420" width="14" height="14" rx="3" fill="#fee2e2" stroke="#ef4444" stroke-width="1"/>
+  <text x="68" y="431" font-size="10" fill="#475569">Danger step</text>
+
+  <!-- Mitigation note -->
+  <rect x="30" y="640" width="640" height="35" rx="6" fill="#ecfdf5" stroke="#10b981" stroke-width="1"/>
+  <text x="50" y="660" font-size="12" fill="#047857">Mitigation: Use --ignore-scripts flag or sandbox installations to prevent arbitrary code execution</text>
+</svg>

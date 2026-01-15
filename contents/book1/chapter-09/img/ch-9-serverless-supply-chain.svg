@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 550" font-family="Libertinus Sans">
+  <defs>
+        <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset in="blur" dx="1" dy="2" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.5" result="color"/>
+      <feComposite in="color" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="awsGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF9900;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E68A00;stop-opacity:1" />
+    </linearGradient>
+    <marker id="arrowOrange" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#F59E0B"/>
+    </marker>
+    <marker id="arrowRed" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#DC2626"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="550" fill="#F8FAFC"/>
+
+  <!-- Title -->
+  <text x="450" y="32" text-anchor="middle" font-size="18" font-weight="bold" fill="#1E293B">Serverless/FaaS Supply Chain Components</text>
+  <text x="450" y="52" text-anchor="middle" font-size="11" fill="#64748B">Attack surfaces unique to serverless architecture</text>
+
+  <!-- Cloud Provider Box -->
+  <g filter="url(#shadow)">
+    <rect x="50" y="75" width="800" height="450" rx="12" fill="#FFF7ED" stroke="#FDBA74" stroke-width="2"/>
+    <text x="450" y="100" text-anchor="middle" font-size="14" font-weight="bold" fill="#C2410C">Cloud Provider Environment (AWS Lambda / Azure Functions / GCP Cloud Functions)</text>
+  </g>
+
+  <!-- Left side: Traditional Dependencies -->
+  <g transform="translate(80, 130)">
+    <rect x="0" y="0" width="250" height="160" rx="8" fill="white" stroke="#E2E8F0" filter="url(#shadow)"/>
+    <text x="125" y="25" text-anchor="middle" font-size="12" font-weight="bold" fill="#1E293B">Traditional Dependencies</text>
+    <line x1="20" y1="35" x2="230" y2="35" stroke="#E2E8F0"/>
+
+    <text x="20" y="55" font-size="10" fill="#475569">Application packages:</text>
+    <rect x="20" y="65" width="100" height="22" rx="3" fill="#DBEAFE"/>
+    <text x="70" y="80" text-anchor="middle" font-size="9" font-family="Libertinus Mono" fill="#2563EB">npm install</text>
+
+    <rect x="130" y="65" width="100" height="22" rx="3" fill="#DBEAFE"/>
+    <text x="180" y="80" text-anchor="middle" font-size="9" font-family="Libertinus Mono" fill="#2563EB">pip install</text>
+
+    <text x="20" y="110" font-size="10" fill="#475569">Same risks as traditional apps:</text>
+    <text x="25" y="125" font-size="9" fill="#64748B">- Malicious packages</text>
+    <text x="25" y="138" font-size="9" fill="#64748B">- Transitive vulnerabilities</text>
+    <text x="25" y="151" font-size="9" fill="#64748B">- Typosquatting</text>
+  </g>
+
+  <!-- Right side: Serverless-Specific -->
+  <g transform="translate(360, 130)">
+    <rect x="0" y="0" width="460" height="160" rx="8" fill="white" stroke="#DC2626" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="460" height="35" rx="8" fill="#DC2626"/>
+    <rect x="0" y="27" width="460" height="8" fill="#DC2626"/>
+    <text x="230" y="24" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Serverless-Specific Attack Surfaces</text>
+
+    <!-- Component boxes -->
+    <g transform="translate(15, 50)">
+      <rect x="0" y="0" width="130" height="95" rx="4" fill="#FEE2E2" stroke="#FECACA"/>
+      <text x="65" y="18" text-anchor="middle" font-size="9" font-weight="600" fill="#991B1B">Lambda Layers</text>
+      <text x="65" y="35" text-anchor="middle" font-size="8" fill="#DC2626">Shared code</text>
+      <text x="65" y="48" text-anchor="middle" font-size="8" fill="#DC2626">dependencies</text>
+      <line x1="10" y1="58" x2="120" y2="58" stroke="#FECACA"/>
+      <text x="10" y="72" font-size="7" fill="#991B1B">Attack: Publish</text>
+      <text x="10" y="84" font-size="7" fill="#991B1B">malicious layer</text>
+    </g>
+
+    <g transform="translate(160, 50)">
+      <rect x="0" y="0" width="130" height="95" rx="4" fill="#FEF3C7" stroke="#FDE68A"/>
+      <text x="65" y="18" text-anchor="middle" font-size="9" font-weight="600" fill="#92400E">Event Sources</text>
+      <text x="65" y="35" text-anchor="middle" font-size="8" fill="#D97706">Triggers from</text>
+      <text x="65" y="48" text-anchor="middle" font-size="8" fill="#D97706">external services</text>
+      <line x1="10" y1="58" x2="120" y2="58" stroke="#FDE68A"/>
+      <text x="10" y="72" font-size="7" fill="#92400E">Attack: Poison</text>
+      <text x="10" y="84" font-size="7" fill="#92400E">event data</text>
+    </g>
+
+    <g transform="translate(305, 50)">
+      <rect x="0" y="0" width="140" height="95" rx="4" fill="#E0E7FF" stroke="#C7D2FE"/>
+      <text x="70" y="18" text-anchor="middle" font-size="9" font-weight="600" fill="#3730A3">Container Images</text>
+      <text x="70" y="35" text-anchor="middle" font-size="8" fill="#6366F1">Custom runtime</text>
+      <text x="70" y="48" text-anchor="middle" font-size="8" fill="#6366F1">containers</text>
+      <line x1="10" y1="58" x2="130" y2="58" stroke="#C7D2FE"/>
+      <text x="10" y="72" font-size="7" fill="#3730A3">Attack: Malicious</text>
+      <text x="10" y="84" font-size="7" fill="#3730A3">base image</text>
+    </g>
+  </g>
+
+  <!-- Middle row: IAM and Secrets -->
+  <g transform="translate(80, 310)">
+    <rect x="0" y="0" width="250" height="120" rx="8" fill="white" stroke="#E2E8F0" filter="url(#shadow)"/>
+    <text x="125" y="25" text-anchor="middle" font-size="12" font-weight="bold" fill="#1E293B">IAM Execution Role</text>
+    <line x1="20" y1="35" x2="230" y2="35" stroke="#E2E8F0"/>
+
+    <text x="20" y="55" font-size="9" fill="#475569">Function assumes IAM role with</text>
+    <text x="20" y="68" font-size="9" fill="#475569">permissions defined in IaC</text>
+
+    <rect x="20" y="80" width="210" height="28" rx="4" fill="#FEE2E2"/>
+    <text x="125" y="98" text-anchor="middle" font-size="9" fill="#DC2626">Attack: Overly permissive roles</text>
+    <text x="125" y="108" text-anchor="middle" font-size="8" fill="#DC2626">grant lateral movement</text>
+  </g>
+
+  <!-- Secrets Manager -->
+  <g transform="translate(360, 310)">
+    <rect x="0" y="0" width="220" height="120" rx="8" fill="white" stroke="#E2E8F0" filter="url(#shadow)"/>
+    <text x="110" y="25" text-anchor="middle" font-size="12" font-weight="bold" fill="#1E293B">Secrets Manager</text>
+    <line x1="20" y1="35" x2="200" y2="35" stroke="#E2E8F0"/>
+
+    <text x="20" y="55" font-size="9" fill="#475569">API keys, DB credentials,</text>
+    <text x="20" y="68" font-size="9" fill="#475569">third-party tokens</text>
+
+    <rect x="20" y="80" width="180" height="28" rx="4" fill="#FEF3C7"/>
+    <text x="110" y="98" text-anchor="middle" font-size="9" fill="#D97706">Attack: Exfiltrate</text>
+    <text x="110" y="108" text-anchor="middle" font-size="8" fill="#D97706">environment secrets</text>
+  </g>
+
+  <!-- Event Bridge / API Gateway -->
+  <g transform="translate(600, 310)">
+    <rect x="0" y="0" width="220" height="120" rx="8" fill="white" stroke="#E2E8F0" filter="url(#shadow)"/>
+    <text x="110" y="25" text-anchor="middle" font-size="12" font-weight="bold" fill="#1E293B">API Gateway / Events</text>
+    <line x1="20" y1="35" x2="200" y2="35" stroke="#E2E8F0"/>
+
+    <text x="20" y="55" font-size="9" fill="#475569">Public endpoints,</text>
+    <text x="20" y="68" font-size="9" fill="#475569">event triggers</text>
+
+    <rect x="20" y="80" width="180" height="28" rx="4" fill="#E0E7FF"/>
+    <text x="110" y="98" text-anchor="middle" font-size="9" fill="#6366F1">Attack: Inject</text>
+    <text x="110" y="108" text-anchor="middle" font-size="8" fill="#6366F1">malicious payloads</text>
+  </g>
+
+  <!-- Bottom: Unique Risk Factors -->
+  <g filter="url(#shadow)" transform="translate(80, 450)">
+    <rect x="0" y="0" width="740" height="60" rx="6" fill="white" stroke="#E2E8F0"/>
+    <text x="370" y="20" text-anchor="middle" font-size="11" font-weight="bold" fill="#1E293B">Unique Serverless Supply Chain Risks</text>
+    <g transform="translate(20, 35)">
+      <circle cx="5" cy="5" r="3" fill="#DC2626"/>
+      <text x="15" y="9" font-size="9" fill="#475569">Cold start = dependency fetch on every invoke</text>
+    </g>
+    <g transform="translate(280, 35)">
+      <circle cx="5" cy="5" r="3" fill="#DC2626"/>
+      <text x="15" y="9" font-size="9" fill="#475569">Shared layers across functions</text>
+    </g>
+    <g transform="translate(500, 35)">
+      <circle cx="5" cy="5" r="3" fill="#DC2626"/>
+      <text x="15" y="9" font-size="9" fill="#475569">Limited runtime visibility</text>
+    </g>
+  </g>
+</svg>

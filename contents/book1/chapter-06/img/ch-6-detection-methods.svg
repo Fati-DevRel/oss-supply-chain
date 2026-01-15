@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" font-family="Libertinus Sans">
+  <defs>
+        <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset in="blur" dx="1" dy="2" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.5" result="color"/>
+      <feComposite in="color" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="500" fill="#F8FAFC"/>
+
+  <!-- Title -->
+  <text x="450" y="32" text-anchor="middle" font-size="18" font-weight="bold" fill="#1E293B">Malicious Package Detection Methods</text>
+  <text x="450" y="52" text-anchor="middle" font-size="11" fill="#64748B">Comparing approaches for identifying supply chain threats</text>
+
+  <!-- Table Header -->
+  <g filter="url(#shadow)">
+    <rect x="50" y="75" width="800" height="45" rx="6" fill="#1E293B"/>
+    <text x="140" y="103" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Method</text>
+    <line x1="220" y1="80" x2="220" y2="115" stroke="#475569"/>
+    <text x="330" y="103" text-anchor="middle" font-size="12" font-weight="bold" fill="white">How It Works</text>
+    <line x1="440" y1="80" x2="440" y2="115" stroke="#475569"/>
+    <text x="535" y="103" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Strengths</text>
+    <line x1="630" y1="80" x2="630" y2="115" stroke="#475569"/>
+    <text x="725" y="103" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Weaknesses</text>
+    <line x1="820" y1="80" x2="820" y2="115" stroke="#475569"/>
+    <text x="855" y="103" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Speed</text>
+  </g>
+
+  <!-- Row 1: Static Analysis -->
+  <g filter="url(#shadow)">
+    <rect x="50" y="125" width="800" height="85" rx="0" fill="white" stroke="#E2E8F0"/>
+
+    <!-- Method column -->
+    <rect x="55" y="130" width="160" height="75" fill="#DBEAFE"/>
+    <text x="135" y="158" text-anchor="middle" font-size="11" font-weight="600" fill="#1E40AF">Static Analysis</text>
+    <text x="135" y="175" text-anchor="middle" font-size="9" fill="#3B82F6">Pattern matching,</text>
+    <text x="135" y="188" text-anchor="middle" font-size="9" fill="#3B82F6">AST parsing</text>
+
+    <!-- How it works -->
+    <text x="230" y="155" font-size="9" fill="#475569">Scans code without</text>
+    <text x="230" y="168" font-size="9" fill="#475569">execution. Looks for</text>
+    <text x="230" y="181" font-size="9" fill="#475569">suspicious patterns,</text>
+    <text x="230" y="194" font-size="9" fill="#475569">obfuscation, eval()</text>
+
+    <!-- Strengths -->
+    <text x="450" y="155" font-size="9" fill="#059669">+ Fast to run</text>
+    <text x="450" y="170" font-size="9" fill="#059669">+ No execution risk</text>
+    <text x="450" y="185" font-size="9" fill="#059669">+ Catches known patterns</text>
+
+    <!-- Weaknesses -->
+    <text x="640" y="155" font-size="9" fill="#DC2626">- Obfuscation evades</text>
+    <text x="640" y="170" font-size="9" fill="#DC2626">- High false positives</text>
+    <text x="640" y="185" font-size="9" fill="#DC2626">- Misses runtime logic</text>
+
+    <!-- Speed indicator -->
+    <rect x="827" y="150" width="18" height="18" rx="3" fill="#22C55E"/>
+    <rect x="827" y="172" width="18" height="18" rx="3" fill="#22C55E"/>
+    <rect x="827" y="172" width="18" height="18" rx="3" fill="#22C55E"/>
+  </g>
+
+  <!-- Row 2: Dynamic Analysis -->
+  <g filter="url(#shadow)">
+    <rect x="50" y="215" width="800" height="85" rx="0" fill="white" stroke="#E2E8F0"/>
+
+    <!-- Method column -->
+    <rect x="55" y="220" width="160" height="75" fill="#FEF3C7"/>
+    <text x="135" y="248" text-anchor="middle" font-size="11" font-weight="600" fill="#92400E">Dynamic Analysis</text>
+    <text x="135" y="265" text-anchor="middle" font-size="9" fill="#D97706">Sandbox execution,</text>
+    <text x="135" y="278" text-anchor="middle" font-size="9" fill="#D97706">behavior monitoring</text>
+
+    <!-- How it works -->
+    <text x="230" y="245" font-size="9" fill="#475569">Executes code in</text>
+    <text x="230" y="258" font-size="9" fill="#475569">isolated environment.</text>
+    <text x="230" y="271" font-size="9" fill="#475569">Monitors network, file,</text>
+    <text x="230" y="284" font-size="9" fill="#475569">and process activity</text>
+
+    <!-- Strengths -->
+    <text x="450" y="245" font-size="9" fill="#059669">+ Sees actual behavior</text>
+    <text x="450" y="260" font-size="9" fill="#059669">+ Defeats obfuscation</text>
+    <text x="450" y="275" font-size="9" fill="#059669">+ Catches novel attacks</text>
+
+    <!-- Weaknesses -->
+    <text x="640" y="245" font-size="9" fill="#DC2626">- Time-delayed payloads</text>
+    <text x="640" y="260" font-size="9" fill="#DC2626">- Environment-specific</text>
+    <text x="640" y="275" font-size="9" fill="#DC2626">- Resource intensive</text>
+
+    <!-- Speed indicator (slower) -->
+    <rect x="827" y="240" width="18" height="18" rx="3" fill="#F59E0B"/>
+    <rect x="827" y="262" width="18" height="18" rx="3" fill="#E5E7EB"/>
+  </g>
+
+  <!-- Row 3: Behavioral Analysis -->
+  <g filter="url(#shadow)">
+    <rect x="50" y="305" width="800" height="85" rx="0" fill="white" stroke="#E2E8F0"/>
+
+    <!-- Method column -->
+    <rect x="55" y="310" width="160" height="75" fill="#E0E7FF"/>
+    <text x="135" y="338" text-anchor="middle" font-size="11" font-weight="600" fill="#3730A3">Behavioral Analysis</text>
+    <text x="135" y="355" text-anchor="middle" font-size="9" fill="#6366F1">ML models,</text>
+    <text x="135" y="368" text-anchor="middle" font-size="9" fill="#6366F1">anomaly detection</text>
+
+    <!-- How it works -->
+    <text x="230" y="335" font-size="9" fill="#475569">Compares package</text>
+    <text x="230" y="348" font-size="9" fill="#475569">behavior to baselines.</text>
+    <text x="230" y="361" font-size="9" fill="#475569">ML identifies unusual</text>
+    <text x="230" y="374" font-size="9" fill="#475569">patterns and anomalies</text>
+
+    <!-- Strengths -->
+    <text x="450" y="335" font-size="9" fill="#059669">+ Finds unknown threats</text>
+    <text x="450" y="350" font-size="9" fill="#059669">+ Contextual analysis</text>
+    <text x="450" y="365" font-size="9" fill="#059669">+ Adapts over time</text>
+
+    <!-- Weaknesses -->
+    <text x="640" y="335" font-size="9" fill="#DC2626">- Requires training data</text>
+    <text x="640" y="350" font-size="9" fill="#DC2626">- Black box decisions</text>
+    <text x="640" y="365" font-size="9" fill="#DC2626">- Can be evaded</text>
+
+    <!-- Speed indicator (medium) -->
+    <rect x="827" y="330" width="18" height="18" rx="3" fill="#22C55E"/>
+    <rect x="827" y="352" width="18" height="18" rx="3" fill="#F59E0B"/>
+  </g>
+
+  <!-- Row 4: Provenance Verification -->
+  <g filter="url(#shadow)">
+    <rect x="50" y="395" width="800" height="85" rx="0" fill="white" stroke="#E2E8F0"/>
+
+    <!-- Method column -->
+    <rect x="55" y="400" width="160" height="75" fill="#D1FAE5"/>
+    <text x="135" y="428" text-anchor="middle" font-size="11" font-weight="600" fill="#065F46">Provenance</text>
+    <text x="135" y="445" text-anchor="middle" font-size="9" fill="#059669">Sigstore, SLSA,</text>
+    <text x="135" y="458" font-size="9" text-anchor="middle" fill="#059669">attestations</text>
+
+    <!-- How it works -->
+    <text x="230" y="425" font-size="9" fill="#475569">Verifies package origin</text>
+    <text x="230" y="438" font-size="9" fill="#475569">and build process.</text>
+    <text x="230" y="451" font-size="9" fill="#475569">Cryptographic proof of</text>
+    <text x="230" y="464" font-size="9" fill="#475569">source and builder</text>
+
+    <!-- Strengths -->
+    <text x="450" y="425" font-size="9" fill="#059669">+ Strong guarantees</text>
+    <text x="450" y="440" font-size="9" fill="#059669">+ Prevents tampering</text>
+    <text x="450" y="455" font-size="9" fill="#059669">+ Audit trail</text>
+
+    <!-- Weaknesses -->
+    <text x="640" y="425" font-size="9" fill="#DC2626">- Adoption required</text>
+    <text x="640" y="440" font-size="9" fill="#DC2626">- Doesn't find bugs</text>
+    <text x="640" y="455" font-size="9" fill="#DC2626">- Trusts source repo</text>
+
+    <!-- Speed indicator (fast) -->
+    <rect x="827" y="420" width="18" height="18" rx="3" fill="#22C55E"/>
+    <rect x="827" y="442" width="18" height="18" rx="3" fill="#22C55E"/>
+  </g>
+
+  <!-- Speed Legend -->
+  <g transform="translate(730, 75)">
+    <rect x="0" y="45" width="120" height="50" rx="4" fill="#F1F5F9" stroke="#E2E8F0"/>
+    <text x="60" y="62" text-anchor="middle" font-size="9" font-weight="600" fill="#475569">Speed Legend</text>
+    <rect x="10" y="72" width="12" height="12" rx="2" fill="#22C55E"/>
+    <text x="28" y="82" font-size="8" fill="#475569">Fast</text>
+    <rect x="55" y="72" width="12" height="12" rx="2" fill="#F59E0B"/>
+    <text x="73" y="82" font-size="8" fill="#475569">Medium</text>
+  </g>
+</svg>

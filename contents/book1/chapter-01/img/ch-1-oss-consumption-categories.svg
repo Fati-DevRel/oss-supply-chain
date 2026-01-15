@@ -1,0 +1,178 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 520" font-family="Libertinus Sans">
+  <defs>
+    <linearGradient id="layer1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4299e1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3182ce;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="layer2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#48bb78;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#38a169;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="layer3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ed8936;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#dd6b20;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="layer4" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#9f7aea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#805ad5;stop-opacity:1" />
+    </linearGradient>
+        <filter id="layerShadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset in="blur" dx="1" dy="2" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.5" result="color"/>
+      <feComposite in="color" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <marker id="depthArrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2d3748"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="750" height="520" fill="#f7fafc"/>
+
+  <!-- Title -->
+  <text x="375" y="35" text-anchor="middle" font-size="18" font-weight="600" fill="#1a365d">
+    Categories of Open Source Consumption
+  </text>
+  <text x="375" y="55" text-anchor="middle" font-size="12" fill="#718096">
+    Each layer has distinct security implications and requires different approaches
+  </text>
+
+  <!-- Layer 1: Direct Dependencies -->
+  <g filter="url(#layerShadow)">
+    <rect x="100" y="80" width="400" height="90" rx="8" fill="url(#layer1)"/>
+    <text x="300" y="110" text-anchor="middle" font-size="15" font-weight="600" fill="#fff">DIRECT DEPENDENCIES</text>
+    <text x="300" y="130" text-anchor="middle" font-size="11" fill="#bee3f8">Packages developers explicitly choose to include</text>
+
+    <!-- Examples -->
+    <g font-size="10" fill="#fff" opacity="0.9">
+      <rect x="120" y="142" width="70" height="20" rx="3" fill="rgba(255,255,255,0.2)"/>
+      <text x="155" y="156" text-anchor="middle">React</text>
+      <rect x="200" y="142" width="70" height="20" rx="3" fill="rgba(255,255,255,0.2)"/>
+      <text x="235" y="156" text-anchor="middle">Django</text>
+      <rect x="280" y="142" width="70" height="20" rx="3" fill="rgba(255,255,255,0.2)"/>
+      <text x="315" y="156" text-anchor="middle">Express</text>
+      <rect x="360" y="142" width="70" height="20" rx="3" fill="rgba(255,255,255,0.2)"/>
+      <text x="395" y="156" text-anchor="middle">TensorFlow</text>
+    </g>
+  </g>
+
+  <!-- Security approach 1 -->
+  <g transform="translate(520, 80)">
+    <rect x="0" y="0" width="200" height="90" rx="6" fill="#fff" stroke="#3182ce" stroke-width="2"/>
+    <text x="100" y="25" text-anchor="middle" font-size="11" font-weight="600" fill="#2c5282">Security Approach</text>
+    <line x1="20" y1="35" x2="180" y2="35" stroke="#e2e8f0"/>
+    <text x="15" y="52" font-size="10" fill="#4a5568">Evaluate before adoption</text>
+    <text x="15" y="67" font-size="10" fill="#4a5568">Review project health metrics</text>
+    <text x="15" y="82" font-size="10" fill="#4a5568">Assess maintainer reputation</text>
+  </g>
+
+  <!-- Connector -->
+  <path d="M 500 125 L 515 125" stroke="#3182ce" stroke-width="2" stroke-dasharray="4,2"/>
+
+  <!-- Layer 2: Transitive Dependencies -->
+  <g filter="url(#layerShadow)">
+    <rect x="100" y="185" width="400" height="90" rx="8" fill="url(#layer2)"/>
+    <text x="300" y="215" text-anchor="middle" font-size="15" font-weight="600" fill="#fff">TRANSITIVE DEPENDENCIES</text>
+    <text x="300" y="235" text-anchor="middle" font-size="11" fill="#c6f6d5">Inherited through other dependencies (10x or more vs direct)</text>
+
+    <!-- Examples -->
+    <g font-size="10" fill="#fff" opacity="0.9">
+      <rect x="120" y="247" width="70" height="20" rx="3" fill="rgba(255,255,255,0.2)"/>
+      <text x="155" y="261" text-anchor="middle">lodash</text>
+      <rect x="200" y="247" width="70" height="20" rx="3" fill="rgba(255,255,255,0.2)"/>
+      <text x="235" y="261" text-anchor="middle">semver</text>
+      <rect x="280" y="247" width="70" height="20" rx="3" fill="rgba(255,255,255,0.2)"/>
+      <text x="315" y="261" text-anchor="middle">debug</text>
+      <rect x="360" y="247" width="70" height="20" rx="3" fill="rgba(255,255,255,0.2)"/>
+      <text x="395" y="261" text-anchor="middle">minimist</text>
+    </g>
+  </g>
+
+  <!-- Security approach 2 -->
+  <g transform="translate(520, 185)">
+    <rect x="0" y="0" width="200" height="90" rx="6" fill="#fff" stroke="#38a169" stroke-width="2"/>
+    <text x="100" y="25" text-anchor="middle" font-size="11" font-weight="600" fill="#276749">Security Approach</text>
+    <line x1="20" y1="35" x2="180" y2="35" stroke="#e2e8f0"/>
+    <text x="15" y="52" font-size="10" fill="#4a5568">Automated scanning tools</text>
+    <text x="15" y="67" font-size="10" fill="#4a5568">Dependency tree analysis</text>
+    <text x="15" y="82" font-size="10" fill="#4a5568">Lock file management</text>
+  </g>
+
+  <!-- Connector -->
+  <path d="M 500 230 L 515 230" stroke="#38a169" stroke-width="2" stroke-dasharray="4,2"/>
+
+  <!-- Layer 3: Development Tooling -->
+  <g filter="url(#layerShadow)">
+    <rect x="100" y="290" width="400" height="90" rx="8" fill="url(#layer3)"/>
+    <text x="300" y="320" text-anchor="middle" font-size="15" font-weight="600" fill="#fff">DEVELOPMENT TOOLING</text>
+    <text x="300" y="340" text-anchor="middle" font-size="11" fill="#feebc8">Build tools, compilers, testing frameworks, linters</text>
+
+    <!-- Examples -->
+    <g font-size="10" fill="#fff" opacity="0.9">
+      <rect x="120" y="352" width="70" height="20" rx="3" fill="rgba(255,255,255,0.2)"/>
+      <text x="155" y="366" text-anchor="middle">webpack</text>
+      <rect x="200" y="352" width="70" height="20" rx="3" fill="rgba(255,255,255,0.2)"/>
+      <text x="235" y="366" text-anchor="middle">ESLint</text>
+      <rect x="280" y="352" width="70" height="20" rx="3" fill="rgba(255,255,255,0.2)"/>
+      <text x="315" y="366" text-anchor="middle">Jest</text>
+      <rect x="360" y="352" width="70" height="20" rx="3" fill="rgba(255,255,255,0.2)"/>
+      <text x="395" y="366" text-anchor="middle">GCC</text>
+    </g>
+  </g>
+
+  <!-- Security approach 3 -->
+  <g transform="translate(520, 290)">
+    <rect x="0" y="0" width="200" height="90" rx="6" fill="#fff" stroke="#dd6b20" stroke-width="2"/>
+    <text x="100" y="25" text-anchor="middle" font-size="11" font-weight="600" fill="#c05621">Security Approach</text>
+    <line x1="20" y1="35" x2="180" y2="35" stroke="#e2e8f0"/>
+    <text x="15" y="52" font-size="10" fill="#4a5568">Build pipeline security</text>
+    <text x="15" y="67" font-size="10" fill="#4a5568">Isolated build environments</text>
+    <text x="15" y="82" font-size="10" fill="#4a5568">Reproducible builds</text>
+  </g>
+
+  <!-- Connector -->
+  <path d="M 500 335 L 515 335" stroke="#dd6b20" stroke-width="2" stroke-dasharray="4,2"/>
+
+  <!-- Layer 4: Infrastructure Software -->
+  <g filter="url(#layerShadow)">
+    <rect x="100" y="395" width="400" height="90" rx="8" fill="url(#layer4)"/>
+    <text x="300" y="425" text-anchor="middle" font-size="15" font-weight="600" fill="#fff">INFRASTRUCTURE SOFTWARE</text>
+    <text x="300" y="445" text-anchor="middle" font-size="11" fill="#e9d8fd">OS kernels, container runtimes, databases, web servers</text>
+
+    <!-- Examples -->
+    <g font-size="10" fill="#fff" opacity="0.9">
+      <rect x="120" y="457" width="70" height="20" rx="3" fill="rgba(255,255,255,0.2)"/>
+      <text x="155" y="471" text-anchor="middle">Linux</text>
+      <rect x="200" y="457" width="70" height="20" rx="3" fill="rgba(255,255,255,0.2)"/>
+      <text x="235" y="471" text-anchor="middle">OpenSSL</text>
+      <rect x="280" y="457" width="70" height="20" rx="3" fill="rgba(255,255,255,0.2)"/>
+      <text x="315" y="471" text-anchor="middle">nginx</text>
+      <rect x="360" y="457" width="70" height="20" rx="3" fill="rgba(255,255,255,0.2)"/>
+      <text x="395" y="471" text-anchor="middle">PostgreSQL</text>
+    </g>
+  </g>
+
+  <!-- Security approach 4 -->
+  <g transform="translate(520, 395)">
+    <rect x="0" y="0" width="200" height="90" rx="6" fill="#fff" stroke="#805ad5" stroke-width="2"/>
+    <text x="100" y="25" text-anchor="middle" font-size="11" font-weight="600" fill="#6b46c1">Security Approach</text>
+    <line x1="20" y1="35" x2="180" y2="35" stroke="#e2e8f0"/>
+    <text x="15" y="52" font-size="10" fill="#4a5568">Vendor risk management</text>
+    <text x="15" y="67" font-size="10" fill="#4a5568">Patching discipline</text>
+    <text x="15" y="82" font-size="10" fill="#4a5568">Base image hardening</text>
+  </g>
+
+  <!-- Connector -->
+  <path d="M 500 440 L 515 440" stroke="#805ad5" stroke-width="2" stroke-dasharray="4,2"/>
+
+  <!-- Depth indicator arrow -->
+  <g>
+    <line x1="60" y1="100" x2="60" y2="460" stroke="#2d3748" stroke-width="2" marker-end="url(#depthArrow)"/>
+    <text x="40" y="280" text-anchor="middle" font-size="11" fill="#4a5568" transform="rotate(-90, 40, 280)">Increasing depth / Less visibility</text>
+  </g>
+</svg>

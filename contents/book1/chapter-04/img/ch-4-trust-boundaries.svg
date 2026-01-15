@@ -1,0 +1,249 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700" font-family="Libertinus Sans">
+  <defs>
+        <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset in="blur" dx="1" dy="2" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.5" result="color"/>
+      <feComposite in="color" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <marker id="arrowRed" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#c53030"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#3182ce"/>
+    </marker>
+    <pattern id="diagonalStripes" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="6" stroke="#e53e3e" stroke-width="2" stroke-opacity="0.3"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="700" fill="#f7fafc"/>
+
+  <!-- Title -->
+  <text x="450" y="35" text-anchor="middle" font-size="20" font-weight="600" fill="#1a365d">
+    Trust Boundary Map in Supply Chain Contexts
+  </text>
+  <text x="450" y="55" text-anchor="middle" font-size="12" fill="#718096">
+    Points where trust level changes across the dependency graph and delivery pipeline
+  </text>
+
+  <!-- Legend -->
+  <g transform="translate(650, 70)">
+    <rect x="0" y="0" width="230" height="100" rx="6" fill="#fff" filter="url(#shadow)"/>
+    <text x="115" y="20" text-anchor="middle" font-size="10" font-weight="600" fill="#2d3748">Legend</text>
+    <line x1="15" y1="28" x2="215" y2="28" stroke="#e2e8f0"/>
+
+    <rect x="15" y="38" width="25" height="15" rx="2" fill="#c6f6d5" stroke="#38a169"/>
+    <text x="48" y="50" font-size="9" fill="#4a5568">High Trust (Your Code)</text>
+
+    <rect x="15" y="58" width="25" height="15" rx="2" fill="#feebc8" stroke="#dd6b20"/>
+    <text x="48" y="70" font-size="9" fill="#4a5568">Medium Trust (Direct Deps)</text>
+
+    <rect x="15" y="78" width="25" height="15" rx="2" fill="#fed7d7" stroke="#c53030"/>
+    <text x="48" y="90" font-size="9" fill="#4a5568">Lower Trust (Transitive/External)</text>
+  </g>
+
+  <!-- Main Diagram Area -->
+  <!-- Trust Zone 1: Your Code -->
+  <g transform="translate(50, 100)">
+    <rect x="0" y="0" width="180" height="250" rx="8" fill="#c6f6d5" stroke="#38a169" stroke-width="2" stroke-dasharray="5,3"/>
+    <text x="90" y="25" text-anchor="middle" font-size="11" font-weight="600" fill="#276749">YOUR CODE</text>
+    <text x="90" y="42" text-anchor="middle" font-size="9" fill="#38a169">High Trust</text>
+
+    <rect x="20" y="60" width="140" height="50" rx="6" fill="#fff" filter="url(#shadow)"/>
+    <text x="90" y="90" text-anchor="middle" font-size="10" font-weight="600" fill="#2d3748">Application Code</text>
+
+    <rect x="20" y="130" width="140" height="50" rx="6" fill="#fff" filter="url(#shadow)"/>
+    <text x="90" y="155" text-anchor="middle" font-size="10" fill="#2d3748">Internal Libraries</text>
+    <text x="90" y="170" text-anchor="middle" font-size="8" fill="#718096">(You maintain)</text>
+  </g>
+
+  <!-- Trust Boundary 1 -->
+  <g transform="translate(232, 100)">
+    <rect x="0" y="0" width="8" height="250" fill="url(#diagonalStripes)"/>
+    <rect x="0" y="0" width="8" height="250" fill="none" stroke="#c53030" stroke-width="2"/>
+    <rect x="-45" y="105" width="100" height="40" rx="4" fill="#fff" stroke="#c53030"/>
+    <text x="5" y="120" text-anchor="middle" font-size="8" font-weight="600" fill="#c53030">TRUST</text>
+    <text x="5" y="133" text-anchor="middle" font-size="8" font-weight="600" fill="#c53030">BOUNDARY 1</text>
+  </g>
+
+  <!-- Trust Zone 2: Direct Dependencies -->
+  <g transform="translate(245, 100)">
+    <rect x="0" y="0" width="180" height="250" rx="8" fill="#feebc8" stroke="#dd6b20" stroke-width="2" stroke-dasharray="5,3"/>
+    <text x="90" y="25" text-anchor="middle" font-size="11" font-weight="600" fill="#c05621">DIRECT DEPENDENCIES</text>
+    <text x="90" y="42" text-anchor="middle" font-size="9" fill="#dd6b20">Medium Trust</text>
+
+    <rect x="20" y="60" width="140" height="40" rx="6" fill="#fff" filter="url(#shadow)"/>
+    <text x="90" y="85" text-anchor="middle" font-size="9" fill="#2d3748">Package A</text>
+
+    <rect x="20" y="110" width="140" height="40" rx="6" fill="#fff" filter="url(#shadow)"/>
+    <text x="90" y="135" text-anchor="middle" font-size="9" fill="#2d3748">Package B</text>
+
+    <rect x="20" y="160" width="140" height="40" rx="6" fill="#fff" filter="url(#shadow)"/>
+    <text x="90" y="185" text-anchor="middle" font-size="9" fill="#2d3748">Package C</text>
+
+    <text x="90" y="225" text-anchor="middle" font-size="8" fill="#975a16" font-style="italic">You chose these</text>
+    <text x="90" y="238" text-anchor="middle" font-size="8" fill="#975a16" font-style="italic">explicitly</text>
+  </g>
+
+  <!-- Trust Boundary 2 -->
+  <g transform="translate(427, 100)">
+    <rect x="0" y="0" width="8" height="250" fill="url(#diagonalStripes)"/>
+    <rect x="0" y="0" width="8" height="250" fill="none" stroke="#c53030" stroke-width="2"/>
+    <rect x="-45" y="105" width="100" height="40" rx="4" fill="#fff" stroke="#c53030"/>
+    <text x="5" y="120" text-anchor="middle" font-size="8" font-weight="600" fill="#c53030">TRUST</text>
+    <text x="5" y="133" text-anchor="middle" font-size="8" font-weight="600" fill="#c53030">BOUNDARY 2</text>
+  </g>
+
+  <!-- Trust Zone 3: Transitive Dependencies -->
+  <g transform="translate(440, 100)">
+    <rect x="0" y="0" width="180" height="250" rx="8" fill="#fed7d7" stroke="#c53030" stroke-width="2" stroke-dasharray="5,3"/>
+    <text x="90" y="25" text-anchor="middle" font-size="11" font-weight="600" fill="#9b2c2c">TRANSITIVE DEPS</text>
+    <text x="90" y="42" text-anchor="middle" font-size="9" fill="#c53030">Lower Trust</text>
+
+    <rect x="20" y="60" width="60" height="30" rx="4" fill="#fff" stroke="#e2e8f0"/>
+    <text x="50" y="80" text-anchor="middle" font-size="8" fill="#4a5568">dep-a1</text>
+
+    <rect x="90" y="60" width="60" height="30" rx="4" fill="#fff" stroke="#e2e8f0"/>
+    <text x="120" y="80" text-anchor="middle" font-size="8" fill="#4a5568">dep-a2</text>
+
+    <rect x="20" y="100" width="60" height="30" rx="4" fill="#fff" stroke="#e2e8f0"/>
+    <text x="50" y="120" text-anchor="middle" font-size="8" fill="#4a5568">dep-b1</text>
+
+    <rect x="90" y="100" width="60" height="30" rx="4" fill="#fff" stroke="#e2e8f0"/>
+    <text x="120" y="120" text-anchor="middle" font-size="8" fill="#4a5568">dep-b2</text>
+
+    <rect x="55" y="145" width="60" height="30" rx="4" fill="#fff" stroke="#e2e8f0"/>
+    <text x="85" y="165" text-anchor="middle" font-size="8" fill="#4a5568">dep-c1</text>
+
+    <text x="90" y="200" text-anchor="middle" font-size="8" fill="#9b2c2c" font-style="italic">You inherited these</text>
+    <text x="90" y="213" text-anchor="middle" font-size="8" fill="#9b2c2c" font-style="italic">without visibility</text>
+    <text x="90" y="226" text-anchor="middle" font-size="8" fill="#9b2c2c" font-style="italic">into decisions</text>
+  </g>
+
+  <!-- Arrows between zones (imports) -->
+  <path d="M 170 185 Q 190 185 210 185" stroke="#718096" stroke-width="1.5" fill="none" marker-end="url(#arrowBlue)"/>
+  <path d="M 365 135 Q 385 135 405 135" stroke="#718096" stroke-width="1.5" fill="none" marker-end="url(#arrowBlue)"/>
+
+  <!-- Pipeline Trust Boundaries (Bottom Section) -->
+  <g transform="translate(50, 380)">
+    <rect x="0" y="0" width="570" height="300" rx="8" fill="#fff" filter="url(#shadow)"/>
+    <text x="285" y="25" text-anchor="middle" font-size="13" font-weight="600" fill="#1a365d">Build and Deployment Pipeline Trust Boundaries</text>
+    <line x1="30" y1="35" x2="540" y2="35" stroke="#e2e8f0"/>
+
+    <!-- Row 1: Source to Build -->
+    <g transform="translate(30, 55)">
+      <rect x="0" y="0" width="110" height="50" rx="6" fill="#ebf8ff"/>
+      <text x="55" y="20" text-anchor="middle" font-size="9" font-weight="600" fill="#2b6cb0">Source Code</text>
+      <text x="55" y="35" text-anchor="middle" font-size="8" fill="#4a5568">Reviewed, verified</text>
+
+      <!-- Trust Boundary -->
+      <rect x="120" y="10" width="40" height="30" rx="4" fill="#fed7d7" stroke="#c53030"/>
+      <text x="140" y="20" text-anchor="middle" font-size="7" font-weight="600" fill="#c53030">TB</text>
+      <text x="140" y="32" text-anchor="middle" font-size="6" fill="#c53030">3</text>
+
+      <line x1="165" y1="25" x2="185" y2="25" stroke="#718096" stroke-width="1.5" marker-end="url(#arrowBlue)"/>
+
+      <rect x="190" y="0" width="110" height="50" rx="6" fill="#faf5ff"/>
+      <text x="245" y="20" text-anchor="middle" font-size="9" font-weight="600" fill="#6b46c1">Build System</text>
+      <text x="245" y="35" text-anchor="middle" font-size="8" fill="#4a5568">Compilers, tools</text>
+
+      <!-- Note -->
+      <text x="330" y="30" font-size="8" fill="#718096" font-style="italic">Build can be compromised</text>
+    </g>
+
+    <!-- Row 2: Registry to Build -->
+    <g transform="translate(30, 120)">
+      <rect x="0" y="0" width="110" height="50" rx="6" fill="#fed7d7"/>
+      <text x="55" y="20" text-anchor="middle" font-size="9" font-weight="600" fill="#c53030">Package Registry</text>
+      <text x="55" y="35" text-anchor="middle" font-size="8" fill="#4a5568">npm, PyPI, etc.</text>
+
+      <!-- Trust Boundary -->
+      <rect x="120" y="10" width="40" height="30" rx="4" fill="#fed7d7" stroke="#c53030"/>
+      <text x="140" y="20" text-anchor="middle" font-size="7" font-weight="600" fill="#c53030">TB</text>
+      <text x="140" y="32" text-anchor="middle" font-size="6" fill="#c53030">4</text>
+
+      <line x1="165" y1="25" x2="185" y2="25" stroke="#718096" stroke-width="1.5" marker-end="url(#arrowBlue)"/>
+
+      <rect x="190" y="0" width="110" height="50" rx="6" fill="#faf5ff"/>
+      <text x="245" y="20" text-anchor="middle" font-size="9" font-weight="600" fill="#6b46c1">Build System</text>
+      <text x="245" y="35" text-anchor="middle" font-size="8" fill="#4a5568">Fetches packages</text>
+
+      <!-- Note -->
+      <text x="330" y="30" font-size="8" fill="#718096" font-style="italic">Trust registry delivered correctly</text>
+    </g>
+
+    <!-- Row 3: Build to Artifacts -->
+    <g transform="translate(30, 185)">
+      <rect x="0" y="0" width="110" height="50" rx="6" fill="#faf5ff"/>
+      <text x="55" y="20" text-anchor="middle" font-size="9" font-weight="600" fill="#6b46c1">Build Artifacts</text>
+      <text x="55" y="35" text-anchor="middle" font-size="8" fill="#4a5568">Binaries, images</text>
+
+      <!-- Trust Boundary -->
+      <rect x="120" y="10" width="40" height="30" rx="4" fill="#fed7d7" stroke="#c53030"/>
+      <text x="140" y="20" text-anchor="middle" font-size="7" font-weight="600" fill="#c53030">TB</text>
+      <text x="140" y="32" text-anchor="middle" font-size="6" fill="#c53030">5</text>
+
+      <line x1="165" y1="25" x2="185" y2="25" stroke="#718096" stroke-width="1.5" marker-end="url(#arrowBlue)"/>
+
+      <rect x="190" y="0" width="110" height="50" rx="6" fill="#f0fff4"/>
+      <text x="245" y="20" text-anchor="middle" font-size="9" font-weight="600" fill="#276749">Deployment</text>
+      <text x="245" y="35" text-anchor="middle" font-size="8" fill="#4a5568">Production env</text>
+
+      <!-- Note -->
+      <text x="330" y="30" font-size="8" fill="#718096" font-style="italic">Artifacts in transit can be modified</text>
+    </g>
+
+    <!-- SLSA callout -->
+    <g transform="translate(360, 55)">
+      <rect x="0" y="0" width="180" height="180" rx="6" fill="#ebf8ff" stroke="#3182ce"/>
+      <text x="90" y="22" text-anchor="middle" font-size="10" font-weight="600" fill="#2b6cb0">SLSA Framework</text>
+      <line x1="15" y1="32" x2="165" y2="32" stroke="#3182ce" stroke-opacity="0.5"/>
+      <text x="15" y="52" font-size="8" fill="#2c5282">Explicitly addresses</text>
+      <text x="15" y="67" font-size="8" fill="#2c5282">trust boundaries in builds</text>
+
+      <text x="15" y="92" font-size="8" font-weight="600" fill="#2b6cb0">Provides:</text>
+      <text x="15" y="108" font-size="8" fill="#4a5568">- Source provenance</text>
+      <text x="15" y="123" font-size="8" fill="#4a5568">- Build verification</text>
+      <text x="15" y="138" font-size="8" fill="#4a5568">- Artifact attestation</text>
+
+      <text x="15" y="163" font-size="8" fill="#718096" font-style="italic">Graduated model for</text>
+      <text x="15" y="175" font-size="8" fill="#718096" font-style="italic">strengthening trust</text>
+    </g>
+  </g>
+
+  <!-- Key Insight -->
+  <g transform="translate(635, 380)">
+    <rect x="0" y="0" width="245" height="300" rx="6" fill="#fffbeb" stroke="#d97706" stroke-width="1"/>
+    <text x="122" y="25" text-anchor="middle" font-size="11" font-weight="600" fill="#92400e">Key Insight</text>
+    <line x1="20" y1="35" x2="225" y2="35" stroke="#d97706" stroke-opacity="0.5"/>
+
+    <g transform="translate(20, 50)">
+      <text x="0" y="0" font-size="9" font-weight="600" fill="#78350f">Each trust boundary</text>
+      <text x="0" y="15" font-size="9" font-weight="600" fill="#78350f">is a potential attack point</text>
+
+      <text x="0" y="45" font-size="9" fill="#92400e">Controls needed at each:</text>
+      <text x="0" y="65" font-size="8" fill="#78350f">- Verification mechanisms</text>
+      <text x="0" y="80" font-size="8" fill="#78350f">- Authentication checks</text>
+      <text x="0" y="95" font-size="8" fill="#78350f">- Integrity validation</text>
+      <text x="0" y="110" font-size="8" fill="#78350f">- Provenance attestation</text>
+
+      <line x1="0" y1="130" x2="205" y2="130" stroke="#d97706" stroke-opacity="0.3"/>
+
+      <text x="0" y="150" font-size="9" fill="#78350f">Every import statement</text>
+      <text x="0" y="165" font-size="9" fill="#78350f">is a trust boundary</text>
+      <text x="0" y="180" font-size="9" fill="#78350f">crossing where you trust</text>
+      <text x="0" y="195" font-size="9" fill="#78350f">external code to behave</text>
+      <text x="0" y="210" font-size="9" fill="#78350f">as documented.</text>
+
+      <text x="0" y="240" font-size="9" font-weight="600" fill="#92400e">Map these boundaries</text>
+      <text x="0" y="255" font-size="9" font-weight="600" fill="#92400e">to identify where</text>
+      <text x="0" y="270" font-size="9" font-weight="600" fill="#92400e">controls are needed.</text>
+    </g>
+  </g>
+</svg>

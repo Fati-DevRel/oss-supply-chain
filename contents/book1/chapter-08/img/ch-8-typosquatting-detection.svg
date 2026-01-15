@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" font-family="Libertinus Sans">
+  <defs>
+        <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset in="blur" dx="1" dy="2" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.5" result="color"/>
+      <feComposite in="color" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#3B82F6"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="480" fill="#F8FAFC"/>
+
+  <!-- Title -->
+  <text x="450" y="32" text-anchor="middle" font-size="18" font-weight="bold" fill="#1E293B">Typosquatting Detection Pipeline</text>
+  <text x="450" y="52" text-anchor="middle" font-size="11" fill="#64748B">How security tools identify potentially malicious package name variations</text>
+
+  <!-- Pipeline flow -->
+  <!-- Step 1: Package Name Input -->
+  <g filter="url(#shadow)" transform="translate(50, 80)">
+    <rect x="0" y="0" width="140" height="100" rx="8" fill="#3B82F6"/>
+    <text x="70" y="30" text-anchor="middle" font-size="11" font-weight="bold" fill="white">Package Name</text>
+    <text x="70" y="48" text-anchor="middle" font-size="11" font-weight="bold" fill="white">Input</text>
+    <rect x="15" y="60" width="110" height="25" rx="4" fill="white" fill-opacity="0.95"/>
+    <text x="70" y="78" text-anchor="middle" font-size="9" font-family="Libertinus Mono" fill="#1E293B">lodahs</text>
+  </g>
+
+  <path d="M 195 130 L 220 130" stroke="#3B82F6" stroke-width="2" marker-end="url(#arrowBlue)" fill="none"/>
+
+  <!-- Step 2: Edit Distance -->
+  <g filter="url(#shadow)" transform="translate(230, 80)">
+    <rect x="0" y="0" width="140" height="100" rx="8" fill="#8B5CF6"/>
+    <text x="70" y="25" text-anchor="middle" font-size="11" font-weight="bold" fill="white">Edit Distance</text>
+    <text x="70" y="42" text-anchor="middle" font-size="11" font-weight="bold" fill="white">Analysis</text>
+    <rect x="15" y="55" width="110" height="35" rx="4" fill="white" fill-opacity="0.95"/>
+    <text x="70" y="70" text-anchor="middle" font-size="8" fill="#6D28D9">Levenshtein: 1</text>
+    <text x="70" y="82" text-anchor="middle" font-size="8" fill="#6D28D9">vs "lodash"</text>
+  </g>
+
+  <path d="M 375 130 L 400 130" stroke="#3B82F6" stroke-width="2" marker-end="url(#arrowBlue)" fill="none"/>
+
+  <!-- Step 3: Popular Package DB -->
+  <g filter="url(#shadow)" transform="translate(410, 80)">
+    <rect x="0" y="0" width="140" height="100" rx="8" fill="#059669"/>
+    <text x="70" y="25" text-anchor="middle" font-size="11" font-weight="bold" fill="white">Popular</text>
+    <text x="70" y="42" text-anchor="middle" font-size="11" font-weight="bold" fill="white">Package DB</text>
+    <rect x="15" y="55" width="110" height="35" rx="4" fill="white" fill-opacity="0.95"/>
+    <text x="70" y="70" text-anchor="middle" font-size="8" fill="#047857">lodash: 50M/week</text>
+    <text x="70" y="82" text-anchor="middle" font-size="8" fill="#047857">Match found!</text>
+  </g>
+
+  <path d="M 555 130 L 580 130" stroke="#3B82F6" stroke-width="2" marker-end="url(#arrowBlue)" fill="none"/>
+
+  <!-- Step 4: Risk Score -->
+  <g filter="url(#shadow)" transform="translate(590, 80)">
+    <rect x="0" y="0" width="140" height="100" rx="8" fill="#F59E0B"/>
+    <text x="70" y="25" text-anchor="middle" font-size="11" font-weight="bold" fill="white">Risk Score</text>
+    <text x="70" y="42" text-anchor="middle" font-size="11" font-weight="bold" fill="white">Calculation</text>
+    <rect x="15" y="55" width="110" height="35" rx="4" fill="white" fill-opacity="0.95"/>
+    <text x="70" y="70" text-anchor="middle" font-size="8" fill="#92400E">Score: 0.92</text>
+    <text x="70" y="82" text-anchor="middle" font-size="8" fill="#92400E">HIGH RISK</text>
+  </g>
+
+  <path d="M 735 130 L 760 130" stroke="#3B82F6" stroke-width="2" marker-end="url(#arrowBlue)" fill="none"/>
+
+  <!-- Step 5: Alert -->
+  <g filter="url(#shadow)" transform="translate(770, 80)">
+    <rect x="0" y="0" width="80" height="100" rx="8" fill="#DC2626"/>
+    <text x="40" y="40" text-anchor="middle" font-size="24" fill="white">!</text>
+    <text x="40" y="65" text-anchor="middle" font-size="10" font-weight="bold" fill="white">ALERT</text>
+    <text x="40" y="82" text-anchor="middle" font-size="8" fill="white">Block or</text>
+    <text x="40" y="93" text-anchor="middle" font-size="8" fill="white">warn user</text>
+  </g>
+
+  <!-- Detection Techniques Detail -->
+  <g transform="translate(50, 210)">
+    <rect x="0" y="0" width="800" height="250" rx="8" fill="white" stroke="#E2E8F0" filter="url(#shadow)"/>
+    <text x="400" y="30" text-anchor="middle" font-size="14" font-weight="bold" fill="#1E293B">Detection Techniques</text>
+
+    <!-- Technique 1 -->
+    <g transform="translate(20, 50)">
+      <rect x="0" y="0" width="240" height="85" rx="6" fill="#DBEAFE" stroke="#93C5FD"/>
+      <text x="120" y="22" text-anchor="middle" font-size="11" font-weight="600" fill="#1E40AF">Levenshtein Distance</text>
+      <text x="15" y="42" font-size="9" fill="#475569">Counts insertions, deletions,</text>
+      <text x="15" y="55" font-size="9" fill="#475569">substitutions needed to</text>
+      <text x="15" y="68" font-size="9" fill="#475569">transform one string to another</text>
+      <text x="120" y="82" text-anchor="middle" font-size="8" font-weight="600" fill="#3B82F6">lodash -> lodahs = 1</text>
+    </g>
+
+    <!-- Technique 2 -->
+    <g transform="translate(280, 50)">
+      <rect x="0" y="0" width="240" height="85" rx="6" fill="#E0E7FF" stroke="#C7D2FE"/>
+      <text x="120" y="22" text-anchor="middle" font-size="11" font-weight="600" fill="#3730A3">Keyboard Proximity</text>
+      <text x="15" y="42" font-size="9" fill="#475569">Measures physical distance</text>
+      <text x="15" y="55" font-size="9" fill="#475569">between substituted keys</text>
+      <text x="15" y="68" font-size="9" fill="#475569">on QWERTY keyboard</text>
+      <text x="120" y="82" text-anchor="middle" font-size="8" font-weight="600" fill="#6366F1">n -> m = adjacent (high risk)</text>
+    </g>
+
+    <!-- Technique 3 -->
+    <g transform="translate(540, 50)">
+      <rect x="0" y="0" width="240" height="85" rx="6" fill="#FCE7F3" stroke="#FBCFE8"/>
+      <text x="120" y="22" text-anchor="middle" font-size="11" font-weight="600" fill="#9D174D">Visual Similarity</text>
+      <text x="15" y="42" font-size="9" fill="#475569">Detects homoglyphs and</text>
+      <text x="15" y="55" font-size="9" fill="#475569">visually similar characters</text>
+      <text x="15" y="68" font-size="9" fill="#475569">across Unicode ranges</text>
+      <text x="120" y="82" text-anchor="middle" font-size="8" font-weight="600" fill="#DB2777">l (ell) vs I vs 1 = confusable</text>
+    </g>
+
+    <!-- Technique 4 -->
+    <g transform="translate(20, 150)">
+      <rect x="0" y="0" width="240" height="85" rx="6" fill="#DCFCE7" stroke="#86EFAC"/>
+      <text x="120" y="22" text-anchor="middle" font-size="11" font-weight="600" fill="#166534">Popularity Ratio</text>
+      <text x="15" y="42" font-size="9" fill="#475569">Compares download counts</text>
+      <text x="15" y="55" font-size="9" fill="#475569">and age between similar</text>
+      <text x="15" y="68" font-size="9" fill="#475569">package names</text>
+      <text x="120" y="82" text-anchor="middle" font-size="8" font-weight="600" fill="#15803D">50M vs 100 = suspicious</text>
+    </g>
+
+    <!-- Technique 5 -->
+    <g transform="translate(280, 150)">
+      <rect x="0" y="0" width="240" height="85" rx="6" fill="#FEF3C7" stroke="#FDE68A"/>
+      <text x="120" y="22" text-anchor="middle" font-size="11" font-weight="600" fill="#92400E">Metadata Analysis</text>
+      <text x="15" y="42" font-size="9" fill="#475569">Checks maintainer, repo,</text>
+      <text x="15" y="55" font-size="9" fill="#475569">description similarity to</text>
+      <text x="15" y="68" font-size="9" fill="#475569">known legitimate packages</text>
+      <text x="120" y="82" text-anchor="middle" font-size="8" font-weight="600" fill="#D97706">Similar desc = impersonation</text>
+    </g>
+
+    <!-- Technique 6 -->
+    <g transform="translate(540, 150)">
+      <rect x="0" y="0" width="240" height="85" rx="6" fill="#FEE2E2" stroke="#FECACA"/>
+      <text x="120" y="22" text-anchor="middle" font-size="11" font-weight="600" fill="#991B1B">Behavioral Signals</text>
+      <text x="15" y="42" font-size="9" fill="#475569">Analyzes install scripts,</text>
+      <text x="15" y="55" font-size="9" fill="#475569">network calls, file access</text>
+      <text x="15" y="68" font-size="9" fill="#475569">for malicious patterns</text>
+      <text x="120" y="82" text-anchor="middle" font-size="8" font-weight="600" fill="#DC2626">postinstall exfiltration</text>
+    </g>
+  </g>
+</svg>

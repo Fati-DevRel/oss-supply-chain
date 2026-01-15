@@ -1,0 +1,251 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 950 750" font-family="Libertinus Sans">
+  <defs>
+        <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset in="blur" dx="1" dy="2" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.5" result="color"/>
+      <feComposite in="color" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <marker id="arrowDown" markerWidth="10" markerHeight="10" refX="5" refY="10" orient="auto">
+      <polygon points="0,0 10,0 5,10" fill="#4a5568"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="950" height="750" fill="#f7fafc"/>
+
+  <!-- Title -->
+  <text x="475" y="30" text-anchor="middle" font-size="20" font-weight="600" fill="#1a365d">
+    Attack Tree: Compromising Production via Dependencies
+  </text>
+  <text x="475" y="50" text-anchor="middle" font-size="12" fill="#718096">
+    Decomposing attacker goals into achievable steps with cost/likelihood analysis
+  </text>
+
+  <!-- Root Goal -->
+  <g transform="translate(350, 70)">
+    <rect x="0" y="0" width="250" height="50" rx="8" fill="#c53030" filter="url(#shadow)"/>
+    <text x="125" y="22" text-anchor="middle" font-size="11" font-weight="600" fill="#fff">GOAL: Execute Malicious Code</text>
+    <text x="125" y="38" text-anchor="middle" font-size="10" fill="#fed7d7">in Target's Production Environment</text>
+  </g>
+
+  <!-- OR connector -->
+  <g transform="translate(460, 120)">
+    <circle cx="15" cy="15" r="12" fill="#fff" stroke="#4a5568" stroke-width="2"/>
+    <text x="15" y="19" text-anchor="middle" font-size="10" font-weight="600" fill="#4a5568">OR</text>
+    <line x1="15" y1="27" x2="15" y2="50" stroke="#4a5568" stroke-width="2"/>
+  </g>
+
+  <!-- Level 1: Main attack paths -->
+  <!-- Path 1: Direct Dependency -->
+  <g transform="translate(60, 175)">
+    <line x1="150" y1="-5" x2="415" y2="-30" stroke="#4a5568" stroke-width="1.5"/>
+    <rect x="0" y="0" width="300" height="45" rx="6" fill="#e53e3e" filter="url(#shadow)"/>
+    <text x="150" y="18" text-anchor="middle" font-size="10" font-weight="600" fill="#fff">Compromise a Direct Dependency</text>
+    <text x="150" y="34" text-anchor="middle" font-size="9" fill="#fed7d7">[OR] Multiple sub-paths available</text>
+  </g>
+
+  <!-- Path 2: Build Infrastructure -->
+  <g transform="translate(385, 175)">
+    <line x1="90" y1="-5" x2="90" y2="-30" stroke="#4a5568" stroke-width="1.5"/>
+    <rect x="0" y="0" width="180" height="45" rx="6" fill="#ed8936" filter="url(#shadow)"/>
+    <text x="90" y="18" text-anchor="middle" font-size="10" font-weight="600" fill="#fff">Compromise Build Infra</text>
+    <text x="90" y="34" text-anchor="middle" font-size="9" fill="#feebc8">[OR] CI/CD paths</text>
+  </g>
+
+  <!-- Path 3: Deployment -->
+  <g transform="translate(590, 175)">
+    <line x1="150" y1="-5" x2="-60" y2="-30" stroke="#4a5568" stroke-width="1.5"/>
+    <rect x="0" y="0" width="300" height="45" rx="6" fill="#805ad5" filter="url(#shadow)"/>
+    <text x="150" y="18" text-anchor="middle" font-size="10" font-weight="600" fill="#fff">Compromise Deployment Pipeline</text>
+    <text x="150" y="34" text-anchor="middle" font-size="9" fill="#e9d8fd">[OR] Registry/update paths</text>
+  </g>
+
+  <!-- Level 2: Direct Dependency Branches -->
+  <g transform="translate(60, 240)">
+    <circle cx="150" cy="10" r="8" fill="#fff" stroke="#e53e3e" stroke-width="2"/>
+    <text x="150" y="13" text-anchor="middle" font-size="8" font-weight="600" fill="#e53e3e">OR</text>
+    <line x1="150" y1="18" x2="150" y2="35" stroke="#e53e3e" stroke-width="1.5"/>
+
+    <!-- Branch 1.1: Maintainer Account -->
+    <g transform="translate(-30, 45)">
+      <line x1="90" y1="0" x2="180" y2="-10" stroke="#e53e3e" stroke-width="1"/>
+      <rect x="0" y="0" width="180" height="65" rx="5" fill="#fff" stroke="#e53e3e" stroke-width="2"/>
+      <text x="90" y="16" text-anchor="middle" font-size="9" font-weight="600" fill="#c53030">Compromise Maintainer</text>
+
+      <g transform="translate(10, 25)">
+        <circle cx="5" cy="5" r="3" fill="#fc8181"/>
+        <text x="12" y="8" font-size="7" fill="#4a5568">Phishing</text>
+        <text x="90" y="8" font-size="6" fill="#718096">Cost: Low | Like: Med</text>
+
+        <circle cx="5" cy="18" r="3" fill="#fc8181"/>
+        <text x="12" y="21" font-size="7" fill="#4a5568">Credential stuffing</text>
+        <text x="90" y="21" font-size="6" fill="#718096">Cost: Low | Like: Med</text>
+
+        <circle cx="5" cy="31" r="3" fill="#fc8181"/>
+        <text x="12" y="34" font-size="7" fill="#4a5568">Trust building (XZ)</text>
+        <text x="90" y="34" font-size="6" fill="#c53030">Cost: High | Like: High</text>
+      </g>
+    </g>
+
+    <!-- Branch 1.2: Dependency Confusion -->
+    <g transform="translate(160, 45)">
+      <line x1="90" y1="0" x2="0" y2="-10" stroke="#e53e3e" stroke-width="1"/>
+      <rect x="0" y="0" width="170" height="65" rx="5" fill="#fff" stroke="#e53e3e" stroke-width="2"/>
+      <text x="85" y="16" text-anchor="middle" font-size="9" font-weight="600" fill="#c53030">Dependency Confusion</text>
+
+      <g transform="translate(10, 25)">
+        <text x="0" y="8" font-size="7" fill="#4a5568">[AND] Identify internal names</text>
+        <text x="0" y="21" font-size="7" fill="#4a5568">[AND] Publish public package</text>
+        <text x="0" y="38" font-size="6" fill="#718096">Cost: Medium | Likelihood: Medium</text>
+        <text x="0" y="48" font-size="6" fill="#c53030">Detection: Low</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Level 2: Build Infrastructure Branches -->
+  <g transform="translate(385, 240)">
+    <circle cx="90" cy="10" r="8" fill="#fff" stroke="#ed8936" stroke-width="2"/>
+    <text x="90" y="13" text-anchor="middle" font-size="8" font-weight="600" fill="#ed8936">OR</text>
+    <line x1="90" y1="18" x2="90" y2="35" stroke="#ed8936" stroke-width="1.5"/>
+
+    <!-- Branch 2.1: CI/CD Credentials -->
+    <g transform="translate(-40, 45)">
+      <line x1="100" y1="0" x2="130" y2="-10" stroke="#ed8936" stroke-width="1"/>
+      <rect x="0" y="0" width="200" height="65" rx="5" fill="#fff" stroke="#ed8936" stroke-width="2"/>
+      <text x="100" y="16" text-anchor="middle" font-size="9" font-weight="600" fill="#c05621">CI/CD Credential Theft</text>
+
+      <g transform="translate(10, 25)">
+        <circle cx="5" cy="5" r="3" fill="#fbd38d"/>
+        <text x="12" y="8" font-size="7" fill="#4a5568">Leaked in build logs</text>
+        <text x="110" y="8" font-size="6" fill="#718096">Cost: Low</text>
+
+        <circle cx="5" cy="18" r="3" fill="#fbd38d"/>
+        <text x="12" y="21" font-size="7" fill="#4a5568">3rd party integration</text>
+        <text x="110" y="21" font-size="6" fill="#c53030">Codecov</text>
+
+        <circle cx="5" cy="31" r="3" fill="#fbd38d"/>
+        <text x="12" y="34" font-size="7" fill="#4a5568">Dev machine compromise</text>
+        <text x="110" y="34" font-size="6" fill="#718096">Cost: Med</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Level 2: Deployment Branches -->
+  <g transform="translate(590, 240)">
+    <circle cx="150" cy="10" r="8" fill="#fff" stroke="#805ad5" stroke-width="2"/>
+    <text x="150" y="13" text-anchor="middle" font-size="8" font-weight="600" fill="#805ad5">OR</text>
+    <line x1="150" y1="18" x2="150" y2="35" stroke="#805ad5" stroke-width="1.5"/>
+
+    <!-- Branch 3.1: Registry Compromise -->
+    <g transform="translate(30, 45)">
+      <line x1="120" y1="0" x2="120" y2="-10" stroke="#805ad5" stroke-width="1"/>
+      <rect x="0" y="0" width="240" height="65" rx="5" fill="#fff" stroke="#805ad5" stroke-width="2"/>
+      <text x="120" y="16" text-anchor="middle" font-size="9" font-weight="600" fill="#6b46c1">Registry/Distribution Attack</text>
+
+      <g transform="translate(10, 25)">
+        <circle cx="5" cy="5" r="3" fill="#d6bcfa"/>
+        <text x="12" y="8" font-size="7" fill="#4a5568">Account takeover</text>
+        <text x="140" y="8" font-size="6" fill="#718096">ua-parser-js</text>
+
+        <circle cx="5" cy="18" r="3" fill="#d6bcfa"/>
+        <text x="12" y="21" font-size="7" fill="#4a5568">Typosquatting</text>
+        <text x="140" y="21" font-size="6" fill="#718096">Low effort</text>
+
+        <circle cx="5" cy="31" r="3" fill="#d6bcfa"/>
+        <text x="12" y="34" font-size="7" fill="#4a5568">CDN/infrastructure compromise</text>
+        <text x="140" y="34" font-size="6" fill="#c53030">Polyfill.io</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Analysis Panel -->
+  <g transform="translate(50, 390)">
+    <rect x="0" y="0" width="420" height="180" rx="8" fill="#fff" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="420" height="35" rx="8" fill="#1a365d"/>
+    <rect x="0" y="27" width="420" height="8" fill="#1a365d"/>
+    <text x="210" y="24" text-anchor="middle" font-size="12" font-weight="600" fill="#fff">Attack Path Analysis</text>
+
+    <g transform="translate(15, 50)">
+      <text x="0" y="0" font-size="10" font-weight="600" fill="#c53030">Lowest Cost Paths (Most Likely First Attempts):</text>
+      <text x="0" y="18" font-size="9" fill="#4a5568">1. Credential phishing on maintainer accounts</text>
+      <text x="0" y="33" font-size="9" fill="#4a5568">2. Secrets leaked in build logs</text>
+      <text x="0" y="48" font-size="9" fill="#4a5568">3. Typosquatting packages</text>
+
+      <text x="0" y="73" font-size="10" font-weight="600" fill="#805ad5">Highest Success (Nation-State):</text>
+      <text x="0" y="91" font-size="9" fill="#4a5568">1. Long-term trust building (XZ pattern)</text>
+      <text x="0" y="106" font-size="9" fill="#4a5568">2. Transitive dependency targeting</text>
+      <text x="0" y="121" font-size="9" fill="#4a5568">3. Build infrastructure compromise</text>
+    </g>
+  </g>
+
+  <!-- Defense Priorities Panel -->
+  <g transform="translate(490, 390)">
+    <rect x="0" y="0" width="420" height="180" rx="8" fill="#fff" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="420" height="35" rx="8" fill="#276749"/>
+    <rect x="0" y="27" width="420" height="8" fill="#276749"/>
+    <text x="210" y="24" text-anchor="middle" font-size="12" font-weight="600" fill="#fff">Defense Prioritization</text>
+
+    <g transform="translate(15, 50)">
+      <text x="0" y="0" font-size="10" font-weight="600" fill="#276749">Convergence Points (High Leverage):</text>
+      <text x="0" y="18" font-size="9" fill="#4a5568">Build environment integrity - blocks multiple paths</text>
+      <text x="0" y="33" font-size="9" fill="#4a5568">Credential security - foundational control</text>
+
+      <text x="0" y="58" font-size="10" font-weight="600" fill="#276749">AND Node Opportunities:</text>
+      <text x="0" y="76" font-size="9" fill="#4a5568">Each stage in AND chains = defensive opportunity</text>
+      <text x="0" y="91" font-size="9" fill="#4a5568">Block any requirement to break attack chain</text>
+
+      <text x="0" y="116" font-size="10" font-weight="600" fill="#276749">Detection Investment:</text>
+      <text x="0" y="134" font-size="9" fill="#4a5568">Focus on low-detection paths (trust building, dep. confusion)</text>
+    </g>
+  </g>
+
+  <!-- Legend -->
+  <g transform="translate(50, 590)">
+    <rect x="0" y="0" width="860" height="70" rx="8" fill="#fff" filter="url(#shadow)"/>
+    <text x="430" y="20" text-anchor="middle" font-size="11" font-weight="600" fill="#2d3748">Attack Tree Notation</text>
+
+    <g transform="translate(30, 35)">
+      <circle cx="10" cy="8" r="8" fill="#fff" stroke="#4a5568" stroke-width="2"/>
+      <text x="10" y="11" text-anchor="middle" font-size="8" font-weight="600" fill="#4a5568">OR</text>
+      <text x="30" y="11" font-size="9" fill="#4a5568">Any child achieves parent</text>
+    </g>
+
+    <g transform="translate(200, 35)">
+      <rect x="0" y="0" width="16" height="16" rx="2" fill="#fff" stroke="#4a5568" stroke-width="2"/>
+      <text x="8" y="12" text-anchor="middle" font-size="7" font-weight="600" fill="#4a5568">AND</text>
+      <text x="26" y="11" font-size="9" fill="#4a5568">All children required</text>
+    </g>
+
+    <g transform="translate(380, 35)">
+      <text x="0" y="11" font-size="9" font-weight="600" fill="#2d3748">Cost:</text>
+      <text x="35" y="11" font-size="9" fill="#4a5568">Attacker resources (time, money, skill)</text>
+    </g>
+
+    <g transform="translate(600, 35)">
+      <text x="0" y="11" font-size="9" font-weight="600" fill="#2d3748">Likelihood:</text>
+      <text x="60" y="11" font-size="9" fill="#4a5568">Probability of success</text>
+    </g>
+
+    <g transform="translate(760, 35)">
+      <text x="0" y="11" font-size="9" font-weight="600" fill="#2d3748">Detection:</text>
+      <text x="55" y="11" font-size="9" fill="#4a5568">Visibility</text>
+    </g>
+  </g>
+
+  <!-- Key Insight -->
+  <g transform="translate(50, 675)">
+    <rect x="0" y="0" width="860" height="55" rx="6" fill="#fffbeb" stroke="#d97706" stroke-width="1"/>
+    <text x="20" y="22" font-size="10" font-weight="600" fill="#92400e">Key Attack Tree Insight:</text>
+    <text x="20" y="40" font-size="10" fill="#78350f">
+      Attackers optimize for cost/likelihood ratio. Defenders should: (1) Raise cost on cheapest paths, (2) Add detection to stealthy paths,
+    </text>
+    <text x="20" y="52" font-size="10" fill="#78350f">
+      (3) Create AND requirements where OR exists, (4) Monitor convergence points for maximum leverage.
+    </text>
+  </g>
+</svg>

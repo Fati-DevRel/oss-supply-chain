@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 550" font-family="Libertinus Sans">
+  <defs>
+        <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset in="blur" dx="1" dy="2" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.5" result="color"/>
+      <feComposite in="color" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="centerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2b6cb0"/>
+      <stop offset="100%" style="stop-color:#1a365d"/>
+    </linearGradient>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#718096"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="550" fill="#f7fafc"/>
+
+  <!-- Title -->
+  <text x="400" y="35" text-anchor="middle" font-size="20" font-weight="600" fill="#1a365d">
+    The Four Key Questions of Threat Modeling
+  </text>
+  <text x="400" y="55" text-anchor="middle" font-size="12" fill="#718096">
+    Adam Shostack's foundational framework for systematic security analysis
+  </text>
+
+  <!-- Central circle -->
+  <circle cx="400" cy="275" r="70" fill="url(#centerGrad)" filter="url(#shadow)"/>
+  <text x="400" y="265" text-anchor="middle" font-size="14" font-weight="600" fill="#fff">Threat</text>
+  <text x="400" y="285" text-anchor="middle" font-size="14" font-weight="600" fill="#fff">Modeling</text>
+
+  <!-- Connecting arrows (curved paths) -->
+  <!-- Q1 to Center -->
+  <path d="M 210 155 Q 280 200 335 230" stroke="#718096" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <!-- Center to Q2 -->
+  <path d="M 465 230 Q 520 200 590 155" stroke="#718096" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <!-- Q2 to Q3 -->
+  <path d="M 660 225 Q 660 275 660 320" stroke="#718096" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <!-- Q3 to Q4 -->
+  <path d="M 590 395 Q 520 420 465 420" stroke="#718096" stroke-width="2" fill="none"/>
+  <path d="M 335 420 Q 280 420 210 395" stroke="#718096" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <!-- Q4 to Q1 -->
+  <path d="M 140 320 Q 140 275 140 225" stroke="#718096" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+
+  <!-- Question 1: What are we building? -->
+  <g transform="translate(50, 85)" filter="url(#shadow)">
+    <rect x="0" y="0" width="180" height="130" rx="10" fill="#fff"/>
+    <rect x="0" y="0" width="180" height="40" rx="10" fill="#3182ce"/>
+    <rect x="0" y="30" width="180" height="10" fill="#3182ce"/>
+    <circle cx="25" cy="20" r="15" fill="#ebf8ff"/>
+    <text x="25" y="26" text-anchor="middle" font-size="16" font-weight="700" fill="#2b6cb0">1</text>
+    <text x="105" y="26" text-anchor="middle" font-size="12" font-weight="600" fill="#fff">What are we building?</text>
+
+    <g transform="translate(12, 50)">
+      <text x="0" y="12" font-size="9" fill="#4a5568">Understand the system:</text>
+      <text x="0" y="28" font-size="8" fill="#718096">- Architecture and components</text>
+      <text x="0" y="42" font-size="8" fill="#718096">- Dependencies and data flows</text>
+      <text x="0" y="56" font-size="8" fill="#718096">- Trust boundaries</text>
+      <text x="0" y="70" font-size="8" fill="#718096">- External integrations</text>
+    </g>
+  </g>
+
+  <!-- Question 2: What can go wrong? -->
+  <g transform="translate(570, 85)" filter="url(#shadow)">
+    <rect x="0" y="0" width="180" height="130" rx="10" fill="#fff"/>
+    <rect x="0" y="0" width="180" height="40" rx="10" fill="#e53e3e"/>
+    <rect x="0" y="30" width="180" height="10" fill="#e53e3e"/>
+    <circle cx="25" cy="20" r="15" fill="#fed7d7"/>
+    <text x="25" y="26" text-anchor="middle" font-size="16" font-weight="700" fill="#c53030">2</text>
+    <text x="105" y="26" text-anchor="middle" font-size="12" font-weight="600" fill="#fff">What can go wrong?</text>
+
+    <g transform="translate(12, 50)">
+      <text x="0" y="12" font-size="9" fill="#4a5568">Identify threats:</text>
+      <text x="0" y="28" font-size="8" fill="#718096">- Use STRIDE, attack trees</text>
+      <text x="0" y="42" font-size="8" fill="#718096">- Consider adversary goals</text>
+      <text x="0" y="56" font-size="8" fill="#718096">- Map attack surfaces</text>
+      <text x="0" y="70" font-size="8" fill="#718096">- Evaluate impact scenarios</text>
+    </g>
+  </g>
+
+  <!-- Question 3: What are we going to do about it? -->
+  <g transform="translate(570, 335)" filter="url(#shadow)">
+    <rect x="0" y="0" width="180" height="130" rx="10" fill="#fff"/>
+    <rect x="0" y="0" width="180" height="40" rx="10" fill="#38a169"/>
+    <rect x="0" y="30" width="180" height="10" fill="#38a169"/>
+    <circle cx="25" cy="20" r="15" fill="#c6f6d5"/>
+    <text x="25" y="26" text-anchor="middle" font-size="16" font-weight="700" fill="#276749">3</text>
+    <text x="105" y="26" text-anchor="middle" font-size="11" font-weight="600" fill="#fff">What will we do about it?</text>
+
+    <g transform="translate(12, 50)">
+      <text x="0" y="12" font-size="9" fill="#4a5568">Plan mitigations:</text>
+      <text x="0" y="28" font-size="8" fill="#718096">- Accept, mitigate, transfer</text>
+      <text x="0" y="42" font-size="8" fill="#718096">- Prioritize by risk</text>
+      <text x="0" y="56" font-size="8" fill="#718096">- Design controls</text>
+      <text x="0" y="70" font-size="8" fill="#718096">- Allocate resources</text>
+    </g>
+  </g>
+
+  <!-- Question 4: Did we do a good enough job? -->
+  <g transform="translate(50, 335)" filter="url(#shadow)">
+    <rect x="0" y="0" width="180" height="130" rx="10" fill="#fff"/>
+    <rect x="0" y="0" width="180" height="40" rx="10" fill="#805ad5"/>
+    <rect x="0" y="30" width="180" height="10" fill="#805ad5"/>
+    <circle cx="25" cy="20" r="15" fill="#e9d8fd"/>
+    <text x="25" y="26" text-anchor="middle" font-size="16" font-weight="700" fill="#6b46c1">4</text>
+    <text x="105" y="26" text-anchor="middle" font-size="11" font-weight="600" fill="#fff">Did we do a good job?</text>
+
+    <g transform="translate(12, 50)">
+      <text x="0" y="12" font-size="9" fill="#4a5568">Validate and verify:</text>
+      <text x="0" y="28" font-size="8" fill="#718096">- Review completeness</text>
+      <text x="0" y="42" font-size="8" fill="#718096">- Test mitigations</text>
+      <text x="0" y="56" font-size="8" fill="#718096">- Update as system evolves</text>
+      <text x="0" y="70" font-size="8" fill="#718096">- Continuous improvement</text>
+    </g>
+  </g>
+
+  <!-- Flow labels -->
+  <text x="280" y="175" text-anchor="middle" font-size="9" fill="#718096" font-style="italic">Scope</text>
+  <text x="520" y="175" text-anchor="middle" font-size="9" fill="#718096" font-style="italic">Analyze</text>
+  <text x="695" y="275" text-anchor="middle" font-size="9" fill="#718096" font-style="italic">Respond</text>
+  <text x="400" y="450" text-anchor="middle" font-size="9" fill="#718096" font-style="italic">Decide</text>
+  <text x="105" y="275" text-anchor="middle" font-size="9" fill="#718096" font-style="italic">Iterate</text>
+
+  <!-- Key Insight -->
+  <g transform="translate(50, 490)">
+    <rect x="0" y="0" width="700" height="45" rx="6" fill="#ebf8ff" stroke="#3182ce" stroke-width="1"/>
+    <text x="20" y="18" font-size="10" font-weight="600" fill="#2b6cb0">Key Insight:</text>
+    <text x="95" y="18" font-size="10" fill="#2c5282">
+      Threat modeling is iterative, not one-time. As your system and its dependencies evolve,
+    </text>
+    <text x="20" y="35" font-size="10" fill="#2c5282">
+      revisit these questions to ensure your security posture remains aligned with actual risks.
+    </text>
+  </g>
+</svg>
