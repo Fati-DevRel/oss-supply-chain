@@ -50,7 +50,12 @@ jobs:
       - name: Copy PDFs to site
         run: |
           mkdir -p site/_site
-          cp dist/*.pdf site/_site/
+          if ls dist/*.pdf 1> /dev/null 2>&1; then
+            cp dist/*.pdf site/_site/
+            echo "Copied PDFs to site/_site/"
+          else
+            echo "Warning: No PDF files found in dist/"
+          fi
 
       - name: Configure Pages
         uses: actions/configure-pages@v4
