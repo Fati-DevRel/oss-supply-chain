@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 650">
+  <defs>
+    <linearGradient id="centralGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e3a5f;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2c5282;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="federatedGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#285e61;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#319795;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="hybridGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#744210;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d69e2e;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="teamGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#e2e8f0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#cbd5e0;stop-opacity:1" />
+    </linearGradient>
+        <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset in="blur" dx="1" dy="2" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.5" result="color"/>
+      <feComposite in="color" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="650" fill="#f7fafc"/>
+
+  <!-- Title -->
+  <text x="450" y="35" text-anchor="middle" font-family="Libertinus Sans" font-size="22" font-weight="bold" fill="#1a202c">Supply Chain Security Organizational Models</text>
+
+  <!-- Model 1: Centralized -->
+  <g transform="translate(50, 70)">
+    <rect x="0" y="0" width="250" height="250" rx="8" fill="white" stroke="#e2e8f0" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="250" height="40" rx="8" fill="url(#centralGrad)"/>
+    <rect x="0" y="32" width="250" height="8" fill="url(#centralGrad)"/>
+    <text x="125" y="26" text-anchor="middle" font-family="Libertinus Sans" font-size="14" font-weight="bold" fill="white">CENTRALIZED MODEL</text>
+
+    <!-- Central team box -->
+    <rect x="40" y="55" width="170" height="50" rx="6" fill="url(#centralGrad)" filter="url(#shadow)"/>
+    <text x="125" y="76" text-anchor="middle" font-family="Libertinus Sans" font-size="11" font-weight="bold" fill="white">Central Security Team</text>
+    <text x="125" y="92" text-anchor="middle" font-family="Libertinus Sans" font-size="9" fill="#e2e8f0">Policy + Tooling + Decisions</text>
+
+    <!-- Arrow down -->
+    <path d="M125,105 L125,125" stroke="#2c5282" stroke-width="2" marker-end="url(#arrowBlue)"/>
+    <line x1="65" y1="125" x2="185" y2="125" stroke="#2c5282" stroke-width="2"/>
+    <line x1="65" y1="125" x2="65" y2="140" stroke="#2c5282" stroke-width="2"/>
+    <line x1="125" y1="125" x2="125" y2="140" stroke="#2c5282" stroke-width="2"/>
+    <line x1="185" y1="125" x2="185" y2="140" stroke="#2c5282" stroke-width="2"/>
+
+    <!-- Team boxes -->
+    <rect x="30" y="145" width="60" height="40" rx="4" fill="url(#teamGrad)" stroke="#a0aec0" stroke-width="1"/>
+    <text x="60" y="162" text-anchor="middle" font-family="Libertinus Sans" font-size="9" font-weight="bold" fill="#4a5568">Team A</text>
+    <text x="60" y="175" text-anchor="middle" font-family="Libertinus Sans" font-size="8" fill="#718096">(Impl)</text>
+
+    <rect x="95" y="145" width="60" height="40" rx="4" fill="url(#teamGrad)" stroke="#a0aec0" stroke-width="1"/>
+    <text x="125" y="162" text-anchor="middle" font-family="Libertinus Sans" font-size="9" font-weight="bold" fill="#4a5568">Team B</text>
+    <text x="125" y="175" text-anchor="middle" font-family="Libertinus Sans" font-size="8" fill="#718096">(Impl)</text>
+
+    <rect x="160" y="145" width="60" height="40" rx="4" fill="url(#teamGrad)" stroke="#a0aec0" stroke-width="1"/>
+    <text x="190" y="162" text-anchor="middle" font-family="Libertinus Sans" font-size="9" font-weight="bold" fill="#4a5568">Team C</text>
+    <text x="190" y="175" text-anchor="middle" font-family="Libertinus Sans" font-size="8" fill="#718096">(Impl)</text>
+
+    <!-- Best for text -->
+    <text x="125" y="210" text-anchor="middle" font-family="Libertinus Sans" font-size="9" font-weight="bold" fill="#2d3748">Best for:</text>
+    <text x="125" y="224" text-anchor="middle" font-family="Libertinus Sans" font-size="8" fill="#4a5568">Smaller orgs, regulated</text>
+    <text x="125" y="236" text-anchor="middle" font-family="Libertinus Sans" font-size="8" fill="#4a5568">environments, consistency</text>
+  </g>
+
+  <!-- Model 2: Federated -->
+  <g transform="translate(325, 70)">
+    <rect x="0" y="0" width="250" height="250" rx="8" fill="white" stroke="#e2e8f0" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="250" height="40" rx="8" fill="url(#federatedGrad)"/>
+    <rect x="0" y="32" width="250" height="8" fill="url(#federatedGrad)"/>
+    <text x="125" y="26" text-anchor="middle" font-family="Libertinus Sans" font-size="14" font-weight="bold" fill="white">FEDERATED MODEL</text>
+
+    <!-- Central guidance box -->
+    <rect x="40" y="55" width="170" height="50" rx="6" fill="url(#federatedGrad)" filter="url(#shadow)"/>
+    <text x="125" y="76" text-anchor="middle" font-family="Libertinus Sans" font-size="11" font-weight="bold" fill="white">Central Policy/Guidance</text>
+    <text x="125" y="92" text-anchor="middle" font-family="Libertinus Sans" font-size="9" fill="#e2e8f0">Standards + Enablement</text>
+
+    <!-- Dashed arrow down -->
+    <path d="M125,105 L125,125" stroke="#319795" stroke-width="2" stroke-dasharray="4,2"/>
+    <line x1="65" y1="125" x2="185" y2="125" stroke="#319795" stroke-width="2" stroke-dasharray="4,2"/>
+    <line x1="65" y1="125" x2="65" y2="140" stroke="#319795" stroke-width="2" stroke-dasharray="4,2"/>
+    <line x1="125" y1="125" x2="125" y2="140" stroke="#319795" stroke-width="2" stroke-dasharray="4,2"/>
+    <line x1="185" y1="125" x2="185" y2="140" stroke="#319795" stroke-width="2" stroke-dasharray="4,2"/>
+
+    <!-- Team boxes with full ownership -->
+    <rect x="30" y="145" width="60" height="40" rx="4" fill="#b2f5ea" stroke="#319795" stroke-width="2"/>
+    <text x="60" y="162" text-anchor="middle" font-family="Libertinus Sans" font-size="9" font-weight="bold" fill="#234e52">Team A</text>
+    <text x="60" y="175" text-anchor="middle" font-family="Libertinus Sans" font-size="8" fill="#285e61">(Full)</text>
+
+    <rect x="95" y="145" width="60" height="40" rx="4" fill="#b2f5ea" stroke="#319795" stroke-width="2"/>
+    <text x="125" y="162" text-anchor="middle" font-family="Libertinus Sans" font-size="9" font-weight="bold" fill="#234e52">Team B</text>
+    <text x="125" y="175" text-anchor="middle" font-family="Libertinus Sans" font-size="8" fill="#285e61">(Full)</text>
+
+    <rect x="160" y="145" width="60" height="40" rx="4" fill="#b2f5ea" stroke="#319795" stroke-width="2"/>
+    <text x="190" y="162" text-anchor="middle" font-family="Libertinus Sans" font-size="9" font-weight="bold" fill="#234e52">Team C</text>
+    <text x="190" y="175" text-anchor="middle" font-family="Libertinus Sans" font-size="8" fill="#285e61">(Full)</text>
+
+    <!-- Best for text -->
+    <text x="125" y="210" text-anchor="middle" font-family="Libertinus Sans" font-size="9" font-weight="bold" fill="#2d3748">Best for:</text>
+    <text x="125" y="224" text-anchor="middle" font-family="Libertinus Sans" font-size="8" fill="#4a5568">Large orgs, engineering</text>
+    <text x="125" y="236" text-anchor="middle" font-family="Libertinus Sans" font-size="8" fill="#4a5568">cultures, team autonomy</text>
+  </g>
+
+  <!-- Model 3: Hybrid -->
+  <g transform="translate(600, 70)">
+    <rect x="0" y="0" width="250" height="250" rx="8" fill="white" stroke="#e2e8f0" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="250" height="40" rx="8" fill="url(#hybridGrad)"/>
+    <rect x="0" y="32" width="250" height="8" fill="url(#hybridGrad)"/>
+    <text x="125" y="26" text-anchor="middle" font-family="Libertinus Sans" font-size="14" font-weight="bold" fill="white">HYBRID MODEL</text>
+
+    <!-- Central team box -->
+    <rect x="25" y="55" width="200" height="50" rx="6" fill="url(#hybridGrad)" filter="url(#shadow)"/>
+    <text x="125" y="73" text-anchor="middle" font-family="Libertinus Sans" font-size="10" font-weight="bold" fill="white">Central: Policy + Shared Tools</text>
+    <text x="125" y="89" text-anchor="middle" font-family="Libertinus Sans" font-size="9" fill="#fefcbf">+ Intelligence + Standards</text>
+
+    <!-- Bidirectional arrows -->
+    <path d="M125,105 L125,125" stroke="#d69e2e" stroke-width="2"/>
+    <line x1="65" y1="125" x2="185" y2="125" stroke="#d69e2e" stroke-width="2"/>
+    <line x1="65" y1="125" x2="65" y2="140" stroke="#d69e2e" stroke-width="2"/>
+    <line x1="125" y1="125" x2="125" y2="140" stroke="#d69e2e" stroke-width="2"/>
+    <line x1="185" y1="125" x2="185" y2="140" stroke="#d69e2e" stroke-width="2"/>
+
+    <!-- Upward feedback arrows -->
+    <path d="M50,150 L50,115 L60,115" stroke="#d69e2e" stroke-width="1" fill="none" stroke-dasharray="3,2"/>
+    <path d="M200,150 L200,115 L190,115" stroke="#d69e2e" stroke-width="1" fill="none" stroke-dasharray="3,2"/>
+
+    <!-- Team boxes -->
+    <rect x="30" y="145" width="60" height="40" rx="4" fill="#fefcbf" stroke="#d69e2e" stroke-width="2"/>
+    <text x="60" y="162" text-anchor="middle" font-family="Libertinus Sans" font-size="9" font-weight="bold" fill="#744210">Team A</text>
+    <text x="60" y="175" text-anchor="middle" font-family="Libertinus Sans" font-size="8" fill="#975a16">(Exec)</text>
+
+    <rect x="95" y="145" width="60" height="40" rx="4" fill="#fefcbf" stroke="#d69e2e" stroke-width="2"/>
+    <text x="125" y="162" text-anchor="middle" font-family="Libertinus Sans" font-size="9" font-weight="bold" fill="#744210">Team B</text>
+    <text x="125" y="175" text-anchor="middle" font-family="Libertinus Sans" font-size="8" fill="#975a16">(Exec)</text>
+
+    <rect x="160" y="145" width="60" height="40" rx="4" fill="#fefcbf" stroke="#d69e2e" stroke-width="2"/>
+    <text x="190" y="162" text-anchor="middle" font-family="Libertinus Sans" font-size="9" font-weight="bold" fill="#744210">Team C</text>
+    <text x="190" y="175" text-anchor="middle" font-family="Libertinus Sans" font-size="8" fill="#975a16">(Exec)</text>
+
+    <!-- Best for text -->
+    <text x="125" y="210" text-anchor="middle" font-family="Libertinus Sans" font-size="9" font-weight="bold" fill="#2d3748">Best for:</text>
+    <text x="125" y="224" text-anchor="middle" font-family="Libertinus Sans" font-size="8" fill="#4a5568">Most mature orgs,</text>
+    <text x="125" y="236" text-anchor="middle" font-family="Libertinus Sans" font-size="8" fill="#4a5568">balance of control/speed</text>
+  </g>
+
+  <!-- Comparison section -->
+  <g transform="translate(50, 350)">
+    <rect x="0" y="0" width="800" height="270" rx="8" fill="white" stroke="#e2e8f0" stroke-width="2" filter="url(#shadow)"/>
+
+    <!-- Header -->
+    <rect x="0" y="0" width="800" height="35" rx="8" fill="#4a5568"/>
+    <rect x="0" y="27" width="800" height="8" fill="#4a5568"/>
+    <text x="400" y="23" text-anchor="middle" font-family="Libertinus Sans" font-size="14" font-weight="bold" fill="white">Model Comparison</text>
+
+    <!-- Table headers -->
+    <text x="100" y="60" text-anchor="middle" font-family="Libertinus Sans" font-size="11" font-weight="bold" fill="#2d3748">Factor</text>
+    <text x="300" y="60" text-anchor="middle" font-family="Libertinus Sans" font-size="11" font-weight="bold" fill="#2c5282">Centralized</text>
+    <text x="500" y="60" text-anchor="middle" font-family="Libertinus Sans" font-size="11" font-weight="bold" fill="#285e61">Federated</text>
+    <text x="700" y="60" text-anchor="middle" font-family="Libertinus Sans" font-size="11" font-weight="bold" fill="#975a16">Hybrid</text>
+
+    <line x1="20" y1="70" x2="780" y2="70" stroke="#e2e8f0" stroke-width="1"/>
+
+    <!-- Row 1: Control -->
+    <rect x="20" y="75" width="760" height="35" fill="#f7fafc"/>
+    <text x="100" y="97" text-anchor="middle" font-family="Libertinus Sans" font-size="10" fill="#4a5568">Control Level</text>
+    <text x="300" y="97" text-anchor="middle" font-family="Libertinus Sans" font-size="10" fill="#4a5568">High (single owner)</text>
+    <text x="500" y="97" text-anchor="middle" font-family="Libertinus Sans" font-size="10" fill="#4a5568">Low (distributed)</text>
+    <text x="700" y="97" text-anchor="middle" font-family="Libertinus Sans" font-size="10" fill="#4a5568">Balanced</text>
+
+    <!-- Row 2: Scalability -->
+    <text x="100" y="130" text-anchor="middle" font-family="Libertinus Sans" font-size="10" fill="#4a5568">Scalability</text>
+    <text x="300" y="130" text-anchor="middle" font-family="Libertinus Sans" font-size="10" fill="#4a5568">Limited (bottleneck)</text>
+    <text x="500" y="130" text-anchor="middle" font-family="Libertinus Sans" font-size="10" fill="#4a5568">High (parallel)</text>
+    <text x="700" y="130" text-anchor="middle" font-family="Libertinus Sans" font-size="10" fill="#4a5568">High</text>
+
+    <!-- Row 3: Consistency -->
+    <rect x="20" y="145" width="760" height="35" fill="#f7fafc"/>
+    <text x="100" y="167" text-anchor="middle" font-family="Libertinus Sans" font-size="10" fill="#4a5568">Consistency</text>
+    <text x="300" y="167" text-anchor="middle" font-family="Libertinus Sans" font-size="10" fill="#4a5568">Very high</text>
+    <text x="500" y="167" text-anchor="middle" font-family="Libertinus Sans" font-size="10" fill="#4a5568">Variable</text>
+    <text x="700" y="167" text-anchor="middle" font-family="Libertinus Sans" font-size="10" fill="#4a5568">High within guardrails</text>
+
+    <!-- Row 4: Response Speed -->
+    <text x="100" y="200" text-anchor="middle" font-family="Libertinus Sans" font-size="10" fill="#4a5568">Response Speed</text>
+    <text x="300" y="200" text-anchor="middle" font-family="Libertinus Sans" font-size="10" fill="#4a5568">Slower (queue)</text>
+    <text x="500" y="200" text-anchor="middle" font-family="Libertinus Sans" font-size="10" fill="#4a5568">Fastest (local)</text>
+    <text x="700" y="200" text-anchor="middle" font-family="Libertinus Sans" font-size="10" fill="#4a5568">Fast + coordinated</text>
+
+    <!-- Row 5: Engineering Context -->
+    <rect x="20" y="215" width="760" height="35" fill="#f7fafc"/>
+    <text x="100" y="237" text-anchor="middle" font-family="Libertinus Sans" font-size="10" fill="#4a5568">Eng Context</text>
+    <text x="300" y="237" text-anchor="middle" font-family="Libertinus Sans" font-size="10" fill="#4a5568">May lack depth</text>
+    <text x="500" y="237" text-anchor="middle" font-family="Libertinus Sans" font-size="10" fill="#4a5568">Deep (embedded)</text>
+    <text x="700" y="237" text-anchor="middle" font-family="Libertinus Sans" font-size="10" fill="#4a5568">Shared expertise</text>
+  </g>
+
+  <!-- Key insight box -->
+  <g transform="translate(50, 635)">
+    <text x="400" y="0" text-anchor="middle" font-family="Libertinus Sans" font-size="10" font-style="italic" fill="#718096">Most mature organizations adopt a hybrid model: centralized policy and shared infrastructure with federated execution within guardrails</text>
+  </g>
+</svg>

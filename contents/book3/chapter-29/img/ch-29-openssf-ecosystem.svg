@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 950 700">
+  <defs>
+        <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset in="blur" dx="1" dy="2" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.5" result="color"/>
+      <feComposite in="color" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#64748B"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="950" height="700" fill="#F8FAFC"/>
+
+  <!-- Title -->
+  <text x="475" y="35" font-family="Libertinus Sans" font-size="22" font-weight="bold" fill="#1E293B" text-anchor="middle">OpenSSF Ecosystem Overview</text>
+  <text x="475" y="55" font-family="Libertinus Sans" font-size="13" fill="#64748B" text-anchor="middle">Projects and programs for open source supply chain security</text>
+
+  <!-- Central OpenSSF logo area -->
+  <g filter="url(#shadow)">
+    <circle cx="475" cy="340" r="70" fill="#1E293B"/>
+    <text x="475" y="330" font-family="Libertinus Sans" font-size="18" font-weight="bold" fill="white" text-anchor="middle">OpenSSF</text>
+    <text x="475" y="355" font-family="Libertinus Sans" font-size="11" fill="#94A3B8" text-anchor="middle">Linux Foundation</text>
+  </g>
+
+  <!-- Category: Build Integrity (top left) -->
+  <text x="175" y="100" font-family="Libertinus Sans" font-size="14" font-weight="bold" fill="#3B82F6" text-anchor="middle">BUILD INTEGRITY</text>
+
+  <g filter="url(#shadow)">
+    <rect x="50" y="120" width="120" height="70" rx="8" fill="#3B82F6"/>
+    <text x="110" y="150" font-family="Libertinus Sans" font-size="13" font-weight="bold" fill="white" text-anchor="middle">SLSA</text>
+    <text x="110" y="170" font-family="Libertinus Sans" font-size="9" fill="#DBEAFE" text-anchor="middle">Build provenance</text>
+    <text x="110" y="183" font-family="Libertinus Sans" font-size="9" fill="#DBEAFE" text-anchor="middle">framework</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="180" y="120" width="120" height="70" rx="8" fill="#3B82F6"/>
+    <text x="240" y="150" font-family="Libertinus Sans" font-size="13" font-weight="bold" fill="white" text-anchor="middle">Sigstore</text>
+    <text x="240" y="170" font-family="Libertinus Sans" font-size="9" fill="#DBEAFE" text-anchor="middle">Keyless signing</text>
+    <text x="240" y="183" font-family="Libertinus Sans" font-size="9" fill="#DBEAFE" text-anchor="middle">Cosign, Fulcio, Rekor</text>
+  </g>
+
+  <!-- Category: Assessment Tools (top right) -->
+  <text x="775" y="100" font-family="Libertinus Sans" font-size="14" font-weight="bold" fill="#10B981" text-anchor="middle">ASSESSMENT</text>
+
+  <g filter="url(#shadow)">
+    <rect x="650" y="120" width="120" height="70" rx="8" fill="#10B981"/>
+    <text x="710" y="150" font-family="Libertinus Sans" font-size="13" font-weight="bold" fill="white" text-anchor="middle">Scorecard</text>
+    <text x="710" y="170" font-family="Libertinus Sans" font-size="9" fill="#D1FAE5" text-anchor="middle">Security health</text>
+    <text x="710" y="183" font-family="Libertinus Sans" font-size="9" fill="#D1FAE5" text-anchor="middle">assessment</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="780" y="120" width="120" height="70" rx="8" fill="#10B981"/>
+    <text x="840" y="150" font-family="Libertinus Sans" font-size="13" font-weight="bold" fill="white" text-anchor="middle">Best Practices</text>
+    <text x="840" y="170" font-family="Libertinus Sans" font-size="9" fill="#D1FAE5" text-anchor="middle">Badge program</text>
+    <text x="840" y="183" font-family="Libertinus Sans" font-size="9" fill="#D1FAE5" text-anchor="middle">Pass/Silver/Gold</text>
+  </g>
+
+  <!-- Category: Detection (left) -->
+  <text x="110" y="280" font-family="Libertinus Sans" font-size="14" font-weight="bold" fill="#8B5CF6" text-anchor="middle">DETECTION</text>
+
+  <g filter="url(#shadow)">
+    <rect x="50" y="300" width="120" height="70" rx="8" fill="#8B5CF6"/>
+    <text x="110" y="330" font-family="Libertinus Sans" font-size="12" font-weight="bold" fill="white" text-anchor="middle">Package</text>
+    <text x="110" y="345" font-family="Libertinus Sans" font-size="12" font-weight="bold" fill="white" text-anchor="middle">Analysis</text>
+    <text x="110" y="362" font-family="Libertinus Sans" font-size="9" fill="#E9D5FF" text-anchor="middle">15k+ malicious found</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="50" y="380" width="120" height="70" rx="8" fill="#8B5CF6"/>
+    <text x="110" y="410" font-family="Libertinus Sans" font-size="13" font-weight="bold" fill="white" text-anchor="middle">Allstar</text>
+    <text x="110" y="430" font-family="Libertinus Sans" font-size="9" fill="#E9D5FF" text-anchor="middle">GitHub security</text>
+    <text x="110" y="443" font-family="Libertinus Sans" font-size="9" fill="#E9D5FF" text-anchor="middle">automation</text>
+  </g>
+
+  <!-- Category: Analysis (right) -->
+  <text x="840" y="280" font-family="Libertinus Sans" font-size="14" font-weight="bold" fill="#F59E0B" text-anchor="middle">ANALYSIS</text>
+
+  <g filter="url(#shadow)">
+    <rect x="780" y="300" width="120" height="70" rx="8" fill="#F59E0B"/>
+    <text x="840" y="330" font-family="Libertinus Sans" font-size="13" font-weight="bold" fill="white" text-anchor="middle">GUAC</text>
+    <text x="840" y="350" font-family="Libertinus Sans" font-size="9" fill="#FEF3C7" text-anchor="middle">Metadata graph</text>
+    <text x="840" y="363" font-family="Libertinus Sans" font-size="9" fill="#FEF3C7" text-anchor="middle">SBOM aggregation</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="780" y="380" width="120" height="70" rx="8" fill="#F59E0B"/>
+    <text x="840" y="410" font-family="Libertinus Sans" font-size="12" font-weight="bold" fill="white" text-anchor="middle">Criticality</text>
+    <text x="840" y="425" font-family="Libertinus Sans" font-size="12" font-weight="bold" fill="white" text-anchor="middle">Score</text>
+    <text x="840" y="442" font-family="Libertinus Sans" font-size="9" fill="#FEF3C7" text-anchor="middle">Project importance</text>
+  </g>
+
+  <!-- Category: Funding (bottom left) -->
+  <text x="175" y="510" font-family="Libertinus Sans" font-size="14" font-weight="bold" fill="#EF4444" text-anchor="middle">FUNDING</text>
+
+  <g filter="url(#shadow)">
+    <rect x="50" y="530" width="120" height="70" rx="8" fill="#EF4444"/>
+    <text x="110" y="560" font-family="Libertinus Sans" font-size="13" font-weight="bold" fill="white" text-anchor="middle">Alpha-Omega</text>
+    <text x="110" y="580" font-family="Libertinus Sans" font-size="9" fill="#FEE2E2" text-anchor="middle">$6M grants/year</text>
+    <text x="110" y="593" font-family="Libertinus Sans" font-size="9" fill="#FEE2E2" text-anchor="middle">Critical projects</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="180" y="530" width="120" height="70" rx="8" fill="#EF4444"/>
+    <text x="240" y="560" font-family="Libertinus Sans" font-size="13" font-weight="bold" fill="white" text-anchor="middle">SOS Rewards</text>
+    <text x="240" y="580" font-family="Libertinus Sans" font-size="9" fill="#FEE2E2" text-anchor="middle">Security bounties</text>
+    <text x="240" y="593" font-family="Libertinus Sans" font-size="9" fill="#FEE2E2" text-anchor="middle">$505-$10k+</text>
+  </g>
+
+  <!-- Category: Education (bottom right) -->
+  <text x="775" y="510" font-family="Libertinus Sans" font-size="14" font-weight="bold" fill="#0EA5E9" text-anchor="middle">EDUCATION</text>
+
+  <g filter="url(#shadow)">
+    <rect x="650" y="530" width="120" height="70" rx="8" fill="#0EA5E9"/>
+    <text x="710" y="555" font-family="Libertinus Sans" font-size="12" font-weight="bold" fill="white" text-anchor="middle">Security</text>
+    <text x="710" y="570" font-family="Libertinus Sans" font-size="12" font-weight="bold" fill="white" text-anchor="middle">Guides</text>
+    <text x="710" y="590" font-family="Libertinus Sans" font-size="9" fill="#E0F2FE" text-anchor="middle">Best practices docs</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="780" y="530" width="120" height="70" rx="8" fill="#0EA5E9"/>
+    <text x="840" y="555" font-family="Libertinus Sans" font-size="12" font-weight="bold" fill="white" text-anchor="middle">Free</text>
+    <text x="840" y="570" font-family="Libertinus Sans" font-size="12" font-weight="bold" fill="white" text-anchor="middle">Courses</text>
+    <text x="840" y="590" font-family="Libertinus Sans" font-size="9" fill="#E0F2FE" text-anchor="middle">LF Training</text>
+  </g>
+
+  <!-- Connecting lines to center -->
+  <line x1="170" y1="190" x2="410" y2="300" stroke="#3B82F6" stroke-width="2"/>
+  <line x1="300" y1="170" x2="410" y2="310" stroke="#3B82F6" stroke-width="2"/>
+
+  <line x1="170" y1="340" x2="405" y2="340" stroke="#8B5CF6" stroke-width="2"/>
+  <line x1="170" y1="415" x2="405" y2="360" stroke="#8B5CF6" stroke-width="2"/>
+
+  <line x1="170" y1="560" x2="410" y2="390" stroke="#EF4444" stroke-width="2"/>
+  <line x1="300" y1="565" x2="420" y2="400" stroke="#EF4444" stroke-width="2"/>
+
+  <line x1="780" y1="155" x2="540" y2="300" stroke="#10B981" stroke-width="2"/>
+  <line x1="650" y1="155" x2="530" y2="290" stroke="#10B981" stroke-width="2"/>
+
+  <line x1="780" y1="335" x2="545" y2="340" stroke="#F59E0B" stroke-width="2"/>
+  <line x1="780" y1="415" x2="545" y2="360" stroke="#F59E0B" stroke-width="2"/>
+
+  <line x1="780" y1="565" x2="540" y2="390" stroke="#0EA5E9" stroke-width="2"/>
+  <line x1="650" y1="565" x2="530" y2="400" stroke="#0EA5E9" stroke-width="2"/>
+
+  <!-- Adoption statistics -->
+  <rect x="310" y="640" width="330" height="50" rx="6" fill="#F0FDF4" stroke="#86EFAC" stroke-width="1"/>
+  <text x="475" y="662" font-family="Libertinus Sans" font-size="11" font-weight="bold" fill="#166534" text-anchor="middle">Ecosystem Adoption</text>
+  <text x="475" y="680" font-family="Libertinus Sans" font-size="10" fill="#166534" text-anchor="middle">npm, PyPI, Kubernetes, GitHub Actions - all using Sigstore</text>
+</svg>

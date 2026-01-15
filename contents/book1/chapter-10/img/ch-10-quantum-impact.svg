@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" font-family="Libertinus Sans">
+  <defs>
+        <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset in="blur" dx="1" dy="2" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.5" result="color"/>
+      <feComposite in="color" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="500" fill="#F8FAFC"/>
+
+  <!-- Title -->
+  <text x="450" y="32" text-anchor="middle" font-size="18" font-weight="bold" fill="#1E293B">Post-Quantum Cryptography: Impact on Supply Chain Security</text>
+  <text x="450" y="52" text-anchor="middle" font-size="11" fill="#64748B">Quantum computing threatens the cryptographic foundations of software verification</text>
+
+  <!-- Impact Table -->
+  <g filter="url(#shadow)">
+    <!-- Header -->
+    <rect x="50" y="75" width="800" height="40" rx="6" fill="#1E293B"/>
+    <text x="150" y="100" text-anchor="middle" font-size="11" font-weight="bold" fill="white">Algorithm Type</text>
+    <line x1="250" y1="80" x2="250" y2="110" stroke="#475569"/>
+    <text x="350" y="100" text-anchor="middle" font-size="11" font-weight="bold" fill="white">Examples</text>
+    <line x1="450" y1="80" x2="450" y2="110" stroke="#475569"/>
+    <text x="550" y="100" text-anchor="middle" font-size="11" font-weight="bold" fill="white">Supply Chain Use</text>
+    <line x1="650" y1="80" x2="650" y2="110" stroke="#475569"/>
+    <text x="750" y="100" text-anchor="middle" font-size="11" font-weight="bold" fill="white">Quantum Impact</text>
+
+    <!-- Row 1: RSA/Elliptic Curve -->
+    <rect x="50" y="120" width="800" height="55" fill="#FEE2E2" stroke="#E2E8F0"/>
+    <text x="150" y="145" text-anchor="middle" font-size="11" font-weight="600" fill="#1E293B">Asymmetric</text>
+    <text x="150" y="162" text-anchor="middle" font-size="9" fill="#64748B">(Public Key)</text>
+
+    <text x="350" y="145" text-anchor="middle" font-size="10" fill="#475569">RSA, ECDSA</text>
+    <text x="350" y="162" text-anchor="middle" font-size="10" fill="#475569">Ed25519</text>
+
+    <text x="550" y="145" text-anchor="middle" font-size="10" fill="#475569">Code signing</text>
+    <text x="550" y="162" text-anchor="middle" font-size="10" fill="#475569">Package verification</text>
+
+    <rect x="690" y="130" width="110" height="35" rx="4" fill="#DC2626"/>
+    <text x="745" y="152" text-anchor="middle" font-size="10" font-weight="bold" fill="white">BROKEN</text>
+    <text x="745" y="162" text-anchor="middle" font-size="8" fill="white">by Shor's</text>
+
+    <!-- Row 2: Symmetric -->
+    <rect x="50" y="180" width="800" height="55" fill="#FEF3C7" stroke="#E2E8F0"/>
+    <text x="150" y="205" text-anchor="middle" font-size="11" font-weight="600" fill="#1E293B">Symmetric</text>
+    <text x="150" y="222" text-anchor="middle" font-size="9" fill="#64748B">(Secret Key)</text>
+
+    <text x="350" y="205" text-anchor="middle" font-size="10" fill="#475569">AES-128</text>
+    <text x="350" y="222" text-anchor="middle" font-size="10" fill="#475569">AES-256</text>
+
+    <text x="550" y="205" text-anchor="middle" font-size="10" fill="#475569">Encrypted artifacts</text>
+    <text x="550" y="222" text-anchor="middle" font-size="10" fill="#475569">Secure storage</text>
+
+    <rect x="690" y="190" width="110" height="35" rx="4" fill="#F59E0B"/>
+    <text x="745" y="212" text-anchor="middle" font-size="10" font-weight="bold" fill="white">WEAKENED</text>
+    <text x="745" y="222" text-anchor="middle" font-size="8" fill="white">Double key size</text>
+
+    <!-- Row 3: Hash Functions -->
+    <rect x="50" y="240" width="800" height="55" fill="#D1FAE5" stroke="#E2E8F0"/>
+    <text x="150" y="265" text-anchor="middle" font-size="11" font-weight="600" fill="#1E293B">Hash Functions</text>
+    <text x="150" y="282" text-anchor="middle" font-size="9" fill="#64748B">(One-way)</text>
+
+    <text x="350" y="265" text-anchor="middle" font-size="10" fill="#475569">SHA-256</text>
+    <text x="350" y="282" text-anchor="middle" font-size="10" fill="#475569">SHA-3</text>
+
+    <text x="550" y="265" text-anchor="middle" font-size="10" fill="#475569">Integrity checks</text>
+    <text x="550" y="282" text-anchor="middle" font-size="10" fill="#475569">Merkle trees</text>
+
+    <rect x="690" y="250" width="110" height="35" rx="4" fill="#059669"/>
+    <text x="745" y="272" text-anchor="middle" font-size="10" font-weight="bold" fill="white">SECURE</text>
+    <text x="745" y="282" text-anchor="middle" font-size="8" fill="white">Use larger output</text>
+  </g>
+
+  <!-- Post-Quantum Alternatives -->
+  <g filter="url(#shadow)" transform="translate(50, 315)">
+    <rect x="0" y="0" width="800" height="85" rx="8" fill="white" stroke="#E2E8F0"/>
+    <text x="400" y="25" text-anchor="middle" font-size="13" font-weight="bold" fill="#1E293B">NIST Post-Quantum Standards (2024)</text>
+
+    <g transform="translate(25, 40)">
+      <rect x="0" y="0" width="230" height="35" rx="4" fill="#DBEAFE" stroke="#BFDBFE"/>
+      <text x="115" y="17" text-anchor="middle" font-size="10" font-weight="600" fill="#1E40AF">ML-KEM (Kyber)</text>
+      <text x="115" y="30" text-anchor="middle" font-size="8" fill="#2563EB">Key encapsulation - FIPS 203</text>
+    </g>
+
+    <g transform="translate(285, 40)">
+      <rect x="0" y="0" width="230" height="35" rx="4" fill="#E0E7FF" stroke="#C7D2FE"/>
+      <text x="115" y="17" text-anchor="middle" font-size="10" font-weight="600" fill="#3730A3">ML-DSA (Dilithium)</text>
+      <text x="115" y="30" text-anchor="middle" font-size="8" fill="#6366F1">Digital signatures - FIPS 204</text>
+    </g>
+
+    <g transform="translate(545, 40)">
+      <rect x="0" y="0" width="230" height="35" rx="4" fill="#D1FAE5" stroke="#A7F3D0"/>
+      <text x="115" y="17" text-anchor="middle" font-size="10" font-weight="600" fill="#065F46">SLH-DSA (SPHINCS+)</text>
+      <text x="115" y="30" text-anchor="middle" font-size="8" fill="#047857">Hash-based sigs - FIPS 205</text>
+    </g>
+  </g>
+
+  <!-- Transition Timeline -->
+  <g filter="url(#shadow)" transform="translate(50, 415)">
+    <rect x="0" y="0" width="800" height="70" rx="8" fill="#F1F5F9" stroke="#E2E8F0"/>
+    <text x="400" y="22" text-anchor="middle" font-size="12" font-weight="bold" fill="#1E293B">Migration Timeline</text>
+
+    <!-- Timeline -->
+    <line x1="50" y1="45" x2="750" y2="45" stroke="#CBD5E1" stroke-width="3"/>
+
+    <g transform="translate(50, 45)">
+      <circle cx="0" cy="0" r="8" fill="#3B82F6"/>
+      <text x="0" y="22" text-anchor="middle" font-size="8" fill="#475569">NOW</text>
+      <text x="0" y="-12" text-anchor="middle" font-size="7" fill="#3B82F6">Inventory</text>
+    </g>
+
+    <g transform="translate(230, 45)">
+      <circle cx="0" cy="0" r="8" fill="#8B5CF6"/>
+      <text x="0" y="22" text-anchor="middle" font-size="8" fill="#475569">2025-27</text>
+      <text x="0" y="-12" text-anchor="middle" font-size="7" fill="#8B5CF6">Hybrid deploy</text>
+    </g>
+
+    <g transform="translate(400, 45)">
+      <circle cx="0" cy="0" r="8" fill="#F59E0B"/>
+      <text x="0" y="22" text-anchor="middle" font-size="8" fill="#475569">2028-30</text>
+      <text x="0" y="-12" text-anchor="middle" font-size="7" fill="#F59E0B">Full migration</text>
+    </g>
+
+    <g transform="translate(570, 45)">
+      <circle cx="0" cy="0" r="8" fill="#DC2626"/>
+      <text x="0" y="22" text-anchor="middle" font-size="8" fill="#475569">~2035+</text>
+      <text x="0" y="-12" text-anchor="middle" font-size="7" fill="#DC2626">CRQC threat</text>
+    </g>
+
+    <g transform="translate(700, 45)">
+      <circle cx="0" cy="0" r="6" fill="#CBD5E1"/>
+      <text x="0" y="22" text-anchor="middle" font-size="8" fill="#475569">Uncertain</text>
+    </g>
+  </g>
+</svg>

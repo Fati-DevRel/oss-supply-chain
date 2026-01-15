@@ -1,0 +1,176 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" font-family="Libertinus Sans">
+  <defs>
+        <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset in="blur" dx="1" dy="2" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.5" result="color"/>
+      <feComposite in="color" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="valueGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#48bb78"/>
+      <stop offset="100%" style="stop-color:#276749"/>
+    </linearGradient>
+    <linearGradient id="investGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#fc8181"/>
+      <stop offset="100%" style="stop-color:#c53030"/>
+    </linearGradient>
+    <marker id="arrowHead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#718096"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="600" fill="#f7fafc"/>
+
+  <!-- Title -->
+  <text x="450" y="35" text-anchor="middle" font-size="20" font-weight="600" fill="#1a365d">
+    The Economics of Open Source: The Free-Rider Problem
+  </text>
+  <text x="450" y="55" text-anchor="middle" font-size="12" fill="#718096">
+    Value extracted vastly exceeds investment in maintenance
+  </text>
+
+  <!-- Value vs Investment Comparison -->
+  <g transform="translate(50, 85)">
+    <rect x="0" y="0" width="380" height="220" rx="8" fill="#fff" filter="url(#shadow)"/>
+    <text x="190" y="25" text-anchor="middle" font-size="14" font-weight="600" fill="#2d3748">Value vs. Investment Gap</text>
+
+    <!-- Value bar -->
+    <text x="20" y="60" font-size="11" fill="#4a5568">Estimated Value (Demand-side)</text>
+    <rect x="20" y="70" width="340" height="50" rx="4" fill="url(#valueGrad)"/>
+    <text x="190" y="100" text-anchor="middle" font-size="18" font-weight="700" fill="#fff">$8.8 Trillion</text>
+    <text x="190" y="115" text-anchor="middle" font-size="10" fill="#c6f6d5">Harvard Business School 2024 Study</text>
+
+    <!-- Investment bar -->
+    <text x="20" y="150" font-size="11" fill="#4a5568">Supply-side Investment</text>
+    <rect x="20" y="160" width="340" height="35" rx="4" fill="#e2e8f0"/>
+    <rect x="20" y="160" width="12" height="35" rx="4" fill="url(#investGrad)"/>
+    <text x="45" y="183" font-size="12" font-weight="600" fill="#c53030">Orders of magnitude smaller</text>
+
+    <!-- Gap indicator -->
+    <line x1="355" y1="95" x2="355" y2="177" stroke="#e53e3e" stroke-width="2" stroke-dasharray="4,2"/>
+    <text x="365" y="140" font-size="24" font-weight="700" fill="#e53e3e" transform="rotate(90, 365, 140)">GAP</text>
+  </g>
+
+  <!-- Public Goods Explanation -->
+  <g transform="translate(470, 85)">
+    <rect x="0" y="0" width="380" height="220" rx="8" fill="#fff" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="380" height="40" rx="8" fill="#4299e1"/>
+    <rect x="0" y="32" width="380" height="8" fill="#4299e1"/>
+    <text x="190" y="26" text-anchor="middle" font-size="13" font-weight="600" fill="#fff">Open Source as Public Good</text>
+
+    <!-- 2x2 matrix -->
+    <g transform="translate(30, 55)">
+      <!-- Headers -->
+      <text x="100" y="15" text-anchor="middle" font-size="10" font-weight="600" fill="#4a5568">Rivalrous</text>
+      <text x="220" y="15" text-anchor="middle" font-size="10" font-weight="600" fill="#4a5568">Non-Rivalrous</text>
+      <text x="-10" y="60" font-size="10" font-weight="600" fill="#4a5568" transform="rotate(-90, -10, 60)">Excludable</text>
+      <text x="-10" y="130" font-size="10" font-weight="600" fill="#4a5568" transform="rotate(-90, -10, 130)">Non-Excludable</text>
+
+      <!-- Cells -->
+      <rect x="40" y="25" width="110" height="55" rx="4" fill="#e2e8f0"/>
+      <text x="95" y="48" text-anchor="middle" font-size="9" fill="#4a5568">Private Goods</text>
+      <text x="95" y="62" text-anchor="middle" font-size="8" fill="#718096">(food, clothing)</text>
+
+      <rect x="160" y="25" width="110" height="55" rx="4" fill="#e2e8f0"/>
+      <text x="215" y="48" text-anchor="middle" font-size="9" fill="#4a5568">Club Goods</text>
+      <text x="215" y="62" text-anchor="middle" font-size="8" fill="#718096">(streaming services)</text>
+
+      <rect x="40" y="90" width="110" height="55" rx="4" fill="#e2e8f0"/>
+      <text x="95" y="113" text-anchor="middle" font-size="9" fill="#4a5568">Common Resources</text>
+      <text x="95" y="127" text-anchor="middle" font-size="8" fill="#718096">(fisheries, forests)</text>
+
+      <rect x="160" y="90" width="110" height="55" rx="4" fill="#c6f6d5" stroke="#48bb78" stroke-width="2"/>
+      <text x="215" y="108" text-anchor="middle" font-size="9" font-weight="600" fill="#276749">Public Goods</text>
+      <text x="215" y="122" text-anchor="middle" font-size="8" fill="#276749">(open source,</text>
+      <text x="215" y="134" text-anchor="middle" font-size="8" fill="#276749">national defense)</text>
+    </g>
+
+    <text x="190" y="205" text-anchor="middle" font-size="9" fill="#718096">Anyone can use without paying = Free-rider incentive</text>
+  </g>
+
+  <!-- Flow diagram showing the problem -->
+  <g transform="translate(50, 325)">
+    <rect x="0" y="0" width="800" height="130" rx="8" fill="#fff" filter="url(#shadow)"/>
+    <text x="400" y="25" text-anchor="middle" font-size="13" font-weight="600" fill="#2d3748">The Tragedy of the Commons in Open Source</text>
+
+    <!-- Flow boxes -->
+    <g transform="translate(30, 45)">
+      <!-- Maintainer -->
+      <rect x="0" y="0" width="130" height="60" rx="6" fill="#bee3f8"/>
+      <text x="65" y="25" text-anchor="middle" font-size="10" font-weight="600" fill="#2b6cb0">Maintainer</text>
+      <text x="65" y="40" text-anchor="middle" font-size="9" fill="#4a5568">Creates value</text>
+      <text x="65" y="52" text-anchor="middle" font-size="9" fill="#4a5568">Unpaid work</text>
+
+      <!-- Arrow 1 -->
+      <line x1="135" y1="30" x2="175" y2="30" stroke="#718096" stroke-width="2" marker-end="url(#arrowHead)"/>
+      <text x="155" y="22" text-anchor="middle" font-size="8" fill="#718096">creates</text>
+
+      <!-- Package -->
+      <rect x="180" y="0" width="130" height="60" rx="6" fill="#c6f6d5"/>
+      <text x="245" y="25" text-anchor="middle" font-size="10" font-weight="600" fill="#276749">Open Source</text>
+      <text x="245" y="40" text-anchor="middle" font-size="10" font-weight="600" fill="#276749">Package</text>
+      <text x="245" y="52" text-anchor="middle" font-size="9" fill="#4a5568">Free to all</text>
+
+      <!-- Arrow 2 -->
+      <line x1="315" y1="30" x2="355" y2="30" stroke="#718096" stroke-width="2" marker-end="url(#arrowHead)"/>
+      <text x="335" y="22" text-anchor="middle" font-size="8" fill="#718096">used by</text>
+
+      <!-- Companies -->
+      <rect x="360" y="0" width="130" height="60" rx="6" fill="#feebc8"/>
+      <text x="425" y="25" text-anchor="middle" font-size="10" font-weight="600" fill="#c05621">Companies</text>
+      <text x="425" y="40" text-anchor="middle" font-size="9" fill="#4a5568">Extract $trillions</text>
+      <text x="425" y="52" text-anchor="middle" font-size="9" fill="#4a5568">in value</text>
+
+      <!-- Arrow 3 (missing) -->
+      <line x1="425" y1="65" x2="425" y2="75" stroke="#e53e3e" stroke-width="2" stroke-dasharray="4,2"/>
+      <line x1="425" y1="75" x2="65" y2="75" stroke="#e53e3e" stroke-width="2" stroke-dasharray="4,2"/>
+      <line x1="65" y1="75" x2="65" y2="65" stroke="#e53e3e" stroke-width="2" stroke-dasharray="4,2" marker-end="url(#arrowHead)"/>
+      <text x="245" y="85" text-anchor="middle" font-size="9" font-weight="600" fill="#e53e3e">Very little flows back</text>
+
+      <!-- Result -->
+      <rect x="530" y="0" width="210" height="60" rx="6" fill="#fed7d7"/>
+      <text x="635" y="20" text-anchor="middle" font-size="10" font-weight="600" fill="#c53030">Result: Chronic Underfunding</text>
+      <text x="635" y="35" text-anchor="middle" font-size="9" fill="#4a5568">Burnout, security gaps,</text>
+      <text x="635" y="48" text-anchor="middle" font-size="9" fill="#4a5568">abandoned projects</text>
+    </g>
+  </g>
+
+  <!-- Business Models Section -->
+  <g transform="translate(50, 475)">
+    <rect x="0" y="0" width="800" height="105" rx="8" fill="#fff" filter="url(#shadow)"/>
+    <text x="400" y="22" text-anchor="middle" font-size="13" font-weight="600" fill="#2d3748">Emerging Funding Models (Limited Reach)</text>
+
+    <g transform="translate(20, 35)">
+      <!-- Model boxes -->
+      <rect x="0" y="0" width="145" height="55" rx="4" fill="#ebf8ff"/>
+      <text x="72" y="20" text-anchor="middle" font-size="10" font-weight="600" fill="#2b6cb0">GitHub Sponsors</text>
+      <text x="72" y="35" text-anchor="middle" font-size="9" fill="#4a5568">Direct donations</text>
+      <text x="72" y="48" text-anchor="middle" font-size="8" fill="#718096">Concentrated at top</text>
+
+      <rect x="155" y="0" width="145" height="55" rx="4" fill="#faf5ff"/>
+      <text x="227" y="20" text-anchor="middle" font-size="10" font-weight="600" fill="#6b46c1">Open Collective</text>
+      <text x="227" y="35" text-anchor="middle" font-size="9" fill="#4a5568">Fiscal hosting</text>
+      <text x="227" y="48" text-anchor="middle" font-size="8" fill="#718096">Project-based</text>
+
+      <rect x="310" y="0" width="145" height="55" rx="4" fill="#f0fff4"/>
+      <text x="382" y="20" text-anchor="middle" font-size="10" font-weight="600" fill="#276749">Tidelift</text>
+      <text x="382" y="35" text-anchor="middle" font-size="9" fill="#4a5568">Enterprise subscriptions</text>
+      <text x="382" y="48" text-anchor="middle" font-size="8" fill="#718096">Security commitments</text>
+
+      <rect x="465" y="0" width="145" height="55" rx="4" fill="#fffbeb"/>
+      <text x="537" y="20" text-anchor="middle" font-size="10" font-weight="600" fill="#92400e">Sovereign Tech Fund</text>
+      <text x="537" y="35" text-anchor="middle" font-size="9" fill="#4a5568">Government funding</text>
+      <text x="537" y="48" text-anchor="middle" font-size="8" fill="#718096">Public investment</text>
+
+      <rect x="620" y="0" width="145" height="55" rx="4" fill="#fff5f5"/>
+      <text x="692" y="20" text-anchor="middle" font-size="10" font-weight="600" fill="#c53030">OSPOs</text>
+      <text x="692" y="35" text-anchor="middle" font-size="9" fill="#4a5568">Corporate programs</text>
+      <text x="692" y="48" text-anchor="middle" font-size="8" fill="#718096">Varies widely</text>
+    </g>
+  </g>
+</svg>

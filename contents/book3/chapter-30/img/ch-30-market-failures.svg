@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" font-family="Libertinus Sans">
+  <defs>
+    <linearGradient id="centerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b1a1a"/>
+      <stop offset="100%" style="stop-color:#6b1515"/>
+    </linearGradient>
+    <linearGradient id="failureGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#2d5a87"/>
+      <stop offset="100%" style="stop-color:#1e4060"/>
+    </linearGradient>
+        <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset in="blur" dx="1" dy="2" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.5" result="color"/>
+      <feComposite in="color" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Title -->
+  <text x="400" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="#1e3a5f">Market Failures in Open Source Security</text>
+  <text x="400" y="50" text-anchor="middle" font-size="11" fill="#666">Why market forces alone cannot solve open source security investment</text>
+
+  <!-- Center circle - underinvestment problem -->
+  <circle cx="400" cy="270" r="80" fill="url(#centerGrad)" filter="url(#shadow)"/>
+  <text x="400" y="260" text-anchor="middle" font-size="13" font-weight="bold" fill="white">Structural</text>
+  <text x="400" y="280" text-anchor="middle" font-size="13" font-weight="bold" fill="white">Under-</text>
+  <text x="400" y="300" text-anchor="middle" font-size="13" font-weight="bold" fill="white">investment</text>
+
+  <!-- Connecting lines to center -->
+  <line x1="155" y1="140" x2="330" y2="210" stroke="#aaa" stroke-width="2"/>
+  <line x1="400" y1="115" x2="400" y2="190" stroke="#aaa" stroke-width="2"/>
+  <line x1="645" y1="140" x2="470" y2="210" stroke="#aaa" stroke-width="2"/>
+  <line x1="155" y1="380" x2="330" y2="330" stroke="#aaa" stroke-width="2"/>
+  <line x1="400" y1="420" x2="400" y2="350" stroke="#aaa" stroke-width="2"/>
+  <line x1="645" y1="380" x2="470" y2="330" stroke="#aaa" stroke-width="2"/>
+
+  <!-- Market Failure 1: Public Goods -->
+  <g transform="translate(50, 70)">
+    <rect x="0" y="0" width="210" height="80" rx="6" fill="url(#failureGrad)" filter="url(#shadow)"/>
+    <text x="105" y="25" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Public Goods</text>
+    <line x1="15" y1="35" x2="195" y2="35" stroke="rgba(255,255,255,0.3)"/>
+    <text x="15" y="52" font-size="9" fill="#cce0ff">Security improvements benefit everyone</text>
+    <text x="15" y="66" font-size="9" fill="#cce0ff">Non-rivalrous and non-excludable</text>
+  </g>
+
+  <!-- Market Failure 2: Free Riding -->
+  <g transform="translate(295, 70)">
+    <rect x="0" y="0" width="210" height="80" rx="6" fill="url(#failureGrad)" filter="url(#shadow)"/>
+    <text x="105" y="25" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Free-Rider Problem</text>
+    <line x1="15" y1="35" x2="195" y2="35" stroke="rgba(255,255,255,0.3)"/>
+    <text x="15" y="52" font-size="9" fill="#cce0ff">Rational actors consume without paying</text>
+    <text x="15" y="66" font-size="9" fill="#cce0ff">96% use OSS, most contribute nothing</text>
+  </g>
+
+  <!-- Market Failure 3: Information Asymmetry -->
+  <g transform="translate(540, 70)">
+    <rect x="0" y="0" width="210" height="80" rx="6" fill="url(#failureGrad)" filter="url(#shadow)"/>
+    <text x="105" y="25" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Information Asymmetry</text>
+    <line x1="15" y1="35" x2="195" y2="35" stroke="rgba(255,255,255,0.3)"/>
+    <text x="15" y="52" font-size="9" fill="#cce0ff">Users cannot assess security quality</text>
+    <text x="15" y="66" font-size="9" fill="#cce0ff">Selection on features, not security</text>
+  </g>
+
+  <!-- Market Failure 4: Externalities -->
+  <g transform="translate(50, 350)">
+    <rect x="0" y="0" width="210" height="80" rx="6" fill="url(#failureGrad)" filter="url(#shadow)"/>
+    <text x="105" y="25" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Negative Externalities</text>
+    <line x1="15" y1="35" x2="195" y2="35" stroke="rgba(255,255,255,0.3)"/>
+    <text x="15" y="52" font-size="9" fill="#cce0ff">Maintainers don't bear breach costs</text>
+    <text x="15" y="66" font-size="9" fill="#cce0ff">Downstream users face the risk</text>
+  </g>
+
+  <!-- Market Failure 5: Tragedy of Commons -->
+  <g transform="translate(295, 390)">
+    <rect x="0" y="0" width="210" height="80" rx="6" fill="url(#failureGrad)" filter="url(#shadow)"/>
+    <text x="105" y="25" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Tragedy of Commons</text>
+    <line x1="15" y1="35" x2="195" y2="35" stroke="rgba(255,255,255,0.3)"/>
+    <text x="15" y="52" font-size="9" fill="#cce0ff">Shared infrastructure depleted</text>
+    <text x="15" y="66" font-size="9" fill="#cce0ff">OpenSSL: 2 devs, trillions of commerce</text>
+  </g>
+
+  <!-- Market Failure 6: Adverse Selection -->
+  <g transform="translate(540, 350)">
+    <rect x="0" y="0" width="210" height="80" rx="6" fill="url(#failureGrad)" filter="url(#shadow)"/>
+    <text x="105" y="25" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Adverse Selection</text>
+    <line x1="15" y1="35" x2="195" y2="35" stroke="rgba(255,255,255,0.3)"/>
+    <text x="15" y="52" font-size="9" fill="#cce0ff">Security investment = no advantage</text>
+    <text x="15" y="66" font-size="9" fill="#cce0ff">"Lemons" drive out quality</text>
+  </g>
+
+  <!-- Arrow indicators pointing to center -->
+  <polygon points="330,215 340,200 350,215" fill="#aaa"/>
+  <polygon points="400,195 390,180 410,180" fill="#aaa"/>
+  <polygon points="470,215 460,200 450,215" fill="#aaa"/>
+  <polygon points="330,325 340,340 350,325" fill="#aaa"/>
+  <polygon points="400,345 390,360 410,360" fill="#aaa"/>
+  <polygon points="470,325 460,340 450,325" fill="#aaa"/>
+</svg>

@@ -1,0 +1,188 @@
+#!/bin/bash
+#
+# Build PDF for Book 3: Governing the Open Source Supply Chain
+#
+
+INCLUDE_COVER=0
+BOOK_DIR="$(cd "$(dirname "$0")" && pwd)"
+OUTPUT_FILE="$BOOK_DIR/book-3-governing-the-open-source-supply-chain.pdf"
+COVER_IMAGE="$BOOK_DIR/cover.svg"
+
+# Check for cover image
+if [ ! -f "$COVER_IMAGE" ]; then
+    echo "Warning: Cover image not found at $COVER_IMAGE"
+    echo "PDF will be generated without cover. Add cover.svg to include it."
+    COVER_OPTS=""
+else
+    COVER_OPTS="--metadata=cover-image:$COVER_IMAGE"
+fi
+
+echo "Building Book 3: Governing the Open Source Supply Chain..."
+
+# Convert all SVG images to PDF for better quality in LaTeX
+OVERWRITE=1
+echo "Converting SVG images to PDF..."
+for svg_file in $(find "$BOOK_DIR/chapter-"* -name "*.svg" -type f); do
+    pdf_file="${svg_file%.svg}.pdf"
+    if [ "$OVERWRITE" -eq 1 ] || [ ! -f "$pdf_file" ] || [ "$svg_file" -nt "$pdf_file" ]; then
+        echo "  Converting: $svg_file"
+        # Try rsvg-convert first (better SVG support), fall back to magick
+        #if command -v rsvg-convert &> /dev/null; then
+        #    rsvg-convert -f pdf -d 300 -p 300 "$svg_file" -o "$pdf_file" 2>/dev/null || \
+        #        magick -density 300 -gravity center -background white -quality 100 "$svg_file" "$pdf_file" 2>/dev/null
+        #else
+            magick -density 300 -gravity center -background white -quality 100 "$svg_file" "$pdf_file" 2>/dev/null
+        #fi
+    fi
+done
+echo "SVG to PDF conversion complete."
+
+# Collect all markdown files in order
+FILES=(
+    "$BOOK_DIR/index.md"
+    "$BOOK_DIR/../frontmatter/preamble-author.md"
+    "$BOOK_DIR/../frontmatter/preamble-legal.md"
+    "$BOOK_DIR/chapter-23/index.md"
+    "$BOOK_DIR/chapter-23/ch-23.1.md"
+    "$BOOK_DIR/chapter-23/ch-23.2.md"
+    "$BOOK_DIR/chapter-23/ch-23.3.md"
+    "$BOOK_DIR/chapter-23/ch-23.4.md"
+    "$BOOK_DIR/chapter-24/index.md"
+    "$BOOK_DIR/chapter-24/ch-24.1.md"
+    "$BOOK_DIR/chapter-24/ch-24.2.md"
+    "$BOOK_DIR/chapter-24/ch-24.3.md"
+    "$BOOK_DIR/chapter-24/ch-24.4.md"
+    "$BOOK_DIR/chapter-24/ch-24.5.md"
+    "$BOOK_DIR/chapter-24/ch-24.6.md"
+    "$BOOK_DIR/chapter-25/index.md"
+    "$BOOK_DIR/chapter-25/ch-25.1.md"
+    "$BOOK_DIR/chapter-25/ch-25.2.md"
+    "$BOOK_DIR/chapter-25/ch-25.3.md"
+    "$BOOK_DIR/chapter-25/ch-25.4.md"
+    "$BOOK_DIR/chapter-26/index.md"
+    "$BOOK_DIR/chapter-26/ch-26.1.md"
+    "$BOOK_DIR/chapter-26/ch-26.2.md"
+    "$BOOK_DIR/chapter-26/ch-26.3.md"
+    "$BOOK_DIR/chapter-26/ch-26.4.md"
+    "$BOOK_DIR/chapter-26/ch-26.5.md"
+    "$BOOK_DIR/chapter-27/index.md"
+    "$BOOK_DIR/chapter-27/ch-27.1.md"
+    "$BOOK_DIR/chapter-27/ch-27.2.md"
+    "$BOOK_DIR/chapter-27/ch-27.3.md"
+    "$BOOK_DIR/chapter-27/ch-27.4.md"
+    "$BOOK_DIR/chapter-27/ch-27.5.md"
+    "$BOOK_DIR/chapter-28/index.md"
+    "$BOOK_DIR/chapter-28/ch-28.1.md"
+    "$BOOK_DIR/chapter-28/ch-28.2.md"
+    "$BOOK_DIR/chapter-28/ch-28.3.md"
+    "$BOOK_DIR/chapter-28/ch-28.4.md"
+    "$BOOK_DIR/chapter-28/ch-28.5.md"
+    "$BOOK_DIR/chapter-28/ch-28.6.md"
+    "$BOOK_DIR/chapter-29/index.md"
+    "$BOOK_DIR/chapter-29/ch-29.1.md"
+    "$BOOK_DIR/chapter-29/ch-29.2.md"
+    "$BOOK_DIR/chapter-29/ch-29.3.md"
+    "$BOOK_DIR/chapter-29/ch-29.4.md"
+    "$BOOK_DIR/chapter-29/ch-29.5.md"
+    "$BOOK_DIR/chapter-30/index.md"
+    "$BOOK_DIR/chapter-30/ch-30.1.md"
+    "$BOOK_DIR/chapter-30/ch-30.2.md"
+    "$BOOK_DIR/chapter-30/ch-30.3.md"
+    "$BOOK_DIR/chapter-30/ch-30.4.md"
+    "$BOOK_DIR/chapter-31/index.md"
+    "$BOOK_DIR/chapter-31/ch-31.1.md"
+    "$BOOK_DIR/chapter-31/ch-31.2.md"
+    "$BOOK_DIR/chapter-31/ch-31.3.md"
+    "$BOOK_DIR/chapter-31/ch-31.4.md"
+    "$BOOK_DIR/chapter-31/ch-31.5.md"
+    "$BOOK_DIR/chapter-32/index.md"
+    "$BOOK_DIR/chapter-32/ch-32.1.md"
+    "$BOOK_DIR/chapter-32/ch-32.2.md"
+    "$BOOK_DIR/chapter-32/ch-32.3.md"
+    "$BOOK_DIR/chapter-32/ch-32.4.md"
+    "$BOOK_DIR/chapter-32/ch-32.5.md"
+    "$BOOK_DIR/chapter-33/index.md"
+    "$BOOK_DIR/chapter-33/ch-33.1.md"
+    "$BOOK_DIR/chapter-33/ch-33.2.md"
+    "$BOOK_DIR/chapter-33/ch-33.3.md"
+    "$BOOK_DIR/chapter-33/ch-33.4.md"
+    "$BOOK_DIR/chapter-33/ch-33.5.md"
+    "$BOOK_DIR/chapter-33/ch-33.6.md"
+    "$BOOK_DIR/../appendices/index.md"
+    "$BOOK_DIR/../appendices/appendix-a.md"
+    "$BOOK_DIR/../appendices/appendix-b.md"
+    "$BOOK_DIR/../appendices/appendix-e.md"
+    "$BOOK_DIR/../appendices/appendix-h.md"
+)
+
+# Filter to only existing files
+EXISTING_FILES=()
+for f in "${FILES[@]}"; do
+    if [ -f "$f" ]; then
+        EXISTING_FILES+=("$f")
+    else
+        echo "Warning: File not found: $f"
+    fi
+done
+
+# We want this to be chapter-01:chapter-02:... for each chapter in the book
+CHAPTERS=""
+for dir in "$BOOK_DIR"/chapter-*; do
+    if [ -d "$dir" ]; then
+        if [ -z "$CHAPTERS" ]; then
+            CHAPTERS="${dir##*/}"
+        else
+            CHAPTERS="$CHAPTERS:${dir##*/}"
+        fi
+    fi
+done
+
+# Build the PDF
+pandoc \
+    --from=markdown \
+    --to=pdf \
+    --pdf-engine=xelatex \
+    --template=../../scripts/custom_template.latex \
+    --toc \
+    --toc-depth=2 \
+    --top-level-division=chapter \
+    --metadata=title:"Governing the Open Source Supply Chain" \
+    --metadata=subtitle:"Policy, Compliance, and Leadership for the Modern Software Organization" \
+    --metadata=author:"Michael V. Scovetta" \
+    --metadata=keywords:"software supply chain, open source security, software security, supply chain attacks" \
+    --metadata=date:"$(date +%Y)" \
+    --metadata=language:"en-US" \
+    --metadata=documentclass:book \
+    --metadata=fontsize:10pt \
+    --metadata=geometry:"paperwidth=7.5in,paperheight=9.25in,top=0.75in,bottom=0.75in,inner=1in,outer=0.75in" \
+    --metadata=colorlinks:true \
+    --metadata=linkcolor:black \
+    --metadata=urlcolor:black \
+    --metadata=toccolor:black \
+    --resource-path="$CHAPTERS" \
+    $COVER_OPTS \
+    --output="$OUTPUT_FILE" \
+    "${EXISTING_FILES[@]}"
+
+# Add cover image as first page if it exists
+if [ -f "$COVER_IMAGE" ]; then
+    magick \
+        -size 4000x2250 \
+        -background white \
+        -gravity center \
+        -units PixelsPerInch \
+        -density 300 \
+        "${COVER_IMAGE}" \
+        book-3-cover.pdf
+fi
+if [ "$INCLUDE_COVER" -eq 1 ]; then
+    gs -q -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile=temp_output.pdf book-3-cover.pdf "$OUTPUT_FILE"
+    mv temp_output.pdf "$OUTPUT_FILE"
+fi
+
+if [ $? -eq 0 ]; then
+    echo "Successfully created: $OUTPUT_FILE"
+else
+    echo "Error: PDF generation failed"
+    exit 1
+fi

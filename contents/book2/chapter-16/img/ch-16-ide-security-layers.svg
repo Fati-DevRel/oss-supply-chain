@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600">
+  <defs>
+        <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset in="blur" dx="1" dy="2" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.5" result="color"/>
+      <feComposite in="color" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="layer1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1E40AF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1E3A8A;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="layer2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#3B82F6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2563EB;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="layer3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#60A5FA;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3B82F6;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="layer4" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#93C5FD;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#60A5FA;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="600" fill="#F8FAFC"/>
+
+  <!-- Title -->
+  <text x="450" y="35" font-family="Libertinus Sans" font-size="22" font-weight="bold" fill="#1E293B" text-anchor="middle">IDE Security Layers</text>
+  <text x="450" y="55" font-family="Libertinus Sans" font-size="13" fill="#64748B" text-anchor="middle">Defense-in-depth approach to securing integrated development environments</text>
+
+  <!-- Layer 4 (outermost) - Organization Policies -->
+  <g filter="url(#shadow)">
+    <rect x="80" y="80" width="740" height="480" rx="20" fill="url(#layer1)"/>
+  </g>
+  <text x="450" y="110" font-family="Libertinus Sans" font-size="16" font-weight="bold" fill="white" text-anchor="middle">ORGANIZATION POLICIES</text>
+
+  <!-- Layer 3 - IDE Configuration -->
+  <g filter="url(#shadow)">
+    <rect x="130" y="130" width="640" height="400" rx="16" fill="url(#layer2)"/>
+  </g>
+  <text x="450" y="160" font-family="Libertinus Sans" font-size="15" font-weight="bold" fill="white" text-anchor="middle">IDE CONFIGURATION</text>
+
+  <!-- Layer 2 - Extension Security -->
+  <g filter="url(#shadow)">
+    <rect x="180" y="180" width="540" height="320" rx="12" fill="url(#layer3)"/>
+  </g>
+  <text x="450" y="210" font-family="Libertinus Sans" font-size="14" font-weight="bold" fill="white" text-anchor="middle">EXTENSION SECURITY</text>
+
+  <!-- Layer 1 (innermost) - Core IDE -->
+  <g filter="url(#shadow)">
+    <rect x="230" y="230" width="440" height="240" rx="10" fill="url(#layer4)"/>
+  </g>
+  <text x="450" y="260" font-family="Libertinus Sans" font-size="14" font-weight="bold" fill="#1E3A8A" text-anchor="middle">CORE IDE SECURITY</text>
+
+  <!-- Core IDE details -->
+  <rect x="250" y="275" width="190" height="180" rx="6" fill="white" opacity="0.9"/>
+  <text x="345" y="295" font-family="Libertinus Sans" font-size="11" font-weight="bold" fill="#1E3A8A" text-anchor="middle">Built-in Protections</text>
+  <text x="260" y="315" font-family="Libertinus Sans" font-size="10" fill="#475569">- Workspace trust</text>
+  <text x="260" y="332" font-family="Libertinus Sans" font-size="10" fill="#475569">- Restricted mode</text>
+  <text x="260" y="349" font-family="Libertinus Sans" font-size="10" fill="#475569">- Sandboxed execution</text>
+  <text x="260" y="366" font-family="Libertinus Sans" font-size="10" fill="#475569">- Secure file handling</text>
+  <text x="260" y="383" font-family="Libertinus Sans" font-size="10" fill="#475569">- Trusted terminals</text>
+  <text x="260" y="400" font-family="Libertinus Sans" font-size="10" fill="#475569">- Secret detection</text>
+  <text x="260" y="417" font-family="Libertinus Sans" font-size="10" fill="#475569">- Code signing verify</text>
+  <text x="260" y="434" font-family="Libertinus Sans" font-size="10" fill="#475569">- Secure settings sync</text>
+
+  <rect x="460" y="275" width="190" height="180" rx="6" fill="white" opacity="0.9"/>
+  <text x="555" y="295" font-family="Libertinus Sans" font-size="11" font-weight="bold" fill="#1E3A8A" text-anchor="middle">Runtime Security</text>
+  <text x="470" y="315" font-family="Libertinus Sans" font-size="10" fill="#475569">- Process isolation</text>
+  <text x="470" y="332" font-family="Libertinus Sans" font-size="10" fill="#475569">- Memory protection</text>
+  <text x="470" y="349" font-family="Libertinus Sans" font-size="10" fill="#475569">- Network monitoring</text>
+  <text x="470" y="366" font-family="Libertinus Sans" font-size="10" fill="#475569">- File access control</text>
+  <text x="470" y="383" font-family="Libertinus Sans" font-size="10" fill="#475569">- Audit logging</text>
+  <text x="470" y="400" font-family="Libertinus Sans" font-size="10" fill="#475569">- Crash protection</text>
+  <text x="470" y="417" font-family="Libertinus Sans" font-size="10" fill="#475569">- Auto-update security</text>
+  <text x="470" y="434" font-family="Libertinus Sans" font-size="10" fill="#475569">- Telemetry controls</text>
+
+  <!-- Side labels for outer layers -->
+  <!-- Organization Policies -->
+  <rect x="720" y="95" width="90" height="60" rx="4" fill="white" opacity="0.9"/>
+  <text x="765" y="115" font-family="Libertinus Sans" font-size="9" font-weight="bold" fill="#1E3A8A" text-anchor="middle">Policies</text>
+  <text x="765" y="130" font-family="Libertinus Sans" font-size="8" fill="#475569" text-anchor="middle">- Approved IDEs</text>
+  <text x="765" y="142" font-family="Libertinus Sans" font-size="8" fill="#475569" text-anchor="middle">- Update mandates</text>
+  <text x="765" y="154" font-family="Libertinus Sans" font-size="8" fill="#475569" text-anchor="middle">- Compliance</text>
+
+  <!-- IDE Configuration -->
+  <rect x="690" y="180" width="70" height="55" rx="4" fill="white" opacity="0.9"/>
+  <text x="725" y="197" font-family="Libertinus Sans" font-size="9" font-weight="bold" fill="#1E3A8A" text-anchor="middle">Config</text>
+  <text x="725" y="212" font-family="Libertinus Sans" font-size="8" fill="#475569" text-anchor="middle">- Settings.json</text>
+  <text x="725" y="224" font-family="Libertinus Sans" font-size="8" fill="#475569" text-anchor="middle">- Profiles</text>
+
+  <!-- Extension Security -->
+  <rect x="640" y="270" width="70" height="70" rx="4" fill="white" opacity="0.9"/>
+  <text x="675" y="287" font-family="Libertinus Sans" font-size="9" font-weight="bold" fill="#1E3A8A" text-anchor="middle">Extensions</text>
+  <text x="675" y="302" font-family="Libertinus Sans" font-size="8" fill="#475569" text-anchor="middle">- Allowlists</text>
+  <text x="675" y="314" font-family="Libertinus Sans" font-size="8" fill="#475569" text-anchor="middle">- Reviews</text>
+  <text x="675" y="326" font-family="Libertinus Sans" font-size="8" fill="#475569" text-anchor="middle">- Sandboxing</text>
+  <text x="675" y="338" font-family="Libertinus Sans" font-size="8" fill="#475569" text-anchor="middle">- Verification</text>
+
+  <!-- Left side labels -->
+  <rect x="90" y="95" width="90" height="60" rx="4" fill="white" opacity="0.9"/>
+  <text x="135" y="115" font-family="Libertinus Sans" font-size="9" font-weight="bold" fill="#1E3A8A" text-anchor="middle">Governance</text>
+  <text x="135" y="130" font-family="Libertinus Sans" font-size="8" fill="#475569" text-anchor="middle">- Auditing</text>
+  <text x="135" y="142" font-family="Libertinus Sans" font-size="8" fill="#475569" text-anchor="middle">- Training</text>
+  <text x="135" y="154" font-family="Libertinus Sans" font-size="8" fill="#475569" text-anchor="middle">- Monitoring</text>
+
+  <rect x="140" y="180" width="70" height="55" rx="4" fill="white" opacity="0.9"/>
+  <text x="175" y="197" font-family="Libertinus Sans" font-size="9" font-weight="bold" fill="#1E3A8A" text-anchor="middle">Hardening</text>
+  <text x="175" y="212" font-family="Libertinus Sans" font-size="8" fill="#475569" text-anchor="middle">- Disable unused</text>
+  <text x="175" y="224" font-family="Libertinus Sans" font-size="8" fill="#475569" text-anchor="middle">- Lock settings</text>
+
+  <rect x="190" y="270" width="70" height="70" rx="4" fill="white" opacity="0.9"/>
+  <text x="225" y="287" font-family="Libertinus Sans" font-size="9" font-weight="bold" fill="#1E3A8A" text-anchor="middle">Vetting</text>
+  <text x="225" y="302" font-family="Libertinus Sans" font-size="8" fill="#475569" text-anchor="middle">- Source review</text>
+  <text x="225" y="314" font-family="Libertinus Sans" font-size="8" fill="#475569" text-anchor="middle">- Publisher trust</text>
+  <text x="225" y="326" font-family="Libertinus Sans" font-size="8" fill="#475569" text-anchor="middle">- Permissions</text>
+  <text x="225" y="338" font-family="Libertinus Sans" font-size="8" fill="#475569" text-anchor="middle">- Update policy</text>
+
+  <!-- Bottom legend -->
+  <rect x="150" y="570" width="600" height="25" rx="4" fill="#E0E7FF"/>
+  <text x="450" y="587" font-family="Libertinus Sans" font-size="11" fill="#3730A3" text-anchor="middle">Each layer provides defense-in-depth, with outer layers providing policy control and inner layers providing technical enforcement</text>
+</svg>

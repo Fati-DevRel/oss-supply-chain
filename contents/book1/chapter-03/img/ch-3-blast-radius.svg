@@ -1,0 +1,190 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" font-family="Libertinus Sans">
+  <defs>
+        <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset in="blur" dx="1" dy="2" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.5" result="color"/>
+      <feComposite in="color" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <radialGradient id="blastGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#c53030"/>
+      <stop offset="40%" style="stop-color:#fc8181"/>
+      <stop offset="70%" style="stop-color:#fed7d7"/>
+      <stop offset="100%" style="stop-color:#fff5f5"/>
+    </radialGradient>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#4a5568"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="600" fill="#f7fafc"/>
+
+  <!-- Title -->
+  <text x="450" y="35" text-anchor="middle" font-size="20" font-weight="600" fill="#1a365d">
+    Cascading Risk and Blast Radius
+  </text>
+  <text x="450" y="55" text-anchor="middle" font-size="12" fill="#718096">
+    How a single compromise propagates through the dependency graph
+  </text>
+
+  <!-- Cascade Diagram -->
+  <g transform="translate(50, 80)">
+    <rect x="0" y="0" width="400" height="320" rx="8" fill="#fff" filter="url(#shadow)"/>
+    <text x="200" y="25" text-anchor="middle" font-size="13" font-weight="600" fill="#2d3748">Transitive Dependency Propagation</text>
+
+    <!-- Compromised package -->
+    <g transform="translate(175, 50)">
+      <circle cx="25" cy="25" r="25" fill="#c53030"/>
+      <text x="25" y="22" text-anchor="middle" font-size="9" font-weight="600" fill="#fff">PKG A</text>
+      <text x="25" y="33" text-anchor="middle" font-size="7" fill="#fed7d7">Compromised</text>
+    </g>
+
+    <!-- Level 1 dependents -->
+    <line x1="200" y1="100" x2="120" y2="140" stroke="#e53e3e" stroke-width="2" marker-end="url(#arrow)"/>
+    <line x1="200" y1="100" x2="200" y2="140" stroke="#e53e3e" stroke-width="2" marker-end="url(#arrow)"/>
+    <line x1="200" y1="100" x2="280" y2="140" stroke="#e53e3e" stroke-width="2" marker-end="url(#arrow)"/>
+
+    <g transform="translate(95, 145)">
+      <circle cx="25" cy="20" r="20" fill="#ed8936"/>
+      <text x="25" y="23" text-anchor="middle" font-size="9" fill="#fff">B</text>
+    </g>
+    <g transform="translate(175, 145)">
+      <circle cx="25" cy="20" r="20" fill="#ed8936"/>
+      <text x="25" y="23" text-anchor="middle" font-size="9" fill="#fff">C</text>
+    </g>
+    <g transform="translate(255, 145)">
+      <circle cx="25" cy="20" r="20" fill="#ed8936"/>
+      <text x="25" y="23" text-anchor="middle" font-size="9" fill="#fff">D</text>
+    </g>
+
+    <!-- Level 2 -->
+    <line x1="120" y1="185" x2="60" y2="225" stroke="#dd6b20" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <line x1="120" y1="185" x2="120" y2="225" stroke="#dd6b20" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <line x1="200" y1="185" x2="180" y2="225" stroke="#dd6b20" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <line x1="200" y1="185" x2="220" y2="225" stroke="#dd6b20" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <line x1="280" y1="185" x2="280" y2="225" stroke="#dd6b20" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <line x1="280" y1="185" x2="340" y2="225" stroke="#dd6b20" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+    <!-- Level 2 nodes -->
+    <circle cx="60" cy="240" r="15" fill="#ecc94b"/>
+    <circle cx="120" cy="240" r="15" fill="#ecc94b"/>
+    <circle cx="180" cy="240" r="15" fill="#ecc94b"/>
+    <circle cx="220" cy="240" r="15" fill="#ecc94b"/>
+    <circle cx="280" cy="240" r="15" fill="#ecc94b"/>
+    <circle cx="340" cy="240" r="15" fill="#ecc94b"/>
+
+    <!-- Level 3 - Applications -->
+    <text x="200" y="280" text-anchor="middle" font-size="10" fill="#718096">Applications</text>
+    <rect x="30" y="290" width="50" height="20" rx="3" fill="#4299e1"/>
+    <rect x="90" y="290" width="50" height="20" rx="3" fill="#4299e1"/>
+    <rect x="150" y="290" width="50" height="20" rx="3" fill="#4299e1"/>
+    <rect x="210" y="290" width="50" height="20" rx="3" fill="#4299e1"/>
+    <rect x="270" y="290" width="50" height="20" rx="3" fill="#4299e1"/>
+    <rect x="330" y="290" width="50" height="20" rx="3" fill="#4299e1"/>
+
+    <text x="55" y="304" text-anchor="middle" font-size="7" fill="#fff">X</text>
+    <text x="115" y="304" text-anchor="middle" font-size="7" fill="#fff">Y</text>
+    <text x="175" y="304" text-anchor="middle" font-size="7" fill="#fff">Z</text>
+    <text x="235" y="304" text-anchor="middle" font-size="7" fill="#fff">...</text>
+    <text x="295" y="304" text-anchor="middle" font-size="7" fill="#fff">...</text>
+    <text x="355" y="304" text-anchor="middle" font-size="7" fill="#fff">N</text>
+  </g>
+
+  <!-- Blast Radius Dimensions -->
+  <g transform="translate(480, 80)">
+    <rect x="0" y="0" width="380" height="320" rx="8" fill="#fff" filter="url(#shadow)"/>
+    <text x="190" y="25" text-anchor="middle" font-size="13" font-weight="600" fill="#2d3748">Blast Radius Dimensions</text>
+
+    <!-- Concentric circles visualization -->
+    <g transform="translate(190, 175)">
+      <circle cx="0" cy="0" r="120" fill="none" stroke="#e2e8f0" stroke-width="2"/>
+      <circle cx="0" cy="0" r="90" fill="none" stroke="#fed7d7" stroke-width="2"/>
+      <circle cx="0" cy="0" r="60" fill="none" stroke="#fc8181" stroke-width="2"/>
+      <circle cx="0" cy="0" r="30" fill="#c53030"/>
+
+      <!-- Labels -->
+      <text x="0" y="5" text-anchor="middle" font-size="8" fill="#fff" font-weight="600">Package</text>
+      <text x="0" y="50" text-anchor="middle" font-size="9" fill="#c53030">Direct Dependents</text>
+      <text x="0" y="80" text-anchor="middle" font-size="9" fill="#e53e3e">Transitive Dependents</text>
+      <text x="0" y="108" text-anchor="middle" font-size="9" fill="#718096">Deployed Applications</text>
+    </g>
+
+    <!-- Dimension labels -->
+    <g transform="translate(20, 290)">
+      <circle cx="8" cy="6" r="6" fill="#c53030"/>
+      <text x="20" y="10" font-size="9" fill="#2d3748">Package-level: Other packages affected</text>
+    </g>
+    <g transform="translate(200, 290)">
+      <circle cx="8" cy="6" r="6" fill="#4299e1"/>
+      <text x="20" y="10" font-size="9" fill="#2d3748">Project-level: Apps deployed</text>
+    </g>
+  </g>
+
+  <!-- Network Effects -->
+  <g transform="translate(50, 420)">
+    <rect x="0" y="0" width="520" height="160" rx="8" fill="#fff" filter="url(#shadow)"/>
+    <text x="260" y="25" text-anchor="middle" font-size="13" font-weight="600" fill="#2d3748">Network Effects in Vulnerability Propagation</text>
+
+    <g transform="translate(20, 45)">
+      <!-- Hub concentration -->
+      <rect x="0" y="0" width="150" height="100" rx="4" fill="#ebf8ff"/>
+      <text x="75" y="18" text-anchor="middle" font-size="10" font-weight="600" fill="#2b6cb0">Hub Concentration</text>
+      <text x="75" y="35" text-anchor="middle" font-size="9" fill="#4a5568">0.01% of packages are</text>
+      <text x="75" y="48" text-anchor="middle" font-size="9" fill="#4a5568">deps of 50%+ of others</text>
+      <text x="75" y="70" text-anchor="middle" font-size="8" fill="#718096">~391 packages in npm</text>
+      <text x="75" y="85" text-anchor="middle" font-size="8" fill="#718096">affect half the ecosystem</text>
+    </g>
+
+    <g transform="translate(180, 45)">
+      <rect x="0" y="0" width="150" height="100" rx="4" fill="#faf5ff"/>
+      <text x="75" y="18" text-anchor="middle" font-size="10" font-weight="600" fill="#6b46c1">Short Path Lengths</text>
+      <text x="75" y="35" text-anchor="middle" font-size="9" fill="#4a5568">"Small world" property</text>
+      <text x="75" y="48" text-anchor="middle" font-size="9" fill="#4a5568">Most packages reachable</text>
+      <text x="75" y="65" text-anchor="middle" font-size="9" fill="#4a5568">through short chains</text>
+      <text x="75" y="85" text-anchor="middle" font-size="8" fill="#718096">Rapid propagation</text>
+    </g>
+
+    <g transform="translate(340, 45)">
+      <rect x="0" y="0" width="150" height="100" rx="4" fill="#fff5f5"/>
+      <text x="75" y="18" text-anchor="middle" font-size="10" font-weight="600" fill="#c53030">Preferential Attach.</text>
+      <text x="75" y="35" text-anchor="middle" font-size="9" fill="#4a5568">Popular packages get</text>
+      <text x="75" y="48" text-anchor="middle" font-size="9" fill="#4a5568">more dependents</text>
+      <text x="75" y="65" text-anchor="middle" font-size="9" fill="#4a5568">"Rich get richer"</text>
+      <text x="75" y="85" text-anchor="middle" font-size="8" fill="#718096">Risk concentrates</text>
+    </g>
+  </g>
+
+  <!-- Log4Shell Case Study -->
+  <g transform="translate(590, 420)">
+    <rect x="0" y="0" width="270" height="160" rx="8" fill="#fef3c7" filter="url(#shadow)"/>
+    <text x="135" y="25" text-anchor="middle" font-size="12" font-weight="600" fill="#92400e">Case Study: Log4Shell</text>
+
+    <g transform="translate(15, 40)">
+      <text x="0" y="12" font-size="10" fill="#78350f" font-weight="500">Package-level:</text>
+      <text x="100" y="12" font-size="10" fill="#78350f">35,000+ Maven pkgs</text>
+
+      <text x="0" y="32" font-size="10" fill="#78350f" font-weight="500">Project-level:</text>
+      <text x="100" y="32" font-size="10" fill="#78350f">100Ms of devices</text>
+
+      <text x="0" y="52" font-size="10" fill="#78350f" font-weight="500">Org-level:</text>
+      <text x="100" y="52" font-size="10" fill="#78350f">Every Java org</text>
+
+      <text x="0" y="72" font-size="10" fill="#78350f" font-weight="500">Cost estimate:</text>
+      <text x="100" y="72" font-size="10" fill="#78350f">$10B+ remediation</text>
+
+      <line x1="0" y1="85" x2="240" y2="85" stroke="#d97706"/>
+
+      <text x="120" y="105" text-anchor="middle" font-size="9" fill="#92400e" font-style="italic">
+        "The most serious vulnerability
+      </text>
+      <text x="120" y="118" text-anchor="middle" font-size="9" fill="#92400e" font-style="italic">
+        I have seen in my entire career"
+      </text>
+    </g>
+  </g>
+</svg>

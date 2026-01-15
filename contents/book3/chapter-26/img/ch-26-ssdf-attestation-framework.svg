@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 650" font-family="Libertinus Sans">
+  <defs>
+    <linearGradient id="poGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#3182ce"/>
+      <stop offset="100%" style="stop-color:#2c5282"/>
+    </linearGradient>
+    <linearGradient id="psGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#38a169"/>
+      <stop offset="100%" style="stop-color:#276749"/>
+    </linearGradient>
+    <linearGradient id="pwGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#d69e2e"/>
+      <stop offset="100%" style="stop-color:#b7791f"/>
+    </linearGradient>
+    <linearGradient id="rvGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#e53e3e"/>
+      <stop offset="100%" style="stop-color:#c53030"/>
+    </linearGradient>
+        <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset in="blur" dx="1" dy="2" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.5" result="color"/>
+      <feComposite in="color" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="650" fill="#f7fafc"/>
+
+  <!-- Title -->
+  <text x="450" y="35" text-anchor="middle" font-size="20" font-weight="bold" fill="#1a202c">NIST Secure Software Development Framework (SSDF)</text>
+  <text x="450" y="55" text-anchor="middle" font-size="12" fill="#718096">Four practice areas required for federal attestation compliance</text>
+
+  <!-- Four Pillars -->
+  <!-- PO: Prepare the Organization -->
+  <g transform="translate(35, 80)">
+    <rect x="0" y="0" width="200" height="280" rx="10" fill="white" stroke="#3182ce" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="200" height="50" rx="10" fill="url(#poGrad)"/>
+    <rect x="0" y="40" width="200" height="10" fill="url(#poGrad)"/>
+    <text x="100" y="30" text-anchor="middle" font-size="14" font-weight="bold" fill="white">PO</text>
+    <text x="100" y="70" text-anchor="middle" font-size="11" font-weight="bold" fill="#2a4365">Prepare the</text>
+    <text x="100" y="84" text-anchor="middle" font-size="11" font-weight="bold" fill="#2a4365">Organization</text>
+
+    <g transform="translate(15, 100)">
+      <circle cx="8" cy="4" r="4" fill="#3182ce"/>
+      <text x="20" y="8" font-size="9" fill="#4a5568">Security requirements</text>
+
+      <circle cx="8" cy="26" r="4" fill="#3182ce"/>
+      <text x="20" y="30" font-size="9" fill="#4a5568">Security roles defined</text>
+
+      <circle cx="8" cy="48" r="4" fill="#3182ce"/>
+      <text x="20" y="52" font-size="9" fill="#4a5568">Implement tooling</text>
+
+      <circle cx="8" cy="70" r="4" fill="#3182ce"/>
+      <text x="20" y="74" font-size="9" fill="#4a5568">Secure dev environments</text>
+
+      <circle cx="8" cy="92" r="4" fill="#3182ce"/>
+      <text x="20" y="96" font-size="9" fill="#4a5568">Training programs</text>
+
+      <circle cx="8" cy="114" r="4" fill="#3182ce"/>
+      <text x="20" y="118" font-size="9" fill="#4a5568">Define criteria for</text>
+      <text x="20" y="130" font-size="9" fill="#4a5568">third-party components</text>
+
+      <circle cx="8" cy="150" r="4" fill="#3182ce"/>
+      <text x="20" y="154" font-size="9" fill="#4a5568">Maintain secure archive</text>
+    </g>
+  </g>
+
+  <!-- PS: Protect the Software -->
+  <g transform="translate(250, 80)">
+    <rect x="0" y="0" width="200" height="280" rx="10" fill="white" stroke="#38a169" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="200" height="50" rx="10" fill="url(#psGrad)"/>
+    <rect x="0" y="40" width="200" height="10" fill="url(#psGrad)"/>
+    <text x="100" y="30" text-anchor="middle" font-size="14" font-weight="bold" fill="white">PS</text>
+    <text x="100" y="70" text-anchor="middle" font-size="11" font-weight="bold" fill="#22543d">Protect the</text>
+    <text x="100" y="84" text-anchor="middle" font-size="11" font-weight="bold" fill="#22543d">Software</text>
+
+    <g transform="translate(15, 100)">
+      <circle cx="8" cy="4" r="4" fill="#38a169"/>
+      <text x="20" y="8" font-size="9" fill="#4a5568">Protect all code forms</text>
+
+      <circle cx="8" cy="26" r="4" fill="#38a169"/>
+      <text x="20" y="30" font-size="9" fill="#4a5568">Verify 3rd party integrity</text>
+
+      <circle cx="8" cy="48" r="4" fill="#38a169"/>
+      <text x="20" y="52" font-size="9" fill="#4a5568">Archive and protect</text>
+      <text x="20" y="64" font-size="9" fill="#4a5568">each release</text>
+
+      <circle cx="8" cy="84" r="4" fill="#38a169"/>
+      <text x="20" y="88" font-size="9" fill="#4a5568">Provide software</text>
+      <text x="20" y="100" font-size="9" fill="#4a5568">integrity verification</text>
+
+      <circle cx="8" cy="120" r="4" fill="#38a169"/>
+      <text x="20" y="124" font-size="9" fill="#4a5568">Secure development</text>
+      <text x="20" y="136" font-size="9" fill="#4a5568">infrastructure</text>
+
+      <circle cx="8" cy="156" r="4" fill="#38a169"/>
+      <text x="20" y="160" font-size="9" fill="#4a5568">Prevent unauthorized</text>
+      <text x="20" y="172" font-size="9" fill="#4a5568">changes</text>
+    </g>
+  </g>
+
+  <!-- PW: Produce Well-Secured Software -->
+  <g transform="translate(465, 80)">
+    <rect x="0" y="0" width="200" height="280" rx="10" fill="white" stroke="#d69e2e" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="200" height="50" rx="10" fill="url(#pwGrad)"/>
+    <rect x="0" y="40" width="200" height="10" fill="url(#pwGrad)"/>
+    <text x="100" y="30" text-anchor="middle" font-size="14" font-weight="bold" fill="white">PW</text>
+    <text x="100" y="70" text-anchor="middle" font-size="11" font-weight="bold" fill="#744210">Produce Well-</text>
+    <text x="100" y="84" text-anchor="middle" font-size="11" font-weight="bold" fill="#744210">Secured Software</text>
+
+    <g transform="translate(15, 100)">
+      <circle cx="8" cy="4" r="4" fill="#d69e2e"/>
+      <text x="20" y="8" font-size="9" fill="#4a5568">Design secure</text>
+      <text x="20" y="20" font-size="9" fill="#4a5568">software architecture</text>
+
+      <circle cx="8" cy="40" r="4" fill="#d69e2e"/>
+      <text x="20" y="44" font-size="9" fill="#4a5568">Review software design</text>
+
+      <circle cx="8" cy="62" r="4" fill="#d69e2e"/>
+      <text x="20" y="66" font-size="9" fill="#4a5568">Use secure defaults</text>
+
+      <circle cx="8" cy="84" r="4" fill="#d69e2e"/>
+      <text x="20" y="88" font-size="9" fill="#4a5568">Reuse secure code</text>
+
+      <circle cx="8" cy="106" r="4" fill="#d69e2e"/>
+      <text x="20" y="110" font-size="9" fill="#4a5568">Create SBOM</text>
+
+      <circle cx="8" cy="128" r="4" fill="#d69e2e"/>
+      <text x="20" y="132" font-size="9" fill="#4a5568">Test for vulnerabilities</text>
+
+      <circle cx="8" cy="150" r="4" fill="#d69e2e"/>
+      <text x="20" y="154" font-size="9" fill="#4a5568">Configure automation</text>
+      <text x="20" y="166" font-size="9" fill="#4a5568">for security testing</text>
+    </g>
+  </g>
+
+  <!-- RV: Respond to Vulnerabilities -->
+  <g transform="translate(680, 80)">
+    <rect x="0" y="0" width="200" height="280" rx="10" fill="white" stroke="#e53e3e" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="200" height="50" rx="10" fill="url(#rvGrad)"/>
+    <rect x="0" y="40" width="200" height="10" fill="url(#rvGrad)"/>
+    <text x="100" y="30" text-anchor="middle" font-size="14" font-weight="bold" fill="white">RV</text>
+    <text x="100" y="70" text-anchor="middle" font-size="11" font-weight="bold" fill="#742a2a">Respond to</text>
+    <text x="100" y="84" text-anchor="middle" font-size="11" font-weight="bold" fill="#742a2a">Vulnerabilities</text>
+
+    <g transform="translate(15, 100)">
+      <circle cx="8" cy="4" r="4" fill="#e53e3e"/>
+      <text x="20" y="8" font-size="9" fill="#4a5568">Identify vulnerabilities</text>
+
+      <circle cx="8" cy="26" r="4" fill="#e53e3e"/>
+      <text x="20" y="30" font-size="9" fill="#4a5568">Assess vulnerability</text>
+      <text x="20" y="42" font-size="9" fill="#4a5568">severity</text>
+
+      <circle cx="8" cy="62" r="4" fill="#e53e3e"/>
+      <text x="20" y="66" font-size="9" fill="#4a5568">Remediate</text>
+      <text x="20" y="78" font-size="9" fill="#4a5568">vulnerabilities</text>
+
+      <circle cx="8" cy="98" r="4" fill="#e53e3e"/>
+      <text x="20" y="102" font-size="9" fill="#4a5568">Operate vulnerability</text>
+      <text x="20" y="114" font-size="9" fill="#4a5568">disclosure program</text>
+
+      <circle cx="8" cy="134" r="4" fill="#e53e3e"/>
+      <text x="20" y="138" font-size="9" fill="#4a5568">Analyze root causes</text>
+
+      <circle cx="8" cy="156" r="4" fill="#e53e3e"/>
+      <text x="20" y="160" font-size="9" fill="#4a5568">Continuous monitoring</text>
+    </g>
+  </g>
+
+  <!-- Attestation Requirements Box -->
+  <g transform="translate(35, 385)">
+    <rect x="0" y="0" width="420" height="240" rx="8" fill="white" stroke="#553c9a" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="420" height="35" rx="8" fill="#553c9a"/>
+    <rect x="0" y="28" width="420" height="7" fill="#553c9a"/>
+    <text x="210" y="23" text-anchor="middle" font-size="12" font-weight="bold" fill="white">CISA Attestation Form Requirements</text>
+
+    <g transform="translate(20, 50)">
+      <text x="0" y="0" font-size="10" font-weight="bold" fill="#553c9a">Executive Accountability</text>
+      <text x="0" y="16" font-size="9" fill="#4a5568">Signatory must be authorized to legally bind organization</text>
+      <text x="0" y="30" font-size="9" fill="#4a5568">False attestations carry civil/criminal liability</text>
+
+      <text x="0" y="55" font-size="10" font-weight="bold" fill="#553c9a">Key Attestation Items</text>
+      <circle cx="8" cy="73" r="3" fill="#553c9a"/>
+      <text x="18" y="77" font-size="9" fill="#4a5568">Develop/maintain secure development environments</text>
+      <circle cx="8" cy="91" r="3" fill="#553c9a"/>
+      <text x="18" y="95" font-size="9" fill="#4a5568">Employ automated vulnerability checking tools</text>
+      <circle cx="8" cy="109" r="3" fill="#553c9a"/>
+      <text x="18" y="113" font-size="9" fill="#4a5568">Maintain provenance data for code and components</text>
+      <circle cx="8" cy="127" r="3" fill="#553c9a"/>
+      <text x="18" y="131" font-size="9" fill="#4a5568">Provide SBOMs upon request</text>
+      <circle cx="8" cy="145" r="3" fill="#553c9a"/>
+      <text x="18" y="149" font-size="9" fill="#4a5568">Operate vulnerability disclosure program</text>
+      <circle cx="8" cy="163" r="3" fill="#553c9a"/>
+      <text x="18" y="167" font-size="9" fill="#4a5568">Attest to supply chain security practices</text>
+    </g>
+  </g>
+
+  <!-- Supply Chain Extension Box -->
+  <g transform="translate(480, 385)">
+    <rect x="0" y="0" width="400" height="240" rx="8" fill="white" stroke="#dd6b20" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="400" height="35" rx="8" fill="#dd6b20"/>
+    <rect x="0" y="28" width="400" height="7" fill="#dd6b20"/>
+    <text x="200" y="23" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Supply Chain Requirements Cascade</text>
+
+    <g transform="translate(20, 50)">
+      <!-- Prime contractor -->
+      <rect x="80" y="0" width="220" height="35" rx="6" fill="#feebc8" stroke="#dd6b20" stroke-width="2"/>
+      <text x="190" y="22" text-anchor="middle" font-size="10" font-weight="bold" fill="#7b341e">Prime Contractor</text>
+
+      <!-- Arrow down -->
+      <path d="M190,35 L190,55" stroke="#dd6b20" stroke-width="2" marker-end="url(#arrow)"/>
+      <text x="200" y="48" font-size="8" fill="#7b341e">Verifies</text>
+
+      <!-- Software suppliers -->
+      <rect x="80" y="55" width="220" height="35" rx="6" fill="#feebc8" stroke="#dd6b20" stroke-width="1"/>
+      <text x="190" y="77" text-anchor="middle" font-size="10" fill="#7b341e">Software Suppliers</text>
+
+      <!-- Arrow down -->
+      <path d="M190,90 L190,110" stroke="#dd6b20" stroke-width="2"/>
+      <text x="200" y="103" font-size="8" fill="#7b341e">Verifies</text>
+
+      <!-- Component suppliers -->
+      <rect x="80" y="110" width="220" height="35" rx="6" fill="#feebc8" stroke="#dd6b20" stroke-width="1"/>
+      <text x="190" y="132" text-anchor="middle" font-size="10" fill="#7b341e">Component Suppliers</text>
+
+      <!-- Arrow down -->
+      <path d="M190,145 L190,165" stroke="#dd6b20" stroke-width="2"/>
+
+      <!-- Open source -->
+      <rect x="80" y="165" width="220" height="35" rx="6" fill="#feebc8" stroke="#dd6b20" stroke-width="1"/>
+      <text x="190" y="187" text-anchor="middle" font-size="10" fill="#7b341e">Open Source Components</text>
+    </g>
+  </g>
+</svg>

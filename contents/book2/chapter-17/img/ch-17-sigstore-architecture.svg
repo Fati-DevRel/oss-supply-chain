@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600">
+  <defs>
+        <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset in="blur" dx="1" dy="2" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.5" result="color"/>
+      <feComposite in="color" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#64748B"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#3B82F6"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#10B981"/>
+    </marker>
+    <marker id="arrowPurple" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#8B5CF6"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="600" fill="#F8FAFC"/>
+
+  <!-- Title -->
+  <text x="450" y="35" font-family="Libertinus Sans" font-size="22" font-weight="bold" fill="#1E293B" text-anchor="middle">Sigstore Architecture</text>
+  <text x="450" y="55" font-family="Libertinus Sans" font-size="13" fill="#64748B" text-anchor="middle">Keyless signing infrastructure for software artifacts</text>
+
+  <!-- Developer/CI -->
+  <g filter="url(#shadow)">
+    <rect x="80" y="200" width="140" height="100" rx="10" fill="#1E293B"/>
+    <text x="150" y="240" font-family="Libertinus Sans" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Developer</text>
+    <text x="150" y="260" font-family="Libertinus Sans" font-size="14" font-weight="bold" fill="white" text-anchor="middle">or CI</text>
+    <text x="150" y="285" font-family="Libertinus Sans" font-size="10" fill="#94A3B8" text-anchor="middle">(Cosign client)</text>
+  </g>
+
+  <!-- OIDC Provider -->
+  <g filter="url(#shadow)">
+    <rect x="80" y="400" width="140" height="80" rx="10" fill="#6366F1"/>
+    <text x="150" y="435" font-family="Libertinus Sans" font-size="13" font-weight="bold" fill="white" text-anchor="middle">OIDC Provider</text>
+    <text x="150" y="455" font-family="Libertinus Sans" font-size="10" fill="#C7D2FE" text-anchor="middle">GitHub, Google, etc.</text>
+  </g>
+
+  <!-- Arrow from Developer to OIDC -->
+  <line x1="150" y1="305" x2="150" y2="395" stroke="#6366F1" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="160" y="350" font-family="Libertinus Sans" font-size="10" fill="#6366F1">1. Authenticate</text>
+
+  <!-- Fulcio -->
+  <g filter="url(#shadow)">
+    <rect x="340" y="200" width="160" height="100" rx="10" fill="#3B82F6"/>
+    <text x="420" y="235" font-family="Libertinus Sans" font-size="16" font-weight="bold" fill="white" text-anchor="middle">Fulcio</text>
+    <text x="420" y="255" font-family="Libertinus Sans" font-size="11" fill="#DBEAFE" text-anchor="middle">Certificate Authority</text>
+    <text x="420" y="275" font-family="Libertinus Sans" font-size="9" fill="#BFDBFE" text-anchor="middle">Issues short-lived certs</text>
+    <text x="420" y="290" font-family="Libertinus Sans" font-size="9" fill="#BFDBFE" text-anchor="middle">(~10 min validity)</text>
+  </g>
+
+  <!-- Arrow from Developer to Fulcio -->
+  <path d="M 225 230 Q 280 210 335 230" fill="none" stroke="#3B82F6" stroke-width="2" marker-end="url(#arrowBlue)"/>
+  <text x="280" y="200" font-family="Libertinus Sans" font-size="10" fill="#3B82F6">2. Request cert</text>
+  <text x="280" y="212" font-family="Libertinus Sans" font-size="9" fill="#3B82F6">(+ OIDC token)</text>
+
+  <!-- Arrow from Fulcio back to Developer -->
+  <path d="M 335 270 Q 280 290 225 270" fill="none" stroke="#3B82F6" stroke-width="2" marker-end="url(#arrowBlue)"/>
+  <text x="260" y="300" font-family="Libertinus Sans" font-size="10" fill="#3B82F6">3. Ephemeral cert</text>
+
+  <!-- Artifact -->
+  <g filter="url(#shadow)">
+    <rect x="560" y="200" width="140" height="100" rx="10" fill="#F59E0B"/>
+    <text x="630" y="240" font-family="Libertinus Sans" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Artifact</text>
+    <text x="630" y="260" font-family="Libertinus Sans" font-size="11" fill="#FEF3C7" text-anchor="middle">Container/Package</text>
+    <text x="630" y="285" font-family="Libertinus Sans" font-size="10" fill="#FDE68A" text-anchor="middle">+ Signature</text>
+  </g>
+
+  <!-- Arrow from Developer to Artifact -->
+  <path d="M 225 250 Q 400 150 555 225" fill="none" stroke="#F59E0B" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="390" y="150" font-family="Libertinus Sans" font-size="10" fill="#F59E0B">4. Sign artifact</text>
+
+  <!-- Rekor -->
+  <g filter="url(#shadow)">
+    <rect x="560" y="380" width="160" height="120" rx="10" fill="#10B981"/>
+    <text x="640" y="420" font-family="Libertinus Sans" font-size="16" font-weight="bold" fill="white" text-anchor="middle">Rekor</text>
+    <text x="640" y="445" font-family="Libertinus Sans" font-size="11" fill="#D1FAE5" text-anchor="middle">Transparency Log</text>
+    <text x="640" y="465" font-family="Libertinus Sans" font-size="9" fill="#A7F3D0" text-anchor="middle">Immutable, append-only</text>
+    <text x="640" y="480" font-family="Libertinus Sans" font-size="9" fill="#A7F3D0" text-anchor="middle">Publicly auditable</text>
+  </g>
+
+  <!-- Arrow from Developer to Rekor -->
+  <path d="M 225 280 Q 350 400 555 420" fill="none" stroke="#10B981" stroke-width="2" marker-end="url(#arrowGreen)"/>
+  <text x="340" y="380" font-family="Libertinus Sans" font-size="10" fill="#10B981">5. Record signing event</text>
+
+  <!-- Verifier -->
+  <g filter="url(#shadow)">
+    <rect x="760" y="280" width="120" height="100" rx="10" fill="#8B5CF6"/>
+    <text x="820" y="320" font-family="Libertinus Sans" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Verifier</text>
+    <text x="820" y="345" font-family="Libertinus Sans" font-size="10" fill="#E9D5FF" text-anchor="middle">Consumer/</text>
+    <text x="820" y="360" font-family="Libertinus Sans" font-size="10" fill="#E9D5FF" text-anchor="middle">Admission Ctrl</text>
+  </g>
+
+  <!-- Arrow from Artifact to Verifier -->
+  <line x1="705" y1="260" x2="755" y2="295" stroke="#8B5CF6" stroke-width="2" marker-end="url(#arrowPurple)"/>
+  <text x="720" y="255" font-family="Libertinus Sans" font-size="9" fill="#8B5CF6">6. Verify</text>
+
+  <!-- Arrow from Rekor to Verifier -->
+  <line x1="725" y1="430" x2="770" y2="375" stroke="#8B5CF6" stroke-width="2" marker-end="url(#arrowPurple)"/>
+  <text x="750" y="415" font-family="Libertinus Sans" font-size="9" fill="#8B5CF6">7. Check log</text>
+
+  <!-- Properties box -->
+  <g filter="url(#shadow)">
+    <rect x="50" y="520" width="400" height="70" rx="8" fill="white" stroke="#3B82F6" stroke-width="2"/>
+    <text x="250" y="545" font-family="Libertinus Sans" font-size="12" font-weight="bold" fill="#3B82F6" text-anchor="middle">Sigstore Properties</text>
+    <text x="70" y="565" font-family="Libertinus Sans" font-size="10" fill="#475569">- No long-lived keys to manage</text>
+    <text x="70" y="580" font-family="Libertinus Sans" font-size="10" fill="#475569">- Identity-based signing</text>
+    <text x="260" y="565" font-family="Libertinus Sans" font-size="10" fill="#475569">- Public auditability</text>
+    <text x="260" y="580" font-family="Libertinus Sans" font-size="10" fill="#475569">- Non-repudiation via log</text>
+  </g>
+
+  <!-- Adoption box -->
+  <g filter="url(#shadow)">
+    <rect x="470" y="520" width="380" height="70" rx="8" fill="white" stroke="#10B981" stroke-width="2"/>
+    <text x="660" y="545" font-family="Libertinus Sans" font-size="12" font-weight="bold" fill="#10B981" text-anchor="middle">Ecosystem Adoption</text>
+    <text x="490" y="565" font-family="Libertinus Sans" font-size="10" fill="#475569">npm - Native provenance</text>
+    <text x="490" y="580" font-family="Libertinus Sans" font-size="10" fill="#475569">PyPI - Attestations support</text>
+    <text x="660" y="565" font-family="Libertinus Sans" font-size="10" fill="#475569">Kubernetes - All releases signed</text>
+    <text x="660" y="580" font-family="Libertinus Sans" font-size="10" fill="#475569">Homebrew - Build provenance</text>
+  </g>
+
+  <!-- Flow numbers legend -->
+  <g>
+    <circle cx="80" y="90" r="12" fill="#6366F1"/>
+    <text x="80" y="94" font-family="Libertinus Sans" font-size="10" font-weight="bold" fill="white" text-anchor="middle">1</text>
+    <text x="100" y="94" font-family="Libertinus Sans" font-size="10" fill="#475569">Authenticate via OIDC</text>
+
+    <circle cx="260" cy="90" r="12" fill="#3B82F6"/>
+    <text x="260" y="94" font-family="Libertinus Sans" font-size="10" font-weight="bold" fill="white" text-anchor="middle">2-3</text>
+    <text x="285" y="94" font-family="Libertinus Sans" font-size="10" fill="#475569">Get ephemeral certificate</text>
+
+    <circle cx="460" cy="90" r="12" fill="#F59E0B"/>
+    <text x="460" y="94" font-family="Libertinus Sans" font-size="10" font-weight="bold" fill="white" text-anchor="middle">4</text>
+    <text x="480" y="94" font-family="Libertinus Sans" font-size="10" fill="#475569">Sign artifact</text>
+
+    <circle cx="590" cy="90" r="12" fill="#10B981"/>
+    <text x="590" y="94" font-family="Libertinus Sans" font-size="10" font-weight="bold" fill="white" text-anchor="middle">5</text>
+    <text x="610" y="94" font-family="Libertinus Sans" font-size="10" fill="#475569">Record in log</text>
+
+    <circle cx="740" cy="90" r="12" fill="#8B5CF6"/>
+    <text x="740" y="94" font-family="Libertinus Sans" font-size="10" font-weight="bold" fill="white" text-anchor="middle">6-7</text>
+    <text x="765" y="94" font-family="Libertinus Sans" font-size="10" fill="#475569">Verify signature + log</text>
+  </g>
+</svg>

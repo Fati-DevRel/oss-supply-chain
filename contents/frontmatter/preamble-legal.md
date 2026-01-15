@@ -1,0 +1,3 @@
+# Legal Disclaimer
+
+This book provides general educational information about software supply chain security. It does not constitute professional security, legal, or compliance advice tailored to your specific situation. The information is provided "as is" without warranties of any kind. Software supply chain security is a rapidly evolving field; information is current as of at least January 2026 and may become outdated. Organizations should engage qualified security and legal professionals to assess their specific needs and implement appropriate controls. By using this resource, you acknowledge that the authors and publishers are not liable for your use of this information.

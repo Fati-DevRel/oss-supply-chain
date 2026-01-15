@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" font-family="Libertinus Sans">
+  <defs>
+        <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset in="blur" dx="1" dy="2" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.5" result="color"/>
+      <feComposite in="color" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="silicGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0F172A;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1E293B;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="microGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1E3A8A;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1E40AF;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="firmGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#6D28D9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7C3AED;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="osGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#059669;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#10B981;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="appGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#3B82F6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#60A5FA;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="520" fill="#F8FAFC"/>
+
+  <!-- Title -->
+  <text x="450" y="32" text-anchor="middle" font-size="18" font-weight="bold" fill="#1E293B">Hardware Trust Stack</text>
+  <text x="450" y="52" text-anchor="middle" font-size="11" fill="#64748B">Software security ultimately depends on hardware integrity</text>
+
+  <!-- Trust Stack Pyramid -->
+  <g transform="translate(100, 75)">
+    <!-- Layer 5: Application (top, narrowest) -->
+    <g filter="url(#shadow)">
+      <path d="M 200,0 L 350,0 L 380,55 L 170,55 Z" fill="url(#appGrad)"/>
+      <text x="275" y="28" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Application</text>
+      <text x="275" y="45" text-anchor="middle" font-size="9" fill="#DBEAFE">Your code + dependencies</text>
+    </g>
+
+    <!-- Layer 4: Operating System -->
+    <g filter="url(#shadow)">
+      <path d="M 170,65 L 380,65 L 410,120 L 140,120 Z" fill="url(#osGrad)"/>
+      <text x="275" y="88" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Operating System</text>
+      <text x="275" y="105" text-anchor="middle" font-size="9" fill="#D1FAE5">Kernel, drivers, services</text>
+    </g>
+
+    <!-- Layer 3: Firmware/BIOS/UEFI -->
+    <g filter="url(#shadow)">
+      <path d="M 140,130 L 410,130 L 440,185 L 110,185 Z" fill="url(#firmGrad)"/>
+      <text x="275" y="153" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Firmware / UEFI</text>
+      <text x="275" y="170" text-anchor="middle" font-size="9" fill="#EDE9FE">Boot process, initialization</text>
+    </g>
+
+    <!-- Layer 2: Microcode -->
+    <g filter="url(#shadow)">
+      <path d="M 110,195 L 440,195 L 470,250 L 80,250 Z" fill="url(#microGrad)"/>
+      <text x="275" y="218" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Microcode</text>
+      <text x="275" y="235" text-anchor="middle" font-size="9" fill="#DBEAFE">CPU instruction implementation</text>
+    </g>
+
+    <!-- Layer 1: Silicon (bottom, widest) -->
+    <g filter="url(#shadow)">
+      <path d="M 80,260 L 470,260 L 500,315 L 50,315 Z" fill="url(#silicGrad)"/>
+      <text x="275" y="283" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Silicon Hardware</text>
+      <text x="275" y="300" text-anchor="middle" font-size="9" fill="#94A3B8">Physical chip design and manufacturing</text>
+    </g>
+
+    <!-- Trust direction arrow -->
+    <g transform="translate(510, 100)">
+      <path d="M 0,0 L 0,180" stroke="#DC2626" stroke-width="3"/>
+      <polygon points="0,180 -8,165 8,165" fill="#DC2626"/>
+      <text x="15" y="90" font-size="10" fill="#DC2626" font-weight="600">Trust</text>
+      <text x="15" y="105" font-size="10" fill="#DC2626" font-weight="600">Direction</text>
+      <text x="15" y="125" font-size="9" fill="#64748B">Each layer</text>
+      <text x="15" y="138" font-size="9" fill="#64748B">trusts all</text>
+      <text x="15" y="151" font-size="9" fill="#64748B">below it</text>
+    </g>
+  </g>
+
+  <!-- Right side: Security implications -->
+  <g transform="translate(620, 80)">
+    <rect x="0" y="0" width="240" height="290" rx="8" fill="white" stroke="#E2E8F0" filter="url(#shadow)"/>
+    <text x="120" y="25" text-anchor="middle" font-size="12" font-weight="bold" fill="#1E293B">Security Implications</text>
+
+    <g transform="translate(15, 45)">
+      <rect x="0" y="0" width="210" height="50" rx="4" fill="#DBEAFE"/>
+      <text x="105" y="18" text-anchor="middle" font-size="10" font-weight="600" fill="#1E40AF">Application</text>
+      <text x="105" y="35" text-anchor="middle" font-size="8" fill="#2563EB">Inspectable, patchable</text>
+      <text x="105" y="46" text-anchor="middle" font-size="8" fill="#2563EB">Verification possible</text>
+    </g>
+
+    <g transform="translate(15, 105)">
+      <rect x="0" y="0" width="210" height="50" rx="4" fill="#FEF3C7"/>
+      <text x="105" y="18" text-anchor="middle" font-size="10" font-weight="600" fill="#92400E">Firmware</text>
+      <text x="105" y="35" text-anchor="middle" font-size="8" fill="#D97706">Updates possible but rare</text>
+      <text x="105" y="46" text-anchor="middle" font-size="8" fill="#D97706">Persists across OS reinstall</text>
+    </g>
+
+    <g transform="translate(15, 165)">
+      <rect x="0" y="0" width="210" height="50" rx="4" fill="#FEE2E2"/>
+      <text x="105" y="18" text-anchor="middle" font-size="10" font-weight="600" fill="#991B1B">Hardware</text>
+      <text x="105" y="35" text-anchor="middle" font-size="8" fill="#DC2626">Cannot be patched</text>
+      <text x="105" y="46" text-anchor="middle" font-size="8" fill="#DC2626">Verification nearly impossible</text>
+    </g>
+
+    <line x1="15" y1="230" x2="225" y2="230" stroke="#E2E8F0"/>
+
+    <text x="120" y="250" text-anchor="middle" font-size="9" fill="#64748B">Lower layers can</text>
+    <text x="120" y="265" text-anchor="middle" font-size="9" fill="#64748B">subvert everything above.</text>
+    <text x="120" y="280" text-anchor="middle" font-size="9" fill="#DC2626" font-weight="600">Hardware = ultimate trust root</text>
+  </g>
+
+  <!-- Bottom: Hardware security features -->
+  <g filter="url(#shadow)" transform="translate(100, 410)">
+    <rect x="0" y="0" width="700" height="90" rx="8" fill="white" stroke="#E2E8F0"/>
+    <text x="350" y="25" text-anchor="middle" font-size="13" font-weight="bold" fill="#1E293B">Hardware Security Mechanisms</text>
+
+    <g transform="translate(25, 40)">
+      <rect x="0" y="0" width="150" height="40" rx="4" fill="#D1FAE5" stroke="#A7F3D0"/>
+      <text x="75" y="18" text-anchor="middle" font-size="10" font-weight="600" fill="#065F46">TPM</text>
+      <text x="75" y="33" text-anchor="middle" font-size="8" fill="#047857">Measured boot, attestation</text>
+    </g>
+
+    <g transform="translate(195, 40)">
+      <rect x="0" y="0" width="150" height="40" rx="4" fill="#DBEAFE" stroke="#BFDBFE"/>
+      <text x="75" y="18" text-anchor="middle" font-size="10" font-weight="600" fill="#1E40AF">HSM</text>
+      <text x="75" y="33" text-anchor="middle" font-size="8" fill="#2563EB">Key protection, signing</text>
+    </g>
+
+    <g transform="translate(365, 40)">
+      <rect x="0" y="0" width="150" height="40" rx="4" fill="#E0E7FF" stroke="#C7D2FE"/>
+      <text x="75" y="18" text-anchor="middle" font-size="10" font-weight="600" fill="#3730A3">Secure Enclave</text>
+      <text x="75" y="33" text-anchor="middle" font-size="8" fill="#6366F1">SGX, TrustZone</text>
+    </g>
+
+    <g transform="translate(535, 40)">
+      <rect x="0" y="0" width="150" height="40" rx="4" fill="#FCE7F3" stroke="#FBCFE8"/>
+      <text x="75" y="18" text-anchor="middle" font-size="10" font-weight="600" fill="#9D174D">Secure Boot</text>
+      <text x="75" y="33" text-anchor="middle" font-size="8" fill="#DB2777">Verified boot chain</text>
+    </g>
+  </g>
+</svg>

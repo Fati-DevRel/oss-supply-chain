@@ -1,0 +1,247 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" font-family="Libertinus Sans">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#fff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fff;stop-opacity:1" />
+    </linearGradient>
+    <filter id="nodeShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset in="blur" dx="1" dy="2" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.5" result="color"/>
+      <feComposite in="color" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#718096"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="500" fill="url(#bgGrad)"/>
+
+  <!-- Title -->
+  <text x="400" y="30" text-anchor="middle" font-size="18" font-weight="600" fill="#1a365d">
+    The Dependency Explosion: From One Command to 1,400+ Packages
+  </text>
+
+  <!-- Command box -->
+  <g filter="url(#nodeShadow)">
+    <rect x="250" y="50" width="300" height="40" rx="6" fill="#2d3748"/>
+    <text x="400" y="75" text-anchor="middle" font-size="13" fill="#68d391" font-family="Libertinus Mono">
+      npx create-react-app my-app
+    </text>
+  </g>
+
+  <!-- Arrow from command -->
+  <line x1="400" y1="90" x2="400" y2="115" stroke="#718096" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- Level 0: Your App -->
+  <g filter="url(#nodeShadow)">
+    <rect x="325" y="120" width="150" height="50" rx="8" fill="#3182ce"/>
+    <text x="400" y="145" text-anchor="middle" font-size="14" font-weight="600" fill="#fff">Your Application</text>
+    <text x="400" y="162" text-anchor="middle" font-size="10" fill="#bee3f8">0 lines of code</text>
+  </g>
+
+  <!-- Connections to Level 1 -->
+  <path d="M 340 170 Q 340 190 220 210" stroke="#718096" stroke-width="1.5" fill="none"/>
+  <path d="M 400 170 Q 400 190 400 210" stroke="#718096" stroke-width="1.5" fill="none"/>
+  <path d="M 460 170 Q 460 190 580 210" stroke="#718096" stroke-width="1.5" fill="none"/>
+
+  <!-- Level 1: Direct Dependencies -->
+  <text x="60" y="230" font-size="11" fill="#4a5568" font-weight="500">Direct Dependencies (~50)</text>
+
+  <g filter="url(#nodeShadow)">
+    <rect x="145" y="210" width="100" height="40" rx="6" fill="#48bb78"/>
+    <text x="195" y="233" text-anchor="middle" font-size="11" font-weight="500" fill="#fff">react</text>
+    <text x="195" y="245" text-anchor="middle" font-size="9" fill="#c6f6d5">18.2.0</text>
+  </g>
+
+  <g filter="url(#nodeShadow)">
+    <rect x="260" y="210" width="100" height="40" rx="6" fill="#48bb78"/>
+    <text x="310" y="233" text-anchor="middle" font-size="11" font-weight="500" fill="#fff">react-dom</text>
+    <text x="310" y="245" text-anchor="middle" font-size="9" fill="#c6f6d5">18.2.0</text>
+  </g>
+
+  <g filter="url(#nodeShadow)">
+    <rect x="375" y="210" width="100" height="40" rx="6" fill="#48bb78"/>
+    <text x="425" y="233" text-anchor="middle" font-size="11" font-weight="500" fill="#fff">react-scripts</text>
+    <text x="425" y="245" text-anchor="middle" font-size="9" fill="#c6f6d5">5.0.1</text>
+  </g>
+
+  <g filter="url(#nodeShadow)">
+    <rect x="490" y="210" width="100" height="40" rx="6" fill="#48bb78"/>
+    <text x="540" y="233" text-anchor="middle" font-size="11" font-weight="500" fill="#fff">web-vitals</text>
+    <text x="540" y="245" text-anchor="middle" font-size="9" fill="#c6f6d5">2.1.4</text>
+  </g>
+
+  <g filter="url(#nodeShadow)">
+    <rect x="605" y="210" width="60" height="40" rx="6" fill="#48bb78"/>
+    <text x="635" y="235" text-anchor="middle" font-size="12" fill="#fff">...</text>
+  </g>
+
+  <!-- Connections to Level 2 -->
+  <path d="M 195 250 L 120 280" stroke="#a0aec0" stroke-width="1"/>
+  <path d="M 195 250 L 180 280" stroke="#a0aec0" stroke-width="1"/>
+  <path d="M 310 250 L 270 280" stroke="#a0aec0" stroke-width="1"/>
+  <path d="M 310 250 L 330 280" stroke="#a0aec0" stroke-width="1"/>
+  <path d="M 425 250 L 390 280" stroke="#a0aec0" stroke-width="1"/>
+  <path d="M 425 250 L 430 280" stroke="#a0aec0" stroke-width="1"/>
+  <path d="M 425 250 L 470 280" stroke="#a0aec0" stroke-width="1"/>
+  <path d="M 425 250 L 510 280" stroke="#a0aec0" stroke-width="1"/>
+  <path d="M 425 250 L 570 280" stroke="#a0aec0" stroke-width="1"/>
+  <path d="M 540 250 L 630 280" stroke="#a0aec0" stroke-width="1"/>
+
+  <!-- Level 2: Transitive Dependencies (sample) -->
+  <text x="60" y="300" font-size="11" fill="#4a5568" font-weight="500">Transitive (~200)</text>
+
+  <g filter="url(#nodeShadow)">
+    <rect x="95" y="280" width="70" height="30" rx="4" fill="#ed8936"/>
+    <text x="130" y="299" text-anchor="middle" font-size="9" fill="#fff">scheduler</text>
+  </g>
+  <g filter="url(#nodeShadow)">
+    <rect x="175" y="280" width="70" height="30" rx="4" fill="#ed8936"/>
+    <text x="210" y="299" text-anchor="middle" font-size="9" fill="#fff">loose-envify</text>
+  </g>
+  <g filter="url(#nodeShadow)">
+    <rect x="255" y="280" width="70" height="30" rx="4" fill="#ed8936"/>
+    <text x="290" y="299" text-anchor="middle" font-size="9" fill="#fff">webpack</text>
+  </g>
+  <g filter="url(#nodeShadow)">
+    <rect x="335" y="280" width="70" height="30" rx="4" fill="#ed8936"/>
+    <text x="370" y="299" text-anchor="middle" font-size="9" fill="#fff">babel-core</text>
+  </g>
+  <g filter="url(#nodeShadow)">
+    <rect x="415" y="280" width="70" height="30" rx="4" fill="#ed8936"/>
+    <text x="450" y="299" text-anchor="middle" font-size="9" fill="#fff">eslint</text>
+  </g>
+  <g filter="url(#nodeShadow)">
+    <rect x="495" y="280" width="70" height="30" rx="4" fill="#ed8936"/>
+    <text x="530" y="299" text-anchor="middle" font-size="9" fill="#fff">postcss</text>
+  </g>
+  <g filter="url(#nodeShadow)">
+    <rect x="575" y="280" width="70" height="30" rx="4" fill="#ed8936"/>
+    <text x="610" y="299" text-anchor="middle" font-size="9" fill="#fff">jest</text>
+  </g>
+  <g filter="url(#nodeShadow)">
+    <rect x="655" y="280" width="50" height="30" rx="4" fill="#ed8936"/>
+    <text x="680" y="299" text-anchor="middle" font-size="10" fill="#fff">...</text>
+  </g>
+
+  <!-- Many more connection lines to Level 3 -->
+  <path d="M 130 310 L 90 340" stroke="#cbd5e0" stroke-width="1"/>
+  <path d="M 130 310 L 130 340" stroke="#cbd5e0" stroke-width="1"/>
+  <path d="M 210 310 L 180 340" stroke="#cbd5e0" stroke-width="1"/>
+  <path d="M 290 310 L 230 340" stroke="#cbd5e0" stroke-width="1"/>
+  <path d="M 290 310 L 280 340" stroke="#cbd5e0" stroke-width="1"/>
+  <path d="M 290 310 L 330 340" stroke="#cbd5e0" stroke-width="1"/>
+  <path d="M 370 310 L 380 340" stroke="#cbd5e0" stroke-width="1"/>
+  <path d="M 450 310 L 430 340" stroke="#cbd5e0" stroke-width="1"/>
+  <path d="M 450 310 L 480 340" stroke="#cbd5e0" stroke-width="1"/>
+  <path d="M 530 310 L 530 340" stroke="#cbd5e0" stroke-width="1"/>
+  <path d="M 610 310 L 580 340" stroke="#cbd5e0" stroke-width="1"/>
+  <path d="M 610 310 L 630 340" stroke="#cbd5e0" stroke-width="1"/>
+  <path d="M 610 310 L 680 340" stroke="#cbd5e0" stroke-width="1"/>
+
+  <!-- Level 3: Deep Transitive -->
+  <text x="60" y="360" font-size="11" fill="#4a5568" font-weight="500">Deep Transitive (~500)</text>
+
+  <g opacity="0.85">
+    <rect x="70" y="340" width="55" height="25" rx="3" fill="#e53e3e"/>
+    <text x="97" y="357" text-anchor="middle" font-size="8" fill="#fff">js-tokens</text>
+  </g>
+  <g opacity="0.85">
+    <rect x="135" y="340" width="55" height="25" rx="3" fill="#e53e3e"/>
+    <text x="162" y="357" text-anchor="middle" font-size="8" fill="#fff">object-assign</text>
+  </g>
+  <g opacity="0.85">
+    <rect x="200" y="340" width="55" height="25" rx="3" fill="#e53e3e"/>
+    <text x="227" y="357" text-anchor="middle" font-size="8" fill="#fff">acorn</text>
+  </g>
+  <g opacity="0.85">
+    <rect x="265" y="340" width="55" height="25" rx="3" fill="#e53e3e"/>
+    <text x="292" y="357" text-anchor="middle" font-size="8" fill="#fff">loader-utils</text>
+  </g>
+  <g opacity="0.85">
+    <rect x="330" y="340" width="55" height="25" rx="3" fill="#e53e3e"/>
+    <text x="357" y="357" text-anchor="middle" font-size="8" fill="#fff">terser</text>
+  </g>
+  <g opacity="0.85">
+    <rect x="395" y="340" width="55" height="25" rx="3" fill="#e53e3e"/>
+    <text x="422" y="357" text-anchor="middle" font-size="8" fill="#fff">core-js</text>
+  </g>
+  <g opacity="0.85">
+    <rect x="460" y="340" width="55" height="25" rx="3" fill="#e53e3e"/>
+    <text x="487" y="357" text-anchor="middle" font-size="8" fill="#fff">chalk</text>
+  </g>
+  <g opacity="0.85">
+    <rect x="525" y="340" width="55" height="25" rx="3" fill="#e53e3e"/>
+    <text x="552" y="357" text-anchor="middle" font-size="8" fill="#fff">semver</text>
+  </g>
+  <g opacity="0.85">
+    <rect x="590" y="340" width="55" height="25" rx="3" fill="#e53e3e"/>
+    <text x="617" y="357" text-anchor="middle" font-size="8" fill="#fff">glob</text>
+  </g>
+  <g opacity="0.85">
+    <rect x="655" y="340" width="55" height="25" rx="3" fill="#e53e3e"/>
+    <text x="682" y="357" text-anchor="middle" font-size="8" fill="#fff">debug</text>
+  </g>
+
+  <!-- More connections downward -->
+  <g stroke="#e2e8f0" stroke-width="0.5">
+    <line x1="97" y1="365" x2="90" y2="390"/>
+    <line x1="162" y1="365" x2="150" y2="390"/>
+    <line x1="227" y1="365" x2="210" y2="390"/>
+    <line x1="227" y1="365" x2="250" y2="390"/>
+    <line x1="292" y1="365" x2="290" y2="390"/>
+    <line x1="357" y1="365" x2="350" y2="390"/>
+    <line x1="422" y1="365" x2="410" y2="390"/>
+    <line x1="422" y1="365" x2="440" y2="390"/>
+    <line x1="487" y1="365" x2="480" y2="390"/>
+    <line x1="552" y1="365" x2="540" y2="390"/>
+    <line x1="617" y1="365" x2="600" y2="390"/>
+    <line x1="617" y1="365" x2="640" y2="390"/>
+    <line x1="682" y1="365" x2="680" y2="390"/>
+  </g>
+
+  <!-- Level 4: Even deeper (fading) -->
+  <text x="60" y="410" font-size="11" fill="#4a5568" font-weight="500">Level 4+ (~650)</text>
+
+  <g opacity="0.5">
+    <rect x="70" y="390" width="45" height="20" rx="2" fill="#9f7aea"/>
+    <rect x="125" y="390" width="45" height="20" rx="2" fill="#9f7aea"/>
+    <rect x="180" y="390" width="45" height="20" rx="2" fill="#9f7aea"/>
+    <rect x="235" y="390" width="45" height="20" rx="2" fill="#9f7aea"/>
+    <rect x="290" y="390" width="45" height="20" rx="2" fill="#9f7aea"/>
+    <rect x="345" y="390" width="45" height="20" rx="2" fill="#9f7aea"/>
+    <rect x="400" y="390" width="45" height="20" rx="2" fill="#9f7aea"/>
+    <rect x="455" y="390" width="45" height="20" rx="2" fill="#9f7aea"/>
+    <rect x="510" y="390" width="45" height="20" rx="2" fill="#9f7aea"/>
+    <rect x="565" y="390" width="45" height="20" rx="2" fill="#9f7aea"/>
+    <rect x="620" y="390" width="45" height="20" rx="2" fill="#9f7aea"/>
+    <rect x="675" y="390" width="45" height="20" rx="2" fill="#9f7aea"/>
+  </g>
+
+  <!-- Summary statistics -->
+  <g filter="url(#nodeShadow)">
+    <rect x="180" y="435" width="440" height="55" rx="8" fill="#fff" stroke="#2d3748" stroke-width="1"/>
+    <text x="400" y="458" text-anchor="middle" font-size="13" font-weight="600" fill="#1a365d">
+      Total: 1,400+ packages | 300+ MB | Hundreds of maintainers worldwide
+    </text>
+    <text x="400" y="478" text-anchor="middle" font-size="11" fill="#718096">
+      Developer wrote 0 lines of code but inherited this entire trust network
+    </text>
+  </g>
+
+  <!-- Legend -->
+  <g font-size="9" fill="#4a5568">
+    <rect x="690" y="440" width="12" height="12" rx="2" fill="#48bb78"/>
+    <text x="707" y="450">Direct dependency</text>
+    <rect x="690" y="458" width="12" height="12" rx="2" fill="#ed8936"/>
+    <text x="707" y="468">Transitive (1 level)</text>
+    <rect x="690" y="476" width="12" height="12" rx="2" fill="#e53e3e"/>
+    <text x="707" y="486">Deep transitive</text>
+  </g>
+</svg>

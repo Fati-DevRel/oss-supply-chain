@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700" font-family="Libertinus Sans">
+  <defs>
+    <linearGradient id="criticalGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#e53e3e"/>
+      <stop offset="100%" style="stop-color:#c53030"/>
+    </linearGradient>
+    <linearGradient id="highGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#dd6b20"/>
+      <stop offset="100%" style="stop-color:#c05621"/>
+    </linearGradient>
+    <linearGradient id="mediumGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#d69e2e"/>
+      <stop offset="100%" style="stop-color:#b7791f"/>
+    </linearGradient>
+    <linearGradient id="lowGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#38a169"/>
+      <stop offset="100%" style="stop-color:#276749"/>
+    </linearGradient>
+        <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset in="blur" dx="1" dy="2" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.5" result="color"/>
+      <feComposite in="color" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="700" fill="#f7fafc"/>
+
+  <!-- Title -->
+  <text x="450" y="35" text-anchor="middle" font-size="20" font-weight="bold" fill="#1a202c">Vendor Supply Chain Assessment Framework</text>
+  <text x="450" y="55" text-anchor="middle" font-size="12" fill="#718096">Risk-tiered approach to vendor evaluation and monitoring</text>
+
+  <!-- Vendor Tiers Section -->
+  <g transform="translate(30, 80)">
+    <!-- Critical Tier -->
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="200" height="280" rx="8" fill="white" stroke="#c53030" stroke-width="2" filter="url(#shadow)"/>
+      <rect x="0" y="0" width="200" height="40" rx="8" fill="url(#criticalGrad)"/>
+      <rect x="0" y="32" width="200" height="8" fill="url(#criticalGrad)"/>
+      <text x="100" y="26" text-anchor="middle" font-size="13" font-weight="bold" fill="white">CRITICAL TIER</text>
+
+      <g transform="translate(15, 55)">
+        <text x="0" y="0" font-size="10" font-weight="bold" fill="#742a2a">Criteria:</text>
+        <text x="0" y="16" font-size="9" fill="#4a5568">Core business systems</text>
+        <text x="0" y="30" font-size="9" fill="#4a5568">Customer-facing</text>
+        <text x="0" y="44" font-size="9" fill="#4a5568">Sensitive data access</text>
+        <text x="0" y="58" font-size="9" fill="#4a5568">Hard to replace</text>
+
+        <text x="0" y="82" font-size="10" font-weight="bold" fill="#742a2a">Assessment:</text>
+        <text x="0" y="98" font-size="9" fill="#4a5568">Full assessment + on-site</text>
+        <text x="0" y="112" font-size="9" fill="#4a5568">SLSA Level 3 required</text>
+        <text x="0" y="126" font-size="9" fill="#4a5568">Audit rights in contract</text>
+
+        <text x="0" y="150" font-size="10" font-weight="bold" fill="#742a2a">Monitoring:</text>
+        <text x="0" y="166" font-size="9" fill="#4a5568">Active SBOM tracking</text>
+        <text x="0" y="180" font-size="9" fill="#4a5568">Real-time alerts</text>
+        <text x="0" y="194" font-size="9" fill="#4a5568">Annual reassessment</text>
+      </g>
+    </g>
+
+    <!-- High Tier -->
+    <g transform="translate(215, 0)">
+      <rect x="0" y="0" width="200" height="280" rx="8" fill="white" stroke="#c05621" stroke-width="2" filter="url(#shadow)"/>
+      <rect x="0" y="0" width="200" height="40" rx="8" fill="url(#highGrad)"/>
+      <rect x="0" y="32" width="200" height="8" fill="url(#highGrad)"/>
+      <text x="100" y="26" text-anchor="middle" font-size="13" font-weight="bold" fill="white">HIGH TIER</text>
+
+      <g transform="translate(15, 55)">
+        <text x="0" y="0" font-size="10" font-weight="bold" fill="#7b341e">Criteria:</text>
+        <text x="0" y="16" font-size="9" fill="#4a5568">Important functions</text>
+        <text x="0" y="30" font-size="9" fill="#4a5568">Significant data access</text>
+        <text x="0" y="44" font-size="9" fill="#4a5568">Moderate replacement</text>
+        <text x="0" y="58" font-size="9" fill="#4a5568">difficulty</text>
+
+        <text x="0" y="82" font-size="10" font-weight="bold" fill="#7b341e">Assessment:</text>
+        <text x="0" y="98" font-size="9" fill="#4a5568">Detailed questionnaire</text>
+        <text x="0" y="112" font-size="9" fill="#4a5568">Remote interview</text>
+        <text x="0" y="126" font-size="9" fill="#4a5568">SLSA Level 2 expected</text>
+
+        <text x="0" y="150" font-size="10" font-weight="bold" fill="#7b341e">Monitoring:</text>
+        <text x="0" y="166" font-size="9" fill="#4a5568">Security ratings</text>
+        <text x="0" y="180" font-size="9" fill="#4a5568">Breach monitoring</text>
+        <text x="0" y="194" font-size="9" fill="#4a5568">18-month reassessment</text>
+      </g>
+    </g>
+
+    <!-- Medium Tier -->
+    <g transform="translate(430, 0)">
+      <rect x="0" y="0" width="200" height="280" rx="8" fill="white" stroke="#b7791f" stroke-width="2" filter="url(#shadow)"/>
+      <rect x="0" y="0" width="200" height="40" rx="8" fill="url(#mediumGrad)"/>
+      <rect x="0" y="32" width="200" height="8" fill="url(#mediumGrad)"/>
+      <text x="100" y="26" text-anchor="middle" font-size="13" font-weight="bold" fill="white">MEDIUM TIER</text>
+
+      <g transform="translate(15, 55)">
+        <text x="0" y="0" font-size="10" font-weight="bold" fill="#744210">Criteria:</text>
+        <text x="0" y="16" font-size="9" fill="#4a5568">Standard business func.</text>
+        <text x="0" y="30" font-size="9" fill="#4a5568">Limited data access</text>
+        <text x="0" y="44" font-size="9" fill="#4a5568">Alternatives available</text>
+
+        <text x="0" y="72" font-size="10" font-weight="bold" fill="#744210">Assessment:</text>
+        <text x="0" y="88" font-size="9" fill="#4a5568">Standard questionnaire</text>
+        <text x="0" y="102" font-size="9" fill="#4a5568">Evidence review</text>
+        <text x="0" y="116" font-size="9" fill="#4a5568">SBOM requested</text>
+
+        <text x="0" y="144" font-size="10" font-weight="bold" fill="#744210">Monitoring:</text>
+        <text x="0" y="160" font-size="9" fill="#4a5568">Periodic spot-checks</text>
+        <text x="0" y="174" font-size="9" fill="#4a5568">Security ratings</text>
+        <text x="0" y="188" font-size="9" fill="#4a5568">2-year reassessment</text>
+      </g>
+    </g>
+
+    <!-- Low Tier -->
+    <g transform="translate(645, 0)">
+      <rect x="0" y="0" width="200" height="280" rx="8" fill="white" stroke="#276749" stroke-width="2" filter="url(#shadow)"/>
+      <rect x="0" y="0" width="200" height="40" rx="8" fill="url(#lowGrad)"/>
+      <rect x="0" y="32" width="200" height="8" fill="url(#lowGrad)"/>
+      <text x="100" y="26" text-anchor="middle" font-size="13" font-weight="bold" fill="white">LOW TIER</text>
+
+      <g transform="translate(15, 55)">
+        <text x="0" y="0" font-size="10" font-weight="bold" fill="#22543d">Criteria:</text>
+        <text x="0" y="16" font-size="9" fill="#4a5568">Minor functions</text>
+        <text x="0" y="30" font-size="9" fill="#4a5568">No sensitive access</text>
+        <text x="0" y="44" font-size="9" fill="#4a5568">Easily replaced</text>
+
+        <text x="0" y="72" font-size="10" font-weight="bold" fill="#22543d">Assessment:</text>
+        <text x="0" y="88" font-size="9" fill="#4a5568">Abbreviated questionnaire</text>
+        <text x="0" y="102" font-size="9" fill="#4a5568">Basic verification</text>
+
+        <text x="0" y="130" font-size="10" font-weight="bold" fill="#22543d">Monitoring:</text>
+        <text x="0" y="146" font-size="9" fill="#4a5568">Breach monitoring only</text>
+        <text x="0" y="160" font-size="9" fill="#4a5568">3-year reassessment</text>
+        <text x="0" y="174" font-size="9" fill="#4a5568">or on renewal</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Evidence Requirements -->
+  <g transform="translate(30, 385)">
+    <rect x="0" y="0" width="405" height="180" rx="8" fill="white" stroke="#e2e8f0" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="405" height="35" rx="8" fill="#4a5568"/>
+    <rect x="0" y="28" width="405" height="7" fill="#4a5568"/>
+    <text x="202" y="22" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Evidence Requirements by Tier</text>
+
+    <g transform="translate(20, 50)">
+      <text x="0" y="0" font-size="10" font-weight="bold" fill="#2d3748">Evidence Type</text>
+      <text x="130" y="0" font-size="10" font-weight="bold" fill="#c53030">Critical</text>
+      <text x="190" y="0" font-size="10" font-weight="bold" fill="#c05621">High</text>
+      <text x="250" y="0" font-size="10" font-weight="bold" fill="#b7791f">Medium</text>
+      <text x="320" y="0" font-size="10" font-weight="bold" fill="#276749">Low</text>
+
+      <line x1="0" y1="8" x2="365" y2="8" stroke="#e2e8f0"/>
+
+      <text x="0" y="25" font-size="9" fill="#4a5568">SBOM</text>
+      <text x="130" y="25" font-size="9" fill="#38a169">Required</text>
+      <text x="190" y="25" font-size="9" fill="#38a169">Required</text>
+      <text x="250" y="25" font-size="9" fill="#d69e2e">Requested</text>
+      <text x="320" y="25" font-size="9" fill="#718096">Optional</text>
+
+      <text x="0" y="45" font-size="9" fill="#4a5568">Build provenance</text>
+      <text x="130" y="45" font-size="9" fill="#38a169">Required</text>
+      <text x="190" y="45" font-size="9" fill="#d69e2e">Requested</text>
+      <text x="250" y="45" font-size="9" fill="#718096">Optional</text>
+      <text x="320" y="45" font-size="9" fill="#718096">N/A</text>
+
+      <text x="0" y="65" font-size="9" fill="#4a5568">Audit report (SOC2)</text>
+      <text x="130" y="65" font-size="9" fill="#38a169">Required</text>
+      <text x="190" y="65" font-size="9" fill="#38a169">Required</text>
+      <text x="250" y="65" font-size="9" fill="#d69e2e">Requested</text>
+      <text x="320" y="65" font-size="9" fill="#718096">Optional</text>
+
+      <text x="0" y="85" font-size="9" fill="#4a5568">Vuln mgmt SLA</text>
+      <text x="130" y="85" font-size="9" fill="#38a169">Required</text>
+      <text x="190" y="85" font-size="9" fill="#38a169">Required</text>
+      <text x="250" y="85" font-size="9" fill="#d69e2e">Requested</text>
+      <text x="320" y="85" font-size="9" fill="#718096">Optional</text>
+
+      <text x="0" y="105" font-size="9" fill="#4a5568">Pen test summary</text>
+      <text x="130" y="105" font-size="9" fill="#38a169">Required</text>
+      <text x="190" y="105" font-size="9" fill="#d69e2e">Requested</text>
+      <text x="250" y="105" font-size="9" fill="#718096">Optional</text>
+      <text x="320" y="105" font-size="9" fill="#718096">N/A</text>
+    </g>
+  </g>
+
+  <!-- Red Flags -->
+  <g transform="translate(460, 385)">
+    <rect x="0" y="0" width="410" height="180" rx="8" fill="white" stroke="#e53e3e" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="410" height="35" rx="8" fill="#e53e3e"/>
+    <rect x="0" y="28" width="410" height="7" fill="#e53e3e"/>
+    <text x="205" y="22" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Red Flags and Deal-Breakers</text>
+
+    <g transform="translate(20, 50)">
+      <text x="0" y="0" font-size="10" font-weight="bold" fill="#742a2a">Serious Concerns (Address Before Proceeding)</text>
+      <text x="0" y="18" font-size="9" fill="#4a5568">- Cannot produce SBOM for software products</text>
+      <text x="0" y="32" font-size="9" fill="#4a5568">- No vulnerability management process</text>
+      <text x="0" y="46" font-size="9" fill="#4a5568">- Resistance to security questions</text>
+      <text x="0" y="60" font-size="9" fill="#4a5568">- Releases not signed</text>
+
+      <text x="0" y="85" font-size="10" font-weight="bold" fill="#742a2a">Deal-Breakers (Stop Procurement)</text>
+      <text x="0" y="103" font-size="9" fill="#4a5568">- History of supply chain incidents with poor response</text>
+      <text x="0" y="117" font-size="9" fill="#4a5568">- Refuses to provide any security evidence</text>
+      <text x="0" y="131" font-size="9" fill="#4a5568">- Uses known-compromised dependencies</text>
+    </g>
+  </g>
+
+  <!-- Maturity Framework -->
+  <g transform="translate(30, 585)">
+    <rect x="0" y="0" width="840" height="95" rx="8" fill="white" stroke="#e2e8f0" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="840" height="30" rx="8" fill="#2c5282"/>
+    <rect x="0" y="22" width="840" height="8" fill="#2c5282"/>
+    <text x="420" y="20" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Vendor Maturity Assessment Framework (SLSA + OpenSSF Scorecard)</text>
+
+    <!-- Maturity levels -->
+    <g transform="translate(20, 45)">
+      <rect x="0" y="0" width="155" height="40" rx="4" fill="#fed7d7" stroke="#e53e3e" stroke-width="1"/>
+      <text x="77" y="17" text-anchor="middle" font-size="9" font-weight="bold" fill="#742a2a">Initial</text>
+      <text x="77" y="32" text-anchor="middle" font-size="8" fill="#4a5568">No formal practices</text>
+    </g>
+
+    <g transform="translate(185, 45)">
+      <rect x="0" y="0" width="155" height="40" rx="4" fill="#feebc8" stroke="#dd6b20" stroke-width="1"/>
+      <text x="77" y="17" text-anchor="middle" font-size="9" font-weight="bold" fill="#7b341e">Developing</text>
+      <text x="77" y="32" text-anchor="middle" font-size="8" fill="#4a5568">Basic practices, some scanning</text>
+    </g>
+
+    <g transform="translate(350, 45)">
+      <rect x="0" y="0" width="155" height="40" rx="4" fill="#fefcbf" stroke="#d69e2e" stroke-width="1"/>
+      <text x="77" y="17" text-anchor="middle" font-size="9" font-weight="bold" fill="#744210">Defined (SLSA 1-2)</text>
+      <text x="77" y="32" text-anchor="middle" font-size="8" fill="#4a5568">Documented, SBOMs standard</text>
+    </g>
+
+    <g transform="translate(515, 45)">
+      <rect x="0" y="0" width="155" height="40" rx="4" fill="#c6f6d5" stroke="#38a169" stroke-width="1"/>
+      <text x="77" y="17" text-anchor="middle" font-size="9" font-weight="bold" fill="#22543d">Managed (SLSA 2+)</text>
+      <text x="77" y="32" text-anchor="middle" font-size="8" fill="#4a5568">Provenance, proactive mgmt</text>
+    </g>
+
+    <g transform="translate(680, 45)">
+      <rect x="0" y="0" width="155" height="40" rx="4" fill="#bee3f8" stroke="#3182ce" stroke-width="1"/>
+      <text x="77" y="17" text-anchor="middle" font-size="9" font-weight="bold" fill="#2a4365">Optimized (SLSA 3)</text>
+      <text x="77" y="32" text-anchor="middle" font-size="8" fill="#4a5568">Continuous improvement</text>
+    </g>
+  </g>
+</svg>

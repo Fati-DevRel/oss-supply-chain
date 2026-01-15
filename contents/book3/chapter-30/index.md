@@ -1,0 +1,11 @@
+# Chapter 30: The Economics of Software Supply Chain Security
+
+This chapter examines the economic forces underlying persistent underinvestment in open source security. Despite open source software providing an estimated $8.8 trillion in value, critical projects like Log4j and OpenSSL have historically operated with minimal funding and volunteer maintainers.
+
+The analysis begins by identifying multiple market failures that explain this gap: open source security improvements function as public goods subject to free-rider problems; information asymmetry prevents users from assessing security quality; vulnerabilities create negative externalities borne by downstream users rather than decision-makers; and the tragedy of the commons leads to resource depletion in shared infrastructure. Together, these dynamics create structural underinvestment that voluntary market forces cannot resolve.
+
+The chapter then surveys models for sustainable security investment. Foundation-based funding through organizations like OpenSSF pools corporate resources under neutral governance. Corporate security teams at companies like Google and Microsoft dedicate engineers to ecosystem-wide improvements. Bug bounties, professional audits, and industry consortia each address different aspects of the funding gap. No single model is sufficient; effective approaches combine multiple mechanisms.
+
+Insurance and liability considerations are reshaping incentives. Cyber insurers increasingly evaluate supply chain security practices during underwriting. The EU Cyber Resilience Act represents a significant shift, imposing liability on manufacturers that cannot be disclaimed away. These developments internalize externalities that previously left security costs with victims rather than producers.
+
+Government funding is emerging as a critical component. Germany's Sovereign Tech Fund demonstrates that public investment can support open source without compromising project independence. U.S. initiatives through CISA focus on coordination and standards, while EU programs fund audits and research. Effective public-private partnerships require governance structures that provide resources while preserving community control.

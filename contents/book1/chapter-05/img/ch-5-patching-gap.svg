@@ -1,0 +1,174 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" font-family="Libertinus Sans">
+  <defs>
+        <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset in="blur" dx="1" dy="2" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.5" result="color"/>
+      <feComposite in="color" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="dangerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#48bb78"/>
+      <stop offset="50%" style="stop-color:#ecc94b"/>
+      <stop offset="100%" style="stop-color:#e53e3e"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="600" fill="#f7fafc"/>
+
+  <!-- Title -->
+  <text x="450" y="35" text-anchor="middle" font-size="20" font-weight="600" fill="#1a365d">
+    The Patching Gap
+  </text>
+  <text x="450" y="55" text-anchor="middle" font-size="12" fill="#718096">
+    Why known vulnerabilities remain unpatched for weeks to months
+  </text>
+
+  <!-- Key Statistics -->
+  <g transform="translate(50, 80)">
+    <rect x="0" y="0" width="200" height="100" rx="8" fill="#fff" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="200" height="35" rx="8" fill="#e53e3e"/>
+    <rect x="0" y="27" width="200" height="8" fill="#e53e3e"/>
+    <text x="100" y="24" text-anchor="middle" font-size="11" font-weight="600" fill="#fff">Attackers</text>
+    <text x="100" y="58" text-anchor="middle" font-size="28" font-weight="700" fill="#c53030">5 days</text>
+    <text x="100" y="82" text-anchor="middle" font-size="10" fill="#4a5568">Median time to weaponize</text>
+  </g>
+
+  <g transform="translate(270, 80)">
+    <rect x="0" y="0" width="200" height="100" rx="8" fill="#fff" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="200" height="35" rx="8" fill="#dd6b20"/>
+    <rect x="0" y="27" width="200" height="8" fill="#dd6b20"/>
+    <text x="100" y="24" text-anchor="middle" font-size="11" font-weight="600" fill="#fff">Web Applications</text>
+    <text x="100" y="58" text-anchor="middle" font-size="28" font-weight="700" fill="#c05621">74 days</text>
+    <text x="100" y="82" text-anchor="middle" font-size="10" fill="#4a5568">Average patch time</text>
+  </g>
+
+  <g transform="translate(490, 80)">
+    <rect x="0" y="0" width="200" height="100" rx="8" fill="#fff" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="200" height="35" rx="8" fill="#d69e2e"/>
+    <rect x="0" y="27" width="200" height="8" fill="#d69e2e"/>
+    <text x="100" y="24" text-anchor="middle" font-size="11" font-weight="600" fill="#fff">Weaponized Vulns</text>
+    <text x="100" y="58" text-anchor="middle" font-size="28" font-weight="700" fill="#b7791f">30 days</text>
+    <text x="100" y="82" text-anchor="middle" font-size="10" fill="#4a5568">Avg patch (Qualys research)</text>
+  </g>
+
+  <g transform="translate(710, 80)">
+    <rect x="0" y="0" width="140" height="100" rx="8" fill="#fff" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="140" height="35" rx="8" fill="#805ad5"/>
+    <rect x="0" y="27" width="140" height="8" fill="#805ad5"/>
+    <text x="70" y="24" text-anchor="middle" font-size="11" font-weight="600" fill="#fff">The Gap</text>
+    <text x="70" y="58" text-anchor="middle" font-size="22" font-weight="700" fill="#6b46c1">11+ days</text>
+    <text x="70" y="82" text-anchor="middle" font-size="9" fill="#4a5568">Continuous exposure</text>
+  </g>
+
+  <!-- Timeline Visualization -->
+  <g transform="translate(50, 200)">
+    <rect x="0" y="0" width="800" height="120" rx="8" fill="#fff" filter="url(#shadow)"/>
+    <text x="400" y="22" text-anchor="middle" font-size="12" font-weight="600" fill="#2d3748">The Race: Attacker Weaponization vs. Defender Patching</text>
+
+    <!-- Timeline bar -->
+    <rect x="50" y="45" width="700" height="20" rx="4" fill="url(#dangerGrad)"/>
+
+    <!-- Timeline markers -->
+    <g transform="translate(50, 40)">
+      <!-- Day 0 -->
+      <line x1="0" y1="0" x2="0" y2="30" stroke="#2d3748" stroke-width="2"/>
+      <text x="0" y="-8" text-anchor="middle" font-size="9" fill="#2d3748">Day 0</text>
+      <text x="0" y="45" text-anchor="middle" font-size="8" fill="#718096">Disclosure</text>
+
+      <!-- Day 5 - Attacker weaponizes -->
+      <line x1="50" y1="0" x2="50" y2="30" stroke="#e53e3e" stroke-width="3"/>
+      <text x="50" y="-8" text-anchor="middle" font-size="9" font-weight="600" fill="#c53030">Day 5</text>
+      <text x="50" y="45" text-anchor="middle" font-size="8" fill="#c53030">Attackers ready</text>
+
+      <!-- Day 30 -->
+      <line x1="214" y1="0" x2="214" y2="30" stroke="#d69e2e" stroke-width="2"/>
+      <text x="214" y="-8" text-anchor="middle" font-size="9" fill="#b7791f">Day 30</text>
+      <text x="214" y="45" text-anchor="middle" font-size="8" fill="#b7791f">High severity patched</text>
+
+      <!-- Day 74 -->
+      <line x1="520" y1="0" x2="520" y2="30" stroke="#dd6b20" stroke-width="2"/>
+      <text x="520" y="-8" text-anchor="middle" font-size="9" fill="#c05621">Day 74</text>
+      <text x="520" y="45" text-anchor="middle" font-size="8" fill="#c05621">Web app average</text>
+
+      <!-- Day 360+ -->
+      <line x1="700" y1="0" x2="700" y2="30" stroke="#718096" stroke-width="2"/>
+      <text x="700" y="-8" text-anchor="middle" font-size="9" fill="#718096">Day 360+</text>
+      <text x="700" y="45" text-anchor="middle" font-size="8" fill="#718096">Long tail</text>
+    </g>
+
+    <!-- Danger zone annotation -->
+    <rect x="100" y="50" width="164" height="10" fill="#e53e3e" opacity="0.3"/>
+    <text x="182" y="95" text-anchor="middle" font-size="8" fill="#c53030">Active exploitation window</text>
+  </g>
+
+  <!-- Why Patching Fails -->
+  <g transform="translate(50, 340)">
+    <rect x="0" y="0" width="400" height="240" rx="8" fill="#fff" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="400" height="35" rx="8" fill="#2d3748"/>
+    <rect x="0" y="27" width="400" height="8" fill="#2d3748"/>
+    <text x="200" y="24" text-anchor="middle" font-size="12" font-weight="600" fill="#fff">Why Patching Fails</text>
+
+    <g transform="translate(15, 50)">
+      <!-- Technical -->
+      <text x="0" y="0" font-size="10" font-weight="600" fill="#c53030">Technical Factors:</text>
+      <text x="10" y="18" font-size="9" fill="#4a5568">Compatibility concerns - updates may break code</text>
+      <text x="10" y="33" font-size="9" fill="#4a5568">Testing requirements - validation takes time</text>
+      <text x="10" y="48" font-size="9" fill="#4a5568">Environmental complexity - prod differs from dev</text>
+      <text x="10" y="63" font-size="9" fill="#4a5568">Embedded/constrained systems - may lack update path</text>
+
+      <!-- Organizational -->
+      <text x="0" y="88" font-size="10" font-weight="600" fill="#dd6b20">Organizational Factors:</text>
+      <text x="10" y="106" font-size="9" fill="#4a5568">Resource constraints - finite security staff</text>
+      <text x="10" y="121" font-size="9" fill="#4a5568">Change management overhead - approval processes</text>
+      <text x="10" y="136" font-size="9" fill="#4a5568">Organizational silos - unclear ownership</text>
+      <text x="10" y="151" font-size="9" fill="#4a5568">Competing priorities - features vs. security</text>
+
+      <!-- Supply Chain -->
+      <text x="0" y="176" font-size="10" font-weight="600" fill="#805ad5">Supply Chain Specific:</text>
+      <text x="10" y="194" font-size="9" fill="#4a5568">Transitive dep chains - must wait for intermediaries</text>
+    </g>
+  </g>
+
+  <!-- Strategies to Close Gap -->
+  <g transform="translate(470, 340)">
+    <rect x="0" y="0" width="380" height="240" rx="8" fill="#fff" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="380" height="35" rx="8" fill="#38a169"/>
+    <rect x="0" y="27" width="380" height="8" fill="#38a169"/>
+    <text x="190" y="24" text-anchor="middle" font-size="12" font-weight="600" fill="#fff">Strategies to Close the Gap</text>
+
+    <g transform="translate(15, 50)">
+      <g transform="translate(0, 0)">
+        <circle cx="8" cy="8" r="6" fill="#48bb78"/>
+        <text x="22" y="12" font-size="10" font-weight="600" fill="#276749">Automated Dependency Updates</text>
+        <text x="22" y="26" font-size="9" fill="#4a5568">Dependabot, Renovate, Snyk</text>
+        <text x="22" y="40" font-size="9" fill="#4a5568">Auto-merge patch updates after tests pass</text>
+      </g>
+
+      <g transform="translate(0, 55)">
+        <circle cx="8" cy="8" r="6" fill="#4299e1"/>
+        <text x="22" y="12" font-size="10" font-weight="600" fill="#2b6cb0">Continuous Updating</text>
+        <text x="22" y="26" font-size="9" fill="#4a5568">Small, frequent updates vs. quarterly bulk</text>
+        <text x="22" y="40" font-size="9" fill="#4a5568">Reduces per-update risk and drift</text>
+      </g>
+
+      <g transform="translate(0, 110)">
+        <circle cx="8" cy="8" r="6" fill="#ed8936"/>
+        <text x="22" y="12" font-size="10" font-weight="600" fill="#c05621">Robust Testing Pipelines</text>
+        <text x="22" y="26" font-size="9" fill="#4a5568">Investment in test coverage enables fast updates</text>
+        <text x="22" y="40" font-size="9" fill="#4a5568">Confident validation = faster deployment</text>
+      </g>
+
+      <g transform="translate(0, 165)">
+        <circle cx="8" cy="8" r="6" fill="#805ad5"/>
+        <text x="22" y="12" font-size="10" font-weight="600" fill="#6b46c1">Patching SLAs</text>
+        <text x="22" y="26" font-size="9" fill="#4a5568">Critical: 1-3 days | High: 1 week | Medium: 2 weeks</text>
+        <text x="22" y="40" font-size="9" fill="#4a5568">Make expectations explicit and track</text>
+      </g>
+    </g>
+  </g>
+</svg>

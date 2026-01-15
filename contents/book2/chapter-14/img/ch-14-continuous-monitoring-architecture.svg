@@ -1,0 +1,168 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" font-family="Libertinus Sans">
+  <defs>
+        <filter id="archShadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset in="blur" dx="1" dy="2" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.5" result="color"/>
+      <feComposite in="color" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <marker id="dataArrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#3b82f6"/>
+    </marker>
+    <marker id="alertArrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ef4444"/>
+    </marker>
+    <linearGradient id="appGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1"/>
+      <stop offset="100%" style="stop-color:#4f46e5"/>
+    </linearGradient>
+    <linearGradient id="monitorGradBlue" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="100%" style="stop-color:#2563eb"/>
+    </linearGradient>
+    <linearGradient id="siemGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b"/>
+      <stop offset="100%" style="stop-color:#d97706"/>
+    </linearGradient>
+    <linearGradient id="responseGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981"/>
+      <stop offset="100%" style="stop-color:#059669"/>
+    </linearGradient>
+    <pattern id="diagonalHatch" patternUnits="userSpaceOnUse" width="4" height="4">
+      <path d="M-1,1 l2,-2 M0,4 l4,-4 M3,5 l2,-2" style="stroke:#e0e7ff; stroke-width:1"/>
+    </pattern>
+  </defs>
+
+  <!-- Title -->
+  <text x="400" y="35" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">Continuous Runtime Monitoring Architecture</text>
+  <text x="400" y="55" text-anchor="middle" font-size="13" fill="#64748b">Detecting behavioral anomalies in production dependencies</text>
+
+  <!-- Production Application Container -->
+  <g filter="url(#archShadow)">
+    <rect x="60" y="80" width="680" height="200" rx="12" fill="white" stroke="#6366f1" stroke-width="2"/>
+    <rect x="60" y="80" width="680" height="40" rx="12" fill="url(#appGrad)"/>
+    <rect x="60" y="112" width="680" height="8" fill="url(#appGrad)"/>
+    <text x="400" y="107" text-anchor="middle" font-size="15" font-weight="600" fill="white">Production Application</text>
+  </g>
+
+  <!-- Monitoring Components inside app -->
+  <!-- App Code -->
+  <g filter="url(#archShadow)">
+    <rect x="90" y="140" width="140" height="110" rx="8" fill="white" stroke="#6366f1" stroke-width="1.5"/>
+    <rect x="90" y="140" width="140" height="30" rx="8" fill="#eef2ff"/>
+    <rect x="90" y="162" width="140" height="8" fill="#eef2ff"/>
+    <text x="160" y="160" text-anchor="middle" font-size="12" font-weight="600" fill="#4338ca">App Code</text>
+    <text x="160" y="190" text-anchor="middle" font-size="10" fill="#64748b">Application logic</text>
+    <text x="160" y="205" text-anchor="middle" font-size="10" fill="#64748b">Dependencies</text>
+    <text x="160" y="220" text-anchor="middle" font-size="10" fill="#64748b">Runtime behavior</text>
+    <text x="160" y="238" text-anchor="middle" font-size="9" fill="#818cf8">require() interception</text>
+  </g>
+
+  <!-- eBPF Probes -->
+  <g filter="url(#archShadow)">
+    <rect x="250" y="140" width="140" height="110" rx="8" fill="white" stroke="#3b82f6" stroke-width="1.5"/>
+    <rect x="250" y="140" width="140" height="30" rx="8" fill="#dbeafe"/>
+    <rect x="250" y="162" width="140" height="8" fill="#dbeafe"/>
+    <text x="320" y="160" text-anchor="middle" font-size="12" font-weight="600" fill="#1d4ed8">eBPF Probes</text>
+    <text x="320" y="190" text-anchor="middle" font-size="10" fill="#64748b">Kernel-level</text>
+    <text x="320" y="205" text-anchor="middle" font-size="10" fill="#64748b">System calls</text>
+    <text x="320" y="220" text-anchor="middle" font-size="10" fill="#64748b">Low overhead</text>
+    <text x="320" y="238" text-anchor="middle" font-size="9" fill="#3b82f6">execve, connect, open</text>
+  </g>
+
+  <!-- Network Monitor -->
+  <g filter="url(#archShadow)">
+    <rect x="410" y="140" width="140" height="110" rx="8" fill="white" stroke="#0891b2" stroke-width="1.5"/>
+    <rect x="410" y="140" width="140" height="30" rx="8" fill="#cffafe"/>
+    <rect x="410" y="162" width="140" height="8" fill="#cffafe"/>
+    <text x="480" y="160" text-anchor="middle" font-size="12" font-weight="600" fill="#0e7490">Network Monitor</text>
+    <text x="480" y="190" text-anchor="middle" font-size="10" fill="#64748b">Connection tracking</text>
+    <text x="480" y="205" text-anchor="middle" font-size="10" fill="#64748b">DNS queries</text>
+    <text x="480" y="220" text-anchor="middle" font-size="10" fill="#64748b">Data exfiltration</text>
+    <text x="480" y="238" text-anchor="middle" font-size="9" fill="#0891b2">tcpdump, eBPF</text>
+  </g>
+
+  <!-- File System Monitor -->
+  <g filter="url(#archShadow)">
+    <rect x="570" y="140" width="150" height="110" rx="8" fill="white" stroke="#059669" stroke-width="1.5"/>
+    <rect x="570" y="140" width="150" height="30" rx="8" fill="#d1fae5"/>
+    <rect x="570" y="162" width="150" height="8" fill="#d1fae5"/>
+    <text x="645" y="160" text-anchor="middle" font-size="12" font-weight="600" fill="#047857">File System Monitor</text>
+    <text x="645" y="190" text-anchor="middle" font-size="10" fill="#64748b">Sensitive file access</text>
+    <text x="645" y="205" text-anchor="middle" font-size="10" fill="#64748b">Write operations</text>
+    <text x="645" y="220" text-anchor="middle" font-size="10" fill="#64748b">Path monitoring</text>
+    <text x="645" y="238" text-anchor="middle" font-size="9" fill="#059669">inotify, auditd</text>
+  </g>
+
+  <!-- Data flow arrows from monitors -->
+  <line x1="160" y1="260" x2="160" y2="290" stroke="#3b82f6" stroke-width="2"/>
+  <line x1="320" y1="260" x2="320" y2="290" stroke="#3b82f6" stroke-width="2"/>
+  <line x1="480" y1="260" x2="480" y2="290" stroke="#3b82f6" stroke-width="2"/>
+  <line x1="645" y1="260" x2="645" y2="290" stroke="#3b82f6" stroke-width="2"/>
+
+  <!-- Convergence line -->
+  <line x1="160" y1="290" x2="645" y2="290" stroke="#3b82f6" stroke-width="2"/>
+  <line x1="400" y1="290" x2="400" y2="330" stroke="#3b82f6" stroke-width="2" marker-end="url(#dataArrow)"/>
+
+  <!-- Data flow label -->
+  <rect x="310" y="297" width="180" height="20" rx="10" fill="#dbeafe"/>
+  <text x="400" y="312" text-anchor="middle" font-size="11" font-weight="500" fill="#1d4ed8">Telemetry Data Flow</text>
+
+  <!-- SIEM / SOC -->
+  <g filter="url(#archShadow)">
+    <rect x="280" y="340" width="240" height="80" rx="10" fill="white" stroke="#f59e0b" stroke-width="2"/>
+    <rect x="280" y="340" width="240" height="32" rx="10" fill="url(#siemGrad)"/>
+    <rect x="280" y="364" width="240" height="8" fill="url(#siemGrad)"/>
+    <text x="400" y="363" text-anchor="middle" font-size="14" font-weight="600" fill="white">SIEM / SOC Alert Engine</text>
+    <text x="400" y="395" text-anchor="middle" font-size="11" fill="#64748b">Correlation | Baseline comparison | Anomaly detection</text>
+  </g>
+
+  <!-- Rules callout left -->
+  <rect x="60" y="345" width="180" height="70" rx="6" fill="#fffbeb" stroke="#fcd34d" stroke-width="1"/>
+  <text x="150" y="365" text-anchor="middle" font-size="11" font-weight="600" fill="#92400e">Detection Rules</text>
+  <text x="150" y="382" text-anchor="middle" font-size="10" fill="#78350f">Unexpected network calls</text>
+  <text x="150" y="396" text-anchor="middle" font-size="10" fill="#78350f">Sensitive file access</text>
+  <text x="150" y="410" text-anchor="middle" font-size="10" fill="#78350f">Process spawning</text>
+  <line x1="240" y1="380" x2="278" y2="380" stroke="#fcd34d" stroke-width="1" stroke-dasharray="4,2"/>
+
+  <!-- Baseline callout right -->
+  <rect x="560" y="345" width="180" height="70" rx="6" fill="#fffbeb" stroke="#fcd34d" stroke-width="1"/>
+  <text x="650" y="365" text-anchor="middle" font-size="11" font-weight="600" fill="#92400e">Behavioral Baselines</text>
+  <text x="650" y="382" text-anchor="middle" font-size="10" fill="#78350f">Normal network patterns</text>
+  <text x="650" y="396" text-anchor="middle" font-size="10" fill="#78350f">Expected file access</text>
+  <text x="650" y="410" text-anchor="middle" font-size="10" fill="#78350f">Known process behavior</text>
+  <line x1="522" y1="380" x2="560" y2="380" stroke="#fcd34d" stroke-width="1" stroke-dasharray="4,2"/>
+
+  <!-- Arrow to Response -->
+  <line x1="400" y1="420" x2="400" y2="460" stroke="#ef4444" stroke-width="2" marker-end="url(#alertArrow)"/>
+
+  <!-- Alert label -->
+  <rect x="335" y="433" width="130" height="20" rx="10" fill="#fee2e2"/>
+  <text x="400" y="448" text-anchor="middle" font-size="11" font-weight="500" fill="#b91c1c">Alert Triggered</text>
+
+  <!-- Response -->
+  <g filter="url(#archShadow)">
+    <rect x="280" y="470" width="240" height="75" rx="10" fill="white" stroke="#10b981" stroke-width="2"/>
+    <rect x="280" y="470" width="240" height="32" rx="10" fill="url(#responseGrad)"/>
+    <rect x="280" y="494" width="240" height="8" fill="url(#responseGrad)"/>
+    <text x="400" y="493" text-anchor="middle" font-size="14" font-weight="600" fill="white">Response Actions</text>
+    <text x="400" y="520" text-anchor="middle" font-size="11" fill="#64748b">Alert | Block | Quarantine | Rollback</text>
+  </g>
+
+  <!-- Response actions -->
+  <rect x="60" y="480" width="180" height="60" rx="6" fill="#ecfdf5" stroke="#34d399" stroke-width="1"/>
+  <text x="150" y="500" text-anchor="middle" font-size="11" font-weight="600" fill="#047857">Automated Response</text>
+  <text x="150" y="517" text-anchor="middle" font-size="10" fill="#065f46">Kill suspicious process</text>
+  <text x="150" y="531" text-anchor="middle" font-size="10" fill="#065f46">Block network egress</text>
+  <line x1="240" y1="510" x2="278" y2="507" stroke="#34d399" stroke-width="1" stroke-dasharray="4,2"/>
+
+  <rect x="560" y="480" width="180" height="60" rx="6" fill="#ecfdf5" stroke="#34d399" stroke-width="1"/>
+  <text x="650" y="500" text-anchor="middle" font-size="11" font-weight="600" fill="#047857">Manual Response</text>
+  <text x="650" y="517" text-anchor="middle" font-size="10" fill="#065f46">SOC investigation</text>
+  <text x="650" y="531" text-anchor="middle" font-size="10" fill="#065f46">Incident response</text>
+  <line x1="522" y1="510" x2="560" y2="507" stroke="#34d399" stroke-width="1" stroke-dasharray="4,2"/>
+</svg>

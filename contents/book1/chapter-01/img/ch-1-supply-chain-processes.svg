@@ -1,0 +1,167 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" font-family="Libertinus Sans">
+  <defs>
+    <linearGradient id="processGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1a365d;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2c5282;stop-opacity:1" />
+    </linearGradient>
+    <filter id="nodeShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset in="blur" dx="1" dy="2" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.5" result="color"/>
+      <feComposite in="color" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <marker id="flowArrow" markerWidth="12" markerHeight="8" refX="10" refY="4" orient="auto">
+      <polygon points="0 0, 12 4, 0 8" fill="#4a5568"/>
+    </marker>
+    <marker id="loopArrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#e53e3e"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="400" fill="#fff"/>
+
+  <!-- Title -->
+  <text x="450" y="30" text-anchor="middle" font-size="18" font-weight="600" fill="#1a365d">
+    Software Supply Chain Processes
+  </text>
+  <text x="450" y="50" text-anchor="middle" font-size="12" fill="#718096">
+    Each process stage presents distinct security control points
+  </text>
+
+  <!-- Process boxes -->
+  <!-- 1. Development -->
+  <g filter="url(#processShadow)">
+    <rect x="30" y="90" width="100" height="70" rx="6" fill="#3182ce"/>
+    <text x="80" y="120" text-anchor="middle" font-size="12" font-weight="600" fill="#fff">DEVELOP</text>
+    <text x="80" y="140" text-anchor="middle" font-size="9" fill="#bee3f8">Write, review code</text>
+  </g>
+
+  <!-- Arrow 1-2 -->
+  <line x1="130" y1="125" x2="155" y2="125" stroke="#4a5568" stroke-width="2" marker-end="url(#flowArrow)"/>
+
+  <!-- 2. Build -->
+  <g filter="url(#processShadow)">
+    <rect x="165" y="90" width="100" height="70" rx="6" fill="#48bb78"/>
+    <text x="215" y="120" text-anchor="middle" font-size="12" font-weight="600" fill="#fff">BUILD</text>
+    <text x="215" y="140" text-anchor="middle" font-size="9" fill="#c6f6d5">Compile, bundle</text>
+  </g>
+
+  <!-- Arrow 2-3 -->
+  <line x1="265" y1="125" x2="290" y2="125" stroke="#4a5568" stroke-width="2" marker-end="url(#flowArrow)"/>
+
+  <!-- 3. Test -->
+  <g filter="url(#processShadow)">
+    <rect x="300" y="90" width="100" height="70" rx="6" fill="#ed8936"/>
+    <text x="350" y="120" text-anchor="middle" font-size="12" font-weight="600" fill="#fff">TEST</text>
+    <text x="350" y="140" text-anchor="middle" font-size="9" fill="#feebc8">Validate behavior</text>
+  </g>
+
+  <!-- Arrow 3-4 -->
+  <line x1="400" y1="125" x2="425" y2="125" stroke="#4a5568" stroke-width="2" marker-end="url(#flowArrow)"/>
+
+  <!-- 4. Release -->
+  <g filter="url(#processShadow)">
+    <rect x="435" y="90" width="100" height="70" rx="6" fill="#e53e3e"/>
+    <text x="485" y="120" text-anchor="middle" font-size="12" font-weight="600" fill="#fff">RELEASE</text>
+    <text x="485" y="140" text-anchor="middle" font-size="9" fill="#fed7d7">Tag, sign, publish</text>
+  </g>
+
+  <!-- Arrow 4-5 -->
+  <line x1="535" y1="125" x2="560" y2="125" stroke="#4a5568" stroke-width="2" marker-end="url(#flowArrow)"/>
+
+  <!-- 5. Distribute -->
+  <g filter="url(#processShadow)">
+    <rect x="570" y="90" width="100" height="70" rx="6" fill="#9f7aea"/>
+    <text x="620" y="120" text-anchor="middle" font-size="12" font-weight="600" fill="#fff">DISTRIBUTE</text>
+    <text x="620" y="140" text-anchor="middle" font-size="9" fill="#e9d8fd">Registry, CDN</text>
+  </g>
+
+  <!-- Arrow 5-6 -->
+  <line x1="670" y1="125" x2="695" y2="125" stroke="#4a5568" stroke-width="2" marker-end="url(#flowArrow)"/>
+
+  <!-- 6. Deploy -->
+  <g filter="url(#processShadow)">
+    <rect x="705" y="90" width="100" height="70" rx="6" fill="#38b2ac"/>
+    <text x="755" y="120" text-anchor="middle" font-size="12" font-weight="600" fill="#fff">DEPLOY</text>
+    <text x="755" y="140" text-anchor="middle" font-size="9" fill="#b2f5ea">Install, configure</text>
+  </g>
+
+  <!-- Arrow 6-7 -->
+  <line x1="805" y1="125" x2="830" y2="125" stroke="#4a5568" stroke-width="2" marker-end="url(#flowArrow)"/>
+
+  <!-- 7. Operate/Update -->
+  <g filter="url(#processShadow)">
+    <rect x="840" y="90" width="50" height="70" rx="6" fill="#dd6b20"/>
+    <text x="865" y="125" text-anchor="middle" font-size="11" font-weight="600" fill="#fff" transform="rotate(-90, 865, 125)">UPDATE</text>
+  </g>
+
+  <!-- Update loop back -->
+  <path d="M 865 160 L 865 200 Q 865 220 845 220 L 80 220 Q 60 220 60 200 L 60 170"
+        stroke="#e53e3e" stroke-width="2" fill="none" stroke-dasharray="6,3" marker-end="url(#loopArrow)"/>
+  <text x="450" y="238" text-anchor="middle" font-size="10" fill="#e53e3e">Update cycle (security patches, new versions)</text>
+
+  <!-- Security considerations row -->
+  <text x="30" y="280" font-size="11" font-weight="600" fill="#1a365d">Security Control Points:</text>
+
+  <!-- Security boxes -->
+  <g font-size="8" fill="#4a5568">
+    <!-- Dev security -->
+    <rect x="30" y="290" width="100" height="85" rx="4" fill="#fff" stroke="#3182ce" stroke-width="1"/>
+    <text x="80" y="305" text-anchor="middle" fill="#2c5282" font-weight="500">Development</text>
+    <text x="35" y="320">Code review</text>
+    <text x="35" y="332">Branch protection</text>
+    <text x="35" y="344">Commit signing</text>
+    <text x="35" y="356">Access controls</text>
+    <text x="35" y="368">MFA enforcement</text>
+
+    <!-- Build security -->
+    <rect x="165" y="290" width="100" height="85" rx="4" fill="#fff" stroke="#48bb78" stroke-width="1"/>
+    <text x="215" y="305" text-anchor="middle" fill="#276749" font-weight="500">Build</text>
+    <text x="170" y="320">Hermetic builds</text>
+    <text x="170" y="332">Reproducibility</text>
+    <text x="170" y="344">SLSA provenance</text>
+    <text x="170" y="356">Dep pinning</text>
+    <text x="170" y="368">Isolated env</text>
+
+    <!-- Test security -->
+    <rect x="300" y="290" width="100" height="85" rx="4" fill="#fff" stroke="#ed8936" stroke-width="1"/>
+    <text x="350" y="305" text-anchor="middle" fill="#c05621" font-weight="500">Test</text>
+    <text x="305" y="320">SAST/DAST</text>
+    <text x="305" y="332">SCA scanning</text>
+    <text x="305" y="344">Secret detection</text>
+    <text x="305" y="356">Fuzz testing</text>
+    <text x="305" y="368">Pen testing</text>
+
+    <!-- Release security -->
+    <rect x="435" y="290" width="100" height="85" rx="4" fill="#fff" stroke="#e53e3e" stroke-width="1"/>
+    <text x="485" y="305" text-anchor="middle" fill="#c53030" font-weight="500">Release</text>
+    <text x="440" y="320">Artifact signing</text>
+    <text x="440" y="332">SBOM generation</text>
+    <text x="440" y="344">Version control</text>
+    <text x="440" y="356">Release gates</text>
+    <text x="440" y="368">Credential mgmt</text>
+
+    <!-- Distribution security -->
+    <rect x="570" y="290" width="100" height="85" rx="4" fill="#fff" stroke="#9f7aea" stroke-width="1"/>
+    <text x="620" y="305" text-anchor="middle" fill="#6b46c1" font-weight="500">Distribution</text>
+    <text x="575" y="320">TLS everywhere</text>
+    <text x="575" y="332">Hash verification</text>
+    <text x="575" y="344">Mirror integrity</text>
+    <text x="575" y="356">Availability</text>
+    <text x="575" y="368">Namespace mgmt</text>
+
+    <!-- Deploy security -->
+    <rect x="705" y="290" width="100" height="85" rx="4" fill="#fff" stroke="#38b2ac" stroke-width="1"/>
+    <text x="755" y="305" text-anchor="middle" fill="#285e61" font-weight="500">Deploy</text>
+    <text x="710" y="320">Image scanning</text>
+    <text x="710" y="332">Config validation</text>
+    <text x="710" y="344">Secrets mgmt</text>
+    <text x="710" y="356">Least privilege</text>
+    <text x="710" y="368">Audit logging</text>
+  </g>
+</svg>

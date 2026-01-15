@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 580" font-family="Libertinus Sans">
+  <defs>
+        <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset in="blur" dx="1" dy="2" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.5" result="color"/>
+      <feComposite in="color" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <marker id="arrowRed" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#DC2626"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#3B82F6"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="580" fill="#F8FAFC"/>
+
+  <!-- Title -->
+  <text x="450" y="32" text-anchor="middle" font-size="18" font-weight="bold" fill="#1E293B">CI/CD Pipeline Attack Surface</text>
+  <text x="450" y="52" text-anchor="middle" font-size="11" fill="#64748B">Security risks in continuous integration and deployment infrastructure</text>
+
+  <!-- Pipeline Flow -->
+  <g transform="translate(50, 80)">
+    <!-- Source Code -->
+    <g filter="url(#shadow)">
+      <rect x="0" y="100" width="120" height="80" rx="8" fill="#3B82F6"/>
+      <text x="60" y="135" text-anchor="middle" font-size="11" font-weight="bold" fill="white">Source</text>
+      <text x="60" y="152" text-anchor="middle" font-size="11" font-weight="bold" fill="white">Code</text>
+      <text x="60" y="170" text-anchor="middle" font-size="8" fill="#DBEAFE">GitHub/GitLab</text>
+    </g>
+
+    <!-- Arrow -->
+    <path d="M 125 140 L 155 140" stroke="#3B82F6" stroke-width="2" marker-end="url(#arrowBlue)" fill="none"/>
+
+    <!-- CI Runner -->
+    <g filter="url(#shadow)">
+      <rect x="165" y="100" width="120" height="80" rx="8" fill="#8B5CF6"/>
+      <text x="225" y="135" text-anchor="middle" font-size="11" font-weight="bold" fill="white">CI Runner</text>
+      <text x="225" y="155" text-anchor="middle" font-size="8" fill="#EDE9FE">GitHub Actions</text>
+      <text x="225" y="168" text-anchor="middle" font-size="8" fill="#EDE9FE">GitLab CI</text>
+    </g>
+
+    <!-- Arrow -->
+    <path d="M 290 140 L 320 140" stroke="#3B82F6" stroke-width="2" marker-end="url(#arrowBlue)" fill="none"/>
+
+    <!-- Build -->
+    <g filter="url(#shadow)">
+      <rect x="330" y="100" width="120" height="80" rx="8" fill="#059669"/>
+      <text x="390" y="135" text-anchor="middle" font-size="11" font-weight="bold" fill="white">Build</text>
+      <text x="390" y="152" text-anchor="middle" font-size="11" font-weight="bold" fill="white">Process</text>
+      <text x="390" y="170" text-anchor="middle" font-size="8" fill="#D1FAE5">Compile, test</text>
+    </g>
+
+    <!-- Arrow -->
+    <path d="M 455 140 L 485 140" stroke="#3B82F6" stroke-width="2" marker-end="url(#arrowBlue)" fill="none"/>
+
+    <!-- Artifacts -->
+    <g filter="url(#shadow)">
+      <rect x="495" y="100" width="120" height="80" rx="8" fill="#F59E0B"/>
+      <text x="555" y="135" text-anchor="middle" font-size="11" font-weight="bold" fill="white">Artifacts</text>
+      <text x="555" y="155" text-anchor="middle" font-size="8" fill="#FEF3C7">Packages</text>
+      <text x="555" y="168" text-anchor="middle" font-size="8" fill="#FEF3C7">Images</text>
+    </g>
+
+    <!-- Arrow -->
+    <path d="M 620 140 L 650 140" stroke="#3B82F6" stroke-width="2" marker-end="url(#arrowBlue)" fill="none"/>
+
+    <!-- Deploy -->
+    <g filter="url(#shadow)">
+      <rect x="660" y="100" width="120" height="80" rx="8" fill="#EC4899"/>
+      <text x="720" y="135" text-anchor="middle" font-size="11" font-weight="bold" fill="white">Deploy</text>
+      <text x="720" y="155" text-anchor="middle" font-size="8" fill="#FCE7F3">Production</text>
+      <text x="720" y="168" text-anchor="middle" font-size="8" fill="#FCE7F3">environments</text>
+    </g>
+  </g>
+
+  <!-- Attack Vectors -->
+  <!-- Attack 1: Third-party Actions -->
+  <g transform="translate(50, 250)">
+    <rect x="0" y="0" width="250" height="90" rx="6" fill="#FEE2E2" stroke="#DC2626" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="250" height="25" rx="6" fill="#DC2626"/>
+    <rect x="0" y="17" width="250" height="8" fill="#DC2626"/>
+    <text x="125" y="17" text-anchor="middle" font-size="10" font-weight="bold" fill="white">Third-Party Actions</text>
+
+    <text x="15" y="45" font-size="9" fill="#1E293B">tj-actions/changed-files compromise</text>
+    <text x="15" y="60" font-size="9" fill="#475569">- Mutable version references</text>
+    <text x="15" y="75" font-size="9" fill="#475569">- Secret exfiltration</text>
+    <text x="15" y="85" font-size="8" fill="#DC2626" font-weight="600">CVE-2025-30066</text>
+  </g>
+  <path d="M 175 248 L 225 190" stroke="#DC2626" stroke-width="2" stroke-dasharray="4,3" marker-end="url(#arrowRed)" fill="none"/>
+
+  <!-- Attack 2: Self-hosted Runners -->
+  <g transform="translate(325, 250)">
+    <rect x="0" y="0" width="250" height="90" rx="6" fill="#FEF3C7" stroke="#F59E0B" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="250" height="25" rx="6" fill="#F59E0B"/>
+    <rect x="0" y="17" width="250" height="8" fill="#F59E0B"/>
+    <text x="125" y="17" text-anchor="middle" font-size="10" font-weight="bold" fill="white">Self-Hosted Runners</text>
+
+    <text x="15" y="45" font-size="9" fill="#1E293B">Persistent runner risks</text>
+    <text x="15" y="60" font-size="9" fill="#475569">- State retention between jobs</text>
+    <text x="15" y="75" font-size="9" fill="#475569">- Network access to internals</text>
+    <text x="15" y="85" font-size="8" fill="#F59E0B" font-weight="600">GhostAction campaign</text>
+  </g>
+  <path d="M 450 248 L 390 190" stroke="#F59E0B" stroke-width="2" stroke-dasharray="4,3" marker-end="url(#arrowRed)" fill="none"/>
+
+  <!-- Attack 3: Secrets Exposure -->
+  <g transform="translate(600, 250)">
+    <rect x="0" y="0" width="250" height="90" rx="6" fill="#E0E7FF" stroke="#6366F1" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="0" y="0" width="250" height="25" rx="6" fill="#6366F1"/>
+    <rect x="0" y="17" width="250" height="8" fill="#6366F1"/>
+    <text x="125" y="17" text-anchor="middle" font-size="10" font-weight="bold" fill="white">Secrets Exposure</text>
+
+    <text x="15" y="45" font-size="9" fill="#1E293B">Credential harvesting</text>
+    <text x="15" y="60" font-size="9" fill="#475569">- Env vars in logs</text>
+    <text x="15" y="75" font-size="9" fill="#475569">- PR access to secrets</text>
+    <text x="15" y="85" font-size="8" fill="#6366F1" font-weight="600">OIDC preferred over tokens</text>
+  </g>
+  <path d="M 725 248 L 690 190" stroke="#6366F1" stroke-width="2" stroke-dasharray="4,3" marker-end="url(#arrowRed)" fill="none"/>
+
+  <!-- Defenses Section -->
+  <g filter="url(#shadow)" transform="translate(50, 370)">
+    <rect x="0" y="0" width="800" height="190" rx="8" fill="white" stroke="#E2E8F0"/>
+    <text x="400" y="25" text-anchor="middle" font-size="13" font-weight="bold" fill="#1E293B">Key Defenses</text>
+
+    <!-- Defense columns -->
+    <g transform="translate(25, 45)">
+      <rect x="0" y="0" width="235" height="130" rx="6" fill="#D1FAE5" stroke="#A7F3D0"/>
+      <text x="117" y="20" text-anchor="middle" font-size="10" font-weight="bold" fill="#065F46">Pin Actions to SHA</text>
+      <text x="10" y="40" font-size="8" fill="#047857">- uses: actions/checkout@</text>
+      <text x="10" y="52" font-size="7" font-family="Libertinus Mono" fill="#047857">  b4ffde65f46336ab88...</text>
+      <text x="10" y="70" font-size="9" fill="#065F46">Never use @main or @v1</text>
+      <text x="10" y="85" font-size="9" fill="#065F46">Dependabot for updates</text>
+      <text x="10" y="100" font-size="9" fill="#065F46">Audit before adoption</text>
+      <text x="10" y="120" font-size="8" fill="#059669" font-weight="600">Blocks silent swaps</text>
+    </g>
+
+    <g transform="translate(283, 45)">
+      <rect x="0" y="0" width="235" height="130" rx="6" fill="#DBEAFE" stroke="#BFDBFE"/>
+      <text x="117" y="20" text-anchor="middle" font-size="10" font-weight="bold" fill="#1E40AF">Use OIDC Auth</text>
+      <text x="10" y="40" font-size="8" fill="#2563EB">permissions:</text>
+      <text x="10" y="52" font-size="7" font-family="Libertinus Mono" fill="#2563EB">  id-token: write</text>
+      <text x="10" y="70" font-size="9" fill="#1E40AF">No long-lived secrets</text>
+      <text x="10" y="85" font-size="9" fill="#1E40AF">Scoped credentials</text>
+      <text x="10" y="100" font-size="9" fill="#1E40AF">Auto-rotation</text>
+      <text x="10" y="120" font-size="8" fill="#3B82F6" font-weight="600">Nothing to steal</text>
+    </g>
+
+    <g transform="translate(541, 45)">
+      <rect x="0" y="0" width="235" height="130" rx="6" fill="#FEF3C7" stroke="#FDE68A"/>
+      <text x="117" y="20" text-anchor="middle" font-size="10" font-weight="bold" fill="#92400E">Least Privilege Secrets</text>
+      <text x="10" y="40" font-size="8" fill="#D97706">Scope secrets to steps</text>
+      <text x="10" y="52" font-size="8" fill="#D97706">not entire workflows</text>
+      <text x="10" y="70" font-size="9" fill="#92400E">Environment-specific</text>
+      <text x="10" y="85" font-size="9" fill="#92400E">Approval gates for prod</text>
+      <text x="10" y="100" font-size="9" fill="#92400E">Regular rotation</text>
+      <text x="10" y="120" font-size="8" fill="#F59E0B" font-weight="600">Minimize blast radius</text>
+    </g>
+  </g>
+</svg>

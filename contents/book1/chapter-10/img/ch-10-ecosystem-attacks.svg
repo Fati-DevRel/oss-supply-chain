@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" font-family="Libertinus Sans">
+  <defs>
+        <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset in="blur" dx="1" dy="2" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.5" result="color"/>
+      <feComposite in="color" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="520" fill="#F8FAFC"/>
+
+  <!-- Title -->
+  <text x="450" y="32" text-anchor="middle" font-size="18" font-weight="bold" fill="#1E293B">Ecosystem-Scale Package Attacks</text>
+  <text x="450" y="52" text-anchor="middle" font-size="11" fill="#64748B">Evolution from isolated attacks to coordinated malware campaigns</text>
+
+  <!-- Comparison Table -->
+  <g filter="url(#shadow)">
+    <!-- Header -->
+    <rect x="50" y="75" width="800" height="40" rx="6" fill="#1E293B"/>
+    <text x="150" y="100" text-anchor="middle" font-size="11" font-weight="bold" fill="white">Aspect</text>
+    <line x1="250" y1="80" x2="250" y2="110" stroke="#475569"/>
+    <text x="400" y="100" text-anchor="middle" font-size="11" font-weight="bold" fill="white">Isolated Attack</text>
+    <line x1="550" y1="80" x2="550" y2="110" stroke="#475569"/>
+    <text x="700" y="100" text-anchor="middle" font-size="11" font-weight="bold" fill="white">Ecosystem Campaign</text>
+
+    <!-- Row 1: Scope -->
+    <rect x="50" y="120" width="800" height="45" fill="white" stroke="#E2E8F0"/>
+    <text x="150" y="147" text-anchor="middle" font-size="10" font-weight="600" fill="#1E293B">Scope</text>
+    <text x="400" y="142" text-anchor="middle" font-size="10" fill="#059669">Single package</text>
+    <text x="400" y="157" text-anchor="middle" font-size="9" fill="#64748B">One malicious package</text>
+    <text x="700" y="142" text-anchor="middle" font-size="10" fill="#DC2626">Hundreds to thousands</text>
+    <text x="700" y="157" text-anchor="middle" font-size="9" fill="#DC2626">Coordinated publishing</text>
+
+    <!-- Row 2: Propagation -->
+    <rect x="50" y="170" width="800" height="45" fill="#F8FAFC" stroke="#E2E8F0"/>
+    <text x="150" y="197" text-anchor="middle" font-size="10" font-weight="600" fill="#1E293B">Propagation</text>
+    <text x="400" y="192" text-anchor="middle" font-size="10" fill="#059669">Manual discovery</text>
+    <text x="400" y="207" text-anchor="middle" font-size="9" fill="#64748B">Wait for victim install</text>
+    <text x="700" y="192" text-anchor="middle" font-size="10" fill="#DC2626">Automated spreading</text>
+    <text x="700" y="207" text-anchor="middle" font-size="9" fill="#DC2626">Via dependencies</text>
+
+    <!-- Row 3: Persistence -->
+    <rect x="50" y="220" width="800" height="45" fill="white" stroke="#E2E8F0"/>
+    <text x="150" y="247" text-anchor="middle" font-size="10" font-weight="600" fill="#1E293B">Persistence</text>
+    <text x="400" y="242" text-anchor="middle" font-size="10" fill="#059669">Single point of failure</text>
+    <text x="400" y="257" text-anchor="middle" font-size="9" fill="#64748B">Remove = solved</text>
+    <text x="700" y="242" text-anchor="middle" font-size="10" fill="#DC2626">Redundant distribution</text>
+    <text x="700" y="257" text-anchor="middle" font-size="9" fill="#DC2626">Whack-a-mole problem</text>
+
+    <!-- Row 4: Detection -->
+    <rect x="50" y="270" width="800" height="45" fill="#F8FAFC" stroke="#E2E8F0"/>
+    <text x="150" y="297" text-anchor="middle" font-size="10" font-weight="600" fill="#1E293B">Detection</text>
+    <text x="400" y="292" text-anchor="middle" font-size="10" fill="#059669">Easier to identify</text>
+    <text x="400" y="307" text-anchor="middle" font-size="9" fill="#64748B">Clear malicious package</text>
+    <text x="700" y="292" text-anchor="middle" font-size="10" fill="#DC2626">Distributed variants</text>
+    <text x="700" y="307" text-anchor="middle" font-size="9" fill="#DC2626">Obfuscation varies</text>
+
+    <!-- Row 5: Resources -->
+    <rect x="50" y="320" width="800" height="45" fill="white" stroke="#E2E8F0"/>
+    <text x="150" y="347" text-anchor="middle" font-size="10" font-weight="600" fill="#1E293B">Attacker Resources</text>
+    <text x="400" y="342" text-anchor="middle" font-size="10" fill="#059669">Individual effort</text>
+    <text x="400" y="357" text-anchor="middle" font-size="9" fill="#64748B">Low investment</text>
+    <text x="700" y="342" text-anchor="middle" font-size="10" fill="#DC2626">Organized operation</text>
+    <text x="700" y="357" text-anchor="middle" font-size="9" fill="#DC2626">Infrastructure, automation</text>
+  </g>
+
+  <!-- Statistics Section -->
+  <g filter="url(#shadow)" transform="translate(50, 385)">
+    <rect x="0" y="0" width="800" height="115" rx="8" fill="white" stroke="#E2E8F0"/>
+    <text x="400" y="25" text-anchor="middle" font-size="13" font-weight="bold" fill="#1E293B">2024-2025 Ecosystem Attack Statistics</text>
+
+    <g transform="translate(30, 45)">
+      <rect x="0" y="0" width="170" height="55" rx="6" fill="#FEE2E2" stroke="#FECACA"/>
+      <text x="85" y="22" text-anchor="middle" font-size="24" font-weight="bold" fill="#DC2626">188%</text>
+      <text x="85" y="42" text-anchor="middle" font-size="9" fill="#991B1B">YoY increase in</text>
+      <text x="85" y="52" text-anchor="middle" font-size="9" fill="#991B1B">malicious packages</text>
+    </g>
+
+    <g transform="translate(220, 45)">
+      <rect x="0" y="0" width="170" height="55" rx="6" fill="#FEF3C7" stroke="#FDE68A"/>
+      <text x="85" y="22" text-anchor="middle" font-size="20" font-weight="bold" fill="#D97706">Shai Hulud</text>
+      <text x="85" y="42" text-anchor="middle" font-size="9" fill="#92400E">Largest npm campaign</text>
+      <text x="85" y="52" text-anchor="middle" font-size="9" fill="#92400E">100s of packages</text>
+    </g>
+
+    <g transform="translate(410, 45)">
+      <rect x="0" y="0" width="170" height="55" rx="6" fill="#DBEAFE" stroke="#BFDBFE"/>
+      <text x="85" y="22" text-anchor="middle" font-size="14" font-weight="bold" fill="#1E40AF">CISA Alert</text>
+      <text x="85" y="42" text-anchor="middle" font-size="9" fill="#2563EB">Ecosystem-wide warning</text>
+      <text x="85" y="52" text-anchor="middle" font-size="9" fill="#2563EB">September 2025</text>
+    </g>
+
+    <g transform="translate(600, 45)">
+      <rect x="0" y="0" width="170" height="55" rx="6" fill="#E0E7FF" stroke="#C7D2FE"/>
+      <text x="85" y="22" text-anchor="middle" font-size="14" font-weight="bold" fill="#3730A3">Wormable</text>
+      <text x="85" y="42" text-anchor="middle" font-size="9" fill="#6366F1">Propagates via</text>
+      <text x="85" y="52" text-anchor="middle" font-size="9" fill="#6366F1">stolen npm tokens</text>
+    </g>
+  </g>
+</svg>

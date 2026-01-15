@@ -1,0 +1,216 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 650" font-family="Libertinus Sans">
+  <defs>
+        <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset in="blur" dx="1" dy="2" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.5" result="color"/>
+      <feComposite in="color" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="650" fill="#f7fafc"/>
+
+  <!-- Title -->
+  <text x="450" y="35" text-anchor="middle" font-size="20" font-weight="600" fill="#1a365d">
+    Supply Chain vs Traditional Threat Modeling
+  </text>
+  <text x="450" y="55" text-anchor="middle" font-size="12" fill="#718096">
+    Key differences that require adapting traditional approaches
+  </text>
+
+  <!-- Column Headers -->
+  <g transform="translate(50, 75)">
+    <!-- Dimension Column -->
+    <rect x="0" y="0" width="160" height="40" rx="6" fill="#4a5568"/>
+    <text x="80" y="26" text-anchor="middle" font-size="12" font-weight="600" fill="#fff">Dimension</text>
+
+    <!-- Traditional Column -->
+    <rect x="170" y="0" width="285" height="40" rx="6" fill="#3182ce"/>
+    <text x="312" y="26" text-anchor="middle" font-size="12" font-weight="600" fill="#fff">Traditional Application</text>
+
+    <!-- Supply Chain Column -->
+    <rect x="465" y="0" width="285" height="40" rx="6" fill="#c53030"/>
+    <text x="607" y="26" text-anchor="middle" font-size="12" font-weight="600" fill="#fff">Supply Chain</text>
+
+    <!-- VS Icon -->
+    <circle cx="457" cy="20" r="18" fill="#fff" stroke="#718096" stroke-width="2"/>
+    <text x="457" y="25" text-anchor="middle" font-size="11" font-weight="700" fill="#4a5568">VS</text>
+  </g>
+
+  <!-- Row 1: External Dependencies -->
+  <g transform="translate(50, 125)" filter="url(#shadow)">
+    <rect x="0" y="0" width="160" height="95" rx="6" fill="#fff"/>
+    <rect x="0" y="0" width="160" height="30" rx="6" fill="#805ad5"/>
+    <rect x="0" y="22" width="160" height="8" fill="#805ad5"/>
+    <text x="80" y="20" text-anchor="middle" font-size="10" font-weight="600" fill="#fff">External Dependencies</text>
+    <text x="80" y="55" text-anchor="middle" font-size="9" fill="#4a5568">How much of your attack</text>
+    <text x="80" y="70" text-anchor="middle" font-size="9" fill="#4a5568">surface comes from outside?</text>
+
+    <!-- Traditional -->
+    <rect x="170" y="0" width="285" height="95" rx="6" fill="#ebf8ff"/>
+    <g transform="translate(185, 15)">
+      <circle cx="8" cy="8" r="6" fill="#38a169"/>
+      <text x="20" y="12" font-size="10" font-weight="600" fill="#2b6cb0">Minority of attack surface</text>
+      <text x="0" y="32" font-size="9" fill="#4a5568">Most components are internal</text>
+      <text x="0" y="48" font-size="9" fill="#4a5568">Designed, built, operated by org</text>
+      <text x="0" y="64" font-size="9" fill="#4a5568">Full visibility and control</text>
+    </g>
+
+    <!-- Supply Chain -->
+    <rect x="465" y="0" width="285" height="95" rx="6" fill="#fff5f5"/>
+    <g transform="translate(480, 15)">
+      <circle cx="8" cy="8" r="6" fill="#c53030"/>
+      <text x="20" y="12" font-size="10" font-weight="600" fill="#c53030">Dominates attack surface</text>
+      <text x="0" y="32" font-size="9" fill="#4a5568">Hundreds/thousands of packages</text>
+      <text x="0" y="48" font-size="9" fill="#4a5568">Each with own security posture</text>
+      <text x="0" y="64" font-size="9" fill="#4a5568">Decisions made by others</text>
+    </g>
+  </g>
+
+  <!-- Row 2: Trust Relationships -->
+  <g transform="translate(50, 230)" filter="url(#shadow)">
+    <rect x="0" y="0" width="160" height="95" rx="6" fill="#fff"/>
+    <rect x="0" y="0" width="160" height="30" rx="6" fill="#dd6b20"/>
+    <rect x="0" y="22" width="160" height="8" fill="#dd6b20"/>
+    <text x="80" y="20" text-anchor="middle" font-size="10" font-weight="600" fill="#fff">Trust Relationships</text>
+    <text x="80" y="55" text-anchor="middle" font-size="9" fill="#4a5568">How is trust established</text>
+    <text x="80" y="70" text-anchor="middle" font-size="9" fill="#4a5568">and propagated?</text>
+
+    <!-- Traditional -->
+    <rect x="170" y="0" width="285" height="95" rx="6" fill="#ebf8ff"/>
+    <g transform="translate(185, 15)">
+      <circle cx="8" cy="8" r="6" fill="#38a169"/>
+      <text x="20" y="12" font-size="10" font-weight="600" fill="#2b6cb0">Explicit boundaries</text>
+      <text x="0" y="32" font-size="9" fill="#4a5568">Auth vs anonymous users</text>
+      <text x="0" y="48" font-size="9" fill="#4a5568">Internal vs external networks</text>
+      <text x="0" y="64" font-size="9" fill="#4a5568">Clear control enforcement</text>
+    </g>
+
+    <!-- Supply Chain -->
+    <rect x="465" y="0" width="285" height="95" rx="6" fill="#fff5f5"/>
+    <g transform="translate(480, 15)">
+      <circle cx="8" cy="8" r="6" fill="#c53030"/>
+      <text x="20" y="12" font-size="10" font-weight="600" fill="#c53030">Implicit and transitive</text>
+      <text x="0" y="32" font-size="9" fill="#4a5568">Trust maintainers, their practices</text>
+      <text x="0" y="48" font-size="9" fill="#4a5568">Trust their dependencies too</text>
+      <text x="0" y="64" font-size="9" fill="#4a5568">Extends through entire graph</text>
+    </g>
+  </g>
+
+  <!-- Row 3: Visibility -->
+  <g transform="translate(50, 335)" filter="url(#shadow)">
+    <rect x="0" y="0" width="160" height="95" rx="6" fill="#fff"/>
+    <rect x="0" y="0" width="160" height="30" rx="6" fill="#38a169"/>
+    <rect x="0" y="22" width="160" height="8" fill="#38a169"/>
+    <text x="80" y="20" text-anchor="middle" font-size="10" font-weight="600" fill="#fff">Visibility</text>
+    <text x="80" y="55" text-anchor="middle" font-size="9" fill="#4a5568">How much can you see</text>
+    <text x="80" y="70" text-anchor="middle" font-size="9" fill="#4a5568">about the system?</text>
+
+    <!-- Traditional -->
+    <rect x="170" y="0" width="285" height="95" rx="6" fill="#ebf8ff"/>
+    <g transform="translate(185, 15)">
+      <circle cx="8" cy="8" r="6" fill="#38a169"/>
+      <text x="20" y="12" font-size="10" font-weight="600" fill="#2b6cb0">Complete visibility</text>
+      <text x="0" y="32" font-size="9" fill="#4a5568">Examine own code in detail</text>
+      <text x="0" y="48" font-size="9" fill="#4a5568">Know development practices</text>
+      <text x="0" y="64" font-size="9" fill="#4a5568">Control build environments</text>
+    </g>
+
+    <!-- Supply Chain -->
+    <rect x="465" y="0" width="285" height="95" rx="6" fill="#fff5f5"/>
+    <g transform="translate(480, 15)">
+      <circle cx="8" cy="8" r="6" fill="#c53030"/>
+      <text x="20" y="12" font-size="10" font-weight="600" fill="#c53030">Limited visibility</text>
+      <text x="0" y="32" font-size="9" fill="#4a5568">Source may be available</text>
+      <text x="0" y="48" font-size="9" fill="#4a5568">But not security practices</text>
+      <text x="0" y="64" font-size="9" fill="#4a5568">Must model with uncertainty</text>
+    </g>
+  </g>
+
+  <!-- Row 4: Control -->
+  <g transform="translate(50, 440)" filter="url(#shadow)">
+    <rect x="0" y="0" width="160" height="95" rx="6" fill="#fff"/>
+    <rect x="0" y="0" width="160" height="30" rx="6" fill="#3182ce"/>
+    <rect x="0" y="22" width="160" height="8" fill="#3182ce"/>
+    <text x="80" y="20" text-anchor="middle" font-size="10" font-weight="600" fill="#fff">Control</text>
+    <text x="80" y="55" text-anchor="middle" font-size="9" fill="#4a5568">What can you do to</text>
+    <text x="80" y="70" text-anchor="middle" font-size="9" fill="#4a5568">mitigate threats?</text>
+
+    <!-- Traditional -->
+    <rect x="170" y="0" width="285" height="95" rx="6" fill="#ebf8ff"/>
+    <g transform="translate(185, 15)">
+      <circle cx="8" cy="8" r="6" fill="#38a169"/>
+      <text x="20" y="12" font-size="10" font-weight="600" fill="#2b6cb0">Direct mitigation</text>
+      <text x="0" y="32" font-size="9" fill="#4a5568">Identify threats, implement fixes</text>
+      <text x="0" y="48" font-size="9" fill="#4a5568">Modify code, configs, infra</text>
+      <text x="0" y="64" font-size="9" fill="#4a5568">Add controls anywhere needed</text>
+    </g>
+
+    <!-- Supply Chain -->
+    <rect x="465" y="0" width="285" height="95" rx="6" fill="#fff5f5"/>
+    <g transform="translate(480, 15)">
+      <circle cx="8" cy="8" r="6" fill="#c53030"/>
+      <text x="20" y="12" font-size="10" font-weight="600" fill="#c53030">Asymmetric control</text>
+      <text x="0" y="32" font-size="9" fill="#4a5568">Cannot patch external deps</text>
+      <text x="0" y="48" font-size="9" fill="#4a5568">Cannot change registry policies</text>
+      <text x="0" y="64" font-size="9" fill="#4a5568">Limited to selection and verification</text>
+    </g>
+  </g>
+
+  <!-- Row 5: Dynamics -->
+  <g transform="translate(50, 545)" filter="url(#shadow)">
+    <rect x="0" y="0" width="160" height="85" rx="6" fill="#fff"/>
+    <rect x="0" y="0" width="160" height="30" rx="6" fill="#d69e2e"/>
+    <rect x="0" y="22" width="160" height="8" fill="#d69e2e"/>
+    <text x="80" y="20" text-anchor="middle" font-size="10" font-weight="600" fill="#fff">Dynamics</text>
+    <text x="80" y="55" text-anchor="middle" font-size="9" fill="#4a5568">How often does the</text>
+    <text x="80" y="70" text-anchor="middle" font-size="9" fill="#4a5568">threat model change?</text>
+
+    <!-- Traditional -->
+    <rect x="170" y="0" width="285" height="85" rx="6" fill="#ebf8ff"/>
+    <g transform="translate(185, 15)">
+      <circle cx="8" cy="8" r="6" fill="#38a169"/>
+      <text x="20" y="12" font-size="10" font-weight="600" fill="#2b6cb0">Changes on redesign</text>
+      <text x="0" y="32" font-size="9" fill="#4a5568">Threat model stable between releases</text>
+      <text x="0" y="48" font-size="9" fill="#4a5568">Updates tied to intentional changes</text>
+    </g>
+
+    <!-- Supply Chain -->
+    <rect x="465" y="0" width="285" height="85" rx="6" fill="#fff5f5"/>
+    <g transform="translate(480, 15)">
+      <circle cx="8" cy="8" r="6" fill="#c53030"/>
+      <text x="20" y="12" font-size="10" font-weight="600" fill="#c53030">Continuously dynamic</text>
+      <text x="0" y="32" font-size="9" fill="#4a5568">Dependencies update constantly</text>
+      <text x="0" y="48" font-size="9" fill="#4a5568">New vulnerabilities or malicious code</text>
+    </g>
+  </g>
+
+  <!-- Implication callout -->
+  <g transform="translate(760, 125)">
+    <rect x="0" y="0" width="130" height="505" rx="6" fill="#fffbeb" stroke="#d97706" stroke-width="1"/>
+    <text x="65" y="25" text-anchor="middle" font-size="10" font-weight="600" fill="#92400e">Implication</text>
+    <line x1="15" y1="35" x2="115" y2="35" stroke="#d97706"/>
+
+    <text x="10" y="60" font-size="8" fill="#78350f">Supply chain</text>
+    <text x="10" y="73" font-size="8" fill="#78350f">threat modeling</text>
+    <text x="10" y="86" font-size="8" fill="#78350f">is about:</text>
+
+    <text x="15" y="115" font-size="8" font-weight="600" fill="#92400e">Understanding</text>
+    <text x="15" y="130" font-size="8" fill="#78350f">inherited risks</text>
+
+    <text x="15" y="165" font-size="8" font-weight="600" fill="#92400e">Managing</text>
+    <text x="15" y="180" font-size="8" fill="#78350f">what you</text>
+    <text x="15" y="195" font-size="8" fill="#78350f">cannot control</text>
+
+    <text x="15" y="230" font-size="8" font-weight="600" fill="#92400e">Not</text>
+    <text x="15" y="245" font-size="8" fill="#78350f">designing</text>
+    <text x="15" y="260" font-size="8" fill="#78350f">security into</text>
+    <text x="15" y="275" font-size="8" fill="#78350f">systems you</text>
+    <text x="15" y="290" font-size="8" fill="#78350f">own</text>
+  </g>
+</svg>

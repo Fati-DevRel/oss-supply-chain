@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" font-family="Libertinus Sans">
+  <defs>
+    <linearGradient id="level1Grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b1a1a"/>
+      <stop offset="100%" style="stop-color:#6b1515"/>
+    </linearGradient>
+    <linearGradient id="level2Grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#c76a1d"/>
+      <stop offset="100%" style="stop-color:#a75515"/>
+    </linearGradient>
+    <linearGradient id="level3Grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#c9a227"/>
+      <stop offset="100%" style="stop-color:#a8881e"/>
+    </linearGradient>
+    <linearGradient id="level4Grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4a7c59"/>
+      <stop offset="100%" style="stop-color:#3a6248"/>
+    </linearGradient>
+    <linearGradient id="level5Grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#2d5a87"/>
+      <stop offset="100%" style="stop-color:#1e4060"/>
+    </linearGradient>
+        <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset in="blur" dx="1" dy="2" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.5" result="color"/>
+      <feComposite in="color" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#888"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="400" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="#1e3a5f">Supply Chain Security Maturity Levels</text>
+  <text x="400" y="48" text-anchor="middle" font-size="11" fill="#666">For evaluating vendor supply chain security practices</text>
+
+  <!-- Progress arrow at bottom -->
+  <line x1="80" y1="395" x2="720" y2="395" stroke="#ddd" stroke-width="4"/>
+  <polygon points="720,395 710,390 710,400" fill="#ddd"/>
+  <text x="400" y="415" text-anchor="middle" font-size="10" fill="#888">Increasing Maturity</text>
+
+  <!-- Level 1: Initial -->
+  <g transform="translate(40, 70)">
+    <rect x="0" y="0" width="130" height="300" rx="6" fill="url(#level1Grad)" filter="url(#shadow)"/>
+    <text x="65" y="25" text-anchor="middle" font-size="13" font-weight="bold" fill="white">INITIAL</text>
+    <text x="65" y="42" text-anchor="middle" font-size="10" fill="#ffcccc">Level 1</text>
+    <line x1="10" y1="55" x2="120" y2="55" stroke="rgba(255,255,255,0.3)"/>
+
+    <text x="10" y="75" font-size="9" font-weight="bold" fill="white">Characteristics:</text>
+    <text x="10" y="92" font-size="8" fill="#f0d0d0">No formal practices</text>
+    <text x="10" y="106" font-size="8" fill="#f0d0d0">Reactive approach</text>
+    <text x="10" y="120" font-size="8" fill="#f0d0d0">No SBOMs</text>
+    <text x="10" y="134" font-size="8" fill="#f0d0d0">Ad-hoc processes</text>
+
+    <line x1="10" y1="150" x2="120" y2="150" stroke="rgba(255,255,255,0.2)"/>
+
+    <text x="10" y="170" font-size="9" font-weight="bold" fill="white">Suitable For:</text>
+    <text x="10" y="187" font-size="8" fill="#f0d0d0">Non-critical,</text>
+    <text x="10" y="201" font-size="8" fill="#f0d0d0">low-risk use cases</text>
+    <text x="10" y="215" font-size="8" fill="#f0d0d0">only</text>
+
+    <line x1="10" y1="235" x2="120" y2="235" stroke="rgba(255,255,255,0.2)"/>
+
+    <text x="10" y="255" font-size="9" font-weight="bold" fill="white">SLSA Level:</text>
+    <text x="10" y="275" font-size="9" fill="#f0d0d0">None</text>
+  </g>
+
+  <!-- Level 2: Developing -->
+  <g transform="translate(185, 70)">
+    <rect x="0" y="0" width="130" height="300" rx="6" fill="url(#level2Grad)" filter="url(#shadow)"/>
+    <text x="65" y="25" text-anchor="middle" font-size="13" font-weight="bold" fill="white">DEVELOPING</text>
+    <text x="65" y="42" text-anchor="middle" font-size="10" fill="#ffe8d0">Level 2</text>
+    <line x1="10" y1="55" x2="120" y2="55" stroke="rgba(255,255,255,0.3)"/>
+
+    <text x="10" y="75" font-size="9" font-weight="bold" fill="white">Characteristics:</text>
+    <text x="10" y="92" font-size="8" fill="#fff0e0">Some practices</text>
+    <text x="10" y="106" font-size="8" fill="#fff0e0">Basic scanning</text>
+    <text x="10" y="120" font-size="8" fill="#fff0e0">Can provide SBOMs</text>
+    <text x="10" y="134" font-size="8" fill="#fff0e0">Documented process</text>
+
+    <line x1="10" y1="150" x2="120" y2="150" stroke="rgba(255,255,255,0.2)"/>
+
+    <text x="10" y="170" font-size="9" font-weight="bold" fill="white">Suitable For:</text>
+    <text x="10" y="187" font-size="8" fill="#fff0e0">Low-to-medium</text>
+    <text x="10" y="201" font-size="8" fill="#fff0e0">criticality with</text>
+    <text x="10" y="215" font-size="8" fill="#fff0e0">risk acceptance</text>
+
+    <line x1="10" y1="235" x2="120" y2="235" stroke="rgba(255,255,255,0.2)"/>
+
+    <text x="10" y="255" font-size="9" font-weight="bold" fill="white">SLSA Level:</text>
+    <text x="10" y="275" font-size="9" fill="#fff0e0">Level 1</text>
+  </g>
+
+  <!-- Level 3: Defined -->
+  <g transform="translate(330, 70)">
+    <rect x="0" y="0" width="130" height="300" rx="6" fill="url(#level3Grad)" filter="url(#shadow)"/>
+    <text x="65" y="25" text-anchor="middle" font-size="13" font-weight="bold" fill="white">DEFINED</text>
+    <text x="65" y="42" text-anchor="middle" font-size="10" fill="#fff8e0">Level 3</text>
+    <line x1="10" y1="55" x2="120" y2="55" stroke="rgba(255,255,255,0.3)"/>
+
+    <text x="10" y="75" font-size="9" font-weight="bold" fill="white">Characteristics:</text>
+    <text x="10" y="92" font-size="8" fill="#fff8e0">Documented policies</text>
+    <text x="10" y="106" font-size="8" fill="#fff8e0">Regular scanning</text>
+    <text x="10" y="120" font-size="8" fill="#fff8e0">SBOMs standard</text>
+    <text x="10" y="134" font-size="8" fill="#fff8e0">Defined processes</text>
+
+    <line x1="10" y1="150" x2="120" y2="150" stroke="rgba(255,255,255,0.2)"/>
+
+    <text x="10" y="170" font-size="9" font-weight="bold" fill="white">Suitable For:</text>
+    <text x="10" y="187" font-size="8" fill="#fff8e0">Medium criticality</text>
+    <text x="10" y="201" font-size="8" fill="#fff8e0">applications</text>
+
+    <line x1="10" y1="235" x2="120" y2="235" stroke="rgba(255,255,255,0.2)"/>
+
+    <text x="10" y="255" font-size="9" font-weight="bold" fill="white">SLSA Level:</text>
+    <text x="10" y="275" font-size="9" fill="#fff8e0">Level 1-2</text>
+  </g>
+
+  <!-- Level 4: Managed -->
+  <g transform="translate(475, 70)">
+    <rect x="0" y="0" width="130" height="300" rx="6" fill="url(#level4Grad)" filter="url(#shadow)"/>
+    <text x="65" y="25" text-anchor="middle" font-size="13" font-weight="bold" fill="white">MANAGED</text>
+    <text x="65" y="42" text-anchor="middle" font-size="10" fill="#d0f0d0">Level 4</text>
+    <line x1="10" y1="55" x2="120" y2="55" stroke="rgba(255,255,255,0.3)"/>
+
+    <text x="10" y="75" font-size="9" font-weight="bold" fill="white">Characteristics:</text>
+    <text x="10" y="92" font-size="8" fill="#e0f8e0">SLSA 2+ builds</text>
+    <text x="10" y="106" font-size="8" fill="#e0f8e0">Provenance tracking</text>
+    <text x="10" y="120" font-size="8" fill="#e0f8e0">Proactive monitoring</text>
+    <text x="10" y="134" font-size="8" fill="#e0f8e0">Measured processes</text>
+
+    <line x1="10" y1="150" x2="120" y2="150" stroke="rgba(255,255,255,0.2)"/>
+
+    <text x="10" y="170" font-size="9" font-weight="bold" fill="white">Suitable For:</text>
+    <text x="10" y="187" font-size="8" fill="#e0f8e0">High criticality</text>
+    <text x="10" y="201" font-size="8" fill="#e0f8e0">applications</text>
+
+    <line x1="10" y1="235" x2="120" y2="235" stroke="rgba(255,255,255,0.2)"/>
+
+    <text x="10" y="255" font-size="9" font-weight="bold" fill="white">SLSA Level:</text>
+    <text x="10" y="275" font-size="9" fill="#e0f8e0">Level 2-3</text>
+  </g>
+
+  <!-- Level 5: Optimized -->
+  <g transform="translate(620, 70)">
+    <rect x="0" y="0" width="130" height="300" rx="6" fill="url(#level5Grad)" filter="url(#shadow)"/>
+    <text x="65" y="25" text-anchor="middle" font-size="13" font-weight="bold" fill="white">OPTIMIZED</text>
+    <text x="65" y="42" text-anchor="middle" font-size="10" fill="#cce0ff">Level 5</text>
+    <line x1="10" y1="55" x2="120" y2="55" stroke="rgba(255,255,255,0.3)"/>
+
+    <text x="10" y="75" font-size="9" font-weight="bold" fill="white">Characteristics:</text>
+    <text x="10" y="92" font-size="8" fill="#e0f0ff">SLSA 3 builds</text>
+    <text x="10" y="106" font-size="8" fill="#e0f0ff">Comprehensive</text>
+    <text x="10" y="120" font-size="8" fill="#e0f0ff">Continuous improve</text>
+    <text x="10" y="134" font-size="8" fill="#e0f0ff">Industry-leading</text>
+
+    <line x1="10" y1="150" x2="120" y2="150" stroke="rgba(255,255,255,0.2)"/>
+
+    <text x="10" y="170" font-size="9" font-weight="bold" fill="white">Suitable For:</text>
+    <text x="10" y="187" font-size="8" fill="#e0f0ff">Critical</text>
+    <text x="10" y="201" font-size="8" fill="#e0f0ff">infrastructure</text>
+
+    <line x1="10" y1="235" x2="120" y2="235" stroke="rgba(255,255,255,0.2)"/>
+
+    <text x="10" y="255" font-size="9" font-weight="bold" fill="white">SLSA Level:</text>
+    <text x="10" y="275" font-size="9" fill="#e0f0ff">Level 3+</text>
+  </g>
+</svg>

@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 650" font-family="Libertinus Sans">
+  <defs>
+    <linearGradient id="attackerGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#DC2626;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#991B1B;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="registryGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#2563EB;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1D4ED8;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="victimGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#059669;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#047857;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="c2Grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#7C3AED;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6D28D9;stop-opacity:1" />
+    </linearGradient>
+    <marker id="arrowRed" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#DC2626"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#2563EB"/>
+    </marker>
+    <marker id="arrowPurple" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#7C3AED"/>
+    </marker>
+        <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset in="blur" dx="1" dy="2" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.5" result="color"/>
+      <feComposite in="color" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="650" fill="#F8FAFC"/>
+
+  <!-- Title -->
+  <text x="450" y="35" text-anchor="middle" font-size="20" font-weight="bold" fill="#1E293B">Malicious Package Attack Lifecycle</text>
+  <text x="450" y="55" text-anchor="middle" font-size="12" fill="#64748B">From creation to exploitation in the software supply chain</text>
+
+  <!-- Phase Labels -->
+  <text x="150" y="90" text-anchor="middle" font-size="11" font-weight="600" fill="#DC2626">PHASE 1</text>
+  <text x="150" y="105" text-anchor="middle" font-size="10" fill="#64748B">Preparation</text>
+
+  <text x="450" y="90" text-anchor="middle" font-size="11" font-weight="600" fill="#2563EB">PHASE 2</text>
+  <text x="450" y="105" text-anchor="middle" font-size="10" fill="#64748B">Distribution</text>
+
+  <text x="750" y="90" text-anchor="middle" font-size="11" font-weight="600" fill="#059669">PHASE 3</text>
+  <text x="750" y="105" text-anchor="middle" font-size="10" fill="#64748B">Exploitation</text>
+
+  <!-- Attacker Box -->
+  <g filter="url(#shadow)">
+    <rect x="50" y="130" width="200" height="180" rx="8" fill="url(#attackerGrad)"/>
+    <text x="150" y="155" text-anchor="middle" font-size="14" font-weight="bold" fill="white">Attacker</text>
+
+    <!-- Steps inside -->
+    <rect x="65" y="170" width="170" height="30" rx="4" fill="white" fill-opacity="0.95"/>
+    <text x="75" y="190" font-size="10" fill="#1E293B">1. Create fake identity</text>
+
+    <rect x="65" y="210" width="170" height="30" rx="4" fill="white" fill-opacity="0.95"/>
+    <text x="75" y="230" font-size="10" fill="#1E293B">2. Develop malicious code</text>
+
+    <rect x="65" y="250" width="170" height="30" rx="4" fill="white" fill-opacity="0.95"/>
+    <text x="75" y="270" font-size="10" fill="#1E293B">3. Obfuscate payload</text>
+  </g>
+
+  <!-- Registry Box -->
+  <g filter="url(#shadow)">
+    <rect x="350" y="130" width="200" height="180" rx="8" fill="url(#registryGrad)"/>
+    <text x="450" y="155" text-anchor="middle" font-size="14" font-weight="bold" fill="white">Package Registry</text>
+
+    <rect x="365" y="170" width="170" height="30" rx="4" fill="white" fill-opacity="0.95"/>
+    <text x="375" y="190" font-size="10" fill="#1E293B">4. Publish to npm/PyPI</text>
+
+    <rect x="365" y="210" width="170" height="30" rx="4" fill="white" fill-opacity="0.95"/>
+    <text x="375" y="230" font-size="10" fill="#1E293B">5. Mimic popular packages</text>
+
+    <rect x="365" y="250" width="170" height="30" rx="4" fill="white" fill-opacity="0.95"/>
+    <text x="375" y="270" font-size="10" fill="#1E293B">6. Wait for downloads</text>
+  </g>
+
+  <!-- Victim Box -->
+  <g filter="url(#shadow)">
+    <rect x="650" y="130" width="200" height="180" rx="8" fill="url(#victimGrad)"/>
+    <text x="750" y="155" text-anchor="middle" font-size="14" font-weight="bold" fill="white">Victim Developer</text>
+
+    <rect x="665" y="170" width="170" height="30" rx="4" fill="white" fill-opacity="0.95"/>
+    <text x="675" y="190" font-size="10" fill="#1E293B">7. Installs package</text>
+
+    <rect x="665" y="210" width="170" height="30" rx="4" fill="white" fill-opacity="0.95"/>
+    <text x="675" y="230" font-size="10" fill="#1E293B">8. Payload executes</text>
+
+    <rect x="665" y="250" width="170" height="30" rx="4" fill="white" fill-opacity="0.95"/>
+    <text x="675" y="270" font-size="10" fill="#1E293B">9. System compromised</text>
+  </g>
+
+  <!-- Arrows between phases -->
+  <path d="M 255 220 L 340 220" stroke="#DC2626" stroke-width="3" marker-end="url(#arrowRed)" fill="none"/>
+  <text x="297" y="212" text-anchor="middle" font-size="9" fill="#DC2626">Publish</text>
+
+  <path d="M 555 220 L 640 220" stroke="#2563EB" stroke-width="3" marker-end="url(#arrowBlue)" fill="none"/>
+  <text x="597" y="212" text-anchor="middle" font-size="9" fill="#2563EB">Install</text>
+
+  <!-- C2 Infrastructure -->
+  <g filter="url(#shadow)">
+    <rect x="350" y="380" width="200" height="120" rx="8" fill="url(#c2Grad)"/>
+    <text x="450" y="405" text-anchor="middle" font-size="14" font-weight="bold" fill="white">C2 Infrastructure</text>
+
+    <rect x="365" y="420" width="170" height="25" rx="4" fill="white" fill-opacity="0.95"/>
+    <text x="375" y="437" font-size="10" fill="#1E293B">Receive stolen data</text>
+
+    <rect x="365" y="455" width="170" height="25" rx="4" fill="white" fill-opacity="0.95"/>
+    <text x="375" y="472" font-size="10" fill="#1E293B">Issue commands</text>
+  </g>
+
+  <!-- Data exfiltration arrow -->
+  <path d="M 750 315 L 750 370 L 555 425" stroke="#7C3AED" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrowPurple)" fill="none"/>
+  <text x="680" y="385" font-size="9" fill="#7C3AED">Exfiltrate credentials</text>
+
+  <!-- Attack control arrow -->
+  <path d="M 150 315 L 150 440 L 340 440" stroke="#7C3AED" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrowPurple)" fill="none"/>
+  <text x="245" y="455" font-size="9" fill="#7C3AED">Attacker receives data</text>
+
+  <!-- Payload Types Legend -->
+  <g transform="translate(50, 530)">
+    <rect x="0" y="0" width="800" height="100" rx="6" fill="#F1F5F9" stroke="#E2E8F0"/>
+    <text x="400" y="20" text-anchor="middle" font-size="12" font-weight="600" fill="#1E293B">Common Payload Types</text>
+
+    <!-- Payload type boxes -->
+    <g transform="translate(20, 35)">
+      <rect x="0" y="0" width="140" height="50" rx="4" fill="#FEE2E2" stroke="#FECACA"/>
+      <text x="70" y="18" text-anchor="middle" font-size="10" font-weight="600" fill="#991B1B">Credential Theft</text>
+      <text x="70" y="33" text-anchor="middle" font-size="9" fill="#DC2626">API keys, tokens,</text>
+      <text x="70" y="45" text-anchor="middle" font-size="9" fill="#DC2626">env variables</text>
+    </g>
+
+    <g transform="translate(175, 35)">
+      <rect x="0" y="0" width="140" height="50" rx="4" fill="#FEF3C7" stroke="#FDE68A"/>
+      <text x="70" y="18" text-anchor="middle" font-size="10" font-weight="600" fill="#92400E">Crypto Mining</text>
+      <text x="70" y="33" text-anchor="middle" font-size="9" fill="#D97706">Unauthorized</text>
+      <text x="70" y="45" text-anchor="middle" font-size="9" fill="#D97706">resource usage</text>
+    </g>
+
+    <g transform="translate(330, 35)">
+      <rect x="0" y="0" width="140" height="50" rx="4" fill="#DBEAFE" stroke="#BFDBFE"/>
+      <text x="70" y="18" text-anchor="middle" font-size="10" font-weight="600" fill="#1E40AF">Backdoor</text>
+      <text x="70" y="33" text-anchor="middle" font-size="9" fill="#2563EB">Remote access,</text>
+      <text x="70" y="45" text-anchor="middle" font-size="9" fill="#2563EB">reverse shells</text>
+    </g>
+
+    <g transform="translate(485, 35)">
+      <rect x="0" y="0" width="140" height="50" rx="4" fill="#E0E7FF" stroke="#C7D2FE"/>
+      <text x="70" y="18" text-anchor="middle" font-size="10" font-weight="600" fill="#3730A3">Code Injection</text>
+      <text x="70" y="33" text-anchor="middle" font-size="9" fill="#4F46E5">Modify other</text>
+      <text x="70" y="45" text-anchor="middle" font-size="9" fill="#4F46E5">packages/code</text>
+    </g>
+
+    <g transform="translate(640, 35)">
+      <rect x="0" y="0" width="140" height="50" rx="4" fill="#FCE7F3" stroke="#FBCFE8"/>
+      <text x="70" y="18" text-anchor="middle" font-size="10" font-weight="600" fill="#9D174D">Data Exfiltration</text>
+      <text x="70" y="33" text-anchor="middle" font-size="9" fill="#DB2777">Source code,</text>
+      <text x="70" y="45" text-anchor="middle" font-size="9" fill="#DB2777">secrets, IP</text>
+    </g>
+  </g>
+</svg>

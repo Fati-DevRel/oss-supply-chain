@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 320" font-family="Libertinus Sans">
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2563eb"/>
+    </marker>
+    <marker id="arrowhead-feedback" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#059669"/>
+    </marker>
+    <linearGradient id="fuzzerGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1d4ed8;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="targetGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d97706;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="monitorGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+    </linearGradient>
+        <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset in="blur" dx="1" dy="2" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.5" result="color"/>
+      <feComposite in="color" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Title -->
+  <text x="400" y="35" text-anchor="middle" font-size="20" font-weight="600" fill="#1e293b">Coverage-Guided Fuzzing Workflow</text>
+
+  <!-- Fuzzer Engine Box -->
+  <rect x="50" y="80" width="180" height="100" rx="8" fill="url(#fuzzerGrad)" filter="url(#shadow)"/>
+  <text x="140" y="120" text-anchor="middle" font-size="16" font-weight="600" fill="white">Fuzzer Engine</text>
+  <text x="140" y="145" text-anchor="middle" font-size="12" fill="rgba(255,255,255,0.9)">(generates inputs)</text>
+  <text x="140" y="165" text-anchor="middle" font-size="11" fill="rgba(255,255,255,0.8)">AFL++, libFuzzer</text>
+
+  <!-- Target Code Box -->
+  <rect x="310" y="80" width="180" height="100" rx="8" fill="url(#targetGrad)" filter="url(#shadow)"/>
+  <text x="400" y="120" text-anchor="middle" font-size="16" font-weight="600" fill="white">Target Code</text>
+  <text x="400" y="145" text-anchor="middle" font-size="12" fill="rgba(255,255,255,0.9)">(library, function)</text>
+  <text x="400" y="165" text-anchor="middle" font-size="11" fill="rgba(255,255,255,0.8)">Instrumented binary</text>
+
+  <!-- Monitor Box -->
+  <rect x="570" y="80" width="180" height="100" rx="8" fill="url(#monitorGrad)" filter="url(#shadow)"/>
+  <text x="660" y="120" text-anchor="middle" font-size="16" font-weight="600" fill="white">Monitor</text>
+  <text x="660" y="145" text-anchor="middle" font-size="12" fill="rgba(255,255,255,0.9)">(detects crashes)</text>
+  <text x="660" y="165" text-anchor="middle" font-size="11" fill="rgba(255,255,255,0.8)">ASan, MSan, UBSan</text>
+
+  <!-- Forward arrows -->
+  <line x1="230" y1="130" x2="305" y2="130" stroke="#2563eb" stroke-width="3" marker-end="url(#arrowhead)"/>
+  <text x="267" y="118" text-anchor="middle" font-size="11" fill="#475569">test inputs</text>
+
+  <line x1="490" y1="130" x2="565" y2="130" stroke="#2563eb" stroke-width="3" marker-end="url(#arrowhead)"/>
+  <text x="527" y="118" text-anchor="middle" font-size="11" fill="#475569">execution</text>
+
+  <!-- Feedback loop -->
+  <path d="M 660 185 L 660 260 L 140 260 L 140 185" fill="none" stroke="#059669" stroke-width="3" stroke-dasharray="8,4" marker-end="url(#arrowhead-feedback)"/>
+
+  <!-- Feedback label box -->
+  <rect x="320" y="240" width="160" height="40" rx="6" fill="#ecfdf5" stroke="#059669" stroke-width="2"/>
+  <text x="400" y="258" text-anchor="middle" font-size="12" font-weight="500" fill="#059669">Feedback Loop</text>
+  <text x="400" y="273" text-anchor="middle" font-size="10" fill="#047857">coverage + crashes</text>
+
+  <!-- Legend -->
+  <rect x="50" y="295" width="12" height="12" rx="2" fill="#2563eb"/>
+  <text x="68" y="305" font-size="11" fill="#64748b">Forward flow</text>
+
+  <line x1="150" y1="301" x2="180" y2="301" stroke="#059669" stroke-width="2" stroke-dasharray="4,2"/>
+  <text x="188" y="305" font-size="11" fill="#64748b">Feedback (guides mutation)</text>
+</svg>

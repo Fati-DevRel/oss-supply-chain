@@ -1,0 +1,241 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 950 720" font-family="Libertinus Sans">
+  <defs>
+        <filter id="tableShadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset in="blur" dx="1" dy="2" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.5" result="color"/>
+      <feComposite in="color" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="950" height="720" fill="#f7fafc"/>
+
+  <!-- Title -->
+  <text x="475" y="35" text-anchor="middle" font-size="20" font-weight="600" fill="#1a365d">
+    Major Package Ecosystem Comparison
+  </text>
+  <text x="475" y="55" text-anchor="middle" font-size="12" fill="#718096">
+    Security features, governance, and characteristics across language ecosystems
+  </text>
+
+  <!-- Table container -->
+  <g transform="translate(25, 75)" filter="url(#tableShadow)">
+    <!-- Table background -->
+    <rect x="0" y="0" width="900" height="540" rx="8" fill="#fff"/>
+
+    <!-- Header row -->
+    <rect x="0" y="0" width="900" height="45" rx="8" fill="#1a365d"/>
+    <rect x="0" y="37" width="900" height="8" fill="#1a365d"/>
+
+    <!-- Header text -->
+    <text x="70" y="28" text-anchor="middle" font-size="11" font-weight="600" fill="#fff">Ecosystem</text>
+    <text x="175" y="28" text-anchor="middle" font-size="11" font-weight="600" fill="#fff">Registry</text>
+    <text x="280" y="28" text-anchor="middle" font-size="11" font-weight="600" fill="#fff">Operator</text>
+    <text x="380" y="28" text-anchor="middle" font-size="11" font-weight="600" fill="#fff">Packages</text>
+    <text x="480" y="28" text-anchor="middle" font-size="11" font-weight="600" fill="#fff">2FA</text>
+    <text x="570" y="28" text-anchor="middle" font-size="11" font-weight="600" fill="#fff">Signing</text>
+    <text x="665" y="28" text-anchor="middle" font-size="11" font-weight="600" fill="#fff">Provenance</text>
+    <text x="770" y="28" text-anchor="middle" font-size="11" font-weight="600" fill="#fff">Namespace</text>
+    <text x="855" y="28" text-anchor="middle" font-size="11" font-weight="600" fill="#fff">Model</text>
+
+    <!-- Row 1: npm -->
+    <rect x="0" y="45" width="900" height="50" fill="#fff"/>
+    <rect x="5" y="50" width="8" height="40" rx="2" fill="#f7df1e"/>
+    <text x="70" y="70" text-anchor="middle" font-size="12" font-weight="600" fill="#2d3748">JavaScript</text>
+    <text x="70" y="85" text-anchor="middle" font-size="10" fill="#718096">Node.js</text>
+    <text x="175" y="75" text-anchor="middle" font-size="11" fill="#4a5568">npm</text>
+    <text x="280" y="75" text-anchor="middle" font-size="10" fill="#4a5568">GitHub/Microsoft</text>
+    <text x="380" y="75" text-anchor="middle" font-size="11" fill="#4a5568">2.5M+</text>
+    <circle cx="480" cy="72" r="10" fill="#c6f6d5"/>
+    <text x="480" y="76" text-anchor="middle" font-size="10" fill="#276749">Yes</text>
+    <circle cx="570" cy="72" r="10" fill="#c6f6d5"/>
+    <text x="570" y="76" text-anchor="middle" font-size="10" fill="#276749">Yes</text>
+    <circle cx="665" cy="72" r="10" fill="#c6f6d5"/>
+    <text x="665" y="76" text-anchor="middle" font-size="10" fill="#276749">Yes</text>
+    <text x="770" y="75" text-anchor="middle" font-size="10" fill="#4a5568">Open</text>
+    <text x="855" y="75" text-anchor="middle" font-size="10" fill="#4a5568">Commercial</text>
+    <line x1="15" y1="95" x2="885" y2="95" stroke="#e2e8f0"/>
+
+    <!-- Row 2: Python -->
+    <rect x="0" y="95" width="900" height="50" fill="#f7fafc"/>
+    <rect x="5" y="100" width="8" height="40" rx="2" fill="#3776ab"/>
+    <text x="70" y="120" text-anchor="middle" font-size="12" font-weight="600" fill="#2d3748">Python</text>
+    <text x="175" y="125" text-anchor="middle" font-size="11" fill="#4a5568">PyPI</text>
+    <text x="280" y="125" text-anchor="middle" font-size="10" fill="#4a5568">PSF</text>
+    <text x="380" y="125" text-anchor="middle" font-size="11" fill="#4a5568">500K+</text>
+    <circle cx="480" cy="122" r="10" fill="#c6f6d5"/>
+    <text x="480" y="126" text-anchor="middle" font-size="10" fill="#276749">Yes</text>
+    <circle cx="570" cy="122" r="10" fill="#c6f6d5"/>
+    <text x="570" y="126" text-anchor="middle" font-size="10" fill="#276749">Yes</text>
+    <circle cx="665" cy="122" r="10" fill="#c6f6d5"/>
+    <text x="665" y="126" text-anchor="middle" font-size="10" fill="#276749">Yes</text>
+    <text x="770" y="125" text-anchor="middle" font-size="10" fill="#4a5568">Open</text>
+    <text x="855" y="125" text-anchor="middle" font-size="10" fill="#4a5568">Nonprofit</text>
+    <line x1="15" y1="145" x2="885" y2="145" stroke="#e2e8f0"/>
+
+    <!-- Row 3: Java -->
+    <rect x="0" y="145" width="900" height="50" fill="#fff"/>
+    <rect x="5" y="150" width="8" height="40" rx="2" fill="#ed8b00"/>
+    <text x="70" y="170" text-anchor="middle" font-size="12" font-weight="600" fill="#2d3748">Java</text>
+    <text x="175" y="175" text-anchor="middle" font-size="11" fill="#4a5568">Maven Central</text>
+    <text x="280" y="175" text-anchor="middle" font-size="10" fill="#4a5568">Sonatype</text>
+    <text x="380" y="175" text-anchor="middle" font-size="11" fill="#4a5568">500K+</text>
+    <circle cx="480" cy="172" r="10" fill="#feebc8"/>
+    <text x="480" y="176" text-anchor="middle" font-size="9" fill="#c05621">Opt</text>
+    <circle cx="570" cy="172" r="10" fill="#c6f6d5"/>
+    <text x="570" y="176" text-anchor="middle" font-size="10" fill="#276749">PGP</text>
+    <circle cx="665" cy="172" r="10" fill="#c6f6d5"/>
+    <text x="665" y="176" text-anchor="middle" font-size="10" fill="#276749">Yes</text>
+    <text x="770" y="175" text-anchor="middle" font-size="10" fill="#4a5568">Verified</text>
+    <text x="855" y="175" text-anchor="middle" font-size="10" fill="#4a5568">Commercial</text>
+    <line x1="15" y1="195" x2="885" y2="195" stroke="#e2e8f0"/>
+
+    <!-- Row 4: Ruby -->
+    <rect x="0" y="195" width="900" height="50" fill="#f7fafc"/>
+    <rect x="5" y="200" width="8" height="40" rx="2" fill="#cc342d"/>
+    <text x="70" y="220" text-anchor="middle" font-size="12" font-weight="600" fill="#2d3748">Ruby</text>
+    <text x="175" y="225" text-anchor="middle" font-size="11" fill="#4a5568">RubyGems</text>
+    <text x="280" y="225" text-anchor="middle" font-size="10" fill="#4a5568">Ruby Central</text>
+    <text x="380" y="225" text-anchor="middle" font-size="11" fill="#4a5568">180K+</text>
+    <circle cx="480" cy="222" r="10" fill="#c6f6d5"/>
+    <text x="480" y="226" text-anchor="middle" font-size="10" fill="#276749">Yes</text>
+    <circle cx="570" cy="222" r="10" fill="#feebc8"/>
+    <text x="570" y="226" text-anchor="middle" font-size="9" fill="#c05621">WIP</text>
+    <circle cx="665" cy="222" r="10" fill="#feebc8"/>
+    <text x="665" y="226" text-anchor="middle" font-size="9" fill="#c05621">WIP</text>
+    <text x="770" y="225" text-anchor="middle" font-size="10" fill="#4a5568">Open</text>
+    <text x="855" y="225" text-anchor="middle" font-size="10" fill="#4a5568">Nonprofit</text>
+    <line x1="15" y1="245" x2="885" y2="245" stroke="#e2e8f0"/>
+
+    <!-- Row 5: Rust -->
+    <rect x="0" y="245" width="900" height="50" fill="#fff"/>
+    <rect x="5" y="250" width="8" height="40" rx="2" fill="#dea584"/>
+    <text x="70" y="270" text-anchor="middle" font-size="12" font-weight="600" fill="#2d3748">Rust</text>
+    <text x="175" y="275" text-anchor="middle" font-size="11" fill="#4a5568">crates.io</text>
+    <text x="280" y="275" text-anchor="middle" font-size="10" fill="#4a5568">Rust Foundation</text>
+    <text x="380" y="275" text-anchor="middle" font-size="11" fill="#4a5568">140K+</text>
+    <circle cx="480" cy="272" r="10" fill="#c6f6d5"/>
+    <text x="480" y="276" text-anchor="middle" font-size="10" fill="#276749">Yes</text>
+    <circle cx="570" cy="272" r="10" fill="#feebc8"/>
+    <text x="570" y="276" text-anchor="middle" font-size="9" fill="#c05621">WIP</text>
+    <circle cx="665" cy="272" r="10" fill="#feebc8"/>
+    <text x="665" y="276" text-anchor="middle" font-size="9" fill="#c05621">WIP</text>
+    <text x="770" y="275" text-anchor="middle" font-size="10" fill="#276749">Protected</text>
+    <text x="855" y="275" text-anchor="middle" font-size="10" fill="#4a5568">Foundation</text>
+    <line x1="15" y1="295" x2="885" y2="295" stroke="#e2e8f0"/>
+
+    <!-- Row 6: Go -->
+    <rect x="0" y="295" width="900" height="50" fill="#f7fafc"/>
+    <rect x="5" y="300" width="8" height="40" rx="2" fill="#00add8"/>
+    <text x="70" y="320" text-anchor="middle" font-size="12" font-weight="600" fill="#2d3748">Go</text>
+    <text x="175" y="325" text-anchor="middle" font-size="11" fill="#4a5568">Go Modules</text>
+    <text x="280" y="325" text-anchor="middle" font-size="10" fill="#4a5568">Google (proxy)</text>
+    <text x="380" y="325" text-anchor="middle" font-size="11" fill="#4a5568">Decentral.</text>
+    <circle cx="480" cy="322" r="10" fill="#e2e8f0"/>
+    <text x="480" y="326" text-anchor="middle" font-size="9" fill="#718096">N/A</text>
+    <circle cx="570" cy="322" r="10" fill="#e2e8f0"/>
+    <text x="570" y="326" text-anchor="middle" font-size="9" fill="#718096">N/A</text>
+    <circle cx="665" cy="322" r="10" fill="#c6f6d5"/>
+    <text x="665" y="326" text-anchor="middle" font-size="9" fill="#276749">Chksum</text>
+    <text x="770" y="325" text-anchor="middle" font-size="10" fill="#4a5568">Git-based</text>
+    <text x="855" y="325" text-anchor="middle" font-size="10" fill="#4a5568">Corporate</text>
+    <line x1="15" y1="345" x2="885" y2="345" stroke="#e2e8f0"/>
+
+    <!-- Row 7: PHP -->
+    <rect x="0" y="345" width="900" height="50" fill="#fff"/>
+    <rect x="5" y="350" width="8" height="40" rx="2" fill="#777bb4"/>
+    <text x="70" y="370" text-anchor="middle" font-size="12" font-weight="600" fill="#2d3748">PHP</text>
+    <text x="175" y="375" text-anchor="middle" font-size="11" fill="#4a5568">Packagist</text>
+    <text x="280" y="375" text-anchor="middle" font-size="10" fill="#4a5568">Private Packagist</text>
+    <text x="380" y="375" text-anchor="middle" font-size="11" fill="#4a5568">350K+</text>
+    <circle cx="480" cy="372" r="10" fill="#feebc8"/>
+    <text x="480" y="376" text-anchor="middle" font-size="9" fill="#c05621">Opt</text>
+    <circle cx="570" cy="372" r="10" fill="#fed7d7"/>
+    <text x="570" y="376" text-anchor="middle" font-size="9" fill="#c53030">No</text>
+    <circle cx="665" cy="372" r="10" fill="#fed7d7"/>
+    <text x="665" y="376" text-anchor="middle" font-size="9" fill="#c53030">No</text>
+    <text x="770" y="375" text-anchor="middle" font-size="10" fill="#4a5568">Open</text>
+    <text x="855" y="375" text-anchor="middle" font-size="10" fill="#4a5568">Commercial</text>
+    <line x1="15" y1="395" x2="885" y2="395" stroke="#e2e8f0"/>
+
+    <!-- Row 8: .NET -->
+    <rect x="0" y="395" width="900" height="50" fill="#f7fafc"/>
+    <rect x="5" y="400" width="8" height="40" rx="2" fill="#512bd4"/>
+    <text x="70" y="420" text-anchor="middle" font-size="12" font-weight="600" fill="#2d3748">.NET</text>
+    <text x="175" y="425" text-anchor="middle" font-size="11" fill="#4a5568">NuGet</text>
+    <text x="280" y="425" text-anchor="middle" font-size="10" fill="#4a5568">Microsoft</text>
+    <text x="380" y="425" text-anchor="middle" font-size="11" fill="#4a5568">350K+</text>
+    <circle cx="480" cy="422" r="10" fill="#c6f6d5"/>
+    <text x="480" y="426" text-anchor="middle" font-size="10" fill="#276749">Yes</text>
+    <circle cx="570" cy="422" r="10" fill="#c6f6d5"/>
+    <text x="570" y="426" text-anchor="middle" font-size="10" fill="#276749">Yes</text>
+    <circle cx="665" cy="422" r="10" fill="#feebc8"/>
+    <text x="665" y="426" text-anchor="middle" font-size="9" fill="#c05621">Part</text>
+    <text x="770" y="425" text-anchor="middle" font-size="10" fill="#276749">Reserved</text>
+    <text x="855" y="425" text-anchor="middle" font-size="10" fill="#4a5568">Corporate</text>
+    <line x1="15" y1="445" x2="885" y2="445" stroke="#e2e8f0"/>
+
+    <!-- Row 9: CocoaPods -->
+    <rect x="0" y="445" width="900" height="50" fill="#fff"/>
+    <rect x="5" y="450" width="8" height="40" rx="2" fill="#ff3b30"/>
+    <text x="70" y="470" text-anchor="middle" font-size="12" font-weight="600" fill="#2d3748">iOS/macOS</text>
+    <text x="175" y="475" text-anchor="middle" font-size="11" fill="#4a5568">CocoaPods</text>
+    <text x="280" y="475" text-anchor="middle" font-size="10" fill="#4a5568">Volunteers</text>
+    <text x="380" y="475" text-anchor="middle" font-size="11" fill="#4a5568">100K+</text>
+    <circle cx="480" cy="472" r="10" fill="#c6f6d5"/>
+    <text x="480" y="476" text-anchor="middle" font-size="10" fill="#276749">Yes</text>
+    <circle cx="570" cy="472" r="10" fill="#fed7d7"/>
+    <text x="570" y="476" text-anchor="middle" font-size="9" fill="#c53030">No</text>
+    <circle cx="665" cy="472" r="10" fill="#fed7d7"/>
+    <text x="665" y="476" text-anchor="middle" font-size="9" fill="#c53030">No</text>
+    <text x="770" y="475" text-anchor="middle" font-size="10" fill="#4a5568">Open</text>
+    <text x="855" y="475" text-anchor="middle" font-size="10" fill="#4a5568">Community</text>
+    <line x1="15" y1="495" x2="885" y2="495" stroke="#e2e8f0"/>
+
+    <!-- Row 10: Swift PM -->
+    <rect x="0" y="495" width="900" height="45" rx="8" fill="#f7fafc"/>
+    <rect x="5" y="500" width="8" height="35" rx="2" fill="#f05138"/>
+    <text x="70" y="525" text-anchor="middle" font-size="12" font-weight="600" fill="#2d3748">Swift</text>
+    <text x="175" y="525" text-anchor="middle" font-size="11" fill="#4a5568">SPM</text>
+    <text x="280" y="525" text-anchor="middle" font-size="10" fill="#4a5568">Decentralized</text>
+    <text x="380" y="525" text-anchor="middle" font-size="11" fill="#4a5568">Git-based</text>
+    <circle cx="480" cy="522" r="10" fill="#e2e8f0"/>
+    <text x="480" y="526" text-anchor="middle" font-size="9" fill="#718096">N/A</text>
+    <circle cx="570" cy="522" r="10" fill="#c6f6d5"/>
+    <text x="570" y="526" text-anchor="middle" font-size="9" fill="#276749">Code</text>
+    <circle cx="665" cy="522" r="10" fill="#feebc8"/>
+    <text x="665" y="526" text-anchor="middle" font-size="9" fill="#c05621">Part</text>
+    <text x="770" y="525" text-anchor="middle" font-size="10" fill="#4a5568">Git URL</text>
+    <text x="855" y="525" text-anchor="middle" font-size="10" fill="#4a5568">Apple</text>
+  </g>
+
+  <!-- Legend -->
+  <g transform="translate(25, 630)">
+    <text x="0" y="15" font-size="11" font-weight="600" fill="#2d3748">Legend:</text>
+    <circle cx="80" cy="11" r="8" fill="#c6f6d5"/>
+    <text x="95" y="15" font-size="10" fill="#4a5568">Available/Required</text>
+    <circle cx="220" cy="11" r="8" fill="#feebc8"/>
+    <text x="235" y="15" font-size="10" fill="#4a5568">Optional/In Progress</text>
+    <circle cx="370" cy="11" r="8" fill="#fed7d7"/>
+    <text x="385" y="15" font-size="10" fill="#4a5568">Not Available</text>
+    <circle cx="500" cy="11" r="8" fill="#e2e8f0"/>
+    <text x="515" y="15" font-size="10" fill="#4a5568">N/A (Decentralized)</text>
+  </g>
+
+  <!-- Key Insight -->
+  <g transform="translate(25, 660)">
+    <rect x="0" y="0" width="900" height="45" rx="6" fill="#ebf8ff" stroke="#3182ce" stroke-width="1"/>
+    <text x="20" y="18" font-size="10" font-weight="600" fill="#2b6cb0">Key Insight:</text>
+    <text x="100" y="18" font-size="10" fill="#2c5282">
+      Security feature adoption varies significantly across ecosystems. npm and PyPI lead in modern security features;
+    </text>
+    <text x="20" y="35" font-size="10" fill="#2c5282">
+      decentralized models (Go, Swift PM) inherit security properties from source hosting platforms like GitHub.
+    </text>
+  </g>
+</svg>

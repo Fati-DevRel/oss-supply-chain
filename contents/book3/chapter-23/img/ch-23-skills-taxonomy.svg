@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" font-family="Libertinus Sans">
+  <defs>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1e3a5f"/>
+      <stop offset="100%" style="stop-color:#2d5a87"/>
+    </linearGradient>
+    <linearGradient id="foundationalGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#e8f4f8"/>
+      <stop offset="100%" style="stop-color:#d0e8ef"/>
+    </linearGradient>
+    <linearGradient id="advancedGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#fff8e8"/>
+      <stop offset="100%" style="stop-color:#ffecc0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Title -->
+  <text x="400" y="35" text-anchor="middle" font-size="20" font-weight="bold" fill="#1e3a5f">Supply Chain Security Skills Taxonomy</text>
+
+  <!-- Header Row -->
+  <rect x="20" y="55" width="200" height="40" rx="4" fill="url(#headerGrad)"/>
+  <text x="120" y="80" text-anchor="middle" font-size="13" font-weight="bold" fill="white">Domain</text>
+
+  <rect x="225" y="55" width="275" height="40" rx="4" fill="url(#headerGrad)"/>
+  <text x="362" y="80" text-anchor="middle" font-size="13" font-weight="bold" fill="white">Foundational Skills</text>
+
+  <rect x="505" y="55" width="275" height="40" rx="4" fill="url(#headerGrad)"/>
+  <text x="642" y="80" text-anchor="middle" font-size="13" font-weight="bold" fill="white">Advanced Skills</text>
+
+  <!-- Row 1: Software Development -->
+  <rect x="20" y="100" width="200" height="65" rx="3" fill="#2d5a87"/>
+  <text x="120" y="128" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Software</text>
+  <text x="120" y="145" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Development</text>
+
+  <rect x="225" y="100" width="275" height="65" rx="3" fill="url(#foundationalGrad)" stroke="#b8d4e3" stroke-width="1"/>
+  <text x="235" y="122" font-size="11" fill="#333">Programming fundamentals</text>
+  <text x="235" y="138" font-size="11" fill="#333">Version control</text>
+  <text x="235" y="154" font-size="11" fill="#333">Dependency management</text>
+
+  <rect x="505" y="100" width="275" height="65" rx="3" fill="url(#advancedGrad)" stroke="#e6d4a0" stroke-width="1"/>
+  <text x="515" y="122" font-size="11" fill="#333">Build systems, compiler internals</text>
+  <text x="515" y="138" font-size="11" fill="#333">Language-specific security</text>
+  <text x="515" y="154" font-size="11" fill="#333">Supply chain tooling development</text>
+
+  <!-- Row 2: Security Fundamentals -->
+  <rect x="20" y="170" width="200" height="65" rx="3" fill="#2d5a87"/>
+  <text x="120" y="198" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Security</text>
+  <text x="120" y="215" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Fundamentals</text>
+
+  <rect x="225" y="170" width="275" height="65" rx="3" fill="url(#foundationalGrad)" stroke="#b8d4e3" stroke-width="1"/>
+  <text x="235" y="192" font-size="11" fill="#333">Threat modeling</text>
+  <text x="235" y="208" font-size="11" fill="#333">Vulnerability assessment</text>
+  <text x="235" y="224" font-size="11" fill="#333">Risk management basics</text>
+
+  <rect x="505" y="170" width="275" height="65" rx="3" fill="url(#advancedGrad)" stroke="#e6d4a0" stroke-width="1"/>
+  <text x="515" y="192" font-size="11" fill="#333">Attack pattern analysis</text>
+  <text x="515" y="208" font-size="11" fill="#333">Exploit development</text>
+  <text x="515" y="224" font-size="11" fill="#333">Digital forensics</text>
+
+  <!-- Row 3: DevOps/Infrastructure -->
+  <rect x="20" y="240" width="200" height="65" rx="3" fill="#2d5a87"/>
+  <text x="120" y="268" text-anchor="middle" font-size="12" font-weight="bold" fill="white">DevOps /</text>
+  <text x="120" y="285" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Infrastructure</text>
+
+  <rect x="225" y="240" width="275" height="65" rx="3" fill="url(#foundationalGrad)" stroke="#b8d4e3" stroke-width="1"/>
+  <text x="235" y="262" font-size="11" fill="#333">CI/CD concepts</text>
+  <text x="235" y="278" font-size="11" fill="#333">Containerization basics</text>
+  <text x="235" y="294" font-size="11" fill="#333">Cloud platform fundamentals</text>
+
+  <rect x="505" y="240" width="275" height="65" rx="3" fill="url(#advancedGrad)" stroke="#e6d4a0" stroke-width="1"/>
+  <text x="515" y="262" font-size="11" fill="#333">Build infrastructure hardening</text>
+  <text x="515" y="278" font-size="11" fill="#333">Supply chain integrity controls</text>
+  <text x="515" y="294" font-size="11" fill="#333">Pipeline security architecture</text>
+
+  <!-- Row 4: Package Ecosystems -->
+  <rect x="20" y="310" width="200" height="65" rx="3" fill="#2d5a87"/>
+  <text x="120" y="338" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Package</text>
+  <text x="120" y="355" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Ecosystems</text>
+
+  <rect x="225" y="310" width="275" height="65" rx="3" fill="url(#foundationalGrad)" stroke="#b8d4e3" stroke-width="1"/>
+  <text x="235" y="332" font-size="11" fill="#333">Package manager usage</text>
+  <text x="235" y="348" font-size="11" fill="#333">Dependency resolution</text>
+  <text x="235" y="364" font-size="11" fill="#333">Lock file management</text>
+
+  <rect x="505" y="310" width="275" height="65" rx="3" fill="url(#advancedGrad)" stroke="#e6d4a0" stroke-width="1"/>
+  <text x="515" y="332" font-size="11" fill="#333">Registry internals</text>
+  <text x="515" y="348" font-size="11" fill="#333">Ecosystem threat landscape</text>
+  <text x="515" y="364" font-size="11" fill="#333">Malicious package detection</text>
+
+  <!-- Row 5: Cryptography -->
+  <rect x="20" y="380" width="200" height="65" rx="3" fill="#2d5a87"/>
+  <text x="120" y="418" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Cryptography</text>
+
+  <rect x="225" y="380" width="275" height="65" rx="3" fill="url(#foundationalGrad)" stroke="#b8d4e3" stroke-width="1"/>
+  <text x="235" y="402" font-size="11" fill="#333">Hash functions, digital signatures</text>
+  <text x="235" y="418" font-size="11" fill="#333">PKI basics</text>
+  <text x="235" y="434" font-size="11" fill="#333">Certificate validation</text>
+
+  <rect x="505" y="380" width="275" height="65" rx="3" fill="url(#advancedGrad)" stroke="#e6d4a0" stroke-width="1"/>
+  <text x="515" y="402" font-size="11" fill="#333">Signing infrastructure design</text>
+  <text x="515" y="418" font-size="11" fill="#333">Key management systems</text>
+  <text x="515" y="434" font-size="11" fill="#333">Certificate transparency</text>
+
+  <!-- Row 6: Standards & Compliance -->
+  <rect x="20" y="450" width="200" height="65" rx="3" fill="#2d5a87"/>
+  <text x="120" y="478" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Standards &amp;</text>
+  <text x="120" y="495" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Compliance</text>
+
+  <rect x="225" y="450" width="275" height="65" rx="3" fill="url(#foundationalGrad)" stroke="#b8d4e3" stroke-width="1"/>
+  <text x="235" y="472" font-size="11" fill="#333">SBOM formats (SPDX, CycloneDX)</text>
+  <text x="235" y="488" font-size="11" fill="#333">Vulnerability databases (CVE, NVD)</text>
+  <text x="235" y="504" font-size="11" fill="#333">Basic compliance awareness</text>
+
+  <rect x="505" y="450" width="275" height="65" rx="3" fill="url(#advancedGrad)" stroke="#e6d4a0" stroke-width="1"/>
+  <text x="515" y="472" font-size="11" fill="#333">SLSA implementation</text>
+  <text x="515" y="488" font-size="11" fill="#333">Regulatory requirements (EO 14028)</text>
+  <text x="515" y="504" font-size="11" fill="#333">Compliance framework mapping</text>
+</svg>
