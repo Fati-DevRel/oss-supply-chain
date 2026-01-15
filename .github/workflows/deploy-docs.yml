@@ -39,7 +39,7 @@ jobs:
 
       - name: Build documentation
         working-directory: site
-        run: zensical build --clean -f scripts/zensical.toml
+        run: zensical build --clean -f ../scripts/zensical.toml
 
       - name: Configure Pages
         uses: actions/configure-pages@v4
