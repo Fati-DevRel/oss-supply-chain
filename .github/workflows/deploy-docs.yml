@@ -35,11 +35,12 @@ jobs:
           cp -r contents/frontmatter site/docs/
           cp -r contents/appendices site/docs/
           cp contents/frontmatter/home.md site/docs/index.md
+          cp scripts/zensical.toml site/
           find site | sort
 
       - name: Build documentation
         working-directory: site
-        run: zensical build --clean -f ../scripts/zensical.toml
+        run: zensical build --clean -f zensical.toml
 
       - name: Show files
         run: |
