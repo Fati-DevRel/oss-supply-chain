@@ -1,0 +1,340 @@
+[project]
+site_name = "Software Supply Chain Security"
+site_description = "A comprehensive guide to understanding, protecting, and governing the software supply chain"
+site_author = "Michael Scovetta"
+copyright = "Copyright &copy; 2025 Michael Scovetta. Licensed under <a href=\"https://creativecommons.org/publicdomain/zero/1.0/\">CC0 1.0</a>"
+repo_name = "scovetta/oss-supply-chain-security-book"
+repo_url = "https://github.com/scovetta/oss-supply-chain-security-book"
+docs_dir = "docs"
+site_dir = "_site"
+nav = [
+  {"Home" = "index.md"},
+  {"Frontmatter" = [
+    {"About the Author" = "frontmatter/preamble-author.md"},
+    {"Legal Notice" = "frontmatter/preamble-legal.md"}
+  ]},
+  {"Book 1: Understanding" = [
+    {"Chapter 1: How Software Is Built" = [
+      {"1.1 How Software Is Built Today" = "book1/chapter-01/ch-1.1.md"},
+      {"1.2 The Role of Open Source in Modern Software" = "book1/chapter-01/ch-1.2.md"},
+      {"1.3 Defining the Software Supply Chain" = "book1/chapter-01/ch-1.3.md"},
+      {"1.4 The Trust Relationships Embedded in Software Development" = "book1/chapter-01/ch-1.4.md"},
+      {"1.5 Why Supply Chain Security Has Become Urgent Now" = "book1/chapter-01/ch-1.5.md"},
+      {"1.6 Historical Perspective: Supply Chain Attacks Aren't New" = "book1/chapter-01/ch-1.6.md"}
+    ]},
+    {"Chapter 2: The Open Source Ecosystem" = [
+      {"2.1 A Brief History of Open Source and Its Philosophy" = "book1/chapter-02/ch-2.1.md"},
+      {"2.2 How Open Source Projects Are Governed and Maintained" = "book1/chapter-02/ch-2.2.md"},
+      {"2.3 The Maintainer Crisis" = "book1/chapter-02/ch-2.3.md"},
+      {"2.4 Major Package Ecosystems: A Comparative Survey" = "book1/chapter-02/ch-2.4.md"},
+      {"2.5 Operating System Package Managers" = "book1/chapter-02/ch-2.5.md"},
+      {"2.6 The Economics of Open Source" = "book1/chapter-02/ch-2.6.md"}
+    ]},
+    {"Chapter 3: The Threat Landscape" = [
+      {"3.1 Adversary Motivations" = "book1/chapter-03/ch-3.1.md"},
+      {"3.2 Attack Surfaces Across the Supply Chain" = "book1/chapter-03/ch-3.2.md"},
+      {"3.3 The Asymmetry Problem" = "book1/chapter-03/ch-3.3.md"},
+      {"3.4 Cascading Risk and Blast Radius" = "book1/chapter-03/ch-3.4.md"},
+      {"3.5 Infrastructure as Supply Chain" = "book1/chapter-03/ch-3.5.md"}
+    ]},
+    {"Chapter 4: Threat Modeling" = [
+      {"4.1 Supply Chain Threat Modeling Fundamentals" = "book1/chapter-04/ch-4.1.md"},
+      {"4.2 Threat Modeling Methodologies Applied" = "book1/chapter-04/ch-4.2.md"},
+      {"4.3 Identifying Crown Jewels in Your Dependency Graph" = "book1/chapter-04/ch-4.3.md"},
+      {"4.4 Building Attack Trees for Supply Chain Scenarios" = "book1/chapter-04/ch-4.4.md"},
+      {"4.5 Threat Modeling as a Continuous Practice" = "book1/chapter-04/ch-4.5.md"}
+    ]},
+    {"Chapter 5: Vulnerabilities" = [
+      {"5.1 The Lifecycle of a Vulnerability" = "book1/chapter-05/ch-5.1.md"},
+      {"5.2 Case Study: Log4Shell (CVE-2021-44228)" = "book1/chapter-05/ch-5.2.md"},
+      {"5.3 Zero-Days vs. Known Vulnerabilities" = "book1/chapter-05/ch-5.3.md"},
+      {"5.4 The Patching Gap" = "book1/chapter-05/ch-5.4.md"},
+      {"5.5 Cryptographic Library Vulnerabilities" = "book1/chapter-05/ch-5.5.md"},
+      {"5.6 Memory Safety and Language-Level Vulnerabilities" = "book1/chapter-05/ch-5.6.md"}
+    ]},
+    {"Chapter 6: Package Attacks" = [
+      {"6.1 Typosquatting and Namesquatting" = "book1/chapter-06/ch-6.1.md"},
+      {"6.2 Dependency Confusion Attacks" = "book1/chapter-06/ch-6.2.md"},
+      {"6.3 Malicious Packages" = "book1/chapter-06/ch-6.3.md"},
+      {"6.4 Case Studies in Package Attacks" = "book1/chapter-06/ch-6.4.md"},
+      {"6.5 Advanced Package Attack Techniques" = "book1/chapter-06/ch-6.5.md"},
+      {"6.6 Slopsquatting: AI-Hallucinated Package Attacks" = "book1/chapter-06/ch-6.6.md"}
+    ]},
+    {"Chapter 7: Build System Attacks" = [
+      {"7.1 Compromising Build Infrastructure" = "book1/chapter-07/ch-7.1.md"},
+      {"7.2 Case Study: SolarWinds and the SUNBURST Attack" = "book1/chapter-07/ch-7.2.md"},
+      {"7.3 Case Study: 3CX Desktop App Compromise (2023)" = "book1/chapter-07/ch-7.3.md"},
+      {"7.4 Case Study: Codecov Bash Uploader (2021)" = "book1/chapter-07/ch-7.4.md"},
+      {"7.5 Case Study: XZ Utils Backdoor (2024)" = "book1/chapter-07/ch-7.5.md"},
+      {"7.6 CI/CD Pipeline Vulnerabilities" = "book1/chapter-07/ch-7.6.md"},
+      {"7.7 Code Signing and Its Limitations" = "book1/chapter-07/ch-7.7.md"},
+      {"7.8 Attacks on Distribution Channels" = "book1/chapter-07/ch-7.8.md"}
+    ]},
+    {"Chapter 8: Insider Threats and Social Engineering" = [
+      {"8.1 Compromised Maintainer Accounts" = "book1/chapter-08/ch-8.1.md"},
+      {"8.2 Malicious Commits and Pull Requests" = "book1/chapter-08/ch-8.2.md"},
+      {"8.3 Social Engineering Targeting Maintainers" = "book1/chapter-08/ch-8.3.md"},
+      {"8.4 Insider Threats in Open Source Projects" = "book1/chapter-08/ch-8.4.md"},
+      {"8.5 Git-Specific Attack Vectors" = "book1/chapter-08/ch-8.5.md"},
+      {"8.6 Fake Security Researchers and Malicious Fixes" = "book1/chapter-08/ch-8.6.md"}
+    ]},
+    {"Chapter 9: Ecosystem-Specific Supply Chains" = [
+      {"9.1 Mobile Application Supply Chains" = "book1/chapter-09/ch-9.1.md"},
+      {"9.2 Browser Extension Supply Chains" = "book1/chapter-09/ch-9.2.md"},
+      {"9.3 Content Management System Ecosystems" = "book1/chapter-09/ch-9.3.md"},
+      {"9.4 Client-Side JavaScript and CDN Supply Chains" = "book1/chapter-09/ch-9.4.md"},
+      {"9.5 Serverless and Function-as-a-Service Supply Chains" = "book1/chapter-09/ch-9.5.md"},
+      {"9.6 Infrastructure-as-Code Supply Chains" = "book1/chapter-09/ch-9.6.md"}
+    ]},
+    {"Chapter 10: Emerging Threats" = [
+      {"10.1 AI Coding Assistants and Supply Chain Risk" = "book1/chapter-10/ch-10.1.md"},
+      {"10.2 Package Hallucination and Slopsquatting" = "book1/chapter-10/ch-10.2.md"},
+      {"10.3 AI Coding Agents and Autonomous Development" = "book1/chapter-10/ch-10.3.md"},
+      {"10.4 Model Context Protocol (MCP) and Tool Integration" = "book1/chapter-10/ch-10.4.md"},
+      {"10.5 AI/ML Model Supply Chains" = "book1/chapter-10/ch-10.5.md"},
+      {"10.6 Shadow AI and Ungoverned Tool Usage" = "book1/chapter-10/ch-10.6.md"},
+      {"10.7 Container and Image Supply Chains" = "book1/chapter-10/ch-10.7.md"},
+      {"10.8 Hardware and Firmware Considerations" = "book1/chapter-10/ch-10.8.md"},
+      {"10.9 Post-Quantum Cryptography Transition" = "book1/chapter-10/ch-10.9.md"},
+      {"10.10 CI/CD Pipeline Supply Chain Attacks" = "book1/chapter-10/ch-10.10.md"},
+      {"10.11 Ecosystem-Scale Package Malware Campaigns" = "book1/chapter-10/ch-10.11.md"},
+      {"10.12 Identity and Ownership Hijacking" = "book1/chapter-10/ch-10.12.md"}
+    ]}
+  ]},
+  {"Book 2: Protecting" = [
+    {"Chapter 11: Risk Assessment" = [
+      {"11.1 Frameworks for Understanding Supply Chain Risk" = "book2/chapter-11/ch-11.1.md"},
+      {"11.2 Dependency Depth and Transitive Risk" = "book2/chapter-11/ch-11.2.md"},
+      {"11.3 Evaluating Project Health" = "book2/chapter-11/ch-11.3.md"},
+      {"11.4 Scorecards and Risk Metrics" = "book2/chapter-11/ch-11.4.md"},
+      {"11.5 Building a Risk-Aware Culture" = "book2/chapter-11/ch-11.5.md"},
+      {"11.6 Risk Assessment for Mergers and Acquisitions" = "book2/chapter-11/ch-11.6.md"}
+    ]},
+    {"Chapter 12: Inventory and SBOMs" = [
+      {"12.1 Inventory: Knowing What You Have" = "book2/chapter-12/ch-12.1.md"},
+      {"12.2 Software Bills of Materials (SBOMs)" = "book2/chapter-12/ch-12.2.md"},
+      {"12.3 AI Bills of Materials (AI-BOM)" = "book2/chapter-12/ch-12.3.md"},
+      {"12.4 Vulnerability Databases and Their Gaps" = "book2/chapter-12/ch-12.4.md"},
+      {"12.5 License Compliance as a Parallel Concern" = "book2/chapter-12/ch-12.5.md"},
+      {"12.6 Tooling Landscape and Selection Criteria" = "book2/chapter-12/ch-12.6.md"}
+    ]},
+    {"Chapter 13: Dependency Management" = [
+      {"13.1 Dependency Selection Criteria and Vetting" = "book2/chapter-13/ch-13.1.md"},
+      {"13.2 Version Pinning, Lockfiles, and Reproducible Builds" = "book2/chapter-13/ch-13.2.md"},
+      {"13.3 Vendoring vs. Dynamic Dependency Resolution" = "book2/chapter-13/ch-13.3.md"},
+      {"13.4 Managing Dependency Updates" = "book2/chapter-13/ch-13.4.md"},
+      {"13.5 Reducing Dependency Surface Area" = "book2/chapter-13/ch-13.5.md"},
+      {"13.6 Managing Legacy Systems and Technical Debt" = "book2/chapter-13/ch-13.6.md"}
+    ]},
+    {"Chapter 14: Security Testing" = [
+      {"14.1 Fuzz Testing Dependencies Before Adoption" = "book2/chapter-14/ch-14.1.md"},
+      {"14.2 Static Analysis of Dependencies" = "book2/chapter-14/ch-14.2.md"},
+      {"14.3 Dynamic Analysis and Behavioral Testing" = "book2/chapter-14/ch-14.3.md"},
+      {"14.4 Security Regression Testing" = "book2/chapter-14/ch-14.4.md"},
+      {"14.5 Symbolic Execution and Formal Methods" = "book2/chapter-14/ch-14.5.md"},
+      {"14.6 Chaos Engineering for Supply Chain Resilience" = "book2/chapter-14/ch-14.6.md"}
+    ]},
+    {"Chapter 15: Red Teaming" = [
+      {"15.1 Supply Chain Penetration Testing" = "book2/chapter-15/ch-15.1.md"},
+      {"15.2 Red Team Exercises for Build Infrastructure" = "book2/chapter-15/ch-15.2.md"},
+      {"15.3 Tabletop Exercises for Supply Chain Incidents" = "book2/chapter-15/ch-15.3.md"},
+      {"15.4 Adversarial Simulation: Thinking Like an Attacker" = "book2/chapter-15/ch-15.4.md"}
+    ]},
+    {"Chapter 16: Securing Development Environments" = [
+      {"16.1 Developer Workstation Security" = "book2/chapter-16/ch-16.1.md"},
+      {"16.2 Secrets Management and Credential Hygiene" = "book2/chapter-16/ch-16.2.md"},
+      {"16.3 IDE and Toolchain Security" = "book2/chapter-16/ch-16.3.md"},
+      {"16.4 Code Review Practices for Security" = "book2/chapter-16/ch-16.4.md"},
+      {"16.5 Developer Psychology and Secure Behavior" = "book2/chapter-16/ch-16.5.md"}
+    ]},
+    {"Chapter 17: CI/CD Security" = [
+      {"17.1 CI/CD Security Principles" = "book2/chapter-17/ch-17.1.md"},
+      {"17.2 Zero Trust for CI/CD Pipelines" = "book2/chapter-17/ch-17.2.md"},
+      {"17.3 Non-Human Identity Management in Build Systems" = "book2/chapter-17/ch-17.3.md"},
+      {"17.4 Hermetic and Reproducible Builds" = "book2/chapter-17/ch-17.4.md"},
+      {"17.5 Build Provenance and Attestation" = "book2/chapter-17/ch-17.5.md"},
+      {"17.6 The SLSA Framework" = "book2/chapter-17/ch-17.6.md"},
+      {"17.7 Signing Artifacts: Sigstore and Transparency Logs" = "book2/chapter-17/ch-17.7.md"}
+    ]},
+    {"Chapter 18: Distribution Security" = [
+      {"18.1 Package Registry Security Features" = "book2/chapter-18/ch-18.1.md"},
+      {"18.2 Container Image Security" = "book2/chapter-18/ch-18.2.md"},
+      {"18.3 Admission Control and Policy Enforcement" = "book2/chapter-18/ch-18.3.md"},
+      {"18.4 Runtime Verification and Integrity Monitoring" = "book2/chapter-18/ch-18.4.md"}
+    ]},
+    {"Chapter 19: Incident Response" = [
+      {"19.1 Detection: Recognizing a Supply Chain Incident" = "book2/chapter-19/ch-19.1.md"},
+      {"19.2 Containment Strategies" = "book2/chapter-19/ch-19.2.md"},
+      {"19.3 Recovery and Remediation" = "book2/chapter-19/ch-19.3.md"},
+      {"19.4 Post-Incident Analysis and Improvement" = "book2/chapter-19/ch-19.4.md"},
+      {"19.5 Legal Considerations During Incidents" = "book2/chapter-19/ch-19.5.md"}
+    ]},
+    {"Chapter 20: Crisis Communication" = [
+      {"20.1 Writing Effective Security Advisories" = "book2/chapter-20/ch-20.1.md"},
+      {"20.2 Internal Communication During Incidents" = "book2/chapter-20/ch-20.2.md"},
+      {"20.3 External Communication and Disclosure" = "book2/chapter-20/ch-20.3.md"},
+      {"20.4 Media Relations and Public Perception" = "book2/chapter-20/ch-20.4.md"},
+      {"20.5 Release Notes and Changelog Security" = "book2/chapter-20/ch-20.5.md"}
+    ]},
+    {"Chapter 21: Building Security Programs" = [
+      {"21.1 Organizational Models and Ownership" = "book2/chapter-21/ch-21.1.md"},
+      {"21.2 Integrating with Existing Security Programs" = "book2/chapter-21/ch-21.2.md"},
+      {"21.3 Resource Allocation and Prioritization" = "book2/chapter-21/ch-21.3.md"},
+      {"21.4 Metrics and Reporting for Executives" = "book2/chapter-21/ch-21.4.md"},
+      {"21.5 Maturity Models and Roadmaps" = "book2/chapter-21/ch-21.5.md"},
+      {"21.6 Startups vs. Enterprises: Different Approaches" = "book2/chapter-21/ch-21.6.md"}
+    ]},
+    {"Chapter 22: Platform Engineering" = [
+      {"22.1 Internal Developer Platforms and Security" = "book2/chapter-22/ch-22.1.md"},
+      {"22.2 Secure Defaults and Guardrails" = "book2/chapter-22/ch-22.2.md"},
+      {"22.3 Supply Chain Security as a Platform Service" = "book2/chapter-22/ch-22.3.md"},
+      {"22.4 Managing AI Development Tools" = "book2/chapter-22/ch-22.4.md"}
+    ]}
+  ]},
+  {"Book 3: Governing" = [
+    {"Chapter 23: Training and Culture" = [
+      {"23.1 Supply Chain Security Awareness Programs" = "book3/chapter-23/ch-23.1.md"},
+      {"23.2 Building Supply Chain Security Expertise" = "book3/chapter-23/ch-23.2.md"},
+      {"23.3 Security Champions Programs" = "book3/chapter-23/ch-23.3.md"},
+      {"23.4 Career Paths in Supply Chain Security" = "book3/chapter-23/ch-23.4.md"}
+    ]},
+    {"Chapter 24: Open Source Maintainers" = [
+      {"24.1 Security Practices for Project Maintainers" = "book3/chapter-24/ch-24.1.md"},
+      {"24.2 Responding to Vulnerability Reports" = "book3/chapter-24/ch-24.2.md"},
+      {"24.3 Managing Security-Sensitive Contributions" = "book3/chapter-24/ch-24.3.md"},
+      {"24.4 Working with Security Researchers" = "book3/chapter-24/ch-24.4.md"},
+      {"24.5 Protecting Yourself as a Maintainer" = "book3/chapter-24/ch-24.5.md"},
+      {"24.6 Accessing Resources and Support" = "book3/chapter-24/ch-24.6.md"}
+    ]},
+    {"Chapter 25: Vendor Risk Management" = [
+      {"25.1 Evaluating Vendor Supply Chain Practices" = "book3/chapter-25/ch-25.1.md"},
+      {"25.2 Contractual Considerations" = "book3/chapter-25/ch-25.2.md"},
+      {"25.3 Open Source Consumption Policies" = "book3/chapter-25/ch-25.3.md"},
+      {"25.4 Managing Commercial Software with Open Source Components" = "book3/chapter-25/ch-25.4.md"}
+    ]},
+    {"Chapter 26: Regulatory Landscape" = [
+      {"26.1 U.S. Executive Order 14028 and Federal Requirements" = "book3/chapter-26/ch-26.1.md"},
+      {"26.2 EU Cyber Resilience Act (CRA)" = "book3/chapter-26/ch-26.2.md"},
+      {"26.3 NIST Frameworks and Guidance" = "book3/chapter-26/ch-26.3.md"},
+      {"26.4 Sector-Specific Regulations" = "book3/chapter-26/ch-26.4.md"},
+      {"26.5 International Coordination and Divergence" = "book3/chapter-26/ch-26.5.md"}
+    ]},
+    {"Chapter 27: Compliance Frameworks" = [
+      {"27.1 OWASP Standards for Supply Chain Security" = "book3/chapter-27/ch-27.1.md"},
+      {"27.2 SOC 2 and Supply Chain Controls" = "book3/chapter-27/ch-27.2.md"},
+      {"27.3 ISO 27001 and Supply Chain Requirements" = "book3/chapter-27/ch-27.3.md"},
+      {"27.4 FedRAMP Supply Chain Requirements" = "book3/chapter-27/ch-27.4.md"},
+      {"27.5 PCI DSS 4.0 and Software Supply Chain" = "book3/chapter-27/ch-27.5.md"}
+    ]},
+    {"Chapter 28: Legal Considerations" = [
+      {"28.1 Open Source Licensing and Security Implications" = "book3/chapter-28/ch-28.1.md"},
+      {"28.2 Liability Landscape for Software Supply Chains" = "book3/chapter-28/ch-28.2.md"},
+      {"28.3 Open Source Maintainer Liability Protections" = "book3/chapter-28/ch-28.3.md"},
+      {"28.4 Export Controls and Sanctions" = "book3/chapter-28/ch-28.4.md"},
+      {"28.5 Patent Risks in Dependencies" = "book3/chapter-28/ch-28.5.md"},
+      {"28.6 Criminal Liability for Intentional Attacks" = "book3/chapter-28/ch-28.6.md"}
+    ]},
+    {"Chapter 29: Industry Initiatives" = [
+      {"29.1 The Open Source Security Foundation (OpenSSF)" = "book3/chapter-29/ch-29.1.md"},
+      {"29.2 Package Registry Security Improvements" = "book3/chapter-29/ch-29.2.md"},
+      {"29.3 Coordinated Vulnerability Disclosure Ecosystem" = "book3/chapter-29/ch-29.3.md"},
+      {"29.4 Bug Bounty Programs and Security Research Incentives" = "book3/chapter-29/ch-29.4.md"},
+      {"29.5 Corporate Contributions to Open Source Security" = "book3/chapter-29/ch-29.5.md"}
+    ]},
+    {"Chapter 30: Economics" = [
+      {"30.1 Market Failures in Open Source Security" = "book3/chapter-30/ch-30.1.md"},
+      {"30.2 Models for Sustainable Security Investment" = "book3/chapter-30/ch-30.2.md"},
+      {"30.3 Insurance and Liability Considerations" = "book3/chapter-30/ch-30.3.md"},
+      {"30.4 Government Funding and Public-Private Partnerships" = "book3/chapter-30/ch-30.4.md"}
+    ]},
+    {"Chapter 31: Geopolitics" = [
+      {"31.1 Global Open Source and National Interests" = "book3/chapter-31/ch-31.1.md"},
+      {"31.2 Regional Ecosystems and Platforms" = "book3/chapter-31/ch-31.2.md"},
+      {"31.3 Sanctions and Open Source Participation" = "book3/chapter-31/ch-31.3.md"},
+      {"31.4 Open Source in Geopolitical Competition" = "book3/chapter-31/ch-31.4.md"},
+      {"31.5 The Balkanization Risk" = "book3/chapter-31/ch-31.5.md"}
+    ]},
+    {"Chapter 32: Lessons from Other Industries" = [
+      {"32.1 Pharmaceutical Supply Chain Security" = "book3/chapter-32/ch-32.1.md"},
+      {"32.2 Automotive Supply Chain Security" = "book3/chapter-32/ch-32.2.md"},
+      {"32.3 Aerospace and Defense Supply Chain Verification" = "book3/chapter-32/ch-32.3.md"},
+      {"32.4 Food Safety and Traceability" = "book3/chapter-32/ch-32.4.md"},
+      {"32.5 Financial Services Supply Chain Controls" = "book3/chapter-32/ch-32.5.md"}
+    ]},
+    {"Chapter 33: Future Directions" = [
+      {"33.1 Emerging Technologies for Defense" = "book3/chapter-33/ch-33.1.md"},
+      {"33.2 Evolving Threats and Adversary Capabilities" = "book3/chapter-33/ch-33.2.md"},
+      {"33.3 The Future of AI in Software Development" = "book3/chapter-33/ch-33.3.md"},
+      {"33.4 The Path Toward Trustworthy Software Ecosystems" = "book3/chapter-33/ch-33.4.md"},
+      {"33.5 Recommendations for Different Stakeholders" = "book3/chapter-33/ch-33.5.md"},
+      {"33.6 A Call to Action" = "book3/chapter-33/ch-33.6.md"}
+    ]}
+  ]},
+  {"Appendices" = [
+    {"Appendix A: Glossary" = "appendices/appendix-a.md"},
+    {"Appendix B: Resource Guide" = "appendices/appendix-b.md"},
+    {"Appendix C: SBOM and AI-BOM Guide" = "appendices/appendix-c.md"},
+    {"Appendix D: Security Checklist" = "appendices/appendix-d.md"},
+    {"Appendix E: Sample Policies and Templates" = "appendices/appendix-e.md"},
+    {"Appendix F: Incident Timeline" = "appendices/appendix-f.md"},
+    {"Appendix G: Ecosystem Guides" = "appendices/appendix-g.md"},
+    {"Appendix H: Compliance Mapping" = "appendices/appendix-h.md"},
+    {"Appendix I: Legal Disclaimers and Limitations" = "appendices/appendix-i.md"}
+  ]}
+]
+
+[theme]
+features = [
+  "navigation.tabs",
+  "navigation.sections",
+  "navigation.expand",
+  "navigation.indexes",
+  "navigation.path",
+  "navigation.breadcrumbs",
+  "navigation.top",
+  "search.suggest",
+  "search.highlight",
+  "content.action.edit",
+  "content.action.view"
+]
+
+[project.theme.font]
+text = "Roboto"
+code = "Roboto Mono"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme)"
+toggle.icon = "lucide/sun-moon"
+toggle.name = "Switch to light mode"
+
+# Palette toggle for light mode
+[[project.theme.palette]]
+media = "(prefers-color-scheme: light)"
+scheme = "default"
+toggle.icon = "lucide/sun"
+toggle.name = "Switch to dark mode"
+
+# Palette toggle for dark mode
+[[project.theme.palette]]
+media = "(prefers-color-scheme: dark)"
+scheme = "slate"
+toggle.icon = "lucide/moon"
+toggle.name = "Switch to system preference"
+
+[plugins]
+search = {}
+
+[markdown_extensions]
+footnotes = {}
+tables = {}
+admonition = {}
+
+[markdown_extensions."pymdownx.highlight"]
+anchor_linenums = true
+
+[markdown_extensions."pymdownx.superfences"]
+
+[markdown_extensions.toc]
+permalink = true
+
+[markdown_extensions."pymdownx.details"]
