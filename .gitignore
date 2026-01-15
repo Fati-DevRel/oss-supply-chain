@@ -1,8 +1,5 @@
-# PDF build output
-dist/
-site/
-
 # MkDocs build output
+site/
 site/_site/
 site/docs/
 site/docs/book*/
