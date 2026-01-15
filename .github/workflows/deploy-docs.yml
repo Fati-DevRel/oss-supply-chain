@@ -44,7 +44,7 @@ jobs:
       - name: Show files
         run: |
           pwd  
-          find site | sort
+          find . | sort
 
       - name: Configure Pages
         uses: actions/configure-pages@v4
