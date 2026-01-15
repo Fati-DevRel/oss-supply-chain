@@ -41,6 +41,11 @@ jobs:
         working-directory: site
         run: zensical build --clean -f ../scripts/zensical.toml
 
+      - name: Show files
+        run: |
+          pwd  
+          find site | sort
+
       - name: Configure Pages
         uses: actions/configure-pages@v4
 
