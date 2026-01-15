@@ -47,6 +47,11 @@ jobs:
           pwd  
           find . | sort
 
+      - name: Copy PDFs to site
+        run: |
+          mkdir -p site/_site
+          cp dist/*.pdf site/_site/
+
       - name: Configure Pages
         uses: actions/configure-pages@v4
 
