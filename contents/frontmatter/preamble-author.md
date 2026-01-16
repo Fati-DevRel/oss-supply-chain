@@ -10,7 +10,7 @@ Prior to Microsoft, Michael held security and software engineering roles at CBS,
 
 Michael is a regular speaker at security conferences, including the Microsoft Research Summit, LocoMocoSec, and AngelBeat workshops, where he presents on topics ranging from software supply chain security to managing open source risk in the enterprise.
 
-![author](../frontmatter/author-image.png){width="50%"}
+![author](../frontmatter/author-image.png)
 
 ---
 
