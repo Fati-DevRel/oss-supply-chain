@@ -38,6 +38,12 @@ jobs:
           cp scripts/zensical.toml site/
           find site | sort
 
+      - name: Replace fonts in SVG files
+        run: |
+          find site/docs/ -name "*.svg" | while read -r svgfile; do
+            sed -i 's/font-family="[^"]*"/font-family="Roboto, Arial, sans-serif"/g' "$svgfile"
+          done
+
       - name: Build documentation
         working-directory: site
         run: zensical build --clean -f zensical.toml
