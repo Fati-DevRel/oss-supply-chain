@@ -1,6 +1,6 @@
 [project]
-site_name = "Software Supply Chain Security"
-site_description = "A comprehensive guide to understanding, protecting, and governing the software supply chain"
+site_name = "Open Source Software Supply Chain Security"
+site_description = "A comprehensive guide to understanding, protecting, and governing the open source software supply chain"
 site_author = "Michael Scovetta"
 site_url = "https://sscsecurity.dev"
 copyright = "Parts copyright &copy; 2025 Michael Scovetta. Licensed under <a href=\"https://creativecommons.org/publicdomain/zero/1.0/\">CC0 1.0</a>. <a href=\"#__consent\">Change cookie settings.</a>"
