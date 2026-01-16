@@ -2,9 +2,10 @@
 site_name = "Software Supply Chain Security"
 site_description = "A comprehensive guide to understanding, protecting, and governing the software supply chain"
 site_author = "Michael Scovetta"
-copyright = "Copyright &copy; 2025 Michael Scovetta. Licensed under <a href=\"https://creativecommons.org/publicdomain/zero/1.0/\">CC0 1.0</a>"
-repo_name = "scovetta/oss-supply-chain-security-book"
-repo_url = "https://github.com/scovetta/oss-supply-chain-security-book"
+site_url = "https://sscsecurity.dev"
+copyright = "Parts copyright &copy; 2025 Michael Scovetta. Licensed under <a href=\"https://creativecommons.org/publicdomain/zero/1.0/\">CC0 1.0</a>"
+repo_name = "scovetta/oss-supply-chain"
+repo_url = "https://github.com/scovetta/oss-supply-chain"
 docs_dir = "docs"
 site_dir = "_site"
 nav = [
