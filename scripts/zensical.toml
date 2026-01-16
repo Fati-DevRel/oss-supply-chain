@@ -284,6 +284,10 @@ nav = [
   ]}
 ]
 
+[project.extra.analytics]
+provider = "google"
+property = "G-35M01X7JNE"
+
 [theme]
 features = [
   "navigation.tabs",
