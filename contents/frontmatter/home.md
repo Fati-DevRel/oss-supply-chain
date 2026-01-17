@@ -2,13 +2,17 @@
 
 A comprehensive guide to understanding, protecting, and governing the open source software supply chain.
 
+| Understanding the Software Supply Chain | Protecting the Software Supply Chain | Governing the Software Supply Chain |
+|:-:|:-:|:-:|
+| [![Book 1 Cover - Understanding the Software Supply Chain](../book1/cover-front.png)](book1) | [![Book 2 - Protecting the Software Supply Chain](../book2/cover-front.png)](book2) | [![Book 3 - Governing the Software Supply Chain](../book3/cover-front-640.png)](book3) |
+| [ [Read Online](book1) ]<br/>[ [Download PDF](book-1-understanding-the-software-supply-chain.pdf) ] | [ [Read Online](book2) ]<br/>[ [Download PDF](book-2-protecting-the-software-supply-chain.pdf) ] | [ [Read Online](book3) ]<br/>[ [Download PDF](book-3-governing-the-software-supply-chain.pdf) ]| 
 ---
 
 ## About This Book Series
 
 Modern software is built from thousands of components sourced from global repositories, open source projects, and third-party vendors. This interconnected ecosystem delivers unprecedented productivity but creates complex webs of trust that attackers increasingly exploit.
 
-This three-book series provides practitioners with the knowledge and tools to secure their software supply chains—from understanding the threats to implementing defenses to building organizational programs.
+This three-book series provides practitioners with the knowledge and tools to secure their software supply chains, from understanding the threats to implementing defenses to building organizational programs.
 
 ---
 
