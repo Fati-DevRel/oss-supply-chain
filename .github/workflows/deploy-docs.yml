@@ -24,11 +24,11 @@ jobs:
           python-version: '3.x'
 
       - name: Install Zensical
-        run: pip install zensical
+        run: pip install zensical==0.0.16
 
       - name: Copy content to docs directory
         run: |
-          mkdir -p site/docs
+          mkdir -p site/docs/stylesheets
           cp -r contents/book1 site/docs/
           cp -r contents/book2 site/docs/
           cp -r contents/book3 site/docs/
@@ -36,7 +36,7 @@ jobs:
           cp -r contents/appendices site/docs/
           cp contents/frontmatter/home.md site/docs/index.md
           cp scripts/zensical.toml site/
-          find site | sort
+          cp scripts/extra.css site/docs/stylesheets/
 
       - name: Replace fonts in SVG files
         run: |
@@ -47,11 +47,6 @@ jobs:
       - name: Build documentation
         working-directory: site
         run: zensical build --clean -f zensical.toml
-
-      - name: Show files
-        run: |
-          pwd  
-          find . | sort
 
       - name: Copy PDFs to site
         run: |

@@ -3,11 +3,12 @@ site_name = "Open Source Software Supply Chain Security"
 site_description = "A comprehensive guide to understanding, protecting, and governing the open source software supply chain"
 site_author = "Michael Scovetta"
 site_url = "https://sscsecurity.dev"
-copyright = "Parts copyright &copy; 2025 Michael Scovetta. Licensed under <a href=\"https://creativecommons.org/publicdomain/zero/1.0/\">CC0 1.0</a>. <a href=\"#__consent\">Change cookie settings.</a>"
+copyright = "Licensed under <a href=\"https://creativecommons.org/publicdomain/zero/1.0/\">CC0 1.0</a>. <a href=\"#__consent\">Change cookie settings.</a>"
 repo_name = "scovetta/oss-supply-chain"
 repo_url = "https://github.com/scovetta/oss-supply-chain"
 docs_dir = "docs"
 site_dir = "_site"
+extra_css = ["stylesheets/extra.css"]
 nav = [
   {"Home" = "index.md"},
   {"Frontmatter" = [
@@ -342,6 +343,7 @@ search = {}
 footnotes = {}
 tables = {}
 admonition = {}
+attr_list = {}
 
 [markdown_extensions."pymdownx.highlight"]
 anchor_linenums = true
