@@ -24,7 +24,7 @@ jobs:
           python-version: '3.x'
 
       - name: Install Zensical
-        run: pip install zensical
+        run: pip install zensical==0.0.16
 
       - name: Copy content to docs directory
         run: |
