@@ -235,7 +235,7 @@ Code signing remains a foundational supply chain control—but one that must be 
 [sigstore]: https://sigstore.dev
 [fulcio]: https://docs.sigstore.dev/certificate_authority/overview/
 [rekor]: https://docs.sigstore.dev/logging/overview/
-[cosign]: https://docs.sigstore.dev/cosign/signing/signing/
+[cosign]: https://docs.sigstore.dev/cosign/signing/overview/
 [slsa]: https://slsa.dev
 [in-toto]: https://in-toto.io
 [adobe-2012]: https://web.archive.org/web/20121018205507/http://blogs.adobe.com/asset/2012/09/inappropriate-use-of-adobe-code-signing-certificate.html

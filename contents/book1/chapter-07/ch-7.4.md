@@ -87,6 +87,7 @@ Twilio's disclosure indicated that attackers had moved beyond simple credential 
 
 - **Monday.com**: Notified customers of potential exposure
 - **Mercari**: Japanese e-commerce company disclosed impact
+- **[Rapid7][rapid7-disclosure]**: Security company disclosed that source code repositories were accessed using credentials obtained through the Codecov breach
 - **Various cryptocurrency projects**: Multiple projects reported exposure of signing keys or deployment credentials
 
 The full scope of affected organizations remains unknown. Codecov notified approximately 29,000 customers, but not all disclosed their exposure publicly. Given the types of credentials present in CI environments, the attack likely affected far more organizations than those that publicly acknowledged impact.

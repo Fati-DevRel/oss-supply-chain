@@ -148,26 +148,25 @@ Neither approach is inherently superior. Cloud platforms provide good default se
 
 The [**Supply chain Levels for Software Artifacts (SLSA)**][slsa] framework, developed by Google and now maintained by the [OpenSSF][openssf], provides a graduated approach to build integrity.
 
-SLSA defines four levels of increasing assurance:
+SLSA (v1.0) defines four levels of increasing assurance (L0-L3):
 
-**Level 1**: Documentation of the build process and provenance generation. Builds produce metadata about how software was built, but verification is limited.
+**Level 0**: No provenance guarantees. The baseline state for most software today.
 
-**Level 2**: Hosted build platform with authenticated provenance. Builds run on managed infrastructure rather than developer machines, and provenance is signed.
+**Level 1**: Provenance exists and follows the SLSA format. Builds produce metadata about how software was built, but provenance may be unsigned.
 
-**Level 3**: Hardened build platform with verified provenance. Build definitions come from version control, builds are isolated, and provenance is non-falsifiable.
+**Level 2**: Hosted build platform with signed provenance. Builds run on managed infrastructure rather than developer machines, and provenance is cryptographically signed.
 
-**Level 4**: Two-person review and hermetic builds. All changes require review, builds are fully reproducible, and dependencies are complete.
+**Level 3**: Hardened build platform with non-falsifiable provenance. Build definitions come from version control, builds are isolated, and provenance cannot be forged by the project maintainers.
 
 Each level addresses specific threats:
 
-| Threat | SLSA 1 | SLSA 2 | SLSA 3 | SLSA 4 |
-|--------|--------|--------|--------|--------|
-| Developer compromise | ✗ | ✗ | ✗ | ✓ |
-| Build compromise | ✗ | ✓ | ✓ | ✓ |
-| Modified source | ✗ | ✗ | ✓ | ✓ |
-| Dependency threats | ✗ | ✗ | ✗ | ✓ |
+| Threat | SLSA 1 | SLSA 2 | SLSA 3 |
+|--------|--------|--------|--------|
+| Build compromise | ✗ | ✓ | ✓ |
+| Provenance forgery | ✗ | ✗ | ✓ |
+| Modified source (build script) | ✗ | ✗ | ✓ |
 
-Currently, most software achieves SLSA Level 0 (no provenance) or Level 1 (basic provenance). Reaching Level 3 or 4 requires significant investment but provides meaningful protection against build infrastructure attacks.
+Currently, most software achieves SLSA Level 0 (no provenance) or Level 1 (basic provenance). Reaching Level 3 requires significant investment but provides meaningful protection against build infrastructure attacks. Best practices like reproducible builds and hermetic builds, while not required for any specific SLSA level, strengthen Level 3 compliance and enable independent verification.
 
 GitHub, npm, and PyPI have implemented provenance features aligned with SLSA, enabling packages to include verifiable build provenance. Adoption is growing but remains a minority practice.
 
@@ -194,7 +193,7 @@ The following sections examine specific incidents that illustrate build infrastr
 - **SolarWinds (Section 7.2)**: Demonstrated nation-state compromise of a commercial build system, injecting malware that reached 18,000 organizations
 - **3CX (Section 7.3)**: Showed cascading supply chain compromise where one attacked build system was used to compromise another
 - **Codecov (Section 7.4)**: Illustrated how a single compromised script executed in thousands of CI environments could exfiltrate secrets at scale
-- **XZ Utils (Section 7.6)**: Revealed sophisticated build-time manipulation where malicious code was hidden in test files and activated only during specific build conditions
+- **XZ Utils (Section 7.5)**: Revealed sophisticated build-time manipulation where malicious code was hidden in test files and activated only during specific build conditions
 
 Each case study reinforces the central lesson: build infrastructure is a high-value target that requires security investment proportional to its risk. Organizations that treat CI/CD as "just plumbing" rather than security-critical infrastructure leave themselves vulnerable to attacks that bypass all their source code security efforts.
 

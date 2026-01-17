@@ -66,7 +66,7 @@ The initial malware was a loader that:
 2. Downloaded icon files from a GitHub repository
 3. Extracted encrypted command and control (C2) URLs from the icon files
 4. Connected to C2 servers to download additional payloads
-5. In some cases, deployed a full-featured backdoor (dubbed "Gopuram" by Kaspersky)
+5. In some cases, deployed a full-featured backdoor ([dubbed "Gopuram" by Kaspersky][kaspersky-gopuram])
 
 **Multi-Platform Impact:**
 
@@ -95,9 +95,7 @@ Users on security forums and Reddit reported that endpoint detection and respons
 
 3CX support initially suggested the alerts were false positives, recommending customers allowlist the application. Many organizations, trusting their vendor, did exactly that—overriding security controls that had correctly identified malicious behavior.
 
-A 3CX support representative responded that with "hundreds if not thousands of AV solutions," the company couldn't reach out to all of them, suggesting instead that "it makes more sense if the SentinelOne customers contact their security software provider."[^3cx-forum] The response treated legitimate detections as a vendor problem rather than a security incident.
-
-[^3cx-forum]: 3CX Community Forums, "Threat alerts from SentinelOne for desktop update," March 2023, https://www.3cx.com/community/threads/threat-alerts-from-sentinelone-for-desktop-update-initiated-from-desktop-client.119806/
+A 3CX support representative [responded][3cx-forum] that with "hundreds if not thousands of AV solutions," the company couldn't reach out to all of them, suggesting instead that "it makes more sense if the SentinelOne customers contact their security software provider." The response treated legitimate detections as a vendor problem rather than a security incident.
 
 **March 29, 2023:**
 
@@ -269,4 +267,4 @@ The 3CX incident demonstrated that supply chain security cannot stop at the firs
 [mandiant-3cx]: https://www.mandiant.com/resources/blog/3cx-software-supply-chain-compromise
 [kaspersky-gopuram]: https://securelist.com/gopuram-backdoor-deployed-through-3cx-supply-chain-attack/109344/
 [3cx-advisory]: https://www.3cx.com/blog/news/desktopapp-security-alert/
-![Package manager resolution priority comparison](img/ch-7-resolution-priority.svg)
+[3cx-forum]: https://www.3cx.com/community/threads/threat-alerts-from-sentinelone-for-desktop-update-initiated-from-desktop-client.119806/
