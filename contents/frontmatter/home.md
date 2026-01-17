@@ -2,11 +2,12 @@
 
 A comprehensive guide to understanding, protecting, and governing the open source software supply chain.
 
-/// html  | div.equal-table
+/// html | div.equal-table
 | Understanding the Software Supply Chain | Protecting the Software Supply Chain | Governing the Software Supply Chain |
 |:-:|:-:|:-:|
 | [![Book 1 Cover - Understanding the Software Supply Chain](../book1/cover-front.png)](book1) | [![Book 2 - Protecting the Software Supply Chain](../book2/cover-front.png)](book2) | [![Book 3 - Governing the Software Supply Chain](../book3/cover-front-640.png)](book3) |
 | [ [Read Online](book1) ]<br/>[ [Download PDF](book-1-understanding-the-software-supply-chain.pdf) ] | [ [Read Online](book2) ]<br/>[ [Download PDF](book-2-protecting-the-software-supply-chain.pdf) ] | [ [Read Online](book3) ]<br/>[ [Download PDF](book-3-governing-the-software-supply-chain.pdf) ]|
+///
 
 ---
 
@@ -29,8 +30,6 @@ Provides a comprehensive foundation for understanding software supply chain secu
 - **Part I - Foundations**: How software is built, supply chain threats, historical attacks
 - **Part II - Attack Patterns**: Malicious packages, dependency confusion, typosquatting, build system attacks, insider threats, social engineering
 
-![Book 1 Cover - Understanding the Software Supply Chain](book1/cover.svg)
-
 [Start Reading Book 1](book1/chapter-01/)
 
 [Download PDF](book-1-understanding-the-software-supply-chain.pdf)
@@ -47,8 +46,6 @@ Translates threat knowledge into practical defenses across the development lifec
 - **Part IV - Defense & Response**: Securing development environments, CI/CD pipelines, distribution, incident response, crisis communication
 - **Part V - Operationalizing Defense**: Building security programs, platform engineering
 
-![Book 2 Cover - Protecting the Software Supply Chain](book2/cover.svg)
-
 [Start Reading Book 2](book2/chapter-11/)
 
 [Download PDF](book-2-protecting-the-software-supply-chain.pdf)
@@ -64,8 +61,6 @@ Addresses human, policy, and strategic dimensions: organizational commitment, re
 - **Part V - People & Organizations**: Training and security culture, open source maintainers, vendor risk management
 - **Part VI - Regulatory & Legal**: Regulatory landscape, compliance frameworks, legal considerations, industry initiatives
 - **Part VII - Context & Future**: Economics, geopolitics, lessons from other industries, future directions
-
-![Book 3 Cover - Governing the Software Supply Chain](book3/cover.svg)
 
 [Start Reading Book 3](book3/chapter-23/)
 
