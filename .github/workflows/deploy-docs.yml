@@ -37,7 +37,6 @@ jobs:
           cp contents/frontmatter/home.md site/docs/index.md
           cp scripts/zensical.toml site/
           cp scripts/extra.css site/docs/stylesheets/
-          find site | sort
 
       - name: Replace fonts in SVG files
         run: |
@@ -48,11 +47,6 @@ jobs:
       - name: Build documentation
         working-directory: site
         run: zensical build --clean -f zensical.toml
-
-      - name: Show files
-        run: |
-          pwd  
-          find . | sort
 
       - name: Copy PDFs to site
         run: |
