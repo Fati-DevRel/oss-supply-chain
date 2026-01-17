@@ -28,7 +28,7 @@ jobs:
 
       - name: Copy content to docs directory
         run: |
-          mkdir -p site/docs
+          mkdir -p site/docs/stylesheets
           cp -r contents/book1 site/docs/
           cp -r contents/book2 site/docs/
           cp -r contents/book3 site/docs/
@@ -36,6 +36,7 @@ jobs:
           cp -r contents/appendices site/docs/
           cp contents/frontmatter/home.md site/docs/index.md
           cp scripts/zensical.toml site/
+          cp scripts/extra.css site/docs/stylesheets/
           find site | sort
 
       - name: Replace fonts in SVG files
