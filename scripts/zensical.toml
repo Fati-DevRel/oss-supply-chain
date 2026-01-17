@@ -354,3 +354,5 @@ anchor_linenums = true
 permalink = true
 
 [markdown_extensions."pymdownx.details"]
+
+[markdown_extensions."pymdownx.blocks.html"]
