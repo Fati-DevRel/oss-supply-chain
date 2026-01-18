@@ -25,6 +25,7 @@ The attack scales efficiently. An attacker can register dozens of typosquat vari
 Research on typosquatting has identified several common patterns that attackers exploit:
 
 **Character substitution** replaces one character with a similar-looking or nearby character. Examples include:
+
 - `djang0` instead of `django` (zero for letter 'o')
 - `requets` instead of `requests` (transposed letters)
 - `loadsh` instead of `lodash` (missing character)
@@ -32,6 +33,7 @@ Research on typosquatting has identified several common patterns that attackers 
 Adjacent keyboard keys are common substitution targets: 's' for 'a', 'o' for 'i', 'n' for 'm'. Visually similar characters—'l' and '1', 'o' and '0'—also feature heavily.
 
 **Character omission** removes a character from the name:
+
 - `coffe-script` instead of `coffee-script`
 - `electon` instead of `electron`
 - `require` instead of `requires`
@@ -39,23 +41,28 @@ Adjacent keyboard keys are common substitution targets: 's' for 'a', 'o' for 'i'
 Doubled letters are particularly vulnerable to omission typos; developers frequently type `runing` when they mean `running`.
 
 **Character addition** inserts an extra character:
+
 - `lodashs` instead of `lodash`
 - `expresss` instead of `express`
 - `djangoo` instead of `django`
 
 **Character transposition** swaps adjacent characters:
+
 - `teh` instead of `the` (a famously common typo)
 - `moent` instead of `moment`
 - `reqeusts` instead of `requests`
 
 **Vowel swapping** substitutes similar vowels:
+
 - `raquests` instead of `requests`
 - `djungo` instead of `django`
 
 **Bitsquatting** exploits single-bit memory errors that could theoretically change characters:
+
 - `coogle` instead of `google` (single bit flip)
 
 **Delimiter variation** exploits confusion about package naming conventions:
+
 - `cross-env.js` instead of `cross-env`
 - `crossenv` instead of `cross-env`
 - `python_dateutil` instead of `python-dateutil`
@@ -63,16 +70,19 @@ Doubled letters are particularly vulnerable to omission typos; developers freque
 Different ecosystems use different conventions (hyphens vs. underscores, dots vs. no delimiters), and developers may apply the wrong convention when installing packages.
 
 **Scope/namespace confusion** in ecosystems with namespacing:
+
 - `@angular-devkit/core` vs. `@angulardevkit/core`
 - `@typescript_eslinter/eslint` mimicking `@typescript-eslint` (2024 attack that gained hundreds of downloads daily)
 - Public package named to resemble a scoped private package
 
 **Combosquatting** adds common suffixes or prefixes to legitimate package names, piggybacking on brand recognition while appearing to be official extensions:
+
 - `lodash-js`, `lodash-utils`, or `lodash-core` instead of `lodash`
 - `axios-api` or `django-tools` appending common terms
 - `noblox.js-async` and `noblox.js-proxy-server` targeting Roblox developers (2024 campaign)
 
 **Brandsquatting** exploits cross-ecosystem name recognition by registering a package name popular in one ecosystem within a different ecosystem:
+
 - Registering Python's `scipy` name in a Rust repository
 - Using `org.fasterxml.jackson.core` instead of `com.fasterxml.jackson.core` on Maven (exploiting `.org` vs `.com` confusion)
 
@@ -110,6 +120,7 @@ The package accumulated approximately 700 downloads before detection and removal
 The incident prompted npm to implement additional monitoring for typosquatting patterns and led to broader industry awareness of the threat. It demonstrated that even security-conscious developers could fall victim to simple typing errors, and that package installation hooks provided immediate, powerful code execution.
 
 Similar incidents have occurred across ecosystems:
+
 - **`` `colourama` ``** (PyPI, 2018): Typosquat of the popular `colorama` package
 - **`` `python3-dateutil` ``** (PyPI, 2019): Exploited confusion between pip and OS package naming
 - **`` `electorn` ``** (npm, various): Multiple typosquats of the popular Electron framework
@@ -126,6 +137,7 @@ In March 2024, [Check Point researchers identified a massive typosquatting campa
 The typosquatting names were generated through randomization, producing simplistic variations like `reqjuests` and `tensoflom`. The packages targeted popular libraries including `requests`, `colorama`, and `CapMonster Cloud`.
 
 The malicious payload, linked to the **zgRAT** malware family, was embedded in `setup.py` and executed during installation. It would:
+
 - Steal cryptocurrency wallets
 - Harvest browser data (cookies, extension data, credentials)
 - Establish persistence mechanisms to survive reboots
@@ -142,6 +154,7 @@ A December 2025 attack on Maven Central demonstrated how typosquatting technique
 The attack exploited the `.org` vs `.com` domain pattern familiar from web typosquatting, applied to Maven's namespace structure. The attackers registered the domain `fasterxml.org` just days before deploying the malicious package.
 
 The malware showed significant sophistication:
+
 - **Spring Boot integration**: Disguised as a `@Configuration` class that auto-executed via Spring's bean initialization
 - **Anti-analysis techniques**: Heavy code obfuscation including attempts to confuse LLM-based code analyzers
 - **Multi-stage delivery**: AES-encrypted configuration with remote C2 infrastructure

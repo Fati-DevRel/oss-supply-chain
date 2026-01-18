@@ -99,6 +99,7 @@ This response—honest about his struggles—provided exactly the opening the at
 With the pressure campaign establishing that the project needed additional maintainers, and Jia Tan having built a track record of helpful contributions, the path to maintainer access was clear. By late 2022, Jia Tan had commit access to the repository.
 
 Over 2023, Jia Tan became increasingly central to the project:
+
 - Making releases
 - Responding to issues
 - Reviewing contributions from others
@@ -132,6 +133,7 @@ Fake accounts can vouch for attackers' contributions, provide positive reviews, 
 **Detection Challenges:**
 
 Sock puppets are difficult to detect:
+
 - Each account may have different creation dates, activity patterns, and communication styles
 - Some accounts may make genuine contributions alongside their coordinated activity
 - The accounts' true connection may only become apparent after the attack succeeds

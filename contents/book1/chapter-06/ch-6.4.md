@@ -32,6 +32,7 @@ The malicious code in flatmap-stream was carefully designed to evade detection:
 4. When executed, it would steal Bitcoin wallet credentials and private keys
 
 This conditional execution meant that the malicious code:
+
 - Would not trigger during npm's security scanning (which wouldn't have the Copay context)
 - Would not affect the millions of event-stream users who didn't use Copay
 - Would specifically target Copay users' cryptocurrency
@@ -141,6 +142,7 @@ The code introduced an infinite loop that would hang any application using the l
 **Community Response:**
 
 Reactions were divided:
+
 - Some viewed Squires' actions as legitimate protest against exploitation of open source labor
 - Others condemned the sabotage as violating user trust and potentially harming innocent developers
 - The incident intensified discussions about funding open source maintainers
@@ -189,6 +191,7 @@ Later versions removed the destructive payload but retained `peacenotwar` for di
 **Community and Legal Response:**
 
 The incident sparked intense debate:
+
 - Some viewed targeting Russian/Belarusian systems as legitimate protest against the invasion
 - Security researchers emphasized that this was malware by any reasonable definition
 - GitHub did not remove the repository, citing that the code was disclosed in the repository
@@ -229,6 +232,7 @@ PyPI malware campaigns demonstrate recurring techniques:
 **Detection Challenges:**
 
 PyPI's historically more limited security infrastructure compared to npm meant:
+
 - Longer dwell times before malicious package discovery
 - Less sophisticated automated detection
 - Greater reliance on community reporting

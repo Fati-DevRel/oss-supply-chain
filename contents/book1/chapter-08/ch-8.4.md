@@ -92,6 +92,7 @@ Identifying insider threats is inherently difficult because insiders operate wit
 **Distinguishing Intent:**
 
 A maintainer who introduces a vulnerability may be:
+
 - Making an honest mistake
 - Writing code carelessly due to time pressure
 - Deliberately inserting a backdoor
@@ -101,6 +102,7 @@ The code itself may not reveal which. Even retrospective analysis after an incid
 **Baseline Establishment:**
 
 Behavioral anomaly detection requires understanding normal behavior. In open source:
+
 - Contribution patterns vary widely among legitimate maintainers
 - Projects may not track detailed activity histories
 - Maintainers' involvement levels change over time for legitimate reasons
@@ -108,6 +110,7 @@ Behavioral anomaly detection requires understanding normal behavior. In open sou
 **Limited Monitoring:**
 
 Enterprise environments can implement detailed logging, data loss prevention, and behavioral analytics. Most open source projects lack:
+
 - Comprehensive audit logging beyond git history
 - Behavioral monitoring systems
 - Security teams reviewing maintainer activity
@@ -192,6 +195,7 @@ Open source thrives on low barriers to contribution. Security vetting conflicts 
 **The Enterprise Contrast:**
 
 Enterprises can:
+
 - Conduct background checks before granting access
 - Require identity verification and documentation
 - Implement NDAs with legal consequences

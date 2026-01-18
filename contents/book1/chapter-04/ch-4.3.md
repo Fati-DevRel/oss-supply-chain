@@ -11,6 +11,7 @@ Not all dependencies are equally important. Several factors contribute to a depe
 **Functional criticality** measures how essential the dependency is to your application's core purpose. A web application's authentication library is more functionally critical than its logging formatter. Compromise of authentication affects every user and every operation; compromise of formatting affects operational visibility but not core functionality.
 
 Questions to assess functional criticality:
+
 - Would the application function at all without this dependency?
 - Does this dependency implement core business logic or security controls?
 - How many features or code paths depend on this component?
@@ -18,6 +19,7 @@ Questions to assess functional criticality:
 **Privilege level** indicates what capabilities the dependency has when it executes. Some dependencies run with elevated privileges: access to credentials, network connections, filesystem operations, or system calls. Others are purely computational, transforming data without external interactions.
 
 High-privilege dependency categories include:
+
 - **Cryptographic libraries** that protect data confidentiality and integrity
 - **Authentication and authorization** components that control access
 - **Serialization libraries** that parse untrusted input (a common vulnerability source)
@@ -30,6 +32,7 @@ A compromised cryptographic library can undermine every security control that de
 **Execution context** matters alongside privilege level. Dependencies that execute server-side in production environments pose different risks than those that run only in development. Build-time dependencies execute with developer credentials and CI/CD secrets. Test dependencies may run in isolated environments with limited access.
 
 Map your dependencies to execution contexts:
+
 - Production runtime (highest exposure)
 - Build and CI/CD (access to secrets, publishing credentials)
 - Development environment (access to source code, developer credentials)
@@ -95,6 +98,7 @@ Certain categories of dependencies warrant elevated scrutiny regardless of speci
 **Package managers and installers** (pip, npm, cargo) determine what code enters your environment. Compromise of package management tools could affect every subsequent installation.
 
 For dependencies in these categories, we recommend:
+
 - More thorough evaluation before adoption
 - Active monitoring for security advisories
 - Faster patching when vulnerabilities are disclosed
@@ -123,12 +127,14 @@ Creating a business impact mapping requires collaboration between security teams
 Synthesizing these factors into actionable prioritization, we recommend a tiered approach:
 
 **Tier 1: Crown Jewels** (highest priority)
+
 - Direct dependencies implementing security-critical functions (crypto, auth, serialization)
 - Dependencies with access to highly sensitive data
 - SPOFs with no alternatives
 - Dependencies in production runtime with network/filesystem access
 
 For Tier 1 dependencies:
+
 - Conduct thorough evaluation before adoption
 - Review maintainer security practices and project health
 - Monitor security advisories actively
@@ -136,33 +142,39 @@ For Tier 1 dependencies:
 - Consider security audits for the most critical
 
 **Tier 2: Important** (elevated priority)
+
 - Direct dependencies with elevated privileges
 - Common mode failure risks (widely shared dependencies)
 - Build-time dependencies with secret access
 - Dependencies processing external input
 
 For Tier 2 dependencies:
+
 - Evaluate before adoption using standard criteria
 - Monitor security advisories
 - Patch critical vulnerabilities within weeks
 - Review when major versions change
 
 **Tier 3: Standard** (normal priority)
+
 - Direct dependencies with limited privilege
 - Well-maintained packages from reputable sources
 - Dependencies with alternatives available
 
 For Tier 3 dependencies:
+
 - Apply standard dependency management practices
 - Update on regular cadence
 - Address vulnerabilities based on severity and exploitability
 
 **Tier 4: Low priority**
+
 - Development-only dependencies in isolated environments
 - Test utilities without production exposure
 - Transitive dependencies of Tier 3 packages
 
 For Tier 4 dependencies:
+
 - Include in regular update cycles
 - Address high-severity vulnerabilities
 - Limited proactive scrutiny

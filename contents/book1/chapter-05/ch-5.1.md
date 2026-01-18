@@ -87,6 +87,7 @@ For supply chain consumers, time-to-patch determines how long you are exposed be
 A patch existing does not mean a patch is deployed. **Propagation** is the process by which patches move from maintainer release to production deployment across affected systems.
 
 Propagation involves multiple stages:
+
 1. Maintainer releases patched version
 2. Distribution channels (npm, PyPI, Linux distributions) make patched version available
 3. Organizations detect that updates are available

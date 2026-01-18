@@ -38,6 +38,7 @@ The replacement was surgical:
 5. The resulting binary was malicious, but source code inspection would reveal nothing
 
 This approach meant that:
+
 - Source code in version control remained clean
 - Code reviews would not detect the modification
 - Build-time security scans of source code would miss the threat
@@ -83,6 +84,7 @@ DNS queries to randomly-appearing subdomains are notoriously difficult to distin
 The attackers did not exploit all 18,000 victims. Instead, they reviewed the information returned via DNS beacons and selected high-value targets for further exploitation. Only an estimated 100-200 organizations received second-stage payloads.
 
 This selectivity served two purposes:
+
 1. It limited exposure—fewer active intrusions meant lower detection probability
 2. It focused resources on valuable targets rather than attempting to exploit everyone
 
@@ -134,6 +136,7 @@ On April 15, 2021, [the White House issued a statement][whitehouse-attribution]:
 The statement accompanied sanctions against Russian entities and individuals, as well as the expulsion of Russian diplomats.
 
 The attribution aligned with the attack's characteristics:
+
 - Targeting of government agencies and major corporations aligned with intelligence collection priorities
 - Sophistication and patience consistent with well-resourced nation-state actors
 - Selective exploitation focused on high-value targets rather than financial gain

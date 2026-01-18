@@ -58,6 +58,7 @@ This has implications for shared development environments or CI/CD systems where
 CI/CD systems often run Git operations that trigger hooks. A `post-checkout` hook in a CI environment executes with the CI runner's privileges—potentially accessing secrets, deployment credentials, and other sensitive resources.
 
 **Defense**: 
+
 - Audit any scripts that install hooks from repository content
 - In CI/CD, consider running with `core.hooksPath` set to an empty directory
 - Monitor for unexpected configuration changes
@@ -92,6 +93,7 @@ Submodule references include both the URL and a specific commit hash. Attackers 
 - More practically, compromise the repository so that legitimate-looking commits contain malicious code
 
 **Defense**:
+
 - Pin submodules to specific commit hashes (default behavior, but verify)
 - Audit `.gitmodules` for suspicious URLs
 - Consider vendoring dependencies instead of using submodules for critical code
@@ -104,6 +106,7 @@ Git was designed on Linux, where filesystems are case-sensitive. macOS and Windo
 **The Classic Attack:**
 
 A repository contains two files that differ only in case:
+
 - `Makefile` (legitimate)
 - `MAKEFILE` (malicious)
 
@@ -124,11 +127,13 @@ This could allow writing to locations outside the repository.
 **`.git` Directory Collision:**
 
 Particularly dangerous is case collision with the `.git` directory:
+
 - A file or directory named `.GIT/config` might not be recognized as part of the Git metadata on Linux
 - On Windows or macOS, it could be treated as equivalent to `.git/config`
 - Malicious configuration could be injected through this mismatch
 
 **Defense**:
+
 - Keep Git updated; recent versions include case-collision detection
 - Use `git config core.protectHFS true` on macOS
 - Use `git config core.protectNTFS true` on Windows
@@ -183,6 +188,7 @@ Without signature verification, anyone can create commits claiming to be from an
 - Organizations may lack key verification infrastructure
 
 **Defense**:
+
 - Implement signature verification for releases and merges to protected branches
 - Use GitHub's vigilant mode to flag unsigned commits
 - Establish key verification procedures for maintainers
@@ -212,6 +218,7 @@ The unauthenticated `git://` protocol allows man-in-the-middle attacks:
 Despite its risks, some repositories still offer `git://` URLs.
 
 **Defense**:
+
 - Use HTTPS or SSH exclusively; avoid `git://` protocol
 - Configure `git config --global protocol.file.allow user` to require explicit consent for file protocol
 - Keep Git client updated; protocol parser vulnerabilities are regularly discovered
@@ -250,6 +257,7 @@ Shallow clones (`git clone --depth 1`) fetch limited history. This:
 - Limits forensic analysis after incidents
 
 **Defense**:
+
 - Enable branch protection on critical branches
 - Require signed commits for protected branches
 - Implement audit logging for force pushes and reference deletions
@@ -266,6 +274,7 @@ git clone --recurse-submodules <malicious-repo>
 ```
 
 This fetches and checks out submodules, potentially triggering:
+
 - Hooks in the submodules (if somehow present)
 - Case-collision exploits
 - Path traversal through submodule configuration
@@ -292,6 +301,7 @@ Certain `.git/config` directives can be set through `.gitattributes` or included
 This could potentially import configuration from files in the repository tree.
 
 **Defense**:
+
 - Clone untrusted repositories with `--no-checkout` initially
 - Audit `.gitmodules` and `.gitattributes` before full checkout
 - Avoid `--recurse-submodules` for untrusted repositories

@@ -168,6 +168,7 @@ On December 14, 2023, attackers [compromised a former Ledger employee's npm acco
 **Technical Details:**
 
 The malicious code:
+
 - Injected fraudulent transaction requests
 - Made malicious prompts appear legitimate
 - Targeted users already interacting with cryptocurrency applications
@@ -203,6 +204,7 @@ Understanding the distinction between client-side and build-time supply chains c
 **Hybrid Patterns:**
 
 Many modern applications use both patterns:
+
 - npm packages bundled at build time (build-time supply chain)
 - Analytics and advertising loaded at runtime (client-side supply chain)
 - Some libraries loaded from CDNs at runtime for caching
@@ -241,6 +243,7 @@ Detecting client-side supply chain compromises requires different approaches tha
 **Real User Monitoring (RUM):**
 
 Tools that observe actual browser behavior can detect anomalies:
+
 - Scripts making unexpected network requests
 - DOM modifications inconsistent with legitimate functionality
 - Error rates indicating changed script behavior
@@ -248,6 +251,7 @@ Tools that observe actual browser behavior can detect anomalies:
 **Synthetic Monitoring:**
 
 Automated browsing that records script behavior over time:
+
 - Compare script content between crawls
 - Alert on unexpected new scripts
 - Detect changes in script behavior
@@ -255,6 +259,7 @@ Automated browsing that records script behavior over time:
 **Script Inventorying:**
 
 Maintaining awareness of what scripts load:
+
 - Browser developer tools (Network tab)
 - Third-party script monitoring services (Feroot, Source Defense, Jscrambler)
 - Content Security Policy reports
@@ -262,6 +267,7 @@ Maintaining awareness of what scripts load:
 **Client-Side Protection Platforms:**
 
 Specialized tools for runtime JavaScript security:
+
 - **Feroot**: Third-party script monitoring and control
 - **Source Defense**: Client-side protection platform
 - **Akamai Page Integrity Manager**: JavaScript monitoring
@@ -276,6 +282,7 @@ These tools observe script execution in production, detecting suspicious behavio
 1. **Audit third-party scripts.** Know what's loading on your pages. Use browser developer tools to inventory scripts and their sources.
 
 2. **Use SRI for static libraries.** When loading stable libraries from CDNs, implement Subresource Integrity:
+
    ```html
    <script src="https://cdn.example.com/lib.js"
            integrity="sha384-..."

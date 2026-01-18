@@ -45,6 +45,7 @@ Five minutes answering these questions provides meaningful risk awareness withou
 Not every situation warrants the same level of analysis. Matching approach intensity to risk level ensures security investment goes where it matters.
 
 **Comprehensive threat modeling** is appropriate for:
+
 - Initial architecture design for new systems
 - Adoption of Tier 1 (crown jewel) dependencies
 - Significant changes to build or deployment infrastructure
@@ -52,12 +53,14 @@ Not every situation warrants the same level of analysis. Matching approach inten
 - Periodic (annual or semi-annual) review of critical systems
 
 **Lightweight threat modeling** suits:
+
 - Routine dependency updates
 - Adoption of Tier 2-3 dependencies
 - Minor feature additions
 - Regular development cycle activities
 
 **Minimal review** may suffice for:
+
 - Tier 4 dependencies (development tools, test utilities)
 - Patch-level updates to stable dependencies
 - Dependencies already covered by organizational standards
@@ -109,6 +112,7 @@ Threat modeling produces insights that should inform decisions beyond the immedi
 **Connect models to action tracking** by linking identified risks to remediation work. Threat models that produce findings but no action provide limited value. Integration with issue tracking ensures identified risks receive appropriate follow-up.
 
 **Tools for collaboration** should match organizational practices. Options include:
+
 - Wiki platforms (Confluence, Notion) for narrative documentation
 - Diagramming tools (Threat Dragon, Draw.io) for visual models
 - Issue trackers (Jira, GitHub Issues) for action item management

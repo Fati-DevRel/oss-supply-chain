@@ -81,6 +81,7 @@ The activation conditions included:
 - Not building with debugging enabled
 
 This meant that:
+
 - Developers building from source for testing would not trigger the backdoor
 - Security researchers examining the source would not find obvious malicious code
 - Only distribution package builds—destined for end users—would include the backdoor
@@ -153,16 +154,19 @@ The XZ Utils backdoor was discovered before it reached stable Linux distribution
 The immediate response was swift:
 
 **March 29, 2024** (disclosure day):
+
 - [CISA issued an alert][cisa-xz] recommending downgrade to XZ Utils 5.4.x
 - Affected distributions began reverting to safe versions
 - GitHub suspended the XZ Utils repository and Jia Tan's account
 
 **March 30-31, 2024**:
+
 - Distributions released emergency updates
 - Fedora, Debian, and others published advisories
 - Security teams worldwide audited systems for exposure
 
 **Subsequent weeks**:
+
 - [CVE-2024-3094][cve-2024-3094] was assigned with maximum severity (CVSS 10.0)
 - Detailed technical analyses were published
 - The open source community began examining other projects for similar patterns

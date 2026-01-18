@@ -101,6 +101,7 @@ Organizations can protect against dependency confusion through several complemen
 **Use scoped or namespaced packages**: npm scopes (`@company/package-name`), Python namespace packages, and similar mechanisms bind package names to verified organizational identities. Attackers cannot register packages under your scope/namespace. This is the most robust protection.
 
 Migrate internal packages to scoped naming:
+
 - npm: `@yourcompany/internal-utils` instead of `internal-utils`
 - PyPI: Consider using a distinct prefix and/or namespace packages
 

@@ -36,6 +36,7 @@ The chain works as follows:
 4. **Certificate chain verification** traces from an end entity certificate through intermediates to a trusted root.
 
 When you verify a signed binary, your system checks:
+
 - Is the signature cryptographically valid?
 - Does the certificate chain lead to a trusted root?
 - Is the certificate unexpired and unrevoked?

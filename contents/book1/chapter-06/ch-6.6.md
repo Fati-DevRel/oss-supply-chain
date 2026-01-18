@@ -159,6 +159,7 @@ Defending against slopsquatting requires adjustments to development workflows an
 Package registries face challenges defending against slopsquatting:
 
 **Proactive registration is difficult**: Registries could theoretically identify likely hallucinated names and reserve them, but this would require:
+
 - Continuous AI querying to identify hallucination patterns
 - Registration of potentially millions of names
 - Policy decisions about name reservation without packages
@@ -248,23 +249,27 @@ Several factors drive the creation of AI slop reports:
 The flood of AI slop reports creates several serious problems:
 
 **Time drain on maintainers:**
+
 - Each report must be triaged, investigated, and validated before rejection
 - Maintainers often spend 30-60 minutes per slop report determining it's fake
 - Time spent on slop is time not spent fixing real vulnerabilities or developing features
 - For volunteer maintainers, this represents an unsustainable burden
 
 **Erosion of bug bounty effectiveness:**
+
 - Legitimate security researchers may abandon bug bounty platforms frustrated by competition with AI slop
 - Organizations might withdraw from bug bounty programs overwhelmed by invalid submissions
 - The signal-to-noise ratio deteriorates, making it harder to identify real vulnerabilities
 - Platform trust declines as both researchers and projects question the value
 
 **Risk of missed vulnerabilities:**
+
 - Maintainers experiencing triage fatigue may become less thorough in their reviews
 - Real vulnerabilities buried in slop reports may be dismissed or delayed
 - The diminishing returns on time spent reviewing reports may lead maintainers to abandon formal security reporting channels
 
 **Unearned rewards:**
+
 - Some AI slop reports slip through initial triage and receive bounty payments
 - This incentivizes more slop generation and demoralizes legitimate researchers
 

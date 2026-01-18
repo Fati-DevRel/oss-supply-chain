@@ -130,6 +130,7 @@ Submit many legitimate contributions to build both trust and review fatigue. Whe
 **Timing Attacks:**
 
 Submit malicious PRs when maintainers are likely to be fatigued:
+
 - Late Friday afternoon (pressure to clear backlog before weekend)
 - During major releases (attention focused elsewhere)
 - Immediately after another large contribution (reviewer already invested in the contributor)

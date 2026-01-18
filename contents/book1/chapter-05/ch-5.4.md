@@ -96,6 +96,7 @@ Organizations can reduce their patching gap through deliberate process and tooli
 **Automated dependency updates** fundamentally change patching dynamics. Tools like **Dependabot**, **Renovate**, and **Snyk** automatically open pull requests when dependency updates are available. This shifts the burden from actively monitoring for updates to reviewing and merging proposed changes—a more tractable task.
 
 Configuration options allow tuning automation to organizational risk tolerance:
+
 - Auto-merge patch-level updates after tests pass
 - Require human review for minor and major version updates
 - Prioritize security updates over feature updates
@@ -106,6 +107,7 @@ Configuration options allow tuning automation to organizational risk tolerance:
 **Robust testing pipelines** enable confident patching. Investments in automated testing—unit tests, integration tests, end-to-end tests—pay security dividends by enabling faster update cycles. Teams that can quickly validate update safety can patch faster.
 
 **Risk acceptance frameworks** provide structure for vulnerability management decisions. Not every vulnerability can be patched immediately; formal frameworks ensure that:
+
 - Risk acceptance is explicit rather than default
 - Acceptance requires appropriate authorization
 - Accepted risks are documented with rationale

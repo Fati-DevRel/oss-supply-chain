@@ -211,6 +211,7 @@ Attack trees identify where defenses provide the greatest leverage:
 **Nodes affecting detection probability** guide monitoring investment. If an attack path has low detection probability, adding monitoring at that stage improves overall security posture.
 
 We recommend prioritizing defenses that:
+
 1. Block the lowest-cost attack paths (raising the bar for all attackers)
 2. Address convergence points (providing leverage against multiple paths)
 3. Create detection opportunities for paths that cannot be blocked

@@ -38,6 +38,7 @@ Credential stuffing is automated and operates at scale. Attackers obtain breach 
 Targeted phishing campaigns impersonate registries, platforms, or collaborators. A maintainer might receive an email appearing to be from npm security, warning of suspicious activity and requesting login to verify their account. The link leads to a convincing replica of the npm login page that captures credentials.
 
 Sophisticated phishing campaigns use:
+
 - Lookalike domains (npm-js.com instead of npmjs.com)
 - Valid TLS certificates (easy to obtain for any domain)
 - Personalized content referencing the maintainer's actual packages
@@ -56,6 +57,7 @@ SIM swapping requires social engineering carrier support or exploiting carrier s
 **Malware on Developer Machines:**
 
 Infostealers—malware designed to exfiltrate credentials, cookies, and authentication tokens—specifically target developers. Once installed, they harvest:
+
 - Browser stored passwords and cookies
 - SSH keys and git credentials
 - Package manager authentication tokens
@@ -82,6 +84,7 @@ The attack was detected within hours because the malicious version broke builds�
 In August 2019, attackers compromised the RubyGems account of a rest-client gem maintainer. The `rest-client` gem was widely used for HTTP requests in Ruby applications, with millions of downloads.
 
 The attacker published versions 1.6.10 through 1.6.13 containing malicious code that:
+
 - Collected system information
 - Exfiltrated environment variables
 - Sent data to Pastebin URLs controlled by the attacker
@@ -94,6 +97,7 @@ The compromise was discovered when developers noticed unexpected Pastebin URLs i
 The ua-parser-js incident, detailed in Section 6.4, demonstrated the speed and impact of account compromise. On October 22, 2021, attackers gained access to the maintainer's npm account and published three malicious versions within minutes.
 
 The malicious packages included:
+
 - A cryptocurrency miner for Linux systems
 - A credential-stealing trojan for Windows systems
 
@@ -159,6 +163,7 @@ Account recovery processes are designed for convenience—helping legitimate use
 **Social Engineering Support:**
 
 Attackers contact registry support teams, impersonate maintainers, and request account recovery. Convincing scenarios might include:
+
 - "I lost my phone and my backup codes"
 - "My email was hacked and I need to update my contact information"
 - "I'm being locked out and need urgent help to publish a security fix"
@@ -277,6 +282,7 @@ npm's provenance feature links published packages to specific source repositorie
 **Audit Logging:**
 
 Improved audit logging helps detect suspicious activity:
+
 - Logins from unusual locations
 - Publications at unusual times
 - Multiple packages published in rapid succession

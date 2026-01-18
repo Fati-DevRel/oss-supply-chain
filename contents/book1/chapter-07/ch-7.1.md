@@ -68,6 +68,7 @@ Once inside, attackers can modify build scripts, inject code during compilation,
 **Malicious build scripts** introduce risk through the build configuration itself. Build definitions (`Jenkinsfile`, `.github/workflows/*.yml`, `.gitlab-ci.yml`) are code that executes with high privilege. An attacker who can modify these files—through compromised credentials, social engineering, or malicious pull requests—controls what happens during builds.
 
 Build scripts can:
+
 - Download and execute arbitrary code
 - Modify source before compilation
 - Replace dependencies with malicious versions
@@ -109,12 +110,14 @@ The choice of CI/CD platform and its configuration significantly affects build s
 **Cloud-hosted platforms** (GitHub Actions, GitLab CI, CircleCI, Azure Pipelines) offer:
 
 *Advantages:*
+
 - Managed security by specialized teams
 - Isolation between customer builds
 - Regular updates and security patching
 - No infrastructure maintenance burden
 
 *Risks:*
+
 - Shared infrastructure with other customers
 - Limited visibility into platform security
 - Potential for platform-wide compromises
@@ -123,12 +126,14 @@ The choice of CI/CD platform and its configuration significantly affects build s
 **Self-hosted platforms** (Jenkins, self-hosted GitLab, BuildKite agents) offer:
 
 *Advantages:*
+
 - Complete control over infrastructure
 - No shared-tenancy risks
 - Custom security controls possible
 - Full visibility into build environment
 
 *Risks:*
+
 - Security responsibility falls on the organization
 - Maintenance and patching burden
 - Often inadequate security investment

@@ -60,6 +60,7 @@ Windows has historically lacked a unified package management story, leading to a
 **Chocolatey** emerged as a community solution, providing a package manager experience similar to Linux distributions. Chocolatey packages often wrap existing Windows installers, downloading software from vendor sites and automating installation. The security model depends heavily on the individual package maintainer and the trustworthiness of the wrapped installer source.
 
 Chocolatey offers:
+
 - Community-maintained packages (less vetted)
 - A commercial tier with additional verification for enterprise use
 - Package checksums to verify downloads

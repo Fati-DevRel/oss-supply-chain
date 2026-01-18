@@ -140,6 +140,7 @@ Goal: Execute malicious code in production
 ```
 
 Each node can be annotated with:
+
 - **Likelihood**: How probable is this attack step?
 - **Cost to attacker**: What resources does this step require?
 - **Detection probability**: How likely is this step to be detected?

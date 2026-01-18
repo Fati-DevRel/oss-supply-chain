@@ -44,6 +44,7 @@ The `1337qq-js` package (discovered December 30, 2019) demonstrated this techniq
 **Runtime code execution** occurs when application code imports and uses the malicious package. Unlike installation hooks, runtime execution requires the package to be imported, but it provides access to the application's context, data, and network connections.
 
 Runtime attacks often target:
+
 - Environment variables and configuration
 - Filesystem access to secrets and credentials
 - Network connections for exfiltration
@@ -135,6 +136,7 @@ These approaches don't directly detect malicious code but establish trust throug
 Package registries have implemented various security measures:
 
 **npm** employs multiple detection layers:
+
 - Automated scanning of new package publications
 - Security holds that prevent installation of flagged packages
 - Community reporting and security team investigation
@@ -143,17 +145,20 @@ Package registries have implemented various security measures:
 npm processes security reports and can place packages in "security hold" status, preventing installation while investigation proceeds. High-profile incident response (like ua-parser-js) occurs within hours of detection.
 
 **PyPI** has improved security measures significantly:
+
 - Malware scanning using multiple analysis tools
 - Automated removal of packages matching known malicious patterns
 - Support for Trusted Publishers reducing credential compromise risk
 - Two-factor authentication requirements for critical projects
 
 **RubyGems** employs:
+
 - Automated scanning for known malicious patterns
 - Community reporting and moderation
 - Integration with security databases
 
 **Maven Central** uses:
+
 - Namespace verification preventing impersonation
 - Immutable artifacts (published content cannot be modified)
 - Security scanning though detection capabilities vary
@@ -165,11 +170,13 @@ Detection effectiveness varies across registries. Larger registries with more re
 The conflict between attackers and defenders creates evolutionary pressure on both sides:
 
 **Attackers adapt to detection:**
+
 - When registries block known obfuscation patterns, attackers develop new encoding schemes
 - When behavioral analysis detects immediate network connections, attackers add delays
 - When community reporting catches typosquatting, attackers invest in long-term trust building
 
 **Defenders develop new capabilities:**
+
 - Machine learning identifies novel patterns without explicit signatures
 - Provenance verification shifts from code analysis to trust chain validation
 - Ecosystem-wide monitoring identifies coordinated campaigns

@@ -196,6 +196,7 @@ The package gains users, downloads, and potentially dependent packages. The atta
 **Stage 3: Preparation**
 
 The attacker introduces seemingly innocuous changes that prepare for the attack:
+
 - Adding new dependencies that will later contain malicious code
 - Introducing code patterns that enable future obfuscation
 - Establishing legitimate-appearing infrastructure
