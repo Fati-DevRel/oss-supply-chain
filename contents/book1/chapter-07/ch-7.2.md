@@ -237,5 +237,5 @@ The incident established expectations that supply chain attacks would become mor
 [microsoft-sunburst]: https://www.microsoft.com/en-us/security/blog/2020/12/18/analyzing-solorigate-the-compromised-dll-file-that-started-a-sophisticated-cyberattack-and-how-microsoft-defender-helps-protect/
 [fireeye-sunburst]: https://www.mandiant.com/resources/blog/evasive-attacker-leverages-solarwinds-supply-chain-compromises-with-sunburst-backdoor
 [cisa-ed-21-01]: https://www.cisa.gov/news-events/directives/ed-21-01-mitigate-solarwinds-orion-code-compromise
-[whitehouse-attribution]: https://www.whitehouse.gov/briefing-room/statements-releases/2021/04/15/fact-sheet-imposing-costs-for-harmful-foreign-activities-by-the-russian-government/
+[whitehouse-attribution]: https://bidenwhitehouse.archives.gov/briefing-room/statements-releases/2021/04/15/fact-sheet-imposing-costs-for-harmful-foreign-activities-by-the-russian-government/
 [eo-14028]: https://www.federalregister.gov/documents/2021/05/17/2021-10460/improving-the-nations-cybersecurity

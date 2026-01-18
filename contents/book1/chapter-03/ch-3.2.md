@@ -133,5 +133,5 @@ For most organizations, the highest-priority surfaces are those combining broad 
 
 [slsa]: https://slsa.dev/
 [sonatype-2024]: https://www.sonatype.com/state-of-the-software-supply-chain/introduction
-[vulcan-hallucination]: https://vulcan.io/blog/ai-hallucinations-package-risk
+[vulcan-hallucination]: https://www.bleepingcomputer.com/news/security/ai-hallucinated-code-dependencies-become-new-supply-chain-risk/
 ![Attack surfaces across the software supply chain with defenses at each stage](img/ch-3-attack-surfaces.svg)

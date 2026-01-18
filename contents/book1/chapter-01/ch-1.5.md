@@ -80,8 +80,8 @@ The chapters that follow provide the framework for responding to this urgency: u
 [^xz-oss-security]: oss-security mailing list, "backdoor in upstream xz/liblzma leading to ssh server compromise" (2024-03-29). https://www.openwall.com/lists/oss-security/2024/03/29/4
 [^eo-14028]: The White House, Executive Order 14028 (May 12, 2021). https://bidenwhitehouse.archives.gov/briefing-room/presidential-actions/2021/05/12/executive-order-on-improving-the-nations-cybersecurity/
 [^omb-m-22-18]: OMB Memorandum M-22-18, *Enhancing the Security of the Software Supply Chain through Secure Software Development Practices* (Sept 14, 2022). https://www.whitehouse.gov/wp-content/uploads/2022/09/M-22-18.pdf
-[^omb-m-23-16]: OMB Memorandum M-23-16, *Update to Memorandum M-22-18: Enhancing the Security of the Software Supply Chain through Secure Software Development Practices* (June 9, 2023). https://www.whitehouse.gov/wp-content/uploads/2023/06/M-23-16.pdf
-[^circia]: CISA, Cyber Incident Reporting for Critical Infrastructure Act of 2022 (CIRCIA). https://www.cisa.gov/resources-tools/resources/cyber-incident-reporting-critical-infrastructure-act-2022-circia
+[^omb-m-23-16]: OMB Memorandum M-23-16, *Update to Memorandum M-22-18: Enhancing the Security of the Software Supply Chain through Secure Software Development Practices* (June 9, 2023). https://www.gsa.gov/system/files/M-23-16-Update-to-M-22-18-Enhancing-Software-Security.pdf
+[^circia]: CISA, Cyber Incident Reporting for Critical Infrastructure Act of 2022 (CIRCIA). https://www.cisa.gov/topics/cyber-threats-and-advisories/information-sharing/cyber-incident-reporting-critical-infrastructure-act-2022-circia
 [^eu-cra]: Regulation (EU) 2024/2847 (Cyber Resilience Act), Official Journal of the European Union. https://eur-lex.europa.eu/eli/reg/2024/2847/oj
 [^sonatype-2024]: Sonatype, *2024 State of the Software Supply Chain Report* (October 2024). https://www.sonatype.com/state-of-the-software-supply-chain/introduction
 ![Three landmark incidents that elevated supply chain security to board-level priority](img/ch-1-landmark-incidents.svg)

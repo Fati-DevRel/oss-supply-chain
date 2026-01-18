@@ -352,7 +352,7 @@ The emergence of slopsquatting and AI slop reports illustrates how new technolog
 [nesbitt-slopsquatting]: https://simonwillison.net/2025/Apr/12/andrew-nesbitt/
 [spracklen-study]: https://arxiv.org/abs/2406.10279
 [socket-slopsquatting]: https://socket.dev/blog/slopsquatting-how-ai-hallucinations-are-fueling-a-new-class-of-supply-chain-attacks
-[trendmicro-ai-code]: https://www.trendmicro.com/vinfo/us/security/news/cybercrime-and-digital-threats/ai-generated-code-what-are-the-security-risks
+[trendmicro-ai-code]: https://www.trendmicro.com/en_us/what-is/ai/security-risks.html
 [socket]: https://socket.dev/
 [snyk]: https://snyk.io/
 ![Slopsquatting: AI hallucination exploitation](img/ch-6-slopsquatting-attack.svg)

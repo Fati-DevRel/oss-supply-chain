@@ -233,5 +233,5 @@ The Codecov attack demonstrated that supply chain compromise does not require mo
 
 [codecov-disclosure]: https://about.codecov.io/security-update/
 [hashicorp-disclosure]: https://discuss.hashicorp.com/t/hcsec-2021-12-codecov-security-event-and-hashicorp-gpg-key-exposure/23512
-[twilio-disclosure]: https://www.twilio.com/en-us/blog/incident-report-codecov-security-event-impacting-twilio-segment
+[twilio-disclosure]: https://www.twilio.com/en-us/blog/company/communications/response-to-the-codecov-vulnerability
 [rapid7-disclosure]: https://www.rapid7.com/blog/post/2021/05/13/rapid7s-response-to-codecov-incident/
