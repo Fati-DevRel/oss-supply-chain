@@ -261,6 +261,6 @@ Code review remains valuable—it catches bugs, improves quality, and raises the
 
 [hypocrite-commits]: https://github.com/QiushiWu/qiushiwu.github.io/blob/main/papers/OpenSourceInsecurity.pdf
 [trojan-source]: https://trojansource.codes/
-[code-review-quality]: https://www.microsoft.com/en-us/research/publication/modern-code-review-a-case-study-at-google/
+[code-review-quality]: https://research.google/pubs/modern-code-review-a-case-study-at-google/
 [kroah-hartman-response]: https://lore.kernel.org/lkml/YH%2FfM%2FTsbmcZzwnX@kroah.com/
 ![Typosquatting techniques matrix](img/ch-8-typosquatting-techniques.svg)
