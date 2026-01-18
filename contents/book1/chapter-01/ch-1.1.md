@@ -2,7 +2,7 @@
 
 Software development has undergone a fundamental transformation over the past three decades. Where engineers once wrote applications largely from scratch—crafting everything from data structures to network protocols—today's developers assemble software from a vast ecosystem of pre-built components. This shift has enabled unprecedented speed and capability, but it has also created a complex web of dependencies that most organizations barely understand. To appreciate why software supply chain security matters, we must first understand how profoundly the practice of building software has changed.
 
-#### From Artisan Craft to Industrial Assembly
+## From Artisan Craft to Industrial Assembly
 
 In the early days of commercial software development, teams wrote the majority of their code internally. A banking application in the 1980s might include custom implementations of sorting algorithms, date calculations, and string manipulation—functionality that today's developers would never consider building themselves. This approach was time-consuming and expensive, but it offered a form of implicit security: organizations knew exactly what was in their software because they had written it.
 
@@ -15,7 +15,7 @@ Maven Central launched in 2002, providing Java developers with a centralized rep
 
 This timeline matters because it illustrates how quickly we have moved from a world of carefully vetted, internally developed code to one where applications are assembled from thousands of external components with minimal scrutiny. The infrastructure for distributing and consuming open source software matured far faster than the practices for securing it.
 
-#### The Modern Application: A Tower of Dependencies
+## The Modern Application: A Tower of Dependencies
 
 Contemporary applications are not so much written as composed. When a developer creates a new project, they immediately inherit a complex tree of **dependencies**—external packages that their code relies upon, plus the packages those packages rely upon, and so on. This phenomenon of nested requirements creates what we call **transitive dependencies**: components that exist in your application not because you chose them, but because something you chose depends on them.
 
@@ -29,7 +29,7 @@ Consider a concrete example: a developer begins building a simple web applicatio
 
 This is not a JavaScript-specific phenomenon. A new Spring Boot project in Java will bring in approximately 50-70 direct dependencies, which expand to several hundred when transitive dependencies are included. A Python machine learning project using TensorFlow inherits a dependency tree spanning scientific computing libraries (NumPy, SciPy), data manipulation tools (pandas), and visualization packages (Matplotlib)—each with their own nested dependencies.
 
-#### Microservices and Distributed Architectures
+## Microservices and Distributed Architectures
 
 The shift toward component-based development has been amplified by architectural changes in how applications are designed. The **microservices** pattern, which gained prominence in the 2010s, decomposes applications into dozens or hundreds of independently deployable services. Each service typically has its own codebase, its own dependencies, and often its own technology stack.
 
@@ -37,7 +37,7 @@ While microservices offer benefits in scalability and team autonomy, they multip
 
 Container technologies like Docker have further complicated the picture. A containerized application includes not just application-level dependencies but also operating system packages, language runtimes, and system libraries. The Linux Foundation's Census II study found that the most widely deployed open source software often resides in this infrastructure layer—packages like curl, OpenSSL, and glibc that developers rarely think about but that form the foundation of modern computing.
 
-#### Build, Buy, or Borrow: The Modern Calculus
+## Build, Buy, or Borrow: The Modern Calculus
 
 Today's development teams face a continuous series of decisions about whether to build functionality themselves, purchase commercial solutions, or incorporate open source components. This **build-buy-borrow** calculus has shifted dramatically toward borrowing, driven by competitive pressures and the extraordinary quality of available open source software.
 
@@ -45,7 +45,7 @@ The economics are compelling. Why spend weeks implementing a date parsing librar
 
 This rational economic choice, multiplied across thousands of decisions in every organization, has created the modern software supply chain. We have traded direct control for leverage, accepting external dependencies in exchange for the ability to build more capable software more quickly. This trade-off has been overwhelmingly positive for innovation, but it has created security challenges that most organizations are only beginning to understand.
 
-#### The AI-Assisted Development Frontier
+## The AI-Assisted Development Frontier
 
 The most recent evolution in software development adds another dimension to supply chain complexity. **AI coding assistants** like GitHub Copilot, Claude Code, Cline, and OpenAI Codex have rapidly become standard tools for developers, with GitHub reporting[^github-copilot] that Copilot generates an average of 46% of code in files where it is enabled (based on accepted suggestions in enabled files, as measured in 2023). These tools suggest code, recommend packages, and generate entire functions based on natural language prompts.
 
@@ -55,7 +55,7 @@ More fundamentally, AI-generated code raises questions about provenance and unde
 
 This is not an argument against AI-assisted development—these tools offer genuine productivity benefits that organizations cannot ignore. But it does mean that supply chain security practices must evolve to account for a world where humans exercise less direct control over what enters their applications.
 
-#### The Bargain We Have Made
+## The Bargain We Have Made
 
 Modern software development practices have enabled remarkable innovation. Applications that would have taken years to build can now be assembled in months. Small teams can create products that compete with those from large enterprises. The collective intelligence of the open source community has raised the quality floor for all software.
 

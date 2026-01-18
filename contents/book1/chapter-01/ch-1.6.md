@@ -2,7 +2,7 @@
 
 The previous section documented why supply chain security has become urgent now, but the underlying vulnerabilities are not recent discoveries. The fundamental challenges of trusting code you did not write, verifying that software has not been tampered with, and securing distribution channels have existed since the earliest days of computing. Understanding this history provides perspective: we are not facing an unprecedented crisis but rather the latest chapter in a long-running challenge that technology changes have amplified rather than created.
 
-#### The Foundational Insight: Trusting Trust
+## The Foundational Insight: Trusting Trust
 
 The intellectual foundation for understanding supply chain security was laid in 1984, when Ken Thompson delivered his Turing Award lecture, "Reflections on Trusting Trust."[^thompson-1984b] Thompson, co-creator of Unix and the C programming language, presented a thought experiment that remains the clearest articulation of why software supply chains are inherently vulnerable.
 
@@ -16,7 +16,7 @@ Thompson's attack was a demonstration, not an actual exploitation, but its impli
 
 Decades later, Thompson's insight remains the theoretical foundation for supply chain security. Modern attacks are more sophisticated and operate at different points in the supply chain, but they exploit the same fundamental principle: we cannot verify everything we trust, and that gap between trust and verification is where attacks succeed.
 
-#### Early Viruses and the Physical Distribution Era
+## Early Viruses and the Physical Distribution Era
 
 Before the internet made software distribution instantaneous and global, software traveled on physical media: magnetic tapes, floppy disks, and later CD-ROMs. This physical distribution created its own supply chain vulnerabilities, which early malware authors learned to exploit.
 
@@ -28,7 +28,7 @@ Perhaps the most striking historical parallel to modern supply chain attacks was
 
 These historical incidents share a pattern with modern supply chain attacks: malicious code propagated through channels users trusted precisely because those channels were official or appeared legitimate. The infection came not from suspicious sources but from the normal process of acquiring and using software.
 
-#### The Network Distribution Revolution
+## The Network Distribution Revolution
 
 The transition from physical media to network-based distribution fundamentally changed the supply chain threat model. This evolution occurred gradually through the 1990s and 2000s, with different software categories transitioning at different rates.
 
@@ -40,7 +40,7 @@ The shift to **continuous integration and deployment** further accelerated distr
 
 Cloud-based development infrastructure added another dimension. Build systems moved from local machines to hosted services. Source code migrated to platforms like GitHub and GitLab. Container images began flowing through Docker Hub and other registries. Each of these transitions created new nodes in the supply chain—new points where trust was required and where compromise could have cascading effects.
 
-#### Lessons History Teaches
+## Lessons History Teaches
 
 Several lessons emerge from this historical trajectory that inform how we should approach supply chain security today.
 

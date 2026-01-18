@@ -4,7 +4,7 @@ The SolarWinds and 3CX attacks compromised build systems to inject malicious cod
 
 This attack exemplifies the risks of the `curl | bash` pattern—fetching and executing remote scripts without verification—that remains common in CI/CD configurations despite its obvious security implications.
 
-#### Background: Codecov and Code Coverage Reporting
+## Background: Codecov and Code Coverage Reporting
 
 **Codecov** provides code coverage analytics for software development teams. When tests run, they generate coverage data showing which lines of code were executed. Codecov collects this data, aggregates it across branches and pull requests, and provides visibility into testing effectiveness.
 
@@ -21,7 +21,7 @@ This single line would fetch the current version of the uploader script from Cod
 
 [Codecov claimed][codecov-disclosure] over 29,000 organizations as customers, including many prominent technology companies. Each customer potentially ran the bash uploader in their CI/CD pipelines, often multiple times per day across many repositories.
 
-#### The Attack: Modifying the Bash Uploader
+## The Attack: Modifying the Bash Uploader
 
 On January 31, 2021, attackers gained access to Codecov's systems through a vulnerability in their Docker image creation process. This access allowed them to modify the bash uploader script hosted at `codecov.io/bash`.
 
@@ -45,7 +45,7 @@ The modification was designed to be inconspicuous:
 - It failed silently if the attacker's server was unreachable
 - The script otherwise functioned normally, uploading coverage data as expected
 
-#### The Attack Chain: From CI Environment to Credential Theft
+## The Attack Chain: From CI Environment to Credential Theft
 
 CI/CD environments are treasure troves of credentials. To function, pipelines need access to:
 
@@ -67,7 +67,7 @@ The attack chain proceeded as follows:
 
 The beauty of this approach, from an attacker's perspective, was its scalability. Rather than compromising each target organization individually, the attackers positioned themselves at a chokepoint where credentials from thousands of organizations would flow automatically.
 
-#### Affected Organizations
+## Affected Organizations
 
 The two-month window during which the modified script was active (January 31 - April 1, 2021) affected numerous organizations. Several disclosed their exposure:
 
@@ -92,7 +92,7 @@ Twilio's disclosure indicated that attackers had moved beyond simple credential 
 
 The full scope of affected organizations remains unknown. Codecov notified approximately 29,000 customers, but not all disclosed their exposure publicly. Given the types of credentials present in CI environments, the attack likely affected far more organizations than those that publicly acknowledged impact.
 
-#### Detection and Response Timeline
+## Detection and Response Timeline
 
 **January 31, 2021**: Attackers modify the Codecov bash uploader script.
 
@@ -108,7 +108,7 @@ The full scope of affected organizations remains unknown. Codecov notified appro
 
 The attack persisted for approximately two months before detection. Detection occurred not through automated security tools but through a customer who happened to verify the script's integrity—a practice that, while recommended, is rarely implemented.
 
-#### The `curl | bash` Anti-Pattern
+## The `curl | bash` Anti-Pattern
 
 The Codecov attack reignited discussion of the `curl | bash` pattern—piping a remote script directly into a shell for execution.
 
@@ -132,7 +132,7 @@ This pattern is convenient but fundamentally insecure:
 
 Despite these risks, `curl | bash` remains prevalent because it is convenient. A single line in documentation can install complex software or configure integrations. The Codecov incident demonstrated the cost of this convenience.
 
-#### Secure Alternatives
+## Secure Alternatives
 
 Organizations should move away from fetching and executing remote scripts without verification:
 
@@ -181,7 +181,7 @@ bash ./scripts/codecov-uploader.sh
 
 Following the incident, Codecov released a standalone uploader binary with GPG signatures, eliminating the need for bash script execution.
 
-#### Broader CI/CD Security Implications
+## Broader CI/CD Security Implications
 
 The Codecov incident highlighted systemic risks in CI/CD security:
 
@@ -193,7 +193,7 @@ The Codecov incident highlighted systemic risks in CI/CD security:
 
 **Limited visibility**: Many organizations could not easily determine whether they had executed the modified script. CI logs may not have retained sufficient detail.
 
-#### Lessons Learned
+## Lessons Learned
 
 The Codecov incident provides specific lessons for CI/CD security:
 

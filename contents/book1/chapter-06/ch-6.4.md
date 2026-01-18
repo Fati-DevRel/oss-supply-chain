@@ -2,7 +2,7 @@
 
 Abstract analysis of attack techniques provides valuable understanding, but detailed examination of actual incidents reveals nuances that generalized discussions miss. This section presents five case studies of notable package attacks, each illustrating different attack vectors, motivations, and discovery mechanisms. Together, these incidents provide a representative sample of the threats facing package ecosystems and the lessons defenders should extract from them.
 
-#### event-stream: The Long Game of Trust (2018)
+## event-stream: The Long Game of Trust (2018)
 
 The **event-stream incident** remains the most significant example of social engineering in the open source ecosystem, demonstrating how attackers can patiently build trust to gain access to widely-used packages.
 
@@ -54,7 +54,7 @@ This conditional execution meant that the malicious code:
 
 4. **Community vigilance matters.** The attack was discovered through community member investigation, not automated scanning.
 
-#### ua-parser-js: Credential Compromise at Scale (2021)
+## ua-parser-js: Credential Compromise at Scale (2021)
 
 The **ua-parser-js compromise** demonstrated how a single credential compromise could immediately affect millions of users.
 
@@ -101,7 +101,7 @@ The attack was discovered when the legitimate maintainer received notifications 
 
 4. **Monitoring for unexpected publications is valuable.** The maintainer's quick discovery of unauthorized publications enabled rapid response.
 
-#### colors.js and faker.js: Maintainer Protest (2022)
+## colors.js and faker.js: Maintainer Protest (2022)
 
 The **colors.js and faker.js incident** raised fundamental questions about maintainer trust, demonstrating that the threat model must include maintainers themselves.
 
@@ -155,7 +155,7 @@ Reactions were divided:
 
 4. **Registry oversight has limits.** Registries struggle to distinguish intentional sabotage from legitimate (if poorly tested) changes.
 
-#### node-ipc: Geopolitical Protestware (2022)
+## node-ipc: Geopolitical Protestware (2022)
 
 The **node-ipc incident** introduced the term **protestware** into security discussions, demonstrating how geopolitical events could manifest in the software supply chain.
 
@@ -204,7 +204,7 @@ The incident sparked intense debate:
 
 4. **All dependencies require evaluation.** The `peacenotwar` package was new and had no legitimate purpose but was automatically installed as a dependency.
 
-#### PyPI Malware Campaigns: Patterns and Trends
+## PyPI Malware Campaigns: Patterns and Trends
 
 While npm has dominated package attack news, **Python Package Index (PyPI)** has experienced increasingly sophisticated malware campaigns demonstrating evolving attacker techniques.
 
@@ -235,7 +235,7 @@ PyPI's historically more limited security infrastructure compared to npm meant:
 
 Recent improvements including malware scanning, Trusted Publishers, and enhanced authentication have improved PyPI's security posture, but the ecosystem remains an active attacker target.
 
-#### Synthesis: Common Patterns Across Incidents
+## Synthesis: Common Patterns Across Incidents
 
 These case studies reveal recurring patterns that inform defensive strategy:
 

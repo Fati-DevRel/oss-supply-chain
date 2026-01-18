@@ -4,7 +4,7 @@ The previous section established that known, unpatched vulnerabilities cause mor
 
 Understanding why the patching gap exists is the first step toward closing it. For supply chain security specifically, the challenge is compounded because many vulnerabilities exist in code you did not write and cannot directly modify.
 
-#### The Scale of the Problem
+## The Scale of the Problem
 
 Research consistently shows that patching takes longer than security teams would like and policy often demands:
 
@@ -21,7 +21,7 @@ For supply chain dependencies specifically, patching is often slower than for di
 [qualys-trurisk]: https://blog.qualys.com/vulnerabilities-threat-research/2023/03/28/risk-fact-1-speed-is-the-key-to-out-maneuvering-adversaries
 [snyk-transitive]: https://docs.snyk.io/scan-with-snyk/snyk-open-source/manage-vulnerabilities/vulnerability-fix-types
 
-#### Why Patching Fails: Technical Factors
+## Why Patching Fails: Technical Factors
 
 Several technical factors contribute to delayed patching:
 
@@ -35,7 +35,7 @@ The JavaScript ecosystem's experience with `left-pad` and other incidents has ma
 
 **Embedded and constrained systems** cannot always be updated. IoT devices, industrial controllers, and medical equipment may lack update mechanisms or require vendor involvement to patch. Some systems must be taken offline for updates—unacceptable for critical infrastructure. Others run on hardware that cannot support newer software versions.
 
-#### Why Patching Fails: Organizational Factors
+## Why Patching Fails: Organizational Factors
 
 Technical challenges are often compounded by organizational dynamics:
 
@@ -47,7 +47,7 @@ Technical challenges are often compounded by organizational dynamics:
 
 **Competing priorities** push patching down the list. Product releases, customer issues, revenue-generating features, and other urgent matters consume attention. Security patching competes with everything else demanding engineering time, and it often loses unless vulnerability severity is extreme or regulatory pressure applies.
 
-#### The Transitive Dependency Challenge
+## The Transitive Dependency Challenge
 
 Supply chain dependencies create patching challenges that go beyond what organizations face with their own code:
 
@@ -69,7 +69,7 @@ Each step in this chain introduces delay. If any maintainer is slow, unresponsiv
 
 **Dependency conflicts prevent updates.** Sometimes you cannot update a vulnerable dependency because doing so would conflict with version requirements of other dependencies. Resolving these conflicts may require updating multiple packages simultaneously, increasing complexity and risk.
 
-#### The Exploitability Rationalization
+## The Exploitability Rationalization
 
 One common reason for deferred patching deserves specific attention: the claim that a vulnerability is "not exploitable in our context."
 
@@ -89,7 +89,7 @@ However, this rationalization is frequently misused:
 
 We recommend treating the "not exploitable" determination as risk acceptance requiring formal documentation and periodic review, not as a reason to ignore vulnerabilities indefinitely.
 
-#### Strategies for Closing the Gap
+## Strategies for Closing the Gap
 
 Organizations can reduce their patching gap through deliberate process and tooling investments:
 
@@ -118,7 +118,7 @@ CISA's SSVC framework (discussed in Section 5.3) provides a structured approach 
 
 **SBOM-driven vulnerability management** connects vulnerability databases to actual deployments. Software Bills of Materials enable automated matching of disclosed CVEs to deployed software, reducing the discovery portion of the patching process.
 
-#### Recommendations
+## Recommendations
 
 Closing the patching gap requires commitment across technical, process, and organizational dimensions:
 

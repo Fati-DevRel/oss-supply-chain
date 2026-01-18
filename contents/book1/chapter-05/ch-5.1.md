@@ -8,7 +8,7 @@ The vulnerability lifecycle can be conceptualized as a series of stages:
 
 Each stage presents distinct challenges and opportunities for defenders. The time spent in each stage varies dramatically—from hours to decades—and these timing dynamics fundamentally shape supply chain risk.
 
-#### Introduction: How Vulnerabilities Enter Code
+## Introduction: How Vulnerabilities Enter Code
 
 Vulnerabilities are born when code is written, reviewed, tested, and merged—yet still contains exploitable flaws. This happens constantly, across all software projects, regardless of the developers' skill or intentions.
 
@@ -22,7 +22,7 @@ Vulnerabilities are born when code is written, reviewed, tested, and merged—ye
 
 The introduction stage is significant because vulnerabilities introduced today may not be discovered for years. Every line of code merged represents potential future risk.
 
-#### Dormancy: The Silent Period
+## Dormancy: The Silent Period
 
 After introduction, vulnerabilities enter a **dormancy period** during which they exist in code but remain unknown. This period can be remarkably long.
 
@@ -34,7 +34,7 @@ During dormancy, the vulnerability is exploitable by anyone who discovers it. Th
 
 From a supply chain perspective, dormancy means you cannot rely on vulnerability databases to assess current exposure. Your dependencies may contain undiscovered vulnerabilities that attackers have already found. The absence of known vulnerabilities does not mean the absence of vulnerabilities.
 
-#### Discovery: Finding the Flaw
+## Discovery: Finding the Flaw
 
 Vulnerability discovery occurs through various channels, each with different implications for what happens next.
 
@@ -52,7 +52,7 @@ Tools like **AFL** (American Fuzzy Lop), **libFuzzer**, and [Google's OSS-Fuzz][
 
 The method of discovery significantly affects subsequent stages. Researcher discovery typically leads to coordinated disclosure with time for patch development. Wild exploitation may mean attackers have had extended access before defenders learn of the problem.
 
-#### Disclosure: Revealing the Vulnerability
+## Disclosure: Revealing the Vulnerability
 
 Once discovered, vulnerabilities must be disclosed for remediation to occur. **Vulnerability disclosure** is the process of communicating information about a security flaw to those who need to know—typically the software maintainer, affected users, and the broader security community.
 
@@ -70,7 +70,7 @@ The disclosure process typically includes assigning a **CVE (Common Vulnerabilit
 
 For open source supply chains, disclosure dynamics matter because the projects you depend on may have disclosure processes ranging from sophisticated (Linux kernel security team) to nonexistent (abandoned side project). Understanding how your dependencies handle vulnerability reports influences your exposure during the disclosure-to-patch window.
 
-#### Patching: Developing the Fix
+## Patching: Developing the Fix
 
 Once a vulnerability is disclosed (or discovered internally), maintainers must develop, test, and release a fix. The **time-to-patch** measures the duration from disclosure to patch availability.
 
@@ -82,7 +82,7 @@ Time-to-patch statistics vary widely by ecosystem and project. Research consiste
 
 For supply chain consumers, time-to-patch determines how long you are exposed between disclosure (when attackers learn of the vulnerability) and patch availability (when you can remediate). During this window, you may need compensating controls—Web Application Firewalls, network restrictions, or feature disabling—to reduce risk.
 
-#### Propagation: Reaching End Users
+## Propagation: Reaching End Users
 
 A patch existing does not mean a patch is deployed. **Propagation** is the process by which patches move from maintainer release to production deployment across affected systems.
 
@@ -101,7 +101,7 @@ The **vulnerability half-life** measures how long until 50% of vulnerable instan
 
 Some vulnerabilities have extremely long tails. The EternalBlue vulnerability (CVE-2017-0144) was patched by Microsoft in March 2017, but vulnerable systems remained common years later—as the WannaCry and NotPetya ransomware attacks demonstrated.
 
-#### Remediation: The (Incomplete) End
+## Remediation: The (Incomplete) End
 
 Remediation occurs when a vulnerable instance is updated to a patched version, replaced with an alternative, or removed from service. Complete remediation across all affected systems is rarely achieved.
 
@@ -109,7 +109,7 @@ For any significant vulnerability, a long tail of unpatched systems persists ind
 
 This long tail creates persistent risk. Attackers can exploit known vulnerabilities in the confident expectation that some targets remain vulnerable. The economics favor attackers: they need only find one vulnerable system, while defenders must patch every instance.
 
-#### A Complete Lifecycle Example: Log4Shell
+## A Complete Lifecycle Example: Log4Shell
 
 The Log4Shell vulnerability (CVE-2021-44228) illustrates the complete lifecycle:
 
@@ -127,7 +127,7 @@ The Log4Shell vulnerability (CVE-2021-44228) illustrates the complete lifecycle:
 
 **Remediation (incomplete)**: Years after disclosure, Log4Shell-vulnerable systems persist. The vulnerability is regularly included in CISA's most-exploited-vulnerabilities lists.
 
-#### Supply Chain Implications
+## Supply Chain Implications
 
 The vulnerability lifecycle has distinct implications for supply chain security:
 

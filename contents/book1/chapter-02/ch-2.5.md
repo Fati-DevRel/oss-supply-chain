@@ -2,7 +2,7 @@
 
 The language-specific package ecosystems surveyed in Section 2.4 represent only one layer of the software supply chain. Beneath them lies another stratum: operating system package managers that distribute software at the system level. These two layers operate on fundamentally different models with distinct security properties. Understanding when to use each—and how they interact—is essential for managing supply chain risk in production environments.
 
-#### Linux Distribution Packaging
+## Linux Distribution Packaging
 
 Every major Linux distribution maintains its own package repository, managed by distribution maintainers who serve as intermediaries between upstream projects and end users. When you install a package using `apt` on Debian or Ubuntu, `dnf` on Fedora or RHEL, `pacman` on Arch Linux, or `zypper` on openSUSE, you are not receiving software directly from its original authors. You are receiving software that has been reviewed, rebuilt, patched, and tested by distribution teams.
 
@@ -22,7 +22,7 @@ The trade-off for these security benefits is timeliness. Distribution packages a
 
 This version lag has security implications in both directions. Older packages have had more time for vulnerabilities to be discovered and are not vulnerable to zero-days in features that have not been released. But they may also lack security improvements from recent upstream releases, and organizations may need specific versions for compatibility or functionality.
 
-#### The Distribution Security Model
+## The Distribution Security Model
 
 The security model of distribution packaging rests on trusting the distribution itself. When you configure a Debian system, you are trusting:
 
@@ -36,7 +36,7 @@ For major distributions with decades of history, robust governance, and professi
 
 Smaller or newer distributions may lack the resources for thorough security processes. Third-party repositories (Ubuntu PPAs, Fedora COPR, Arch User Repository) operate outside the main distribution's security model, often providing packages with minimal vetting. Using third-party repositories reintroduces many of the risks that distribution packaging is designed to mitigate.
 
-#### macOS Package Management
+## macOS Package Management
 
 macOS presents a more fragmented package management landscape. Apple's official distribution mechanism—the Mac App Store—focuses primarily on GUI applications rather than developer tools and libraries. This gap has been filled by community package managers.
 
@@ -53,7 +53,7 @@ Homebrew's security model is lighter than Linux distributions:
 
 For production macOS servers or security-sensitive development environments, the lack of dedicated security processes in macOS package managers is a consideration. Organizations may supplement Homebrew with additional vulnerability scanning or maintain curated internal formulae.
 
-#### Windows Package Management
+## Windows Package Management
 
 Windows has historically lacked a unified package management story, leading to a proliferation of approaches.
 
@@ -71,7 +71,7 @@ Chocolatey offers:
 
 Windows servers and enterprise desktops increasingly rely on configuration management tools (SCCM, Intune) that provide software distribution with organizational control, rather than public package repositories. This approach provides security through organizational vetting but requires significant infrastructure investment.
 
-#### Language Packages vs. System Packages
+## Language Packages vs. System Packages
 
 Understanding when to use system package managers versus language-specific package managers is crucial for managing supply chain risk. Each approach has distinct characteristics:
 
@@ -100,7 +100,7 @@ Understanding when to use system package managers versus language-specific packa
 
 This hybrid model provides defense in depth: system packages benefit from distribution security processes, while language packages provide the flexibility applications require. The container boundary can isolate application dependencies from system components.
 
-#### Supply Chain Implications
+## Supply Chain Implications
 
 The choice between package managers has significant supply chain implications.
 
@@ -112,7 +112,7 @@ The choice between package managers has significant supply chain implications.
 
 **Update velocity**: Language packages update frequently, requiring continuous attention to dependency updates. System packages from stable distributions update less often, with security fixes backported rather than new versions released. This difference affects both security (more updates means more chances to introduce issues) and operations (more updates means more testing).
 
-#### Practical Recommendations
+## Practical Recommendations
 
 For organizations seeking to manage supply chain risk across package types, we recommend:
 

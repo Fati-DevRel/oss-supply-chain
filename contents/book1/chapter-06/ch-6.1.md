@@ -4,7 +4,7 @@ Package managers have made software dependency management remarkably convenient.
 
 These attacks are particularly insidious because they exploit human error rather than technical vulnerabilities. A single keystroke mistake can be the difference between installing a trusted package and executing an attacker's code.
 
-#### How Typosquatting Works
+## How Typosquatting Works
 
 **Typosquatting** in the package ecosystem involves registering package names that are visually or typographically similar to popular legitimate packages. When developers mistype package names—whether due to keyboard errors, memory lapses, or confusion about correct spelling—they may install the attacker's package instead of the intended one.
 
@@ -20,7 +20,7 @@ The malicious payload often executes during installation, before the developer h
 
 The attack scales efficiently. An attacker can register dozens of typosquat variations for popular packages with minimal effort. Each registration costs nothing on most registries and requires only a few minutes. The attacker then waits for victims to make mistakes—a passive attack that requires no active exploitation.
 
-#### Common Typosquatting Patterns
+## Common Typosquatting Patterns
 
 Research on typosquatting has identified several common patterns that attackers exploit:
 
@@ -78,7 +78,7 @@ Different ecosystems use different conventions (hyphens vs. underscores, dots vs
 
 A [2016 academic study by Nikolai Tschacher][tschacher-2016] at the University of Hamburg demonstrated the scale of the threat: his experiment uploading typosquatting packages to PyPI, npm, and RubyGems infected over 17,000 machines within days, with half executing the code as administrator. This early research proved that typing errors occur frequently enough to make the attack profitable for adversaries.
 
-#### Namesquatting: Claiming Territory
+## Namesquatting: Claiming Territory
 
 **Namesquatting** differs from typosquatting in its mechanism but shares the goal of exploiting package name trust. Namesquatters register package names that:
 
@@ -91,7 +91,7 @@ Namesquatting may not involve malicious payloads initially. Some namesquatters s
 
 Registry policies on namesquatting vary. npm has policies against reserving names without intent to publish meaningful content but enforcement is inconsistent. PyPI generally operates on a first-come, first-served basis with limited active policing of squatted names.
 
-#### Case Study: crossenv (2017)
+## Case Study: crossenv (2017)
 
 The **crossenv incident** on npm in August 2017 became a defining example of typosquatting attacks against package registries.
 
@@ -114,7 +114,7 @@ Similar incidents have occurred across ecosystems:
 - **`` `python3-dateutil` ``** (PyPI, 2019): Exploited confusion between pip and OS package naming
 - **`` `electorn` ``** (npm, various): Multiple typosquats of the popular Electron framework
 
-#### Case Study: PyPI March 2024 Campaign (500+ Packages)
+## Case Study: PyPI March 2024 Campaign (500+ Packages)
 
 In March 2024, [Check Point researchers identified a massive typosquatting campaign][checkpoint-pypi] on PyPI comprising over 500 malicious packages deployed in two waves. The attack's sophistication lay in its automation and scale:
 
@@ -132,7 +132,7 @@ The malicious payload, linked to the **zgRAT** malware family, was embedded in `
 
 The attack was severe enough that [PyPI suspended new user registration and project creation][pypi-suspension] for 10 hours on March 28, 2024—an unprecedented step demonstrating the operational impact of large-scale typosquatting campaigns.
 
-#### Case Study: Maven Central Jackson Typosquatting (2025)
+## Case Study: Maven Central Jackson Typosquatting (2025)
 
 A December 2025 attack on Maven Central demonstrated how typosquatting techniques adapt to different ecosystems. [Aikido Security discovered][aikido-jackson] a malicious package exploiting namespace confusion:
 
@@ -150,7 +150,7 @@ The malware showed significant sophistication:
 
 The attack was identified and removed within 1.5 hours of reporting to Maven Central, but it demonstrated that typosquatting remains effective even in ecosystems with more structured naming conventions.
 
-#### Detection Challenges and Registry Responses
+## Detection Challenges and Registry Responses
 
 Detecting typosquatting is conceptually simple but operationally challenging:
 
@@ -176,7 +176,7 @@ Registries have implemented various countermeasures:
 
 Research by security firms suggests that despite these measures, typosquatting packages regularly reach registries. [Sonatype's 2024 State of the Software Supply Chain report][sonatype-2024] documented over 512,000 malicious packages discovered across major ecosystems in the past year—a 156% year-over-year increase—many using typosquatting techniques.
 
-#### Recommendations
+## Recommendations
 
 **For individual developers:**
 

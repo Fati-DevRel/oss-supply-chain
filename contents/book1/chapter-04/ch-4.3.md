@@ -4,7 +4,7 @@ Threat modeling produces long lists of potential threats. With hundreds or thous
 
 The term **crown jewels** in security typically refers to an organization's most valuable assets: the systems, data, and capabilities that must be protected above all else. In supply chain contexts, we extend this concept to dependencies: which external components, if compromised, would cause the greatest damage to your organization? Identifying these critical dependencies enables targeted security investment where it matters most.
 
-#### Criticality Assessment Criteria
+## Criticality Assessment Criteria
 
 Not all dependencies are equally important. Several factors contribute to a dependency's criticality:
 
@@ -39,7 +39,7 @@ Map your dependencies to execution contexts:
 
 **Replaceability** affects your options if a dependency is compromised. A dependency with many alternatives can be quickly replaced; a dependency that implements unique functionality or that is deeply integrated into your codebase creates lock-in that limits response options.
 
-#### Single Points of Failure
+## Single Points of Failure
 
 A **single point of failure (SPOF)** is a component whose failure causes system-wide impact. In dependency graphs, SPOFs are packages that sit on critical paths with no alternatives—if they fail or are compromised, your application cannot function.
 
@@ -59,7 +59,7 @@ Tools can help identify SPOFs:
 
 We recommend explicitly documenting SPOFs and evaluating mitigation options: caching, mirroring, identifying alternatives, or accepting the risk with enhanced monitoring.
 
-#### Common Mode Failures
+## Common Mode Failures
 
 **Common mode failures** occur when a single cause produces failures across multiple independent components. In supply chain contexts, common mode failures arise from shared dependencies—packages that appear throughout your dependency graph, creating correlated risk.
 
@@ -76,7 +76,7 @@ Identifying common mode failure risk requires cross-service analysis:
 
 Organizations often discover surprising commonalities when they perform this analysis. Components believed to be independent share utility libraries, framework dependencies, or transitive dependencies that create hidden correlations.
 
-#### High-Criticality Dependency Categories
+## High-Criticality Dependency Categories
 
 Certain categories of dependencies warrant elevated scrutiny regardless of specific context:
 
@@ -100,7 +100,7 @@ For dependencies in these categories, we recommend:
 - Faster patching when vulnerabilities are disclosed
 - Consideration of defense-in-depth measures that limit impact if the dependency is compromised
 
-#### Mapping Business Impact
+## Mapping Business Impact
 
 Technical criticality must be translated to business impact for effective prioritization. A cryptographic library is technically critical, but its business impact depends on what it protects and for whom.
 
@@ -118,7 +118,7 @@ Business impact assessment connects dependencies to outcomes stakeholders care a
 
 Creating a business impact mapping requires collaboration between security teams and business stakeholders. Security practitioners understand technical risk; business stakeholders understand which systems and data matter most to the organization.
 
-#### A Practical Prioritization Framework
+## A Practical Prioritization Framework
 
 Synthesizing these factors into actionable prioritization, we recommend a tiered approach:
 
@@ -167,7 +167,7 @@ For Tier 4 dependencies:
 - Address high-severity vulnerabilities
 - Limited proactive scrutiny
 
-#### Tools for Identifying Critical Dependencies
+## Tools for Identifying Critical Dependencies
 
 Several tools can assist in identifying crown jewel dependencies:
 

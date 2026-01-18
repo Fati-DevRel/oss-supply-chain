@@ -2,7 +2,7 @@
 
 The component-based development model described in the previous section has a defining characteristic: the vast majority of those components are open source. Open source software has become so deeply embedded in modern technology that discussing software security without centering open source is like discussing automotive safety without mentioning roads. Understanding the scale, value, and ubiquity of open source is essential for grasping why supply chain security has become one of the most critical challenges facing the technology industry.
 
-#### The Scale of Open Source Adoption
+## The Scale of Open Source Adoption
 
 Open source software has moved from the margins to the mainstream with remarkable speed. What began as an ideological movement in the 1990s has become the dominant mode of software development and distribution worldwide. The statistics are unambiguous: open source is not merely a significant part of modern software—it is the foundation upon which nearly all software is built.
 
@@ -12,7 +12,7 @@ These percentages translate into staggering absolute numbers. The npm registry a
 
 The trajectory is consistently upward. [Sonatype's 2024 State of the Software Supply Chain report][sonatype-2024] documented 6.6 trillion open source downloads in 2024 alone, with JavaScript (npm) accounting for 4.5 trillion requests—a 70% year-over-year increase—and Python (PyPI) reaching 530 billion requests, up 87% year-over-year driven by AI and cloud adoption. Organizations are not merely maintaining their open source usage; they are dramatically accelerating it.
 
-#### The Economic Foundation of Modern Technology
+## The Economic Foundation of Modern Technology
 
 Analyses of open source’s economic impact routinely conclude that it enables multi-trillion-dollar demand-side value, meaning downstream value to firms and consumers using open source as an input. Because these estimates depend heavily on modeling assumptions and definitions, we treat them as order-of-magnitude indicators, rather than precise accounting.
 
@@ -22,7 +22,7 @@ These numbers reflect a fundamental economic reality: open source software repre
 
 The Harvard study highlighted a troubling asymmetry in this equation. While the demand-side value of open source reaches into the trillions, the supply-side investment—the resources actually devoted to creating and maintaining this software—is orders of magnitude smaller. Much of the most critical open source infrastructure is maintained by volunteers or small teams with minimal funding, creating a fragility at the foundation of the digital economy.
 
-#### Categories of Open Source Usage
+## Categories of Open Source Usage
 
 Organizations consume open source software in multiple ways, each with distinct security implications. Understanding these categories is essential for developing comprehensive security strategies.
 
@@ -36,7 +36,7 @@ Organizations consume open source software in multiple ways, each with distinct 
 
 Each category requires different security approaches. Direct dependencies can be evaluated before adoption. Transitive dependencies require automated tooling to track and assess. Development tooling demands careful attention to build pipeline security. Infrastructure software requires vendor management practices and patching discipline.
 
-#### Industry Variations in Open Source Consumption
+## Industry Variations in Open Source Consumption
 
 While open source adoption is universal, patterns of usage vary significantly across industries, shaped by regulatory requirements, risk tolerance, and organizational culture.
 
@@ -48,7 +48,7 @@ While open source adoption is universal, patterns of usage vary significantly ac
 
 **Government agencies** have dramatically increased open source adoption over the past decade, driven by policies like the [U.S. Federal Source Code Policy](https://obamawhitehouse.archives.gov/sites/default/files/omb/memoranda/2016/m_16_21.pdf) and similar initiatives internationally. The irony is notable: governments that once viewed open source with suspicion now recognize it as essential for avoiding vendor lock-in and enabling interoperability. However, government procurement and security assessment processes often struggle to accommodate the realities of open source development models.
 
-#### Strategic Imperatives Driving Adoption
+## Strategic Imperatives Driving Adoption
 
 Organizations do not adopt open source merely because it is available—they do so because it provides strategic advantages that proprietary alternatives cannot match.
 
@@ -62,7 +62,7 @@ Organizations do not adopt open source merely because it is available—they do 
 
 These strategic advantages explain why open source adoption continues to accelerate despite growing awareness of supply chain risks. The question is not whether to use open source—that choice has been made, irrevocably, by competitive necessity. The question is how to use it securely.
 
-#### The Inescapable Conclusion
+## The Inescapable Conclusion
 
 The data leads to an inescapable conclusion: open source security *is* software security. Any strategy that treats open source as a peripheral concern—a special case requiring separate consideration—fundamentally misunderstands modern software development. The code that organizations write themselves represents a small minority of their actual running software. The overwhelming majority comes from open source projects they did not create, maintained by people they do not employ, following practices they have not verified.
 

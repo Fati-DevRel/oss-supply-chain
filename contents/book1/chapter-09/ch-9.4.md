@@ -4,7 +4,7 @@ The previous sections examined supply chains that operate during development and
 
 This **client-side supply chain** operates in real-time, with trust established at the moment of execution rather than during development. A CDN compromise or malicious script injection affects users immediately, without any deployment by the site operator.
 
-#### The Third-Party Script Landscape
+## The Third-Party Script Landscape
 
 Modern websites load extensive third-party JavaScript. [HTTP Archive data][http-archive-third-parties] (2024) reveals the scale:
 
@@ -28,7 +28,7 @@ Modern websites load extensive third-party JavaScript. [HTTP Archive data][http-
 
 Each script is a dependency loaded at runtime. Unlike build-time dependencies locked to specific versions, these scripts may change on the remote server without site operators knowing.
 
-#### Runtime Loading Risks
+## Runtime Loading Risks
 
 Loading scripts from external sources creates unique risks:
 
@@ -52,7 +52,7 @@ Third-party scripts can load additional scripts. A tag manager might load dozens
 
 Runtime scripts execute with full access to the page context: DOM, cookies, session storage, form data, and any secrets present on the page. A compromised analytics script can steal everything a user enters.
 
-#### Subresource Integrity (SRI)
+## Subresource Integrity (SRI)
 
 **Subresource Integrity (SRI)** provides cryptographic verification for externally-loaded scripts:
 
@@ -83,7 +83,7 @@ SRI adoption has improved but coverage remains limited according to [HTTP Archiv
 
 SRI works well for stable libraries (jQuery, Bootstrap) loaded from CDNs but doesn't address the broader runtime supply chain.
 
-#### CDN Compromises and Blast Radius
+## CDN Compromises and Blast Radius
 
 Public CDNs serve JavaScript libraries to millions of websites. Their compromise creates extraordinary blast radius.
 
@@ -118,7 +118,7 @@ While major CDN compromises have been rare, close calls exist:
 
 Centralizing libraries on major CDNs provides security benefits (professional operation, rapid patching) but also creates single points of failure. A cdnjs compromise would affect over 12% of the web instantly.
 
-#### Polyfill.io and the Trust Problem
+## Polyfill.io and the Trust Problem
 
 Section 7.8 detailed the Polyfill.io attack, but its relevance to client-side supply chains deserves emphasis:
 
@@ -142,7 +142,7 @@ Section 7.8 detailed the Polyfill.io attack, but its relevance to client-side su
 - Ownership changes in external services create supply chain risk
 - Services providing dynamic content cannot be verified with SRI
 
-#### Case Study: Ledger Connect Kit Attack (2023)
+## Case Study: Ledger Connect Kit Attack (2023)
 
 In December 2023, a [supply chain attack on Ledger's Connect Kit][ledger-attack] JavaScript library demonstrated how client-side compromises can target cryptocurrency assets.
 
@@ -187,7 +187,7 @@ The malicious code:
 3. **High-value targets attract sophisticated attacks**: Cryptocurrency applications face elevated threat
 4. **Runtime loading amplifies impact**: Sites loading the library were compromised immediately
 
-#### Client-Side vs. Build-Time Supply Chain
+## Client-Side vs. Build-Time Supply Chain
 
 Understanding the distinction between client-side and build-time supply chains clarifies defensive priorities:
 
@@ -209,7 +209,7 @@ Many modern applications use both patterns:
 
 Understanding which dependencies fall into which category is essential for applying appropriate controls.
 
-#### Content Security Policy (CSP)
+## Content Security Policy (CSP)
 
 **Content Security Policy** provides browser-enforced restrictions on script loading:
 
@@ -234,7 +234,7 @@ This header tells browsers to only execute scripts from specified sources.
 
 CSP complements SRI but doesn't replace content verification.
 
-#### Monitoring and Detection
+## Monitoring and Detection
 
 Detecting client-side supply chain compromises requires different approaches than server-side monitoring:
 
@@ -269,7 +269,7 @@ Specialized tools for runtime JavaScript security:
 
 These tools observe script execution in production, detecting suspicious behavior that static analysis would miss.
 
-#### Recommendations
+## Recommendations
 
 **For Web Developers:**
 

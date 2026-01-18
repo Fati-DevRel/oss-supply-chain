@@ -4,7 +4,7 @@ On December 9, 2021, the software industry experienced what many consider the mo
 
 Log4Shell was not merely a severe vulnerability. It was a stress test for the entire software ecosystem—and many organizations failed.
 
-#### Background: The Ubiquity of Log4j
+## Background: The Ubiquity of Log4j
 
 Apache Log4j is a logging framework for Java applications. Logging—the practice of recording events, errors, and information during program execution—is a fundamental requirement of virtually all software. Developers need logs for debugging, operations teams need them for monitoring, and security teams need them for incident investigation.
 
@@ -21,7 +21,7 @@ A [Google analysis][google-analysis] of Maven Central found that over 35,000 Jav
 
 This ubiquity derived from exactly the dynamic described throughout this book: developers choose useful libraries that become dependencies of other libraries that become dependencies of applications, creating transitive dependency chains that spread components throughout the ecosystem.
 
-#### The Vulnerability: JNDI Lookup and Remote Code Execution
+## The Vulnerability: JNDI Lookup and Remote Code Execution
 
 The vulnerability exploited Log4j's **message lookup** feature, which allowed log messages to include special syntax that would be interpreted and expanded. For example, a log message could include `${java:version}` to automatically insert the Java version into the log output.
 
@@ -42,7 +42,7 @@ Within hours of disclosure, security researchers observed widespread scanning fo
 
 > "This vulnerability is one of the most serious that I’ve seen in my entire career, if not the most serious," said [CISA Director Jen Easterly in CNN interview on December 13, 2021][easterly-quote]. "We expect the vulnerability to be widely exploited by sophisticated actors and we have limited time to take necessary steps in order to reduce the likelihood of damaging incidents."
 
-#### Discovery and Disclosure Timeline
+## Discovery and Disclosure Timeline
 
 The timeline of Log4Shell demonstrates both the speed of modern vulnerability response and its challenges:
 
@@ -70,7 +70,7 @@ The timeline of Log4Shell demonstrates both the speed of modern vulnerability re
 
 The compressed timeline—from disclosure to widespread exploitation in 24-48 hours—left organizations scrambling to respond before attackers could capitalize.
 
-#### The Initial Response: Organizational Chaos
+## The Initial Response: Organizational Chaos
 
 The Log4Shell response revealed the state of vulnerability management across the industry. Organizations faced multiple simultaneous challenges:
 
@@ -88,7 +88,7 @@ The Log4Shell response revealed the state of vulnerability management across the
 
 CISA's Emergency Directive 22-02 required federal civilian agencies to enumerate all instances of Log4j, assess whether they were vulnerable, and apply mitigation within 5 days for internet-facing systems. Private sector organizations faced similar pressure without explicit directives.
 
-#### Challenges: Why Log4Shell Was So Hard to Address
+## Challenges: Why Log4Shell Was So Hard to Address
 
 Log4Shell exposed several systemic challenges in vulnerability response:
 
@@ -104,7 +104,7 @@ Log4Shell exposed several systemic challenges in vulnerability response:
 
 **Testing requirements**: Even when patches were available, production deployments required testing. Changes to logging infrastructure could affect application behavior. Organizations had to balance patching speed against the risk of breaking production systems.
 
-#### Follow-On Vulnerabilities: The Incomplete Fix Saga
+## Follow-On Vulnerabilities: The Incomplete Fix Saga
 
 The initial patch in Log4j 2.15.0 proved incomplete. Within days, additional vulnerabilities emerged:
 
@@ -118,7 +118,7 @@ Organizations that had deployed 2.15.0 as an emergency fix found themselves need
 
 The incomplete fix pattern is not unique to Log4j—complex vulnerabilities often require iterative patching—but the public nature and high stakes of Log4Shell made each additional CVE a news event that demanded immediate attention.
 
-#### Long-Term Impact and Ongoing Exploitation
+## Long-Term Impact and Ongoing Exploitation
 
 Log4Shell did not end with patching. Years after disclosure, the vulnerability remains actively exploited:
 
@@ -129,7 +129,7 @@ Log4Shell did not end with patching. Years after disclosure, the vulnerability r
 
 [Research by Tenable][tenable-log4shell] found that as of October 2022—nearly a year after disclosure—72% of organizations still had assets vulnerable to Log4Shell. The vulnerability's persistence reflects the challenges of achieving complete remediation across complex environments.
 
-#### Lessons Learned
+## Lessons Learned
 
 Log4Shell provided the software industry with an expensive education. The lessons extend far beyond a single vulnerability:
 

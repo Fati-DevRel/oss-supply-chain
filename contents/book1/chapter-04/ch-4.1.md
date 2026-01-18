@@ -2,7 +2,7 @@
 
 The threat landscape described in Chapter 3 presents a daunting array of adversaries, attack surfaces, and cascading risks. Faced with this complexity, organizations need a systematic approach to identify which threats matter most to their specific context and where to focus limited security resources. **Threat modeling** provides this approach—a structured method for analyzing systems, identifying potential threats, and prioritizing mitigations. However, traditional threat modeling techniques were developed for applications and systems under the organization's direct control. Adapting these techniques for software supply chains requires rethinking fundamental assumptions about scope, trust, and control.
 
-#### What Is Threat Modeling?
+## What Is Threat Modeling?
 
 Threat modeling is the practice of systematically identifying and evaluating potential security threats to a system. As Adam Shostack defines it in *[Threat Modeling: Designing for Security][shostack-book]* (2014), threat modeling answers four key questions:
 
@@ -17,7 +17,7 @@ Traditional threat modeling approaches—including Microsoft's STRIDE, PASTA (Pr
 
 Supply chain threat modeling shares these goals but faces different constraints. Much of what you need to model lies outside your organization. The components you depend on were designed by others, built by others, and are maintained by others. Your visibility into their security properties is limited, and your ability to implement controls within them is essentially nonexistent. This fundamental difference in control requires adapting traditional approaches rather than applying them directly.
 
-#### Why Supply Chains Differ from Traditional Applications
+## Why Supply Chains Differ from Traditional Applications
 
 Several characteristics distinguish supply chain threat modeling from traditional application threat modeling:
 
@@ -33,7 +33,7 @@ Several characteristics distinguish supply chain threat modeling from traditiona
 
 These differences mean that supply chain threat modeling is less about designing security into systems you control and more about understanding and managing risks in systems you inherit.
 
-#### Defining Scope: Where Does Your Supply Chain Begin and End?
+## Defining Scope: Where Does Your Supply Chain Begin and End?
 
 One of the most challenging aspects of supply chain threat modeling is defining scope. Unlike an application with clear boundaries, a supply chain extends outward through dependencies, infrastructure, and trust relationships without obvious limits.
 
@@ -58,7 +58,7 @@ Attempting to model everything produces analysis paralysis. We recommend startin
 
 **Organizational boundaries** affect what you can model effectively. For dependencies maintained within your organization, you have visibility and control approaching traditional application threat modeling. For dependencies from trusted partners, you may have some visibility through contracts or audits. For community-maintained open source, you typically have only public information. Your threat model should distinguish these categories, applying different assumptions and techniques to each.
 
-#### Asset Identification: What Are You Protecting?
+## Asset Identification: What Are You Protecting?
 
 Threat modeling begins with understanding what you're protecting. In supply chain contexts, assets extend beyond the traditional focus on data and functionality.
 
@@ -74,7 +74,7 @@ Threat modeling begins with understanding what you're protecting. In supply chai
 
 Identifying assets specific to your context helps focus threat modeling on what matters. Not every organization faces the same asset risks; a development tool company publishing widely-used packages faces different asset exposure than an enterprise consuming open source for internal applications.
 
-#### Trust Boundary Analysis in Dependency Graphs
+## Trust Boundary Analysis in Dependency Graphs
 
 **Trust boundaries** are points in a system where the level of trust changes—where data or control crosses from a more trusted context to a less trusted one (or vice versa). Traditional threat modeling identifies trust boundaries as places requiring security controls: authentication, authorization, input validation, and similar mechanisms.
 
@@ -92,7 +92,7 @@ In supply chain contexts, trust boundaries occur throughout the dependency graph
 
 Mapping these trust boundaries helps identify where controls are needed. Each boundary crossing is a potential attack point; each boundary should have appropriate verification. The SLSA framework explicitly addresses trust boundaries in build systems, providing a graduated model for strengthening trust at the source-to-artifact boundary.
 
-#### Data Flow Diagrams for Build and Deployment Pipelines
+## Data Flow Diagrams for Build and Deployment Pipelines
 
 **Data Flow Diagrams (DFDs)** are a standard threat modeling technique that visualizes how data moves through a system. For supply chains, DFDs should capture not just runtime data flows but the flows through build and deployment pipelines.
 
@@ -117,7 +117,7 @@ Each element in the DFD should be annotated with:
 
 Microsoft's SDL threat modeling guidance and OWASP's threat modeling resources provide detailed instruction on creating and analyzing DFDs. The adaptation for supply chains involves extending these techniques to model the build and deployment flows that are typically out of scope for application-focused threat modeling.
 
-#### Getting Started
+## Getting Started
 
 For organizations new to supply chain threat modeling, we recommend beginning with a focused scope:
 

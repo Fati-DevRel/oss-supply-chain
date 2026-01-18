@@ -4,7 +4,7 @@ On March 29, 2024, a Microsoft engineer named Andres Freund [posted a message to
 
 The XZ Utils incident represents one of the most sophisticated supply chain attacks ever discovered in the open source ecosystem. Unlike the SolarWinds attack, which compromised a commercial vendor's build system, this attack targeted the human trust relationships that open source depends upon. It exploited not a technical vulnerability but the maintainer crisis itself—the isolation, burnout, and limited resources that characterize so many critical open source projects.
 
-#### Background: XZ Utils and Its Role in Linux
+## Background: XZ Utils and Its Role in Linux
 
 **XZ Utils** provides the LZMA compression algorithm implementation used throughout the Linux ecosystem. The `xz` command and its underlying library, `liblzma`, are foundational components:
 
@@ -18,7 +18,7 @@ The project was maintained by Lasse Collin, who had created XZ Utils in 2009 as 
 
 Like many infrastructure projects, XZ Utils was invisible to most users. It simply worked, compressing and decompressing data billions of times daily across the world's computing infrastructure. This invisibility, combined with its ubiquity, made it an ideal target.
 
-#### The "Jia Tan" Persona: A Multi-Year Operation
+## The "Jia Tan" Persona: A Multi-Year Operation
 
 In 2021, a persona using the name "Jia Tan" (GitHub username "JiaT75") began contributing to the XZ Utils project. The early contributions were unremarkable—small fixes, documentation improvements, and minor patches. This pattern continued through 2021 and into 2022.
 
@@ -48,7 +48,7 @@ In 2021, a persona using the name "Jia Tan" (GitHub username "JiaT75") began con
 
 This timeline—over two years from first contribution to backdoor insertion—demonstrates extraordinary patience. The attacker invested significant effort in building a credible contributor identity before attempting any malicious action.
 
-#### The Pressure Campaign: Exploiting Maintainer Burnout
+## The Pressure Campaign: Exploiting Maintainer Burnout
 
 The social engineering extended beyond Jia Tan's direct contributions. Analysis of mailing list archives revealed a coordinated pressure campaign using apparent sock puppet accounts to push Lasse Collin toward accepting help and ceding control.
 
@@ -66,7 +66,7 @@ Collin's [response][xz-response] revealed his struggles:
 
 This exchange illustrates the attack's exploitation of the maintainer crisis. Collin was exhausted, dealing with health issues, and working on an unpaid hobby project that had become critical infrastructure. The pressure to accept help from an apparently competent contributor like Jia Tan would have been immense.
 
-#### Technical Sophistication of the Backdoor
+## Technical Sophistication of the Backdoor
 
 The backdoor itself demonstrated remarkable technical sophistication, designed to evade detection through multiple layers of obfuscation:
 
@@ -109,7 +109,7 @@ The use of Ed448 (rather than the more common Ed25519) was notable—security re
 
 As [security researcher Filippo Valsorda noted][valsorda-analysis]: "This might be the best executed supply chain attack we've seen described in the open, and it's a nightmare scenario: malicious, competent, authorized upstream in a widely used library."
 
-#### Discovery: A 500ms Delay
+## Discovery: A 500ms Delay
 
 The backdoor was discovered through serendipity and one engineer's extraordinary attention to detail. Andres Freund, a software engineer at Microsoft working on PostgreSQL, noticed that SSH connections to his Debian testing machine were taking approximately 500 milliseconds longer than expected. This seemingly minor performance issue prompted investigation.
 
@@ -137,7 +137,7 @@ Freund's disclosure, posted March 29, 2024, immediately triggered emergency resp
 
 If the backdoor had not caused a performance regression, or if the code had been slightly more efficient, it might have gone undetected for years.
 
-#### Affected Distributions and Response
+## Affected Distributions and Response
 
 The XZ Utils backdoor was discovered before it reached stable Linux distribution releases, but it had already entered some testing and rolling-release channels:
 
@@ -170,7 +170,7 @@ The immediate response was swift:
 
 The rapid response prevented the backdoor from reaching most production systems, but the close call illustrated how narrow the margin had been.
 
-#### Community and Industry Response
+## Community and Industry Response
 
 The XZ Utils backdoor prompted intense reflection within the open source community:
 
@@ -206,7 +206,7 @@ Technology companies began:
 - Evaluating contributor vetting processes for projects they depend on
 - Implementing additional build integrity checks
 
-#### What Detection Mechanisms Could Have Caught This
+## What Detection Mechanisms Could Have Caught This
 
 The XZ Utils attack was sophisticated, but retrospective analysis suggests several potential detection points:
 
@@ -236,7 +236,7 @@ The SLSA framework's requirements for verified builds, hermetic build environmen
 
 None of these mechanisms would have provided certain detection. The attack was designed by adversaries who understood open source security practices and specifically designed to evade known defenses.
 
-#### Implications for the Open Source Trust Model
+## Implications for the Open Source Trust Model
 
 The XZ Utils incident forces uncomfortable questions about the assumptions underlying open source software:
 
@@ -256,7 +256,7 @@ Nation-state or well-funded adversaries can afford to invest years in building c
 
 The backdoor was discovered accidentally, through a performance regression. Had the code been slightly better optimized, discovery might have taken months or years longer. We cannot rely on luck for security.
 
-#### Lessons Learned
+## Lessons Learned
 
 The XZ Utils backdoor provides critical lessons for the open source ecosystem:
 

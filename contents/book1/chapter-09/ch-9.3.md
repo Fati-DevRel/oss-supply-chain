@@ -4,7 +4,7 @@ Content Management Systems power a substantial portion of the web, with WordPres
 
 The combination of massive deployment, often-inexperienced administrators, and direct internet exposure makes CMS ecosystems among the highest-impact supply chain targets.
 
-#### The Scale of WordPress
+## The Scale of WordPress
 
 WordPress dominates the CMS landscape with extraordinary reach:
 
@@ -25,7 +25,7 @@ While major plugins like [WooCommerce][woocommerce] (7+ million active installat
 - Plugin maintenance often lapses without formal deprecation
 - Security expertise varies dramatically among plugin developers
 
-#### WordPress Plugin and Theme Supply Chains
+## WordPress Plugin and Theme Supply Chains
 
 WordPress plugins and themes follow a distribution model distinct from developer-focused package managers:
 
@@ -59,7 +59,7 @@ Themes control website appearance but execute PHP code with full WordPress capab
 - Direct developer sales (unreviewed)
 - Nulled/pirated theme sites (explicitly dangerous)
 
-#### Plugin Marketplace Security Models
+## Plugin Marketplace Security Models
 
 **WordPress.org Review Process:**
 
@@ -91,7 +91,7 @@ The [WordPress Plugin Review Team][wordpress-review] reviews plugins for the mos
 
 WordPress.org's manual initial review provides somewhat better baseline than npm's automated-only approach, but the lack of update review creates equivalent vulnerability to supply chain attacks.
 
-#### Case Studies
+## Case Studies
 
 **AccessPress Themes/Plugins Backdoor (2021-2022):**
 
@@ -133,7 +133,7 @@ The **Display Widgets** plugin demonstrated the abandoned-plugin-takeover patter
 
 WordPress.org removed the plugin after community reports, but not before the malicious versions affected hundreds of thousands of sites.
 
-#### Abandoned and Unmaintained Plugins
+## Abandoned and Unmaintained Plugins
 
 Plugin abandonment creates persistent supply chain risk:
 
@@ -166,7 +166,7 @@ Unlike npm where package names are generally protected, WordPress plugin "owners
 - Author activity elsewhere may indicate continued attention
 - Version compatibility claims may be updated without code changes
 
-#### Other CMS Ecosystems
+## Other CMS Ecosystems
 
 While WordPress dominates, other CMS platforms have their own supply chain dynamics:
 
@@ -198,7 +198,7 @@ Hosted platforms take a different approach:
 - Reduced attack surface but less flexibility
 - Supply chain risk centralized to the platform itself
 
-#### Automatic Updates: Security Trade-offs
+## Automatic Updates: Security Trade-offs
 
 WordPress introduced automatic background updates for minor releases and security fixes. Plugin automatic updates became optional in WordPress 5.5 (2020).
 
@@ -226,7 +226,7 @@ Currently, WordPress automatic plugin updates are:
 
 Enterprise WordPress deployments typically disable automatic updates in favor of staged rollouts with testing.
 
-#### Recommendations
+## Recommendations
 
 **For Site Owners:**
 

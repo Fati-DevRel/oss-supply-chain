@@ -4,7 +4,7 @@ Security researchers play a vital role in open source security, identifying vuln
 
 This attack vector weaponizes the urgency and authority that legitimate security reports carry. Maintainers, already stretched thin, face pressure to act quickly on potential vulnerabilities. That pressure creates opportunity for manipulation.
 
-#### The Rise of Fake Vulnerability Reports
+## The Rise of Fake Vulnerability Reports
 
 [Beginning around 2021][fake-researchers], security researchers and maintainers began documenting campaigns of fake security reports targeting open source projects. These campaigns share common characteristics:
 
@@ -36,7 +36,7 @@ The volume of fake reports suggests automation:
 
 Maintainers of popular packages have documented receiving dozens of fake vulnerability reports in short periods—each from different apparent researchers, each requiring investigation that consumes maintenance time.
 
-#### Malicious Pull Requests Disguised as Security Fixes
+## Malicious Pull Requests Disguised as Security Fixes
 
 Beyond simple harassment or time-wasting, some campaigns have more sinister goals: submitting patches that claim to fix vulnerabilities but actually introduce them.
 
@@ -72,7 +72,7 @@ def parse_url(url):
 
 The "fix" adds `file://` support, actually introducing local file access vulnerability while claiming to restrict protocols.
 
-#### Social Pressure Tactics
+## Social Pressure Tactics
 
 Attackers exploit the dynamics of security disclosure to pressure rapid action:
 
@@ -109,7 +109,7 @@ Legitimate security researchers also apply some pressure—they have genuine con
 - Accept that verification takes time
 - Have verifiable track records
 
-#### Vetting Researchers and Validating Reports
+## Vetting Researchers and Validating Reports
 
 Maintainers receiving security reports must balance speed with verification:
 
@@ -144,7 +144,7 @@ Maintainers receiving security reports must balance speed with verification:
 - Reports from newly-created accounts or emails
 - Unusual contact patterns (odd hours, formal tone inconsistent with claimed expertise)
 
-#### The Tension Between Speed and Verification
+## The Tension Between Speed and Verification
 
 Security response genuinely requires urgency. Vulnerabilities that are being actively exploited must be addressed quickly. This creates tension:
 
@@ -174,7 +174,7 @@ Security response genuinely requires urgency. Vulnerabilities that are being act
 
 5. **Accept that some urgency is manufactured**: Attackers create false urgency. Legitimate researchers understand that responsible handling takes time.
 
-#### Impact on Legitimate Research Relationships
+## Impact on Legitimate Research Relationships
 
 Fake security researcher campaigns impose costs beyond immediate time consumption:
 
@@ -200,7 +200,7 @@ Legitimate researchers encountering skeptical or unresponsive maintainers may:
 
 The relationship between security researchers and open source maintainers is essential for ecosystem security. Attacks that exploit this relationship damage it for everyone. Maintainers report that dealing with fake security reports makes them slower to respond to legitimate researchers—precisely the outcome attackers may be seeking.
 
-#### Recommendations
+## Recommendations
 
 **For Maintainers:**
 

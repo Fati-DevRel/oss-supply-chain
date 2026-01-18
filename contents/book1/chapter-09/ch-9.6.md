@@ -4,7 +4,7 @@ Infrastructure-as-Code (IaC) has transformed how organizations provision and man
 
 IaC supply chains deserve the same scrutiny as application dependencies, yet often receive less attention because infrastructure teams may not think of modules as "software dependencies" in the traditional sense.
 
-#### Terraform Modules and Providers
+## Terraform Modules and Providers
 
 [Terraform][terraform] dominates the IaC landscape and is widely adopted by organizations practicing infrastructure automation. Its supply chain consists of two primary components:
 
@@ -86,7 +86,7 @@ module "vpc" {
 
 Terraform 0.14 introduced [`.terraform.lock.hcl`][terraform-lock] for provider checksums, providing npm-lockfile-equivalent verification.
 
-#### Ansible Roles and Galaxy
+## Ansible Roles and Galaxy
 
 [Ansible][ansible] automates configuration management through **playbooks** that reference **roles**—reusable configuration packages. **[Ansible Galaxy][ansible-galaxy]** serves as the public repository for community roles.
 
@@ -134,7 +134,7 @@ collections:
 
 Without explicit version pinning, `ansible-galaxy install` fetches the latest version—creating the same update-as-attack-vector risk seen in other ecosystems.
 
-#### Helm Charts and Kubernetes Operators
+## Helm Charts and Kubernetes Operators
 
 Kubernetes deployments commonly use **Helm charts** to package applications and **operators** to manage complex stateful workloads. Both introduce supply chain considerations.
 
@@ -191,7 +191,7 @@ Operators are typically installed via:
 
 OperatorHub provides some curation for "certified" operators, but community operators have minimal review.
 
-#### Policy-as-Code Supply Chains
+## Policy-as-Code Supply Chains
 
 Policy-as-code tools like **[Open Policy Agent (OPA)][opa]**, **[Kyverno][kyverno]**, and **[Conftest][conftest]** enforce security and compliance policies. These tools have their own supply chains:
 
@@ -225,7 +225,7 @@ Kyverno policies are Kubernetes resources that can be packaged and distributed. 
 - Peer review policy changes like code changes
 - Use policy testing frameworks (OPA's testing, Kyverno's policy testing)
 
-#### GitOps Security Considerations
+## GitOps Security Considerations
 
 **GitOps** uses Git repositories as the source of truth for infrastructure. Tools like **[Argo CD][argocd]** and **[Flux][flux]** continuously reconcile cluster state with repository contents. This creates a direct path from repository to infrastructure.
 
@@ -259,7 +259,7 @@ This is simultaneously a security benefit (all changes are version-controlled an
 - Separation between application and infrastructure repos
 - Secret management through external systems (HashiCorp Vault, AWS Secrets Manager)
 
-#### Parallels to Application Dependencies
+## Parallels to Application Dependencies
 
 IaC supply chains mirror application package manager risks:
 
@@ -280,7 +280,7 @@ IaC supply chains mirror application package manager risks:
 - **Execution frequency**: IaC runs during provisioning, not continuously
 - **Visibility**: IaC supply chains may be less monitored than application deps
 
-#### Vetting and Pinning IaC Dependencies
+## Vetting and Pinning IaC Dependencies
 
 **Vetting Practices:**
 
@@ -334,7 +334,7 @@ Where supported, verify checksums:
 - Helm chart provenance files enable signature verification
 - Container image digests (rather than tags) ensure specific content
 
-#### Recommendations
+## Recommendations
 
 **For Platform Engineers:**
 

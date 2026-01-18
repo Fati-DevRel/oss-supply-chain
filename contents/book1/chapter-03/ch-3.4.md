@@ -2,7 +2,7 @@
 
 The previous section examined why supply chain security is structurally difficult. This section explores what happens when those difficulties translate into actual compromise. Unlike attacks that target specific organizations, supply chain attacks propagate through dependency relationships, reaching victims the attacker may never have anticipated. A single compromised package can affect thousands of downstream projects, millions of deployed applications, and billions of end users. Understanding this cascade—and learning to measure and limit it—is essential for managing supply chain risk.
 
-#### The Mechanics of Propagation
+## The Mechanics of Propagation
 
 When a package is compromised, the impact does not remain localized. Every package that depends on the compromised package becomes a potential vector for further propagation. This is the nature of **transitive dependencies**: your application depends on packages that themselves depend on other packages, creating chains of trust that extend far beyond your direct choices.
 
@@ -12,7 +12,7 @@ In real ecosystems, these chains are not linear but branching. A popular utility
 
 The npm ecosystem illustrates this density of connections. According to research analyzing npm's dependency graph, the median package depends on approximately 80 other packages (including transitive dependencies), but the distribution has a very long tail. Popular packages like `lodash` or `debug` are dependencies of hundreds of thousands of other packages. Compromise of these central nodes would cascade instantly across a significant fraction of the entire ecosystem.
 
-#### Defining Blast Radius
+## Defining Blast Radius
 
 **Blast radius** describes the scope of impact from a security incident. In supply chain contexts, blast radius has several dimensions:
 
@@ -28,7 +28,7 @@ These dimensions do not map neatly to each other. A package might be a dependenc
 
 Effective risk assessment requires considering multiple blast radius dimensions. A vulnerability in a package with modest download counts but deployment in critical infrastructure poses different risks than a vulnerability in a highly downloaded package used mainly for development convenience.
 
-#### Network Effects in Vulnerability Propagation
+## Network Effects in Vulnerability Propagation
 
 Software ecosystems exhibit **network effects** that amplify vulnerability propagation. The value of participating in an ecosystem increases with ecosystem size—more packages mean more functionality available for reuse—but this same interconnection increases aggregate risk.
 
@@ -44,7 +44,7 @@ Several network properties shape how vulnerabilities spread:
 
 These network effects mean that supply chain risk cannot be understood by examining packages in isolation. The package's position in the ecosystem network matters as much as its intrinsic properties.
 
-#### Case Study: Log4Shell's Cascade
+## Case Study: Log4Shell's Cascade
 
 The Log4Shell vulnerability (CVE-2021-44228), disclosed in December 2021, provides a detailed illustration of cascading supply chain impact.
 
@@ -62,7 +62,7 @@ The remediation challenge illustrated cascading risk in reverse. Organizations c
 
 Estimates of the total cost of Log4Shell remediation vary, but the direct response effort alone—identifying affected systems, applying patches, monitoring for exploitation—likely exceeded $10 billion globally. The incident demonstrated how a single vulnerability in a well-connected package could generate economic damage vastly exceeding any conceivable security investment in the package itself.
 
-#### The Interconnected Ecosystem
+## The Interconnected Ecosystem
 
 Modern software does not exist in isolation. Applications connect to services, services depend on platforms, platforms run on infrastructure—each layer incorporating its own supply chain. This vertical integration means supply chain compromises can cascade not just horizontally (through package dependencies) but vertically (through infrastructure dependencies).
 
@@ -74,7 +74,7 @@ Modern software does not exist in isolation. Applications connect to services, s
 
 These interconnections mean that blast radius calculations must consider not just direct package dependencies but the broader ecosystem of infrastructure and services that software relies upon.
 
-#### Implications for Risk Management
+## Implications for Risk Management
 
 Understanding cascading risk shapes how organizations should approach supply chain security.
 

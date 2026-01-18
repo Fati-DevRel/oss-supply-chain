@@ -4,7 +4,7 @@ The emergence of AI coding assistants has transformed software development, enab
 
 This attack represents a fundamental shift in supply chain threats. Traditional attacks exploit human error or trust relationships. Slopsquatting exploits the behavior of AI systems that developers increasingly rely on, creating risk that scales with AI adoption across the software industry.
 
-#### Definition and Origin
+## Definition and Origin
 
 The term **slopsquatting** combines "slop"—internet slang for low-quality AI-generated content—with "squatting," the practice of claiming valuable names for malicious purposes. The term emerged from a conversation between Seth Larson, the Python Software Foundation's Security Developer-in-Residence, and Andrew Nesbitt, creator of Ecosyste.ms. [Nesbitt popularized the term on Mastodon in April 2025][nesbitt-slopsquatting], defining it as:
 
@@ -12,7 +12,7 @@ The term **slopsquatting** combines "slop"—internet slang for low-quality AI-g
 
 The attack leverages a well-documented phenomenon: large language models (LLMs) generate plausible-sounding but non-existent package names when asked to solve programming problems. If attackers can predict which non-existent names AI models will recommend, they can register those names with malicious packages and wait for victims to install them.
 
-#### How AI Coding Assistants Hallucinate Packages
+## How AI Coding Assistants Hallucinate Packages
 
 AI coding assistants are trained on vast corpora of code, documentation, and technical discussions. When generating code recommendations, they predict likely tokens based on patterns in their training data. This prediction can produce package names that:
 
@@ -35,7 +35,7 @@ Several factors contribute to hallucination:
 - **Context extrapolation**: Models invent names that seem like they should exist given the programming context
 - **Frequency bias**: Common words and patterns in training data influence generation even when they produce non-existent combinations
 
-#### Research Findings: The Scale of the Problem
+## Research Findings: The Scale of the Problem
 
 Academic research has begun quantifying the slopsquatting risk. A [study by Spracklen et al.][spracklen-study] titled "We Have a Package for You!" systematically tested AI models' tendency to hallucinate package names.
 
@@ -48,7 +48,7 @@ Academic research has begun quantifying the slopsquatting risk. A [study by Spra
 
 The research tested multiple commercial and open-source models across thousands of code generation prompts, providing statistically robust evidence that hallucination is not a rare edge case but a consistent behavior affecting a significant portion of AI-generated code recommendations.
 
-#### The Repeatability Problem
+## The Repeatability Problem
 
 Perhaps the most concerning finding from slopsquatting research is that hallucinations are **predictable and repeatable**. If an AI model hallucinates a particular package name once, it is likely to hallucinate the same name again when given similar prompts.
 
@@ -63,7 +63,7 @@ This repeatability exists because hallucinations are not truly random—they res
 
 [Socket.dev research][socket-slopsquatting] confirmed this pattern, identifying specific hallucinated package names that appeared consistently across different AI models and user sessions. Some hallucinated names were recommended thousands of times across the developer community.
 
-#### Attack Mechanics
+## Attack Mechanics
 
 A slopsquatting attack proceeds as follows:
 
@@ -81,7 +81,7 @@ A slopsquatting attack proceeds as follows:
 
 The attack is particularly efficient because it requires no direct interaction with victims. The AI system serves as an unwitting accomplice, directing developers toward the attacker's packages through its recommendations.
 
-#### Comparison to Traditional Typosquatting
+## Comparison to Traditional Typosquatting
 
 While slopsquatting shares surface similarities with typosquatting, the underlying dynamics differ significantly:
 
@@ -97,7 +97,7 @@ Typosquatting exploits the gap between what a developer intends to type and what
 
 The distinction matters for defense. Typosquatting detection focuses on edit distance from known legitimate packages. Slopsquatting involves names that are not close to any existing package—they are novel inventions by the AI. Traditional typosquatting detection will not catch them.
 
-#### Vibe Coding and Reduced Verification
+## Vibe Coding and Reduced Verification
 
 The slopsquatting risk is amplified by changing developer practices around AI-generated code. The phenomenon of **"vibe coding"**—accepting AI-generated code with minimal review because it "vibes" correctly—reduces the verification that might catch non-existent packages.
 
@@ -121,7 +121,7 @@ If the AI hallucinates a package name that an attacker has registered, the devel
 
 [Research on AI-generated code][trendmicro-ai-code] found that developers using AI assistants were significantly less likely to verify packages than developers working without AI assistance. The convenience that makes AI assistants valuable also reduces the friction that previously served as a security check.
 
-#### Detection and Defense
+## Detection and Defense
 
 Defending against slopsquatting requires adjustments to development workflows and tooling:
 
@@ -154,7 +154,7 @@ Defending against slopsquatting requires adjustments to development workflows an
 - **Package manager plugins**: Extensions that prompt for verification when adding new dependencies
 - **CI/CD gates**: Pipeline checks that reject builds adding unvetted dependencies
 
-#### Registry Responses and Proactive Defense
+## Registry Responses and Proactive Defense
 
 Package registries face challenges defending against slopsquatting:
 
@@ -174,7 +174,7 @@ Package registries face challenges defending against slopsquatting:
 
 Some registries have begun implementing enhanced scrutiny for newly-registered packages that receive immediate downloads—a pattern consistent with slopsquatting attacks where the attacker promotes their malicious package immediately after registration.
 
-#### Recommendations
+## Recommendations
 
 Slopsquatting represents a novel threat category that will grow as AI coding assistant adoption increases. We recommend:
 
@@ -190,7 +190,7 @@ Slopsquatting represents a novel threat category that will grow as AI coding ass
 
 6. **Consider AI model selection.** Different AI models have different hallucination rates. Models with better grounding in package registries may reduce (though not eliminate) hallucination risk.
 
-#### AI-Generated Slop Reports: Drowning Maintainers in Fake Vulnerabilities
+## AI-Generated Slop Reports: Drowning Maintainers in Fake Vulnerabilities
 
 While slopsquatting targets developers consuming AI-generated package recommendations, a parallel threat targets the other side of the ecosystem: open source maintainers receiving security vulnerability reports. **AI-generated slop reports**—invalid vulnerability reports created by AI that describe non-existent security issues—are overwhelming bug bounty programs and maintainer security workflows.
 

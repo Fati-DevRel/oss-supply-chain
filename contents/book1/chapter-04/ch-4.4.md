@@ -2,7 +2,7 @@
 
 Attack trees, introduced briefly in Section 4.2, deserve deeper treatment because they are particularly well-suited to supply chain threat modeling. Unlike methodologies that enumerate threats by category, attack trees model specific attack scenarios in detail, revealing the paths an adversary might take and the points where defenses would be most effective. This section provides practical guidance for constructing attack trees tailored to supply chain threats, with worked examples that demonstrate both the methodology and its application.
 
-#### Attack Tree Methodology and Notation
+## Attack Tree Methodology and Notation
 
 **Attack trees** decompose an adversary's goal into the steps required to achieve it. The root node represents the attacker's objective. Child nodes represent different ways to achieve the parent node's goal or prerequisites that must be satisfied. Trees are constructed by repeatedly asking: "How could an attacker accomplish this?"
 
@@ -22,7 +22,7 @@ Nodes can be annotated with additional attributes:
 
 These annotations enable quantitative analysis. For OR nodes, the overall attack inherits the attributes of the easiest child path. For AND nodes, costs accumulate, and likelihood multiplies across children.
 
-#### Example: Compromising Production Through Dependencies
+## Example: Compromising Production Through Dependencies
 
 Consider an attacker whose goal is to execute malicious code in a target organization's production environment by compromising their software supply chain. We construct an attack tree working backward from this goal.
 
@@ -84,7 +84,7 @@ The XZ Utils pattern (long-term trust building) is expensive in time but has hig
 
 Dependency confusion provides a medium-cost path with reasonable likelihood, particularly against organizations that have not configured their package managers to prefer private registries.
 
-#### Example: Data Exfiltration Through Build Systems
+## Example: Data Exfiltration Through Build Systems
 
 A different attacker goal—stealing source code and secrets through build infrastructure—produces a different tree:
 
@@ -142,7 +142,7 @@ Secret management practices dramatically affect likelihood. Organizations that i
 
 Build environment network restrictions affect the exfiltration stage. Air-gapped or heavily restricted build environments force attackers to use more detectable exfiltration methods.
 
-#### Example: Maintainer Account Takeover
+## Example: Maintainer Account Takeover
 
 A more focused tree examines paths to taking over an open source maintainer's account:
 
@@ -182,7 +182,7 @@ GOAL: Gain publishing access to target package
 
 This tree reveals that MFA enforcement significantly prunes the credential theft branches, but social engineering paths (trust building, exploiting burnout) remain viable regardless of technical controls. Registry namespace takeover through expired email domains represents an underappreciated risk that some ecosystems have begun to address.
 
-#### Estimating Costs and Likelihood
+## Estimating Costs and Likelihood
 
 Attack tree analysis becomes more valuable when nodes are quantified, but estimation is inherently uncertain. We recommend the following approach:
 
@@ -198,7 +198,7 @@ Attack tree analysis becomes more valuable when nodes are quantified, but estima
 
 For AND nodes, overall likelihood is the product of child likelihoods; overall cost is the sum of child costs. For OR nodes, attackers choose the path with the best cost/likelihood ratio, so the overall node inherits the most favorable child's attributes.
 
-#### Translating Trees into Defensive Priorities
+## Translating Trees into Defensive Priorities
 
 Attack trees identify where defenses provide the greatest leverage:
 
@@ -216,7 +216,7 @@ We recommend prioritizing defenses that:
 3. Create detection opportunities for paths that cannot be blocked
 4. Increase cost for the paths that remain viable
 
-#### Tools for Attack Tree Development
+## Tools for Attack Tree Development
 
 Several tools support attack tree creation and analysis:
 

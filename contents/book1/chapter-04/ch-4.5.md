@@ -4,7 +4,7 @@ Threat modeling is often treated as a milestone activity—something done during
 
 Effective supply chain threat modeling must be **continuous**—integrated into development workflows, updated as systems change, and refined as understanding deepens. This section provides practical guidance for making threat modeling an ongoing practice rather than a one-time exercise.
 
-#### Integrating Threat Modeling into Development Workflows
+## Integrating Threat Modeling into Development Workflows
 
 Threat modeling should occur at natural decision points in development workflows, not as a separate activity that competes for time and attention.
 
@@ -18,7 +18,7 @@ Threat modeling should occur at natural decision points in development workflows
 
 **Incident response** generates threat model updates. When security incidents occur—whether affecting your organization directly or reported in the broader ecosystem—evaluate whether your threat model anticipated the attack pattern. Incidents reveal blind spots; updating models to address them prevents recurrence.
 
-#### Lightweight Threat Modeling for Routine Use
+## Lightweight Threat Modeling for Routine Use
 
 Comprehensive threat modeling—constructing detailed attack trees, applying STRIDE to every component, producing extensive documentation—is valuable but resource-intensive. For routine decisions, **lightweight threat modeling** provides security benefit without excessive overhead.
 
@@ -40,7 +40,7 @@ Five minutes answering these questions provides meaningful risk awareness withou
 
 **Threat storming** adapts brainstorming to security. Gather the team for a brief session focused on a specific component or change. What could go wrong? How might attackers exploit this? Five people spending 20 minutes together often generate insights that individual analysis misses.
 
-#### When to Apply Comprehensive vs. Lightweight Approaches
+## When to Apply Comprehensive vs. Lightweight Approaches
 
 Not every situation warrants the same level of analysis. Matching approach intensity to risk level ensures security investment goes where it matters.
 
@@ -64,7 +64,7 @@ Not every situation warrants the same level of analysis. Matching approach inten
 
 The key is proportionality: invest analysis effort where risk is highest, and accept that not everything can receive deep scrutiny.
 
-#### Maintaining and Versioning Threat Models
+## Maintaining and Versioning Threat Models
 
 Threat models are documents that describe understanding at a point in time. As systems and threats evolve, models must evolve with them.
 
@@ -78,7 +78,7 @@ Threat models are documents that describe understanding at a point in time. As s
 
 **Schedule periodic reviews** to ensure models don't drift too far from reality. Even without specific triggers, reviewing threat models quarterly or semi-annually catches gradual drift that individual changes might not surface.
 
-#### Training Developers in Supply Chain Threat Thinking
+## Training Developers in Supply Chain Threat Thinking
 
 Threat modeling works best when distributed across the team rather than concentrated in a security group. Developers who understand supply chain threats make better decisions daily—about dependencies, about configurations, about trust assumptions—than developers who defer all security thinking to specialists.
 
@@ -96,7 +96,7 @@ Effective training approaches include:
 
 The goal is not making every developer a threat modeling expert but building sufficient awareness that security considerations enter routine decisions naturally.
 
-#### Documentation and Knowledge Sharing
+## Documentation and Knowledge Sharing
 
 Threat modeling produces insights that should inform decisions beyond the immediate analysis. Effective documentation and sharing amplify the value of threat modeling investment.
 
@@ -117,7 +117,7 @@ Threat modeling produces insights that should inform decisions beyond the immedi
 
 Simple tools used consistently outperform sophisticated tools used sporadically. Choose tools your team will actually use.
 
-#### Recommendations for Getting Started
+## Recommendations for Getting Started
 
 For organizations beginning to integrate continuous threat modeling:
 

@@ -2,7 +2,7 @@
 
 Having established that modern software is assembled from components (Section 1.1) and that those components are overwhelmingly open source (Section 1.2), we need a precise framework for discussing the security implications. The term "software supply chain" has gained prominence in recent years, but its meaning varies across contexts. This section provides a comprehensive definition that will serve as the foundation for all subsequent discussions in this book.
 
-#### A Working Definition
+## A Working Definition
 
 The **software supply chain** encompasses all people, processes, tools, code, and infrastructure involved in creating, building, distributing, and deploying software—from the earliest conception of a component through its eventual execution in production environments. This definition, aligned with guidance from NIST Special Publication 800-161 Rev. 1 (Cybersecurity Supply Chain Risk Management Practices for Systems and Organizations)[^nist-800-161r1] and CISA software supply chain risk management resources[^cisa-scrm], recognizes that software does not appear fully formed but rather travels through a complex journey involving numerous actors and transformations.
 
@@ -10,7 +10,7 @@ Unlike physical supply chains, where goods move linearly from raw materials to f
 
 The supply chain perspective is valuable because it shifts focus from isolated components to the relationships between them. Security failures rarely occur because a single element is weak; they occur because attackers find paths through the chain—exploiting trust relationships, compromising handoff points, or subverting transformations that occur as code moves from source to execution.
 
-#### Key Actors in the Software Supply Chain
+## Key Actors in the Software Supply Chain
 
 The software supply chain involves diverse actors, each with distinct roles, responsibilities, and potential vulnerabilities. Understanding these actors is essential for analyzing where security controls should be applied.
 
@@ -28,7 +28,7 @@ The software supply chain involves diverse actors, each with distinct roles, res
 
 **Distributors** package and redistribute software through channels separate from original sources. Linux distributions like Debian, Red Hat, and Ubuntu maintain their own repositories, applying patches, making configuration decisions, and providing long-term support. Cloud providers distribute container images through registries like Docker Hub, Amazon ECR, and Google Container Registry. These distributors add value through curation and support but also introduce additional links in the chain where security failures can occur.
 
-#### Artifacts Across the Supply Chain
+## Artifacts Across the Supply Chain
 
 Software takes different forms as it moves through the supply chain, and each form presents distinct security considerations.
 
@@ -44,7 +44,7 @@ Software takes different forms as it moves through the supply chain, and each fo
 
 **Machine learning models and datasets** represent an emerging category of supply chain artifact. Pre-trained models downloaded from repositories like Hugging Face become part of applications that use them. These models can contain embedded vulnerabilities, exhibit unexpected behaviors, or be trained on compromised data. As AI integration becomes standard practice, model provenance and integrity become supply chain concerns.
 
-#### Processes That Define the Chain
+## Processes That Define the Chain
 
 The software supply chain is not merely a collection of actors and artifacts but a series of processes that transform and transfer software from creation to execution.
 
@@ -62,7 +62,7 @@ The software supply chain is not merely a collection of actors and artifacts but
 
 **Update** delivers new versions to replace or augment running software. Update mechanisms must balance the security imperative of rapid patching against the stability imperative of avoiding breaking changes. Compromised update mechanisms have been the vector for some of the most damaging supply chain attacks.
 
-#### The Supply Chain as a Trust Graph
+## The Supply Chain as a Trust Graph
 
 A useful mental model represents the software supply chain as a directed graph where nodes are actors or artifacts and edges represent trust relationships or transformations. When you deploy an application, you are implicitly trusting:
 
@@ -77,7 +77,7 @@ This graph can be extraordinarily deep. A vulnerability or compromise at any nod
 
 Trust in this graph is largely implicit and unexamined. Developers run `npm install` or `pip install` without consciously choosing to trust the maintainers of each transitive dependency. Organizations deploy container images without auditing every package in the base image. This implicit trust is necessary for productivity—explicit verification of every element would be paralyzing—but it creates security exposures that require systematic management.
 
-#### Non-Human Actors: Automation and AI
+## Non-Human Actors: Automation and AI
 
 Modern supply chains increasingly involve non-human actors that make decisions and take actions affecting security. Recognizing these actors is essential for comprehensive supply chain security.
 
@@ -89,7 +89,7 @@ Modern supply chains increasingly involve non-human actors that make decisions a
 
 The presence of non-human actors complicates traditional security models based on human identity and accountability. Questions of responsibility become complex when an AI agent introduces a vulnerable dependency or when a CI system automatically merges a compromised update. Supply chain security frameworks must evolve to address these automated actors explicitly.
 
-#### A Foundation for Analysis
+## A Foundation for Analysis
 
 This definition of the software supply chain—encompassing actors from individual maintainers to automated AI agents, artifacts from source code to deployed containers, and processes from development through continuous updates—provides the vocabulary for analyzing supply chain security throughout this series. When we discuss attacks in Chapters 5-10, we will locate them within this framework. When we explore defenses in Books 2 and 3, we will identify which actors, artifacts, and processes each control addresses.
 

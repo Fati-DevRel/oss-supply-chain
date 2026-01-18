@@ -4,7 +4,7 @@ Threat modeling methodologies provide structured approaches for identifying what
 
 We emphasize at the outset: methodologies are thinking tools, not compliance checklists. Their value lies in helping you ask the right questions and consider threats you might otherwise overlook. Mechanically completing a STRIDE table without genuine analysis produces documentation, not security insight. The goal is structured thinking, not form completion.
 
-#### STRIDE for Supply Chains
+## STRIDE for Supply Chains
 
 **STRIDE** is Microsoft's threat categorization framework, developed as part of the Security Development Lifecycle (SDL). The acronym identifies six threat categories: Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, and Elevation of Privilege. For each element in a system diagram, analysts consider which STRIDE categories apply and what specific threats exist.
 
@@ -80,7 +80,7 @@ Mitigations include caching and mirroring dependencies locally, lockfiles that e
 
 Mitigations include minimal privilege for build and runtime environments, sandboxing package installation, capability-based permission systems (where available), and dependency review focusing on privilege requirements.
 
-#### PASTA for Supply Chain Dependencies
+## PASTA for Supply Chain Dependencies
 
 **[PASTA][pasta-book]** (Process for Attack Simulation and Threat Analysis), developed by Tony UcedaVélez and Marco Morana (2015), is a risk-centric threat modeling methodology that proceeds through seven stages: defining objectives, defining technical scope, application decomposition, threat analysis, vulnerability analysis, attack modeling, and risk and impact analysis. Unlike STRIDE's focus on threat categories, PASTA emphasizes understanding attacker motivations and simulating realistic attack scenarios.
 
@@ -102,7 +102,7 @@ PASTA's structured approach is particularly valuable for supply chain analysis b
 
 PASTA's explicit focus on business objectives and attacker simulation makes it well-suited for organizations that need to justify security investment to non-technical stakeholders. The methodology produces risk-prioritized findings that connect technical threats to business impact.
 
-#### Attack Trees for Supply Chain Scenarios
+## Attack Trees for Supply Chain Scenarios
 
 **Attack trees** model threats as hierarchical structures where the root node represents an attacker's goal and child nodes represent ways to achieve that goal. Each node can be decomposed further until reaching atomic attack steps. Attack trees provide visual, analyzable representations of threat scenarios that can be quantitatively evaluated.
 
@@ -149,7 +149,7 @@ Attack trees help identify which attack paths are most feasible and where mitiga
 
 Tools like OWASP Threat Dragon, Microsoft Threat Modeling Tool, and specialized attack tree software support creating and analyzing attack trees systematically.
 
-#### LINDDUN for Privacy in Supply Chains
+## LINDDUN for Privacy in Supply Chains
 
 **[LINDDUN][linddun]** is a privacy-focused threat modeling framework developed by researchers at KU Leuven that complements security-focused approaches like STRIDE. The acronym covers Linkability, Identifiability, Non-repudiation, Detectability, Disclosure of information, Unawareness, and Non-compliance. While privacy might seem tangential to supply chain security, several LINDDUN categories are directly relevant.
 
@@ -165,7 +165,7 @@ Tools like OWASP Threat Dragon, Microsoft Threat Modeling Tool, and specialized 
 
 For organizations handling sensitive data, LINDDUN analysis of dependencies that process user information provides important complement to security-focused threat modeling.
 
-#### MITRE ATT&CK for Supply Chain Threats
+## MITRE ATT&CK for Supply Chain Threats
 
 The **[MITRE ATT&CK framework][attack]** provides a comprehensive knowledge base of adversary tactics and techniques based on real-world observations. While ATT&CK was originally focused on enterprise intrusion and endpoint threats, its scope has expanded to include supply chain attack techniques that are directly relevant to threat modeling.
 
@@ -225,7 +225,7 @@ This mapping creates bridges between threat modeling and detection engineering, 
 
 [attack]: https://attack.mitre.org/
 
-#### Selecting and Combining Methodologies
+## Selecting and Combining Methodologies
 
 No single methodology covers all supply chain threat modeling needs. Selection depends on context:
 

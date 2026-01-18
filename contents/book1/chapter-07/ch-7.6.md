@@ -4,7 +4,7 @@ The case studies in preceding sections—SolarWinds, 3CX, Codecov, XZ Utils—de
 
 This section provides a taxonomy of CI/CD security weaknesses, drawing on the **OWASP CI/CD Security Top 10** framework and research from security organizations studying build pipeline risks. Each vulnerability category includes examples, detection approaches, and hardening recommendations.
 
-#### A Systematic Overview of CI/CD Weaknesses
+## A Systematic Overview of CI/CD Weaknesses
 
 Modern CI/CD systems automate software building, testing, and deployment. This automation provides enormous productivity benefits but concentrates risk: pipelines have access to source code, secrets, build infrastructure, and production systems. A compromised pipeline can affect every release it produces.
 
@@ -23,7 +23,7 @@ The OWASP CI/CD Security Top 10 identifies the most critical pipeline vulnerabil
 
 We will examine the most prevalent of these throughout this section.
 
-#### Secrets Exposure
+## Secrets Exposure
 
 CI/CD pipelines handle numerous secrets: API keys, deployment credentials, signing keys, database passwords, and access tokens. Improper handling exposes these secrets to attackers.
 
@@ -64,7 +64,7 @@ The Codecov attack (Section 7.4) exploited environment variable access. Any code
 4. Audit artifact contents for secret exposure before publication
 5. Configure pipelines to fail if secrets are detected in output
 
-#### Insufficient Access Controls
+## Insufficient Access Controls
 
 Pipelines often run with excessive privileges, creating opportunities for escalation:
 
@@ -98,7 +98,7 @@ When any one pipeline is compromised, all systems accessible through shared cred
 4. Regularly audit and rotate credentials
 5. Use OIDC federation instead of long-lived tokens where supported
 
-#### Pull Request Exploitation
+## Pull Request Exploitation
 
 Open source projects and organizations allowing external contributions face a challenging problem: pull requests may contain malicious code, but testing requires executing that code.
 
@@ -151,7 +151,7 @@ If a PR title contains shell metacharacters or command injection payloads, they 
 4. Implement workflow review requirements for changes to CI configuration
 5. Use `permissions:` to minimize workflow token scope
 
-#### Dependency Caching Vulnerabilities
+## Dependency Caching Vulnerabilities
 
 CI/CD systems cache dependencies to accelerate builds. These caches create attack surfaces when shared across security boundaries.
 
@@ -197,7 +197,7 @@ Some CI systems share caches across branches. An attacker with access to any bra
 4. Set appropriate cache lifetimes
 5. Consider cache-less builds for security-critical pipelines
 
-#### Self-Hosted vs. Cloud-Hosted Runners
+## Self-Hosted vs. Cloud-Hosted Runners
 
 Organizations choose between self-hosted CI/CD runners and cloud-provided managed runners. Each model has distinct security properties:
 
@@ -250,7 +250,7 @@ Many self-hosted runner configurations default to persistent mode for performanc
 5. Implement container isolation even on self-hosted infrastructure
 6. Audit runner configurations for security misconfigurations
 
-#### Pipeline-as-Code Security
+## Pipeline-as-Code Security
 
 Modern CI/CD systems define pipelines as code—YAML files, scripts, or configuration that lives in repositories alongside application code. This brings software development practices to pipeline management but also creates security considerations.
 
@@ -295,7 +295,7 @@ Using tags rather than commit SHAs for actions allows maintainers (or attackers 
 5. Use workflow linting tools to detect common misconfigurations
 6. Monitor for unexpected pipeline definition changes
 
-#### Cache Poisoning Attacks in Depth
+## Cache Poisoning Attacks in Depth
 
 Cache poisoning deserves detailed treatment as an increasingly exploited vector:
 
@@ -337,7 +337,7 @@ Cache poisoning is difficult to detect because:
 5. **Periodic cache invalidation**: Limit cache lifetime to reduce poisoning windows
 6. **Zero-cache verification builds**: Periodically build without caches and compare results
 
-#### CI/CD Security Scanning Tools
+## CI/CD Security Scanning Tools
 
 Several tools help identify CI/CD vulnerabilities:
 
@@ -353,7 +353,7 @@ Several tools help identify CI/CD vulnerabilities:
 
 **[Cycode][cycode]** offers platform for detecting secrets and misconfigurations in CI/CD systems.
 
-#### Recommendations for CI/CD Hardening
+## Recommendations for CI/CD Hardening
 
 Based on the vulnerability categories examined:
 

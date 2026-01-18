@@ -2,7 +2,7 @@
 
 The previous sections have focused on software dependencies—the packages, libraries, and components that applications incorporate. But modern software depends on far more than code. A hidden layer of infrastructure services underpins every software supply chain: DNS resolution that translates package registry names to IP addresses, cloud platforms that host build systems and registries, CDNs that distribute assets globally, certificate authorities that enable secure connections, and time synchronization services that coordinate distributed systems. Compromise or failure at this infrastructure layer can undermine software supply chain security regardless of how carefully individual packages are vetted.
 
-#### DNS: The Foundation Beneath the Foundation
+## DNS: The Foundation Beneath the Foundation
 
 The **Domain Name System (DNS)** translates human-readable domain names into IP addresses that computers use to communicate. Every time a developer runs `npm install` or `pip install`, DNS resolution determines which servers receive those requests. This makes DNS a critical, largely invisible supply chain dependency.
 
@@ -18,7 +18,7 @@ DNS compromise enables powerful attacks:
 
 Organizations rarely consider DNS in supply chain risk assessments, yet DNS compromise could enable attacks against any package installation that relies on network resolution.
 
-#### Cloud Provider Dependencies
+## Cloud Provider Dependencies
 
 Modern software supply chains are deeply entangled with cloud providers. Package registries run on cloud infrastructure. CI/CD systems operate as cloud services. Container images are stored in cloud registries. This concentration creates **shared fate**—the security and availability of your supply chain depends on your cloud provider's security and availability.
 
@@ -32,7 +32,7 @@ Modern software supply chains are deeply entangled with cloud providers. Package
 
 The concentration of supply chain infrastructure in a small number of cloud providers creates systemic risk. If AWS, Azure, and GCP account for the majority of supply chain hosting, the software ecosystem's resilience depends on those three organizations' security postures.
 
-#### Content Delivery Networks
+## Content Delivery Networks
 
 **Content Delivery Networks (CDNs)** distribute static assets—JavaScript files, fonts, images—from servers geographically close to users. Many websites load JavaScript libraries directly from CDNs rather than bundling them locally. This creates a supply chain dependency where the CDN becomes a trust point: compromise of the CDN enables modifying assets served to website visitors.
 
@@ -78,7 +78,7 @@ Similar risks exist whenever websites load resources from external domains:
 
 As noted above, SRI provides partial mitigation by specifying expected cryptographic hashes for externally loaded resources. Browsers verify loaded content against these hashes and refuse to execute content that doesn't match. However, SRI adoption remains limited, and it requires knowing the expected hash in advance, which is problematic for services that update JavaScript content regularly and doesn't cover dynamically-loaded dependencies, images, or other types of content. 
 
-#### Certificate Authorities and Trust
+## Certificate Authorities and Trust
 
 **Certificate Authorities (CAs)** issue the TLS certificates that enable secure connections between clients and servers. When you install packages over HTTPS, your trust that the connection is secure ultimately derives from trust in CAs. CA compromise enables **man-in-the-middle attacks** against any connection the attacker can intercept.
 
@@ -93,7 +93,7 @@ For software supply chains, CA trust has specific implications:
 - Compromised CAs could enable man-in-the-middle attacks during package installation
 - Revocation mechanisms (CRL, OCSP) may not propagate quickly enough to prevent exploitation
 
-#### Time Synchronization
+## Time Synchronization
 
 **Network Time Protocol (NTP)** synchronization may seem distant from supply chain security, but accurate time underpins many security mechanisms:
 
@@ -104,7 +104,7 @@ For software supply chains, CA trust has specific implications:
 
 NTP attacks can manipulate time on target systems. Researchers have demonstrated attacks that shift victim system clocks hours or days from actual time, potentially affecting certificate validation and other security mechanisms. **Network Time Security (NTS)**, standardized in RFC 8915, addresses these weaknesses by using TLS for initial authentication and authenticated encryption for subsequent time synchronization packets—providing cryptographic assurance that time data hasn't been tampered with.[^nts-rfc] However, NTS adoption remains limited, leaving most systems vulnerable to time-based attacks.
 
-#### The Hidden Infrastructure
+## The Hidden Infrastructure
 
 Modern software depends on a complex web of infrastructure services that developers rarely consider:
 
@@ -116,7 +116,7 @@ Modern software depends on a complex web of infrastructure services that develop
 
 Each infrastructure component represents a supply chain dependency. Comprehensive supply chain security requires considering these infrastructure dependencies alongside the more visible software dependencies.
 
-#### Implications for Security Strategy
+## Implications for Security Strategy
 
 Infrastructure dependencies create supply chain risks that traditional software composition analysis does not address. Effective security strategy must consider:
 

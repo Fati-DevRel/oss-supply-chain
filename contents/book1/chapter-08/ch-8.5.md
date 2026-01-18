@@ -2,7 +2,7 @@
 
 Git has become the dominant version control system, underlying virtually all modern software development. Its distributed architecture, powerful features, and integration with platforms like GitHub and GitLab have made it essential infrastructure. But Git's flexibility also creates attack surface. Features designed for legitimate workflows—hooks, submodules, symbolic references—can be weaponized. Understanding Git-specific vulnerabilities helps practitioners harden their environments and recognize suspicious repository configurations.
 
-#### The `.git` Directory as Attack Target
+## The `.git` Directory as Attack Target
 
 Every Git repository contains a `.git` directory storing configuration, hooks, object database, and references. This directory is both essential and sensitive:
 
@@ -19,7 +19,7 @@ Several CVEs have targeted `.git` directory exposure:
 
 **Defense**: Web servers should block access to `.git` directories. Never expose repositories directly through web servers without explicit `.git` exclusion. Regularly audit deployed applications for `.git` exposure.
 
-#### Malicious Git Hooks
+## Malicious Git Hooks
 
 **Git hooks** are scripts that execute automatically during Git operations. Standard hooks include:
 
@@ -62,7 +62,7 @@ CI/CD systems often run Git operations that trigger hooks. A `post-checkout` hoo
 - In CI/CD, consider running with `core.hooksPath` set to an empty directory
 - Monitor for unexpected configuration changes
 
-#### Submodule Hijacking and Redirection
+## Submodule Hijacking and Redirection
 
 **Git submodules** embed one repository within another, specified in `.gitmodules` file and `.git/config`. Submodules reference external repositories by URL—creating dependency on external resources.
 
@@ -97,7 +97,7 @@ Submodule references include both the URL and a specific commit hash. Attackers 
 - Consider vendoring dependencies instead of using submodules for critical code
 - Use `git config --global protocol.file.allow always` carefully; restrict protocol handlers
 
-#### Case Sensitivity Exploits
+## Case Sensitivity Exploits
 
 Git was designed on Linux, where filesystems are case-sensitive. macOS and Windows use case-insensitive filesystems by default, creating exploitable inconsistencies.
 
@@ -134,7 +134,7 @@ Particularly dangerous is case collision with the `.git` directory:
 - Use `git config core.protectNTFS true` on Windows
 - Consider CI validation that rejects repositories with case-colliding paths
 
-#### Signed Commits: Verification Gaps and Limitations
+## Signed Commits: Verification Gaps and Limitations
 
 **Commit signing** uses GPG, SSH, or S/MIME keys to cryptographically bind committer identity to commits. While valuable, signing has limitations often misunderstood:
 
@@ -188,7 +188,7 @@ Without signature verification, anyone can create commits claiming to be from an
 - Establish key verification procedures for maintainers
 - Consider SSH signing (simpler key management than GPG)
 
-#### Git Protocol Vulnerabilities
+## Git Protocol Vulnerabilities
 
 Git communicates using several protocols, each with distinct security properties:
 
@@ -217,7 +217,7 @@ Despite its risks, some repositories still offer `git://` URLs.
 - Keep Git client updated; protocol parser vulnerabilities are regularly discovered
 - Consider `git config --global url."https://".insteadOf git://` to rewrite URLs
 
-#### Repository History Manipulation
+## Repository History Manipulation
 
 Git's distributed nature means history can be rewritten—intentionally or maliciously:
 
@@ -255,7 +255,7 @@ Shallow clones (`git clone --depth 1`) fetch limited history. This:
 - Implement audit logging for force pushes and reference deletions
 - Perform security analysis on full repository history, not shallow clones
 
-#### Clone-Time Code Execution Risks
+## Clone-Time Code Execution Risks
 
 The act of cloning a repository can execute code through several mechanisms:
 
@@ -297,7 +297,7 @@ This could potentially import configuration from files in the repository tree.
 - Avoid `--recurse-submodules` for untrusted repositories
 - Run initial analysis in isolated environments
 
-#### Hardening Recommendations
+## Hardening Recommendations
 
 **For Developers:**
 

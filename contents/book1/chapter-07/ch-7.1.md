@@ -4,7 +4,7 @@ The journey from source code to deployed software passes through build systems�
 
 Build infrastructure compromise represents one of the highest-leverage attack vectors in the software supply chain. A single successful attack on a widely-used project's build system can affect millions of downstream users, as the SolarWinds, 3CX, and Codecov incidents—examined in subsequent sections—demonstrate.
 
-#### The Build System as a High-Value Target
+## The Build System as a High-Value Target
 
 Build systems occupy a uniquely privileged position in the software supply chain. They have access to:
 
@@ -22,7 +22,7 @@ This combination makes build infrastructure extraordinarily attractive to attack
 
 The leverage is exceptional. Rather than compromising individual developer machines or attempting to sneak malicious commits past code review, an attacker who controls the build system affects every release produced by that system. The SolarWinds attack demonstrated this leverage: by compromising the build process for Orion software, [attackers distributed malicious updates to approximately 18,000 organizations][solarwinds-sec-filing].
 
-#### The Gap Between Source and Binary
+## The Gap Between Source and Binary
 
 When you examine source code on GitHub or GitLab, you see what developers wrote and reviewers approved. When you install a binary package, you receive something different—the output of a build process that transformed source into executable form.
 
@@ -52,7 +52,7 @@ npm install --save-dev legitimate-looking-helper
 
 The installed package executes its installation hooks, potentially compromising the build environment, but never appears in `package.json` or lockfiles that developers review.
 
-#### Attack Vectors Against Build Systems
+## Attack Vectors Against Build Systems
 
 Attackers compromise build infrastructure through multiple vectors:
 
@@ -82,7 +82,7 @@ The Codecov attack (detailed in Section 7.4) demonstrated this vector: attackers
 
 Ken Thompson's classic paper ["Reflections on Trusting Trust"][thompson-trust] described this threat decades ago: a compromised compiler could insert backdoors into programs it compiles while appearing innocent when its own source code is examined. Modern build toolchains are far more complex than 1984-era compilers, with many more opportunities for supply chain attacks.
 
-#### Build Reproducibility and Security
+## Build Reproducibility and Security
 
 **Reproducible builds** address the source-to-binary gap by ensuring that anyone can independently verify that a binary was produced from its claimed source code. If builds are reproducible, verification becomes possible: rebuild from source and compare the result to the distributed binary.
 
@@ -102,7 +102,7 @@ The [**Reproducible Builds project**][reproducible-builds] has made significant 
 
 Without reproducibility, users cannot independently verify that binaries match source. They must trust build infrastructure—trust that sophisticated attackers target precisely because it is granted implicitly.
 
-#### CI/CD Platform Security Considerations
+## CI/CD Platform Security Considerations
 
 The choice of CI/CD platform and its configuration significantly affects build security.
 
@@ -144,7 +144,7 @@ Neither approach is inherently superior. Cloud platforms provide good default se
 - **Missing audit logging**: Inability to detect or investigate compromises
 - **Inadequate access controls**: Too many accounts with administrative privileges
 
-#### The SLSA Framework and Build Integrity
+## The SLSA Framework and Build Integrity
 
 The [**Supply chain Levels for Software Artifacts (SLSA)**][slsa] framework, developed by Google and now maintained by the [OpenSSF][openssf], provides a graduated approach to build integrity.
 
@@ -170,7 +170,7 @@ Currently, most software achieves SLSA Level 0 (no provenance) or Level 1 (basic
 
 GitHub, npm, and PyPI have implemented provenance features aligned with SLSA, enabling packages to include verifiable build provenance. Adoption is growing but remains a minority practice.
 
-#### Supply Chain Attacks on Build Tools
+## Supply Chain Attacks on Build Tools
 
 Build tools themselves are software, subject to the same supply chain risks as any other software. Attackers have targeted:
 
@@ -186,7 +186,7 @@ Build tools themselves are software, subject to the same supply chain risks as a
 
 Organizations should inventory the tools involved in their build processes and apply supply chain security practices to these tools, not just to the code being built.
 
-#### Connection to Case Studies
+## Connection to Case Studies
 
 The following sections examine specific incidents that illustrate build infrastructure compromise:
 

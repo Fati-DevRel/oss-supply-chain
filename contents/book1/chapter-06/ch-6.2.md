@@ -2,7 +2,7 @@
 
 In February 2021, security researcher Alex Birsan published research that would reshape enterprise understanding of software supply chain risk. By exploiting a simple logic flaw in how package managers resolve dependencies, Birsan gained code execution on internal systems at Apple, Microsoft, PayPal, Shopify, Netflix, Tesla, Uber, and dozens of other major companies. His attacks required no authentication, no exploitation of traditional vulnerabilities, and in most cases, no insider knowledge beyond publicly leaked internal package names. The technique, which Birsan called **dependency confusion**, revealed that the boundary between public and private package ecosystems was far more porous than most organizations realized.
 
-#### The Public/Private Package Conflict
+## The Public/Private Package Conflict
 
 Modern enterprises use packages from two sources: **public registries** (npm, PyPI, Maven Central) containing open source software, and **private registries** containing proprietary internal packages. This dual-source model is nearly universal—organizations download public dependencies while also maintaining internal libraries shared across teams.
 
@@ -12,7 +12,7 @@ Different package managers answer this question differently, and none of the def
 
 This is dependency confusion: substituting a public package for a private one by exploiting package resolution logic.
 
-#### Alex Birsan's Research and the $130,000 Bug Bounties
+## Alex Birsan's Research and the $130,000 Bug Bounties
 
 Birsan's [research](https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610), published in February 2021, demonstrated the attack against some of the world's most security-conscious organizations.
 
@@ -42,7 +42,7 @@ The results were remarkable. Birsan received bug bounty payments exceeding $130,
 
 The affected organizations included sophisticated security teams with mature application security programs. The vulnerability succeeded not because these organizations lacked security awareness but because the attack exploited supply chain mechanics that few had considered.
 
-#### How Build Systems Resolve Package Names
+## How Build Systems Resolve Package Names
 
 Understanding dependency confusion requires understanding how package managers resolve names to specific packages. The resolution logic varies by ecosystem, but problematic patterns recur:
 
@@ -64,7 +64,7 @@ The common vulnerability pattern across ecosystems:
 
 The version number mechanism is key. Attackers cannot generally predict exact version numbers of internal packages, but they can publish extremely high version numbers that exceed any plausible internal version.
 
-#### Ecosystem-Specific Variations
+## Ecosystem-Specific Variations
 
 Each package ecosystem presented distinct vulnerability characteristics:
 
@@ -78,7 +78,7 @@ Birsan found that many organizations had misconfigured pip, thinking `--extra-in
 
 **NuGet/.NET**: NuGet's package source priority features provide mitigation options, but default configurations could be vulnerable.
 
-#### Enterprise Exposure Points
+## Enterprise Exposure Points
 
 Birsan's research revealed multiple paths through which internal package names leak publicly:
 
@@ -94,7 +94,7 @@ Birsan's research revealed multiple paths through which internal package names l
 
 Once attackers know an internal package name exists, they can attempt the attack. The attack does not require knowing version numbers, implementation details, or having any internal access—only the name.
 
-#### Remediation Strategies
+## Remediation Strategies
 
 Organizations can protect against dependency confusion through several complementary approaches:
 
@@ -123,7 +123,7 @@ For npm, use scoped packages and configure scopes to route to appropriate regist
 
 **Audit for leaked package names**: Review public repositories, error tracking systems, and documentation for exposed internal package names. Treat name exposure as a security issue requiring remediation.
 
-#### Registry and Tooling Responses
+## Registry and Tooling Responses
 
 Following Birsan's publication, package ecosystems implemented various mitigations:
 
@@ -139,7 +139,7 @@ Following Birsan's publication, package ecosystems implemented various mitigatio
 
 Despite these improvements, the core vulnerability—ambiguity in package resolution across multiple sources—remains a configuration challenge rather than a solved problem. Organizations must actively implement protections; default configurations often remain vulnerable.
 
-#### Ongoing Relevance
+## Ongoing Relevance
 
 Dependency confusion remains an active attack vector. Security firms regularly discover malicious packages exploiting the technique. Organizations that have not implemented specific mitigations continue to be exposed.
 

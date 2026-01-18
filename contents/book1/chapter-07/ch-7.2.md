@@ -4,7 +4,7 @@ In December 2020, the cybersecurity industry confronted an attack that would fun
 
 SUNBURST became the watershed moment for software supply chain security, triggering government policy changes, industry investment, and a fundamental reassessment of how organizations evaluate trust in their software dependencies.
 
-#### Background: SolarWinds and the Orion Platform
+## Background: SolarWinds and the Orion Platform
 
 SolarWinds, founded in 1999 and headquartered in Austin, Texas, developed IT management software used by organizations worldwide. Their flagship product, **Orion**, provided network monitoring, performance analysis, and IT infrastructure management capabilities.
 
@@ -17,7 +17,7 @@ Orion's market position made it an attractive target:
 
 This combination—wide deployment, deep access, and implicit trust—made Orion an ideal supply chain attack vector. Compromising Orion would provide access to thousands of high-value networks through a single attack.
 
-#### The Attack: Build System Compromise
+## The Attack: Build System Compromise
 
 The SUNBURST attack did not target SolarWinds' source code repository in a way that would be visible to developers or code reviewers. Instead, attackers compromised the build infrastructure itself, modifying the compiled output without changing the source files.
 
@@ -49,7 +49,7 @@ The compromised DLL was distributed in Orion versions 2019.4 HF5 through 2020.2.
 
 Over 18,000 organizations downloaded and installed the malicious updates. The attackers had successfully placed their implant in the heart of these organizations' networks through what appeared to be a routine software update.
 
-#### Technical Details: SUNBURST Capabilities
+## Technical Details: SUNBURST Capabilities
 
 The malicious code inserted into the Orion DLL demonstrated sophisticated tradecraft designed to evade detection:
 
@@ -92,7 +92,7 @@ The malicious code was written to resemble legitimate Orion code in style, namin
 
 In its investigation of the SolarWinds supply chain attack and the concurrent compromise of FireEye's own systems, [FireEye stated][fireeye] that the intrusion was carried out by a highly sophisticated threat actor whose operational security and techniques suggested a nation-state campaign, and that the level of discipline and clandestine operations exceeded typical cyber incidents. Detailed technical analyses from [Microsoft][microsoft-sunburst] and [Mandiant][fireeye-sunburst] documented the malware's command-and-control protocols, anti-analysis techniques, and the surgical precision of the code injection.
 
-#### Discovery: FireEye Uncovers the Breach
+## Discovery: FireEye Uncovers the Breach
 
 The attack was discovered not through detection of SUNBURST itself, but through its consequences.
 
@@ -123,7 +123,7 @@ The scope of the attack became clear. Victims included:
 
 The investigation revealed that attackers had maintained access to some victims for 6-9 months before discovery. During this time, they had exfiltrated data, monitored communications, and established persistence mechanisms beyond the initial SUNBURST implant.
 
-#### Attribution: Russian Intelligence Services
+## Attribution: Russian Intelligence Services
 
 The U.S. government formally attributed the attack to Russia's Foreign Intelligence Service (SVR), also tracked by security researchers as **APT29** or **Cozy Bear**.
 
@@ -139,7 +139,7 @@ The attribution aligned with the attack's characteristics:
 - Selective exploitation focused on high-value targets rather than financial gain
 - Prior APT29 activity demonstrated similar tradecraft
 
-#### Why Traditional Security Failed
+## Why Traditional Security Failed
 
 SUNBURST evaded security tools that organizations reasonably believed would detect supply chain compromises:
 
@@ -169,7 +169,7 @@ By only exploiting selected targets, the attackers minimized unusual network beh
 
 This combination of techniques represented a fundamental challenge: the attack succeeded because it precisely mimicked legitimate behavior at every level where security controls operate.
 
-#### Response: Industry and Government Action
+## Response: Industry and Government Action
 
 The SolarWinds attack triggered significant responses:
 
@@ -193,7 +193,7 @@ For detailed regulatory requirements, compliance timelines, implementation guida
 - The OpenSSF SLSA framework gained prominence as organizations sought structured approaches to build security
 - Security firms developed capabilities specifically targeting supply chain threats
 
-#### Lessons Learned
+## Lessons Learned
 
 The SolarWinds attack taught—or reinforced—critical lessons for software security:
 
@@ -225,7 +225,7 @@ Organizations discovered they lacked basic visibility into what software they ra
 
 The level of investment and patience demonstrated in SUNBURST—months of preparation, careful coding, selective exploitation—showed that well-resourced adversaries view supply chain compromise as worth significant investment.
 
-#### SolarWinds as Turning Point
+## SolarWinds as Turning Point
 
 The SolarWinds attack marked a turning point in supply chain security awareness. Prior incidents like the 2015 XcodeGhost malware or the 2017 CCleaner compromise had demonstrated supply chain attack feasibility, but SUNBURST's combination of sophistication, scope, and high-profile victims brought supply chain security to boardrooms, congressional hearings, and government policy.
 

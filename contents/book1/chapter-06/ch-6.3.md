@@ -6,7 +6,7 @@ A note on terminology: this section focuses on malicious packages—those create
 
 The scale of this threat has grown dramatically. [Sonatype's 2024 State of the Software Supply Chain report][sonatype-2024] documented 512,847 malicious packages discovered across major ecosystems in the past year—a 156% increase year-over-year, with 704,102 total malicious packages identified since 2019. The arms race between attackers publishing malicious packages and defenders attempting to detect and remove them has become a defining feature of modern package ecosystem security.
 
-#### Motivations Behind Malicious Packages
+## Motivations Behind Malicious Packages
 
 Attackers publish malicious packages for diverse objectives, each influencing the attack's design:
 
@@ -24,7 +24,7 @@ Attackers publish malicious packages for diverse objectives, each influencing th
 
 **Supply chain pre-positioning** involves planting dormant capabilities for later activation. Nation-state actors may publish or compromise packages not for immediate exploitation but to establish access for future operations. The patience demonstrated in the XZ Utils attack—over two years of trust-building before introducing malicious code—suggests sophisticated actors view package ecosystems as strategic targets worth long-term investment.
 
-#### Technical Attack Mechanisms
+## Technical Attack Mechanisms
 
 Malicious packages employ various techniques to execute code and achieve attacker objectives:
 
@@ -68,7 +68,7 @@ The sophistication of obfuscation varies. Some malicious packages use trivial en
 
 **Staged payloads** download malicious code from external servers rather than including it in the package. This reduces the malicious content visible in the package itself and allows attackers to update payloads without publishing new package versions. Detection systems analyzing package contents may miss the actual malicious functionality if it's fetched at runtime.
 
-#### Evasion Sophistication
+## Evasion Sophistication
 
 The sophistication of malicious package techniques has increased as detection capabilities improve, creating an ongoing arms race:
 
@@ -86,7 +86,7 @@ The sophistication of malicious package techniques has increased as detection ca
 
 Research by [Socket.dev][socket] found that malicious packages increasingly mimic legitimate package patterns—proper documentation, reasonable functionality, professional presentation—while hiding malicious code in peripheral files or rarely-executed code paths.
 
-#### Detection Methods and Tools
+## Detection Methods and Tools
 
 Defenders have developed various approaches to identify malicious packages:
 
@@ -130,7 +130,7 @@ These approaches don't directly detect malicious code but establish trust throug
 - Metadata anomalies (new maintainer, sudden capability changes)
 - Behavioral clustering identifying packages that act unlike their stated purpose
 
-#### Registry Security Measures
+## Registry Security Measures
 
 Package registries have implemented various security measures:
 
@@ -160,7 +160,7 @@ npm processes security reports and can place packages in "security hold" status,
 
 Detection effectiveness varies across registries. Larger registries with more resources (npm, PyPI) generally detect and remove malicious packages faster than smaller ecosystems. However, no registry achieves comprehensive detection—malicious packages regularly reach users before discovery. Malicious packages can persist for days or weeks before removal, accumulating significant download counts before detection.
 
-#### The Ongoing Arms Race
+## The Ongoing Arms Race
 
 The conflict between attackers and defenders creates evolutionary pressure on both sides:
 

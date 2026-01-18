@@ -2,7 +2,7 @@
 
 Behind every open source package is a human being. Sometimes it is a team of humans, sometimes a well-funded corporate initiative, but remarkably often it is a single individual who created something useful and shared it with the world—never anticipating that their weekend project would become critical infrastructure for thousands of organizations. The sustainability challenges facing these maintainers constitute one of the most significant systemic risks to software supply chain security. Burned-out maintainers make mistakes, delay security patches, or abandon projects entirely. Overwhelmed maintainers become vulnerable to social engineering by attackers offering to "help." Understanding this crisis is essential for anyone seeking to secure the software supply chain.
 
-#### Who Maintains Open Source Software?
+## Who Maintains Open Source Software?
 
 The popular image of open source development—vibrant communities collaborating to build software—obscures a more precarious reality. According to [Tidelift's 2023 State of the Open Source Maintainer report][tidelift-2023], 60% of maintainers describe themselves as unpaid hobbyists. Only 26% are paid for some or all of their maintenance work. The majority maintain projects in their spare time, alongside full-time employment in unrelated roles.
 
@@ -12,7 +12,7 @@ Motivations for maintaining open source software vary. Some maintainers are driv
 
 This profile—experienced but unpaid, motivated by intrinsic rewards, working in spare time—shapes how maintenance actually happens. When a security vulnerability is reported, the maintainer must find time outside their day job to understand the issue, develop a fix, test it, and release an update. When dependencies break, the maintainer must troubleshoot compatibility issues. When users file bug reports or feature requests, the maintainer must triage and respond. All of this happens in time carved from evenings, weekends, and lunch breaks.
 
-#### The Sustainability Crisis
+## The Sustainability Crisis
 
 The gap between what maintainers provide and what they receive has reached crisis proportions. Projects that power billions of dollars in commercial software are maintained by individuals who receive nothing in return—not money, not recognition, often not even a thank-you.
 
@@ -25,7 +25,7 @@ Nadia Eghbal, in her influential book *Working in Public: The Making and Mainten
 
 This sentiment, expressed in various forms by maintainers across the ecosystem, reflects a fundamental imbalance. The value flows in one direction—from maintainer to user—while recognition and support rarely flow back.
 
-#### The Infrastructure Layer: Registry Sustainability
+## The Infrastructure Layer: Registry Sustainability
 
 The sustainability crisis extends beyond individual maintainers to the infrastructure they depend on. Package registries—PyPI, Maven Central, crates.io, npm, RubyGems—serve as the distribution backbone of the software supply chain. These registries handle billions of downloads monthly, yet they face the same structural funding problems as the maintainers who publish to them.
 
@@ -48,7 +48,7 @@ The joint statement represents a watershed moment: the organizations responsible
 [^joint-statement]: Open Source Security Foundation et al., "Open Infrastructure is Not Free: A Joint Statement on Sustainable Stewardship" (September 2025). https://openssf.org/blog/2025/09/23/open-infrastructure-is-not-free-a-joint-statement-on-sustainable-stewardship/
 [^alpha-omega-statement]: Alpha-Omega, "Alpha-Omega Endorses the Joint Statement on Sustainable Stewardship" (September 2025). https://alpha-omega.dev/blog/alpha-omega-endorses-the-joint-statement-on-sustainable-stewardship/
 
-#### The Bus Factor
+## The Bus Factor
 
 The **bus factor** (sometimes called the "truck factor" or, more positively, the "lottery factor") measures how many team members would need to be incapacitated before a project could no longer be maintained. A bus factor of one means a single person's departure would leave the project unmaintained.
 
@@ -58,7 +58,7 @@ This concentration creates acute supply chain risk. When key maintainers become 
 
 The 2016 left-pad incident illustrated how even tiny packages can have outsize impact. When developer Azer Koçulu removed his packages from npm following a dispute, the 11-line left-pad package disappeared from the registry. Thousands of builds broke instantly because left-pad was a transitive dependency of popular packages like Babel and React. The incident revealed how dependent the JavaScript ecosystem had become on packages maintained by single individuals with no obligation to continue providing them.
 
-#### Case Study: core-js and the Limits of Volunteerism
+## Case Study: core-js and the Limits of Volunteerism
 
 The story of core-js illustrates the maintainer crisis in painful detail. Core-js is a JavaScript polyfill library that provides compatibility for modern JavaScript features in older browsers. According to npm download statistics (as of 2023), it is downloaded over 30 million times per week and is a dependency of projects used by virtually every major website and application. It is, by any measure, critical infrastructure for the web.
 
@@ -73,7 +73,7 @@ Pushkarev's post included pointed observations about the sustainability of open 
 
 The response to Pushkarev's appeal was mixed. Some donations increased. Some users complained about the npm installation messages he added soliciting support. Few of the large companies depending on core-js established meaningful sponsorship. The project continues, maintained largely by one person whose life circumstances have been extraordinarily difficult, with minimal institutional support for work that underpins the modern web.
 
-#### Case Study: XZ Utils and the Social Engineering of Burnout
+## Case Study: XZ Utils and the Social Engineering of Burnout
 
 The XZ Utils compromise of 2024 demonstrated how attackers can exploit maintainer exhaustion. XZ Utils is a compression library included in essentially every Linux distribution. Its maintainer, Lasse Collin, had maintained the project for years as a solo effort alongside other responsibilities.
 
@@ -85,7 +85,7 @@ With maintainer access secured, Jia Tan introduced a sophisticated backdoor thro
 
 The XZ Utils attack was not primarily a technical exploitation. It was a social engineering attack that exploited the predictable vulnerability of solo maintainers: they are overwhelmed, they need help, and they have limited capacity to vet those who offer it. The attacker weaponized the maintainer crisis itself.
 
-#### Mental Health and Harassment
+## Mental Health and Harassment
 
 The burdens on maintainers extend beyond time and money. Maintaining popular open source software can be psychologically taxing in ways that receive insufficient attention.
 
@@ -97,7 +97,7 @@ Several prominent maintainers have spoken publicly about the toll. André Staltz
 
 Lasse Collin's openness about mental health challenges before the XZ attack was notable. He had mentioned on mailing lists that mental health issues affected his capacity to maintain the project. This candor, admirable in itself, may have provided information that attackers used to target him.
 
-#### The Security Implications
+## The Security Implications
 
 Every dimension of the maintainer crisis has security implications.
 
@@ -111,7 +111,7 @@ Every dimension of the maintainer crisis has security implications.
 
 **Unmaintained projects lack security infrastructure.** Projects without active maintenance typically lack security reporting processes, vulnerability response plans, or the continuous review needed to detect malicious contributions. They become attractive targets for attackers seeking entry points into the supply chain.
 
-#### The Path Forward
+## The Path Forward
 
 The maintainer crisis will not be solved by exhorting maintainers to work harder or users to be more grateful. The scale mismatch between open source consumption and contribution is structural, rooted in economic incentives that favor extraction over investment.
 

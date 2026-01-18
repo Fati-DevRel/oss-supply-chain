@@ -4,7 +4,7 @@ Browser extensions operate with extraordinary access to users' online activities
 
 The browser extension ecosystem combines the dependency risks familiar from package managers with unique factors: extremely broad permissions, automatic updates, and direct access to users' most sensitive online activities.
 
-#### The Extension Ecosystem Landscape
+## The Extension Ecosystem Landscape
 
 Major browsers operate extension marketplaces with varying security models:
 
@@ -24,7 +24,7 @@ Firefox has historically emphasized user privacy, reflected in extension policie
 
 Since Edge migrated to Chromium, its extension ecosystem has aligned with Chrome's. Edge accepts most Chrome extensions with minimal modification. Microsoft maintains its own add-on store but the technical architecture mirrors Chrome.
 
-#### The Unique Risks of Extension Permissions
+## The Unique Risks of Extension Permissions
 
 Extensions declare required **permissions** in their manifest files. Users must grant these permissions during installation. However, permission models have significant limitations:
 
@@ -48,7 +48,7 @@ Extensions may request minimal permissions initially, then expand permissions in
 
 Users rarely read permission requests carefully. A popular, well-reviewed extension is assumed to be safe. This trust persists through ownership changes and updates—exactly the trust that supply chain attacks exploit.
 
-#### Extension Acquisition and Account Hijacking
+## Extension Acquisition and Account Hijacking
 
 Attackers frequently target extension developers and their accounts rather than building malicious extensions from scratch:
 
@@ -73,7 +73,7 @@ Purchased extensions are not compromised—they're legitimately transferred. Use
 
 When developers abandon extensions, browsers may allow new developers to claim them through various processes. Attackers monitor for abandoned popular extensions and request transfer.
 
-#### Case Studies
+## Case Studies
 
 **The Great Suspender (2021):**
 
@@ -113,7 +113,7 @@ Within days, the new owners pushed updates that:
 
 The ad-blocking function continued normally, disguising the malicious additions.
 
-#### Manifest V3: Security Implications
+## Manifest V3: Security Implications
 
 Google introduced **Manifest V3** as a major revision to the Chrome extension platform, with significant security implications:
 
@@ -141,7 +141,7 @@ Critics argue Manifest V3's restrictions are primarily designed to limit ad bloc
 
 Manifest V3 improves the security baseline but does not eliminate supply chain risks.
 
-#### Detection Challenges
+## Detection Challenges
 
 Identifying malicious extensions presents significant challenges:
 
@@ -181,7 +181,7 @@ Review processes may scrutinize initial submissions more than updates. Attackers
 
 Tools like **[Spin.AI][spinai]** provide enterprise visibility into extension risks. (Note: CRXcavator, previously a leading tool in this space, has been discontinued.)
 
-#### Enterprise Extension Management
+## Enterprise Extension Management
 
 Organizations face particular challenges with browser extensions:
 
@@ -216,7 +216,7 @@ Enterprise management tools can enforce:
 - Allowlisting requires ongoing maintenance
 - Legacy extensions may lack modern security features
 
-#### Recommendations
+## Recommendations
 
 **For Individual Users:**
 
