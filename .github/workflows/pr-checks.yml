@@ -19,15 +19,24 @@ jobs:
       all_files: ${{ steps.changed.outputs.all_files }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
           fetch-depth: 0
+          persist-credentials: false
 
       - name: Get changed files
         id: changed
+        env:
+          BASE_REF: ${{ github.base_ref }}
         run: |
+          # Validate BASE_REF contains only safe characters (alphanumeric, dash, underscore, slash, dot)
+          if [[ ! "$BASE_REF" =~ ^[a-zA-Z0-9/_.-]+$ ]]; then
+            echo "::error::Invalid base_ref detected"
+            exit 1
+          fi
+
           # Get changed markdown files
-          MD_FILES=$(git diff --name-only origin/${{ github.base_ref }}...HEAD -- '*.md' | grep -E '^contents/' || true)
+          MD_FILES=$(git diff --name-only "origin/${BASE_REF}...HEAD" -- '*.md' | grep -E '^contents/' || true)
 
           if [ -n "$MD_FILES" ]; then
             echo "md_files_exist=true" >> $GITHUB_OUTPUT
@@ -41,7 +50,7 @@ jobs:
           fi
 
           # Get all changed files
-          ALL_FILES=$(git diff --name-only origin/${{ github.base_ref }}...HEAD)
+          ALL_FILES=$(git diff --name-only "origin/${BASE_REF}...HEAD")
           echo "all_files<<EOF" >> $GITHUB_OUTPUT
           echo "$ALL_FILES" >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
@@ -54,10 +63,12 @@ jobs:
     continue-on-error: true
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        with:
+          persist-credentials: false
 
       - name: Run markdownlint
-        uses: DavidAnson/markdownlint-cli2-action@v22
+        uses: DavidAnson/markdownlint-cli2-action@07035fd053f7be764496c0f8d8f9f41f98305101 # v22
         with:
           globs: ${{ needs.changed-files.outputs.md_files }}
           config: .github/workflows/.markdownlint-cli2.jsonc
@@ -69,10 +80,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        with:
+          persist-credentials: false
 
       - name: Run cspell
-        uses: streetsidesoftware/cspell-action@v6
+        uses: streetsidesoftware/cspell-action@24fa8d3096a314ce263f39578744e9d9f8d80acf # v8.1.2
         with:
           files: ${{ needs.changed-files.outputs.md_files }}
           config: .github/workflows/cspell.json
@@ -86,10 +99,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        with:
+          persist-credentials: false
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@83679a892e2d95755f2dac6acb0bfd1e9ac5d548 # v6.1.0
         with:
           python-version: '3.x'
 
@@ -97,12 +112,22 @@ jobs:
         run: pip install requests
 
       - name: Validate URLs in changed files
+        env:
+          MD_FILES: ${{ needs.changed-files.outputs.md_files }}
         run: |
           # Create a temporary directory with just the changed files
           mkdir -p /tmp/changed_files
 
-          echo "${{ needs.changed-files.outputs.md_files }}" | while read -r file; do
-            if [ -n "$file" ] && [ -f "$file" ]; then
+          # Read files from env var, validating each path
+          echo "$MD_FILES" | while IFS= read -r file; do
+            # Skip empty lines
+            [ -z "$file" ] && continue
+            # Validate path contains only safe characters and is under contents/
+            if [[ ! "$file" =~ ^contents/[a-zA-Z0-9/_.-]+\.md$ ]]; then
+              echo "::warning::Skipping invalid file path: $file"
+              continue
+            fi
+            if [ -f "$file" ]; then
               # Preserve directory structure
               mkdir -p "/tmp/changed_files/$(dirname "$file")"
               cp "$file" "/tmp/changed_files/$file"
@@ -120,19 +145,31 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        with:
+          persist-credentials: false
 
       - name: Validate image references
+        env:
+          MD_FILES: ${{ needs.changed-files.outputs.md_files }}
         run: |
           EXIT_CODE=0
 
-          echo "${{ needs.changed-files.outputs.md_files }}" | while read -r file; do
-            if [ -n "$file" ] && [ -f "$file" ]; then
+          # Read files from env var, validating each path
+          echo "$MD_FILES" | while IFS= read -r file; do
+            # Skip empty lines
+            [ -z "$file" ] && continue
+            # Validate path contains only safe characters and is under contents/
+            if [[ ! "$file" =~ ^contents/[a-zA-Z0-9/_.-]+\.md$ ]]; then
+              echo "::warning::Skipping invalid file path: $file"
+              continue
+            fi
+            if [ -f "$file" ]; then
               # Extract image references and check if files exist
               DIR=$(dirname "$file")
 
               # Find markdown image syntax: ![alt](path)
-              grep -oP '!\[[^\]]*\]\(\K[^)]+' "$file" 2>/dev/null | while read -r img_path; do
+              grep -oP '!\[[^\]]*\]\(\K[^)]+' "$file" 2>/dev/null | while IFS= read -r img_path; do
                 # Skip URLs
                 if [[ "$img_path" =~ ^https?:// ]]; then
                   continue
@@ -165,18 +202,30 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        with:
+          persist-credentials: false
 
       - name: Validate internal links
+        env:
+          MD_FILES: ${{ needs.changed-files.outputs.md_files }}
         run: |
           EXIT_CODE=0
 
-          echo "${{ needs.changed-files.outputs.md_files }}" | while read -r file; do
-            if [ -n "$file" ] && [ -f "$file" ]; then
+          # Read files from env var, validating each path
+          echo "$MD_FILES" | while IFS= read -r file; do
+            # Skip empty lines
+            [ -z "$file" ] && continue
+            # Validate path contains only safe characters and is under contents/
+            if [[ ! "$file" =~ ^contents/[a-zA-Z0-9/_.-]+\.md$ ]]; then
+              echo "::warning::Skipping invalid file path: $file"
+              continue
+            fi
+            if [ -f "$file" ]; then
               DIR=$(dirname "$file")
 
               # Find markdown links to .md files: [text](path.md) or [text](path.md#anchor)
-              grep -oP '\[[^\]]*\]\(\K[^)]+\.md[^)]*' "$file" 2>/dev/null | while read -r link; do
+              grep -oP '\[[^\]]*\]\(\K[^)]+\.md[^)]*' "$file" 2>/dev/null | while IFS= read -r link; do
                 # Remove anchor if present
                 LINK_PATH="${link%%#*}"
 
@@ -212,30 +261,41 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        with:
+          persist-credentials: false
 
       - name: Check file naming conventions
+        env:
+          MD_FILES: ${{ needs.changed-files.outputs.md_files }}
         run: |
           EXIT_CODE=0
 
-          echo "${{ needs.changed-files.outputs.md_files }}" | while read -r file; do
-            if [ -n "$file" ]; then
-              BASENAME=$(basename "$file")
-              DIR=$(dirname "$file")
+          # Read files from env var, validating each path
+          echo "$MD_FILES" | while IFS= read -r file; do
+            # Skip empty lines
+            [ -z "$file" ] && continue
+            # Validate path contains only safe characters and is under contents/
+            if [[ ! "$file" =~ ^contents/[a-zA-Z0-9/_.-]+\.md$ ]]; then
+              echo "::warning::Skipping invalid file path: $file"
+              continue
+            fi
 
-              # Check chapter files match ch-X.Y.md pattern
-              if [[ "$DIR" =~ chapter-([0-9]+) ]]; then
-                CHAPTER_NUM="${BASH_REMATCH[1]}"
+            BASENAME=$(basename "$file")
+            DIR=$(dirname "$file")
 
-                # Allow README.md and index.md in chapter dirs
-                if [[ "$BASENAME" == "README.md" ]] || [[ "$BASENAME" == "index.md" ]]; then
-                  continue
-                fi
+            # Check chapter files match ch-X.Y.md pattern
+            if [[ "$DIR" =~ chapter-([0-9]+) ]]; then
+              CHAPTER_NUM="${BASH_REMATCH[1]}"
 
-                # Check pattern: ch-X.Y.md where X matches directory number
-                if [[ ! "$BASENAME" =~ ^ch-${CHAPTER_NUM}\.[0-9]+\.md$ ]]; then
-                  echo "::warning file=$file::File naming: Expected ch-${CHAPTER_NUM}.Y.md pattern"
-                fi
+              # Allow README.md and index.md in chapter dirs
+              if [[ "$BASENAME" == "README.md" ]] || [[ "$BASENAME" == "index.md" ]]; then
+                continue
+              fi
+
+              # Check pattern: ch-X.Y.md where X matches directory number
+              if [[ ! "$BASENAME" =~ ^ch-${CHAPTER_NUM}\.[0-9]+\.md$ ]]; then
+                echo "::warning file=$file::File naming: Expected ch-${CHAPTER_NUM}.Y.md pattern"
               fi
             fi
           done
@@ -256,17 +316,19 @@ jobs:
       - name: Run zizmor
         uses: zizmorcore/zizmor-action@135698455da5c3b3e55f73f4419e481ab68cdd95 # v0.4.1
         with:
-          args: --format sarif .github/workflows/
+          inputs: .github/workflows/
 
   # Build validation - ensure docs site compiles
   build-check:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        with:
+          persist-credentials: false
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@83679a892e2d95755f2dac6acb0bfd1e9ac5d548 # v6.1.0
         with:
           python-version: '3.x'
 
@@ -296,66 +358,75 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check validation results
+        env:
+          MARKDOWN_LINT_RESULT: ${{ needs.markdown-lint.result }}
+          SPELL_CHECK_RESULT: ${{ needs.spell-check.result }}
+          URL_VALIDATION_RESULT: ${{ needs.url-validation.result }}
+          IMAGE_VALIDATION_RESULT: ${{ needs.image-validation.result }}
+          INTERNAL_LINKS_RESULT: ${{ needs.internal-links.result }}
+          NAMING_CONVENTION_RESULT: ${{ needs.naming-convention.result }}
+          WORKFLOW_SECURITY_RESULT: ${{ needs.workflow-security.result }}
+          BUILD_CHECK_RESULT: ${{ needs.build-check.result }}
         run: |
           echo "## PR Validation Summary" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
 
           # Check each job result
-          if [ "${{ needs.markdown-lint.result }}" == "failure" ]; then
+          if [ "$MARKDOWN_LINT_RESULT" == "failure" ]; then
             echo "❌ Markdown linting failed" >> $GITHUB_STEP_SUMMARY
-          elif [ "${{ needs.markdown-lint.result }}" == "skipped" ]; then
+          elif [ "$MARKDOWN_LINT_RESULT" == "skipped" ]; then
             echo "⏭️ Markdown linting skipped (no .md changes)" >> $GITHUB_STEP_SUMMARY
           else
             echo "✅ Markdown linting passed" >> $GITHUB_STEP_SUMMARY
           fi
 
-          if [ "${{ needs.spell-check.result }}" == "failure" ]; then
+          if [ "$SPELL_CHECK_RESULT" == "failure" ]; then
             echo "❌ Spell check failed" >> $GITHUB_STEP_SUMMARY
-          elif [ "${{ needs.spell-check.result }}" == "skipped" ]; then
+          elif [ "$SPELL_CHECK_RESULT" == "skipped" ]; then
             echo "⏭️ Spell check skipped (no .md changes)" >> $GITHUB_STEP_SUMMARY
           else
             echo "✅ Spell check passed" >> $GITHUB_STEP_SUMMARY
           fi
 
-          if [ "${{ needs.url-validation.result }}" == "failure" ]; then
+          if [ "$URL_VALIDATION_RESULT" == "failure" ]; then
             echo "⚠️ URL validation had issues (non-blocking)" >> $GITHUB_STEP_SUMMARY
-          elif [ "${{ needs.url-validation.result }}" == "skipped" ]; then
+          elif [ "$URL_VALIDATION_RESULT" == "skipped" ]; then
             echo "⏭️ URL validation skipped (no .md changes)" >> $GITHUB_STEP_SUMMARY
           else
             echo "✅ URL validation passed" >> $GITHUB_STEP_SUMMARY
           fi
 
-          if [ "${{ needs.image-validation.result }}" == "failure" ]; then
+          if [ "$IMAGE_VALIDATION_RESULT" == "failure" ]; then
             echo "❌ Image validation failed" >> $GITHUB_STEP_SUMMARY
-          elif [ "${{ needs.image-validation.result }}" == "skipped" ]; then
+          elif [ "$IMAGE_VALIDATION_RESULT" == "skipped" ]; then
             echo "⏭️ Image validation skipped (no .md changes)" >> $GITHUB_STEP_SUMMARY
           else
             echo "✅ Image validation passed" >> $GITHUB_STEP_SUMMARY
           fi
 
-          if [ "${{ needs.internal-links.result }}" == "failure" ]; then
+          if [ "$INTERNAL_LINKS_RESULT" == "failure" ]; then
             echo "❌ Internal link validation failed" >> $GITHUB_STEP_SUMMARY
-          elif [ "${{ needs.internal-links.result }}" == "skipped" ]; then
+          elif [ "$INTERNAL_LINKS_RESULT" == "skipped" ]; then
             echo "⏭️ Internal link validation skipped (no .md changes)" >> $GITHUB_STEP_SUMMARY
           else
             echo "✅ Internal link validation passed" >> $GITHUB_STEP_SUMMARY
           fi
 
-          if [ "${{ needs.naming-convention.result }}" == "failure" ]; then
+          if [ "$NAMING_CONVENTION_RESULT" == "failure" ]; then
             echo "⚠️ Naming convention warnings" >> $GITHUB_STEP_SUMMARY
-          elif [ "${{ needs.naming-convention.result }}" == "skipped" ]; then
+          elif [ "$NAMING_CONVENTION_RESULT" == "skipped" ]; then
             echo "⏭️ Naming convention check skipped (no .md changes)" >> $GITHUB_STEP_SUMMARY
           else
             echo "✅ Naming convention check passed" >> $GITHUB_STEP_SUMMARY
           fi
 
-          if [ "${{ needs.workflow-security.result }}" == "failure" ]; then
+          if [ "$WORKFLOW_SECURITY_RESULT" == "failure" ]; then
             echo "❌ Workflow security check failed" >> $GITHUB_STEP_SUMMARY
           else
             echo "✅ Workflow security check passed" >> $GITHUB_STEP_SUMMARY
           fi
 
-          if [ "${{ needs.build-check.result }}" == "failure" ]; then
+          if [ "$BUILD_CHECK_RESULT" == "failure" ]; then
             echo "❌ Build check failed" >> $GITHUB_STEP_SUMMARY
           else
             echo "✅ Build check passed" >> $GITHUB_STEP_SUMMARY
