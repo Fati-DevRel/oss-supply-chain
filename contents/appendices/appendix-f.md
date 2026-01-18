@@ -718,21 +718,26 @@ Limited but high-impact for affected projects
 
 #### Shai-Hulud npm Worm
 
-**Date:** September 2025
+**Date:** September 2025 (initial); November 2025 (Shai-Hulud 2.0)
 
-**Summary:** Researchers discovered a self-replicating malware campaign dubbed "Shai-Hulud" targeting the npm ecosystem. The worm automatically trojanized dependent packages by modifying `package.json` files and republishing them. It successfully compromised over 500 packages, focusing on harvesting GitHub, npm, and AWS secrets from developer environments. This represented a significant evolution in supply chain attacks—from one-off compromises to self-propagating infections.
+**Summary:** Researchers discovered a self-replicating malware campaign dubbed "Shai-Hulud" targeting the npm ecosystem. The attack began with phishing campaigns spoofing npm 2FA update notifications to harvest maintainer credentials. Once attackers gained access to a maintainer account, the worm automatically trojanized that developer's packages by modifying `package.json` files and republishing them. It successfully compromised over 500 packages in the initial wave, focusing on harvesting GitHub, npm, and AWS secrets from developer environments. This represented a significant evolution in supply chain attacks—from one-off compromises to self-propagating infections.
 
-**Impact Scope:** Over 500 npm packages compromised; GitHub, npm, and AWS secrets harvested; self-replicating propagation
+In November 2025, a second wave dubbed "Shai-Hulud 2.0" emerged with modified tactics, compromising nearly 800 additional packages before containment. The combined attacks directly catalyzed npm's aggressive security overhaul, including the deprecation of TOTP 2FA, mandatory phishing-resistant authentication, and the permanent revocation of all classic tokens.
+
+**Impact Scope:** Over 1,300 npm packages compromised across both waves; GitHub, npm, and AWS secrets harvested; self-replicating propagation; estimated $50 million in cryptocurrency theft
 
 **Key Lessons:**
 - Self-replicating supply chain malware can achieve exponential spread
 - Automated republishing of compromised packages accelerates infection
 - Multi-platform credential harvesting (GitHub, npm, AWS) maximizes attacker value
 - Registry-level defenses must detect and prevent automated malicious updates
+- TOTP-based 2FA is vulnerable to real-time phishing; phishing-resistant authentication is essential
+- The attack led directly to major npm security policy changes
 
 **Sources:**
 - [Truesec, "500 npm Packages Compromised in Ongoing Supply Chain Attack Shai-Hulud," 2025](https://www.truesec.com/hub/blog/500-npm-packages-compromised-in-ongoing-supply-chain-attack-shai-hulud)
 - [CISA, "Widespread Supply Chain Compromise Impacting npm Ecosystem," September 23, 2025](https://www.cisa.gov/news-events/alerts/2025/09/23/widespread-supply-chain-compromise-impacting-npm-ecosystem)
+- [Microsoft Security Blog, "Shai-Hulud 2.0 Guidance," December 2025](https://www.microsoft.com/en-us/security/blog/2025/12/09/shai-hulud-2-0-guidance-for-detecting-investigating-and-defending-against-the-supply-chain-attack/)
 
 ---
 
@@ -883,7 +888,7 @@ Limited but high-impact for affected projects
 | tj-actions/changed-files | 2025 | CI/CD workflow exploitation | High |
 | Erlang/OTP SSH | 2025 | Code vulnerability | Low (unintentional) |
 | PhantomRaven | 2025 | Malicious npm packages | Medium |
-| Shai-Hulud npm Worm | 2025 | Self-replicating malware | Very High |
+| Shai-Hulud npm Worm (1.0 & 2.0) | 2025 | Self-replicating malware + phishing | Very High |
 | Josh Junon (Qix) | 2025 | Account takeover | High |
 | BoltDB | 2025 | Typosquatting | Medium |
 | Red Hat GitLab | 2025 | Repository breach | High |
