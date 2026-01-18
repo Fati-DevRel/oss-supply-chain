@@ -324,7 +324,7 @@ Some registries allow restricting publication to specific IP ranges, limiting th
 Maintainer account security is one of the most cost-effective supply chain security investments. The asymmetry between attack cost (obtaining one password) and impact (millions of affected installations) makes strong authentication essential. As registries continue expanding mandatory 2FA and providing phishing-resistant authentication, the ecosystem becomes meaningfully more secure—but maintaining this progress requires continued vigilance from maintainers, platforms, and organizations alike.
 
 [eslint-postmortem]: https://eslint.org/blog/2018/07/postmortem-for-malicious-package-publishes/
-[npm-2fa]: https://github.blog/changelog/2022-02-01-top-100-npm-package-maintainers-now-require-2fa/
+[npm-2fa]: https://github.blog/security/supply-chain-security/top-100-npm-package-maintainers-require-2fa-additional-security/
 [npm-2fa-stats]: https://github.blog/security/supply-chain-security/introducing-even-more-security-enhancements-to-npm/
 [pypi-2fa]: https://blog.pypi.org/posts/2023-05-25-securing-pypi-with-2fa/
 [pypi-titan-keys]: https://blog.google/technology/safety-security/making-open-source-software-safer-and-more-secure/

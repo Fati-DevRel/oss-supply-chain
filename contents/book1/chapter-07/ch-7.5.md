@@ -2,7 +2,7 @@
 
 On March 29, 2024, a Microsoft engineer named Andres Freund [posted a message to the oss-security mailing list][freund-disclosure] that would send shockwaves through the open source community. While investigating a 500-millisecond delay in SSH connections on his Debian testing machine, Freund had discovered a sophisticated backdoor in **XZ Utils**, a ubiquitous compression library. The backdoor had been inserted by a contributor who had spent over two years building trust with the project's sole maintainer—a patient, methodical social engineering campaign that came close to reaching major mainstream Linux releases.
 
-The XZ Utils incident represents one of the most sophisticated supply chain attack ever discovered in the open source ecosystem. Unlike the SolarWinds attack, which compromised a commercial vendor's build system, this attack targeted the human trust relationships that open source depends upon. It exploited not a technical vulnerability but the maintainer crisis itself—the isolation, burnout, and limited resources that characterize so many critical open source projects.
+The XZ Utils incident represents one of the most sophisticated supply chain attacks ever discovered in the open source ecosystem. Unlike the SolarWinds attack, which compromised a commercial vendor's build system, this attack targeted the human trust relationships that open source depends upon. It exploited not a technical vulnerability but the maintainer crisis itself—the isolation, burnout, and limited resources that characterize so many critical open source projects.
 
 #### Background: XZ Utils and Its Role in Linux
 
@@ -101,7 +101,7 @@ The use of Ed448 (rather than the more common Ed25519) was notable—security re
 
 **Evasion Techniques:**
 
-- Code was hidden in binary test files (not traditional source source)
+- Code was hidden in binary test files (not traditional source files)
 - Extraction scripts were obfuscated and hidden in autoconf macros
 - The backdoor was only activated in specific build environments
 - Typical users building from source code would not be affected
@@ -142,11 +142,11 @@ If the backdoor had not caused a performance regression, or if the code had been
 The XZ Utils backdoor was discovered before it reached stable Linux distribution releases, but it had already entered some testing and rolling-release channels:
 
 | Affected | Not Affected (due to timing) |
-|----------|--------------|
+|----------|------------------------------|
 | Fedora Rawhide and Fedora 40 (pre-release) | Debian stable |
 | Debian testing, unstable, and experimental | Ubuntu LTS releases |
 | openSUSE Tumbleweed | Red Hat Enterprise Linux |
-| Kali Linux (briefly) | Most production systems
+| Kali Linux (briefly) | Most production systems |
 | Arch Linux (briefly) | |
 | Various other rolling-release distributions | |
 
@@ -298,4 +298,3 @@ The XZ Utils incident may prove to be a turning point for open source security. 
 [cisa-xz]: https://www.cisa.gov/news-events/alerts/2024/03/29/reported-supply-chain-compromise-affecting-xz-utils-data-compression-library-cve-2024-3094
 [cve-2024-3094]: https://nvd.nist.gov/vuln/detail/CVE-2024-3094
 [openssf-xz]: https://openssf.org/blog/2024/04/15/open-source-security-openssf-and-openjs-foundations-issue-alert-for-social-engineering-takeovers-of-open-source-projects/
-![Defense-in-depth framework for dependency confusion](img/ch-7-defense-layers.svg)

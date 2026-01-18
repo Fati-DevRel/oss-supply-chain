@@ -378,7 +378,7 @@ Book 2, Chapter 17 examines zero trust principles applied to CI/CD environments,
 [cve-2022-24348]: https://nvd.nist.gov/vuln/detail/CVE-2022-24348
 [cve-2021-22862]: https://nvd.nist.gov/vuln/detail/CVE-2021-22862
 [cycode-cache]: https://cycode.com/blog/github-actions-vulnerabilities/
-[praetorian-runners]: https://www.praetorian.com/blog/self-hosted-github-actions-runners-are-backdoors/
+[praetorian-runners]: https://www.praetorian.com/blog/self-hosted-github-runners-are-backdoors/
 [cve-2022-36067]: https://nvd.nist.gov/vuln/detail/CVE-2022-36067
 [semgrep]: https://semgrep.dev/p/github-actions
 [checkov]: https://www.checkov.io/

@@ -47,7 +47,7 @@ This approach meant that:
 
 The compromised DLL was distributed in Orion versions 2019.4 HF5 through 2020.2.1. These updates were digitally signed by SolarWinds, appearing completely legitimate to customers and security tools.
 
-Over 18,000 organizations downloaded and installed the malicious updates. The attackers had successfully placed their implant in the heart of these organizations' networks through a software update that customers had every reason to trust.
+Over 18,000 organizations downloaded and installed the malicious updates. The attackers had successfully placed their implant in the heart of these organizations' networks through what appeared to be a routine software update.
 
 #### Technical Details: SUNBURST Capabilities
 
@@ -90,7 +90,7 @@ This selectivity served two purposes:
 
 The malicious code was written to resemble legitimate Orion code in style, naming conventions, and architecture. Security researchers noted that the code appeared to be written by experienced developers familiar with the Orion codebase, making detection through code quality anomalies essentially impossible.
 
-In its investigation of the SolarWinds supply chain attack and the concurrent compromise of FireEye’s own systems, [FireEye stated][fireeye] that the intrusion was carried out by a highly sophisticated threat actor whose operational security and techniques suggested a nation-state campaign, and that the level of discipline and clandestine operations exceeded typical cyber incidents.
+In its investigation of the SolarWinds supply chain attack and the concurrent compromise of FireEye's own systems, [FireEye stated][fireeye] that the intrusion was carried out by a highly sophisticated threat actor whose operational security and techniques suggested a nation-state campaign, and that the level of discipline and clandestine operations exceeded typical cyber incidents. Detailed technical analyses from [Microsoft][microsoft-sunburst] and [Mandiant][fireeye-sunburst] documented the malware's command-and-control protocols, anti-analysis techniques, and the surgical precision of the code injection.
 
 #### Discovery: FireEye Uncovers the Breach
 
@@ -98,7 +98,7 @@ The attack was discovered not through detection of SUNBURST itself, but through 
 
 **December 8, 2020:**
 
-FireEye, a leading cybersecurity firm, disclosed that it had been breached and that attackers had stolen red team tools—the same types of tools FireEye used to test clients' security. This was concerning but, initially, a discrete incident.
+FireEye, a leading cybersecurity firm, disclosed that it had been breached and that attackers had stolen red team tools—the same types of tools FireEye used to test clients' security. This was concerning but, initially, appeared to be an isolated incident.
 
 **December 13, 2020:**
 
@@ -239,4 +239,3 @@ The incident established expectations that supply chain attacks would become mor
 [cisa-ed-21-01]: https://www.cisa.gov/news-events/directives/ed-21-01-mitigate-solarwinds-orion-code-compromise
 [whitehouse-attribution]: https://www.whitehouse.gov/briefing-room/statements-releases/2021/04/15/fact-sheet-imposing-costs-for-harmful-foreign-activities-by-the-russian-government/
 [eo-14028]: https://www.federalregister.gov/documents/2021/05/17/2021-10460/improving-the-nations-cybersecurity
-![Dependency confusion attack: when public packages override internal ones](img/ch-7-dependency-confusion-attack.svg)

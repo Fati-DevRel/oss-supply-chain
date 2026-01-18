@@ -364,6 +364,25 @@ No confirmed large-scale compromise, but repeated near-misses across major repos
 
 ### 2024
 
+#### BIPClip PyPI Campaign
+
+**Date:** March 12, 2024
+
+**Summary:** ReversingLabs researchers exposed BIPClip, a malicious PyPI campaign targeting developers working on cryptocurrency wallet projects. The packages posed as open-source libraries to steal BIP39 mnemonic phrases—the recovery passwords used to restore cryptocurrency wallets. The campaign specifically targeted the intersection of cryptocurrency and open source development.
+
+**Impact Scope:** Developers working on cryptocurrency wallet recovery; potential theft of wallet recovery credentials
+
+**Key Lessons:**
+- Cryptocurrency developers are high-value targets for supply chain attacks
+- Attackers research specific developer workflows to craft targeted packages
+- Package names may reference legitimate cryptographic standards (BIP39) to appear authentic
+- Code review must scrutinize packages handling sensitive cryptographic material
+
+**Sources:**
+- [Karlo Zanki, "BIPClip: Malicious PyPI packages target crypto wallet recovery passwords," ReversingLabs, March 12, 2024](https://www.reversinglabs.com/blog/bipclip-malicious-pypi-packages-target-crypto-wallet-recovery-passwords)
+
+---
+
 #### XZ Utils Backdoor (CVE-2024-3094)
 
 **Date:** March 29, 2024 (disclosed)
@@ -442,6 +461,28 @@ Limited but high-impact for affected projects
 
 ---
 
+#### Justice AV Solutions (JAVS) Compromise
+
+**Date:** May 23, 2024 (disclosed); attack began April 2024
+
+**Summary:** Attackers compromised the Justice AV Solutions video-recording software installer, used in courtrooms, legal offices, correctional facilities, and government agencies worldwide. The attack involved repackaging the legitimate installer with a malicious executable (`fffmpeg.exe`—a typosquat on the legitimate `ffmpeg.exe`) containing the RustDoor/GateDoor malware. The malware collected credentials and disabled security measures including AMSI and ETW. The installer was signed with a certificate issued to "Vanguard Tech Limited" rather than JAVS, suggesting attackers compromised distribution infrastructure rather than the build environment.
+
+**Impact Scope:** Courtrooms, prisons, police stations, and other justice system organizations worldwide; linked to ShadowSyndicate ransomware-as-a-service group
+
+**Key Lessons:**
+- Commercial software binaries require verification before deployment, not blind trust
+- Typosquatting techniques apply within installers, not just package registries
+- Certificate signing alone is insufficient—the signing entity must be verified
+- Differential analysis can detect tampering indicators before deployment
+- Distribution infrastructure is as critical to secure as build environments
+
+**Sources:**
+- [ReversingLabs, "The 2025 Software Supply Chain Security Report," 2025](https://www.reversinglabs.com/sscs-report)
+- [Rapid7, "CVE-2024-4978: Backdoored Justice AV Solutions Viewer Software," May 2024](https://www.rapid7.com/blog/post/2024/05/30/cve-2024-4978-backdoored-justice-av-solutions-viewer-software-used-in-apparent-supply-chain-attack/)
+- [BleepingComputer, "JAVS courtroom recording software backdoored in supply chain attack," May 2024](https://www.bleepingcomputer.com/news/security/javs-courtroom-recording-software-backdoored-in-supply-chain-attack/)
+
+---
+
 #### Shai Hulud GitHub Actions Campaign
 
 **Date:** September-November 2024 (disclosed September 18, 2024)
@@ -461,6 +502,99 @@ Limited but high-impact for affected projects
 **Sources:**
 - [Aikido Security, "Shai Hulud GitHub Actions Incident," 2024](https://www.aikido.dev/blog/github-actions-incident-shai-hulud-supply-chain-attack)
 - [Unit 42, "GitHub Actions Supply Chain Attack," 2025](https://unit42.paloaltonetworks.com/github-actions-supply-chain-attack/)
+
+---
+
+#### @lottiefiles/lottie-player Malware
+
+**Date:** November 21, 2024
+
+**Summary:** Three versions of the npm package `@lottiefiles/lottie-player` were found infected with malware designed to steal cryptocurrency wallet assets. The package, used for animation playback, was compromised to target users' cryptocurrency holdings.
+
+**Impact Scope:** Users of Lottie animation library; cryptocurrency wallet theft
+
+**Key Lessons:**
+- Seemingly unrelated packages (animation libraries) can be weaponized for financial theft
+- Cryptocurrency theft code can be injected into any popular package
+- Version pinning and integrity verification protect against mid-stream compromise
+
+**Sources:**
+- [ReversingLabs, "The 2025 Software Supply Chain Security Report," 2025](https://www.reversinglabs.com/sscs-report)
+
+---
+
+#### aiocpa Legitimate-to-Malicious Package Flip
+
+**Date:** November 28, 2024 (disclosed)
+
+**Summary:** ReversingLabs detected malicious code in the Python package `aiocpa`, which had been originally engineered as a legitimate cryptocurrency payment client. The package attracted a legitimate user base before a subsequent update compromised cryptocurrency wallets using the client. This represents an evolution in attack sophistication—rather than typosquatting or hijacking, attackers invested time creating genuinely useful software to build trust before weaponization.
+
+**Impact Scope:** Users of the aiocpa cryptocurrency client; cryptocurrency wallet compromise
+
+**Key Lessons:**
+- Attackers are investing in long-term operations, creating legitimate packages before flipping
+- Package age and functionality do not guarantee safety—ongoing monitoring is essential
+- Cryptocurrency-focused packages warrant heightened scrutiny regardless of apparent legitimacy
+- Behavioral analysis must detect changes in package behavior across versions
+
+**Sources:**
+- [Karlo Zanki, "Malicious PyPI crypto pay package aiocpa implants infostealer code," ReversingLabs, November 28, 2024](https://www.reversinglabs.com/blog/malicious-pypi-crypto-pay-package-aiocpa-implants-infostealer-code)
+
+---
+
+#### @solana/web3.js Compromise
+
+**Date:** December 5, 2024
+
+**Summary:** Attackers compromised the npm package `@solana/web3.js`, a JavaScript API for the Solana blockchain platform, implanting malicious functions in two package versions. The compromise occurred through a stolen maintainer account with publishing privileges. The package ranks among the top 10,000 projects in the npm community with more than 3,000 dependent projects and 400,000 weekly downloads.
+
+**Impact Scope:** 400,000 weekly downloads; 3,000 dependent projects; Solana blockchain ecosystem
+
+**Key Lessons:**
+- High-profile packages with extensive dependency chains are priority targets
+- Compromised maintainer credentials enable direct package modification without build system compromise
+- Even packages from well-funded blockchain foundations require continuous monitoring
+- Downstream impact scales with dependency count and download volume
+
+**Sources:**
+- [Paul Roberts, "Malware found in Solana npm library raises the bar for crypto security," ReversingLabs, December 5, 2024](https://www.reversinglabs.com/blog/malware-found-in-solana-npm-library-raises-the-bar-for-crypto-security)
+
+---
+
+#### Ultralytics Build Environment Compromise
+
+**Date:** December 9, 2024
+
+**Summary:** Attackers compromised the popular AI library Ultralytics by exploiting a previously reported GitHub Actions script injection vulnerability. The attack compromised the build environment and injected malicious code after the code review process completed, resulting in malicious updates pushed to a library with close to 60 million downloads. The injected code downloaded the XMRig cryptocurrency miner.
+
+**Impact Scope:** Nearly 60 million downloads; AI/ML development community; cryptocurrency mining on compromised systems
+
+**Key Lessons:**
+- GitHub Actions workflow vulnerabilities can compromise build environments
+- Code review is insufficient when attacks occur after the review stage
+- AI/ML libraries are increasingly targeted supply chain attack vectors
+- Known vulnerabilities in CI/CD configurations require immediate remediation
+
+**Sources:**
+- [Karlo Zanki, "Compromised ultralytics PyPI package delivers crypto coinminer," ReversingLabs, December 9, 2024](https://www.reversinglabs.com/blog/compromised-ultralytics-pypi-package-delivers-crypto-coinminer)
+
+---
+
+#### rspack and vant Cryptomining Compromise
+
+**Date:** December 20, 2024
+
+**Summary:** The npm packages `rspack` (a Rust-based JavaScript bundler) and `vant` (a Vue.js mobile UI component library) were compromised with cryptomining malware. The attacks demonstrated continued targeting of developer tools and popular UI frameworks.
+
+**Impact Scope:** Users of rspack build tool and vant UI framework; cryptomining on affected systems
+
+**Key Lessons:**
+- Build tools represent high-value targets—they execute in privileged environments
+- UI component frameworks with many dependents amplify attack impact
+- Cryptomining payloads provide attackers immediate monetization
+
+**Sources:**
+- [ReversingLabs, "The 2025 Software Supply Chain Security Report," 2025](https://www.reversinglabs.com/sscs-report)
 
 ---
 
@@ -486,6 +620,242 @@ Limited but high-impact for affected projects
 
 ---
 
+### 2025
+
+#### nullifAI Hugging Face Attack
+
+**Date:** February 6, 2025
+
+**Summary:** ReversingLabs researchers discovered a malicious technique dubbed "nullifAI" where attackers placed malicious code in Pickle serialization files while evading protections built into the Hugging Face open-source AI/ML platform. When users loaded the apparently benign ML models, the Pickle format serialization files executed malicious code on their systems. The attack exploited the inherently unsafe nature of Python's Pickle format, which allows embedded code execution during deserialization.
+
+**Impact Scope:** Users of Hugging Face platform loading malicious ML models; demonstrates broader AI/ML supply chain vulnerability
+
+**Key Lessons:**
+- Python Pickle files are "inherently unsafe" and require the same scrutiny as executable code
+- AI/ML model distribution represents a distinct supply chain attack surface
+- Platform-level protections can be evaded through format-specific vulnerabilities
+- Serialized ML models must be vetted with the same rigor as software packages
+
+**Sources:**
+- [Karlo Zanki, "Malicious ML models discovered on Hugging Face platform," ReversingLabs, February 6, 2025](https://www.reversinglabs.com/blog/malicious-ml-models-discovered-on-hugging-face-platform)
+
+---
+
+#### IPany VPN Supply Chain Attack
+
+**Date:** January 22, 2025
+
+**Summary:** The South Korean VPN client IPany was breached in a supply chain attack that pushed custom malware to users. The compromise demonstrated continued targeting of VPN and security software—products that users trust implicitly and that often run with elevated privileges.
+
+**Impact Scope:** IPany VPN users in South Korea and globally
+
+**Key Lessons:**
+- Security software (VPNs, antivirus, endpoint protection) represents high-value supply chain targets
+- Regional software may be targeted for geopolitical or strategic access
+- Commercial security binaries require the same verification as any other software
+
+**Sources:**
+- [Bill Toulas, "IPany VPN breached in supply-chain attack to push custom malware," BleepingComputer, January 22, 2025](https://www.bleepingcomputer.com/news/security/ipany-vpn-breached-in-supply-chain-attack-to-push-custom-malware/)
+
+---
+
+#### GitHub Action tj-actions/changed-files Compromise (CVE-2025-30066)
+
+**Date:** March 2025
+
+**Summary:** Attackers exploited a high-severity vulnerability (CVE-2025-30066) to modify the code of the popular `tj-actions/changed-files` GitHub Action. By updating version tags to reference a malicious commit, the attackers caused CI/CD secrets to be leaked into public build logs across thousands of projects that relied on the action. This attack demonstrated the risks of trusting mutable version tags in GitHub Actions.
+
+**Impact Scope:** Thousands of projects using the action; CI/CD secrets exposed in public build logs
+
+**Key Lessons:**
+- GitHub Actions version tags are mutable and can be redirected to malicious commits
+- Organizations should pin GitHub Actions to specific commit SHAs, not version tags
+- CI/CD secrets in build logs represent a significant exposure risk
+- Popular Actions become high-value targets due to their wide adoption
+
+**Sources:**
+- [Silobreaker, "Supply Chain Attacks in 2025: A Month-by-Month Summary," 2025](https://www.silobreaker.com/blog/cyber-threats/supply-chain-attacks-in-2025-a-month-by-month-summary/)
+
+---
+
+#### Erlang/OTP SSH Zero-Day (CVE-2025-32433)
+
+**Date:** April 2025
+
+**Summary:** A CVSS 10.0 vulnerability was discovered in the Erlang/OTP SSH daemon, a foundational technology for telecommunications (Ericsson) and messaging (WhatsApp). The flaw allowed for pre-authentication remote code execution, meaning attackers could take full control of a system before any login occurred by sending specially crafted SSH protocol messages. This vulnerability highlighted the systemic risk posed by flaws in foundational libraries that underpin critical infrastructure.
+
+**Impact Scope:** Telecommunications infrastructure, messaging platforms including WhatsApp, any system using Erlang/OTP SSH daemon
+
+**Key Lessons:**
+- Foundational libraries in critical infrastructure pose systemic risk when compromised
+- Pre-authentication vulnerabilities are particularly dangerous as they bypass all access controls
+- Telecommunications and messaging infrastructure share common dependencies
+- CVSS 10.0 vulnerabilities in widely-deployed components require emergency response
+
+**Sources:**
+- [Unit 42, "Vulnerability Analysis CVE-2025-32433," 2025](https://unit42.paloaltonetworks.com/vulnerability-analysis-cve-2025-32433/)
+
+---
+
+#### PhantomRaven npm Campaign
+
+**Date:** August 2025
+
+**Summary:** The PhantomRaven campaign utilized 126 malicious npm packages to target global developers. Unlike previous "shotgun" approaches, this was a highly targeted campaign designed specifically to steal npm tokens and GitHub credentials to facilitate further supply chain pivots into corporate private repositories. The campaign demonstrated increasing sophistication in how attackers leverage initial compromises to achieve broader access.
+
+**Impact Scope:** Developers globally; npm tokens and GitHub credentials stolen; potential for cascading attacks into private repositories
+
+**Key Lessons:**
+- Attackers are shifting from broad attacks to targeted credential harvesting
+- Stolen npm/GitHub tokens enable pivoting into private corporate repositories
+- Supply chain attacks increasingly serve as initial access for deeper compromises
+- Credential rotation and token monitoring are essential defenses
+
+**Sources:**
+- [Socket.dev, "npm Malware Campaign PhantomRaven," 2025](https://socket.dev/blog/npm-malware-campaign-phantomraven)
+
+---
+
+#### Shai-Hulud npm Worm
+
+**Date:** September 2025 (initial); November 2025 (Shai-Hulud 2.0)
+
+**Summary:** Researchers discovered a self-replicating malware campaign dubbed "Shai-Hulud" targeting the npm ecosystem. The attack began with phishing campaigns spoofing npm 2FA update notifications to harvest maintainer credentials. Once attackers gained access to a maintainer account, the worm automatically trojanized that developer's packages by modifying `package.json` files and republishing them. It successfully compromised over 500 packages in the initial wave, focusing on harvesting GitHub, npm, and AWS secrets from developer environments. This represented a significant evolution in supply chain attacks—from one-off compromises to self-propagating infections.
+
+In November 2025, a second wave dubbed "Shai-Hulud 2.0" emerged with modified tactics, compromising nearly 800 additional packages before containment. The combined attacks directly catalyzed npm's aggressive security overhaul, including the deprecation of TOTP 2FA, mandatory phishing-resistant authentication, and the permanent revocation of all classic tokens.
+
+**Impact Scope:** Over 1,300 npm packages compromised across both waves; GitHub, npm, and AWS secrets harvested; self-replicating propagation; estimated $50 million in cryptocurrency theft
+
+**Key Lessons:**
+- Self-replicating supply chain malware can achieve exponential spread
+- Automated republishing of compromised packages accelerates infection
+- Multi-platform credential harvesting (GitHub, npm, AWS) maximizes attacker value
+- Registry-level defenses must detect and prevent automated malicious updates
+- TOTP-based 2FA is vulnerable to real-time phishing; phishing-resistant authentication is essential
+- The attack led directly to major npm security policy changes
+
+**Sources:**
+- [Truesec, "500 npm Packages Compromised in Ongoing Supply Chain Attack Shai-Hulud," 2025](https://www.truesec.com/hub/blog/500-npm-packages-compromised-in-ongoing-supply-chain-attack-shai-hulud)
+- [CISA, "Widespread Supply Chain Compromise Impacting npm Ecosystem," September 23, 2025](https://www.cisa.gov/news-events/alerts/2025/09/23/widespread-supply-chain-compromise-impacting-npm-ecosystem)
+- [Microsoft Security Blog, "Shai-Hulud 2.0 Guidance," December 2025](https://www.microsoft.com/en-us/security/blog/2025/12/09/shai-hulud-2-0-guidance-for-detecting-investigating-and-defending-against-the-supply-chain-attack/)
+
+---
+
+#### Josh Junon (Qix) Account Hijack
+
+**Date:** September 2025
+
+**Summary:** One of the most high-impact account takeovers in npm history occurred when the account of prominent maintainer Josh Junon (Qix) was compromised. This led to the injection of malicious code into 20+ core packages, including `ansi-styles`, `chalk`, and `debug`, which collectively see over 2 billion weekly downloads. The malware was designed to drain cryptocurrency wallets from developers' machines.
+
+**Impact Scope:** 20+ core npm packages; over 2 billion weekly downloads affected; cryptocurrency wallet theft
+
+**Key Lessons:**
+- Single maintainer accounts controlling multiple high-impact packages represent concentrated risk
+- Account security for prolific maintainers requires enterprise-grade protections
+- Cryptocurrency theft remains a primary monetization strategy for supply chain attackers
+- The npm ecosystem's reliance on a small number of maintainers creates systemic vulnerability
+
+**Sources:**
+- [The Hacker News, "20 Popular npm Packages with 2 Billion Weekly Downloads Compromised," September 2025](https://thehackernews.com/2025/09/20-popular-npm-packages-with-2-billion.html)
+
+---
+
+#### BoltDB Typosquatting Backdoor
+
+**Date:** September 2025
+
+**Summary:** A sophisticated backdoor was discovered in a typosquatted version of the popular BoltDB Go module. The malicious package looked identical to the original but included a hidden routine that established a reverse shell back to the attacker's server upon the first compilation of any project using the module. This attack demonstrated that typosquatting remains effective even in ecosystems with strong naming conventions.
+
+**Impact Scope:** Go developers using the typosquatted module; reverse shell access to developer machines
+
+**Key Lessons:**
+- Typosquatting attacks have expanded beyond npm/PyPI to the Go ecosystem
+- Compilation-time execution allows attacks before runtime security controls engage
+- Reverse shells provide attackers persistent, interactive access to developer environments
+- Module verification must occur before compilation, not just at runtime
+
+**Sources:**
+- [CISA, "npm and Go Ecosystem Risks Alert," September 2025](https://www.cisa.gov/news-events/alerts/2025/09/23/widespread-supply-chain-compromise-impacting-npm-ecosystem)
+
+---
+
+#### Red Hat GitLab Repository Breach
+
+**Date:** October 2025
+
+**Summary:** The "Crimson Collective" threat group claimed responsibility for exfiltrating 570GB of data from over 28,000 internal Red Hat repositories. The breach exposed sensitive infrastructure settings, VPN configurations, and Customer Engagement Reports, highlighting the risks of hosting massive open-source and internal codebases on unified platforms.
+
+**Impact Scope:** 28,000+ internal Red Hat repositories; 570GB of data exfiltrated; infrastructure settings, VPN configurations, and customer data exposed
+
+**Key Lessons:**
+- Unified platforms hosting both open-source and internal code present aggregated risk
+- Large-scale repository breaches expose infrastructure configurations alongside code
+- Customer engagement data combined with infrastructure details enables targeted attacks
+- Enterprise GitLab/GitHub instances require segmentation between public and sensitive projects
+
+**Sources:**
+- [Guardz Security Blog, "Top Recent Data Breaches," 2025](https://guardz.com/blog/top-recent-data-breaches/)
+
+---
+
+#### Glass Worm (Open VSX Marketplace)
+
+**Date:** Late 2025
+
+**Summary:** The first major self-propagating infection of the Open VSX Marketplace (an open-source alternative to the VS Code Marketplace) was detected. The "Glass Worm" malware embedded invisible code into VS Code extensions that would infect the user's workspace and attempt to re-upload infected versions of any extension the developer was working on. This demonstrated that IDE extension marketplaces face the same supply chain risks as package registries.
+
+**Impact Scope:** Open VSX Marketplace users; VS Code extension developers; self-propagating infection of extensions
+
+**Key Lessons:**
+- IDE extension marketplaces are vulnerable to the same attacks as package registries
+- Self-propagating malware in development tools can spread through the development community
+- Extension developers become unwitting vectors for malware distribution
+- Workspace isolation is essential to prevent cross-contamination of projects
+
+**Sources:**
+- [Secure Code Warrior, "OWASP Top 10 2025: Software Supply Chain Failures," 2025](https://www.securecodewarrior.com/article/owasp-top-10-2025-software-supply-chain-failures)
+
+---
+
+#### Solana Monkey-Patching Malware
+
+**Date:** 2025
+
+**Summary:** A cluster of npm packages was found "monkey-patching" (modifying at runtime) the legitimate Solana web3.js library. The malware would wait for a transaction to be signed, then swap the recipient address with the attacker's address or exfiltrate the private key entirely. These packages amassed over 25,000 downloads before being purged. This attack demonstrated sophisticated runtime manipulation rather than simple credential theft.
+
+**Impact Scope:** Over 25,000 downloads; Solana blockchain users; cryptocurrency theft via transaction manipulation
+
+**Key Lessons:**
+- Runtime library modification can subvert legitimate code without changing it
+- Transaction interception at signing time bypasses most security controls
+- Cryptocurrency libraries are prime targets for sophisticated financial theft
+- Behavioral analysis must detect unexpected modifications to trusted libraries
+
+**Sources:**
+- [ReversingLabs, "The 2025 Software Supply Chain Security Report," 2025](https://www.reversinglabs.com/sscs-report)
+
+---
+
+#### React2Shell (CVE-2025-55182)
+
+**Date:** December 2025
+
+**Summary:** Considered the most critical vulnerability of 2025, a flaw in React Server Components (RSC) allowed unauthenticated remote code execution via insecure deserialization. Because it affected the RSC Flight protocol, standard Next.js applications were vulnerable by default, allowing attackers to execute privileged JavaScript with system-level access. The vulnerability's impact was amplified by React's ubiquity in modern web development.
+
+**Impact Scope:** Standard Next.js applications using React Server Components; web applications globally
+
+**Key Lessons:**
+- Framework-level vulnerabilities affect all applications built on that framework
+- Deserialization vulnerabilities remain a critical attack vector in modern frameworks
+- Default-vulnerable configurations maximize attacker impact
+- React/Next.js ecosystem scale means vulnerabilities have global reach
+
+**Sources:**
+- [React.dev, "Denial of Service and Source Code Exposure in React Server Components," December 11, 2025](https://react.dev/blog/2025/12/11/denial-of-service-and-source-code-exposure-in-react-server-components)
+- [NVD, CVE-2025-55182](https://nvd.nist.gov/vuln/detail/CVE-2025-55182)
+
+---
+
 ### Summary of Attack Vectors by Incident
 
 | Incident | Year | Primary Vector | Sophistication |
@@ -503,9 +873,28 @@ Limited but high-impact for affected projects
 | node-ipc | 2022 | Maintainer sabotage | Low |
 | 3CX | 2023 | Cascading supply chain | Very High |
 | Ledger Connect | 2023 | Account takeover | Medium |
+| BIPClip | 2024 | Malicious PyPI packages | Medium |
 | XZ Utils | 2024 | Long-term social engineering | Very High |
+| JAVS | 2024 | Distribution infrastructure compromise | High |
 | Polyfill.io | 2024 | Domain acquisition | Medium |
 | Shai Hulud (GitHub Actions) | 2024 | CI/CD workflow exploitation | High |
+| @lottiefiles/lottie-player | 2024 | Account takeover | Medium |
+| aiocpa | 2024 | Legitimate-to-malicious flip | High |
+| @solana/web3.js | 2024 | Account takeover | Medium |
+| Ultralytics | 2024 | CI/CD workflow exploitation | High |
+| rspack/vant | 2024 | Account takeover | Medium |
+| IPany VPN | 2025 | Distribution infrastructure compromise | Medium |
+| nullifAI (Hugging Face) | 2025 | Malicious ML models | Medium |
+| tj-actions/changed-files | 2025 | CI/CD workflow exploitation | High |
+| Erlang/OTP SSH | 2025 | Code vulnerability | Low (unintentional) |
+| PhantomRaven | 2025 | Malicious npm packages | Medium |
+| Shai-Hulud npm Worm (1.0 & 2.0) | 2025 | Self-replicating malware + phishing | Very High |
+| Josh Junon (Qix) | 2025 | Account takeover | High |
+| BoltDB | 2025 | Typosquatting | Medium |
+| Red Hat GitLab | 2025 | Repository breach | High |
+| Glass Worm | 2025 | Self-replicating malware | High |
+| Solana Monkey-Patching | 2025 | Runtime library manipulation | High |
+| React2Shell | 2025 | Code vulnerability | Low (unintentional) |
 
 ---
 

@@ -87,6 +87,7 @@ Twilio's disclosure indicated that attackers had moved beyond simple credential 
 
 - **Monday.com**: Notified customers of potential exposure
 - **Mercari**: Japanese e-commerce company disclosed impact
+- **[Rapid7][rapid7-disclosure]**: Security company disclosed that source code repositories were accessed using credentials obtained through the Codecov breach
 - **Various cryptocurrency projects**: Multiple projects reported exposure of signing keys or deployment credentials
 
 The full scope of affected organizations remains unknown. Codecov notified approximately 29,000 customers, but not all disclosed their exposure publicly. Given the types of credentials present in CI environments, the attack likely affected far more organizations than those that publicly acknowledged impact.
@@ -233,4 +234,4 @@ The Codecov attack demonstrated that supply chain compromise does not require mo
 [codecov-disclosure]: https://about.codecov.io/security-update/
 [hashicorp-disclosure]: https://discuss.hashicorp.com/t/hcsec-2021-12-codecov-security-event-and-hashicorp-gpg-key-exposure/23512
 [twilio-disclosure]: https://www.twilio.com/en-us/blog/incident-report-codecov-security-event-impacting-twilio-segment
-[rapid7-disclosure]: https://www.rapid7.com/blog/post/2021/04/23/rapid7s-response-to-codecov-incident/
+[rapid7-disclosure]: https://www.rapid7.com/blog/post/2021/05/13/rapid7s-response-to-codecov-incident/

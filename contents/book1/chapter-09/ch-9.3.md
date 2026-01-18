@@ -287,7 +287,7 @@ The WordPress ecosystem demonstrates how supply chain risk scales with market do
 [wordfence-wpgateway]: https://www.wordfence.com/blog/2022/09/psa-zero-day-vulnerability-in-wpgateway-actively-exploited-in-the-wild/
 [cve-2022-3180]: https://nvd.nist.gov/vuln/detail/CVE-2022-3180
 [drupal]: https://www.drupal.org/
-[drupalgeddon]: https://www.drupal.org/project/drupal/security
+[drupalgeddon]: https://www.rapid7.com/blog/post/2018/04/27/drupalgeddon-vulnerability-what-is-it-are-you-impacted/
 [cve-2014-3704]: https://nvd.nist.gov/vuln/detail/CVE-2014-3704
 [cve-2018-7600]: https://nvd.nist.gov/vuln/detail/CVE-2018-7600
 [joomla]: https://www.joomla.org/
