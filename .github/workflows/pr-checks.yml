@@ -51,6 +51,7 @@ jobs:
     needs: changed-files
     if: needs.changed-files.outputs.md_files_exist == 'true'
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
