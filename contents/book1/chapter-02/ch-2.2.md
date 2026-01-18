@@ -2,7 +2,7 @@
 
 Understanding who makes decisions in open source projects—and how those decisions are made—is essential for assessing supply chain security. A project's governance model determines how vulnerabilities are prioritized, how security patches are reviewed, who can commit code, and how quickly critical updates reach users. The open source ecosystem encompasses an extraordinary range of governance approaches, from single-maintainer hobby projects to enterprise-grade infrastructure managed by well-funded foundations. This diversity means that security postures vary dramatically, often in ways that are not immediately visible to consumers of the software.
 
-#### Governance Models: A Spectrum of Approaches
+## Governance Models: A Spectrum of Approaches
 
 Open source governance exists on a spectrum, with different models offering distinct tradeoffs between agility, accountability, and resilience.
 
@@ -28,7 +28,7 @@ The **Eclipse Foundation** emphasizes formal governance with detailed project li
 
 Corporate backing provides resources—dedicated developers, security teams, infrastructure—that volunteer-run projects often lack. However, it also creates dependencies on corporate priorities. If the sponsoring company loses interest, the project may be abandoned or under-resourced. Security support depends on the company's continued commitment rather than community sustainability.
 
-#### The Project Spectrum: From Hobby to Infrastructure
+## The Project Spectrum: From Hobby to Infrastructure
 
 The governance models described above apply unevenly across the open source ecosystem. At one extreme are **hobby projects**—personal endeavors that happen to be publicly available. These projects may have minimal governance beyond a single maintainer who reviews pull requests when time permits. There is no security policy, no coordinated vulnerability disclosure, no commitment to ongoing maintenance. Yet some of these projects accumulate significant usage, becoming dependencies of larger systems whose maintainers never evaluated the upstream project's sustainability.
 
@@ -36,7 +36,7 @@ At the other extreme are **enterprise-critical infrastructure projects** with fo
 
 Between these extremes lies a vast middle ground of projects that have grown beyond their origins but lack governance maturity proportional to their adoption. A library started as a weekend project might now be a transitive dependency of thousands of applications, yet still be maintained by its original author in spare time with no succession plan. This mismatch between usage and governance creates significant supply chain risk.
 
-#### Decision-Making Processes
+## Decision-Making Processes
 
 How projects make decisions affects how quickly security issues can be addressed and how thoroughly changes are reviewed.
 
@@ -50,7 +50,7 @@ How projects make decisions affects how quickly security issues can be addressed
 
 For security, the key questions are: Can critical fixes be merged quickly without full consensus processes? Who has authority to make emergency decisions? Are there enough reviewers with security expertise engaged in decision-making?
 
-#### Community Roles and Dynamics
+## Community Roles and Dynamics
 
 Open source projects typically distinguish several levels of participation, each with different privileges and responsibilities.
 
@@ -66,7 +66,7 @@ Open source projects typically distinguish several levels of participation, each
 
 The transitions between these roles matter for security. How does a contributor become a committer? What vetting occurs? The XZ Utils attack exploited exactly this transition—the attacker patiently contributed until granted maintainer access, then abused that trust. Projects with rigorous vetting processes and gradual privilege escalation are more resistant to such attacks but may also struggle to attract new maintainers.
 
-#### Security Implications of Governance
+## Security Implications of Governance
 
 Different governance models create different security profiles.
 

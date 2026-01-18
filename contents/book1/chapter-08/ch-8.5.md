@@ -2,7 +2,7 @@
 
 Git has become the dominant version control system, underlying virtually all modern software development. Its distributed architecture, powerful features, and integration with platforms like GitHub and GitLab have made it essential infrastructure. But Git's flexibility also creates attack surface. Features designed for legitimate workflows—hooks, submodules, symbolic references—can be weaponized. Understanding Git-specific vulnerabilities helps practitioners harden their environments and recognize suspicious repository configurations.
 
-#### The `.git` Directory as Attack Target
+## The `.git` Directory as Attack Target
 
 Every Git repository contains a `.git` directory storing configuration, hooks, object database, and references. This directory is both essential and sensitive:
 
@@ -19,7 +19,7 @@ Several CVEs have targeted `.git` directory exposure:
 
 **Defense**: Web servers should block access to `.git` directories. Never expose repositories directly through web servers without explicit `.git` exclusion. Regularly audit deployed applications for `.git` exposure.
 
-#### Malicious Git Hooks
+## Malicious Git Hooks
 
 **Git hooks** are scripts that execute automatically during Git operations. Standard hooks include:
 
@@ -58,11 +58,12 @@ This has implications for shared development environments or CI/CD systems where
 CI/CD systems often run Git operations that trigger hooks. A `post-checkout` hook in a CI environment executes with the CI runner's privileges—potentially accessing secrets, deployment credentials, and other sensitive resources.
 
 **Defense**: 
+
 - Audit any scripts that install hooks from repository content
 - In CI/CD, consider running with `core.hooksPath` set to an empty directory
 - Monitor for unexpected configuration changes
 
-#### Submodule Hijacking and Redirection
+## Submodule Hijacking and Redirection
 
 **Git submodules** embed one repository within another, specified in `.gitmodules` file and `.git/config`. Submodules reference external repositories by URL—creating dependency on external resources.
 
@@ -92,18 +93,20 @@ Submodule references include both the URL and a specific commit hash. Attackers 
 - More practically, compromise the repository so that legitimate-looking commits contain malicious code
 
 **Defense**:
+
 - Pin submodules to specific commit hashes (default behavior, but verify)
 - Audit `.gitmodules` for suspicious URLs
 - Consider vendoring dependencies instead of using submodules for critical code
 - Use `git config --global protocol.file.allow always` carefully; restrict protocol handlers
 
-#### Case Sensitivity Exploits
+## Case Sensitivity Exploits
 
 Git was designed on Linux, where filesystems are case-sensitive. macOS and Windows use case-insensitive filesystems by default, creating exploitable inconsistencies.
 
 **The Classic Attack:**
 
 A repository contains two files that differ only in case:
+
 - `Makefile` (legitimate)
 - `MAKEFILE` (malicious)
 
@@ -124,17 +127,19 @@ This could allow writing to locations outside the repository.
 **`.git` Directory Collision:**
 
 Particularly dangerous is case collision with the `.git` directory:
+
 - A file or directory named `.GIT/config` might not be recognized as part of the Git metadata on Linux
 - On Windows or macOS, it could be treated as equivalent to `.git/config`
 - Malicious configuration could be injected through this mismatch
 
 **Defense**:
+
 - Keep Git updated; recent versions include case-collision detection
 - Use `git config core.protectHFS true` on macOS
 - Use `git config core.protectNTFS true` on Windows
 - Consider CI validation that rejects repositories with case-colliding paths
 
-#### Signed Commits: Verification Gaps and Limitations
+## Signed Commits: Verification Gaps and Limitations
 
 **Commit signing** uses GPG, SSH, or S/MIME keys to cryptographically bind committer identity to commits. While valuable, signing has limitations often misunderstood:
 
@@ -183,12 +188,13 @@ Without signature verification, anyone can create commits claiming to be from an
 - Organizations may lack key verification infrastructure
 
 **Defense**:
+
 - Implement signature verification for releases and merges to protected branches
 - Use GitHub's vigilant mode to flag unsigned commits
 - Establish key verification procedures for maintainers
 - Consider SSH signing (simpler key management than GPG)
 
-#### Git Protocol Vulnerabilities
+## Git Protocol Vulnerabilities
 
 Git communicates using several protocols, each with distinct security properties:
 
@@ -212,12 +218,13 @@ The unauthenticated `git://` protocol allows man-in-the-middle attacks:
 Despite its risks, some repositories still offer `git://` URLs.
 
 **Defense**:
+
 - Use HTTPS or SSH exclusively; avoid `git://` protocol
 - Configure `git config --global protocol.file.allow user` to require explicit consent for file protocol
 - Keep Git client updated; protocol parser vulnerabilities are regularly discovered
 - Consider `git config --global url."https://".insteadOf git://` to rewrite URLs
 
-#### Repository History Manipulation
+## Repository History Manipulation
 
 Git's distributed nature means history can be rewritten—intentionally or maliciously:
 
@@ -250,12 +257,13 @@ Shallow clones (`git clone --depth 1`) fetch limited history. This:
 - Limits forensic analysis after incidents
 
 **Defense**:
+
 - Enable branch protection on critical branches
 - Require signed commits for protected branches
 - Implement audit logging for force pushes and reference deletions
 - Perform security analysis on full repository history, not shallow clones
 
-#### Clone-Time Code Execution Risks
+## Clone-Time Code Execution Risks
 
 The act of cloning a repository can execute code through several mechanisms:
 
@@ -266,6 +274,7 @@ git clone --recurse-submodules <malicious-repo>
 ```
 
 This fetches and checks out submodules, potentially triggering:
+
 - Hooks in the submodules (if somehow present)
 - Case-collision exploits
 - Path traversal through submodule configuration
@@ -292,12 +301,13 @@ Certain `.git/config` directives can be set through `.gitattributes` or included
 This could potentially import configuration from files in the repository tree.
 
 **Defense**:
+
 - Clone untrusted repositories with `--no-checkout` initially
 - Audit `.gitmodules` and `.gitattributes` before full checkout
 - Avoid `--recurse-submodules` for untrusted repositories
 - Run initial analysis in isolated environments
 
-#### Hardening Recommendations
+## Hardening Recommendations
 
 **For Developers:**
 

@@ -2,7 +2,7 @@
 
 To understand the security challenges facing open source software today, we must first understand where open source came from and the values that shaped its development. The open source movement emerged not as a business strategy or technical methodology but as a philosophical response to the increasing commodification and restriction of software. These origins continue to influence how open source projects are structured, governed, and maintained—with direct implications for their security posture.
 
-#### The Free Software Movement: Software as a Commons
+## The Free Software Movement: Software as a Commons
 
 The story begins in 1983, when Richard Stallman, a programmer at MIT's Artificial Intelligence Laboratory, announced the GNU Project. Stallman had grown frustrated watching the software community he loved transform from a culture of sharing into one of proprietary restrictions. Where programmers once freely exchanged code and improvements, companies were increasingly treating software as trade secrets, requiring non-disclosure agreements and refusing to share source code even with customers.
 
@@ -17,7 +17,7 @@ To protect these freedoms legally, Stallman developed the GNU General Public Lic
 
 By the early 1990s, the GNU Project had produced many essential components of an operating system—compilers, editors, utilities—but lacked a working kernel. That gap was filled in 1991 when Linus Torvalds, a Finnish computer science student, released Linux, a Unix-like kernel he had developed. Torvalds initially released Linux under a restrictive license but soon adopted the GPL, allowing it to combine with GNU components to form a complete free operating system. The combination, often called GNU/Linux or simply Linux, would become the foundation of modern internet infrastructure.
 
-#### From Free Software to Open Source
+## From Free Software to Open Source
 
 While the free software movement grew throughout the 1990s, some participants felt its philosophical framing—emphasizing ethics and user freedom—was alienating potential corporate allies. The rhetoric of "free software" led to constant confusion about price versus liberty, and Stallman's uncompromising stance on proprietary software made business leaders uncomfortable.
 
@@ -29,7 +29,7 @@ In February 1998, Netscape announced it would release the source code for its Na
 
 The distinction between "free software" and "open source" is subtle but significant. Both terms describe largely the same body of software and licenses. The difference lies in emphasis: free software advocates stress ethical obligations and user freedom; open source advocates emphasize practical benefits like reliability, cost, and development speed. Stallman and the FSF rejected the open source label, viewing it as an abandonment of the movement's moral foundation. This philosophical divide persists today, though most practitioners use the terms interchangeably.
 
-#### Philosophical Tenets and Their Security Implications
+## Philosophical Tenets and Their Security Implications
 
 Several core values have shaped open source development, each with implications for security.
 
@@ -43,7 +43,7 @@ Several core values have shaped open source development, each with implications 
 
 The "many eyes" theory—Raymond's suggestion that open inspection leads to rapid bug discovery—deserves particular scrutiny. The theory contains a kernel of truth: some vulnerabilities have been found quickly because source code was available for review. But the theory's limitations have become painfully clear. The [Heartbleed vulnerability][heartbleed] (CVE-2014-0160) in OpenSSL, disclosed in April 2014, had existed in widely-deployed code for over two years despite OpenSSL's critical importance to internet security (see Section 5.3 for a detailed case study of Heartbleed). The reality is that "many eyes" look only when people are motivated to look, have the expertise to understand what they see, and have the time to conduct thorough review. For much open source software, especially infrastructure components maintained by small teams, those conditions rarely hold.
 
-#### Licensing: Permissive and Copyleft
+## Licensing: Permissive and Copyleft
 
 Open source licenses fall into two broad categories with different implications for how software can be used and combined.
 
@@ -57,7 +57,7 @@ The **GNU Affero General Public License (AGPL)** extends copyleft to network use
 
 The Apache License 2.0 deserves special mention for including an explicit patent grant, providing users with protection against patent claims from contributors. This addresses a supply chain concern distinct from code security: the risk that using open source software might expose organizations to patent litigation.
 
-#### The Relevance of History
+## The Relevance of History
 
 Understanding this history matters for supply chain security because the values and structures that emerged from the free software and open source movements continue to shape how projects operate. The emphasis on openness created the transparency that makes security review possible but also the accessibility that attackers exploit. The celebration of individual contribution enabled the vibrant ecosystem we depend on but also created projects maintained by single individuals with no security review infrastructure. The commitment to freedom and community governance built trust but also resistance to the formal processes that security sometimes requires.
 

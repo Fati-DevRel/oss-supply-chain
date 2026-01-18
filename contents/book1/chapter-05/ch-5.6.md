@@ -2,7 +2,7 @@
 
 Throughout the previous sections, we have examined vulnerabilities as individual flaws to be discovered, patched, and remediated. But a deeper pattern underlies many of the most severe vulnerabilities in the software supply chain: **memory safety**. The majority of critical vulnerabilities in foundational software—operating systems, browsers, cryptographic libraries, network stacks—result from a category of programming errors that certain languages permit and others prevent entirely. Understanding this pattern has profound implications for supply chain security, as it suggests that language choice can eliminate entire vulnerability classes rather than addressing them one CVE at a time.
 
-#### The Prevalence of Memory Safety Vulnerabilities
+## The Prevalence of Memory Safety Vulnerabilities
 
 The data on memory safety vulnerabilities is remarkably consistent across major software projects:
 
@@ -16,7 +16,7 @@ The data on memory safety vulnerabilities is remarkably consistent across major 
 
 This convergence around 70% is not coincidental. It reflects the fundamental nature of C and C++, the languages in which most foundational software is written. These languages provide direct memory access and manual memory management—powerful capabilities that also enable classes of errors that safer languages prevent by design.
 
-#### Understanding Memory Safety Vulnerabilities
+## Understanding Memory Safety Vulnerabilities
 
 **Memory safety vulnerabilities** arise when programs access memory in unintended ways. To understand these, think of computer memory as a vast apartment building with numbered units. When your program runs, it rents specific apartments for its data—apartment 1000 for the username, apartments 1001-1100 for a file buffer, and so on. Memory safety vulnerabilities occur when programs accidentally read or write to apartments they have not rented, or continue accessing apartments after their lease has ended.
 
@@ -36,7 +36,7 @@ These vulnerability classes share a common root: the languages permit operations
 
 For supply chain security, the implication is significant: dependencies written in C or C++ carry inherent risk of memory safety vulnerabilities. No amount of careful coding eliminates this risk entirely—the languages permit errors that even expert programmers make.
 
-#### Government Guidance on Memory Safety
+## Government Guidance on Memory Safety
 
 The prevalence and severity of memory safety vulnerabilities has prompted government agencies to issue formal guidance recommending transition to memory-safe languages.
 
@@ -54,7 +54,7 @@ The CISA guidance acknowledged that immediate migration is impractical but empha
 
 This government attention elevates memory safety from a technical concern to a strategic priority, with potential implications for procurement requirements and regulatory expectations.
 
-#### The Rust Transition in Critical Infrastructure
+## The Rust Transition in Critical Infrastructure
 
 **Rust** has emerged as the leading memory-safe alternative for systems programming. Unlike garbage-collected languages (Java, Go, Python), Rust provides memory safety without runtime overhead through compile-time ownership checking. This makes Rust suitable for the performance-sensitive, resource-constrained environments where C and C++ have traditionally dominated.
 
@@ -72,7 +72,7 @@ Major infrastructure projects have begun incorporating Rust:
 
 These adoption examples demonstrate that memory-safe systems programming is not theoretical—production infrastructure is actively transitioning.
 
-#### Practical Migration Considerations
+## Practical Migration Considerations
 
 For organizations evaluating their supply chain exposure to memory safety vulnerabilities, several practical considerations apply:
 
@@ -86,7 +86,7 @@ For organizations evaluating their supply chain exposure to memory safety vulner
 
 **Apply hardening to remaining C/C++ dependencies.** Where migration is not feasible, mitigation helps. Compile-time hardening (ASLR, stack canaries, control flow integrity), memory-safe standard library usage, and fuzzing reduce exploitation likelihood without eliminating underlying vulnerability risk.
 
-#### Challenges and Realistic Timelines
+## Challenges and Realistic Timelines
 
 Despite compelling security benefits, memory-safe transition faces significant challenges:
 
@@ -102,7 +102,7 @@ Despite compelling security benefits, memory-safe transition faces significant c
 
 These challenges argue against expecting rapid transformation. Memory-safe transition is a multi-decade endeavor, not a quick fix.
 
-#### Balanced Recommendations
+## Balanced Recommendations
 
 Given both the security imperative and practical constraints, we recommend a balanced approach:
 

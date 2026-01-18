@@ -4,7 +4,7 @@ While account takeover provides attackers direct publishing access, a more subtl
 
 The XZ Utils backdoor (Section 7.5) demonstrated this approach at its most sophisticated: years of legitimate contributions building trust, followed by carefully hidden malicious code that evaded review. But not all attacks require such patience. Clever obfuscation, reviewer fatigue, and the inherent limitations of human code review create opportunities for attackers at every experience level.
 
-#### The Challenge: Detecting Malice in Code
+## The Challenge: Detecting Malice in Code
 
 Code review is designed to catch bugs, improve quality, and maintain consistency. It was not designed as a security control, and treating it as one reveals significant limitations.
 
@@ -22,7 +22,7 @@ A reviewer examining a pull request faces fundamental challenges:
 
 Attackers exploit each of these limitations through techniques ranging from simple obfuscation to sophisticated long-term campaigns.
 
-#### Obfuscation Techniques: A Taxonomy
+## Obfuscation Techniques: A Taxonomy
 
 Attackers use various techniques to make malicious code appear benign:
 
@@ -74,7 +74,7 @@ Changes like "optimize build performance" or "update CI configuration" may recei
 
 Test files are expected to contain arbitrary data, making them ideal hiding places. The XZ Utils backdoor hid compressed malicious code in files named to appear as test data (`bad-3-corrupt_lzma2.xz`). Reviewers rarely scrutinize test data contents.
 
-#### The Hypocrite Commits Controversy
+## The Hypocrite Commits Controversy
 
 In 2021, [researchers from the University of Minnesota submitted a paper][hypocrite-commits] titled "On the Feasibility of Stealthily Introducing Vulnerabilities in Open-Source Software via Hypocrite Commits" to the IEEE Symposium on Security and Privacy.
 
@@ -112,7 +112,7 @@ The controversy highlighted several important points:
 
 The incident demonstrated both that malicious commits are a viable attack vector and that exploiting this vector—even for research—damages the trust relationships that open source depends upon.
 
-#### Reviewer Fatigue and Its Exploitation
+## Reviewer Fatigue and Its Exploitation
 
 Maintainers of popular projects face overwhelming review burdens. [Research on code review effectiveness][code-review-quality] found that review thoroughness decreased significantly as:
 
@@ -130,6 +130,7 @@ Submit many legitimate contributions to build both trust and review fatigue. Whe
 **Timing Attacks:**
 
 Submit malicious PRs when maintainers are likely to be fatigued:
+
 - Late Friday afternoon (pressure to clear backlog before weekend)
 - During major releases (attention focused elsewhere)
 - Immediately after another large contribution (reviewer already invested in the contributor)
@@ -140,7 +141,7 @@ Make malicious changes depend on understanding complex existing code. Reviewers 
 
 The XZ Utils attack exploited reviewer fatigue systematically: the legitimate "Jia Tan" contributions accustomed the maintainer to approving their work, and the pressure campaign from sock puppet accounts created additional stress encouraging acceptance of help.
 
-#### Code Review as a Security Control: Limitations
+## Code Review as a Security Control: Limitations
 
 Organizations often cite code review as a security control. Understanding its limitations is essential for realistic security planning:
 
@@ -174,7 +175,7 @@ Code review operates under constraints that advantage attackers:
 
 Linux kernel maintainers have noted that expecting code review to catch all sophisticated attacks is unrealistic—it raises the bar for attackers but cannot provide absolute guarantees, similar to other security screening processes.
 
-#### Automated Detection of Suspicious Commits
+## Automated Detection of Suspicious Commits
 
 Given human review limitations, automated tools can help identify suspicious contributions:
 
@@ -213,7 +214,7 @@ Tools that track contributor identity and verify commit signing can detect:
 - **Scorecard** evaluates project security practices including code review requirements
 - **Allstar** enforces security policies on GitHub repositories
 
-#### Best Practices for Security-Focused Code Review
+## Best Practices for Security-Focused Code Review
 
 For maintainers seeking to harden code review as a security control:
 

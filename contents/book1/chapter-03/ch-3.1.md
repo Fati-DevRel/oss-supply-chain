@@ -2,7 +2,7 @@
 
 Effective defense requires understanding who is attacking and why. The software supply chain attracts a diverse range of threat actors, from nation-states with virtually unlimited resources to individual vandals seeking notoriety. Each actor type brings different motivations, capabilities, and attack patterns. A defense strategy that protects against one type may be irrelevant against another. This section profiles the major threat actor categories, providing the foundation for threat modeling discussions in Chapter 4.
 
-#### Nation-State Actors
+## Nation-State Actors
 
 Nation-state threat actors represent the most sophisticated and persistent adversaries targeting software supply chains. These groups operate with substantial resources, long time horizons, and strategic objectives that extend far beyond immediate financial gain. Their motivations typically include:
 
@@ -22,7 +22,7 @@ The **XZ Utils backdoor** (discovered March 2024), while not officially attribut
 
 Nation-state actors are distinguished by their capability for long-term operations, their willingness to invest years in developing access, and their targeting of strategic rather than opportunistic objectives. Defense against these actors requires assuming that sufficiently motivated adversaries can eventually succeed and designing systems that limit the impact of compromise.
 
-#### Cybercriminal Organizations
+## Cybercriminal Organizations
 
 Financially motivated criminal groups have increasingly recognized supply chain attacks as efficient vectors for their objectives. Unlike nation-states, criminals seek direct monetization, typically through ransomware, cryptomining, or data theft for sale or extortion.
 
@@ -34,7 +34,7 @@ Criminal organizations vary in sophistication. Some operate as professional ente
 
 Financial motivation shapes attack patterns. Criminals prefer targets that will pay ransoms or generate cryptocurrency mining revenue. They favor speed over stealth—extracting value quickly before detection. They often operate opportunistically, exploiting whatever access they can achieve rather than pursuing specific strategic targets. These patterns suggest different defensive priorities than nation-state threats: detection and response speed matter more than preventing initial access against adversaries who prioritize quick monetization over long-term persistence.
 
-#### Hacktivists
+## Hacktivists
 
 **Hacktivists** are individuals or groups who use cyber attacks to promote political or ideological agendas. Their motivations center on disruption, embarrassment of targets, and attention for their causes rather than financial gain or intelligence collection.
 
@@ -46,7 +46,7 @@ Hacktivist attacks tend toward visible disruption rather than subtle compromise.
 
 Hacktivist threats are difficult to predict because they correlate with political events and social movements. Organizations that become targets of ideological opposition—whether for their industry, policies, or perceived associations—face elevated risk. The node-ipc incident showed that even geographic location of end-users could trigger targeting.
 
-#### Insider Threats
+## Insider Threats
 
 **Insider threats** arise from individuals with legitimate access who abuse that access for malicious purposes. In the supply chain context, insiders include maintainers who turn malicious, employees of package registries or build services, and developers who have been coerced or recruited by external threat actors.
 
@@ -66,7 +66,7 @@ The **Ubiquiti insider incident** (2021) demonstrated insider threats in a suppl
 
 Defending against insider threats requires different approaches than defending against external attackers. Access controls, monitoring, and separation of duties matter more than perimeter security. The principle of least privilege—granting only necessary access—limits what any single insider can compromise.
 
-#### Researchers and Hobbyists
+## Researchers and Hobbyists
 
 Not all supply chain incidents result from malicious intent. Security researchers, academics, and hobbyists sometimes cause harm through well-intentioned but poorly considered activities.
 
@@ -82,7 +82,7 @@ Hobbyists and tinkerers present lower-stakes versions of similar risks. Someone 
 
 Researcher and hobbyist threats are generally lower severity than adversarial attacks but more common. They are also more amenable to community solutions—responsible disclosure norms, ethical guidelines for research, and clear policies from registries about acceptable testing.
 
-#### Thrill-Seekers and Vandals
+## Thrill-Seekers and Vandals
 
 Some supply chain incidents stem from neither strategic objectives nor financial motivation but from the simple desire to cause chaos, gain notoriety, or test capabilities.
 
@@ -94,7 +94,7 @@ The **left-pad removal** (March 2016), while not vandalism per se, demonstrated 
 
 Thrill-seeker attacks typically lack sophistication and persistence. Attackers in this category rarely have the patience for long-term campaigns or the expertise for advanced tradecraft. However, they contribute to the overall attack volume that defenders must handle, and their unpredictability makes them difficult to model.
 
-#### Implications for Defenders
+## Implications for Defenders
 
 Understanding adversary motivations has practical implications for defense strategy.
 

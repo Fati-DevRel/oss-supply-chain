@@ -98,12 +98,14 @@ Secure build processes prevent tampering and ensure users receive authentic arti
 
 - [ ] **Use CI/CD for all builds** — No builds from local developer machines for releases
 - [ ] **Pin CI/CD action versions by hash** — Prevent malicious action updates
+
   ```yaml
   # Good: Pinned by SHA
   uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608
   # Risky: Floating tag
   uses: actions/checkout@v4
   ```
+
 - [ ] **Minimize build dependencies** — Only include necessary tools and packages
 - [ ] **Use ephemeral build environments** — Fresh environment for each build
 - [ ] **Isolate build environments** — Prevent network access during build where possible
@@ -331,6 +333,7 @@ After scoring, prioritize improvements using this matrix:
 | **Low** | Quick wins when time permits | Evaluate necessity |
 
 **High-impact, low-effort items typically include:**
+
 - Enabling Dependabot and secret scanning
 - Creating SECURITY.md
 - Enabling branch protection

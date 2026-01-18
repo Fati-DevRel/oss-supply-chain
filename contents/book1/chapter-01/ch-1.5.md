@@ -2,7 +2,7 @@
 
 Software supply chain security is not a new concept. Security researchers have warned about these risks for decades, and sophisticated attackers have exploited supply chains for just as long. Yet within the past five years, supply chain security has transformed from a concern discussed primarily at specialized security conferences to a board-level priority commanding attention from heads of state. This section examines the confluence of factors that created this urgency, establishing why the material in this book matters now more than at any previous moment.
 
-#### High-Profile Incidents as Catalysts
+## High-Profile Incidents as Catalysts
 
 Three incidents, more than any others, forced supply chain security into mainstream consciousness. Each demonstrated a different dimension of supply chain risk, and together they made the abstract threat concrete for audiences far beyond the security community.
 
@@ -14,13 +14,13 @@ Three incidents, more than any others, forced supply chain security into mainstr
 
 These incidents shared a common lesson: the software supply chain had become a single point of failure for digital security. Attackers who successfully compromised supply chains could bypass perimeter defenses, endpoint protection, and network monitoring. The traditional security model—protecting individual systems and networks—was insufficient when threats arrived through trusted software channels.
 
-#### The Surge in Supply Chain Attacks
+## The Surge in Supply Chain Attacks
 
 The prominent incidents captured headlines, but they represented only the visible peak of a rapidly growing threat. Sonatype's 2024 State of the Software Supply Chain report documented over 512,000 malicious packages discovered in the past year alone—a 156% year-over-year increase—bringing the total to more than 704,000 malicious packages identified since 2019.[^sonatype-2024] The European Union Agency for Cybersecurity (ENISA) identified supply chain attacks as one of the top threats in its annual threat landscape, noting increasing sophistication and frequency.
 
 The growth is not merely in raw numbers but in attacker capability and targeting. Early supply chain attacks were often opportunistic—typosquatting on popular package names, hoping unwary developers would install malicious components by mistake. Recent attacks show more sophistication: long-term social engineering campaigns to gain maintainer access, exploitation of build infrastructure, injection of malicious code that activates only under specific conditions to evade detection. Attackers have learned that supply chain vectors offer advantages no other attack path provides.
 
-#### Expanding Attack Surface
+## Expanding Attack Surface
 
 The attack surface available to supply chain adversaries has expanded dramatically, driven by the trends described in earlier sections. Applications contain more dependencies than ever before, each dependency representing a potential entry point. The Synopsys 2024 OSSRA report (page 8, "Open Source Risk Summary") found that the average codebase contains 526 open source components, a figure that has grown consistently year over year.
 
@@ -28,7 +28,7 @@ Beyond direct dependencies, the infrastructure supporting software development h
 
 The shift toward microservices and distributed architectures multiplies these exposures. An organization running hundreds of microservices maintains hundreds of separate dependency trees, each requiring monitoring and management. Cloud-native development practices, while offering operational benefits, expand the surface area that adversaries can target.
 
-#### AI-Assisted Development: New Capabilities, New Risks
+## AI-Assisted Development: New Capabilities, New Risks
 
 The rapid adoption of AI coding assistants adds another dimension to supply chain urgency. GitHub reported that over one million developers used Copilot within its first year, and adoption has accelerated since. These tools increase development velocity but introduce novel supply chain considerations.
 
@@ -38,7 +38,7 @@ More fundamentally, AI-assisted development accelerates the creation of software
 
 Emerging AI agents capable of autonomous coding, testing, and deployment intensify these concerns. When AI systems can modify code and dependencies without human review of each change, the implicit trust model of software development becomes even more stretched. Supply chain security practices must evolve to address non-human actors that make decisions affecting security at machine speed.
 
-#### Regulatory and Policy Response
+## Regulatory and Policy Response
 
 Governments worldwide have recognized supply chain security as a matter of national concern, translating that recognition into regulatory requirements.
 
@@ -48,7 +48,7 @@ The European Union has moved even more aggressively. The **Cyber Resilience Act 
 
 These regulations transform supply chain security from a best practice to a compliance requirement. Organizations selling to government or operating in regulated industries must demonstrate software supply chain controls, driving investment that market forces alone had not motivated. The regulatory trajectory is clearly toward more requirements, not fewer, with additional jurisdictions likely to follow the US and EU lead.
 
-#### The Economics of Supply Chain Attack
+## The Economics of Supply Chain Attack
 
 The urgency of supply chain security reflects not just technical vulnerability but economic reality. For attackers, supply chain compromises offer extraordinary leverage.
 
@@ -58,7 +58,7 @@ Attribution is difficult. Malicious code in dependencies can remain dormant for 
 
 For defenders, the economics are inverted. Securing the supply chain requires continuous vigilance across thousands of components, any one of which might be compromised. The cost of defense scales with the number of dependencies; the cost of attack does not scale with the number of targets. This asymmetry—high leverage for attackers, distributed burden for defenders—ensures continued attacker interest in supply chain vectors.
 
-#### Geopolitical Dimensions
+## Geopolitical Dimensions
 
 Supply chain security has become a matter of national security and geopolitical competition. The SolarWinds attack, attributed to a nation-state intelligence service, demonstrated that software supply chains are vectors for espionage and potentially for destructive attacks. Governments now view the security of software infrastructure through the lens of strategic competition.
 
@@ -66,7 +66,7 @@ This geopolitical dimension shapes policy in multiple ways. Export controls and 
 
 The tension between the global, collaborative nature of open source development and national security concerns creates difficult tradeoffs. Open source has thrived as a global commons, with contributors from every nation collaborating on shared infrastructure. Geopolitical pressures that fragment this collaboration could undermine the security benefits that come from broad review and shared maintenance, even as they address concerns about foreign influence.
 
-#### Convergence Creates Urgency
+## Convergence Creates Urgency
 
 Any one of these factors would demand attention. Their convergence creates the urgency that drives this book. High-profile incidents have demonstrated impact. Attack volumes are increasing exponentially. The attack surface expands with every dependency added. AI-assisted development accelerates both productivity and risk. Regulators mandate compliance. Economic incentives favor attackers. Geopolitical competition raises stakes.
 
@@ -80,8 +80,8 @@ The chapters that follow provide the framework for responding to this urgency: u
 [^xz-oss-security]: oss-security mailing list, "backdoor in upstream xz/liblzma leading to ssh server compromise" (2024-03-29). https://www.openwall.com/lists/oss-security/2024/03/29/4
 [^eo-14028]: The White House, Executive Order 14028 (May 12, 2021). https://bidenwhitehouse.archives.gov/briefing-room/presidential-actions/2021/05/12/executive-order-on-improving-the-nations-cybersecurity/
 [^omb-m-22-18]: OMB Memorandum M-22-18, *Enhancing the Security of the Software Supply Chain through Secure Software Development Practices* (Sept 14, 2022). https://www.whitehouse.gov/wp-content/uploads/2022/09/M-22-18.pdf
-[^omb-m-23-16]: OMB Memorandum M-23-16, *Update to Memorandum M-22-18: Enhancing the Security of the Software Supply Chain through Secure Software Development Practices* (June 9, 2023). https://www.whitehouse.gov/wp-content/uploads/2023/06/M-23-16.pdf
-[^circia]: CISA, Cyber Incident Reporting for Critical Infrastructure Act of 2022 (CIRCIA). https://www.cisa.gov/resources-tools/resources/cyber-incident-reporting-critical-infrastructure-act-2022-circia
+[^omb-m-23-16]: OMB Memorandum M-23-16, *Update to Memorandum M-22-18: Enhancing the Security of the Software Supply Chain through Secure Software Development Practices* (June 9, 2023). https://www.gsa.gov/system/files/M-23-16-Update-to-M-22-18-Enhancing-Software-Security.pdf
+[^circia]: CISA, Cyber Incident Reporting for Critical Infrastructure Act of 2022 (CIRCIA). https://www.cisa.gov/topics/cyber-threats-and-advisories/information-sharing/cyber-incident-reporting-critical-infrastructure-act-2022-circia
 [^eu-cra]: Regulation (EU) 2024/2847 (Cyber Resilience Act), Official Journal of the European Union. https://eur-lex.europa.eu/eli/reg/2024/2847/oj
 [^sonatype-2024]: Sonatype, *2024 State of the Software Supply Chain Report* (October 2024). https://www.sonatype.com/state-of-the-software-supply-chain/introduction
 ![Three landmark incidents that elevated supply chain security to board-level priority](img/ch-1-landmark-incidents.svg)

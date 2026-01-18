@@ -4,7 +4,7 @@ In March 2023, customers of 3CX, a popular business communications platform, dis
 
 This **cascading supply chain attack** demonstrated a new dimension of supply chain risk: your security depends not only on your direct vendors but on your vendors' vendors, creating chains of trust that extend far beyond what organizations typically assess.
 
-#### Background: 3CX and Business Communications
+## Background: 3CX and Business Communications
 
 3CX develops a software-based Private Branch Exchange (PBX) system that provides voice over IP (VoIP), video conferencing, and messaging capabilities. The platform is used by organizations worldwide for business communications.
 
@@ -19,7 +19,7 @@ The **3CX Desktop App** provides users with a softphone client for making and re
 
 Like SolarWinds Orion (see Section 7.2), the 3CX Desktop App represented a trusted application installed across numerous endpoints in customer environments. Users had no reason to suspect that an official, signed update from 3CX would contain malicious code.
 
-#### The Cascading Attack: From Trading Technologies to 3CX
+## The Cascading Attack: From Trading Technologies to 3CX
 
 The 3CX compromise was not a direct attack on 3CX's infrastructure. It was the result of an earlier, separate supply chain attack.
 
@@ -45,7 +45,7 @@ The trojanized 3CX Desktop App was distributed through official channels. Update
 
 This chain—from Trading Technologies to a 3CX employee to 3CX's build systems to 3CX customers—illustrated how supply chain attacks can cascade through multiple organizations.
 
-#### Technical Details: The Malicious Application
+## Technical Details: The Malicious Application
 
 The trojanized 3CX Desktop App employed sophisticated techniques to deliver its payload:
 
@@ -83,7 +83,7 @@ Similar to SUNBURST, the attackers did not exploit all infected systems. The fin
 
 This selectivity—consistent with North Korean threat actors' focus on cryptocurrency theft—helped the attack remain undetected longer by limiting anomalous network behavior.
 
-#### Detection: EDR Alerts Initially Dismissed
+## Detection: EDR Alerts Initially Dismissed
 
 The detection of the 3CX compromise exposed a troubling pattern: security tools flagged the malicious behavior, but alerts were dismissed as false positives.
 
@@ -107,7 +107,7 @@ Mandiant was retained to investigate. CISA issued an [advisory][cisa-3cx] on the
 
 The gap between initial detection (March 22) and official confirmation (March 29) represented a week during which organizations dismissed legitimate security alerts and continued running compromised software.
 
-#### The False Positive Problem
+## The False Positive Problem
 
 The initial dismissal of security alerts deserves particular attention. This pattern—vendor assures customers that security detections are false positives—has occurred repeatedly:
 
@@ -125,7 +125,7 @@ This creates a dilemma for organizations:
 
 The 3CX incident demonstrated that security teams should treat unexpected security detections of trusted software as potential supply chain indicators, even when vendors claim otherwise. Investigation should confirm or refute the alert rather than simply accepting vendor assurances.
 
-#### Attribution: Lazarus Group
+## Attribution: Lazarus Group
 
 [Security researchers attributed][mandiant-3cx] the 3CX attack to **Lazarus Group**, a threat actor associated with North Korea's Reconnaissance General Bureau.
 
@@ -140,7 +140,7 @@ Lazarus Group has been responsible for numerous financially-motivated attacks, i
 
 The 3CX attack represented an evolution in Lazarus techniques—moving from direct attacks on cryptocurrency companies to supply chain attacks that could provide access to many targets through a single compromise.
 
-#### Comparison to SolarWinds
+## Comparison to SolarWinds
 
 The 3CX and SolarWinds attacks shared significant similarities while differing in important ways:
 
@@ -167,7 +167,7 @@ The 3CX and SolarWinds attacks shared significant similarities while differing i
 
 The cascading nature of the 3CX attack distinguished it from SolarWinds. The SolarWinds attackers directly compromised their target's build environment. The 3CX attackers first compromised Trading Technologies, used that to reach a 3CX employee, and then pivoted to 3CX's build systems—a supply chain attack used to enable a second supply chain attack.
 
-#### Supply Chains Within Supply Chains
+## Supply Chains Within Supply Chains
 
 The 3CX incident highlighted a dimension of supply chain risk that organizations often underestimate: **supply chain depth**.
 
@@ -192,7 +192,7 @@ The attack chain exploited these realities:
 
 Each step was individually unremarkable. Together, they created a path from one software vendor's compromise to another's.
 
-#### Impact and Response
+## Impact and Response
 
 **Customer Impact:**
 
@@ -224,7 +224,7 @@ The incident reinforced lessons from SolarWinds:
 - EDR alerts about trusted software should be investigated, not dismissed
 - Supply chain risk extends beyond direct vendor relationships
 
-#### Lessons Learned
+## Lessons Learned
 
 The 3CX compromise provided specific lessons that expand on those from SolarWinds:
 

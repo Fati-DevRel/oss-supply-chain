@@ -2,7 +2,7 @@
 
 The open source ecosystem is not a single entity but a collection of distinct communities, each with its own culture, governance, tooling, and security posture. Understanding these ecosystems—their strengths, weaknesses, and idiosyncrasies—is essential for anyone managing software supply chain security. A vulnerability disclosure process that works well in one ecosystem may not exist in another. Security features considered standard in one registry may be absent elsewhere. This section surveys the major package ecosystems, providing reference material for practitioners who must secure applications spanning multiple language communities.
 
-#### JavaScript/Node.js: npm
+## JavaScript/Node.js: npm
 
 The **npm registry** is the largest package ecosystem in the world by a substantial margin, hosting over 2.5 million packages with more than 200 billion downloads per month. This scale reflects JavaScript's ubiquity: it runs in every web browser, powers countless server applications through Node.js, and has expanded into mobile development, desktop applications, and even embedded systems.
 
@@ -20,7 +20,7 @@ In response, npm has implemented substantial security improvements:
 
 Despite these improvements, npm's scale creates ongoing challenges. The registry processes millions of package versions, making comprehensive review impossible. The JavaScript culture of small, single-purpose packages means applications often have hundreds or thousands of transitive dependencies. The `package-lock.json` mechanism helps ensure reproducible installations, but many projects do not commit lockfiles or keep them updated.
 
-#### Python: PyPI
+## Python: PyPI
 
 The **Python Package Index (PyPI)** hosts over 500,000 projects with billions of downloads annually. Managed by the Python Software Foundation with significant infrastructure support from sponsors, PyPI has grown from a minimal package index into critical infrastructure for data science, machine learning, web development, and automation.
 
@@ -38,7 +38,7 @@ PyPI has experienced significant attacks. The **ctx package hijacking** in 2022 
 
 Python's `requirements.txt` format historically encouraged loose version specifications, though `pip-tools`, `poetry`, and modern dependency management promote pinned versions and lockfiles. The ecosystem's diversity of packaging tools (setuptools, poetry, flit, hatch) can create confusion but also enables experimentation with security-focused approaches.
 
-#### Java: Maven Central
+## Java: Maven Central
 
 **Maven Central** is the primary repository for Java and JVM-language artifacts, hosting over 500,000 unique artifacts with hundreds of billions of downloads annually. Operated by Sonatype, Maven Central serves the enterprise Java ecosystem where stability and verification have historically been priorities.
 
@@ -56,7 +56,7 @@ The Java ecosystem's security incidents have often involved dependency confusion
 
 Maven's dependency resolution is deterministic given a `pom.xml` file, and enterprise users typically employ repository managers that proxy and cache artifacts. This architecture provides natural points for security controls but requires proper configuration to be effective.
 
-#### Ruby: RubyGems
+## Ruby: RubyGems
 
 **RubyGems.org** hosts over 180,000 gems (Ruby's package terminology) serving the Ruby community, particularly web developers using Ruby on Rails. The registry is operated by Ruby Central, a nonprofit organization that also supports Ruby development and the RubyConf conference series.
 
@@ -74,7 +74,7 @@ The Ruby ecosystem experienced one of the earliest high-profile supply chain inc
 
 The Ruby community's relatively close-knit nature has some security benefits: maintainers often know each other, and unusual activity may be noticed. However, many critical gems are maintained by small teams or individuals, creating bus factor risks.
 
-#### Rust: crates.io
+## Rust: crates.io
 
 **crates.io** hosts over 140,000 crates for the Rust programming language. Operated by the Rust Foundation, crates.io was designed with explicit attention to lessons learned from earlier ecosystems.
 
@@ -91,7 +91,7 @@ crates.io has experienced relatively few major security incidents compared to ol
 
 Rust's memory safety guarantees address an entire class of vulnerabilities at the language level, but supply chain risks remain. Crates can still contain logic bugs, backdoors, or malicious functionality that memory safety does not prevent.
 
-#### Go Modules
+## Go Modules
 
 Go's package ecosystem takes a distinctive decentralized approach. Rather than a central registry, Go modules are fetched directly from source repositories (primarily GitHub). The **Go Module Mirror** (proxy.golang.org) and **Go Checksum Database** (sum.golang.org), operated by Google, provide caching and integrity verification.
 
@@ -107,7 +107,7 @@ The decentralized model means there is no central registry to compromise, but it
 
 Go's ecosystem has seen **typosquatting** attempts and **malicious modules**, though the checksum database provides detection capability once malicious content is identified. The **Codecov incident** of 2021 particularly affected Go projects using that CI service for coverage reporting.
 
-#### PHP: Composer and Packagist
+## PHP: Composer and Packagist
 
 **Packagist** serves as the primary repository for PHP packages installed via Composer, hosting over 350,000 packages. PHP powers a substantial portion of the web—WordPress, Laravel, Drupal, and countless custom applications—making Packagist critical infrastructure despite receiving less attention than npm or PyPI.
 
@@ -124,7 +124,7 @@ PHP's ecosystem has experienced security incidents including **typosquatting** a
 
 The PHP community's decentralized nature—with many applications self-hosted rather than deployed through modern CI/CD—creates challenges for security update distribution. WordPress's automatic update mechanism has been crucial for patching vulnerable sites, demonstrating how deployment architecture affects supply chain security.
 
-#### .NET: NuGet
+## .NET: NuGet
 
 **NuGet Gallery** hosts over 350,000 unique packages for the .NET ecosystem. Operated by Microsoft, NuGet benefits from corporate resources and integration with Visual Studio, Azure DevOps, and the broader Microsoft developer platform.
 
@@ -140,7 +140,7 @@ NuGet has experienced fewer high-profile security incidents than peer ecosystems
 
 The .NET ecosystem's enterprise orientation means many organizations use private NuGet feeds (through Azure Artifacts, MyGet, or self-hosted solutions), providing isolation from public registry risks but requiring their own security management.
 
-#### Swift/Objective-C: CocoaPods and Swift Package Manager
+## Swift/Objective-C: CocoaPods and Swift Package Manager
 
 The Apple ecosystem relies on two primary package management systems: **CocoaPods**, a community-driven dependency manager established in 2011, and **Swift Package Manager (SPM)**, Apple's official tool introduced in 2016 and integrated into Xcode.
 
@@ -179,7 +179,7 @@ The Apple ecosystem faces unique supply chain considerations:
 
 Mobile application supply chains deserve particular attention because compromised iOS applications have direct access to user data, device sensors, and payment credentials. The **XcodeGhost incident** (2015), where a modified Xcode compiler injected malware into apps built with it, demonstrated how iOS development toolchains could become supply chain vectors affecting millions of users.
 
-#### Comparative Analysis
+## Comparative Analysis
 
 Examining these ecosystems reveals both common patterns and significant divergences.
 
@@ -242,7 +242,7 @@ Some ecosystems (npm, PyPI) allow anyone to claim any unclaimed name, enabling t
 
 crates.io prohibits modification or deletion of published versions. npm allows unpublication within time limits. PyPI permits deletion but discourages it. These policies affect how incidents can be remediated and whether attacks can be rolled back.
 
-#### Cross-Ecosystem Risks
+## Cross-Ecosystem Risks
 
 Modern applications frequently span multiple ecosystems. A web application might use JavaScript on the frontend, Python for backend services, and Go for infrastructure tooling. Each component brings its ecosystem's security properties and risks.
 

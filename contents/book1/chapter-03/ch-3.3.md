@@ -2,7 +2,7 @@
 
 Supply chain security is structurally difficult. This is not merely a matter of inadequate investment or immature tooling—though both are real—but a fundamental asymmetry between attackers and defenders. Attackers need to find one weakness in a vast attack surface; defenders must secure every component in an ever-growing dependency graph. Attackers can wait patiently for opportunities; defenders must maintain vigilance indefinitely. Attackers enjoy anonymity; defenders operate in the open. Understanding these asymmetries is essential for developing realistic security strategies that acknowledge what is achievable rather than pursuing the impossible goal of perfect security.
 
-#### The Weakest Link Dynamic
+## The Weakest Link Dynamic
 
 Traditional security thinking emphasizes **defense in depth**: layering multiple controls so that failure of any single control does not result in compromise. This approach assumes that attackers must penetrate multiple barriers, making attack progressively harder as defenses accumulate.
 
@@ -12,7 +12,7 @@ This weakest-link dynamic means that security is determined not by your stronges
 
 Consider the mathematics. If each package has a 99.9% chance of being secure in any given year—an optimistic assumption—an application with 500 dependencies faces a probability of approximately 39% that at least one dependency will be compromised: 1 - (0.999)^500 = ~0.39. With 1,000 dependencies, common in JavaScript applications, the probability approaches 63%. Defense in depth cannot help when any single failure is sufficient for attack success.
 
-#### The Economics of Attack Versus Defense
+## The Economics of Attack Versus Defense
 
 Supply chain attacks offer attackers extraordinary leverage. A single successful compromise can provide access to thousands or millions of downstream systems. The SolarWinds attack (§7.2) reached 18,000 organizations through one compromised build system.[^solarwinds-victims] The ua-parser-js compromise reached millions of downloads within hours. This leverage makes supply chain attacks economically attractive compared to attacking targets individually.
 
@@ -30,7 +30,7 @@ The economics favor attackers in several dimensions:
 
 This economic asymmetry explains why supply chain attacks have proliferated despite growing awareness. From an attacker's perspective, supply chains offer better return on investment than most alternative attack vectors.
 
-#### Scale Challenges
+## Scale Challenges
 
 The sheer number of dependencies in modern applications creates a security challenge that manual processes cannot address.
 
@@ -42,7 +42,7 @@ Transitive dependencies compound the challenge. Developers choose direct depende
 
 The scale challenge is asymmetric because attackers can use automation to scan the entire ecosystem for vulnerabilities while defenders must secure their specific subset of that ecosystem. Attackers benefit from the law of large numbers; defenders suffer from it.
 
-#### Time Asymmetry
+## Time Asymmetry
 
 Vulnerabilities can exist for years before discovery, giving attackers extended windows of opportunity while defenders remain unaware of their exposure.
 
@@ -56,7 +56,7 @@ This time asymmetry creates a troubling dynamic: defenders can only protect agai
 
 For supply chain attacks involving malicious code rather than unintentional vulnerabilities, the time asymmetry is even more pronounced. The XZ Utils backdoor was developed over more than two years of patient contribution. Had it reached stable Linux distributions, it might have persisted indefinitely until chance detection or active exploitation revealed it.
 
-#### Attribution Challenges
+## Attribution Challenges
 
 Identifying who conducted a supply chain attack is significantly harder than attributing other forms of cyber attack, reducing the deterrent effect that would otherwise constrain attackers.
 
@@ -70,7 +70,7 @@ The attribution challenge means that supply chain attackers face minimal risk of
 
 This impunity encourages further attacks. Traditional deterrence—the threat of punishment—requires reliable attribution and effective consequences. When attackers can operate anonymously with little fear of reprisal, deterrence fails, and the only remaining defense is prevention.
 
-#### The Long Tail of Targets
+## The Long Tail of Targets
 
 Not all packages receive equal security attention. Popular packages may benefit from broad scrutiny, active maintenance, and security investment. The vast **long tail** of less popular packages often has none of these benefits.
 
@@ -82,7 +82,7 @@ The long tail is particularly attractive because these packages often serve as d
 
 This dynamic creates a paradox for defenders: the packages most likely to be attacked are precisely those with the least security investment. Resources flow to visible packages; attacks flow to invisible ones.
 
-#### Strategic Implications
+## Strategic Implications
 
 The asymmetries described here are structural, not incidental. They cannot be eliminated through better tools or larger budgets, though both help. Effective supply chain security strategy must acknowledge these constraints:
 

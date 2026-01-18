@@ -2,7 +2,7 @@
 
 Among all supply chain dependencies, cryptographic libraries occupy a uniquely critical position. They protect data confidentiality, ensure message integrity, verify identities, and enable secure communication. When cryptographic dependencies fail, the consequences extend far beyond typical vulnerabilities—entire security architectures collapse. The history of cryptographic library incidents provides stark lessons about the risks of depending on code that requires specialized expertise to write, review, and maintain.
 
-#### The Criticality of Cryptographic Dependencies
+## The Criticality of Cryptographic Dependencies
 
 Cryptographic libraries form the trust foundation for modern digital systems. TLS libraries secure web traffic. SSH libraries protect remote administration. Encryption libraries safeguard data at rest. Signature libraries verify software authenticity. Every security property that depends on cryptography depends on the correctness of the underlying implementation.
 
@@ -16,7 +16,7 @@ This creates a concentration of risk unique to cryptographic code:
 
 **Subtlety of failure**: Cryptographic vulnerabilities often do not cause obvious misbehavior. Code with broken encryption might still encrypt and decrypt—just in ways that attackers can break. Unlike a crash or visible error, cryptographic failures can persist undetected indefinitely.
 
-#### Heartbleed: The Vulnerability That Changed Everything
+## Heartbleed: The Vulnerability That Changed Everything
 
 On April 7, 2014, the security community disclosed **Heartbleed** (CVE-2014-0160), a vulnerability in OpenSSL's implementation of the TLS heartbeat extension. The flaw allowed attackers to read up to 64 kilobytes of server memory with each exploit attempt—memory that might contain private keys, session tokens, passwords, or other sensitive data.
 
@@ -41,7 +41,7 @@ The response required not just patching but key replacement. Organizations had t
 
 Heartbleed became a defining moment for software security. It demonstrated that critical infrastructure depended on understaffed open source projects (OpenSSL had minimal funding at the time), that vulnerabilities could persist in scrutinized code for years, and that cryptographic library failures had system-wide consequences.
 
-#### Debian Weak Keys: A Maintenance Error Catastrophe
+## Debian Weak Keys: A Maintenance Error Catastrophe
 
 In 2008, a different cryptographic failure illustrated the dangers of well-intentioned maintenance. A Debian developer, working to address warnings from the Valgrind memory analysis tool, removed code from OpenSSL's random number generator. The removed code was flagged as using uninitialized memory—but that "uninitialized" memory was a deliberate source of entropy for key generation.
 
@@ -57,7 +57,7 @@ The incident resulted not from malicious intent but from a maintainer's reasonab
 
 The Debian weak keys incident demonstrates a critical supply chain principle: even trusted maintainers can introduce devastating security flaws when working outside their expertise. Cryptographic code requires cryptographic understanding; well-meaning changes by non-cryptographers can have catastrophic consequences.
 
-#### The Cryptographic Library Landscape
+## The Cryptographic Library Landscape
 
 Following Heartbleed, the cryptographic library ecosystem evolved. Organizations and projects reconsidered their dependencies, and new options emerged:
 
@@ -73,7 +73,7 @@ Following Heartbleed, the cryptographic library ecosystem evolved. Organizations
 
 Each choice involves tradeoffs: ubiquity versus security focus, API stability versus aggressive improvement, low-level control versus safe abstractions.
 
-#### Random Number Generation Dependencies
+## Random Number Generation Dependencies
 
 Cryptographic security ultimately depends on randomness. Keys, nonces, initialization vectors, and other values must be unpredictable to attackers. This makes random number generation a critical—and frequently failing—dependency.
 
@@ -91,7 +91,7 @@ Failures at the OS level propagate to every application:
 
 Developers should treat RNG as a critical dependency, verify that their platform provides adequate randomness, and avoid implementing custom RNG code without deep expertise.
 
-#### Cryptographic Agility and Migration
+## Cryptographic Agility and Migration
 
 **Cryptographic agility** refers to the ability to change cryptographic algorithms without major system redesign. As cryptographic attacks improve and standards evolve, organizations must migrate to stronger algorithms. Supply chain considerations affect this agility:
 
@@ -103,7 +103,7 @@ Developers should treat RNG as a critical dependency, verify that their platform
 
 We recommend maintaining awareness of cryptographic evolution, selecting libraries actively adding modern algorithm support, and planning for eventual post-quantum migration.
 
-#### Practical Guidance
+## Practical Guidance
 
 For organizations selecting and managing cryptographic dependencies:
 

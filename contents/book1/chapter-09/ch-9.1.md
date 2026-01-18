@@ -4,7 +4,7 @@ Mobile applications operate in a supply chain environment distinct from server-s
 
 Understanding mobile supply chain risks requires examining both the dependency management systems that mirror server-side ecosystems and the mobile-specific elements—SDKs, platform APIs, and distribution channels—that create unique attack surfaces.
 
-#### iOS Supply Chain Architecture
+## iOS Supply Chain Architecture
 
 iOS development relies on several dependency management systems:
 
@@ -36,7 +36,7 @@ SPM security considerations:
 
 **Carthage** takes a decentralized approach, building frameworks from source repositories. It has lower adoption than CocoaPods but remains used for some projects.
 
-#### Android Supply Chain Architecture
+## Android Supply Chain Architecture
 
 Android development centers on Gradle and the Maven ecosystem:
 
@@ -58,7 +58,7 @@ Android's more open ecosystem creates additional attack surfaces:
 - **Transitive dependencies**: Complex dependency trees, often deeper than iOS equivalents
 - **Native library inclusion**: Android apps frequently include native (C/C++) libraries, adding complexity invisible to Java/Kotlin analysis
 
-#### Mobile SDKs as Hidden Risk
+## Mobile SDKs as Hidden Risk
 
 Both platforms share a critical supply chain element: **Software Development Kits (SDKs)** that provide ready-made functionality. Research consistently shows that mobile apps integrate numerous SDKs:[^appfigures-sdks]
 
@@ -90,7 +90,7 @@ SDKs often operate as black boxes, with limited visibility into their behavior:
 
 SDKs themselves have dependencies, creating supply chains within supply chains. A crash reporting SDK might depend on networking libraries, serialization frameworks, and other components—each a potential vulnerability source. Enterprise security teams auditing mobile apps commonly discover hundreds of transitive dependencies introduced by seemingly simple SDK integrations.
 
-#### Case Study: XcodeGhost (2015)
+## Case Study: XcodeGhost (2015)
 
 **XcodeGhost** remains the most significant iOS supply chain attack documented, demonstrating how attackers can compromise the development toolchain itself.
 
@@ -117,7 +117,7 @@ The modified Xcode contained a malicious library that was automatically included
 3. **Distribution matters**: Developers using unofficial sources introduced the compromise
 4. **Regional targeting**: Attackers exploited conditions specific to Chinese developers
 
-#### Case Study: Malicious Android SDKs
+## Case Study: Malicious Android SDKs
 
 Multiple campaigns have distributed malicious SDKs targeting Android developers:
 
@@ -140,7 +140,7 @@ Multiple campaigns have distributed malicious SDKs targeting Android developers:
 
 The apps were developed by legitimate companies that had unknowingly integrated a malicious advertising SDK.
 
-#### App Store Review: Capabilities and Limitations
+## App Store Review: Capabilities and Limitations
 
 Both Apple's App Store and Google Play implement review processes intended to catch malicious apps:
 
@@ -169,7 +169,7 @@ Initial app submission receives the most scrutiny. Updates may receive lighter r
 
 This pattern has been documented repeatedly in both iOS and Android ecosystems.
 
-#### Side-Loading and Alternative Distribution
+## Side-Loading and Alternative Distribution
 
 **Android Side-Loading:**
 
@@ -190,7 +190,7 @@ iOS historically restricted distribution to the App Store, TestFlight (beta test
 
 The expansion of iOS alternative distribution will create new supply chain considerations as the iOS ecosystem becomes more open.
 
-#### Mobile-Specific Malware Patterns
+## Mobile-Specific Malware Patterns
 
 Supply chain attacks on mobile platforms follow patterns shaped by platform constraints:
 
@@ -218,7 +218,7 @@ Supply chain attacks on mobile platforms follow patterns shaped by platform cons
 - Inject malicious code
 - Redistribute through alternative channels
 
-#### Recommendations
+## Recommendations
 
 **For Mobile Developers:**
 

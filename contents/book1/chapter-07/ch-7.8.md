@@ -4,7 +4,7 @@ The preceding sections examined how attackers compromise build systems to inject
 
 Distribution infrastructure often receives less security attention than build systems or application code. Organizations trust that downloads from official sources deliver what they expect. This trust creates opportunity for attackers who can compromise or impersonate distribution channels.
 
-#### The Trust Model of Distribution
+## The Trust Model of Distribution
 
 When you install a package or download software, you implicitly trust multiple components:
 
@@ -17,7 +17,7 @@ When you install a package or download software, you implicitly trust multiple c
 
 Compromise of any component in this chain can result in users receiving malicious software instead of—or in addition to—legitimate software.
 
-#### Compromised Mirrors and CDNs
+## Compromised Mirrors and CDNs
 
 **Mirrors** replicate package repositories to improve availability and performance. Major distributions (Debian, Ubuntu, Fedora) and package registries maintain networks of mirrors worldwide. Users typically fetch packages from nearby mirrors rather than central servers.
 
@@ -35,7 +35,7 @@ Mirror compromise can affect all users fetching from that mirror:
 
 Unlike origin servers, CDN infrastructure is typically operated by third parties. Organizations must trust that CDN providers maintain security—trust that extends to the CDN's employees, systems, and physical infrastructure.
 
-#### Man-in-the-Middle Attacks on Package Downloads
+## Man-in-the-Middle Attacks on Package Downloads
 
 **Man-in-the-middle (MITM) attacks** intercept and modify traffic between users and distribution servers. Modern TLS largely mitigates network-level MITM attacks, but vulnerabilities remain:
 
@@ -47,7 +47,7 @@ Unlike origin servers, CDN infrastructure is typically operated by third parties
 
 Package managers have historically been inconsistent about transport security. pip long defaulted to HTTP before switching to HTTPS. npm has required HTTPS for years but allows users to disable verification. Configuration errors can leave package downloads unprotected.
 
-#### Update Mechanism Hijacking
+## Update Mechanism Hijacking
 
 Automatic updates are both security feature and attack vector. They ensure users receive security patches quickly—but they also provide a trusted channel for delivering code that executes with elevated privileges.
 
@@ -63,7 +63,7 @@ Automatic updates are both security feature and attack vector. They ensure users
 
 **Watering hole attacks** target update mechanisms of software used by specific targets. Rather than attacking all users, adversaries compromise update infrastructure to deliver malicious updates only to targeted organizations or regions.
 
-#### Rollback Attacks
+## Rollback Attacks
 
 **Rollback attacks** serve users old, vulnerable versions of software instead of current versions. Even without modifying code, attackers benefit if they can force users to run versions with known vulnerabilities.
 
@@ -83,7 +83,7 @@ Defenses against rollback attacks include:
 
 [The Update Framework (TUF)][tuf], designed specifically for secure software updates, includes rollback protection as a core feature.
 
-#### Domain and DNS Hijacking
+## Domain and DNS Hijacking
 
 **Domain hijacking** occurs when attackers gain control of domain names used for software distribution. With domain control, attackers can:
 
@@ -102,7 +102,7 @@ Domain hijacking can occur through:
 
 In late January 2021, [the perl.com domain was discovered to have been hijacked][perl-hijack] through a social engineering attack on the domain registrar. Attackers had actually gained control months earlier, in September 2020, using fraudulent documents. For a period, the domain pointed to an IP address associated with malware distribution. While this primarily affected the website rather than CPAN package distribution, it illustrated how domain control enables comprehensive impersonation.
 
-#### Case Study: Polyfill.io (2024)
+## Case Study: Polyfill.io (2024)
 
 The **Polyfill.io attack** in 2024 became one of the most significant distribution channel compromises affecting the web ecosystem, demonstrating how CDN trust can be exploited at massive scale.
 
@@ -170,7 +170,7 @@ Websites had to audit their code, remove Polyfill.io references, and either self
 
 4. **Response requires ecosystem coordination**: No single organization could address the threat; industry-wide action was required.
 
-#### Subresource Integrity as Mitigation
+## Subresource Integrity as Mitigation
 
 **Subresource Integrity (SRI)** is a browser security feature that allows websites to ensure that fetched resources match expected content. When including an external script, developers can specify a cryptographic hash:
 
@@ -191,7 +191,7 @@ However, Subresource Integrity comes with a few important challenges and limitat
 
 Despite limitations, SRI provides strong protection for static external resources. Organizations should use SRI for all third-party scripts with fixed content.
 
-#### TLS and Certificate Transparency
+## TLS and Certificate Transparency
 
 **Transport Layer Security (TLS)** protects distribution channels by encrypting traffic and authenticating servers. Proper TLS implementation prevents network-based attacks:
 
@@ -213,7 +213,7 @@ However, TLS and CT do not protect against:
 - Compromise of origin servers
 - Attacks that occur before content reaches distribution infrastructure
 
-#### Defense Recommendations
+## Defense Recommendations
 
 **For software publishers:**
 

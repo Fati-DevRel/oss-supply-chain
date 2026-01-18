@@ -4,7 +4,7 @@ Throughout the preceding case studies, a pattern recurs: malicious software arri
 
 This pattern reveals a critical truth about code signing: it is necessary but not sufficient for supply chain security. Understanding what signing does and does not guarantee is essential for building effective defenses.
 
-#### How Code Signing Works
+## How Code Signing Works
 
 **Code signing** uses public-key cryptography to bind an identity to a piece of software. The mechanics are straightforward:
 
@@ -21,7 +21,7 @@ Valid signatures prove two things:
 
 Crucially, signing does not prove the software is safe, correct, or free of vulnerabilities. It proves only that the signer's key was used to sign this specific content.
 
-#### The Trust Model: Certificate Authorities and Key Management
+## The Trust Model: Certificate Authorities and Key Management
 
 For signature verification to be meaningful, verifiers must know which public keys to trust. This leads to **Public Key Infrastructure (PKI)**, a system of **Certificate Authorities (CAs)** that vouch for key ownership.
 
@@ -36,6 +36,7 @@ The chain works as follows:
 4. **Certificate chain verification** traces from an end entity certificate through intermediates to a trusted root.
 
 When you verify a signed binary, your system checks:
+
 - Is the signature cryptographically valid?
 - Does the certificate chain lead to a trusted root?
 - Is the certificate unexpired and unrevoked?
@@ -55,7 +56,7 @@ For commercial software vendors, code signing certificates cost money and requir
 
 Code signing timestamps record when a signature was created, using a trusted Time Stamping Authority (TSA). Without timestamping, signatures become invalid when certificates expire—software signed with an expired certificate cannot be verified. With timestamps, signatures remain valid indefinitely if created while the certificate was valid. However, this creates a complication for revocation: software signed and timestamped before a certificate was revoked may still be accepted, even if the certificate was later compromised. Organizations must balance long-term signature validity against the security implications of honoring pre-revocation signatures.
 
-#### Signing in Open Source: The Adoption Gap
+## Signing in Open Source: The Adoption Gap
 
 Open source has historically struggled with code signing adoption. The traditional PKI model presents barriers:
 
@@ -69,7 +70,7 @@ Open source has historically struggled with code signing adoption. The tradition
 
 As a result, much open source software was distributed unsigned, or signed with keys that verifiers could not meaningfully validate.
 
-#### Sigstore: Democratizing Open Source Signing
+## Sigstore: Democratizing Open Source Signing
 
 **[Sigstore][sigstore]** emerged in 2021 to address these barriers, providing free, easy code signing for open source projects. The Linux Foundation project combines several components:
 
@@ -95,7 +96,7 @@ Sigstore adoption has grown rapidly. Major package ecosystems including npm, PyP
 
 However, OIDC-based identity introduces its own risks. If an attacker compromises a maintainer's GitHub account (through credential theft, session hijacking, or social engineering), they can generate valid Sigstore signatures tied to that identity. The transparency log captures this activity—useful for forensic investigation—but does not prevent the initial abuse. Organizations relying on Sigstore signatures should implement additional controls: monitoring for unexpected signing activity, requiring multi-factor authentication on identity provider accounts, and verifying provenance claims beyond just signature validity.
 
-#### Attacks on Signing: When Signatures Don't Help
+## Attacks on Signing: When Signatures Don't Help
 
 Signing provides integrity and attribution, but attacks can work around both:
 
@@ -126,7 +127,7 @@ Many systems do not verify signatures rigorously:
 
 In 2013, [security firm Bluebox discovered the "Master Key" vulnerability][android-2013] (CVE-2013-4787, affecting Android 1.6 Donut through 4.2 Jelly Bean—nearly 900 million devices at the time), demonstrating that the signature verification process could be bypassed, allowing attackers to modify signed APKs while maintaining valid signatures.
 
-#### What Signing Does Not Prove
+## What Signing Does Not Prove
 
 Given these attack vectors, it is essential to understand signing's limits:
 
@@ -148,7 +149,7 @@ Signing proves who signed, not who authored. An open source project might sign r
 
 As [the SLSA framework][slsa] emphasizes, signatures indicate who claims responsibility for an artifact but do not establish whether that entity should be trusted.
 
-#### Beyond Signing: Attestation and Provenance
+## Beyond Signing: Attestation and Provenance
 
 Recognizing signing's limitations, the security community has developed complementary mechanisms:
 
@@ -196,7 +197,7 @@ This provides information that signing alone cannot:
 
 GitHub, npm, and PyPI have implemented provenance attestations using these standards. npm packages can include SLSA provenance attestations indicating they were built from specific repositories using GitHub Actions.
 
-#### Practical Recommendations
+## Practical Recommendations
 
 Given signing's importance and limitations:
 

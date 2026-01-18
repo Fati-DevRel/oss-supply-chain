@@ -2,7 +2,7 @@
 
 Understanding who attacks software supply chains (Section 3.1) is only half the picture. We must also understand *where* those attacks occur. The software supply chain presents a distributed attack surface spanning source code management, development environments, build systems, distribution infrastructure, and deployment pipelines. Each stage offers distinct opportunities for adversaries, and a single weakness at any point can compromise everything downstream. This section maps these attack surfaces systematically, providing the foundation for the threat modeling approaches discussed in Chapter 4 and the detailed attack analysis in Chapters 5-10.
 
-#### A Framework for Attack Surfaces
+## A Framework for Attack Surfaces
 
 The **[Supply-chain Levels for Software Artifacts (SLSA)][slsa]** framework, developed by Google and now stewarded by the Open Source Security Foundation, provides a useful model for understanding supply chain attack surfaces. SLSA identifies the path from source code to deployed artifact and enumerates threats at each transition:
 
@@ -13,7 +13,7 @@ The **[Supply-chain Levels for Software Artifacts (SLSA)][slsa]** framework, dev
 
 We expand this model to include the human and environmental factors that SLSA's technical focus necessarily omits. The attack surface is not merely technical—it includes the people who write code, the systems they work on, and the trust relationships they navigate.
 
-#### Source Code Repositories
+## Source Code Repositories
 
 Source code repositories—GitHub, GitLab, Bitbucket, self-hosted instances—serve as the starting point for most software supply chains. Compromising source creates downstream effects in every artifact built from that source.
 
@@ -27,7 +27,7 @@ Source code repositories—GitHub, GitLab, Bitbucket, self-hosted instances—se
 
 **Webhook and integration abuse** exploits the automation connected to repositories. CI/CD pipelines triggered by repository events inherit the permissions of those integrations. Attackers who can trigger builds—sometimes merely by opening a pull request—may be able to exfiltrate secrets or execute code in privileged environments.
 
-#### Developer Environments
+## Developer Environments
 
 The machines where developers write code represent a distributed, heterogeneous, and often poorly secured attack surface. Compromising a developer's environment provides access to their credentials, their code, and potentially the systems they interact with.
 
@@ -41,7 +41,7 @@ The machines where developers write code represent a distributed, heterogeneous,
 
 **Network position** matters because developers often operate on networks with different security properties than production environments. Coffee shop WiFi, home networks, and conference venues create interception opportunities that enterprise networks mitigate.
 
-#### Build Systems
+## Build Systems
 
 Build systems transform source code into deployable artifacts. This transformation process is a critical control point: whoever controls the build can modify what users receive regardless of what the source code says.
 
@@ -55,7 +55,7 @@ Build systems transform source code into deployable artifacts. This transformati
 
 **Compiler and toolchain attacks** represent Thompson's "Trusting Trust" scenario made practical. While actual compiler backdoors remain rare, build toolchains include many components—preprocessors, linkers, optimization passes—that could be subverted. Container build environments inherit whatever tools are in base images, extending trust transitively.
 
-#### Package Registries
+## Package Registries
 
 Package registries—npm, PyPI, Maven Central, and the ecosystems surveyed in Section 2.4—serve as distribution bottlenecks where compromises have maximum leverage. A malicious package in a popular registry can reach millions of systems.
 
@@ -71,7 +71,7 @@ Package registries—npm, PyPI, Maven Central, and the ecosystems surveyed in Se
 
 **Package metadata manipulation** can redirect users to malicious content without modifying package contents. Repository URLs, homepage links, and documentation pointers can be changed to direct users toward phishing sites or compromised resources.
 
-#### Deployment Infrastructure
+## Deployment Infrastructure
 
 Between build completion and production execution lies deployment infrastructure: container registries, artifact repositories, content delivery networks, and orchestration systems.
 
@@ -83,7 +83,7 @@ Between build completion and production execution lies deployment infrastructure
 
 **Deployment automation compromise** provides the final opportunity to modify what reaches production. Kubernetes admission controllers, deployment scripts, and infrastructure-as-code tools make security decisions about what gets deployed. Subverting these controls enables running arbitrary code in production environments.
 
-#### Update Mechanisms
+## Update Mechanisms
 
 Software updates present a unique attack surface because they leverage existing trust relationships. Users have already accepted software; updates arrive through channels they have reason to trust.
 
@@ -95,7 +95,7 @@ Software updates present a unique attack surface because they leverage existing 
 
 **Dependency update automation** creates opportunities when tools like Dependabot or Renovate automatically create pull requests for new dependency versions. If attackers can publish malicious versions that appear legitimate, automation may incorporate them with minimal human review.
 
-#### Developer-to-Developer Trust
+## Developer-to-Developer Trust
 
 Technical attack surfaces are only part of the picture. Human trust relationships create social engineering opportunities that bypass technical controls entirely.
 
@@ -105,7 +105,7 @@ Technical attack surfaces are only part of the picture. Human trust relationship
 
 **Community manipulation** at scale can shape which packages gain adoption. Fake reviews, inflated download counts, and coordinated promotion can make malicious packages appear trustworthy.
 
-#### AI Coding Tools
+## AI Coding Tools
 
 The newest category of attack surface involves AI coding assistants that have become intermediaries between developers and the packages they choose.
 
@@ -117,7 +117,7 @@ The newest category of attack surface involves AI coding assistants that have be
 
 **Trust displacement** is perhaps the most significant AI-related concern. Developers increasingly accept AI suggestions without the evaluation they would apply to manual dependency selection. The human judgment that historically provided some supply chain protection is being automated away.
 
-#### Risk Assessment Across Surfaces
+## Risk Assessment Across Surfaces
 
 Not all attack surfaces present equal risk. Several factors affect the practical danger of each:
 
@@ -133,5 +133,5 @@ For most organizations, the highest-priority surfaces are those combining broad 
 
 [slsa]: https://slsa.dev/
 [sonatype-2024]: https://www.sonatype.com/state-of-the-software-supply-chain/introduction
-[vulcan-hallucination]: https://vulcan.io/blog/ai-hallucinations-package-risk
+[vulcan-hallucination]: https://www.bleepingcomputer.com/news/security/ai-hallucinated-code-dependencies-become-new-supply-chain-risk/
 ![Attack surfaces across the software supply chain with defenses at each stage](img/ch-3-attack-surfaces.svg)

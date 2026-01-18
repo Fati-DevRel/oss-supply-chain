@@ -4,7 +4,7 @@ Technical security controls—authentication, code signing, automated scanning�
 
 [The XZ Utils backdoor][xz-backdoor] (Section 7.5) demonstrated this approach at its most sophisticated: a multi-year campaign combining fake identity construction, trust building through legitimate contributions, and coordinated pressure from sock puppet accounts. But social engineering against maintainers takes many forms, from crude phishing to elaborate relationship building. Understanding these tactics is essential for maintainers seeking to protect themselves and their projects.
 
-#### A Taxonomy of Social Engineering Tactics
+## A Taxonomy of Social Engineering Tactics
 
 Attackers use various approaches to manipulate maintainers:
 
@@ -57,7 +57,7 @@ Attackers weaponize community expectations:
 - Threatening to fork or abandon the project
 - Creating perception of community discontent
 
-#### XZ Utils: A Masterclass in Long-Term Social Engineering
+## XZ Utils: A Masterclass in Long-Term Social Engineering
 
 The XZ Utils attack represents the most sophisticated social engineering campaign ever documented against an open source project. Analyzing it in detail provides essential lessons for the community.
 
@@ -99,6 +99,7 @@ This response—honest about his struggles—provided exactly the opening the at
 With the pressure campaign establishing that the project needed additional maintainers, and Jia Tan having built a track record of helpful contributions, the path to maintainer access was clear. By late 2022, Jia Tan had commit access to the repository.
 
 Over 2023, Jia Tan became increasingly central to the project:
+
 - Making releases
 - Responding to issues
 - Reviewing contributions from others
@@ -117,7 +118,7 @@ With maintainer access established and Collin's reduced involvement, Jia Tan ins
 
 The attack was discovered by chance—a performance regression that attracted the attention of Andres Freund. Without that accident, the backdoor would likely have reached stable Linux distributions, affecting virtually every Linux server in the world.
 
-#### Sock Puppets and Manufactured Reputation
+## Sock Puppets and Manufactured Reputation
 
 The XZ Utils attack used **sock puppet accounts**—fake personas created to simulate community support or pressure. This technique is increasingly common against open source projects.
 
@@ -132,6 +133,7 @@ Fake accounts can vouch for attackers' contributions, provide positive reviews, 
 **Detection Challenges:**
 
 Sock puppets are difficult to detect:
+
 - Each account may have different creation dates, activity patterns, and communication styles
 - Some accounts may make genuine contributions alongside their coordinated activity
 - The accounts' true connection may only become apparent after the attack succeeds
@@ -144,7 +146,7 @@ Sock puppets are difficult to detect:
 - Unusual language patterns or machine translation artifacts
 - Accounts that only interact with the targeted project
 
-#### Impersonation Across Platforms
+## Impersonation Across Platforms
 
 Attackers may impersonate maintainers or trusted contributors across different platforms:
 
@@ -167,7 +169,7 @@ When package names are available on registries where a project hasn't claimed th
 - Monitor for impersonation using alerts and search tools
 - Consider claiming namespaces on major registries even if not actively used
 
-#### Exploiting Maintainer Vulnerability
+## Exploiting Maintainer Vulnerability
 
 Social engineering succeeds because it targets human psychology. Maintainers are especially vulnerable due to conditions common in open source:
 
@@ -191,7 +193,7 @@ Unpaid maintenance competes with paid work. Offers of sponsorship, employment, o
 
 Maintainers may doubt their own judgment, especially when seemingly qualified newcomers challenge their decisions. This self-doubt can be exploited to pressure acceptance of changes.
 
-#### Red Flags and Warning Signs
+## Red Flags and Warning Signs
 
 Maintainers should be alert to patterns that may indicate social engineering:
 
@@ -220,7 +222,7 @@ Maintainers should be alert to patterns that may indicate social engineering:
 - Requests that bypass normal contribution channels
 - Offers of help contingent on gaining specific access
 
-#### Defensive Guidance for Maintainers
+## Defensive Guidance for Maintainers
 
 **Slow Down:**
 
@@ -250,7 +252,7 @@ If something feels wrong, it may be. Experienced maintainers often sense manipul
 
 You are not obligated to accept contributions, grant access, or respond to demands. The project is yours to steward. Legitimate community members understand reasonable boundaries.
 
-#### Resources for Maintainers Under Pressure
+## Resources for Maintainers Under Pressure
 
 Maintainers facing suspicious activity or coordinated pressure should know where to turn:
 
@@ -281,7 +283,7 @@ If you believe your project is under social engineering attack:
 4. Notify other maintainers and trusted community members
 5. Consider public disclosure if the threat appears imminent
 
-#### Recommendations for Communities
+## Recommendations for Communities
 
 Beyond individual maintainer awareness, communities can implement structural defenses:
 

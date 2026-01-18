@@ -2,7 +2,7 @@
 
 Security discussions often focus on zero-day vulnerabilities—the unknown flaws that enable sophisticated attacks and generate dramatic headlines. This focus, while understandable, can distort risk perception. The data consistently shows that most successful attacks exploit known vulnerabilities that organizations simply have not patched. Understanding the distinction between zero-day and known vulnerability risk is essential for allocating defensive resources effectively.
 
-#### Defining Zero-Days
+## Defining Zero-Days
 
 A **zero-day vulnerability** is a security flaw unknown to those responsible for patching it. The term derives from the idea that defenders have had "zero days" to address the issue since becoming aware of it. More precisely, a zero-day is a vulnerability for which no patch exists at the time of exploitation.
 
@@ -18,7 +18,7 @@ Related concepts include:
 
 The XZ Utils backdoor discovered in March 2024 exemplified zero-day dynamics: attackers had a working backdoor that defenders were unaware of. Had the backdoor reached stable Linux distributions before discovery, exploitation would have proceeded while defenders had no knowledge of the threat—the essence of zero-day risk.
 
-#### The Zero-Day Market
+## The Zero-Day Market
 
 Zero-day vulnerabilities have significant economic value because they enable attacks that cannot be prevented through patching. This value has created a market with distinct participants:
 
@@ -34,7 +34,7 @@ Zero-day vulnerabilities have significant economic value because they enable att
 
 The economics shape the threat landscape. High zero-day prices reflect their value—and their relative scarcity. Nation-states and well-resourced criminal groups can afford zero-days; most attackers cannot. This concentration of zero-day capability among sophisticated adversaries has implications for defensive prioritization.
 
-#### Known Vulnerabilities: The Greater Practical Threat
+## Known Vulnerabilities: The Greater Practical Threat
 
 While zero-days capture attention, known vulnerabilities cause most actual damage. The data on this point is consistent across multiple sources:
 
@@ -46,7 +46,7 @@ Threat intelligence analysis consistently shows that known vulnerabilities with 
 
 The implication is counterintuitive but important: organizations facing typical threat actors are more likely to be compromised through unpatched known vulnerabilities than through zero-days. Defensive investment should reflect this reality.
 
-#### The Patch Gap Problem
+## The Patch Gap Problem
 
 The **patch gap** is the time between patch availability and patch deployment across vulnerable systems. As discussed in Section 5.1, vulnerability half-lives are measured in months—meaning half of vulnerable instances remain unpatched for extended periods after fixes are released.
 
@@ -62,7 +62,7 @@ Attackers understand the patch gap and exploit it systematically. When a critica
 
 The Log4Shell timeline illustrates this dynamic. Within 24 hours of disclosure, mass exploitation began. Organizations that took weeks to patch faced weeks of exposure to commodity attacks. The patch existed; the gap was in deployment.
 
-#### Defensive Strategies for Each Threat Type
+## Defensive Strategies for Each Threat Type
 
 Zero-days and known vulnerabilities require different defensive approaches:
 
@@ -87,7 +87,7 @@ Zero-day defense is fundamentally about resilience—limiting the value attacker
 
 Known vulnerability defense is fundamentally about execution—identifying and remediating vulnerabilities before attackers exploit them.
 
-#### Prioritization Frameworks
+## Prioritization Frameworks
 
 With thousands of CVEs disclosed annually, prioritization is essential. Not every vulnerability warrants emergency response. But how do you decide which ones matter most? Several frameworks have emerged to answer this question, each approaching prioritization from a different angle:
 
@@ -113,7 +113,7 @@ We recommend combining multiple signals:
 3. **Is your environment exposed?** Internet-facing systems with known vulnerabilities face the highest risk.
 4. **What is the business impact?** Vulnerabilities in critical systems warrant faster response.
 
-#### Practical Implications
+## Practical Implications
 
 The distinction between zero-day and known vulnerability risk should shape security investment:
 

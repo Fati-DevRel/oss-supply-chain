@@ -2,7 +2,7 @@
 
 Abstract analysis of attack techniques provides valuable understanding, but detailed examination of actual incidents reveals nuances that generalized discussions miss. This section presents five case studies of notable package attacks, each illustrating different attack vectors, motivations, and discovery mechanisms. Together, these incidents provide a representative sample of the threats facing package ecosystems and the lessons defenders should extract from them.
 
-#### event-stream: The Long Game of Trust (2018)
+## event-stream: The Long Game of Trust (2018)
 
 The **event-stream incident** remains the most significant example of social engineering in the open source ecosystem, demonstrating how attackers can patiently build trust to gain access to widely-used packages.
 
@@ -32,6 +32,7 @@ The malicious code in flatmap-stream was carefully designed to evade detection:
 4. When executed, it would steal Bitcoin wallet credentials and private keys
 
 This conditional execution meant that the malicious code:
+
 - Would not trigger during npm's security scanning (which wouldn't have the Copay context)
 - Would not affect the millions of event-stream users who didn't use Copay
 - Would specifically target Copay users' cryptocurrency
@@ -54,7 +55,7 @@ This conditional execution meant that the malicious code:
 
 4. **Community vigilance matters.** The attack was discovered through community member investigation, not automated scanning.
 
-#### ua-parser-js: Credential Compromise at Scale (2021)
+## ua-parser-js: Credential Compromise at Scale (2021)
 
 The **ua-parser-js compromise** demonstrated how a single credential compromise could immediately affect millions of users.
 
@@ -101,7 +102,7 @@ The attack was discovered when the legitimate maintainer received notifications 
 
 4. **Monitoring for unexpected publications is valuable.** The maintainer's quick discovery of unauthorized publications enabled rapid response.
 
-#### colors.js and faker.js: Maintainer Protest (2022)
+## colors.js and faker.js: Maintainer Protest (2022)
 
 The **colors.js and faker.js incident** raised fundamental questions about maintainer trust, demonstrating that the threat model must include maintainers themselves.
 
@@ -141,6 +142,7 @@ The code introduced an infinite loop that would hang any application using the l
 **Community Response:**
 
 Reactions were divided:
+
 - Some viewed Squires' actions as legitimate protest against exploitation of open source labor
 - Others condemned the sabotage as violating user trust and potentially harming innocent developers
 - The incident intensified discussions about funding open source maintainers
@@ -155,7 +157,7 @@ Reactions were divided:
 
 4. **Registry oversight has limits.** Registries struggle to distinguish intentional sabotage from legitimate (if poorly tested) changes.
 
-#### node-ipc: Geopolitical Protestware (2022)
+## node-ipc: Geopolitical Protestware (2022)
 
 The **node-ipc incident** introduced the term **protestware** into security discussions, demonstrating how geopolitical events could manifest in the software supply chain.
 
@@ -189,6 +191,7 @@ Later versions removed the destructive payload but retained `peacenotwar` for di
 **Community and Legal Response:**
 
 The incident sparked intense debate:
+
 - Some viewed targeting Russian/Belarusian systems as legitimate protest against the invasion
 - Security researchers emphasized that this was malware by any reasonable definition
 - GitHub did not remove the repository, citing that the code was disclosed in the repository
@@ -204,7 +207,7 @@ The incident sparked intense debate:
 
 4. **All dependencies require evaluation.** The `peacenotwar` package was new and had no legitimate purpose but was automatically installed as a dependency.
 
-#### PyPI Malware Campaigns: Patterns and Trends
+## PyPI Malware Campaigns: Patterns and Trends
 
 While npm has dominated package attack news, **Python Package Index (PyPI)** has experienced increasingly sophisticated malware campaigns demonstrating evolving attacker techniques.
 
@@ -229,13 +232,14 @@ PyPI malware campaigns demonstrate recurring techniques:
 **Detection Challenges:**
 
 PyPI's historically more limited security infrastructure compared to npm meant:
+
 - Longer dwell times before malicious package discovery
 - Less sophisticated automated detection
 - Greater reliance on community reporting
 
 Recent improvements including malware scanning, Trusted Publishers, and enhanced authentication have improved PyPI's security posture, but the ecosystem remains an active attacker target.
 
-#### Synthesis: Common Patterns Across Incidents
+## Synthesis: Common Patterns Across Incidents
 
 These case studies reveal recurring patterns that inform defensive strategy:
 

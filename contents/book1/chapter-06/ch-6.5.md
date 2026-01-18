@@ -4,7 +4,7 @@ The attacks described in previous sections—typosquatting, dependency confusion
 
 These techniques often combine multiple deceptive elements, exploit trust signals that developers rely on, or leverage implementation details of package managers that create unexpected security implications.
 
-#### Star-Jacking: Manufacturing Credibility
+## Star-Jacking: Manufacturing Credibility
 
 When developers evaluate packages, they often check GitHub star counts as a rough indicator of popularity and community trust. A package with 10,000 stars appears more credible than one with 10 stars. **Star-jacking** exploits this heuristic by associating a malicious package with a legitimate repository's star count.
 
@@ -27,7 +27,7 @@ The technique works because package registries often allow publishers to specify
 
 **Defense:** Developers should verify package claims by visiting the linked repository and confirming it references the package. Discrepancies between repository content and package content indicate potential deception.
 
-#### Contribution Fraud: Building Fake Reputation
+## Contribution Fraud: Building Fake Reputation
 
 Beyond star-jacking, attackers can manufacture apparent legitimacy through **contribution fraud**—creating fake contributor activity to make a package or maintainer appear established and trustworthy.
 
@@ -48,7 +48,7 @@ The [XZ Utils attack][xz-utils-backdoor] demonstrated sophisticated identity con
 
 **Defense:** For critical dependencies, examine not just quantity of contributions but quality and coherence. Investigate whether contributors have verifiable external identities. Consider whether the project's apparent history matches its functionality and complexity.
 
-#### Manifest Confusion: Metadata vs. Reality
+## Manifest Confusion: Metadata vs. Reality
 
 Package managers rely on manifest files (`package.json`, `setup.py`, `Cargo.toml`) to describe package contents, dependencies, and scripts. **Manifest confusion** attacks exploit discrepancies between what manifests declare and what packages actually contain.
 
@@ -72,7 +72,7 @@ Package managers rely on manifest files (`package.json`, `setup.py`, `Cargo.toml
 
 **Defense:** Tools like [Socket][socket] analyze published package contents rather than relying solely on manifest declarations. Reproducible builds enable verification that published artifacts match source repositories.
 
-#### Lockfile Injection Attacks
+## Lockfile Injection Attacks
 
 **Lockfiles** (`package-lock.json`, `yarn.lock`, `poetry.lock`, `Gemfile.lock`) are designed to ensure reproducible installations by specifying exact versions and sources for all dependencies. Ironically, this security feature can be turned into an attack vector through **lockfile injection**.
 
@@ -107,7 +107,7 @@ The attack is particularly effective because:
 
 **Defense:** Treat lockfile changes with the same scrutiny as code changes. Use tooling that validates lockfile integrity against expected sources. Consider policies requiring lockfile regeneration rather than manual editing.
 
-#### Namespace Shadowing
+## Namespace Shadowing
 
 Namespace shadowing extends beyond basic dependency confusion to exploit complex namespace resolution across registries, scopes, and organizations.
 
@@ -129,7 +129,7 @@ Namespace shadowing extends beyond basic dependency confusion to exploit complex
 
 **Defense:** Register your organization's namespaces on public registries defensively. Use scoped packages consistently and configure package managers to route scopes to specific registries.
 
-#### Optional Dependency Claiming
+## Optional Dependency Claiming
 
 Package managers support **optional dependencies**—packages that enhance functionality but are not required for core operation. If an optional dependency is unavailable, installation continues without error. This graceful degradation creates an attack vector: **optional dependency claiming**, where attackers register packages that are declared as optional dependencies but do not actually exist on public registries.
 
@@ -161,7 +161,7 @@ This attack differs from standard dependency confusion. Traditional dependency c
 [orca-dependency-confusion]: https://orca.security/resources/blog/dependency-confusion-supply-chain-attacks/
 [phantom-guard]: https://github.com/matte1782/phantom_guard
 
-#### Package Aliasing and Redirection
+## Package Aliasing and Redirection
 
 Package managers support various mechanisms for aliasing, redirecting, or substituting packages. **Aliasing attacks** exploit these features to redirect package resolution to attacker-controlled code.
 
@@ -181,7 +181,7 @@ Package managers support various mechanisms for aliasing, redirecting, or substi
 
 **Defense:** Audit package manager configuration files and environment variables. Restrict who can modify build configuration. Use configuration validation to ensure expected registry settings.
 
-#### Multi-Stage Attacks: The Slow Compromise
+## Multi-Stage Attacks: The Slow Compromise
 
 The most sophisticated package attacks unfold in stages, with benign initial versions that later become malicious. This pattern, exemplified by the event-stream attack (discussed in Section 6.4), defeats point-in-time analysis.
 
@@ -196,6 +196,7 @@ The package gains users, downloads, and potentially dependent packages. The atta
 **Stage 3: Preparation**
 
 The attacker introduces seemingly innocuous changes that prepare for the attack:
+
 - Adding new dependencies that will later contain malicious code
 - Introducing code patterns that enable future obfuscation
 - Establishing legitimate-appearing infrastructure
@@ -216,7 +217,7 @@ The attacker may publish new versions that remove the malicious code, making for
 
 **Defense:** Track dependency change history, not just current state. Flag sudden maintainer changes, new dependencies in established packages, and unusual version patterns. Implement behavioral monitoring in runtime environments.
 
-#### Defense Recommendations for Advanced Techniques
+## Defense Recommendations for Advanced Techniques
 
 Defending against these advanced techniques requires layered approaches:
 

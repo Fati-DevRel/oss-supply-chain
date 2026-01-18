@@ -4,7 +4,7 @@ Chapter 7 examined attacks that compromise build systems and distribution infras
 
 Maintainer accounts are among the highest-value credentials in the software ecosystem. Their compromise has repeatedly enabled supply chain attacks affecting millions of users.
 
-#### The Value of Maintainer Accounts
+## The Value of Maintainer Accounts
 
 A maintainer account provides direct publishing access to packages that may be installed millions of times daily. Consider the asymmetry:
 
@@ -23,7 +23,7 @@ This leverage makes maintainer accounts targets for:
 - **Nation-state actors**: Seeking access to specific organizations that use targeted packages
 - **Hacktivists**: Seeking platforms for political messages or destructive actions
 
-#### Account Takeover Techniques
+## Account Takeover Techniques
 
 Attackers use multiple techniques to compromise maintainer accounts:
 
@@ -38,6 +38,7 @@ Credential stuffing is automated and operates at scale. Attackers obtain breach 
 Targeted phishing campaigns impersonate registries, platforms, or collaborators. A maintainer might receive an email appearing to be from npm security, warning of suspicious activity and requesting login to verify their account. The link leads to a convincing replica of the npm login page that captures credentials.
 
 Sophisticated phishing campaigns use:
+
 - Lookalike domains (npm-js.com instead of npmjs.com)
 - Valid TLS certificates (easy to obtain for any domain)
 - Personalized content referencing the maintainer's actual packages
@@ -56,6 +57,7 @@ SIM swapping requires social engineering carrier support or exploiting carrier s
 **Malware on Developer Machines:**
 
 Infostealers—malware designed to exfiltrate credentials, cookies, and authentication tokens—specifically target developers. Once installed, they harvest:
+
 - Browser stored passwords and cookies
 - SSH keys and git credentials
 - Package manager authentication tokens
@@ -63,7 +65,7 @@ Infostealers—malware designed to exfiltrate credentials, cookies, and authenti
 
 The 3CX attack (Section 7.3) began with such malware, installed through a compromised financial trading application.
 
-#### Case Studies
+## Case Studies
 
 Several high-profile incidents illustrate how account compromise enables supply chain attacks:
 
@@ -82,6 +84,7 @@ The attack was detected within hours because the malicious version broke builds�
 In August 2019, attackers compromised the RubyGems account of a rest-client gem maintainer. The `rest-client` gem was widely used for HTTP requests in Ruby applications, with millions of downloads.
 
 The attacker published versions 1.6.10 through 1.6.13 containing malicious code that:
+
 - Collected system information
 - Exfiltrated environment variables
 - Sent data to Pastebin URLs controlled by the attacker
@@ -94,6 +97,7 @@ The compromise was discovered when developers noticed unexpected Pastebin URLs i
 The ua-parser-js incident, detailed in Section 6.4, demonstrated the speed and impact of account compromise. On October 22, 2021, attackers gained access to the maintainer's npm account and published three malicious versions within minutes.
 
 The malicious packages included:
+
 - A cryptocurrency miner for Linux systems
 - A credential-stealing trojan for Windows systems
 
@@ -101,7 +105,7 @@ The attack affected approximately 7 million weekly downloads. The malicious vers
 
 The maintainer's npm account had been protected with a password but not two-factor authentication. The specific compromise vector was not publicly disclosed, but credential stuffing or phishing were likely candidates.
 
-#### Two-Factor Authentication: Progress and Gaps
+## Two-Factor Authentication: Progress and Gaps
 
 The attacks above share a common factor: none of the compromised accounts had robust two-factor authentication enabled. Registries have responded by encouraging or mandating stronger authentication.
 
@@ -132,7 +136,7 @@ Despite progress, gaps remain:
 
 Research by the Open Source Security Foundation found that even among top packages, not all maintainers comply with 2FA requirements. Enforcement mechanisms vary in effectiveness across registries.
 
-#### MFA Bypass Techniques
+## MFA Bypass Techniques
 
 Two-factor authentication significantly raises the bar for attackers, but determined adversaries have developed bypass techniques:
 
@@ -152,13 +156,14 @@ This technique was used in the 2022 Uber breach, where an attacker sent numerous
 
 MFA protects normal login, but account recovery flows often bypass MFA. If attackers can convince support teams to reset MFA or trigger recovery mechanisms, they circumvent the protection entirely.
 
-#### Account Recovery as Attack Vector
+## Account Recovery as Attack Vector
 
 Account recovery processes are designed for convenience—helping legitimate users who lose access. This creates tension with security. Attackers exploit recovery mechanisms through:
 
 **Social Engineering Support:**
 
 Attackers contact registry support teams, impersonate maintainers, and request account recovery. Convincing scenarios might include:
+
 - "I lost my phone and my backup codes"
 - "My email was hacked and I need to update my contact information"
 - "I'm being locked out and need urgent help to publish a security fix"
@@ -173,7 +178,7 @@ Many recovery flows send links to a registered email address. If attackers compr
 
 Recovery tokens and links have occasionally been vulnerable to prediction, reuse, or insufficient expiration. Vulnerabilities in recovery flows can allow account takeover without compromising the primary credentials.
 
-#### Domain Resurrection Attacks
+## Domain Resurrection Attacks
 
 A particularly insidious form of account takeover exploits expired domain names. When a maintainer registers an account using an email address on a custom domain (not Gmail, Outlook, or other major providers), that account's security becomes tied to the domain's continued registration. If the domain expires, anyone can purchase it—and with it, gain control of any email addresses under that domain.
 
@@ -258,7 +263,7 @@ Tools like JFrog's [npm_domain_check][npm-domain-check] help organizations audit
 [npm-domain-check]: https://github.com/jfrog/npm_domain_check
 [phylum-domains]: https://docs.phylum.io/analytics/expired_author_domains
 
-#### Platform and Registry Responses
+## Platform and Registry Responses
 
 Beyond mandatory 2FA, registries have implemented additional protections:
 
@@ -277,6 +282,7 @@ npm's provenance feature links published packages to specific source repositorie
 **Audit Logging:**
 
 Improved audit logging helps detect suspicious activity:
+
 - Logins from unusual locations
 - Publications at unusual times
 - Multiple packages published in rapid succession
@@ -285,7 +291,7 @@ Improved audit logging helps detect suspicious activity:
 
 Some registries allow restricting publication to specific IP ranges, limiting the impact of credential compromise by blocking publication from unexpected locations.
 
-#### Recommendations
+## Recommendations
 
 **For maintainers:**
 

@@ -4,7 +4,7 @@ Every line of code that executes on a computer arrived there through a chain of 
 
 In 1984, Ken Thompson delivered his Turing Award lecture, "Reflections on Trusting Trust," which remains the foundational text on supply chain security.[^thompson-1984] Thompson demonstrated how a compiler could be modified to insert a backdoor into any program it compiled—including future versions of the compiler itself. The malicious code would persist invisibly, propagating through every subsequent build. His conclusion was stark: "You can't trust code that you did not totally create yourself."[^thompson-1984] Four decades later, in a world where applications routinely incorporate thousands of external components, Thompson's observation has evolved from theoretical concern to practical crisis.
 
-#### Implicit Trust in Direct Dependencies
+## Implicit Trust in Direct Dependencies
 
 When a developer adds a dependency to their project, they are making a trust decision, whether they recognize it or not. Consider what happens when you add a popular package to a JavaScript project by running `npm install lodash`. In that moment, you are trusting:
 
@@ -21,7 +21,7 @@ The event-stream incident of 2018 demonstrated exactly this failure mode.[^event
 
 [^event-stream]: npm, "Details about the event-stream incident," npm Blog, November 27, 2018, https://blog.npmjs.org/post/180565383195/details-about-the-event-stream-incident
 
-#### The Multiplication of Transitive Trust
+## The Multiplication of Transitive Trust
 
 The trust challenge compounds dramatically when we consider transitive dependencies. When you trust a package, you implicitly trust everything that package trusts—its dependencies, their dependencies, and so on through the entire graph.
 
@@ -31,7 +31,7 @@ The team explicitly trusted one package. They implicitly trusted 300. Among thos
 
 This transitive trust creates mathematical challenges. If each maintainer account has even a 0.1% chance of being compromised in a given year, and your application depends on 500 packages maintained by different individuals, the probability that at least one is compromised becomes significant. Supply chain security is fundamentally a problem of managing compound risk across trust relationships you did not choose and may not even know exist.
 
-#### Trust Anchors: Identity, Infrastructure, and Process
+## Trust Anchors: Identity, Infrastructure, and Process
 
 Trust in the software supply chain attaches to different types of anchors, each with distinct characteristics and vulnerabilities.
 
@@ -43,7 +43,7 @@ Trust in the software supply chain attaches to different types of anchors, each 
 
 Effective supply chain security layers these trust anchors. You trust packages from maintainers with established identities (identity), distributed through registries with strong security practices (infrastructure), built through reproducible processes with cryptographic attestation (process). Each layer compensates for potential failures in the others.
 
-#### Trust in Automation
+## Trust in Automation
 
 Modern software development involves extensive automation that operates with significant privileges and makes decisions affecting security. These automated systems are not merely tools—they are actors in the trust network, and they require explicit trust decisions.
 
@@ -55,7 +55,7 @@ Modern software development involves extensive automation that operates with sig
 
 Trust in automation requires careful consideration of what decisions the automation can make, what access it requires, and how its behavior is monitored. Automated systems should generally operate with minimal privileges, their actions should be logged and auditable, and their recommendations should be subject to human review for security-significant changes.
 
-#### The Impossibility of Verification at Scale
+## The Impossibility of Verification at Scale
 
 A fundamental challenge in supply chain security is that thorough trust verification does not scale. The practices that would provide high assurance—reading all source code, auditing all dependencies, verifying all maintainer identities, inspecting all build processes—are impractical when applications include hundreds or thousands of components.
 
@@ -65,7 +65,7 @@ Organizations therefore rely on heuristics and sampling. They might thoroughly e
 
 These approaches are rational adaptations to an impossible situation, but they leave gaps. The event-stream attacker specifically targeted a package popular enough to provide access to valuable targets but not so prominent that it received constant scrutiny. Supply chain attackers deliberately exploit the verification gap, targeting the packages and processes that fall between thorough evaluation and automated detection.
 
-#### Trust Erosion: When Confidence Collapses
+## Trust Erosion: When Confidence Collapses
 
 Trust violations do not merely affect the compromised component—they can undermine confidence in entire ecosystems. When a widely-trusted component is compromised, users must question their assumptions about similar components.
 
@@ -75,7 +75,7 @@ The XZ Utils discovery in 2024 triggered similar reflection in the open source c
 
 Trust erosion is particularly damaging because trust, unlike code, cannot be patched or updated. Once the possibility of compromise becomes salient, every unexplained behavior becomes suspicious. Organizations begin treating even legitimate software with distrust, adding friction that impedes productivity. The recovery of trust requires not just fixing the immediate vulnerability but demonstrating that the conditions enabling the breach have been addressed—a far more difficult undertaking.
 
-#### Living with Necessary Trust
+## Living with Necessary Trust
 
 The analysis in this section might seem to counsel despair: trust is unavoidable, verification is impossible, and any trust can be betrayed. But the conclusion is not that trust should be abandoned—that path leads to paralysis. The conclusion is that trust should be conscious, layered, and proportionate.
 

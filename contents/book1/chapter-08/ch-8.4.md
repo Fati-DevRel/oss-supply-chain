@@ -4,7 +4,7 @@ Traditional enterprise security defines **insider threats** as risks from indivi
 
 Understanding insider threats in open source requires first defining who qualifies as an insider, then examining the unique threat patterns that emerge from open source's distinctive trust model.
 
-#### Defining "Insider" in Open Source
+## Defining "Insider" in Open Source
 
 In enterprise contexts, insiders are clearly defined: employees, contractors, and others with formal relationships granting system access. Open source projects lack such clear boundaries.
 
@@ -27,7 +27,7 @@ The challenge is that these "insiders" often:
 
 This creates an insider threat surface quite different from enterprise environments.
 
-#### Rogue Maintainers: Intentional Sabotage
+## Rogue Maintainers: Intentional Sabotage
 
 The most direct insider threat occurs when a maintainer intentionally harms their own project or its users. This can manifest as:
 
@@ -63,7 +63,7 @@ Maintainers may act against their users for various reasons:
 
 The protestware incidents highlighted that maintainers themselves can become threats—a category enterprise insider threat models typically assume is minimal (organizations can screen and monitor employees).
 
-#### Compromised Insiders
+## Compromised Insiders
 
 Beyond rogue maintainers acting on their own initiative, legitimate maintainers may be compromised by external actors:
 
@@ -85,13 +85,14 @@ While documented cases of coercion remain rare in public reporting, the possibil
 
 The XZ Utils attack (Section 7.5) demonstrated that an attacker can become a legitimate insider through patient contribution. "Jia Tan" became a real maintainer with earned access. At that point, the attack operated with genuine insider privileges—the most difficult insider threat scenario to address.
 
-#### Detection Challenges
+## Detection Challenges
 
 Identifying insider threats is inherently difficult because insiders operate within their authorized access. Key challenges include:
 
 **Distinguishing Intent:**
 
 A maintainer who introduces a vulnerability may be:
+
 - Making an honest mistake
 - Writing code carelessly due to time pressure
 - Deliberately inserting a backdoor
@@ -101,6 +102,7 @@ The code itself may not reveal which. Even retrospective analysis after an incid
 **Baseline Establishment:**
 
 Behavioral anomaly detection requires understanding normal behavior. In open source:
+
 - Contribution patterns vary widely among legitimate maintainers
 - Projects may not track detailed activity histories
 - Maintainers' involvement levels change over time for legitimate reasons
@@ -108,6 +110,7 @@ Behavioral anomaly detection requires understanding normal behavior. In open sou
 **Limited Monitoring:**
 
 Enterprise environments can implement detailed logging, data loss prevention, and behavioral analytics. Most open source projects lack:
+
 - Comprehensive audit logging beyond git history
 - Behavioral monitoring systems
 - Security teams reviewing maintainer activity
@@ -116,7 +119,7 @@ Enterprise environments can implement detailed logging, data loss prevention, an
 
 Open source culture emphasizes trust and collaboration. Aggressive monitoring or suspicion of maintainers conflicts with community norms and may drive away valuable contributors.
 
-#### Indicators of Insider Threats
+## Indicators of Insider Threats
 
 Despite detection challenges, certain patterns may indicate insider risk:
 
@@ -147,7 +150,7 @@ Despite detection challenges, certain patterns may indicate insider risk:
 
 None of these indicators definitively establishes malicious intent, but patterns warrant investigation.
 
-#### Governance as Mitigating Control
+## Governance as Mitigating Control
 
 Governance structures can reduce insider threat risk without implementing surveillance that conflicts with open source values:
 
@@ -185,13 +188,14 @@ Open logging of privileged actions enables community oversight:
 - Visible logs of releases and their signers
 - Open discussion of significant governance decisions
 
-#### Balancing Openness and Security
+## Balancing Openness and Security
 
 Open source thrives on low barriers to contribution. Security vetting conflicts with this openness.
 
 **The Enterprise Contrast:**
 
 Enterprises can:
+
 - Conduct background checks before granting access
 - Require identity verification and documentation
 - Implement NDAs with legal consequences
@@ -219,7 +223,7 @@ Projects under foundation governance ([Apache][apache-foundation], [Linux Founda
 
 Active, engaged communities provide informal oversight that isolated projects lack. Encouraging broad participation improves resilience.
 
-#### Recommendations
+## Recommendations
 
 **For Projects:**
 

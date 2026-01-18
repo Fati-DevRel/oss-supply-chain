@@ -4,7 +4,7 @@ Serverless architectures abstract away infrastructure management, allowing devel
 
 Understanding serverless supply chains requires examining both the traditional dependencies you bundle with your code and the platform-provided components that execute invisibly.
 
-#### Lambda Layers and Shared Code Risks
+## Lambda Layers and Shared Code Risks
 
 **Lambda Layers** (and equivalent mechanisms on other platforms) allow sharing code across multiple functions. A layer contains libraries, custom runtimes, or other dependencies that functions can reference rather than bundling directly.
 
@@ -38,7 +38,7 @@ An attacker who can publish or modify layers gains code execution in every funct
 - **Azure Functions Extensions**: Binding extensions provide similar shared functionality
 - **Google Cloud Functions**: Uses standard dependency mechanisms but supports private artifact registries
 
-#### Cold Start and Initialization Security
+## Cold Start and Initialization Security
 
 Serverless functions experience **cold starts**—initialization periods when the platform provisions execution environments. During cold starts:
 
@@ -67,7 +67,7 @@ A malicious dependency that runs code on import can execute during cold starts, 
 
 **Environment variable exposure**: Serverless functions commonly receive secrets through environment variables. During cold start, all environment variables are accessible—making initialization the ideal time for credential theft.
 
-#### Cloud Provider-Managed Runtimes
+## Cloud Provider-Managed Runtimes
 
 Serverless platforms provide managed runtimes—the language interpreters and base environments your code runs on. You select a runtime (Node.js 18.x, Python 3.11, etc.) but don't control its specific implementation.
 
@@ -113,7 +113,7 @@ Providers eventually deprecate runtimes. When Node.js 14 reaches end-of-life, La
 
 Planning for runtime transitions is part of serverless supply chain management.
 
-#### Ephemeral Compute: Forensics Challenges
+## Ephemeral Compute: Forensics Challenges
 
 Serverless execution environments are ephemeral—they exist briefly and are destroyed without persistent storage. This creates significant forensics and incident response challenges.
 
@@ -151,7 +151,7 @@ When investigating serverless compromises:
 - Export logs to persistent, immutable storage
 - Consider custom logging of dependency loading
 
-#### Least Privilege for Serverless Functions
+## Least Privilege for Serverless Functions
 
 Serverless functions execute with IAM permissions that define what cloud resources they can access. Overly permissive IAM roles amplify supply chain compromise impact.
 
@@ -187,7 +187,7 @@ A compromised dependency executing in a Lambda function operates with that funct
 - **[Cloudsplaining][cloudsplaining]**: IAM security assessment tool
 - **[Repokid][repokid]**: Automated least-privilege policy generation based on actual usage
 
-#### Deployment Package Security
+## Deployment Package Security
 
 Serverless functions are deployed as packages—ZIP files (Lambda, Azure Functions) or container images. These packages contain your code and bundled dependencies.
 
@@ -228,7 +228,7 @@ The pipeline deploying serverless functions is part of the supply chain:
 
 A compromise anywhere in this pipeline can inject malicious code into production functions.
 
-#### Monitoring and Observability
+## Monitoring and Observability
 
 Traditional monitoring approaches require adaptation for serverless environments.
 
@@ -278,7 +278,7 @@ Establish what normal function behavior looks like:
 
 Deviations may indicate compromise.
 
-#### Recommendations
+## Recommendations
 
 **For Serverless Developers:**
 

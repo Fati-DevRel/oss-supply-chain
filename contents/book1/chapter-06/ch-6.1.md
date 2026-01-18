@@ -4,7 +4,7 @@ Package managers have made software dependency management remarkably convenient.
 
 These attacks are particularly insidious because they exploit human error rather than technical vulnerabilities. A single keystroke mistake can be the difference between installing a trusted package and executing an attacker's code.
 
-#### How Typosquatting Works
+## How Typosquatting Works
 
 **Typosquatting** in the package ecosystem involves registering package names that are visually or typographically similar to popular legitimate packages. When developers mistype package names—whether due to keyboard errors, memory lapses, or confusion about correct spelling—they may install the attacker's package instead of the intended one.
 
@@ -20,11 +20,12 @@ The malicious payload often executes during installation, before the developer h
 
 The attack scales efficiently. An attacker can register dozens of typosquat variations for popular packages with minimal effort. Each registration costs nothing on most registries and requires only a few minutes. The attacker then waits for victims to make mistakes—a passive attack that requires no active exploitation.
 
-#### Common Typosquatting Patterns
+## Common Typosquatting Patterns
 
 Research on typosquatting has identified several common patterns that attackers exploit:
 
 **Character substitution** replaces one character with a similar-looking or nearby character. Examples include:
+
 - `djang0` instead of `django` (zero for letter 'o')
 - `requets` instead of `requests` (transposed letters)
 - `loadsh` instead of `lodash` (missing character)
@@ -32,6 +33,7 @@ Research on typosquatting has identified several common patterns that attackers 
 Adjacent keyboard keys are common substitution targets: 's' for 'a', 'o' for 'i', 'n' for 'm'. Visually similar characters—'l' and '1', 'o' and '0'—also feature heavily.
 
 **Character omission** removes a character from the name:
+
 - `coffe-script` instead of `coffee-script`
 - `electon` instead of `electron`
 - `require` instead of `requires`
@@ -39,23 +41,28 @@ Adjacent keyboard keys are common substitution targets: 's' for 'a', 'o' for 'i'
 Doubled letters are particularly vulnerable to omission typos; developers frequently type `runing` when they mean `running`.
 
 **Character addition** inserts an extra character:
+
 - `lodashs` instead of `lodash`
 - `expresss` instead of `express`
 - `djangoo` instead of `django`
 
 **Character transposition** swaps adjacent characters:
+
 - `teh` instead of `the` (a famously common typo)
 - `moent` instead of `moment`
 - `reqeusts` instead of `requests`
 
 **Vowel swapping** substitutes similar vowels:
+
 - `raquests` instead of `requests`
 - `djungo` instead of `django`
 
 **Bitsquatting** exploits single-bit memory errors that could theoretically change characters:
+
 - `coogle` instead of `google` (single bit flip)
 
 **Delimiter variation** exploits confusion about package naming conventions:
+
 - `cross-env.js` instead of `cross-env`
 - `crossenv` instead of `cross-env`
 - `python_dateutil` instead of `python-dateutil`
@@ -63,22 +70,25 @@ Doubled letters are particularly vulnerable to omission typos; developers freque
 Different ecosystems use different conventions (hyphens vs. underscores, dots vs. no delimiters), and developers may apply the wrong convention when installing packages.
 
 **Scope/namespace confusion** in ecosystems with namespacing:
+
 - `@angular-devkit/core` vs. `@angulardevkit/core`
 - `@typescript_eslinter/eslint` mimicking `@typescript-eslint` (2024 attack that gained hundreds of downloads daily)
 - Public package named to resemble a scoped private package
 
 **Combosquatting** adds common suffixes or prefixes to legitimate package names, piggybacking on brand recognition while appearing to be official extensions:
+
 - `lodash-js`, `lodash-utils`, or `lodash-core` instead of `lodash`
 - `axios-api` or `django-tools` appending common terms
 - `noblox.js-async` and `noblox.js-proxy-server` targeting Roblox developers (2024 campaign)
 
 **Brandsquatting** exploits cross-ecosystem name recognition by registering a package name popular in one ecosystem within a different ecosystem:
+
 - Registering Python's `scipy` name in a Rust repository
 - Using `org.fasterxml.jackson.core` instead of `com.fasterxml.jackson.core` on Maven (exploiting `.org` vs `.com` confusion)
 
 A [2016 academic study by Nikolai Tschacher][tschacher-2016] at the University of Hamburg demonstrated the scale of the threat: his experiment uploading typosquatting packages to PyPI, npm, and RubyGems infected over 17,000 machines within days, with half executing the code as administrator. This early research proved that typing errors occur frequently enough to make the attack profitable for adversaries.
 
-#### Namesquatting: Claiming Territory
+## Namesquatting: Claiming Territory
 
 **Namesquatting** differs from typosquatting in its mechanism but shares the goal of exploiting package name trust. Namesquatters register package names that:
 
@@ -91,7 +101,7 @@ Namesquatting may not involve malicious payloads initially. Some namesquatters s
 
 Registry policies on namesquatting vary. npm has policies against reserving names without intent to publish meaningful content but enforcement is inconsistent. PyPI generally operates on a first-come, first-served basis with limited active policing of squatted names.
 
-#### Case Study: crossenv (2017)
+## Case Study: crossenv (2017)
 
 The **crossenv incident** on npm in August 2017 became a defining example of typosquatting attacks against package registries.
 
@@ -110,11 +120,12 @@ The package accumulated approximately 700 downloads before detection and removal
 The incident prompted npm to implement additional monitoring for typosquatting patterns and led to broader industry awareness of the threat. It demonstrated that even security-conscious developers could fall victim to simple typing errors, and that package installation hooks provided immediate, powerful code execution.
 
 Similar incidents have occurred across ecosystems:
+
 - **`` `colourama` ``** (PyPI, 2018): Typosquat of the popular `colorama` package
 - **`` `python3-dateutil` ``** (PyPI, 2019): Exploited confusion between pip and OS package naming
 - **`` `electorn` ``** (npm, various): Multiple typosquats of the popular Electron framework
 
-#### Case Study: PyPI March 2024 Campaign (500+ Packages)
+## Case Study: PyPI March 2024 Campaign (500+ Packages)
 
 In March 2024, [Check Point researchers identified a massive typosquatting campaign][checkpoint-pypi] on PyPI comprising over 500 malicious packages deployed in two waves. The attack's sophistication lay in its automation and scale:
 
@@ -126,13 +137,14 @@ In March 2024, [Check Point researchers identified a massive typosquatting campa
 The typosquatting names were generated through randomization, producing simplistic variations like `reqjuests` and `tensoflom`. The packages targeted popular libraries including `requests`, `colorama`, and `CapMonster Cloud`.
 
 The malicious payload, linked to the **zgRAT** malware family, was embedded in `setup.py` and executed during installation. It would:
+
 - Steal cryptocurrency wallets
 - Harvest browser data (cookies, extension data, credentials)
 - Establish persistence mechanisms to survive reboots
 
 The attack was severe enough that [PyPI suspended new user registration and project creation][pypi-suspension] for 10 hours on March 28, 2024—an unprecedented step demonstrating the operational impact of large-scale typosquatting campaigns.
 
-#### Case Study: Maven Central Jackson Typosquatting (2025)
+## Case Study: Maven Central Jackson Typosquatting (2025)
 
 A December 2025 attack on Maven Central demonstrated how typosquatting techniques adapt to different ecosystems. [Aikido Security discovered][aikido-jackson] a malicious package exploiting namespace confusion:
 
@@ -142,6 +154,7 @@ A December 2025 attack on Maven Central demonstrated how typosquatting technique
 The attack exploited the `.org` vs `.com` domain pattern familiar from web typosquatting, applied to Maven's namespace structure. The attackers registered the domain `fasterxml.org` just days before deploying the malicious package.
 
 The malware showed significant sophistication:
+
 - **Spring Boot integration**: Disguised as a `@Configuration` class that auto-executed via Spring's bean initialization
 - **Anti-analysis techniques**: Heavy code obfuscation including attempts to confuse LLM-based code analyzers
 - **Multi-stage delivery**: AES-encrypted configuration with remote C2 infrastructure
@@ -150,7 +163,7 @@ The malware showed significant sophistication:
 
 The attack was identified and removed within 1.5 hours of reporting to Maven Central, but it demonstrated that typosquatting remains effective even in ecosystems with more structured naming conventions.
 
-#### Detection Challenges and Registry Responses
+## Detection Challenges and Registry Responses
 
 Detecting typosquatting is conceptually simple but operationally challenging:
 
@@ -176,7 +189,7 @@ Registries have implemented various countermeasures:
 
 Research by security firms suggests that despite these measures, typosquatting packages regularly reach registries. [Sonatype's 2024 State of the Software Supply Chain report][sonatype-2024] documented over 512,000 malicious packages discovered across major ecosystems in the past year—a 156% year-over-year increase—many using typosquatting techniques.
 
-#### Recommendations
+## Recommendations
 
 **For individual developers:**
 

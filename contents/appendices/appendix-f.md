@@ -28,12 +28,14 @@ This appendix provides a chronological reference of significant software supply 
 **Impact Scope:** Conceptual/theoretical demonstration affecting all compiled software
 
 **Key Lessons:**
+
 - Trust in software must extend to the entire build toolchain, not just source code
 - Self-replicating backdoors can persist across compiler generations without appearing in source
 - Binary verification and reproducible builds are essential for establishing trust
 - The "trusting trust" problem remains fundamentally unsolved for most software
 
 **Sources:**
+
 - [Thompson, K., "Reflections on Trusting Trust," Communications of the ACM, 1984](https://www.cs.cmu.edu/~rdriley/487/papers/Thompson_1984_ReflectionsonTrustingTrust.pdf)
 
 ---
@@ -49,12 +51,14 @@ This appendix provides a chronological reference of significant software supply 
 **Impact Scope:** All cryptographic keys generated on affected Debian-based systems from September 2006 to May 2008, including SSH keys, SSL certificates, and OpenVPN keys
 
 **Key Lessons:**
+
 - Security-critical code changes require expert review, even for seemingly minor modifications
 - Upstream maintainers and downstream packagers must communicate effectively about changes
 - Cryptographic code is especially sensitive—warnings may indicate security features, not bugs
 - Long detection times for subtle vulnerabilities highlight the need for security auditing
 
 **Sources:**
+
 - [Debian Security Advisory DSA-1571-1](https://www.debian.org/security/2008/dsa-1571)
 - [CVE-2008-0166](https://nvd.nist.gov/vuln/detail/CVE-2008-0166)
 - [Schneier, B., "Random Number Bug in Debian Linux," 2008](https://www.schneier.com/blog/archives/2008/05/random_number_b.html)
@@ -72,12 +76,14 @@ This appendix provides a chronological reference of significant software supply 
 **Impact Scope:** Estimated 17% of internet SSL servers (approximately 500,000 servers) at time of disclosure; affected major services including Yahoo, Imgur, and numerous others
 
 **Key Lessons:**
+
 - Critical infrastructure software often lacks adequate funding and maintainer resources
 - Memory-unsafe languages (C) in security-critical code present persistent risks
 - Widespread dependencies on single implementations create systemic vulnerability
 - Led directly to formation of the Core Infrastructure Initiative (now OpenSSF)
 
 **Sources:**
+
 - [Heartbleed.com](https://heartbleed.com/)
 - [CVE-2014-0160](https://nvd.nist.gov/vuln/detail/CVE-2014-0160)
 - [Durumeric, Z., et al., "The Matter of Heartbleed," IMC 2014](https://jhalderm.com/pub/papers/heartbleed-imc14.pdf)
@@ -95,12 +101,14 @@ This appendix provides a chronological reference of significant software supply 
 **Impact Scope:** Thousands of JavaScript projects experienced build failures; major frameworks including React and Babel were affected; incident lasted approximately 2.5 hours before NPM intervention
 
 **Key Lessons:**
+
 - Micro-dependencies create fragile dependency chains
 - Package registries need policies governing package removal
 - Build systems should not assume package availability
 - Dependency vendoring and lock files provide resilience against upstream changes
 
 **Sources:**
+
 - [Koçulu, A., "I've Just Liberated My Modules," 2016](https://kodfabrik.com/journal/i-ve-just-liberated-my-modules)
 - [Williams, C., "How one developer just broke Node, Babel and thousands of projects," The Register, 2016](https://www.theregister.com/2016/03/23/npm_left_pad_chaos/)
 - [NPM Blog, "kik, left-pad, and npm," 2016](https://blog.npmjs.org/post/141577284765/kik-left-pad-and-npm)
@@ -118,12 +126,14 @@ This appendix provides a chronological reference of significant software supply 
 **Impact Scope:** `event-stream` had approximately 2 million weekly downloads; the malicious payload specifically targeted Copay wallet versions 5.0.2 through 5.1.0
 
 **Key Lessons:**
+
 - Maintainer succession requires careful vetting and trust establishment
 - Transitive dependencies can introduce malicious code without direct project changes
 - Targeted attacks may hide within broadly-used packages
 - Package consumers should monitor for unexpected dependency additions
 
 **Sources:**
+
 - [GitHub Issue #116, "I don't know what to say," dominictarr/event-stream](https://github.com/dominictarr/event-stream/issues/116)
 - [Snyk, "Malicious code found in npm package event-stream," 2018](https://snyk.io/blog/malicious-code-found-in-npm-package-event-stream/)
 - [NPM Security Advisory](https://www.npmjs.com/advisories/737)
@@ -141,6 +151,7 @@ This appendix provides a chronological reference of significant software supply 
 **Impact Scope:** Approximately 18,000 organizations installed the compromised update; confirmed breaches at multiple U.S. government agencies (Treasury, Commerce, Homeland Security, State Department, and others), Microsoft, FireEye, and numerous Fortune 500 companies
 
 **Key Lessons:**
+
 - Build system security is as critical as source code security
 - Software signing alone does not guarantee integrity—the build process must be secured
 - Sophisticated attackers target widely-deployed management software for maximum reach
@@ -148,6 +159,7 @@ This appendix provides a chronological reference of significant software supply 
 - Led to Executive Order 14028 mandating SBOM adoption for federal software procurement
 
 **Sources:**
+
 - [CISA, "Advanced Persistent Threat Compromise of Government Agencies," Alert AA20-352A](https://www.cisa.gov/news-events/cybersecurity-advisories/aa20-352a)
 - [FireEye, "Highly Evasive Attacker Leverages SolarWinds Supply Chain," 2020](https://www.mandiant.com/resources/blog/evasive-attacker-leverages-solarwinds-supply-chain-compromises-with-sunburst-backdoor)
 - [Microsoft, "Analyzing Solorigate," 2020](https://www.microsoft.com/en-us/security/blog/2020/12/18/analyzing-solorigate-the-compromised-dll-file-that-started-a-sophisticated-cyberattack-and-how-microsoft-defender-helps-protect/)
@@ -165,12 +177,14 @@ This appendix provides a chronological reference of significant software supply 
 **Impact Scope:** Approximately 29,000 customers potentially affected; confirmed secondary breaches at Twitch, HashiCorp, and others whose secrets were exfiltrated
 
 **Key Lessons:**
+
 - CI/CD environments contain high-value secrets requiring protection
 - Scripts fetched and executed during builds are attack vectors
 - Supply chain attacks can cascade—compromised credentials enable secondary attacks
 - Integrity verification (checksums, signatures) should be mandatory for build-time dependencies
 
 **Sources:**
+
 - [Codecov, "Bash Uploader Security Update," 2021](https://about.codecov.io/security-update/)
 - [HashiCorp, "Codecov Security Event Impact," 2021](https://discuss.hashicorp.com/t/hcsec-2021-12-codecov-security-event-and-hashicorp-gpg-key-exposure/23512)
 - [Reuters, "Codecov hackers breached hundreds of networks," 2021](https://www.reuters.com/technology/codecov-hackers-breached-hundreds-restricted-customer-sites-sources-2021-04-19/)
@@ -186,12 +200,14 @@ This appendix provides a chronological reference of significant software supply 
 **Impact Scope:** Approximately 8 million weekly downloads; malicious versions available for approximately 4 hours; CISA issued alert regarding potential federal agency exposure
 
 **Key Lessons:**
+
 - High-download packages are attractive targets for account takeover
 - Multi-factor authentication on package registry accounts is essential
 - Rapid detection and response capabilities are critical for package registries
 - Even brief windows of compromise can affect millions of downstream users
 
 **Sources:**
+
 - [GitHub Advisory GHSA-pjwm-rvh2-c87w](https://github.com/advisories/GHSA-pjwm-rvh2-c87w)
 - [CISA, "MAR-10354752-1.v1," 2021](https://www.cisa.gov/news-events/alerts/2021/10/22/malware-discovered-popular-npm-package-ua-parser-js)
 - [Bleeping Computer, "Popular npm library hijacked," 2021](https://www.bleepingcomputer.com/news/security/popular-npm-library-hijacked-to-install-password-stealers-miners/)
@@ -207,6 +223,7 @@ This appendix provides a chronological reference of significant software supply 
 **Impact Scope:** Estimated hundreds of millions of affected devices; exploited within hours of disclosure; affected services included Apple iCloud, Amazon AWS, Cloudflare, Steam, Minecraft, and countless enterprise applications
 
 **Key Lessons:**
+
 - Ubiquitous dependencies create systemic risk across the software ecosystem
 - Many organizations lack visibility into their transitive dependencies
 - Vulnerability disclosure in widely-used libraries requires coordinated response
@@ -214,6 +231,7 @@ This appendix provides a chronological reference of significant software supply 
 - Feature-rich libraries may contain unexpected attack surface (JNDI lookup feature)
 
 **Sources:**
+
 - [Apache Log4j Security Vulnerabilities](https://logging.apache.org/log4j/2.x/security.html)
 - [CVE-2021-44228](https://nvd.nist.gov/vuln/detail/CVE-2021-44228)
 - [CISA, "Apache Log4j Vulnerability Guidance," 2021](https://www.cisa.gov/news-events/news/apache-log4j-vulnerability-guidance)
@@ -232,6 +250,7 @@ This appendix provides a chronological reference of significant software supply 
 **Impact Scope:** Approximately 19,000 projects depended on `colors.js`; Amazon AWS Cloud Development Kit (CDK) builds were disrupted; `faker.js` was subsequently forked as `@faker-js/faker` with new maintainers
 
 **Key Lessons:**
+
 - Open source sustainability and maintainer burnout create security risks
 - Single-maintainer projects represent single points of failure
 - Package registries should consider policies for detecting and responding to self-sabotage
@@ -239,6 +258,7 @@ This appendix provides a chronological reference of significant software supply 
 - Community forks can provide continuity when original projects are compromised
 
 **Sources:**
+
 - [Bleeping Computer, "Dev corrupts npm libs 'colors' and 'faker'," 2022](https://www.bleepingcomputer.com/news/security/dev-corrupts-npm-libs-colors-and-faker-breaking-thousands-of-apps/)
 - [GitHub Issue, colors.js #317](https://github.com/Marak/colors.js/issues/317)
 - [The Verge, "Open source developer corrupts widely-used libraries," 2022](https://www.theverge.com/2022/1/9/22874949/developer-corrupts-open-source-libraries-colors-faker-protest)
@@ -254,6 +274,7 @@ This appendix provides a chronological reference of significant software supply 
 **Impact Scope:** Approximately 1 million weekly downloads; Vue.js CLI users potentially affected; systems with Russian or Belarusian IP addresses experienced data destruction
 
 **Key Lessons:**
+
 - "Protestware" represents a distinct threat category where trusted maintainers weaponize their access
 - Geopolitical events can motivate software supply chain attacks
 - Even well-intentioned political actions in software cause collateral damage
@@ -261,6 +282,7 @@ This appendix provides a chronological reference of significant software supply 
 - Package registry policies must address intentional sabotage by maintainers
 
 **Sources:**
+
 - [Snyk, "Protestware: Open Source Malware," 2022](https://snyk.io/blog/peacenotwar-malicious-npm-node-ipc-package-vulnerability/)
 - [CVE-2022-23812](https://nvd.nist.gov/vuln/detail/CVE-2022-23812)
 - [Snyk, "node-ipc protestware analysis," 2022](https://snyk.io/blog/peacenotwar-malicious-npm-node-ipc-package-vulnerability/)
@@ -277,11 +299,13 @@ This appendix provides a chronological reference of significant software supply 
 Limited external exposure; internal systems targeted
 
 **Key Lessons:**
+
 - Dependency confusion remains viable years after disclosure
 - Internal package namespaces require defensive registration
 - ML tooling pipelines are high-value targets
 
 **Sources:**
+
 - [PyTorch Security Advisory, December 2022](https://pytorch.org/blog/compromised-nightly-dependency/)
 - [Checkmarx, "PyTorch Dependency Confusion," 2023](https://medium.com/checkmarx-security/py-torch-a-leading-ml-framework-was-poisoned-with-malicious-dependency-e30f88242964)
 
@@ -298,6 +322,7 @@ Limited external exposure; internal systems targeted
 **Impact Scope:** Approximately 600,000 customer organizations; 12 million daily users; both Windows and macOS versions were compromised; secondary payload targeted cryptocurrency companies
 
 **Key Lessons:**
+
 - Supply chain attacks can cascade—one compromise enables the next
 - Employee workstations with development access require heightened security
 - Nation-state actors invest in long-term, multi-stage supply chain operations
@@ -305,6 +330,7 @@ Limited external exposure; internal systems targeted
 - Detection requires correlation across multiple vendors and time periods
 
 **Sources:**
+
 - [CrowdStrike, "3CXDesktopApp Supply Chain Attack," 2023](https://www.crowdstrike.com/blog/crowdstrike-detects-and-prevents-active-intrusion-campaign-targeting-3cxdesktopapp-customers/)
 - [Mandiant, "3CX Supply Chain Compromise," 2023](https://www.mandiant.com/resources/blog/3cx-software-supply-chain-compromise)
 - [3CX Security Advisory](https://www.3cx.com/blog/news/security-incident-updates/)
@@ -321,6 +347,7 @@ Limited external exposure; internal systems targeted
 No confirmed large-scale compromise, but repeated near-misses across major repositories
 
 **Key Lessons:**
+
 - Automation amplifies both defense and risk
 - Dependency update bots require strict policy controls
 - "Near misses" should be treated as incidents for learning
@@ -334,6 +361,7 @@ No confirmed large-scale compromise, but repeated near-misses across major repos
 **Summary:** Attackers attempted to exploit namespace trust around ESLint-related packages using lookalike names and social engineering, though widespread compromise was avoided.
 
 **Key Lessons:**
+
 - Trusted namespaces create implicit trust
 - Visual similarity attacks bypass human review
 - Namespace governance is a security control
@@ -349,6 +377,7 @@ No confirmed large-scale compromise, but repeated near-misses across major repos
 **Impact Scope:** Over 100 cryptocurrency projects potentially affected; confirmed losses exceeded $600,000; attack window was approximately 5 hours before detection and takedown
 
 **Key Lessons:**
+
 - Former employee accounts should be promptly deactivated
 - Cryptocurrency and financial software are high-value targets
 - NPM account security (MFA, access controls) is critical for sensitive packages
@@ -356,6 +385,7 @@ No confirmed large-scale compromise, but repeated near-misses across major repos
 - End-user impact can be immediate and financially devastating
 
 **Sources:**
+
 - [Ledger, "Security Incident Report," 2023](https://www.ledger.com/blog/a-letter-from-ledger-chairman-ceo-pascal-gauthier-regarding-ledger-connect-kit-exploit)
 - [Blockaid, "Ledger Connect Kit Incident Analysis," 2023](https://www.blockaid.io/blog/attack-report-ledger-connect-kit)
 - [CoinDesk, "Ledger Library Compromised," 2023](https://www.coindesk.com/tech/2023/12/14/ledgers-connect-kit-compromised-users-warned-not-to-interact-with-dapps/)
@@ -373,12 +403,14 @@ No confirmed large-scale compromise, but repeated near-misses across major repos
 **Impact Scope:** Developers working on cryptocurrency wallet recovery; potential theft of wallet recovery credentials
 
 **Key Lessons:**
+
 - Cryptocurrency developers are high-value targets for supply chain attacks
 - Attackers research specific developer workflows to craft targeted packages
 - Package names may reference legitimate cryptographic standards (BIP39) to appear authentic
 - Code review must scrutinize packages handling sensitive cryptographic material
 
 **Sources:**
+
 - [Karlo Zanki, "BIPClip: Malicious PyPI packages target crypto wallet recovery passwords," ReversingLabs, March 12, 2024](https://www.reversinglabs.com/blog/bipclip-malicious-pypi-packages-target-crypto-wallet-recovery-passwords)
 
 ---
@@ -392,6 +424,7 @@ No confirmed large-scale compromise, but repeated near-misses across major repos
 **Impact Scope:** Multiple Linux distributions (Fedora 40/41 Rawhide, Debian testing/unstable, openSUSE Tumbleweed, Arch Linux, Kali Linux) included or nearly included the compromised versions; the backdoor would have provided remote root access to affected systems
 
 **Key Lessons:**
+
 - Social engineering attacks against maintainers can span years
 - Open source projects face pressure to accept "helpful" contributors
 - Upstream dependencies in foundational libraries pose systemic risk
@@ -400,6 +433,7 @@ No confirmed large-scale compromise, but repeated near-misses across major repos
 - Reproducible builds could have detected the discrepancy between source and binary
 
 **Sources:**
+
 - [Freund, A., "Backdoor in upstream xz/liblzma," oss-security mailing list, 2024](https://www.openwall.com/lists/oss-security/2024/03/29/4)
 - [CVE-2024-3094](https://nvd.nist.gov/vuln/detail/CVE-2024-3094)
 - [CISA Alert, "XZ Utils Backdoor," 2024](https://www.cisa.gov/news-events/alerts/2024/03/29/reported-supply-chain-compromise-affecting-xz-utils-data-compression-library-cve-2024-3094)
@@ -417,6 +451,7 @@ No confirmed large-scale compromise, but repeated near-misses across major repos
 Hundreds of thousands of installs before takedown
 
 **Key Lessons:**
+
 - IDEs are part of the software supply chain
 - Extension ecosystems mirror package registries in risk profile
 - Developer workstations are high-value targets
@@ -433,6 +468,7 @@ Hundreds of thousands of installs before takedown
 Limited but high-impact for affected projects
 
 **Key Lessons:**
+
 - Release artifacts require the same integrity guarantees as source
 - Reproducible builds matter beyond theory
 - "Source available" does not mean "binary trustworthy"
@@ -448,6 +484,7 @@ Limited but high-impact for affected projects
 **Impact Scope:** Over 100,000 websites affected including major sites; Namecheap suspended the domain; Cloudflare and Fastly created automatic redirects to safe mirrors
 
 **Key Lessons:**
+
 - Third-party CDN dependencies create single points of compromise
 - Domain/service ownership transfers can weaponize previously trusted resources
 - Self-hosting or using Subresource Integrity (SRI) provides protection
@@ -455,6 +492,7 @@ Limited but high-impact for affected projects
 - CDN providers should implement domain change monitoring
 
 **Sources:**
+
 - [Sansec, "Polyfill.io supply chain attack," 2024](https://sansec.io/research/polyfill-supply-chain-attack)
 - [Cloudflare Blog, "Polyfill.io automatic replacement," 2024](https://blog.cloudflare.com/automatically-replacing-polyfill-io-links-with-cloudflares-mirror-for-a-safer-internet/)
 - [Google Ads Policy Update, June 2024](https://support.google.com/adspolicy/answer/14632116)
@@ -470,6 +508,7 @@ Limited but high-impact for affected projects
 **Impact Scope:** Courtrooms, prisons, police stations, and other justice system organizations worldwide; linked to ShadowSyndicate ransomware-as-a-service group
 
 **Key Lessons:**
+
 - Commercial software binaries require verification before deployment, not blind trust
 - Typosquatting techniques apply within installers, not just package registries
 - Certificate signing alone is insufficient—the signing entity must be verified
@@ -477,6 +516,7 @@ Limited but high-impact for affected projects
 - Distribution infrastructure is as critical to secure as build environments
 
 **Sources:**
+
 - [ReversingLabs, "The 2025 Software Supply Chain Security Report," 2025](https://www.reversinglabs.com/sscs-report)
 - [Rapid7, "CVE-2024-4978: Backdoored Justice AV Solutions Viewer Software," May 2024](https://www.rapid7.com/blog/post/2024/05/30/cve-2024-4978-backdoored-justice-av-solutions-viewer-software-used-in-apparent-supply-chain-attack/)
 - [BleepingComputer, "JAVS courtroom recording software backdoored in supply chain attack," May 2024](https://www.bleepingcomputer.com/news/security/javs-courtroom-recording-software-backdoored-in-supply-chain-attack/)
@@ -492,6 +532,7 @@ Limited but high-impact for affected projects
 **Impact Scope:** Major projects compromised; npm publishing tokens stolen; malicious packages published to npm registry; attacks continued spreading to new organizations hourly during the active campaign period
 
 **Key Lessons:**
+
 - GitHub Actions workflow configurations are critical attack surface
 - `pull_request_target` and `workflow_run` triggers enable code from forks to access secrets
 - CI/CD misconfigurations can serve as "patient zero" for cascading supply chain attacks
@@ -500,6 +541,7 @@ Limited but high-impact for affected projects
 - Organizations must implement security scanning specifically for CI/CD configurations
 
 **Sources:**
+
 - [Aikido Security, "Shai Hulud GitHub Actions Incident," 2024](https://www.aikido.dev/blog/github-actions-incident-shai-hulud-supply-chain-attack)
 - [Unit 42, "GitHub Actions Supply Chain Attack," 2025](https://unit42.paloaltonetworks.com/github-actions-supply-chain-attack/)
 
@@ -514,11 +556,13 @@ Limited but high-impact for affected projects
 **Impact Scope:** Users of Lottie animation library; cryptocurrency wallet theft
 
 **Key Lessons:**
+
 - Seemingly unrelated packages (animation libraries) can be weaponized for financial theft
 - Cryptocurrency theft code can be injected into any popular package
 - Version pinning and integrity verification protect against mid-stream compromise
 
 **Sources:**
+
 - [ReversingLabs, "The 2025 Software Supply Chain Security Report," 2025](https://www.reversinglabs.com/sscs-report)
 
 ---
@@ -532,12 +576,14 @@ Limited but high-impact for affected projects
 **Impact Scope:** Users of the aiocpa cryptocurrency client; cryptocurrency wallet compromise
 
 **Key Lessons:**
+
 - Attackers are investing in long-term operations, creating legitimate packages before flipping
 - Package age and functionality do not guarantee safety—ongoing monitoring is essential
 - Cryptocurrency-focused packages warrant heightened scrutiny regardless of apparent legitimacy
 - Behavioral analysis must detect changes in package behavior across versions
 
 **Sources:**
+
 - [Karlo Zanki, "Malicious PyPI crypto pay package aiocpa implants infostealer code," ReversingLabs, November 28, 2024](https://www.reversinglabs.com/blog/malicious-pypi-crypto-pay-package-aiocpa-implants-infostealer-code)
 
 ---
@@ -551,12 +597,14 @@ Limited but high-impact for affected projects
 **Impact Scope:** 400,000 weekly downloads; 3,000 dependent projects; Solana blockchain ecosystem
 
 **Key Lessons:**
+
 - High-profile packages with extensive dependency chains are priority targets
 - Compromised maintainer credentials enable direct package modification without build system compromise
 - Even packages from well-funded blockchain foundations require continuous monitoring
 - Downstream impact scales with dependency count and download volume
 
 **Sources:**
+
 - [Paul Roberts, "Malware found in Solana npm library raises the bar for crypto security," ReversingLabs, December 5, 2024](https://www.reversinglabs.com/blog/malware-found-in-solana-npm-library-raises-the-bar-for-crypto-security)
 
 ---
@@ -570,12 +618,14 @@ Limited but high-impact for affected projects
 **Impact Scope:** Nearly 60 million downloads; AI/ML development community; cryptocurrency mining on compromised systems
 
 **Key Lessons:**
+
 - GitHub Actions workflow vulnerabilities can compromise build environments
 - Code review is insufficient when attacks occur after the review stage
 - AI/ML libraries are increasingly targeted supply chain attack vectors
 - Known vulnerabilities in CI/CD configurations require immediate remediation
 
 **Sources:**
+
 - [Karlo Zanki, "Compromised ultralytics PyPI package delivers crypto coinminer," ReversingLabs, December 9, 2024](https://www.reversinglabs.com/blog/compromised-ultralytics-pypi-package-delivers-crypto-coinminer)
 
 ---
@@ -589,11 +639,13 @@ Limited but high-impact for affected projects
 **Impact Scope:** Users of rspack build tool and vant UI framework; cryptomining on affected systems
 
 **Key Lessons:**
+
 - Build tools represent high-value targets—they execute in privileged environments
 - UI component frameworks with many dependents amplify attack impact
 - Cryptomining payloads provide attackers immediate monetization
 
 **Sources:**
+
 - [ReversingLabs, "The 2025 Software Supply Chain Security Report," 2025](https://www.reversinglabs.com/sscs-report)
 
 ---
@@ -607,6 +659,7 @@ Limited but high-impact for affected projects
 **Impact Scope:** Hundreds of malicious packages; thousands of downloads before detection; primarily affected developers who mistyped package names during installation
 
 **Key Lessons:**
+
 - Typosquatting remains an effective attack vector at scale
 - Automated detection can identify but not prevent all malicious uploads
 - Developer education about verification before installation is essential
@@ -614,6 +667,7 @@ Limited but high-impact for affected projects
 - Corporate environments benefit from curated internal package repositories
 
 **Sources:**
+
 - [Phylum Research, "PyPI Typosquatting," 2024](https://blog.phylum.io/)
 - [PyPI Security Reports, 2024](https://pypi.org/security/)
 - [Checkmarx Supply Chain Security Research, 2024](https://checkmarx.com/blog/)
@@ -631,12 +685,14 @@ Limited but high-impact for affected projects
 **Impact Scope:** Users of Hugging Face platform loading malicious ML models; demonstrates broader AI/ML supply chain vulnerability
 
 **Key Lessons:**
+
 - Python Pickle files are "inherently unsafe" and require the same scrutiny as executable code
 - AI/ML model distribution represents a distinct supply chain attack surface
 - Platform-level protections can be evaded through format-specific vulnerabilities
 - Serialized ML models must be vetted with the same rigor as software packages
 
 **Sources:**
+
 - [Karlo Zanki, "Malicious ML models discovered on Hugging Face platform," ReversingLabs, February 6, 2025](https://www.reversinglabs.com/blog/malicious-ml-models-discovered-on-hugging-face-platform)
 
 ---
@@ -650,11 +706,13 @@ Limited but high-impact for affected projects
 **Impact Scope:** IPany VPN users in South Korea and globally
 
 **Key Lessons:**
+
 - Security software (VPNs, antivirus, endpoint protection) represents high-value supply chain targets
 - Regional software may be targeted for geopolitical or strategic access
 - Commercial security binaries require the same verification as any other software
 
 **Sources:**
+
 - [Bill Toulas, "IPany VPN breached in supply-chain attack to push custom malware," BleepingComputer, January 22, 2025](https://www.bleepingcomputer.com/news/security/ipany-vpn-breached-in-supply-chain-attack-to-push-custom-malware/)
 
 ---
@@ -668,12 +726,14 @@ Limited but high-impact for affected projects
 **Impact Scope:** Thousands of projects using the action; CI/CD secrets exposed in public build logs
 
 **Key Lessons:**
+
 - GitHub Actions version tags are mutable and can be redirected to malicious commits
 - Organizations should pin GitHub Actions to specific commit SHAs, not version tags
 - CI/CD secrets in build logs represent a significant exposure risk
 - Popular Actions become high-value targets due to their wide adoption
 
 **Sources:**
+
 - [Silobreaker, "Supply Chain Attacks in 2025: A Month-by-Month Summary," 2025](https://www.silobreaker.com/blog/cyber-threats/supply-chain-attacks-in-2025-a-month-by-month-summary/)
 
 ---
@@ -687,12 +747,14 @@ Limited but high-impact for affected projects
 **Impact Scope:** Telecommunications infrastructure, messaging platforms including WhatsApp, any system using Erlang/OTP SSH daemon
 
 **Key Lessons:**
+
 - Foundational libraries in critical infrastructure pose systemic risk when compromised
 - Pre-authentication vulnerabilities are particularly dangerous as they bypass all access controls
 - Telecommunications and messaging infrastructure share common dependencies
 - CVSS 10.0 vulnerabilities in widely-deployed components require emergency response
 
 **Sources:**
+
 - [Unit 42, "Vulnerability Analysis CVE-2025-32433," 2025](https://unit42.paloaltonetworks.com/vulnerability-analysis-cve-2025-32433/)
 
 ---
@@ -706,12 +768,14 @@ Limited but high-impact for affected projects
 **Impact Scope:** Developers globally; npm tokens and GitHub credentials stolen; potential for cascading attacks into private repositories
 
 **Key Lessons:**
+
 - Attackers are shifting from broad attacks to targeted credential harvesting
 - Stolen npm/GitHub tokens enable pivoting into private corporate repositories
 - Supply chain attacks increasingly serve as initial access for deeper compromises
 - Credential rotation and token monitoring are essential defenses
 
 **Sources:**
+
 - [Socket.dev, "npm Malware Campaign PhantomRaven," 2025](https://socket.dev/blog/npm-malware-campaign-phantomraven)
 
 ---
@@ -727,6 +791,7 @@ In November 2025, a second wave dubbed "Shai-Hulud 2.0" emerged with modified ta
 **Impact Scope:** Over 1,300 npm packages compromised across both waves; GitHub, npm, and AWS secrets harvested; self-replicating propagation; estimated $50 million in cryptocurrency theft
 
 **Key Lessons:**
+
 - Self-replicating supply chain malware can achieve exponential spread
 - Automated republishing of compromised packages accelerates infection
 - Multi-platform credential harvesting (GitHub, npm, AWS) maximizes attacker value
@@ -735,6 +800,7 @@ In November 2025, a second wave dubbed "Shai-Hulud 2.0" emerged with modified ta
 - The attack led directly to major npm security policy changes
 
 **Sources:**
+
 - [Truesec, "500 npm Packages Compromised in Ongoing Supply Chain Attack Shai-Hulud," 2025](https://www.truesec.com/hub/blog/500-npm-packages-compromised-in-ongoing-supply-chain-attack-shai-hulud)
 - [CISA, "Widespread Supply Chain Compromise Impacting npm Ecosystem," September 23, 2025](https://www.cisa.gov/news-events/alerts/2025/09/23/widespread-supply-chain-compromise-impacting-npm-ecosystem)
 - [Microsoft Security Blog, "Shai-Hulud 2.0 Guidance," December 2025](https://www.microsoft.com/en-us/security/blog/2025/12/09/shai-hulud-2-0-guidance-for-detecting-investigating-and-defending-against-the-supply-chain-attack/)
@@ -750,12 +816,14 @@ In November 2025, a second wave dubbed "Shai-Hulud 2.0" emerged with modified ta
 **Impact Scope:** 20+ core npm packages; over 2 billion weekly downloads affected; cryptocurrency wallet theft
 
 **Key Lessons:**
+
 - Single maintainer accounts controlling multiple high-impact packages represent concentrated risk
 - Account security for prolific maintainers requires enterprise-grade protections
 - Cryptocurrency theft remains a primary monetization strategy for supply chain attackers
 - The npm ecosystem's reliance on a small number of maintainers creates systemic vulnerability
 
 **Sources:**
+
 - [The Hacker News, "20 Popular npm Packages with 2 Billion Weekly Downloads Compromised," September 2025](https://thehackernews.com/2025/09/20-popular-npm-packages-with-2-billion.html)
 
 ---
@@ -769,12 +837,14 @@ In November 2025, a second wave dubbed "Shai-Hulud 2.0" emerged with modified ta
 **Impact Scope:** Go developers using the typosquatted module; reverse shell access to developer machines
 
 **Key Lessons:**
+
 - Typosquatting attacks have expanded beyond npm/PyPI to the Go ecosystem
 - Compilation-time execution allows attacks before runtime security controls engage
 - Reverse shells provide attackers persistent, interactive access to developer environments
 - Module verification must occur before compilation, not just at runtime
 
 **Sources:**
+
 - [CISA, "npm and Go Ecosystem Risks Alert," September 2025](https://www.cisa.gov/news-events/alerts/2025/09/23/widespread-supply-chain-compromise-impacting-npm-ecosystem)
 
 ---
@@ -788,12 +858,14 @@ In November 2025, a second wave dubbed "Shai-Hulud 2.0" emerged with modified ta
 **Impact Scope:** 28,000+ internal Red Hat repositories; 570GB of data exfiltrated; infrastructure settings, VPN configurations, and customer data exposed
 
 **Key Lessons:**
+
 - Unified platforms hosting both open-source and internal code present aggregated risk
 - Large-scale repository breaches expose infrastructure configurations alongside code
 - Customer engagement data combined with infrastructure details enables targeted attacks
 - Enterprise GitLab/GitHub instances require segmentation between public and sensitive projects
 
 **Sources:**
+
 - [Guardz Security Blog, "Top Recent Data Breaches," 2025](https://guardz.com/blog/top-recent-data-breaches/)
 
 ---
@@ -807,12 +879,14 @@ In November 2025, a second wave dubbed "Shai-Hulud 2.0" emerged with modified ta
 **Impact Scope:** Open VSX Marketplace users; VS Code extension developers; self-propagating infection of extensions
 
 **Key Lessons:**
+
 - IDE extension marketplaces are vulnerable to the same attacks as package registries
 - Self-propagating malware in development tools can spread through the development community
 - Extension developers become unwitting vectors for malware distribution
 - Workspace isolation is essential to prevent cross-contamination of projects
 
 **Sources:**
+
 - [Secure Code Warrior, "OWASP Top 10 2025: Software Supply Chain Failures," 2025](https://www.securecodewarrior.com/article/owasp-top-10-2025-software-supply-chain-failures)
 
 ---
@@ -826,12 +900,14 @@ In November 2025, a second wave dubbed "Shai-Hulud 2.0" emerged with modified ta
 **Impact Scope:** Over 25,000 downloads; Solana blockchain users; cryptocurrency theft via transaction manipulation
 
 **Key Lessons:**
+
 - Runtime library modification can subvert legitimate code without changing it
 - Transaction interception at signing time bypasses most security controls
 - Cryptocurrency libraries are prime targets for sophisticated financial theft
 - Behavioral analysis must detect unexpected modifications to trusted libraries
 
 **Sources:**
+
 - [ReversingLabs, "The 2025 Software Supply Chain Security Report," 2025](https://www.reversinglabs.com/sscs-report)
 
 ---
@@ -845,12 +921,14 @@ In November 2025, a second wave dubbed "Shai-Hulud 2.0" emerged with modified ta
 **Impact Scope:** Standard Next.js applications using React Server Components; web applications globally
 
 **Key Lessons:**
+
 - Framework-level vulnerabilities affect all applications built on that framework
 - Deserialization vulnerabilities remain a critical attack vector in modern frameworks
 - Default-vulnerable configurations maximize attacker impact
 - React/Next.js ecosystem scale means vulnerabilities have global reach
 
 **Sources:**
+
 - [React.dev, "Denial of Service and Source Code Exposure in React Server Components," December 11, 2025](https://react.dev/blog/2025/12/11/denial-of-service-and-source-code-exposure-in-react-server-components)
 - [NVD, CVE-2025-55182](https://nvd.nist.gov/vuln/detail/CVE-2025-55182)
 
@@ -903,12 +981,14 @@ In November 2025, a second wave dubbed "Shai-Hulud 2.0" emerged with modified ta
 **Evolution of Sophistication:** Early incidents were primarily accidental vulnerabilities or simple attacks. Modern supply chain attacks increasingly involve long-term planning, social engineering, and targeting of build infrastructure rather than just source code.
 
 **Recurring Themes:**
+
 1. **Single points of failure:** Individual maintainers, accounts, and dependencies create concentrated risk
 2. **Trust exploitation:** Attackers invest in building trust before exploiting it
 3. **Detection challenges:** Many compromises persist for weeks or months before discovery
 4. **Cascading effects:** One compromise enables subsequent attacks downstream
 
 **Defensive Gaps Highlighted:**
+
 - Build system integrity verification
 - Maintainer succession and vetting processes
 - Behavioral analysis of package changes
