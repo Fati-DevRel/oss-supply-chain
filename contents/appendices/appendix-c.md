@@ -530,6 +530,7 @@ Converting between formats can lose information. Standardize on one format throu
 Use this checklist when implementing SBOM processes:
 
 #### Generation
+
 - [ ] Integrate SBOM generation into CI/CD pipeline
 - [ ] Generate SBOMs at build time, not retrospectively
 - [ ] Include complete transitive dependency trees
@@ -542,6 +543,7 @@ Use this checklist when implementing SBOM processes:
 - [ ] Document the tool and version used for generation
 
 #### Quality
+
 - [ ] Validate SBOMs against schema before distribution
 - [ ] Use SBOM Scorecard or similar to assess completeness
 - [ ] Verify purls resolve to correct packages
@@ -550,6 +552,7 @@ Use this checklist when implementing SBOM processes:
 - [ ] Review for sensitive information before sharing
 
 #### Distribution
+
 - [ ] Establish consistent naming conventions
 - [ ] Store SBOMs alongside artifacts they describe
 - [ ] Sign SBOMs using Sigstore or similar
@@ -558,6 +561,7 @@ Use this checklist when implementing SBOM processes:
 - [ ] Document how to obtain SBOMs for your products
 
 #### AI-BOM Specific
+
 - [ ] Document model architecture and parameters
 - [ ] Include training data lineage and characteristics
 - [ ] Capture performance metrics with confidence intervals

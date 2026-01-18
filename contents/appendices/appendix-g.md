@@ -27,6 +27,7 @@ npm update lodash
 ```
 
 **Best Practices**:
+
 - Use `npm ci` in CI/CD pipelines instead of `npm install`
 - Set `save-exact=true` in `.npmrc` to pin exact versions by default
 - Review lockfile changes in pull requests—large diffs may indicate supply chain attacks
@@ -173,12 +174,14 @@ uv sync --frozen
 ```
 
 uv is an extremely fast Python package manager written in Rust (10-100x faster than pip) that provides security-first defaults:
+
 - Generates cross-platform lockfiles with SHA-256 hashes by default
 - Replaces pip, pip-tools, pipx, poetry, pyenv, and virtualenv with a single tool
 - Hermetic builds ensure reproducibility across environments
 - Active development by [Astral](https://astral.sh/), creators of the Ruff linter
 
 **Best Practices**:
+
 - Always use a lockfile mechanism (`uv.lock`, `poetry.lock`, `Pipfile.lock`, or pinned `requirements.txt`)
 - Use hash verification for production deployments
 - Pin transitive dependencies, not just direct dependencies
@@ -217,7 +220,9 @@ jobs:
     permissions:
       id-token: write
     steps:
+
       - uses: pypa/gh-action-pypi-publish@release/v1
+
 ```
 
 **Sigstore signing** is available for packages:
@@ -442,6 +447,7 @@ go mod download
 ```
 
 **Best Practices**:
+
 - Always commit both `go.mod` and `go.sum`
 - Run `go mod verify` in CI to detect tampering
 - Use `go mod tidy` to remove unused dependencies
@@ -551,6 +557,7 @@ cargo install --locked
 ```
 
 **Best Practices**:
+
 - Always commit `Cargo.lock` for applications
 - Libraries may omit `Cargo.lock` from version control
 - Use `--locked` flag in CI to ensure lockfile is respected
@@ -734,17 +741,25 @@ metadata:
 spec:
   validationFailureAction: Enforce
   rules:
+
     - name: verify-signature
+
       match:
         resources:
           kinds:
+
             - Pod
+
       verifyImages:
+
         - imageReferences:
             - "myregistry/*"
+
           attestors:
+
             - entries:
                 - keyless:
+
                     issuer: https://accounts.google.com
                     subject: build@mycompany.com
 ```

@@ -14,7 +14,7 @@ Michael is a regular speaker at security conferences, including the Microsoft Re
 
 ---
 
-# A Note on AI-Generated and AI-Assisted Content
+## A Note on AI-Generated and AI-Assisted Content
 
 In the spirit of transparency, the author wishes to disclose that artificial intelligence tools were used in the creation of this book. Specifically, various large language models assisted with drafting, editing, research synthesis, and content organization throughout the writing process. All content has been reviewed and is believed to be accurate, but if you encounter any mistakes, please [open an issue on the book's repository](https://github.com/scovetta/oss-supply-chain/issues) and it will be promptly addressed.
 

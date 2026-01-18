@@ -29,6 +29,7 @@ This policy establishes requirements for the secure evaluation, approval, and on
 **2. Scope**
 
 This policy applies to:
+
 - All software development activities conducted by [ORGANIZATION NAME] employees and contractors
 - All open source components incorporated into [ORGANIZATION NAME] products, services, and internal systems
 - All environments including development, testing, staging, and production
@@ -57,6 +58,7 @@ This policy applies to:
 Before introducing a new open source component, developers must evaluate:
 
 **5.1 Security Assessment**
+
 - [ ] No known critical or high-severity vulnerabilities (CVSS ≥ [7.0/8.0/9.0])
 - [ ] Active maintenance: commits within last [6/12] months
 - [ ] Security policy (SECURITY.md) present
@@ -64,12 +66,14 @@ Before introducing a new open source component, developers must evaluate:
 - [ ] [MINIMUM OPENSSF SCORECARD SCORE, e.g., ≥5]
 
 **5.2 Legal Assessment**
+
 - [ ] License identified and documented
 - [ ] License on approved list (see Appendix A)
 - [ ] No conflicting license obligations
 - [ ] Copyright notices preserved
 
 **5.3 Operational Assessment**
+
 - [ ] Minimum [NUMBER] maintainers
 - [ ] [MINIMUM DOWNLOAD/USAGE THRESHOLD]
 - [ ] Documentation adequate for intended use
@@ -97,11 +101,13 @@ Before introducing a new open source component, developers must evaluate:
 **8. Ongoing Management Requirements**
 
 **8.1 Dependency Tracking**
+
 - All projects must maintain accurate dependency manifests
 - Software Bill of Materials (SBOM) generated for all releases
 - SBOM format: [SPDX/CycloneDX]
 
 **8.2 Vulnerability Monitoring**
+
 - All dependencies monitored via [TOOL NAME, e.g., Dependabot, Snyk]
 - Vulnerability remediation timelines:
 
@@ -113,6 +119,7 @@ Before introducing a new open source component, developers must evaluate:
 | Low (CVSS 0.1-3.9) | [90 days or next release] |
 
 **8.3 Updates**
+
 - Dependencies must be updated to address security vulnerabilities within timelines above
 - Non-security updates should be applied [MONTHLY/QUARTERLY]
 - End-of-life components must be replaced within [TIMEFRAME]
@@ -120,6 +127,7 @@ Before introducing a new open source component, developers must evaluate:
 **9. Exceptions**
 
 Exceptions to this policy require:
+
 - Written justification documenting business need
 - Risk assessment and mitigation plan
 - Approval from [APPROVING AUTHORITY]
@@ -263,6 +271,7 @@ This policy establishes requirements for the secure and responsible use of AI-po
 **2. Scope**
 
 This policy applies to:
+
 - All employees and contractors performing software development
 - All AI coding assistants, whether cloud-hosted or locally deployed
 - Code generated for [ORGANIZATION NAME] products, services, and internal systems
@@ -281,6 +290,7 @@ Unapproved AI coding tools may not be used without explicit authorization from [
 **4. Permitted Uses**
 
 AI coding assistants may be used for:
+
 - [ ] Generating boilerplate code and common patterns
 - [ ] Code completion and syntax assistance
 - [ ] Documentation generation
@@ -292,6 +302,7 @@ AI coding assistants may be used for:
 **5. Prohibited Uses**
 
 AI coding assistants must NOT be used for:
+
 - [ ] Generating code that handles [CLASSIFIED/SENSITIVE DATA TYPES]
 - [ ] Security-critical functions including authentication, authorization, and cryptography without expert review
 - [ ] Inputting proprietary source code into non-enterprise AI tools
@@ -303,12 +314,14 @@ AI coding assistants must NOT be used for:
 **6. Security Requirements**
 
 **6.1 Data Protection**
+
 - Enterprise/business tiers required; consumer tiers prohibited
 - Telemetry and training on company code must be disabled where configurable
 - Code snippets containing [SENSITIVE ELEMENTS] must not be submitted to AI tools
 
 **6.2 Code Review Requirements**
 All AI-generated code must:
+
 - Be reviewed by a human developer before commit
 - Pass all standard code review requirements
 - Be scanned by static analysis tools
@@ -316,6 +329,7 @@ All AI-generated code must:
 
 **6.3 Dependency Verification**
 When AI assistants suggest dependencies:
+
 - Verify the package exists in official registries
 - Verify the package name is spelled correctly (prevent slopsquatting)
 - Evaluate dependencies per the Open Source Consumption Policy
@@ -325,6 +339,7 @@ When AI assistants suggest dependencies:
 
 **7.1 Developer Responsibilities**
 Developers using AI coding assistants must:
+
 - Understand all code before committing—never commit code you don't understand
 - Verify correctness through testing
 - Check for security vulnerabilities in suggestions
@@ -333,6 +348,7 @@ Developers using AI coding assistants must:
 
 **7.2 Known Limitations**
 Developers should be aware that AI coding assistants may:
+
 - Generate code with security vulnerabilities
 - Suggest outdated or deprecated patterns
 - Hallucinate non-existent packages or APIs
@@ -342,10 +358,12 @@ Developers should be aware that AI coding assistants may:
 **8. Intellectual Property**
 
 **8.1 Output Ownership**
+
 - Code generated by approved tools using approved configurations is treated as [ORGANIZATION NAME] work product
 - Developers must not claim AI-generated code as solely their own creation in contexts where disclosure is required
 
 **8.2 Input Restrictions**
+
 - Third-party code under restrictive licenses should not be input to AI tools without legal review
 - Client/customer code must not be input to AI tools unless contractually permitted
 
@@ -358,6 +376,7 @@ Developers should be aware that AI coding assistants may:
 **10. Training Requirements**
 
 Before using AI coding assistants, developers must complete:
+
 - [ ] [SECURITY AWARENESS TRAINING]
 - [ ] [AI TOOL-SPECIFIC TRAINING]
 - [ ] Acknowledgment of this policy
@@ -384,6 +403,7 @@ Before using AI coding assistants, developers must complete:
 **1. Playbook Scope**
 
 This playbook addresses incidents involving:
+
 - Compromised open source dependencies
 - Malicious packages (typosquatting, dependency confusion, account hijacking)
 - Compromised build systems or CI/CD pipelines
@@ -415,6 +435,7 @@ This playbook addresses incidents involving:
 **4. Detection and Identification**
 
 **4.1 Potential Indicators**
+
 - Security advisory for dependency in use
 - Dependabot/Snyk alert for malicious package
 - Unexpected network connections from build systems
@@ -529,6 +550,7 @@ This playbook addresses incidents involving:
 **Section 1: Software Composition and Dependencies**
 
 1.1 Do you maintain a Software Bill of Materials (SBOM) for your products?
+
 - [ ] Yes - SPDX format
 - [ ] Yes - CycloneDX format
 - [ ] Yes - Other format: _______
@@ -536,6 +558,7 @@ This playbook addresses incidents involving:
 - [ ] N/A
 
 1.2 Can you provide SBOMs to customers upon request?
+
 - [ ] Yes, included with product
 - [ ] Yes, upon request
 - [ ] No
@@ -548,6 +571,7 @@ This playbook addresses incidents involving:
 *[FREE RESPONSE]*
 
 1.5 How do you monitor dependencies for known vulnerabilities?
+
 - [ ] Automated scanning (tool: _______)
 - [ ] Manual review
 - [ ] Third-party service
@@ -560,6 +584,7 @@ This playbook addresses incidents involving:
 *[FREE RESPONSE]*
 
 2.2 Do you sign release artifacts?
+
 - [ ] Yes - GPG signatures
 - [ ] Yes - Sigstore
 - [ ] Yes - Code signing certificates
@@ -568,12 +593,14 @@ This playbook addresses incidents involving:
 - [ ] N/A
 
 2.3 Do you generate and publish build provenance attestations?
+
 - [ ] Yes - SLSA provenance
 - [ ] Yes - Other format
 - [ ] No
 - [ ] N/A
 
 2.4 What SLSA level do your build processes achieve?
+
 - [ ] SLSA Level 1
 - [ ] SLSA Level 2
 - [ ] SLSA Level 3
@@ -582,6 +609,7 @@ This playbook addresses incidents involving:
 - [ ] N/A
 
 2.5 Are your builds reproducible?
+
 - [ ] Yes, verified reproducible
 - [ ] Partially reproducible
 - [ ] No
@@ -603,6 +631,7 @@ This playbook addresses incidents involving:
 *[FREE RESPONSE]*
 
 3.3 Do you have a vulnerability disclosure program?
+
 - [ ] Yes - Bug bounty program
 - [ ] Yes - security@email
 - [ ] Yes - Security advisories
@@ -610,6 +639,7 @@ This playbook addresses incidents involving:
 - [ ] N/A
 
 3.4 Have you experienced a supply chain security incident in the past 24 months?
+
 - [ ] Yes (please describe in separate confidential attachment)
 - [ ] No
 - [ ] Prefer not to disclose
@@ -626,6 +656,7 @@ This playbook addresses incidents involving:
 | Production systems | [ ] Yes [ ] No |
 
 4.2 Do you use branch protection on main/release branches?
+
 - [ ] Yes, with required reviews
 - [ ] Yes, basic protection
 - [ ] No
@@ -640,12 +671,14 @@ This playbook addresses incidents involving:
 **Section 5: Third-Party Risk**
 
 5.1 Do you assess the security of your own suppliers and dependencies?
+
 - [ ] Yes, formal program
 - [ ] Yes, informal process
 - [ ] No
 - [ ] N/A
 
 5.2 Do you maintain a list of critical dependencies and their risk assessments?
+
 - [ ] Yes
 - [ ] No
 - [ ] N/A
@@ -746,12 +779,14 @@ This playbook addresses incidents involving:
 #### Software Supply Chain Security: Board Presentation
 
 **Slide 1: Title**
+
 - Software Supply Chain Security Update
 - [ORGANIZATION NAME]
 - [DATE]
 - [PRESENTER NAME/TITLE]
 
 **Slide 2: Executive Summary**
+
 - Overall risk rating: [LOW/MODERATE/ELEVATED/HIGH]
 - Key message 1: [One sentence on current posture]
 - Key message 2: [One sentence on significant changes]
@@ -759,6 +794,7 @@ This playbook addresses incidents involving:
 - Decision requested: [If any]
 
 **Slide 3: Why This Matters**
+
 - [X]% of modern software is open source components
 - Supply chain attacks increased [X]% year-over-year (cite source)
 - Regulatory requirements: [RELEVANT REGULATIONS]
@@ -766,6 +802,7 @@ This playbook addresses incidents involving:
 - Our exposure: [X] applications, [Y] dependencies, [Z] vendors
 
 **Slide 4: Our Supply Chain Security Program**
+
 - Program maturity: [INITIAL/DEVELOPING/DEFINED/MANAGED/OPTIMIZING]
 - Key capabilities:
   - Dependency tracking and SBOM: [STATUS]
@@ -793,6 +830,7 @@ This playbook addresses incidents involving:
 | Customer requirements | [COMPLIANT/PARTIAL/NON-COMPLIANT] | | |
 
 **Slide 7: Incidents and Industry Context**
+
 - Our incidents this period: [SUMMARY]
 - Industry incidents affecting peers: [SUMMARY]
 - Emerging threat trends: [SUMMARY]
@@ -806,6 +844,7 @@ This playbook addresses incidents involving:
 | [INITIATIVE 3] | [QUARTER/YEAR] | [AMOUNT] | [HIGH/MED/LOW] |
 
 **Slide 9: Investment Request (if applicable)**
+
 - Total request: [AMOUNT]
 - Breakdown by category:
   - Tooling: [AMOUNT]
@@ -815,6 +854,7 @@ This playbook addresses incidents involving:
 - Compliance requirements addressed: [LIST]
 
 **Slide 10: Recommendation and Decision Points**
+
 - Management recommendation: [SUMMARY]
 - Decision requested:
   - [ ] Approve FY[XX] supply chain security budget of [AMOUNT]
