@@ -6,6 +6,8 @@ The previous section documented why supply chain security has become urgent now,
 
 The intellectual foundation for understanding supply chain security was laid in 1984, when Ken Thompson delivered his Turing Award lecture, "Reflections on Trusting Trust."[^thompson-1984b] Thompson, co-creator of Unix and the C programming language, presented a thought experiment that remains the clearest articulation of why software supply chains are inherently vulnerable.
 
+[^thompson-1984b]: Ken Thompson, "Reflections on Trusting Trust" (Turing Award lecture, 1984). <https://www.cs.cmu.edu/~rdriley/487/papers/Thompson_1984_ReflectionsonTrustingTrust.pdf>
+
 Thompson described how he had modified the C compiler to recognize when it was compiling the Unix `login` program and insert a backdoor that would accept a secret password. This alone was concerning but detectable—anyone reading the compiler source code would see the malicious modification. Thompson then took the attack one step further: he modified the compiler to recognize when it was compiling *itself* and to insert the backdoor-inserting code into the new compiler binary. After this second-stage compiler was built, Thompson removed all traces of the malicious code from the source files.
 
 The result was a compiler binary that would perpetually reproduce the backdoor in both the login program and in future versions of itself, despite the source code appearing completely clean. As Thompson wrote:
@@ -55,5 +57,3 @@ Several lessons emerge from this historical trajectory that inform how we should
 **The attack surface accumulates.** Each evolution in software distribution—from physical media to download sites to package registries to container images—added new attack surfaces without fully retiring old ones. Organizations today must secure all these layers simultaneously.
 
 Understanding this history helps calibrate our response to current supply chain threats. We are not facing something entirely new but rather the maturation of vulnerabilities that have existed throughout computing history. The principles Thompson articulated in 1984 remain valid; what has changed is the scale at which supply chain attacks can be conducted and the depth of dependency on software we do not control. The challenge now is developing practices and technologies that address these vulnerabilities at modern scale and velocity—the subject of the remaining chapters in this book.
-
-[^thompson-1984b]: Ken Thompson, "Reflections on Trusting Trust" (Turing Award lecture, 1984). https://www.cs.cmu.edu/~rdriley/487/papers/Thompson_1984_ReflectionsonTrustingTrust.pdf

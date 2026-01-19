@@ -144,7 +144,7 @@ The .NET ecosystem's enterprise orientation means many organizations use private
 
 The Apple ecosystem relies on two primary package management systems: **CocoaPods**, a community-driven dependency manager established in 2011, and **Swift Package Manager (SPM)**, Apple's official tool introduced in 2016 and integrated into Xcode.
 
-**CocoaPods** manages over 100,000 pods (libraries) and remains widely used in iOS, macOS, watchOS, and tvOS development. The [CocoaPods Trunk](https://trunk.cocoapods.org) serves as the centralized registry, operated by a small team of volunteers under the CocoaPods organization.
+**CocoaPods** manages over 100,000 pods (libraries) and remains widely used in iOS, macOS, watchOS, and tvOS development. The CocoaPods Trunk[^cocoapods-trunk] serves as the centralized registry, operated by a small team of volunteers under the CocoaPods organization.
 
 CocoaPods has experienced notable security challenges:
 
@@ -257,4 +257,7 @@ Cross-ecosystem dependencies create particular challenges:
 - **Inconsistent security postures**: A security-conscious Rust application might depend on a Python tool with weaker supply chain controls. The overall security is constrained by the weakest ecosystem in the dependency chain.
 
 Organizations securing multi-ecosystem applications need tooling and processes that span all involved package managers. Single-ecosystem solutions leave gaps that attackers can exploit. Book 2, Chapter 13 explores dependency management strategies that address this cross-ecosystem reality.
+
+[^cocoapods-trunk]: CocoaPods Trunk, https://trunk.cocoapods.org
+
 ![Major package ecosystem comparison showing security features across registries](img/ch-2-package-ecosystems.svg)

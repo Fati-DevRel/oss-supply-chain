@@ -46,7 +46,7 @@ While open source adoption is universal, patterns of usage vary significantly ac
 
 **Healthcare** presents a complex picture. While startups and digital health companies embrace open source freely, traditional healthcare organizations often move more cautiously, concerned about regulatory implications around software in medical devices (FDA guidance) and data protection (HIPAA). The rise of FHIR (Fast Healthcare Interoperability Resources) as an open standard has accelerated open source adoption for interoperability use cases.
 
-**Government agencies** have dramatically increased open source adoption over the past decade, driven by policies like the [U.S. Federal Source Code Policy](https://obamawhitehouse.archives.gov/sites/default/files/omb/memoranda/2016/m_16_21.pdf) and similar initiatives internationally. The irony is notable: governments that once viewed open source with suspicion now recognize it as essential for avoiding vendor lock-in and enabling interoperability. However, government procurement and security assessment processes often struggle to accommodate the realities of open source development models.
+**Government agencies** have dramatically increased open source adoption over the past decade, driven by policies like the U.S. Federal Source Code Policy[^us-federal-source-code] and similar initiatives internationally. The irony is notable: governments that once viewed open source with suspicion now recognize it as essential for avoiding vendor lock-in and enabling interoperability. However, government procurement and security assessment processes often struggle to accommodate the realities of open source development models.
 
 ## Strategic Imperatives Driving Adoption
 
@@ -67,6 +67,8 @@ These strategic advantages explain why open source adoption continues to acceler
 The data leads to an inescapable conclusion: open source security *is* software security. Any strategy that treats open source as a peripheral concern—a special case requiring separate consideration—fundamentally misunderstands modern software development. The code that organizations write themselves represents a small minority of their actual running software. The overwhelming majority comes from open source projects they did not create, maintained by people they do not employ, following practices they have not verified.
 
 This reality is neither good nor bad—it simply is. Open source has enabled extraordinary innovation and democratized software development in ways that benefit society broadly. But it has also created dependencies that require new approaches to security, new forms of collaboration between consumers and producers of software, and new investment in shared infrastructure. The chapters that follow explore these challenges and the emerging practices for addressing them.
+
+[^us-federal-source-code]: White House, "Federal Source Code Policy," 2016, https://obamawhitehouse.archives.gov/sites/default/files/omb/memoranda/2016/m_16_21.pdf
 
 [ossra-2024]: https://www.synopsys.com/software-integrity/resources/analyst-reports/open-source-security-risk-analysis.html
 [census-ii]: https://www.linuxfoundation.org/research/census-ii-of-free-and-open-source-software-application-libraries

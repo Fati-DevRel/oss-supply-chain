@@ -575,10 +575,24 @@ Use this checklist when implementing SBOM processes:
 
 ### Additional Resources
 
-- **SPDX Specification**: [https://spdx.github.io/spdx-spec/](https://spdx.github.io/spdx-spec/)
-- **CycloneDX Specification**: [https://cyclonedx.org/specification/overview/](https://cyclonedx.org/specification/overview/)
-- **CycloneDX Guides**: [https://cyclonedx.org/guides/](https://cyclonedx.org/guides/)
-- **NTIA SBOM Minimum Elements**: [https://www.ntia.gov/sbom](https://www.ntia.gov/sbom)
-- **CISA SBOM Resources**: [https://www.cisa.gov/sbom](https://www.cisa.gov/sbom)
-- **SPDX License List**: [https://spdx.org/licenses/](https://spdx.org/licenses/)
-- **Package URL Specification**: [https://github.com/package-url/purl-spec](https://github.com/package-url/purl-spec)
+- **SPDX Specification**[^spdx-spec]
+- **CycloneDX Specification**[^cyclonedx-spec]
+- **CycloneDX Guides**[^cyclonedx-guides]
+- **NTIA SBOM Minimum Elements**[^ntia-sbom]
+- **CISA SBOM Resources**[^cisa-sbom]
+- **SPDX License List**[^spdx-licenses]
+- **Package URL Specification**[^purl-spec]
+
+[^spdx-spec]: Linux Foundation, "SPDX Specification," https://spdx.github.io/spdx-spec/
+
+[^cyclonedx-spec]: OWASP, "CycloneDX Specification Overview," https://cyclonedx.org/specification/overview/
+
+[^cyclonedx-guides]: OWASP, "CycloneDX Guides," https://cyclonedx.org/guides/
+
+[^ntia-sbom]: NTIA, "Software Bill of Materials," https://www.ntia.gov/sbom
+
+[^cisa-sbom]: CISA, "Software Bill of Materials," https://www.cisa.gov/sbom
+
+[^spdx-licenses]: Linux Foundation, "SPDX License List," https://spdx.org/licenses/
+
+[^purl-spec]: GitHub, "Package URL Specification," https://github.com/package-url/purl-spec

@@ -14,7 +14,7 @@ This is dependency confusion: substituting a public package for a private one by
 
 ## Alex Birsan's Research and the $130,000 Bug Bounties
 
-Birsan's [research](https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610), published in February 2021, demonstrated the attack against some of the world's most security-conscious organizations.
+Birsan's research,[^birsan-research] published in February 2021, demonstrated the attack against some of the world's most security-conscious organizations.
 
 His methodology was straightforward:
 
@@ -159,6 +159,8 @@ We recommend treating dependency confusion mitigation as a required security con
 5. **Educate development teams**: Ensure developers understand the risk and follow secure configuration practices.
 
 The dependency confusion attack demonstrated that supply chain security extends beyond malicious packages intentionally installed—it includes the mechanics of how package managers select which package to install in the first place. Organizations must control not just what packages they approve, but how their build systems resolve package names to specific sources.
+
+[^birsan-research]: Alex Birsan, "Dependency Confusion: How I Hacked Into Apple, Microsoft and Dozens of Other Companies," Medium, February 2021, https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610
 
 [pep-708]: https://peps.python.org/pep-0708/
 [nexus]: https://www.sonatype.com/products/nexus-repository
