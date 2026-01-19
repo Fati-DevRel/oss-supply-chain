@@ -6,6 +6,14 @@ Technical security controlsâ€”authentication, code signing, automated scanningâ€
 
 ## A Taxonomy of Social Engineering Tactics
 
+!!! tip "Recognizing Social Engineering"
+
+    - **Relationship Building**: Patient trust-building over months/years
+    - **Urgency and Pressure**: Artificial deadlines and threats
+    - **Authority**: Claimed credentials or expertise
+    - **Sympathy**: Exploiting desire to be helpful
+    - **Frustration**: Weaponizing community expectations
+
 Attackers use various approaches to manipulate maintainers:
 
 **Relationship Building:**
@@ -58,6 +66,10 @@ Attackers weaponize community expectations:
 - Creating perception of community discontent
 
 ## XZ Utils: A Masterclass in Long-Term Social Engineering
+
+!!! danger "Multi-Year Attack Campaign"
+
+    Phase 1 (2021): Establish persona with competent contributions. Phase 2 (2022): Pressure campaign using sock puppets. Phase 3 (2022-2023): Gain maintainer access. Phase 4 (2024): Insert backdoor. The attack was discovered only by chance.
 
 The XZ Utils attack represents the most sophisticated social engineering campaign ever documented against an open source project. Analyzing it in detail provides essential lessons for the community.
 

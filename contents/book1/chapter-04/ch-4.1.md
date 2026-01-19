@@ -6,16 +6,20 @@ The threat landscape described in Chapter 3 presents a daunting array of adversa
 
 Threat modeling is the practice of systematically identifying and evaluating potential security threats to a system. As Adam Shostack defines it in *[Threat Modeling: Designing for Security][shostack-book]* (2014), threat modeling answers four key questions:
 
-1. What are we building (or using)?
-2. What can go wrong?
-3. What are we going to do about it?
-4. Did we do a good enough job?
+!!! info "Shostack's Four Questions"
+
+    1. What are we building (or using)?
+    2. What can go wrong?
+    3. What are we going to do about it?
+    4. Did we do a good enough job?
 
 The goal is not to enumerate every conceivable attack but to develop a shared understanding of risks that informs security decisions. Effective threat modeling helps teams prioritize security investment, design systems that are resilient to likely attacks, and identify gaps in existing defenses.
 
 Traditional threat modeling approaches—including Microsoft's STRIDE, PASTA (Process for Attack Simulation and Threat Analysis, developed by VerSprite), and OWASP's various methodologies—typically focus on applications or systems that the modeling team designs and controls. These approaches assume you can enumerate components, understand data flows, identify trust boundaries, and implement controls at any point where threats are identified.
 
-Supply chain threat modeling shares these goals but faces different constraints. Much of what you need to model lies outside your organization. The components you depend on were designed by others, built by others, and are maintained by others. Your visibility into their security properties is limited, and your ability to implement controls within them is essentially nonexistent. This fundamental difference in control requires adapting traditional approaches rather than applying them directly.
+!!! warning "The Fundamental Difference"
+
+    Supply chain threat modeling shares these goals but faces different constraints. Much of what you need to model lies outside your organization. The components you depend on were designed by others, built by others, and are maintained by others. Your visibility into their security properties is limited, and your ability to implement controls within them is essentially nonexistent. This fundamental difference in control requires adapting traditional approaches rather than applying them directly.
 
 ## Why Supply Chains Differ from Traditional Applications
 
@@ -39,12 +43,12 @@ One of the most challenging aspects of supply chain threat modeling is defining 
 
 **Depth decisions** determine how far into the dependency graph you model. Your application has direct dependencies, and those have their own dependencies (transitive), which have further dependencies. Modeling every transitive dependency—potentially thousands of packages—is impractical. Yet ignoring transitive dependencies misses real risks; the Log4j vulnerability affected applications that had no direct relationship with Log4j.
 
-Practical approaches to depth include:
+!!! tip "Practical Approaches to Depth"
 
-- **Model direct dependencies individually** and treat transitive dependencies as aggregate risk
-- **Extend analysis to critical transitive dependencies** identified through dependency analysis or known criticality
-- **Sample transitive dependencies** to understand risk characteristics without exhaustive enumeration
-- **Focus on dependencies with elevated privilege** (build-time execution, network access, filesystem access)
+    - **Model direct dependencies individually** and treat transitive dependencies as aggregate risk
+    - **Extend analysis to critical transitive dependencies** identified through dependency analysis or known criticality
+    - **Sample transitive dependencies** to understand risk characteristics without exhaustive enumeration
+    - **Focus on dependencies with elevated privilege** (build-time execution, network access, filesystem access)
 
 **Breadth decisions** determine which aspects of the supply chain to include. Beyond code dependencies, supply chains encompass:
 

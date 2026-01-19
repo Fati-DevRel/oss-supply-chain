@@ -50,6 +50,10 @@ This timeline—over two years from first contribution to backdoor insertion—d
 
 ## The Pressure Campaign: Exploiting Maintainer Burnout
 
+!!! danger "Weaponizing Maintainer Burnout"
+
+    Sock puppet accounts pressured the exhausted maintainer: "I am sorry about your mental health issues, but its important to be aware of your own limits... Why not pass on maintainership?" The attack exploited the isolation, burnout, and limited resources that characterize critical open source projects.
+
 The social engineering extended beyond Jia Tan's direct contributions. Analysis of mailing list archives revealed a coordinated pressure campaign using apparent sock puppet accounts to push Lasse Collin toward accepting help and ceding control.
 
 In June 2022, an account named "Jigar Kumar" began posting to the XZ Utils mailing list, [complaining about slow patch review][xz-mailing-list] and pressuring Collin to add maintainers:
@@ -107,6 +111,10 @@ The use of Ed448 (rather than the more common Ed25519) was notable—security re
 - The backdoor was only activated in specific build environments
 - Typical users building from source code would not be affected
 - The code modified function pointers at runtime rather than containing suspicious string patterns
+
+!!! quote "Filippo Valsorda, Security Researcher"
+
+    "This might be the best executed supply chain attack we've seen described in the open, and it's a nightmare scenario: malicious, competent, authorized upstream in a widely used library."
 
 As [security researcher Filippo Valsorda noted][valsorda-analysis]: "This might be the best executed supply chain attack we've seen described in the open, and it's a nightmare scenario: malicious, competent, authorized upstream in a widely used library."
 

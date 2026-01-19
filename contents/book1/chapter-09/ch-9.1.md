@@ -2,6 +2,10 @@
 
 Mobile applications operate in a supply chain environment distinct from server-side or desktop software. The iOS and Android platforms impose unique constraints: sandboxed execution, platform-controlled distribution, mandatory review processes, and proprietary SDKs. These constraints provide some security benefits—app store review catches certain threats—but they also create blind spots. Mobile developers integrate dozens of third-party SDKs for analytics, advertising, authentication, and other functionality, often with limited visibility into what these components actually do.
 
+!!! warning "Hidden Dependencies"
+
+    Mobile SDKs often operate as black boxes, with limited visibility into their behavior. A crash reporting SDK might depend on networking libraries, serialization frameworks, and other components—each a potential vulnerability source. Enterprise security teams commonly discover hundreds of transitive dependencies from seemingly simple SDK integrations.
+
 Understanding mobile supply chain risks requires examining both the dependency management systems that mirror server-side ecosystems and the mobile-specific elements—SDKs, platform APIs, and distribution channels—that create unique attack surfaces.
 
 ## iOS Supply Chain Architecture
@@ -62,11 +66,19 @@ Android's more open ecosystem creates additional attack surfaces:
 
 Both platforms share a critical supply chain element: **Software Development Kits (SDKs)** that provide ready-made functionality. Research consistently shows that mobile apps integrate numerous SDKs:[^appfigures-sdks]
 
+!!! note inline end "SDK Scale"
+
+    Average iOS apps include **26 SDKs**, Android apps approximately **18 SDKs**, and popular apps often exceed **40 integrated SDKs**.
+
 - A 2023 study by Appfigures found the average iOS app includes **26 SDKs**
 - Average Android apps include approximately **18 SDKs**
 - Popular apps from major publishers often exceed **40 integrated SDKs**
 
 [^appfigures-sdks]: Appfigures, "Average App Has 26 SDKs," 2023, https://appfigures.com/resources/insights/20230203
+
+!!! tip "SDK Due Diligence"
+
+    Before integrating any SDK: audit data collection practices, use network monitoring during development to observe unexpected connections, and maintain an inventory of all integrated SDKs with their permissions and purposes.
 
 **Common SDK Categories:**
 
@@ -93,6 +105,10 @@ SDKs themselves have dependencies, creating supply chains within supply chains. 
 ## Case Study: XcodeGhost (2015)
 
 **XcodeGhost** remains the most significant iOS supply chain attack documented, demonstrating how attackers can compromise the development toolchain itself.
+
+!!! danger "Toolchain Attacks"
+
+    XcodeGhost infected over 4,000 apps including WeChat—attackers targeted the IDE itself, infecting every app built with it. App Store review did not detect the malicious code.
 
 **What Happened:**
 

@@ -4,6 +4,15 @@ Behind every open source package is a human being. Sometimes it is a team of hum
 
 ## Who Maintains Open Source Software?
 
+!!! note "Who Maintains Your Dependencies?"
+
+    - **60%** of maintainers describe themselves as unpaid hobbyists
+    - Only **26%** are paid for some or all of their maintenance work
+    - **65%** have more than 16 years of programming experience
+    - **91%** of open source contributors identify as male
+    
+    Source: Tidelift 2023 & GitHub surveys
+
 The popular image of open source development—vibrant communities collaborating to build software—obscures a more precarious reality. According to [Tidelift's 2023 State of the Open Source Maintainer report][tidelift-2023], 60% of maintainers describe themselves as unpaid hobbyists. Only 26% are paid for some or all of their maintenance work. The majority maintain projects in their spare time, alongside full-time employment in unrelated roles.
 
 The demographics skew heavily: GitHub's 2023 survey found that 91% of open source contributors identify as male, and participation is concentrated in North America and Europe. Maintainers tend to be experienced developers—the same Tidelift survey found that 65% have more than 16 years of programming experience—who built tools to solve their own problems and shared them publicly.
@@ -19,6 +28,10 @@ The gap between what maintainers provide and what they receive has reached crisi
 The [2024 Tidelift survey][tidelift-2024] found that 60% of maintainers have quit or considered quitting their maintainer role. The primary reasons cited were lack of financial compensation (44%), lack of time (42%), and burnout or stress (36%). These factors compound: maintainers who aren't paid must fit maintenance into limited free time, creating stress that leads to burnout.
 
 Nadia Eghbal, in her influential book *Working in Public: The Making and Maintenance of Open Source Software*, documented how the nature of maintenance has changed. Early open source projects often had active contributor communities who shared maintenance burden. Today's popular packages more often have passive user bases: millions of downloads, but contributions come from a tiny fraction of users. The maintainer becomes less a community organizer and more a service provider—expected to respond to issues, fix bugs, and support users, but without the distributed effort that early open source advocates imagined.
+
+!!! quote "Henry Zhu, Babel Maintainer"
+
+    "Being a core maintainer is interesting: people tend to look to you for help even though you usually feel like you don't know what's going on. There are plenty of technical challenges but because it's important to think more long term, a lot of it is around the sustainability of not really the project but the people behind it (regarding overwork, funding, burnout)."
 
 > "Being a core maintainer is interesting: people tend to look to you for help even though you usually feel like you don't know what's going on. There are plenty of technical challenges but because it's important to think more long term, a lot of it is around the sustainability of not really the project but the people behind it (regarding overwork, funding, burnout)."
 > — [Henry Zhu][henry-zhu], Babel maintainer
@@ -50,6 +63,10 @@ The joint statement represents a watershed moment: the organizations responsible
 
 ## The Bus Factor
 
+!!! danger "The Bus Factor Problem"
+
+    The **bus factor** measures how many team members would need to be incapacitated before a project could no longer be maintained. Census II found that among the most critical packages, many had only **one or two developers** responsible for 90%+ of commits—packages with hundreds of millions of downstream dependents.
+
 The **bus factor** (sometimes called the "truck factor" or, more positively, the "lottery factor") measures how many team members would need to be incapacitated before a project could no longer be maintained. A bus factor of one means a single person's departure would leave the project unmaintained.
 
 The [Linux Foundation's Census II study][census-ii], analyzing the most widely deployed open source components, found alarming concentration of maintenance responsibility. The study found that among the most critical packages, many had only one or two developers responsible for 90% or more of commits. For example, the study identified packages with hundreds of millions of downstream dependents where a single developer accounted for the vast majority of commits over the preceding year.
@@ -74,6 +91,10 @@ Pushkarev's post included pointed observations about the sustainability of open 
 The response to Pushkarev's appeal was mixed. Some donations increased. Some users complained about the npm installation messages he added soliciting support. Few of the large companies depending on core-js established meaningful sponsorship. The project continues, maintained largely by one person whose life circumstances have been extraordinarily difficult, with minimal institutional support for work that underpins the modern web.
 
 ## Case Study: XZ Utils and the Social Engineering of Burnout
+
+!!! danger "Weaponizing Maintainer Burnout"
+
+    The XZ Utils compromise demonstrated how attackers exploit maintainer exhaustion. Sock puppet accounts pressured the overwhelmed maintainer for faster updates while a patient attacker spent two years building trust through helpful contributions. When granted co-maintainer access, the attacker introduced a sophisticated backdoor.
 
 The XZ Utils compromise of 2024 demonstrated how attackers can exploit maintainer exhaustion. XZ Utils is a compression library included in essentially every Linux distribution. Its maintainer, Lasse Collin, had maintained the project for years as a solo effort alongside other responsibilities.
 

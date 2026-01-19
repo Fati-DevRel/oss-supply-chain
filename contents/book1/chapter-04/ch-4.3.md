@@ -2,6 +2,10 @@
 
 Threat modeling produces long lists of potential threats. With hundreds or thousands of dependencies, each subject to multiple threat categories, the output can be overwhelming. Practical security requires prioritization—focusing limited resources on the dependencies whose compromise would cause the greatest harm. This section provides frameworks for identifying which dependencies matter most, enabling risk-based investment rather than attempting to apply equal scrutiny everywhere.
 
+!!! info inline end "Crown Jewels"
+
+    An organization's most valuable assets—systems, data, and capabilities that must be protected above all else.
+
 The term **crown jewels** in security typically refers to an organization's most valuable assets: the systems, data, and capabilities that must be protected above all else. In supply chain contexts, we extend this concept to dependencies: which external components, if compromised, would cause the greatest damage to your organization? Identifying these critical dependencies enables targeted security investment where it matters most.
 
 ## Criticality Assessment Criteria
@@ -44,7 +48,9 @@ Map your dependencies to execution contexts:
 
 ## Single Points of Failure
 
-A **single point of failure (SPOF)** is a component whose failure causes system-wide impact. In dependency graphs, SPOFs are packages that sit on critical paths with no alternatives—if they fail or are compromised, your application cannot function.
+!!! danger "Single Point of Failure (SPOF)"
+
+    A component whose failure causes system-wide impact. In dependency graphs, SPOFs are packages that sit on critical paths with no alternatives—if they fail or are compromised, your application cannot function.
 
 Identifying SPOFs requires tracing dependency relationships:
 
@@ -64,11 +70,11 @@ We recommend explicitly documenting SPOFs and evaluating mitigation options: cac
 
 ## Common Mode Failures
 
-**Common mode failures** occur when a single cause produces failures across multiple independent components. In supply chain contexts, common mode failures arise from shared dependencies—packages that appear throughout your dependency graph, creating correlated risk.
+!!! warning "Common Mode Failures"
 
-Consider an organization running five microservices. If each service uses the same vulnerable version of a logging library, a single vulnerability affects all five services simultaneously. The services may have independent deployment pipelines and separate maintainers, but they share a common failure mode through their shared dependency.
+    When a single cause produces failures across multiple independent components. Shared dependencies create correlated vulnerabilities that affect all components simultaneously—undermining the risk diversification that distributed architectures are supposed to provide.
 
-Common mode failure risk is particularly insidious because it undermines the risk diversification that distributed architectures are supposed to provide. Microservices, redundant deployments, and multi-cloud strategies provide resilience against independent failures—but shared dependencies create correlated vulnerabilities that affect all components simultaneously.
+Consider an organization running five microservices. If each service uses the same vulnerable version of a logging library, a single vulnerability affects all five services simultaneously. The services may have independent deployment pipelines and separate maintainers, but they share a common failure mode through their shared dependency. Microservices, redundant deployments, and multi-cloud strategies provide resilience against independent failures—but shared dependencies create correlated vulnerabilities that affect all components simultaneously.
 
 Identifying common mode failure risk requires cross-service analysis:
 

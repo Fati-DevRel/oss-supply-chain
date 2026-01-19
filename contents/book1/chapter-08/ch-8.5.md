@@ -21,6 +21,10 @@ Several CVEs have targeted `.git` directory exposure:
 
 ## Malicious Git Hooks
 
+!!! danger "Git Hooks Execute Automatically"
+
+    Hooks are scripts triggered by Git operations (commit, checkout, merge, push). An attacker who can modify committed hook scripts or git configuration gains code execution on any developer who runs setup or any CI system processing the repository.
+
 **Git hooks** are scripts that execute automatically during Git operations. Standard hooks include:
 
 - `pre-commit`: Runs before committing
@@ -64,6 +68,10 @@ CI/CD systems often run Git operations that trigger hooks. A `post-checkout` hoo
 - Monitor for unexpected configuration changes
 
 ## Submodule Hijacking and Redirection
+
+!!! warning "Submodules Reference External URLs"
+
+    If an attacker controls the URL a submodule points to—through domain expiration, repository deletion, or URL modification—they control what code is fetched when developers or CI systems update submodules.
 
 **Git submodules** embed one repository within another, specified in `.gitmodules` file and `.git/config`. Submodules reference external repositories by URL—creating dependency on external resources.
 

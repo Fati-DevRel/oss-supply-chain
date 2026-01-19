@@ -2,6 +2,10 @@
 
 The previous sections examined supply chains that operate during development and build—npm packages bundled into applications, mobile SDKs compiled into apps. But the web presents a distinct paradigm: JavaScript loaded directly into users' browsers at runtime from external servers. Every time a page loads, browsers fetch scripts from multiple origins, executing code that can access the page's DOM, user data, and in some cases, cryptographic keys or payment information.
 
+!!! danger "Immediate Impact"
+
+    A compromised npm package requires update and deployment cycles before affecting users. A compromised runtime script affects users on the **next page load**—instantly, globally, without any action by site operators.
+
 This **client-side supply chain** operates in real-time, with trust established at the moment of execution rather than during development. A CDN compromise or malicious script injection affects users immediately, without any deployment by the site operator.
 
 ## The Third-Party Script Landscape
@@ -77,6 +81,10 @@ Despite its value, SRI has significant limitations explaining low adoption:
 
 SRI adoption has improved but coverage remains limited according to [HTTP Archive 2024 data][http-archive-security]:
 
+!!! note "SRI Adoption Reality"
+
+    While **21-23% of pages** include some SRI, the median percentage of scripts actually protected per page is only **3.2%**. Dynamic scripts (analytics, tag managers) cannot use SRI.
+
 - Approximately **21-23% of pages** include some form of SRI
 - However, the median percentage of scripts protected per page remains at only **3.2%**
 - Dynamic script-loading patterns bypass SRI protection
@@ -145,6 +153,10 @@ Section 7.8 detailed the Polyfill.io attack, but its relevance to client-side su
 ## Case Study: Ledger Connect Kit Attack (2023)
 
 In December 2023, a [supply chain attack on Ledger's Connect Kit][ledger-attack] JavaScript library demonstrated how client-side compromises can target cryptocurrency assets.
+
+!!! example "Ledger Connect Kit Attack (2023)"
+
+    A phished npm account led to **$600,000+ stolen** in just **5 hours**. The malicious library injected transaction drainers into cryptocurrency applications—CDN caching extended the exposure window even after the fix.
 
 **Background:**
 
@@ -290,6 +302,10 @@ These tools observe script execution in production, detecting suspicious behavio
    ```
 
 3. **Self-host when feasible.** For critical libraries, bundle at build time or host on your own infrastructure rather than trusting external CDNs.
+
+!!! tip "Self-Hosting for Critical Libraries"
+
+    For critical libraries, bundle at build time or host on your own infrastructure. This eliminates continuous trust in external CDNs and enables version verification at deployment.
 
 4. **Implement Content Security Policy.** Even imperfect CSP provides defense-in-depth against unexpected script sources.
 

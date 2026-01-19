@@ -20,7 +20,11 @@ This combination makes build infrastructure extraordinarily attractive to attack
 3. **Pivot to downstream systems**: Use build system access to compromise deployment infrastructure
 4. **Maintain persistence**: Build-time modifications can be repeated with each build, surviving code updates
 
-The leverage is exceptional. Rather than compromising individual developer machines or attempting to sneak malicious commits past code review, an attacker who controls the build system affects every release produced by that system. The SolarWinds attack demonstrated this leverage: by compromising the build process for Orion software, [attackers distributed malicious updates to approximately 18,000 organizations][solarwinds-sec-filing].
+!!! danger "Exceptional Attack Leverage"
+
+    Rather than compromising individual developer machines or attempting to sneak malicious commits past code review, an attacker who controls the build system affects every release produced by that system. The SolarWinds attack distributed malicious updates to approximately 18,000 organizations.
+
+The leverage is exceptional. Rather than compromising individual developer machines or attempting to sneak malicious commits past code review, an attacker who controls the build system affects every release produced by that system.
 
 ## The Gap Between Source and Binary
 
@@ -42,6 +46,10 @@ Each step represents an opportunity for malicious modification. An attacker who 
 - Cannot be detected through source code review
 - May be difficult to discover through binary analysis
 - Appears legitimate because it carries official signatures
+
+!!! warning "Phantom Dependencies"
+
+    Dependencies introduced during the build process that do not appear in declared dependency manifests. A malicious build script might install packages that execute code during the build but never appear in `package.json` or lockfiles that developers review.
 
 **Phantom dependencies** exemplify this risk. These are dependencies introduced during the build process that do not appear in declared dependency manifests. A malicious build script might:
 
@@ -85,7 +93,11 @@ Ken Thompson's classic paper ["Reflections on Trusting Trust"][thompson-trust] d
 
 ## Build Reproducibility and Security
 
-**Reproducible builds** address the source-to-binary gap by ensuring that anyone can independently verify that a binary was produced from its claimed source code. If builds are reproducible, verification becomes possible: rebuild from source and compare the result to the distributed binary.
+!!! info "Reproducible Builds"
+
+    Reproducible builds ensure anyone can independently verify that a binary was produced from its claimed source code. If builds are reproducible, rebuild from source and compare the result to the distributed binary.
+
+**Reproducible builds** address the source-to-binary gap by ensuring that anyone can independently verify that a binary was produced from its claimed source code.
 
 The concept is straightforward; implementation is challenging:
 

@@ -17,7 +17,9 @@ The scale of Log4j deployment is difficult to overstate. At the time of disclosu
 - Critical infrastructure systems across government, healthcare, finance, and utilities
 - Embedded systems, IoT devices, and industrial control systems
 
-A [Google analysis][google-analysis] of Maven Central found that over 35,000 Java packages had direct or transitive dependencies on Log4j, and the library's ubiquity meant that the vulnerability had the potential to impact hundreds of millions of devices around the world.
+!!! note "The Scale of Log4j Deployment"
+
+    A Google analysis of Maven Central found over 35,000 Java packages had direct or transitive dependencies on Log4j, with potential to impact hundreds of millions of devices worldwide.
 
 This ubiquity derived from exactly the dynamic described throughout this book: developers choose useful libraries that become dependencies of other libraries that become dependencies of applications, creating transitive dependency chains that spread components throughout the ecosystem.
 
@@ -40,7 +42,9 @@ This proved trivially easy to exploit. Applications commonly log user-controlled
 
 Within hours of disclosure, security researchers observed widespread scanning for vulnerable systems. The barrier to exploitation was so low that automated attacks began almost immediately.
 
-> "This vulnerability is one of the most serious that I’ve seen in my entire career, if not the most serious," said [CISA Director Jen Easterly in CNN interview on December 13, 2021][easterly-quote]. "We expect the vulnerability to be widely exploited by sophisticated actors and we have limited time to take necessary steps in order to reduce the likelihood of damaging incidents."
+!!! danger "CISA Director's Assessment"
+
+    "This vulnerability is one of the most serious that I've seen in my entire career, if not the most serious. We expect the vulnerability to be widely exploited by sophisticated actors and we have limited time to take necessary steps." — Jen Easterly, CISA Director
 
 ## Discovery and Disclosure Timeline
 
@@ -78,7 +82,11 @@ The Log4Shell response revealed the state of vulnerability management across the
 
 **Transitive dependencies complicated discovery.** Applications might use Spring Boot, which uses Spring Framework, which uses something that uses Log4j—without Log4j appearing in the application's direct dependencies. Standard software composition analysis (SCA) tools could miss these chains. Organizations had to scan compiled applications, not just dependency manifests.
 
-**The shaded JAR problem created detection blind spots.** Java applications often repackage dependencies inside their own JAR files—a practice called "shading" or "fat JAR" creation. Shading is like photocopying pages from a library book, changing the chapter titles, and binding them into your own book. The content is identical, but someone searching the library catalog for that book won't find your copy. When Log4j was shaded into another library, it might not appear with its original name or package structure. Standard vulnerability scanners that looked for `log4j-core.jar` would miss shaded copies. Some tools reported "not affected" while the vulnerability was actually present.
+!!! warning "The Shaded JAR Problem"
+
+    Shading is like photocopying pages from a library book, changing the chapter titles, and binding them into your own book. Standard vulnerability scanners that looked for `log4j-core.jar` would miss shaded copies. Some tools reported "not affected" while the vulnerability was actually present.
+
+**The shaded JAR problem created detection blind spots.** Java applications often repackage dependencies inside their own JAR files—a practice called "shading" or "fat JAR" creation. When Log4j was shaded into another library, it might not appear with its original name or package structure.
 
 **Vendor opacity added complexity.** Commercial products include dependencies without disclosing their composition. Customers had to wait for vendor advisories to learn whether purchased software was affected. Some vendors took days or weeks to issue statements. Others provided incomplete information. The absence of Software Bills of Materials (SBOMs) meant organizations could not independently assess vendor product risk.
 

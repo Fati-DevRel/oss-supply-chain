@@ -6,6 +6,10 @@ This attack represents a fundamental shift in supply chain threats. Traditional 
 
 ## Definition and Origin
 
+!!! info "Slopsquatting Defined"
+
+    "Slopsquatting—when an LLM hallucinates a non-existent package name, and a bad actor registers it maliciously. The AI brother of typosquatting." — Andrew Nesbitt
+
 The term **slopsquatting** combines "slop"—internet slang for low-quality AI-generated content—with "squatting," the practice of claiming valuable names for malicious purposes. The term emerged from a conversation between Seth Larson, the Python Software Foundation's Security Developer-in-Residence, and Andrew Nesbitt, creator of Ecosyste.ms. [Nesbitt popularized the term on Mastodon in April 2025][nesbitt-slopsquatting], defining it as:
 
 > "Slopsquatting—when an LLM hallucinates a non-existent package name, and a bad actor registers it maliciously. The AI brother of typosquatting."
@@ -36,6 +40,10 @@ Several factors contribute to hallucination:
 - **Frequency bias**: Common words and patterns in training data influence generation even when they produce non-existent combinations
 
 ## Research Findings: The Scale of the Problem
+
+!!! note "AI Hallucination Rates"
+
+    Research found commercial AI models hallucinated packages in ~5.2% of code samples, while open-source models reached 21.7%. Of hallucinated names, 58% were repeated more than once across 10 runs, with 43% appearing every time.
 
 Academic research has begun quantifying the slopsquatting risk. A [study by Spracklen et al.][spracklen-study] titled "We Have a Package for You!" systematically tested AI models' tendency to hallucinate package names.
 
@@ -98,6 +106,10 @@ Typosquatting exploits the gap between what a developer intends to type and what
 The distinction matters for defense. Typosquatting detection focuses on edit distance from known legitimate packages. Slopsquatting involves names that are not close to any existing package—they are novel inventions by the AI. Traditional typosquatting detection will not catch them.
 
 ## Vibe Coding and Reduced Verification
+
+!!! warning "Vibe Coding Reduces Verification"
+
+    Research found developers using AI assistants were significantly less likely to verify packages than developers working without AI assistance. The convenience that makes AI assistants valuable also reduces the friction that previously served as a security check.
 
 The slopsquatting risk is amplified by changing developer practices around AI-generated code. The phenomenon of **"vibe coding"**—accepting AI-generated code with minimal review because it "vibes" correctly—reduces the verification that might catch non-existent packages.
 

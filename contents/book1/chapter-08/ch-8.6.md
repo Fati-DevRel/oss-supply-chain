@@ -4,6 +4,10 @@ Security researchers play a vital role in open source security, identifying vuln
 
 This attack vector weaponizes the urgency and authority that legitimate security reports carry. Maintainers, already stretched thin, face pressure to act quickly on potential vulnerabilities. That pressure creates opportunity for manipulation.
 
+!!! danger "Weaponizing Security Reports"
+
+    Attackers pose as security researchers to pressure maintainers into merging malicious "fixes" that introduce vulnerabilities rather than remediate them. The urgency and authority of legitimate security reports create opportunity for manipulation.
+
 ## The Rise of Fake Vulnerability Reports
 
 [Beginning around 2021][fake-researchers], security researchers and maintainers began documenting campaigns of fake security reports targeting open source projects. These campaigns share common characteristics:
@@ -110,6 +114,13 @@ Legitimate security researchers also apply some pressure—they have genuine con
 - Have verifiable track records
 
 ## Vetting Researchers and Validating Reports
+
+!!! tip "Verifying Security Reports"
+
+    1. Check the sender's history for legitimate prior disclosures
+    2. Verify claimed affiliations through official channels
+    3. Legitimate researchers provide reasonable timelines (typically 90 days)
+    4. They engage in technical dialogue and accept that verification takes time
 
 Maintainers receiving security reports must balance speed with verification:
 

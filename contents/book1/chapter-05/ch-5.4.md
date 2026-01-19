@@ -6,6 +6,10 @@ Understanding why the patching gap exists is the first step toward closing it. F
 
 ## The Scale of the Problem
 
+!!! note "The Attacker Advantage"
+
+    Qualys TruRisk Research found attackers weaponize vulnerabilities in an average of 19.5 days, while organizations patch in 30.6 days—an 11-day gap of continuous exposure. Web applications average 74.3 days to patch.
+
 Research consistently shows that patching takes longer than security teams would like and policy often demands:
 
 The **[Kenna Security/Cyentia Institute Prioritization to Prediction research][kenna-p2p]** on vulnerability remediation found that organizations typically remediate only about 10% of their vulnerabilities in any given month. Their analysis of 3.6 billion vulnerability observations across hundreds of organizations showed that this ratio remains remarkably constant regardless of organization size—every tenfold increase in open vulnerabilities is met with a roughly tenfold increase in closed vulnerabilities. High-severity vulnerabilities receive faster attention, but even critical CVEs have a median remediation time measured in weeks, not days.
@@ -49,9 +53,11 @@ Technical challenges are often compounded by organizational dynamics:
 
 ## The Transitive Dependency Challenge
 
-Supply chain dependencies create patching challenges that go beyond what organizations face with their own code:
+!!! danger "You Cannot Patch What You Do Not Control"
 
-**You cannot patch what you do not control.** When a vulnerability exists in a transitive dependency—a package your direct dependency depends on—you cannot simply update it. You must wait for your direct dependency to update its dependency, then update your dependency, then update your application. This chain can introduce significant delays.
+    When a vulnerability exists in a transitive dependency, you must wait for your direct dependency to update its dependency, then update your dependency, then update your application. Each step introduces delay. If any maintainer is slow, unresponsive, or has abandoned their project, the chain breaks.
+
+Supply chain dependencies create patching challenges that go beyond what organizations face with their own code:
 
 Consider a concrete scenario: A critical vulnerability is disclosed in a utility library. Your application uses Framework A, which uses Library B, which uses the vulnerable utility. The fix propagates as follows:
 
@@ -93,7 +99,11 @@ We recommend treating the "not exploitable" determination as risk acceptance req
 
 Organizations can reduce their patching gap through deliberate process and tooling investments:
 
-**Automated dependency updates** fundamentally change patching dynamics. Tools like **Dependabot**, **Renovate**, and **Snyk** automatically open pull requests when dependency updates are available. This shifts the burden from actively monitoring for updates to reviewing and merging proposed changes—a more tractable task.
+!!! tip "Automated Dependency Updates"
+
+    Tools like **Dependabot**, **Renovate**, and **Snyk** shift the burden from actively monitoring for updates to reviewing and merging proposed changes. Configure auto-merge for patch-level updates, require human review for major versions, and prioritize security updates.
+
+**Automated dependency updates** fundamentally change patching dynamics.
 
 Configuration options allow tuning automation to organizational risk tolerance:
 

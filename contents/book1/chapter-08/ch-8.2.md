@@ -6,6 +6,10 @@ The XZ Utils backdoor (Section 7.5) demonstrated this approach at its most sophi
 
 ## The Challenge: Detecting Malice in Code
 
+!!! warning "Code Review Was Not Designed as a Security Control"
+
+    Intent is invisible. Context is limited. Time is finite. Expertise varies. Trust accumulates and can be exploited. A subtle bug and a deliberately planted vulnerability may look identical.
+
 Code review is designed to catch bugs, improve quality, and maintain consistency. It was not designed as a security control, and treating it as one reveals significant limitations.
 
 A reviewer examining a pull request faces fundamental challenges:
@@ -46,7 +50,11 @@ Unicode provides multiple characters that appear identical to ASCII equivalents.
 - Zero-width characters that are invisible but affect parsing
 - Right-to-left override characters that reverse displayed text order
 
-[Research by Cambridge University in 2021][trojan-source] demonstrated "Trojan Source" attacks using bidirectional text override characters to create code that appears benign when displayed but executes differently. A code comment could visually mask an actual code statement.
+!!! info "Trojan Source Attacks"
+
+    Research by Cambridge University (2021) demonstrated attacks using bidirectional text override characters to create code that appears benign when displayed but executes differently. A code comment could visually mask an actual code statement.
+
+[Research by Cambridge University in 2021][trojan-source] demonstrated "Trojan Source" attacks using bidirectional text override characters to create code that appears benign when displayed but executes differently.
 
 **Large Changeset Hiding:**
 
@@ -88,8 +96,9 @@ The researchers reported that some patches containing vulnerabilities were initi
 
 When the research became public, the Linux kernel community reacted strongly:
 
-> "Our community does not appreciate being experimented on, and being 'tested' by submitting known-bad patches to see if we catch them."
-> — [Greg Kroah-Hartman][kroah-hartman-response], Linux kernel maintainer
+!!! quote "Greg Kroah-Hartman, Linux Kernel Maintainer"
+
+    "Our community does not appreciate being experimented on, and being 'tested' by submitting known-bad patches to see if we catch them."
 
 The Linux kernel maintainers:
 

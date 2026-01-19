@@ -4,6 +4,15 @@ The previous sections have focused on software dependencies—the packages, libr
 
 ## DNS: The Foundation Beneath the Foundation
 
+!!! danger "DNS: The Hidden Foundation"
+
+    Every `npm install` or `pip install` depends on DNS resolution. DNS compromise enables:
+    
+    - **DNS hijacking**: Redirect traffic to attacker-controlled servers
+    - **Cache poisoning**: Insert malicious records affecting all resolver users
+    - **Registrar compromise**: Control authoritative DNS records via social engineering
+    - **Availability attacks**: DDoS against DNS prevents all package installations
+
 The **Domain Name System (DNS)** translates human-readable domain names into IP addresses that computers use to communicate. Every time a developer runs `npm install` or `pip install`, DNS resolution determines which servers receive those requests. This makes DNS a critical, largely invisible supply chain dependency.
 
 DNS compromise enables powerful attacks:
@@ -37,6 +46,10 @@ The concentration of supply chain infrastructure in a small number of cloud prov
 **Content Delivery Networks (CDNs)** distribute static assets—JavaScript files, fonts, images—from servers geographically close to users. Many websites load JavaScript libraries directly from CDNs rather than bundling them locally. This creates a supply chain dependency where the CDN becomes a trust point: compromise of the CDN enables modifying assets served to website visitors.
 
 The **Polyfill.io incident** (June 2024) demonstrated CDN supply chain risk vividly and deserves detailed examination as a case study in third-party JavaScript risks.
+
+!!! danger "Case Study: Polyfill.io (2024)"
+
+    After a Chinese company acquired the polyfill.io domain, they modified JavaScript to redirect mobile users to betting/adult sites. Over **380,000 websites** were affected, including 182 government sites and properties from Warner Bros., Hulu, Mercedes-Benz, and the World Economic Forum. Site operators had delegated trust by including `<script src="https://cdn.polyfill.io/...">`—with no control over what code that URL would serve in the future.
 
 **Background**: Polyfill.io was a popular CDN service providing JavaScript polyfills—code that implements modern JavaScript features in older browsers. The service was created in 2014 by the Financial Times as an open source project to help developers support older browsers without bundling unnecessary code for modern browsers. The service dynamically detected browser capabilities and served only the polyfills needed, making it an elegant solution adopted by hundreds of thousands of websites.
 
@@ -117,6 +130,13 @@ Modern software depends on a complex web of infrastructure services that develop
 Each infrastructure component represents a supply chain dependency. Comprehensive supply chain security requires considering these infrastructure dependencies alongside the more visible software dependencies.
 
 ## Implications for Security Strategy
+
+!!! tip "Securing Infrastructure Dependencies"
+
+    1. **Identify infrastructure dependencies**: Map DNS, cloud platforms, CDNs, CAs
+    2. **Reduce unnecessary dependencies**: Self-host where practical; bundle assets
+    3. **Implement integrity verification**: Use Subresource Integrity; verify signatures
+    4. **Plan for failure**: Caching, fallback mechanisms, incident response plans
 
 Infrastructure dependencies create supply chain risks that traditional software composition analysis does not address. Effective security strategy must consider:
 

@@ -2,6 +2,10 @@
 
 Serverless architectures abstract away infrastructure management, allowing developers to focus on code rather than servers. AWS Lambda, Azure Functions, Google Cloud Functions, and similar platforms manage the underlying compute, scaling, and runtime environments. This abstraction provides operational benefits—but it also creates unique supply chain considerations. Dependencies exist not only in your code but in shared layers, managed runtimes, and platform-provided components that you don't directly control.
 
+!!! info "Hidden Dependencies"
+
+    Serverless supply chains include dependencies you didn't explicitly add: managed runtimes, system libraries, pre-installed SDKs, and shared layers. All execute with your function's IAM permissions.
+
 Understanding serverless supply chains requires examining both the traditional dependencies you bundle with your code and the platform-provided components that execute invisibly.
 
 ## Lambda Layers and Shared Code Risks
@@ -56,6 +60,10 @@ Serverless functions experience **cold starts**—initialization periods when th
 - Import statements that trigger module initialization
 - Global variable assignment
 - Connection establishment
+
+!!! danger "Cold Start Vulnerability"
+
+    A malicious dependency that runs code on import executes during cold starts—before your handler runs. Environment variables (including secrets) are accessible. Cold starts happen infrequently, making detection through handler monitoring difficult.
 
 A malicious dependency that runs code on import can execute during cold starts, potentially:
 
@@ -126,6 +134,10 @@ When a Lambda execution environment terminates:
 - Process state is gone
 - Only logs and explicitly-stored data persist
 
+!!! warning "Forensics Challenges"
+
+    Serverless environments are ephemeral—no disk forensics, no memory analysis, no process trees to examine post-facto. Logs are your primary evidence. Enable comprehensive logging **before** incidents occur.
+
 If a malicious dependency executed during an invocation, evidence may exist only in CloudWatch Logs (if the function logged relevant information) and external destinations (if the attacker exfiltrated data to visible endpoints).
 
 **Detection Challenges:**
@@ -166,6 +178,10 @@ A compromised dependency executing in a Lambda function operates with that funct
 - Potentially administrative capabilities
 
 **Common Anti-Patterns:**
+
+!!! tip "Least Privilege is Critical"
+
+    A compromised dependency executes with your function's IAM permissions. One role per function, no wildcards, no admin roles for convenience. Regular permission audits should be part of serverless security hygiene.
 
 - **Reused roles**: Multiple functions sharing one IAM role with combined permissions
 - **Wildcard permissions**: `"Resource": "*"` granting access to all resources of a type
