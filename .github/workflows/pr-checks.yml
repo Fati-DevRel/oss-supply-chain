@@ -29,6 +29,7 @@ jobs:
         env:
           BASE_REF: ${{ github.base_ref }}
         run: |
+          BASE_REF="${BASE_REF:-main}"
           # Validate BASE_REF contains only safe characters (alphanumeric, dash, underscore, slash, dot)
           if [[ ! "$BASE_REF" =~ ^[a-zA-Z0-9/_.-]+$ ]]; then
             echo "::error::Invalid base_ref detected"
