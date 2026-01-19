@@ -12,12 +12,13 @@ In 1984, Ken Thompson delivered his Turing Award lecture, "Reflections on Trusti
 
 ## Implicit Trust in Direct Dependencies
 
-When a developer adds a dependency to their project, they are making a trust decision, whether they recognize it or not. Consider what happens when you add a popular package to a JavaScript project by running `npm install lodash`. In that moment, you are trusting:
+When a developer adds a dependency to their project, they are making a trust decision, whether they recognize it or not. Consider what happens when you add a popular package to a JavaScript project by running `npm install <package>`. In that moment, you are trusting:
 
-- The maintainers of Lodash have not inserted malicious code
+- The maintainers of the package have not inserted malicious code
 - The maintainers' accounts have not been compromised
 - The npm registry correctly delivered the package the maintainers published
 - The package you received matches what the maintainers intended to release
+- You didn't accidentally mistype the package name
 - The build process that created the package was not compromised
 - No one tampered with the package during transit to your machine
 
@@ -25,7 +26,7 @@ For a well-known package like Lodash, most developers make this trust decision i
 
 The event-stream incident of 2018 demonstrated exactly this failure mode.[^event-stream] Event-stream was a popular npm package with approximately two million weekly downloads. Its original maintainer, Dominic Tarr, had lost interest in the project and transferred maintenance to a new contributor who had been helpful and responsive. That new maintainer then added a dependency on a malicious package called `flatmap-stream`, which contained code designed to steal cryptocurrency from applications using the Copay Bitcoin wallet. The attack succeeded precisely because the implicit trust in a popular package was exploited: users trusted event-stream, so they trusted its new dependency, which they had never evaluated.
 
-[^event-stream]: npm, "Details about the event-stream incident," npm Blog, November 27, 2018, https://blog.npmjs.org/post/180565383195/details-about-the-event-stream-incident
+[^event-stream]: npm, "Details about the event-stream incident," npm Blog, November 27, 2018, <https://blog.npmjs.org/post/180565383195/details-about-the-event-stream-incident>
 
 ## The Multiplication of Transitive Trust
 
@@ -93,7 +94,7 @@ Proportionate trust means calibrating verification effort to risk. Components wi
 
 The chapters that follow will explore how these principles translate into practice—how to model threats to trust relationships, how to evaluate dependencies, how to build systems that verify rather than assume. But the foundation is recognizing what Thompson articulated forty years ago: every act of using software someone else created is an act of trust, and that trust shapes everything that follows.
 
-[^thompson-1984]: Ken Thompson, "Reflections on Trusting Trust," *Communications of the ACM*, Vol. 27, No. 8 (August 1984), pp. 761-763. https://dl.acm.org/doi/10.1145/358198.358210
-[^codecov-2021]: Codecov, "Bash Uploader Security Update" (April 15, 2021). The compromise began January 31, 2021 and was detected April 1, 2021. https://about.codecov.io/security-update/
+[^thompson-1984]: Ken Thompson, "Reflections on Trusting Trust," *Communications of the ACM*, Vol. 27, No. 8 (August 1984), pp. 761-763. <https://dl.acm.org/doi/10.1145/358198.358210>
+[^codecov-2021]: Codecov, "Bash Uploader Security Update" (April 15, 2021). The compromise began January 31, 2021 and was detected April 1, 2021. <https://about.codecov.io/security-update/>
 
 ![Three types of trust anchors for defense in depth: identity, infrastructure, and process-based](img/ch-1-trust-anchors.svg)

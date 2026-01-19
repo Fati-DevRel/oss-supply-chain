@@ -80,16 +80,17 @@ Organizations can no longer treat supply chain security as a specialized concern
 
 The chapters that follow provide the framework for responding to this urgency: understanding the threat landscape, implementing defensive controls, building organizational capability, and engaging with the broader ecosystem of standards, regulations, and collective defense. The time for treating supply chain security as a future concern has passed.
 
-[^solarwinds-cisa]: CISA, "Supply Chain Compromise" (SolarWinds / SUNBURST), Alert AA21-008A. https://www.cisa.gov/news-events/cybersecurity-advisories/aa21-008a
-[^log4shell-apache]: Apache Software Foundation, CVE-2021-44228 (Log4Shell) security page. https://logging.apache.org/security.html
-[^easterly-quote]: Jen Easterly, CISA Director, quoted in CNBC interview (December 16, 2021): "the most serious vulnerability I have seen in my decades-long career." https://www.cnbc.com/video/2021/12/16/log4j-vulnerability-the-most-serious-ive-seen-in-my-decades-long-career-says-cisa-director.html
-[^xz-oss-security]: oss-security mailing list, "backdoor in upstream xz/liblzma leading to ssh server compromise" (2024-03-29). https://www.openwall.com/lists/oss-security/2024/03/29/4
-[^eo-14028]: The White House, Executive Order 14028 (May 12, 2021). https://bidenwhitehouse.archives.gov/briefing-room/presidential-actions/2021/05/12/executive-order-on-improving-the-nations-cybersecurity/
-[^omb-m-22-18]: OMB Memorandum M-22-18, *Enhancing the Security of the Software Supply Chain through Secure Software Development Practices* (Sept 14, 2022). https://www.whitehouse.gov/wp-content/uploads/2022/09/M-22-18.pdf
-[^omb-m-23-16]: OMB Memorandum M-23-16, *Update to Memorandum M-22-18: Enhancing the Security of the Software Supply Chain through Secure Software Development Practices* (June 9, 2023). https://www.gsa.gov/system/files/M-23-16-Update-to-M-22-18-Enhancing-Software-Security.pdf
-[^circia]: CISA, Cyber Incident Reporting for Critical Infrastructure Act of 2022 (CIRCIA). https://www.cisa.gov/topics/cyber-threats-and-advisories/information-sharing/cyber-incident-reporting-critical-infrastructure-act-2022-circia
-[^eu-cra]: Regulation (EU) 2024/2847 (Cyber Resilience Act), Official Journal of the European Union. https://eur-lex.europa.eu/eli/reg/2024/2847/oj
-[^sonatype-2024]: Sonatype, *2024 State of the Software Supply Chain Report* (October 2024). https://www.sonatype.com/state-of-the-software-supply-chain/introduction
+[^solarwinds-cisa]: CISA, "Supply Chain Compromise" (SolarWinds / SUNBURST), Alert AA21-008A. <https://www.cisa.gov/news-events/cybersecurity-advisories/aa21-008a>
+[^log4shell-apache]: Apache Software Foundation, CVE-2021-44228 (Log4Shell) security page. <https://logging.apache.org/security.html>
+[^easterly-quote]: Jen Easterly, CISA Director, quoted in CNBC interview (December 16, 2021): "the most serious vulnerability I have seen in my decades-long career." <https://www.cnbc.com/video/2021/12/16/log4j-vulnerability-the-most-serious-ive-seen-in-my-decades-long-career-says-cisa-director.html>
+[^xz-oss-security]: oss-security mailing list, "backdoor in upstream xz/liblzma leading to ssh server compromise" (2024-03-29). <https://www.openwall.com/lists/oss-security/2024/03/29/4>
+[^eo-14028]: The White House, Executive Order 14028 (May 12, 2021). <https://bidenwhitehouse.archives.gov/briefing-room/presidential-actions/2021/05/12/executive-order-on-improving-the-nations-cybersecurity/>
+[^omb-m-22-18]: OMB Memorandum M-22-18, *Enhancing the Security of the Software Supply Chain through Secure Software Development Practices* (Sept 14, 2022). <https://www.whitehouse.gov/wp-content/uploads/2022/09/M-22-18.pdf>
+[^omb-m-23-16]: OMB Memorandum M-23-16, *Update to Memorandum M-22-18: Enhancing the Security of the Software Supply Chain through Secure Software Development Practices* (June 9, 2023). <https://www.gsa.gov/system/files/M-23-16-Update-to-M-22-18-Enhancing-Software-Security.pdf>
+[^circia]: CISA, Cyber Incident Reporting for Critical Infrastructure Act of 2022 (CIRCIA). <https://www.cisa.gov/topics/cyber-threats-and-advisories/information-sharing/cyber-incident-reporting-critical-infrastructure-act-2022-circia>
+[^eu-cra]: Regulation (EU) 2024/2847 (Cyber Resilience Act), Official Journal of the European Union. <https://eur-lex.europa.eu/eli/reg/2024/2847/oj>
+[^sonatype-2024]: Sonatype, *2024 State of the Software Supply Chain Report* (October 2024). <https://www.sonatype.com/state-of-the-software-supply-chain/introduction>
+
 ![Three landmark incidents that elevated supply chain security to board-level priority](img/ch-1-landmark-incidents.svg)
 
 ![Exponential growth in malicious package discoveries demonstrates supply chain attacks are a volume problem](img/ch-1-malicious-package-growth.svg)
