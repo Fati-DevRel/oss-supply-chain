@@ -1,0 +1,313 @@
+name: Main Branch Validation
+
+on:
+  schedule:
+    # Run every Monday at 9:00 AM UTC
+    - cron: '0 9 * * 1'
+  workflow_dispatch:
+
+jobs:
+  # Markdown linting on all content files
+  markdown-lint:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        with:
+          persist-credentials: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af # v4.1.0
+        with:
+          node-version: '20'
+
+      - name: Install markdownlint-cli2 and mkdocs-material-linter
+        run: npm install -g markdownlint-cli2 mkdocs-material-linter
+
+      - name: Run markdownlint on all content files
+        run: |
+          markdownlint-cli2 --config .github/workflows/.markdownlint-cli2.jsonc "contents/**/*.md"
+
+  # Spell checking on all content files
+  spell-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        with:
+          persist-credentials: false
+
+      - name: Run cspell on all content files
+        uses: streetsidesoftware/cspell-action@24fa8d3096a314ce263f39578744e9d9f8d80acf # v8.1.2
+        with:
+          files: "contents/**/*.md"
+          config: .github/workflows/cspell.json
+          inline: warning
+          strict: false
+
+  # URL validation on all content files
+  url-validation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@83679a892e2d95755f2dac6acb0bfd1e9ac5d548 # v6.1.0
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Validate URLs in all content files
+        run: |
+          python scripts/verify_urls.py --root contents/ --timeout 15 --workers 5
+        continue-on-error: true
+
+  # Image reference validation
+  image-validation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        with:
+          persist-credentials: false
+
+      - name: Validate image references in all content files
+        run: |
+          EXIT_CODE=0
+
+          # Find all markdown files in contents/
+          find contents/ -type f -name "*.md" | while IFS= read -r file; do
+            # Extract image references and check if files exist
+            DIR=$(dirname "$file")
+
+            # Find markdown image syntax: ![alt](path)
+            grep -oP '!\[[^\]]*\]\(\K[^)]+' "$file" 2>/dev/null | while IFS= read -r img_path; do
+              # Skip URLs
+              if [[ "$img_path" =~ ^https?:// ]]; then
+                continue
+              fi
+
+              # Resolve relative path
+              if [[ "$img_path" =~ ^/ ]]; then
+                FULL_PATH="$img_path"
+              else
+                FULL_PATH="$DIR/$img_path"
+              fi
+
+              # Normalize path
+              FULL_PATH=$(realpath -m "$FULL_PATH" 2>/dev/null || echo "$FULL_PATH")
+
+              if [ ! -f "$FULL_PATH" ]; then
+                echo "::error file=$file::Missing image: $img_path"
+                EXIT_CODE=1
+              fi
+            done
+          done
+
+          exit $EXIT_CODE
+
+  # Internal link validation
+  internal-links:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        with:
+          persist-credentials: false
+
+      - name: Validate internal links in all content files
+        run: |
+          EXIT_CODE=0
+
+          # Find all markdown files in contents/
+          find contents/ -type f -name "*.md" | while IFS= read -r file; do
+            DIR=$(dirname "$file")
+
+            # Find markdown links to .md files: [text](path.md) or [text](path.md#anchor)
+            grep -oP '\[[^\]]*\]\(\K[^)]+\.md[^)]*' "$file" 2>/dev/null | while IFS= read -r link; do
+              # Remove anchor if present
+              LINK_PATH="${link%%#*}"
+
+              # Skip URLs
+              if [[ "$LINK_PATH" =~ ^https?:// ]]; then
+                continue
+              fi
+
+              # Resolve relative path
+              if [[ "$LINK_PATH" =~ ^/ ]]; then
+                FULL_PATH="$LINK_PATH"
+              else
+                FULL_PATH="$DIR/$LINK_PATH"
+              fi
+
+              # Normalize path
+              FULL_PATH=$(realpath -m "$FULL_PATH" 2>/dev/null || echo "$FULL_PATH")
+
+              if [ ! -f "$FULL_PATH" ]; then
+                echo "::error file=$file::Broken internal link: $link"
+                EXIT_CODE=1
+              fi
+            done
+          done
+
+          exit $EXIT_CODE
+
+  # File naming convention check
+  naming-convention:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        with:
+          persist-credentials: false
+
+      - name: Check file naming conventions for all content files
+        run: |
+          EXIT_CODE=0
+
+          # Find all markdown files in contents/
+          find contents/ -type f -name "*.md" | while IFS= read -r file; do
+            BASENAME=$(basename "$file")
+            DIR=$(dirname "$file")
+
+            # Check chapter files match ch-X.Y.md pattern
+            if [[ "$DIR" =~ chapter-([0-9]+) ]]; then
+              CHAPTER_NUM="${BASH_REMATCH[1]}"
+
+              # Allow README.md and index.md in chapter dirs
+              if [[ "$BASENAME" == "README.md" ]] || [[ "$BASENAME" == "index.md" ]]; then
+                continue
+              fi
+
+              # Check pattern: ch-X.Y.md where X matches directory number
+              if [[ ! "$BASENAME" =~ ^ch-${CHAPTER_NUM}\.[0-9]+\.md$ ]]; then
+                echo "::warning file=$file::File naming: Expected ch-${CHAPTER_NUM}.Y.md pattern"
+              fi
+            fi
+          done
+
+          exit $EXIT_CODE
+
+  # GitHub Actions security linting
+  workflow-security:
+    runs-on: ubuntu-latest
+    permissions:
+      security-events: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        with:
+          persist-credentials: false
+
+      - name: Run zizmor
+        uses: zizmorcore/zizmor-action@135698455da5c3b3e55f73f4419e481ab68cdd95 # v0.4.1
+        with:
+          inputs: .github/workflows/
+
+  # Build validation - ensure docs site compiles
+  build-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@83679a892e2d95755f2dac6acb0bfd1e9ac5d548 # v6.1.0
+        with:
+          python-version: '3.x'
+
+      - name: Install Zensical
+        run: pip install zensical==0.0.16
+
+      - name: Prepare docs directory
+        run: |
+          mkdir -p site/docs/stylesheets
+          cp -r contents/book1 site/docs/
+          cp -r contents/book2 site/docs/
+          cp -r contents/book3 site/docs/
+          cp -r contents/frontmatter site/docs/
+          cp -r contents/appendices site/docs/
+          cp contents/frontmatter/home.md site/docs/index.md
+          cp scripts/zensical.toml site/
+          cp scripts/extra.css site/docs/stylesheets/
+
+      - name: Build documentation
+        working-directory: site
+        run: zensical build --clean -f zensical.toml
+
+  # Summary job that requires all checks
+  validation-summary:
+    needs: [markdown-lint, spell-check, url-validation, image-validation, internal-links, naming-convention, workflow-security, build-check]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check validation results
+        env:
+          MARKDOWN_LINT_RESULT: ${{ needs.markdown-lint.result }}
+          SPELL_CHECK_RESULT: ${{ needs.spell-check.result }}
+          URL_VALIDATION_RESULT: ${{ needs.url-validation.result }}
+          IMAGE_VALIDATION_RESULT: ${{ needs.image-validation.result }}
+          INTERNAL_LINKS_RESULT: ${{ needs.internal-links.result }}
+          NAMING_CONVENTION_RESULT: ${{ needs.naming-convention.result }}
+          WORKFLOW_SECURITY_RESULT: ${{ needs.workflow-security.result }}
+          BUILD_CHECK_RESULT: ${{ needs.build-check.result }}
+        run: |
+          echo "## Main Branch Validation Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+
+          # Check each job result
+          if [ "$MARKDOWN_LINT_RESULT" == "failure" ]; then
+            echo "❌ Markdown linting failed" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "✅ Markdown linting passed" >> $GITHUB_STEP_SUMMARY
+          fi
+
+          if [ "$SPELL_CHECK_RESULT" == "failure" ]; then
+            echo "❌ Spell check failed" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "✅ Spell check passed" >> $GITHUB_STEP_SUMMARY
+          fi
+
+          if [ "$URL_VALIDATION_RESULT" == "failure" ]; then
+            echo "⚠️ URL validation had issues (non-blocking)" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "✅ URL validation passed" >> $GITHUB_STEP_SUMMARY
+          fi
+
+          if [ "$IMAGE_VALIDATION_RESULT" == "failure" ]; then
+            echo "❌ Image validation failed" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "✅ Image validation passed" >> $GITHUB_STEP_SUMMARY
+          fi
+
+          if [ "$INTERNAL_LINKS_RESULT" == "failure" ]; then
+            echo "❌ Internal link validation failed" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "✅ Internal link validation passed" >> $GITHUB_STEP_SUMMARY
+          fi
+
+          if [ "$NAMING_CONVENTION_RESULT" == "failure" ]; then
+            echo "⚠️ Naming convention warnings" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "✅ Naming convention check passed" >> $GITHUB_STEP_SUMMARY
+          fi
+
+          if [ "$WORKFLOW_SECURITY_RESULT" == "failure" ]; then
+            echo "❌ Workflow security check failed" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "✅ Workflow security check passed" >> $GITHUB_STEP_SUMMARY
+          fi
+
+          if [ "$BUILD_CHECK_RESULT" == "failure" ]; then
+            echo "❌ Build check failed" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "✅ Build check passed" >> $GITHUB_STEP_SUMMARY
+          fi
