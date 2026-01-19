@@ -62,11 +62,11 @@ Major infrastructure projects have begun incorporating Rust:
 
 **Linux kernel** accepted Rust as a supported language for driver development starting with kernel 6.1 (December 2022). While the core kernel remains in C, new drivers can be written in Rust, enabling memory-safe development for new functionality. This represents a significant philosophical shift for a project that has used C exclusively for over 30 years.
 
-**Android** has progressively increased Rust usage. Google reported that as of 2023, roughly 21% of new native Android code was being written in Rust. Google's analysis showed that as Rust adoption increased, memory safety vulnerabilities in Android decreased—providing empirical evidence for the security benefits.
+**Android** has progressively increased Rust usage. Google reported that as of 2023, roughly 21% of new native Android code was being written in Rust.[^android-rust] Google's analysis showed that as Rust adoption increased, memory safety vulnerabilities in Android decreased—providing empirical evidence for the security benefits.
 
 **Windows** includes Rust components, with Microsoft actively rewriting portions of the Windows kernel in Rust. The company has been public about its Rust investment and its motivation in reducing memory safety vulnerabilities.
 
-**curl**, the ubiquitous data transfer library, has integrated HTTP backend support written in Rust (hyper). This allows users to choose a memory-safe implementation for HTTP handling in a tool with over 20 billion installations.
+**curl**, the ubiquitous data transfer library, has integrated HTTP backend support written in Rust (hyper). This allows users to choose a memory-safe implementation for HTTP handling in a tool with over 20 billion installations.[^curl-installs]
 
 **Sudo and su** received a Rust reimplementation (sudo-rs) sponsored by Amazon Web Services' Prossimo project, targeting one of the most security-critical Unix utilities.
 
@@ -122,3 +122,5 @@ The memory safety challenge illustrates a broader supply chain security principl
 
 [nsa-memory-safety]: https://media.defense.gov/2022/Nov/10/2003112742/-1/-1/0/CSI_SOFTWARE_MEMORY_SAFETY.PDF
 [cisa-memory-safety]: https://www.cisa.gov/resources-tools/resources/case-memory-safe-roadmaps
+[^android-rust]: Google Security Blog, "Memory Safe Languages in Android 13" (December 1, 2022). <https://security.googleblog.com/2022/12/memory-safe-languages-in-android-13.html>
+[^curl-installs]: Daniel Stenberg, "The world's biggest curl installations" (September 17, 2018). <https://daniel.haxx.se/blog/2018/09/17/the-worlds-biggest-curl-installations/>

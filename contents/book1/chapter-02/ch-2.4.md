@@ -4,7 +4,7 @@ The open source ecosystem is not a single entity but a collection of distinct co
 
 ## JavaScript/Node.js: npm
 
-The **npm registry** is the largest package ecosystem in the world by a substantial margin, hosting over 2.5 million packages with more than 200 billion downloads per month. This scale reflects JavaScript's ubiquity: it runs in every web browser, powers countless server applications through Node.js, and has expanded into mobile development, desktop applications, and even embedded systems.
+The **npm registry** is the largest package ecosystem in the world by a substantial margin, hosting over 2.5 million packages with more than 200 billion downloads per month.[^npm-downloads] This scale reflects JavaScript's ubiquity: it runs in every web browser, powers countless server applications through Node.js, and has expanded into mobile development, desktop applications, and even embedded systems.
 
 npm, Inc. was founded in 2014 to provide commercial stewardship of the registry created by Isaac Schlueter in 2010. GitHub acquired npm in 2020, integrating it into Microsoft's developer platform portfolio. The registry operates as a centralized service; there is no federated alternative for the npm ecosystem comparable to what exists in some other language communities.
 
@@ -258,6 +258,8 @@ Cross-ecosystem dependencies create particular challenges:
 
 Organizations securing multi-ecosystem applications need tooling and processes that span all involved package managers. Single-ecosystem solutions leave gaps that attackers can exploit. Book 2, Chapter 13 explores dependency management strategies that address this cross-ecosystem reality.
 
+[^ds-stack]: Data science stack totals include `pandas`, `scikit-learn`, `matplotlib`, and their shared dependencies (NumPy, etc.). Contributor count shown is for pandas alone.
 [^cocoapods-trunk]: CocoaPods Trunk, https://trunk.cocoapods.org
+[^npm-downloads]: Socket.dev, "npm in Review: A 2023 Retrospective on Growth, Security, and Community" (2023). <https://socket.dev/blog/2023-npm-retrospective>
 
 ![Major package ecosystem comparison showing security features across registries](img/ch-2-package-ecosystems.svg)

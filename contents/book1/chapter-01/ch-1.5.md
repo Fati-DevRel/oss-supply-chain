@@ -36,7 +36,7 @@ The shift toward microservices and distributed architectures multiplies these ex
 
 ## AI-Assisted Development: New Capabilities, New Risks
 
-The rapid adoption of AI coding assistants adds another dimension to supply chain urgency. GitHub reported that over one million developers used Copilot within its first year, and adoption has accelerated since. These tools increase development velocity but introduce novel supply chain considerations.
+The rapid adoption of AI coding assistants adds another dimension to supply chain urgency. GitHub reported that over one million developers used Copilot within its first year,[^copilot-million] and adoption has accelerated since. These tools increase development velocity but introduce novel supply chain considerations.
 
 AI assistants trained on vast code repositories may suggest deprecated packages, vulnerable code patterns, or dependencies with security issues. When developers accept AI-generated code without thorough review, they potentially introduce risks they would have avoided with manual coding. The dependency choices embedded in AI suggestions reflect training data that may be months or years old, potentially recommending packages that have since been compromised or abandoned.
 
@@ -90,6 +90,7 @@ The chapters that follow provide the framework for responding to this urgency: u
 [^circia]: CISA, Cyber Incident Reporting for Critical Infrastructure Act of 2022 (CIRCIA). <https://www.cisa.gov/topics/cyber-threats-and-advisories/information-sharing/cyber-incident-reporting-critical-infrastructure-act-2022-circia>
 [^eu-cra]: Regulation (EU) 2024/2847 (Cyber Resilience Act), Official Journal of the European Union. <https://eur-lex.europa.eu/eli/reg/2024/2847/oj>
 [^sonatype-2024]: Sonatype, *2024 State of the Software Supply Chain Report* (October 2024). <https://www.sonatype.com/state-of-the-software-supply-chain/introduction>
+[^copilot-million]: GitHub Blog, "GitHub Copilot for Business is now available" (February 14, 2023). <https://github.blog/news-insights/product-news/github-copilot-for-business-is-now-available/>
 
 ![Three landmark incidents that elevated supply chain security to board-level priority](img/ch-1-landmark-incidents.svg)
 
