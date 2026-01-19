@@ -105,7 +105,7 @@ Contributions are welcome. When contributing:
 - Follow the existing chapter/section structure (`ch-X.Y.md` format)
 - Keep real-world examples specific with verifiable details (names, dates, impacts)
 
-See [CLAUDE.md](CLAUDE.md) for detailed content standards and writing guidelines.
+The repository includes automated linting for Markdown quality and Material for MkDocs compatibility. See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines and [CLAUDE.md](CLAUDE.md) for content standards.
 
 ## License
 

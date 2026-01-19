@@ -336,7 +336,12 @@ description = """
     as to measure the effectiveness of our documentation and whether users
     find what they're searching for. With your consent, you're helping us to
     make our documentation better.
-""" 
+"""
+actions = [
+    "accept",
+    "reject",
+    "manage" 
+]
 
 [project.theme]
 features = [
@@ -393,3 +398,5 @@ toc = { permalink = true }
 "pymdownx.details" = {}
 "pymdownx.blocks.html" = {}
 "pymdownx.superfences" = { custom_fences = [{ name = "mermaid", class = "mermaid", format = "pymdownx.superfences.fence_code_format" }]}
+"pymdownx.magiclink" = {}
+"pymdownx.tasklist" = {}
