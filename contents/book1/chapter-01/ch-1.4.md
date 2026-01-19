@@ -12,12 +12,13 @@ In 1984, Ken Thompson delivered his Turing Award lecture, "Reflections on Trusti
 
 ## Implicit Trust in Direct Dependencies
 
-When a developer adds a dependency to their project, they are making a trust decision, whether they recognize it or not. Consider what happens when you add a popular package to a JavaScript project by running `npm install lodash`. In that moment, you are trusting:
+When a developer adds a dependency to their project, they are making a trust decision, whether they recognize it or not. Consider what happens when you add a popular package to a JavaScript project by running `npm install <package>`. In that moment, you are trusting:
 
-- The maintainers of Lodash have not inserted malicious code
+- The maintainers of the package have not inserted malicious code
 - The maintainers' accounts have not been compromised
 - The npm registry correctly delivered the package the maintainers published
 - The package you received matches what the maintainers intended to release
+- You didn't accidentally mistype the package name
 - The build process that created the package was not compromised
 - No one tampered with the package during transit to your machine
 
