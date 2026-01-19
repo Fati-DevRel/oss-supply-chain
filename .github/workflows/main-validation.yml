@@ -11,6 +11,8 @@ jobs:
   markdown-lint:
     runs-on: ubuntu-latest
     continue-on-error: true
+    permissions:
+      contents: read
     steps:
       - name: Checkout repository
         uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
@@ -32,6 +34,8 @@ jobs:
   # Spell checking on all content files
   spell-check:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - name: Checkout repository
         uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
@@ -49,6 +53,8 @@ jobs:
   # URL validation on all content files
   url-validation:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - name: Checkout repository
         uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
@@ -71,6 +77,8 @@ jobs:
   # Image reference validation
   image-validation:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - name: Checkout repository
         uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
@@ -120,6 +128,8 @@ jobs:
   # Internal link validation
   internal-links:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - name: Checkout repository
         uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
@@ -171,6 +181,8 @@ jobs:
   # File naming convention check
   naming-convention:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - name: Checkout repository
         uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
@@ -208,6 +220,7 @@ jobs:
   workflow-security:
     runs-on: ubuntu-latest
     permissions:
+      contents: read
       security-events: write
     steps:
       - name: Checkout repository
@@ -223,6 +236,8 @@ jobs:
   # Build validation - ensure docs site compiles
   build-check:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - name: Checkout repository
         uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
@@ -258,6 +273,7 @@ jobs:
     needs: [markdown-lint, spell-check, url-validation, image-validation, internal-links, naming-convention, workflow-security, build-check]
     if: always()
     runs-on: ubuntu-latest
+    permissions: {}
     steps:
       - name: Check validation results
         env:
