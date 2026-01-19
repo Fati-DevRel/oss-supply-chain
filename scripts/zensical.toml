@@ -387,6 +387,7 @@ footnotes = {}
 tables = {}
 admonition = {}
 attr_list = {}
+md_in_html = {}
 toc = { permalink = true }
 "pymdownx.highlight" = { anchor_linenums = true }
 "pymdownx.details" = {}
