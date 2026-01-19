@@ -93,6 +93,7 @@ Output PDFs are generated in the `scripts/` directory.
 | F | Incident Timeline | Book 1 |
 | G | Ecosystem Security Guides | Book 2 |
 | H | Compliance Mapping Matrix | Book 3 |
+| I | Legal Disclaimers and Limitations | All |
 
 ## Contributing
 
@@ -105,7 +106,7 @@ Contributions are welcome. When contributing:
 - Follow the existing chapter/section structure (`ch-X.Y.md` format)
 - Keep real-world examples specific with verifiable details (names, dates, impacts)
 
-The repository includes automated linting for Markdown quality and Material for MkDocs compatibility. See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines and [CLAUDE.md](CLAUDE.md) for content standards.
+The repository includes automated linting for Markdown quality and [Zensical](https://zensical.com/) compatibility. See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines and [CLAUDE.md](CLAUDE.md) for content standards.
 
 ## License
 

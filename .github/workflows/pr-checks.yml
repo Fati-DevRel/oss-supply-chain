@@ -360,7 +360,17 @@ jobs:
 
       - name: Build documentation
         working-directory: site
-        run: zensical build --clean -f zensical.toml
+        run: |
+          # Capture output since zensical doesn't exit non-zero on errors
+          OUTPUT=$(zensical build --clean -f zensical.toml 2>&1) || true
+          echo "$OUTPUT"
+
+          # Check for error lines in output
+          if echo "$OUTPUT" | grep -q "^Error:"; then
+            echo ""
+            echo "::error::Zensical build produced errors (see above)"
+            exit 1
+          fi
 
   # Summary job that requires all checks
   validation-summary:
