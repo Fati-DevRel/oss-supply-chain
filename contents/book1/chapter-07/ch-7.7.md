@@ -1,3 +1,9 @@
+---
+title: "Code Signing and Its Limitations"
+description: "Learn why code signing is necessary but not sufficient—malicious software often arrives with valid signatures from compromised builds."
+icon: "lucide/pen-tool"
+---
+
 # 7.7 Code Signing and Its Limitations
 
 Throughout the preceding case studies, a pattern recurs: malicious software arrived signed by trusted entities. SolarWinds' backdoored updates bore valid SolarWinds signatures. The 3CX trojanized installer (see Section 7.3) carried authentic 3CX certificates. These attacks succeeded not despite code signing but alongside it—the signatures were genuine, produced by compromised build systems using legitimate keys.

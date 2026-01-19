@@ -1,3 +1,9 @@
+---
+title: "A Brief History of Open Source and Its Philosophy"
+description: "Trace the origins of open source from Stallman's GNU Project to Linux, and understand how these philosophical roots shape security today."
+icon: "lucide/scroll"
+---
+
 # 2.1 A Brief History of Open Source and Its Philosophy
 
 To understand the security challenges facing open source software today, we must first understand where open source came from and the values that shaped its development. The open source movement emerged not as a business strategy or technical methodology but as a philosophical response to the increasing commodification and restriction of software. These origins continue to influence how open source projects are structured, governed, and maintained—with direct implications for their security posture.

@@ -1,3 +1,9 @@
+---
+title: "Supply Chain Threat Modeling Fundamentals"
+description: "Learn systematic approaches to identify which supply chain threats matter most and where to focus limited security resources."
+icon: "lucide/book-open"
+---
+
 # 4.1 Supply Chain Threat Modeling Fundamentals
 
 The threat landscape described in Chapter 3 presents a daunting array of adversaries, attack surfaces, and cascading risks. Faced with this complexity, organizations need a systematic approach to identify which threats matter most to their specific context and where to focus limited security resources. **Threat modeling** provides this approach—a structured method for analyzing systems, identifying potential threats, and prioritizing mitigations. However, traditional threat modeling techniques were developed for applications and systems under the organization's direct control. Adapting these techniques for software supply chains requires rethinking fundamental assumptions about scope, trust, and control.

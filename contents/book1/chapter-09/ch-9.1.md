@@ -1,3 +1,9 @@
+---
+title: "Mobile Application Supply Chains"
+description: "Navigate iOS and Android supply chain risks, including opaque SDKs, third-party analytics, and app store review limitations."
+icon: "lucide/tablet-smartphone"
+---
+
 # 9.1 Mobile Application Supply Chains
 
 Mobile applications operate in a supply chain environment distinct from server-side or desktop software. The iOS and Android platforms impose unique constraints: sandboxed execution, platform-controlled distribution, mandatory review processes, and proprietary SDKs. These constraints provide some security benefits—app store review catches certain threats—but they also create blind spots. Mobile developers integrate dozens of third-party SDKs for analytics, advertising, authentication, and other functionality, often with limited visibility into what these components actually do.

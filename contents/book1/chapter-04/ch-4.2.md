@@ -1,3 +1,9 @@
+---
+title: "Threat Modeling Methodologies Applied"
+description: "Apply STRIDE, PASTA, attack trees, and LINDDUN methodologies to supply chain security—adapting traditional frameworks for new contexts."
+icon: "lucide/list-checks"
+---
+
 # 4.2 Threat Modeling Methodologies Applied
 
 Threat modeling methodologies provide structured approaches for identifying what can go wrong. They transform the open-ended question "what threats exist?" into systematic analysis that teams can execute consistently. However, these methodologies were developed primarily for applications and systems under organizational control. Applying them to supply chains requires understanding both the methodology's core approach and how supply chain contexts change what you're looking for. This section demonstrates how established methodologies—STRIDE, PASTA, attack trees, and LINDDUN—can be adapted for supply chain threat modeling.

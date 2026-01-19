@@ -1,3 +1,9 @@
+---
+title: "Cascading Risk and Blast Radius"
+description: "Learn how a single compromised package can cascade through dependency graphs to affect millions of applications worldwide."
+icon: "lucide/flame"
+---
+
 # 3.4 Cascading Risk and Blast Radius
 
 The previous section examined why supply chain security is structurally difficult. This section explores what happens when those difficulties translate into actual compromise. Unlike attacks that target specific organizations, supply chain attacks propagate through dependency relationships, reaching victims the attacker may never have anticipated. A single compromised package can affect thousands of downstream projects, millions of deployed applications, and billions of end users. Understanding this cascade—and learning to measure and limit it—is essential for managing supply chain risk.

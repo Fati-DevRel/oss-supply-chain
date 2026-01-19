@@ -1,3 +1,9 @@
+---
+title: "Compromising Build Infrastructure"
+description: "Understand why build systems are high-value targets and how attackers inject malicious code that never appears in source repositories."
+icon: "lucide/server-crash"
+---
+
 # 7.1 Compromising Build Infrastructure
 
 The journey from source code to deployed software passes through build systems—infrastructure that compiles, packages, signs, and prepares code for distribution. This transformation is invisible to most users, who reasonably assume that the software they install corresponds to the source code they can inspect. Attackers have recognized that this assumption creates opportunity. By compromising build infrastructure, adversaries can inject malicious code that never appears in any source repository, evading the code review, static analysis, and community oversight that open source development provides.

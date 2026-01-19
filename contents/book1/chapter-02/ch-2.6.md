@@ -1,3 +1,9 @@
+---
+title: "The Economics of Open Source"
+description: "Examine why open source is systematically underfunded despite its trillion-dollar value, and explore sustainable funding models."
+icon: "lucide/coins"
+---
+
 # 2.6 The Economics of Open Source
 
 The previous sections have documented a paradox: open source software creates trillions of dollars in value, yet the people who maintain it are often unpaid volunteers struggling with burnout. This is not a moral failing of the technology industry but a predictable outcome of economic structures that make open source simultaneously invaluable and unfundable through traditional market mechanisms. Understanding these economics is essential for anyone seeking to improve supply chain security, because security improvements ultimately require resources that the current economic model fails to provide.

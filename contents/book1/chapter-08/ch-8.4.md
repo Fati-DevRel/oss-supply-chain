@@ -1,3 +1,9 @@
+---
+title: "Insider Threats in Open Source Projects"
+description: "Explore how the blurred insider/outsider boundary in open source creates unique threat patterns and trust vulnerabilities."
+icon: "lucide/user-minus"
+---
+
 # 8.4 Insider Threats in Open Source Projects
 
 Traditional enterprise security defines **insider threats** as risks from individuals with authorized access who misuse that access—employees, contractors, or partners who abuse their legitimate privileges. In open source, this model becomes complicated. Projects are maintained by volunteers who may never meet in person, using access controls that evolved organically rather than through formal security design. The boundary between "insider" and "outsider" blurs in communities where contribution is the primary path to trust.

@@ -1,3 +1,9 @@
+---
+title: "The Asymmetry Problem"
+description: "Understand why defenders face structural disadvantages: attackers need one weakness while defenders must secure every component."
+icon: "lucide/scale"
+---
+
 # 3.3 The Asymmetry Problem
 
 Supply chain security is structurally difficult. This is not merely a matter of inadequate investment or immature tooling—though both are real—but a fundamental asymmetry between attackers and defenders. Attackers need to find one weakness in a vast attack surface; defenders must secure every component in an ever-growing dependency graph. Attackers can wait patiently for opportunities; defenders must maintain vigilance indefinitely. Attackers enjoy anonymity; defenders operate in the open. Understanding these asymmetries is essential for developing realistic security strategies that acknowledge what is achievable rather than pursuing the impossible goal of perfect security.

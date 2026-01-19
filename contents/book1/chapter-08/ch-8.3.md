@@ -1,3 +1,9 @@
+---
+title: "Social Engineering Targeting Maintainers"
+description: "Study tactics attackers use to manipulate maintainers—from phishing to elaborate multi-year trust-building campaigns."
+icon: "lucide/message-circle"
+---
+
 # 8.3 Social Engineering Targeting Maintainers
 
 Technical security controls—authentication, code signing, automated scanning—form important defenses against supply chain attacks. But attackers increasingly bypass these controls by targeting the humans who operate them. Open source maintainers, often working in isolation with limited resources, present attractive targets for **social engineering**: the manipulation of people into taking actions that benefit the attacker.

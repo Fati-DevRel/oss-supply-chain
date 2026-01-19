@@ -1,3 +1,9 @@
+---
+title: "Case Study: SolarWinds and the SUNBURST Attack"
+description: "Analyze the watershed attack that reached 18,000 organizations through compromised software updates and reshaped supply chain security."
+icon: "lucide/sun"
+---
+
 # 7.2 Case Study: SolarWinds and the SUNBURST Attack
 
 In December 2020, the cybersecurity industry confronted an attack that would fundamentally reshape understanding of supply chain risk. The compromise of SolarWinds' Orion platform—subsequently named **SUNBURST** by Microsoft and **SUNSPOT** by CrowdStrike for the implant that modified the build—demonstrated that nation-state adversaries could infiltrate trusted software distribution channels with extraordinary sophistication. The attack [reached approximately 18,000 organizations][solarwinds-sec], including critical U.S. government agencies and Fortune 500 companies, through software updates that customers had every reason to trust.

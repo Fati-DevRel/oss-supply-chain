@@ -1,3 +1,9 @@
+---
+title: "Identifying Crown Jewels in Your Dependency Graph"
+description: "Prioritize security investment by identifying which dependencies would cause the greatest damage if compromised."
+icon: "lucide/gem"
+---
+
 # 4.3 Identifying Crown Jewels in Your Dependency Graph
 
 Threat modeling produces long lists of potential threats. With hundreds or thousands of dependencies, each subject to multiple threat categories, the output can be overwhelming. Practical security requires prioritization—focusing limited resources on the dependencies whose compromise would cause the greatest harm. This section provides frameworks for identifying which dependencies matter most, enabling risk-based investment rather than attempting to apply equal scrutiny everywhere.

@@ -1,3 +1,9 @@
+---
+title: "Attacks on Distribution Channels"
+description: "Explore how attackers compromise package registries, mirrors, CDNs, and update servers to modify software in transit to users."
+icon: "lucide/truck"
+---
+
 # 7.8 Attacks on Distribution Channels
 
 The preceding sections examined how attackers compromise build systems to inject malicious code into software. But the journey from build to user involves additional infrastructure: package registries, mirrors, content delivery networks (CDNs), update servers, and download endpoints. Each of these distribution components represents potential attack surface. Even software built securely can be replaced, modified, or manipulated as it travels to consumers.

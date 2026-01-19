@@ -1,3 +1,9 @@
+---
+title: "Advanced Package Attack Techniques"
+description: "Explore sophisticated attacks like star-jacking that evade detection by exploiting subtle package ecosystem mechanics."
+icon: "lucide/zap"
+---
+
 # 6.5 Advanced Package Attack Techniques
 
 The attacks described in previous sections—typosquatting, dependency confusion, straightforward malicious packages—represent the most common supply chain threats. However, attackers continuously develop more sophisticated techniques that evade detection and exploit subtle aspects of package ecosystem mechanics. Understanding these advanced techniques is essential for security teams conducting threat assessments and for researchers working to improve ecosystem defenses.

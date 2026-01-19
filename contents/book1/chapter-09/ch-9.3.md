@@ -1,3 +1,9 @@
+---
+title: "Content Management System Ecosystems"
+description: "Examine WordPress and CMS plugin risks where supply chain compromises immediately expose millions of public websites."
+icon: "lucide/layout-dashboard"
+---
+
 # 9.3 Content Management System Ecosystems
 
 Content Management Systems power a substantial portion of the web, with WordPress alone running over 40% of all websites. These platforms depend on plugin and theme ecosystems that mirror the dependency patterns of npm or PyPI—but with a critical difference: CMS plugins run on publicly-accessible web servers, directly exposed to the internet. A supply chain compromise in a WordPress plugin doesn't just affect developers; it immediately creates millions of vulnerable websites that attackers can discover and exploit at scale.
