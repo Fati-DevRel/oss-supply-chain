@@ -350,7 +350,10 @@ features = [
   "navigation.footer",
   "search.suggest",
   "search.highlight",
-  "content.action.edit"
+  "content.action.edit",
+  "content.tooltips",
+  "content.code.copy",
+  "content.footnote.tooltips"
 ]
 
 [project.theme.font]
@@ -379,20 +382,13 @@ toggle.name = "Switch to system preference"
 [plugins]
 search = {}
 
-[markdown_extensions]
+[project.markdown_extensions]
 footnotes = {}
 tables = {}
 admonition = {}
 attr_list = {}
-
-[markdown_extensions."pymdownx.highlight"]
-anchor_linenums = true
-
-[markdown_extensions."pymdownx.superfences"]
-
-[markdown_extensions.toc]
-permalink = true
-
-[markdown_extensions."pymdownx.details"]
-
-[markdown_extensions."pymdownx.blocks.html"]
+toc = { permalink = true }
+"pymdownx.highlight" = { anchor_linenums = true }
+"pymdownx.details" = {}
+"pymdownx.blocks.html" = {}
+"pymdownx.superfences" = { custom_fences = [{ name = "mermaid", class = "mermaid", format = "pymdownx.superfences.fence_code_format" }]}
