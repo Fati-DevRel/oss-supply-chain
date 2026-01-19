@@ -1,7 +1,7 @@
 ---
 title: "Fake Security Researchers and Malicious Fixes"
 description: "Recognize attackers posing as researchers who pressure maintainers into merging 'fixes' that introduce vulnerabilities."
-icon: "lucide/mask"
+icon: "lucide/venetian-mask"
 ---
 
 # 8.6 Fake Security Researchers and Malicious Fixes
