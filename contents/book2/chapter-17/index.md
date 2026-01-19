@@ -1,3 +1,9 @@
+---
+title: "Securing Build and Release Pipelines"
+description: "A comprehensive framework for securing CI/CD infrastructure, from foundational principles to SLSA compliance and artifact signing."
+icon: "lucide/shield-check"
+---
+
 # Chapter 17: Securing Build and Release Pipelines
 
 CI/CD pipelines represent uniquely high-value targets in the software supply chain. They have privileged access to source code, secrets, signing keys, and deployment credentials, making their security critical to overall software integrity. This chapter provides a comprehensive framework for securing build infrastructure, from foundational principles to specific implementation guidance.

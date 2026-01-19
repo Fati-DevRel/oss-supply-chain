@@ -1,3 +1,9 @@
+---
+title: "Industry and Community Initiatives"
+description: "Collective efforts by industry, foundations, and the security research community to improve open source supply chain security."
+icon: "lucide/shield-check"
+---
+
 # Chapter 29: Industry and Community Initiatives
 
 This chapter examines the collective efforts by industry, foundations, and the security research community to improve open source software supply chain security. These initiatives represent a fundamental shift from fragmented, reactive approaches to coordinated, proactive investment in ecosystem-wide security.
