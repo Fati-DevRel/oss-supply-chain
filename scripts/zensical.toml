@@ -398,3 +398,5 @@ toc = { permalink = true }
 "pymdownx.details" = {}
 "pymdownx.blocks.html" = {}
 "pymdownx.superfences" = { custom_fences = [{ name = "mermaid", class = "mermaid", format = "pymdownx.superfences.fence_code_format" }]}
+"pymdownx.magiclink" = {}
+"pymdownx.tasklist" = {}
