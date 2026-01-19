@@ -8,11 +8,26 @@ icon: "lucide/handshake"
 
 Every line of code that executes on a computer arrived there through a chain of trust. Someone wrote it, someone reviewed it, someone built it, someone distributed it, and someone decided to run it. At each step, trust was extended—sometimes explicitly after careful evaluation, but far more often implicitly, without conscious consideration. Understanding these trust relationships is essential for securing the software supply chain because attacks succeed by exploiting trust, not by overpowering defenses.
 
+!!! quote "Ken Thompson, 1984 Turing Award Lecture"
+
+    "You can't trust code that you did not totally create yourself. (Especially code from companies that employ people like me.) No amount of source-level verification or scrutiny will protect you from using untrusted code."
+
 In 1984, Ken Thompson delivered his Turing Award lecture, "Reflections on Trusting Trust," which remains the foundational text on supply chain security.[^thompson-1984] Thompson demonstrated how a compiler could be modified to insert a backdoor into any program it compiled—including future versions of the compiler itself. The malicious code would persist invisibly, propagating through every subsequent build. His conclusion was stark: "You can't trust code that you did not totally create yourself."[^thompson-1984] Four decades later, in a world where applications routinely incorporate thousands of external components, Thompson's observation has evolved from theoretical concern to practical crisis.
 
 ## Implicit Trust in Direct Dependencies
 
 When a developer adds a dependency to their project, they are making a trust decision, whether they recognize it or not. Consider what happens when you add a popular package to a JavaScript project by running `npm install <package>`. In that moment, you are trusting:
+
+!!! danger "Every Install Is a Trust Decision"
+
+    When you run `npm install <package>`, you are trusting:
+    
+    - The maintainers have not inserted malicious code
+    - The maintainers' accounts have not been compromised
+    - The registry correctly delivered the intended package
+    - You didn't accidentally mistype the package name
+    - The build process that created the package was not compromised
+    - No one tampered with the package during transit
 
 - The maintainers of the package have not inserted malicious code
 - The maintainers' accounts have not been compromised
@@ -23,6 +38,10 @@ When a developer adds a dependency to their project, they are making a trust dec
 - No one tampered with the package during transit to your machine
 
 For a well-known package like Lodash, most developers make this trust decision instantly, without conscious evaluation. The package has millions of weekly downloads, a long history, and a strong reputation. This heuristic—trusting what others trust—is rational and necessary. Without it, modern software development would be impossible. But it is still a trust decision, and it can be wrong.
+
+!!! example "Case Study: event-stream (2018)"
+
+    The event-stream package had ~2 million weekly downloads. Its original maintainer transferred ownership to a helpful new contributor who then added a malicious dependency called `flatmap-stream`. This dependency contained code to steal cryptocurrency from Copay Bitcoin wallet users. The attack succeeded because users trusted event-stream's reputation without evaluating its new dependency.
 
 The event-stream incident of 2018 demonstrated exactly this failure mode.[^event-stream] Event-stream was a popular npm package with approximately two million weekly downloads. Its original maintainer, Dominic Tarr, had lost interest in the project and transferred maintenance to a new contributor who had been helpful and responsive. That new maintainer then added a dependency on a malicious package called `flatmap-stream`, which contained code designed to steal cryptocurrency from applications using the Copay Bitcoin wallet. The attack succeeded precisely because the implicit trust in a popular package was exploited: users trusted event-stream, so they trusted its new dependency, which they had never evaluated.
 
@@ -41,6 +60,16 @@ This transitive trust creates mathematical challenges. If each maintainer accoun
 ## Trust Anchors: Identity, Infrastructure, and Process
 
 Trust in the software supply chain attaches to different types of anchors, each with distinct characteristics and vulnerabilities.
+
+!!! tip "The Three Trust Anchors"
+
+    Effective supply chain security layers multiple trust anchors:
+    
+    1. **Identity-based trust**: Confidence in specific individuals or organizations (vulnerable to account compromise, insider threats)
+    2. **Infrastructure-based trust**: Confidence in platforms and registries (efficient but concentrates risk)
+    3. **Process-based trust**: Confidence in methodologies like reproducible builds and audits (most robust, creates verifiable evidence)
+    
+    Each layer compensates for potential failures in the others.
 
 **Identity-based trust** places confidence in specific individuals or organizations. When you trust a package because it's maintained by Google or the Apache Software Foundation, you're anchoring trust to organizational identity. When you verify a signed commit came from a known maintainer's GPG key, you're anchoring trust to individual cryptographic identity. Identity-based trust can be powerful but is vulnerable to account compromise, insider threats, and social engineering. The XZ Utils attack of 2024 exploited identity-based trust: the attacker spent years building a trusted identity within the project before exploiting that position.
 
