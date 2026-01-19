@@ -68,11 +68,21 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Run markdownlint
-        uses: DavidAnson/markdownlint-cli2-action@07035fd053f7be764496c0f8d8f9f41f98305101 # v22
+      - name: Set up Node.js
+        uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af # v4.1.0
         with:
-          globs: ${{ needs.changed-files.outputs.md_files }}
-          config: .github/workflows/.markdownlint-cli2.jsonc
+          node-version: '20'
+
+      - name: Install markdownlint-cli2 and mkdocs-material-linter
+        run: npm install -g markdownlint-cli2 mkdocs-material-linter
+
+      - name: Run markdownlint
+        env:
+          MD_FILES: ${{ needs.changed-files.outputs.md_files }}
+        run: |
+          # Convert newline-separated files to space-separated for markdownlint-cli2
+          FILES=$(echo "$MD_FILES" | tr '\n' ' ')
+          markdownlint-cli2 --config .github/workflows/.markdownlint-cli2.jsonc $FILES
 
   # Spell checking
   spell-check:
