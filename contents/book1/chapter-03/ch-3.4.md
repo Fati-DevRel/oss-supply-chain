@@ -34,7 +34,7 @@ Software ecosystems exhibit **network effects** that amplify vulnerability propa
 
 Several network properties shape how vulnerabilities spread:
 
-**Hub concentration**: Package ecosystems are not uniform networks but follow power-law distributions. A small number of highly connected "hub" packages have vastly more dependents than typical packages. Compromising these hubs provides disproportionate reach. Research on npm found that just 391 packages (0.01% of the registry) are direct or transitive dependencies of over half of all other packages.
+**Hub concentration**: Package ecosystems are not uniform networks but follow power-law distributions. A small number of highly connected "hub" packages have vastly more dependents than typical packages. Compromising these hubs provides disproportionate reach. Research on npm found that just 391 packages (0.01% of the registry) are direct or transitive dependencies of over half of all other packages.[^npm-hubs]
 
 **Short path lengths**: Despite containing millions of packages, ecosystems exhibit "small world" properties—most packages can be reached through short dependency chains from most other packages. This means compromises propagate quickly across seemingly distant parts of the ecosystem.
 
@@ -89,4 +89,6 @@ Understanding cascading risk shapes how organizations should approach supply cha
 Book 2 explores risk measurement and management in detail, building on the concept of blast radius to develop practical approaches for prioritizing security investment. The cascading nature of supply chain risk means that organizational risk management cannot succeed in isolation—it requires attention to ecosystem health and collective investment in shared infrastructure.
 
 [google-oss-insights]: https://security.googleblog.com/2021/12/understanding-impact-of-apache-log4j.html
+[^npm-hubs]: Markus Zimmermann et al., "Small World with High Risks: A Study of Security Threats in the npm Ecosystem," USENIX Security 2019. <https://www.usenix.org/conference/usenixsecurity19/presentation/zimmerman>
+
 ![Cascading risk and blast radius with the Log4Shell case study](img/ch-3-blast-radius.svg)

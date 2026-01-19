@@ -39,7 +39,7 @@ This conditional execution meant that the malicious code:
 
 **Impact:**
 
-- Approximately 8 million downloads occurred during the 2.5 months the malicious versions were available
+- Approximately 8 million downloads occurred during the 2.5 months the malicious versions were available[^event-stream-downloads]
 - Copay released updates to address the compromise
 - Unknown number of Copay users potentially had wallets compromised
 - BitPay (Copay's parent company) warned users to move funds from potentially affected wallets
@@ -290,3 +290,4 @@ These case studies demonstrate that package attacks are not theoretical risks bu
 [snyk-event-stream]: https://snyk.io/blog/a-post-mortem-of-the-malicious-event-stream-backdoor/
 [cisa-ua-parser]: https://www.cisa.gov/news-events/alerts/2021/10/22/malware-discovered-popular-npm-package-ua-parser-js
 [pypi-ultralytics]: https://blog.pypi.org/posts/2024-12-11-ultralytics-attack-analysis/
+[^event-stream-downloads]: Security Boulevard, "Malicious code in npm 'event-stream' package targets a bitcoin wallet and causes 8 million downloads in two months" (November 27, 2018). <https://securityboulevard.com/2018/11/malicious-code-in-npm-event-stream-package-targets-a-bitcoin-wallet-and-causes-8-million-downloads-in-two-months/>

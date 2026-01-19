@@ -77,7 +77,7 @@ When developers abandon extensions, browsers may allow new developers to claim t
 
 **The Great Suspender (2021):**
 
-**The Great Suspender** was a popular Chrome extension with over 2 million users. It suspended inactive tabs to save memory, a genuinely useful function.
+**The Great Suspender** was a popular Chrome extension with over 2 million users.[^great-suspender-users] It suspended inactive tabs to save memory, a genuinely useful function.
 
 In June 2020, the original developer sold the extension to an unknown entity. The new owners pushed updates in October 2020 that:
 
@@ -264,3 +264,4 @@ Browser extensions occupy a unique position in the supply chain landscape: they'
 [great-suspender]: https://www.bleepingcomputer.com/news/security/the-great-suspender-chrome-extensions-fall-from-grace/
 [mega-incident]: https://www.bleepingcomputer.com/news/security/mega-chrome-extension-hacked-to-steal-login-credentials-and-cryptocurrency/
 [spinai]: https://spin.ai/
+[^great-suspender-users]: The Register, "What happens when a Chrome extension with 2m+ users changes hands" (January 7, 2021). <https://www.theregister.com/2021/01/07/great_suspender_malware/>
