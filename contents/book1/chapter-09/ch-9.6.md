@@ -1,3 +1,9 @@
+---
+title: "Infrastructure-as-Code Supply Chains"
+description: "Secure Terraform modules, Ansible roles, and Helm charts where compromises can provision backdoored cloud infrastructure."
+icon: "lucide/file-code"
+---
+
 # 9.6 Infrastructure-as-Code Supply Chains
 
 Infrastructure-as-Code (IaC) has transformed how organizations provision and manage infrastructure. Terraform, Ansible, Helm, and similar tools enable version-controlled, repeatable infrastructure deployments. But these tools operate through modules, providers, roles, and charts—dependencies that carry supply chain risk just like application packages. The difference is stakes: a compromised npm package might steal credentials; a compromised Terraform module can provision backdoored infrastructure, create unauthorized access, or exfiltrate secrets from the provisioning process itself.

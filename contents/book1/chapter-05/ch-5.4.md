@@ -1,3 +1,9 @@
+---
+title: "The Patching Gap"
+description: "Examine why organizations fail to patch vulnerabilities despite available fixes, and strategies to close the remediation gap."
+icon: "lucide/clock"
+---
+
 # 5.4 The Patching Gap
 
 The previous section established that known, unpatched vulnerabilities cause more breaches than zero-days. This raises an obvious question: why do organizations fail to patch vulnerabilities when fixes are available? The answer lies in a complex interplay of technical constraints, organizational factors, and supply chain dynamics that together create the **patching gap**—the period during which vulnerable systems remain exposed despite available remediation.

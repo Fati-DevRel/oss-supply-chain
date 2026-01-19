@@ -1,3 +1,9 @@
+---
+title: "Building Attack Trees for Supply Chain Scenarios"
+description: "Construct attack trees that model adversary paths through your supply chain, revealing where defenses would be most effective."
+icon: "lucide/git-branch"
+---
+
 # 4.4 Building Attack Trees for Supply Chain Scenarios
 
 Attack trees, introduced briefly in Section 4.2, deserve deeper treatment because they are particularly well-suited to supply chain threat modeling. Unlike methodologies that enumerate threats by category, attack trees model specific attack scenarios in detail, revealing the paths an adversary might take and the points where defenses would be most effective. This section provides practical guidance for constructing attack trees tailored to supply chain threats, with worked examples that demonstrate both the methodology and its application.

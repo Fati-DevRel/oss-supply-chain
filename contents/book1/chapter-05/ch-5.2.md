@@ -1,3 +1,9 @@
+---
+title: "Case Study: Log4Shell (CVE-2021-44228)"
+description: "Analyze the Log4Shell incident that exposed the fragility of software supply chains and became a defining moment for the industry."
+icon: "lucide/file-warning"
+---
+
 # 5.2 Case Study: Log4Shell (CVE-2021-44228)
 
 On December 9, 2021, the software industry experienced what many consider the most significant vulnerability disclosure in history. A critical flaw in Apache Log4j—a ubiquitous Java logging library—enabled trivial remote code execution across hundreds of millions of systems worldwide. The incident, quickly dubbed **Log4Shell**, became a defining moment for software supply chain security, revealing the extent to which modern infrastructure depends on invisible open source components and the challenges organizations face when those components fail.

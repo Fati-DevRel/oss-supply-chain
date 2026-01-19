@@ -1,3 +1,9 @@
+---
+title: "Dependency Confusion Attacks"
+description: "Understand how attackers exploit the boundary between public and private package registries to gain code execution in enterprises."
+icon: "lucide/shuffle"
+---
+
 # 6.2 Dependency Confusion Attacks
 
 In February 2021, security researcher Alex Birsan published research that would reshape enterprise understanding of software supply chain risk. By exploiting a simple logic flaw in how package managers resolve dependencies, Birsan gained code execution on internal systems at Apple, Microsoft, PayPal, Shopify, Netflix, Tesla, Uber, and dozens of other major companies. His attacks required no authentication, no exploitation of traditional vulnerabilities, and in most cases, no insider knowledge beyond publicly leaked internal package names. The technique, which Birsan called **dependency confusion**, revealed that the boundary between public and private package ecosystems was far more porous than most organizations realized.

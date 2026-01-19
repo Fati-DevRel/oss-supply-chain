@@ -1,3 +1,9 @@
+---
+title: "Typosquatting and Namesquatting"
+description: "Learn how attackers exploit typing mistakes and naming conventions to trick developers into installing malicious packages."
+icon: "lucide/text-cursor-input"
+---
+
 # 6.1 Typosquatting and Namesquatting
 
 Package managers have made software dependency management remarkably convenient. A single command—`npm install lodash` or `pip install requests`—retrieves code from a registry and integrates it into your project. This convenience depends on package names being reliable identifiers: when you request `lodash`, you expect to receive the popular JavaScript utility library, not something else. Attackers exploit this trust through **typosquatting** and **namesquatting**, claiming package names designed to deceive developers into installing malicious code instead of legitimate dependencies.

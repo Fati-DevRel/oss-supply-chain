@@ -1,3 +1,9 @@
+---
+title: "Serverless and Function-as-a-Service Supply Chains"
+description: "Identify hidden dependencies in serverless architectures—managed runtimes, shared layers, and platform components."
+icon: "lucide/cloud"
+---
+
 # 9.5 Serverless and Function-as-a-Service Supply Chains
 
 Serverless architectures abstract away infrastructure management, allowing developers to focus on code rather than servers. AWS Lambda, Azure Functions, Google Cloud Functions, and similar platforms manage the underlying compute, scaling, and runtime environments. This abstraction provides operational benefits—but it also creates unique supply chain considerations. Dependencies exist not only in your code but in shared layers, managed runtimes, and platform-provided components that you don't directly control.

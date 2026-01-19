@@ -1,3 +1,9 @@
+---
+title: "Browser Extension Supply Chains"
+description: "Understand how browser extensions' extraordinary access creates potent attack vectors distributed through trusted channels."
+icon: "lucide/puzzle"
+---
+
 # 9.2 Browser Extension Supply Chains
 
 Browser extensions operate with extraordinary access to users' online activities. An extension with appropriate permissions can read every webpage you visit, capture form data including passwords, modify page content, intercept network requests, and access browsing history. This access makes extensions powerful productivity tools—and potent attack vectors. When extension supply chains are compromised, attackers gain capabilities that rival sophisticated malware, distributed through trusted channels and automatically updated to millions of users.

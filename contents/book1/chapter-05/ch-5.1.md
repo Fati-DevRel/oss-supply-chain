@@ -1,3 +1,9 @@
+---
+title: "The Lifecycle of a Vulnerability"
+description: "Follow vulnerabilities from introduction through dormancy, discovery, disclosure, and remediation—each stage with distinct risks."
+icon: "lucide/activity"
+---
+
 # 5.1 The Lifecycle of a Vulnerability
 
 Every security vulnerability has a story. It begins when flawed code is written, continues through an often lengthy period of dormancy, and eventually reaches resolution when patches propagate to affected systems—or, in less fortunate cases, when attackers exploit it first. Understanding this lifecycle is essential for managing supply chain security, because vulnerabilities in dependencies follow the same trajectory as vulnerabilities in your own code, but with reduced visibility and control at each stage.

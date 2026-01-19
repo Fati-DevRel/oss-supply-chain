@@ -1,3 +1,9 @@
+---
+title: "Compromised Maintainer Accounts"
+description: "Learn how stolen maintainer credentials enable attackers to publish malicious packages through official channels in minutes."
+icon: "lucide/key"
+---
+
 # 8.1 Compromised Maintainer Accounts
 
 Chapter 7 examined attacks that compromise build systems and distribution infrastructure—complex operations requiring access to protected servers and sophisticated persistence mechanisms. But there is often a simpler path to supply chain compromise: stealing a maintainer's credentials. With a maintainer's username and password, an attacker can publish malicious package versions directly, no build system compromise required. The attack completes in minutes, the malicious code flows through official channels, and downstream users install it without suspicion.

@@ -1,3 +1,9 @@
+---
+title: "Threat Modeling as a Continuous Practice"
+description: "Integrate threat modeling into development workflows so security analysis stays current as dependencies and threats evolve."
+icon: "lucide/refresh-cw"
+---
+
 # 4.5 Threat Modeling as a Continuous Practice
 
 !!! note "Threat Models Become Obsolete"

@@ -1,3 +1,9 @@
+---
+title: "Case Study: 3CX Desktop App Compromise (2023)"
+description: "Study the cascading supply chain attack where compromise of one vendor led to infection of another vendor's build environment."
+icon: "lucide/phone"
+---
+
 # 7.3 Case Study: 3CX Desktop App Compromise (2023)
 
 In March 2023, customers of 3CX, a popular business communications platform, discovered that the official desktop application had been trojanized. The incident would have been concerning enough as a standalone supply chain attack—but investigation revealed something more troubling. 3CX had not been directly compromised. Instead, attackers had first compromised Trading Technologies, a financial software vendor, and used that access to infect a 3CX employee's machine, which then led to compromise of 3CX's build environment.

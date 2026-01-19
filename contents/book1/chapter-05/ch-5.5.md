@@ -1,3 +1,9 @@
+---
+title: "Cryptographic Library Vulnerabilities"
+description: "Study historical cryptographic failures from Heartbleed to Debian OpenSSL, revealing risks in security-critical dependencies."
+icon: "lucide/lock"
+---
+
 # 5.5 Cryptographic Library Vulnerabilities
 
 Among all supply chain dependencies, cryptographic libraries occupy a uniquely critical position. They protect data confidentiality, ensure message integrity, verify identities, and enable secure communication. When cryptographic dependencies fail, the consequences extend far beyond typical vulnerabilities—entire security architectures collapse. The history of cryptographic library incidents provides stark lessons about the risks of depending on code that requires specialized expertise to write, review, and maintain.

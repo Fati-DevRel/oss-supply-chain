@@ -1,3 +1,9 @@
+---
+title: "Operating System Package Managers"
+description: "Compare language package managers to distribution packages and understand when each approach provides better security."
+icon: "lucide/terminal"
+---
+
 # 2.5 Operating System Package Managers
 
 The language-specific package ecosystems surveyed in Section 2.4 represent only one layer of the software supply chain. Beneath them lies another stratum: operating system package managers that distribute software at the system level. These two layers operate on fundamentally different models with distinct security properties. Understanding when to use each—and how they interact—is essential for managing supply chain risk in production environments.

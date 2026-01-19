@@ -1,3 +1,9 @@
+---
+title: "Case Study: XZ Utils Backdoor (2024)"
+description: "Uncover the sophisticated two-year social engineering campaign that nearly inserted a backdoor into major Linux distributions."
+icon: "lucide/file-archive"
+---
+
 # 7.5 Case Study: XZ Utils Backdoor (2024)
 
 On March 29, 2024, a Microsoft engineer named Andres Freund [posted a message to the oss-security mailing list][freund-disclosure] that would send shockwaves through the open source community. While investigating a 500-millisecond delay in SSH connections on his Debian testing machine, Freund had discovered a sophisticated backdoor in **XZ Utils**, a ubiquitous compression library. The backdoor had been inserted by a contributor who had spent over two years building trust with the project's sole maintainer—a patient, methodical social engineering campaign that came close to reaching major mainstream Linux releases.

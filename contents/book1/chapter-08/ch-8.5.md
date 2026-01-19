@@ -1,3 +1,9 @@
+---
+title: "Git-Specific Attack Vectors"
+description: "Discover how Git features like hooks, submodules, and symbolic references can be weaponized in supply chain attacks."
+icon: "lucide/git-branch"
+---
+
 # 8.5 Git-Specific Attack Vectors
 
 Git has become the dominant version control system, underlying virtually all modern software development. Its distributed architecture, powerful features, and integration with platforms like GitHub and GitLab have made it essential infrastructure. But Git's flexibility also creates attack surface. Features designed for legitimate workflows—hooks, submodules, symbolic references—can be weaponized. Understanding Git-specific vulnerabilities helps practitioners harden their environments and recognize suspicious repository configurations.

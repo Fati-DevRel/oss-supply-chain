@@ -1,3 +1,9 @@
+---
+title: "Attack Surfaces Across the Supply Chain"
+description: "Map the distributed attack surface from source code to deployment, identifying where adversaries strike at each stage."
+icon: "lucide/target"
+---
+
 # 3.2 Attack Surfaces Across the Supply Chain
 
 Understanding who attacks software supply chains (Section 3.1) is only half the picture. We must also understand *where* those attacks occur. The software supply chain presents a distributed attack surface spanning source code management, development environments, build systems, distribution infrastructure, and deployment pipelines. Each stage offers distinct opportunities for adversaries, and a single weakness at any point can compromise everything downstream. This section maps these attack surfaces systematically, providing the foundation for the threat modeling approaches discussed in Chapter 4 and the detailed attack analysis in Chapters 5-10.

@@ -1,3 +1,9 @@
+---
+title: "The Maintainer Crisis"
+description: "Understand the human reality behind open source: unpaid maintainers facing burnout who represent a critical supply chain risk."
+icon: "lucide/alert-triangle"
+---
+
 # 2.3 The Maintainer Crisis
 
 Behind every open source package is a human being. Sometimes it is a team of humans, sometimes a well-funded corporate initiative, but remarkably often it is a single individual who created something useful and shared it with the world—never anticipating that their weekend project would become critical infrastructure for thousands of organizations. The sustainability challenges facing these maintainers constitute one of the most significant systemic risks to software supply chain security. Burned-out maintainers make mistakes, delay security patches, or abandon projects entirely. Overwhelmed maintainers become vulnerable to social engineering by attackers offering to "help." Understanding this crisis is essential for anyone seeking to secure the software supply chain.

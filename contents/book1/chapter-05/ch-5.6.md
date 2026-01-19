@@ -1,3 +1,9 @@
+---
+title: "Memory Safety and Language-Level Vulnerabilities"
+description: "Discover why 70% of critical vulnerabilities are memory safety issues and how language choice can eliminate entire vulnerability classes."
+icon: "lucide/memory-stick"
+---
+
 # 5.6 Memory Safety and Language-Level Vulnerabilities
 
 Throughout the previous sections, we have examined vulnerabilities as individual flaws to be discovered, patched, and remediated. But a deeper pattern underlies many of the most severe vulnerabilities in the software supply chain: **memory safety**. The majority of critical vulnerabilities in foundational software—operating systems, browsers, cryptographic libraries, network stacks—result from a category of programming errors that certain languages permit and others prevent entirely. Understanding this pattern has profound implications for supply chain security, as it suggests that language choice can eliminate entire vulnerability classes rather than addressing them one CVE at a time.

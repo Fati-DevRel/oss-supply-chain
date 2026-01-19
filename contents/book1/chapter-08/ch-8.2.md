@@ -1,3 +1,9 @@
+---
+title: "Malicious Commits and Pull Requests"
+description: "Understand how attackers exploit the code review process through obfuscation, reviewer fatigue, and trust-building contributions."
+icon: "lucide/git-pull-request"
+---
+
 # 8.2 Malicious Commits and Pull Requests
 
 While account takeover provides attackers direct publishing access, a more subtle approach targets the code review process itself. Attackers can submit malicious code through normal contribution channels—pull requests, patches, or direct commits—hoping that reviewers will approve harmful changes. This attack vector exploits the fundamental tension in open source: projects want contributions to grow and improve, but each contribution is potential attack surface.

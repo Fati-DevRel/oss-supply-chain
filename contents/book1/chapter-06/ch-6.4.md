@@ -1,3 +1,9 @@
+---
+title: "Case Studies in Package Attacks"
+description: "Study five notable package attacks including event-stream and ua-parser-js, revealing attack vectors and lessons for defenders."
+icon: "lucide/file-search"
+---
+
 # 6.4 Case Studies in Package Attacks
 
 Abstract analysis of attack techniques provides valuable understanding, but detailed examination of actual incidents reveals nuances that generalized discussions miss. This section presents five case studies of notable package attacks, each illustrating different attack vectors, motivations, and discovery mechanisms. Together, these incidents provide a representative sample of the threats facing package ecosystems and the lessons defenders should extract from them.

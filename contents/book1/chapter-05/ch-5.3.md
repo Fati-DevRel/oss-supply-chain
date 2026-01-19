@@ -1,3 +1,9 @@
+---
+title: "Zero-Days vs. Known Vulnerabilities"
+description: "Understand why unpatched known vulnerabilities cause more breaches than zero-days, and how to allocate defensive resources."
+icon: "lucide/eye-off"
+---
+
 # 5.3 Zero-Days vs. Known Vulnerabilities
 
 Security discussions often focus on zero-day vulnerabilities—the unknown flaws that enable sophisticated attacks and generate dramatic headlines. This focus, while understandable, can distort risk perception. The data consistently shows that most successful attacks exploit known vulnerabilities that organizations simply have not patched. Understanding the distinction between zero-day and known vulnerability risk is essential for allocating defensive resources effectively.

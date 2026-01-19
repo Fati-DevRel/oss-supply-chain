@@ -1,3 +1,9 @@
+---
+title: "Client-Side JavaScript and CDN Supply Chains"
+description: "Analyze runtime JavaScript dependencies that execute in browsers, affecting users instantly without deployment cycles."
+icon: "lucide/globe"
+---
+
 # 9.4 Client-Side JavaScript and CDN Supply Chains
 
 The previous sections examined supply chains that operate during development and build—npm packages bundled into applications, mobile SDKs compiled into apps. But the web presents a distinct paradigm: JavaScript loaded directly into users' browsers at runtime from external servers. Every time a page loads, browsers fetch scripts from multiple origins, executing code that can access the page's DOM, user data, and in some cases, cryptographic keys or payment information.

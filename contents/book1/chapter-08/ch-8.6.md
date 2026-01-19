@@ -1,4 +1,10 @@
-# 8.6 Fake Security Researchers and Malicious "Fixes"
+---
+title: "Fake Security Researchers and Malicious Fixes"
+description: "Recognize attackers posing as researchers who pressure maintainers into merging 'fixes' that introduce vulnerabilities."
+icon: "lucide/mask"
+---
+
+# 8.6 Fake Security Researchers and Malicious Fixes
 
 Security researchers play a vital role in open source security, identifying vulnerabilities and helping projects fix them before exploitation. Legitimate researchers follow **responsible disclosure** practices, providing detailed reports and often contributing patches. Attackers have recognized this trusted relationship and begun exploiting it—posing as security researchers to pressure maintainers into merging malicious "fixes" that introduce vulnerabilities rather than remediate them.
 

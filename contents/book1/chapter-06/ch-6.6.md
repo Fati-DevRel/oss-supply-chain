@@ -1,3 +1,9 @@
+---
+title: "Slopsquatting: AI-Hallucinated Package Attacks"
+description: "Discover how attackers register package names hallucinated by AI coding assistants, creating a novel supply chain threat."
+icon: "lucide/bot"
+---
+
 # 6.6 Slopsquatting: AI-Hallucinated Package Attacks
 
 The emergence of AI coding assistants has transformed software development, enabling developers to generate code faster than ever before. Tools like GitHub Copilot, ChatGPT, Claude, and others have become integral to modern development workflows. However, this productivity comes with a novel security risk: AI models sometimes recommend packages that do not exist. Attackers have recognized this vulnerability and begun registering these hallucinated package names, creating a new attack vector that security researcher Seth Larson termed **slopsquatting** in April 2025.

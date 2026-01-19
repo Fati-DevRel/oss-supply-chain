@@ -1,3 +1,9 @@
+---
+title: "Adversary Motivations"
+description: "Profile the threat actors targeting supply chains—from nation-states to ransomware gangs—and understand their distinct objectives."
+icon: "lucide/crosshair"
+---
+
 # 3.1 Adversary Motivations
 
 Effective defense requires understanding who is attacking and why. The software supply chain attracts a diverse range of threat actors, from nation-states with virtually unlimited resources to individual vandals seeking notoriety. Each actor type brings different motivations, capabilities, and attack patterns. A defense strategy that protects against one type may be irrelevant against another. This section profiles the major threat actor categories, providing the foundation for threat modeling discussions in Chapter 4.

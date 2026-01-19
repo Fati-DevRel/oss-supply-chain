@@ -1,3 +1,9 @@
+---
+title: "CI/CD Pipeline Vulnerabilities"
+description: "Survey systemic CI/CD weaknesses using the OWASP Top 10 framework, with detection approaches and hardening recommendations."
+icon: "lucide/workflow"
+---
+
 # 7.6 CI/CD Pipeline Vulnerabilities
 
 The case studies in preceding sections—SolarWinds, 3CX, Codecov, XZ Utils—demonstrate the catastrophic potential of compromised build and delivery systems. But these high-profile incidents represent the visible peak of a much larger problem. CI/CD pipelines contain systemic vulnerabilities that, while individually less dramatic, create pervasive risk across the software industry. Understanding these vulnerabilities systematically enables defenders to assess and harden their pipelines before attackers exploit them.

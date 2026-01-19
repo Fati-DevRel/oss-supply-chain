@@ -1,3 +1,9 @@
+---
+title: "How Open Source Projects Are Governed and Maintained"
+description: "Explore governance models from BDFL to foundation oversight and understand how project structure impacts security decision-making."
+icon: "lucide/users"
+---
+
 # 2.2 How Open Source Projects Are Governed and Maintained
 
 Understanding who makes decisions in open source projects—and how those decisions are made—is essential for assessing supply chain security. A project's governance model determines how vulnerabilities are prioritized, how security patches are reviewed, who can commit code, and how quickly critical updates reach users. The open source ecosystem encompasses an extraordinary range of governance approaches, from single-maintainer hobby projects to enterprise-grade infrastructure managed by well-funded foundations. This diversity means that security postures vary dramatically, often in ways that are not immediately visible to consumers of the software.

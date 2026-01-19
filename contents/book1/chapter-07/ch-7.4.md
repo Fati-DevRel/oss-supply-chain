@@ -1,3 +1,9 @@
+---
+title: "Case Study: Codecov Bash Uploader (2021)"
+description: "Examine how attackers harvested credentials from thousands of CI/CD pipelines through a modified script fetched via curl."
+icon: "lucide/terminal-square"
+---
+
 # 7.4 Case Study: Codecov Bash Uploader (2021)
 
 The SolarWinds and 3CX attacks compromised build systems to inject malicious code into distributed software. The Codecov incident demonstrated a different approach: rather than modifying the final product, attackers targeted a script that ran in thousands of CI/CD pipelines, harvesting credentials and secrets from each environment. The attack required no malware installation on end-user systems—the build environments themselves were the target, and the secrets they contained were the prize.

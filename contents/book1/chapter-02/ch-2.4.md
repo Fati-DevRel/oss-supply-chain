@@ -1,3 +1,9 @@
+---
+title: "Major Package Ecosystems: A Comparative Survey"
+description: "Survey the major package registries—npm, PyPI, Maven Central, and more—comparing their security features and vulnerabilities."
+icon: "lucide/package"
+---
+
 # 2.4 Major Package Ecosystems: A Comparative Survey
 
 The open source ecosystem is not a single entity but a collection of distinct communities, each with its own culture, governance, tooling, and security posture. Understanding these ecosystems—their strengths, weaknesses, and idiosyncrasies—is essential for anyone managing software supply chain security. A vulnerability disclosure process that works well in one ecosystem may not exist in another. Security features considered standard in one registry may be absent elsewhere. This section surveys the major package ecosystems, providing reference material for practitioners who must secure applications spanning multiple language communities.

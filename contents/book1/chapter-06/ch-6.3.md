@@ -1,3 +1,9 @@
+---
+title: "Malicious Packages"
+description: "Examine how attackers publish intentionally harmful packages to steal credentials, install backdoors, or mine cryptocurrency."
+icon: "lucide/skull"
+---
+
 # 6.3 Malicious Packages
 
 Typosquatting and dependency confusion exploit mistakes—typos, misconfigurations, resolution logic flaws. But the most direct supply chain attack is simply publishing code designed to harm anyone who installs it. **Malicious packages** are software intentionally crafted to steal credentials, install backdoors, mine cryptocurrency, or achieve other attacker objectives, published to package registries where unsuspecting developers will incorporate them into their projects.

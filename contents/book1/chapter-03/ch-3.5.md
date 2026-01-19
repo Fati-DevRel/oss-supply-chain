@@ -1,3 +1,9 @@
+---
+title: "Infrastructure as Supply Chain"
+description: "Examine the hidden infrastructure dependencies—DNS, cloud platforms, CDNs—that underpin every software supply chain."
+icon: "lucide/server"
+---
+
 # 3.5 Infrastructure as Supply Chain
 
 The previous sections have focused on software dependencies—the packages, libraries, and components that applications incorporate. But modern software depends on far more than code. A hidden layer of infrastructure services underpins every software supply chain: DNS resolution that translates package registry names to IP addresses, cloud platforms that host build systems and registries, CDNs that distribute assets globally, certificate authorities that enable secure connections, and time synchronization services that coordinate distributed systems. Compromise or failure at this infrastructure layer can undermine software supply chain security regardless of how carefully individual packages are vetted.
