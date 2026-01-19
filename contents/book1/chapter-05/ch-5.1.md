@@ -2,9 +2,9 @@
 
 Every security vulnerability has a story. It begins when flawed code is written, continues through an often lengthy period of dormancy, and eventually reaches resolution when patches propagate to affected systems—or, in less fortunate cases, when attackers exploit it first. Understanding this lifecycle is essential for managing supply chain security, because vulnerabilities in dependencies follow the same trajectory as vulnerabilities in your own code, but with reduced visibility and control at each stage.
 
-The vulnerability lifecycle can be conceptualized as a series of stages:
+!!! info "Vulnerability Lifecycle Stages"
 
-**Introduction → Dormancy → Discovery → Disclosure → Patching → Propagation → Remediation**
+    **Introduction** → **Dormancy** → **Discovery** → **Disclosure** → **Patching** → **Propagation** → **Remediation**
 
 Each stage presents distinct challenges and opportunities for defenders. The time spent in each stage varies dramatically—from hours to decades—and these timing dynamics fundamentally shape supply chain risk.
 
@@ -30,7 +30,9 @@ Research by security firms and academics consistently finds that vulnerabilities
 
 The Heartbleed vulnerability was introduced in December 2011 and discovered in April 2014—over two years of dormancy in one of the most security-critical libraries in the world. The Log4j vulnerability was dormant for over eight years. The XZ Utils backdoor was introduced through a sophisticated multi-year campaign, but once planted, it nearly reached stable Linux distributions before chance discovery.
 
-During dormancy, the vulnerability is exploitable by anyone who discovers it. There is no CVE, no advisory, no patch, and no scanner detection. Organizations running affected software have no indication of their exposure. This is the **vulnerability twilight zone** discussed in Chapter 3—a period when defense is effectively impossible because the threat is unknown.
+!!! warning "The Vulnerability Twilight Zone"
+
+    During dormancy, the vulnerability is exploitable by anyone who discovers it. There is no CVE, no advisory, no patch, and no scanner detection. Organizations running affected software have no indication of their exposure.
 
 From a supply chain perspective, dormancy means you cannot rely on vulnerability databases to assess current exposure. Your dependencies may contain undiscovered vulnerabilities that attackers have already found. The absence of known vulnerabilities does not mean the absence of vulnerabilities.
 
@@ -98,7 +100,9 @@ Each stage introduces delay. Distribution channels typically propagate packages 
 
 Testing and deployment delays are often the longest part of the propagation timeline. Organizations with mature DevOps practices may deploy non-breaking updates within days. Organizations with complex change management processes may require weeks or months. Critical infrastructure with high availability requirements may defer updates until maintenance windows.
 
-The **vulnerability half-life** measures how long until 50% of vulnerable instances are patched. [Research by Kenna Security (now Cisco Vulnerability Management) and the Cyentia Institute][kenna-cyentia] found that vulnerability half-lives vary significantly by asset type and industry—from around 36 days for Windows systems to over 360 days for network appliances. This means that weeks to months after a patch is released, half of vulnerable systems remain unpatched.
+!!! note "Vulnerability Half-Life"
+
+    Research by Kenna Security (now Cisco) and Cyentia Institute found vulnerability half-lives vary from ~36 days for Windows systems to over 360 days for network appliances. This means weeks to months after a patch is released, half of vulnerable systems remain unpatched.
 
 Some vulnerabilities have extremely long tails. The EternalBlue vulnerability (CVE-2017-0144) was patched by Microsoft in March 2017, but vulnerable systems remained common years later—as the WannaCry and NotPetya ransomware attacks demonstrated.
 

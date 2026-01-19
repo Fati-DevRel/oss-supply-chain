@@ -4,6 +4,10 @@ Abstract analysis of attack techniques provides valuable understanding, but deta
 
 ## event-stream: The Long Game of Trust (2018)
 
+!!! example "The Most Significant Social Engineering Attack"
+
+    The event-stream incident remains the most significant example of social engineering in open source: an attacker ("right9ctrl") patiently built trust through helpful contributions, then took over maintenance from an overwhelmed maintainer to inject a targeted Bitcoin wallet theft payload.
+
 The **event-stream incident** remains the most significant example of social engineering in the open source ecosystem, demonstrating how attackers can patiently build trust to gain access to widely-used packages.
 
 **Background and Timeline:**
@@ -57,6 +61,10 @@ This conditional execution meant that the malicious code:
 
 ## ua-parser-js: Credential Compromise at Scale (2021)
 
+!!! danger "Four Hours of Exposure"
+
+    Malicious versions of ua-parser-js (~7 million weekly downloads) were available for approximately 4 hours after attackers compromised the maintainer's npm account. Thousands of installations occurred during this window, with CI/CD pipelines particularly exposed.
+
 The **ua-parser-js compromise** demonstrated how a single credential compromise could immediately affect millions of users.
 
 **Background and Timeline:**
@@ -103,6 +111,10 @@ The attack was discovered when the legitimate maintainer received notifications 
 4. **Monitoring for unexpected publications is valuable.** The maintainer's quick discovery of unauthorized publications enabled rapid response.
 
 ## colors.js and faker.js: Maintainer Protest (2022)
+
+!!! warning "When Maintainers Become the Threat"
+
+    The colors.js and faker.js incident demonstrated that the threat model must include maintainers themselves. A single maintainer's deliberate sabotage broke thousands of projects including Amazon AWS CDK and Facebook Create React App.
 
 The **colors.js and faker.js incident** raised fundamental questions about maintainer trust, demonstrating that the threat model must include maintainers themselves.
 

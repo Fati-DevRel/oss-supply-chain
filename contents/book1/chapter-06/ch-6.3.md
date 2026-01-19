@@ -4,6 +4,10 @@ Typosquatting and dependency confusion exploit mistakes—typos, misconfiguratio
 
 A note on terminology: this section focuses on malicious packages—those created from the outset with harmful intent. This is distinct from **compromised packages**, which are legitimate packages that attackers take over through account hijacking, social engineering, or other means (such as the `ua-parser-js` and `event-stream` incidents described below). Both categories pose supply chain risks, but they differ in origin: malicious packages are born harmful, while compromised packages become harmful after being corrupted. The defenses against each overlap substantially, though compromised packages often benefit from the legitimate package's established trust and download base.
 
+!!! note "Malicious Packages at Scale"
+
+    Sonatype's 2024 report documented 512,847 malicious packages discovered in the past year—a 156% increase year-over-year, with 704,102 total malicious packages identified since 2019.
+
 The scale of this threat has grown dramatically. [Sonatype's 2024 State of the Software Supply Chain report][sonatype-2024] documented 512,847 malicious packages discovered across major ecosystems in the past year—a 156% increase year-over-year, with 704,102 total malicious packages identified since 2019. The arms race between attackers publishing malicious packages and defenders attempting to detect and remove them has become a defining feature of modern package ecosystem security.
 
 ## Motivations Behind Malicious Packages
@@ -16,6 +20,10 @@ Attackers publish malicious packages for diverse objectives, each influencing th
 
 **Cryptomining** hijacks computational resources for cryptocurrency mining. Unlike credential theft, cryptomining provides ongoing revenue without requiring the attacker to monetize stolen data. Mining packages often attempt persistence, continuing to run after initial installation. The `ua-parser-js` attack included a cryptominer alongside its credential harvesting payload.
 
+!!! danger "The XZ Utils Pattern"
+
+    The XZ Utils backdoor exemplifies sophisticated supply chain pre-positioning: the attacker contributed legitimately for over two years, building trust until granted maintainer access—a patience-intensive approach that defeats technical controls because the attacker becomes an insider.
+
 **Backdoor installation** provides attackers with persistent remote access to compromised systems. The XZ Utils backdoor ([CVE-2024-3094][cve-2024-3094], discovered March 29, 2024) exemplifies this sophistication: the attacker contributed legitimately for over two years, building trust until granted maintainer access—a patience-intensive approach that defeats technical controls because the attacker becomes an insider. The malicious code was hidden in test files and activated only in specific build configurations designed to provide SSH access while evading detection in security researcher environments. This level of sophistication suggests nation-state or well-funded criminal involvement and demonstrates why backdoors in packages are particularly dangerous: they can persist through updates and are difficult to detect through behavioral analysis that focuses on installation-time activity. For detection details, see Book 2, Section 19.1.
 
 **Protestware** is a category of malicious package created for ideological rather than financial purposes. The `node-ipc` maintainer's modification (March 7-8, 2022) to target systems with Russian or Belarusian IP addresses demonstrated how maintainer access could be weaponized for political expression.[^node-ipc-protestware] While protestware may be seen as distinct from criminal malware, from a security perspective the distinction is irrelevant—unauthorized code execution causing harm is the outcome regardless of motivation.
@@ -27,6 +35,10 @@ Attackers publish malicious packages for diverse objectives, each influencing th
 ## Technical Attack Mechanisms
 
 Malicious packages employ various techniques to execute code and achieve attacker objectives:
+
+!!! warning "Installation Scripts Execute Immediately"
+
+    Installation hooks execute before the developer has any opportunity to review package contents. A single `npm install malicious-package` command executes whatever code the attacker has placed in installation scripts, running with the installing user's privileges.
 
 **Installation script hooks** provide immediate code execution when a package is installed. Most package managers support scripts that run during installation:
 

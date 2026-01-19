@@ -2,7 +2,9 @@
 
 Package managers have made software dependency management remarkably convenient. A single command—`npm install lodash` or `pip install requests`—retrieves code from a registry and integrates it into your project. This convenience depends on package names being reliable identifiers: when you request `lodash`, you expect to receive the popular JavaScript utility library, not something else. Attackers exploit this trust through **typosquatting** and **namesquatting**, claiming package names designed to deceive developers into installing malicious code instead of legitimate dependencies.
 
-These attacks are particularly insidious because they exploit human error rather than technical vulnerabilities. A single keystroke mistake can be the difference between installing a trusted package and executing an attacker's code.
+!!! warning "A Single Keystroke Mistake"
+
+    These attacks are particularly insidious because they exploit human error rather than technical vulnerabilities. A single keystroke mistake can be the difference between installing a trusted package and executing an attacker's code.
 
 ## How Typosquatting Works
 
@@ -86,6 +88,10 @@ Different ecosystems use different conventions (hyphens vs. underscores, dots vs
 - Registering Python's `scipy` name in a Rust repository
 - Using `org.fasterxml.jackson.core` instead of `com.fasterxml.jackson.core` on Maven (exploiting `.org` vs `.com` confusion)
 
+!!! note "Research Proof Point"
+
+    A 2016 academic study by Nikolai Tschacher demonstrated the scale: typosquatting packages uploaded to PyPI, npm, and RubyGems infected over 17,000 machines within days, with half executing the code as administrator.
+
 A [2016 academic study by Nikolai Tschacher][tschacher-2016] at the University of Hamburg demonstrated the scale of the threat: his experiment uploading typosquatting packages to PyPI, npm, and RubyGems infected over 17,000 machines within days, with half executing the code as administrator. This early research proved that typing errors occur frequently enough to make the attack profitable for adversaries.
 
 ## Namesquatting: Claiming Territory
@@ -102,6 +108,10 @@ Namesquatting may not involve malicious payloads initially. Some namesquatters s
 Registry policies on namesquatting vary. npm has policies against reserving names without intent to publish meaningful content but enforcement is inconsistent. PyPI generally operates on a first-come, first-served basis with limited active policing of squatted names.
 
 ## Case Study: crossenv (2017)
+
+!!! example "The crossenv Incident"
+
+    An attacker registered `crossenv` (without the hyphen) to mimic the popular `cross-env`. The malicious `postinstall` script harvested environment variables and npm tokens, affecting ~700 developers before detection.
 
 The **crossenv incident** on npm in August 2017 became a defining example of typosquatting attacks against package registries.
 

@@ -6,11 +6,11 @@ Attack trees, introduced briefly in Section 4.2, deserve deeper treatment becaus
 
 **Attack trees** decompose an adversary's goal into the steps required to achieve it. The root node represents the attacker's objective. Child nodes represent different ways to achieve the parent node's goal or prerequisites that must be satisfied. Trees are constructed by repeatedly asking: "How could an attacker accomplish this?"
 
-The methodology uses two types of decomposition:
+!!! info "Node Types"
 
-**OR nodes** indicate that any one of the child nodes is sufficient to achieve the parent goal. If an attacker can compromise a system through *either* stolen credentials *or* a software vulnerability, those children form an OR relationship. The parent node succeeds if any child succeeds.
+    **OR nodes**: Any one child is sufficient to achieve the parent goal. The parent succeeds if *any* child succeeds.
 
-**AND nodes** indicate that all child nodes must be achieved to accomplish the parent goal. If an attacker must *both* gain repository access *and* bypass code review, those children form an AND relationship. The parent node succeeds only if all children succeed.
+    **AND nodes**: All children must be achieved. The parent succeeds only if *all* children succeed.
 
 Nodes can be annotated with additional attributes:
 
@@ -73,6 +73,12 @@ GOAL: Execute malicious code in target's production environment
     └── Modification of deployment automation
     Cost: High | Likelihood: Low | Detection: Medium
 ```
+
+!!! tip "Key Insights from Attack Tree Analysis"
+
+    - **Lowest-cost paths**: Credential compromise (phishing, credential stuffing) and secrets leakage from build systems—attractive to resource-constrained attackers
+    - **Highest-likelihood paths**: Transitive dependencies receive less scrutiny and their maintainers may be more susceptible to social engineering
+    - **XZ Utils pattern**: Expensive in time but high success and very low detection probability—viable for nation-state actors
 
 **Analysis of this tree** reveals several insights:
 

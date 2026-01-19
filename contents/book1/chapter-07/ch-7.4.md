@@ -2,6 +2,10 @@
 
 The SolarWinds and 3CX attacks compromised build systems to inject malicious code into distributed software. The Codecov incident demonstrated a different approach: rather than modifying the final product, attackers targeted a script that ran in thousands of CI/CD pipelines, harvesting credentials and secrets from each environment. The attack required no malware installation on end-user systems—the build environments themselves were the target, and the secrets they contained were the prize.
 
+!!! danger "The `curl | bash` Anti-Pattern"
+
+    The modified Codecov script ran in thousands of CI pipelines for two months, exfiltrating credentials from each environment. A single line added to the script collected git remotes and all environment variables, transmitted to attacker-controlled servers.
+
 This attack exemplifies the risks of the `curl | bash` pattern—fetching and executing remote scripts without verification—that remains common in CI/CD configurations despite its obvious security implications.
 
 ## Background: Codecov and Code Coverage Reporting
@@ -93,6 +97,10 @@ Twilio's disclosure indicated that attackers had moved beyond simple credential 
 The full scope of affected organizations remains unknown. Codecov notified approximately 29,000 customers, but not all disclosed their exposure publicly. Given the types of credentials present in CI environments, the attack likely affected far more organizations than those that publicly acknowledged impact.
 
 ## Detection and Response Timeline
+
+!!! note "Two Months Undetected"
+
+    The attack persisted for approximately two months before detection. Detection occurred not through automated security tools but through a customer who happened to verify the script's integrity—a practice that, while recommended, is rarely implemented.
 
 **January 31, 2021**: Attackers modify the Codecov bash uploader script.
 

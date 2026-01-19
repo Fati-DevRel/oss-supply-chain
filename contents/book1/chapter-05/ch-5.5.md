@@ -28,6 +28,13 @@ The flaw was that OpenSSL trusted the client's claim about how much data it sent
 
 This is a classic **buffer over-read**: the program reads beyond the boundaries of the data it was given, exposing adjacent memory contents.
 
+!!! danger "Heartbleed's Unprecedented Scale"
+
+    - ~17% of all TLS-enabled web servers vulnerable (~500,000 servers)
+    - Vulnerability existed for over two years before discovery
+    - Exploitation left no traces in server logs
+    - Exposed private keys enabled retrospective decryption of recorded traffic
+
 **The scale was unprecedented:**
 
 - At disclosure, an estimated 17% of all TLS-enabled web servers were vulnerable—approximately 500,000 servers.
@@ -37,7 +44,9 @@ This is a classic **buffer over-read**: the program reads beyond the boundaries 
 
 The response required not just patching but key replacement. Organizations had to assume their private keys were compromised and reissue certificates—a massive operational undertaking across the internet.
 
-> "Catastrophic is the right word. On the scale of 1 to 10, this is an 11," said [Bruce Schneier][bruce-schneier], describing Heartbleed's severity.
+!!! quote "Bruce Schneier on Heartbleed"
+
+    "Catastrophic is the right word. On the scale of 1 to 10, this is an 11."
 
 Heartbleed became a defining moment for software security. It demonstrated that critical infrastructure depended on understaffed open source projects (OpenSSL had minimal funding at the time), that vulnerabilities could persist in scrutinized code for years, and that cryptographic library failures had system-wide consequences.
 
@@ -55,7 +64,11 @@ The result: from September 2006 to May 2008, every cryptographic key generated o
 
 The incident resulted not from malicious intent but from a maintainer's reasonable-looking change to code they did not fully understand. The developer consulted the OpenSSL maintainers about the change, but communication gaps led to the flawed modification being applied.
 
-The Debian weak keys incident demonstrates a critical supply chain principle: even trusted maintainers can introduce devastating security flaws when working outside their expertise. Cryptographic code requires cryptographic understanding; well-meaning changes by non-cryptographers can have catastrophic consequences.
+!!! warning "Critical Supply Chain Lesson"
+
+    Even trusted maintainers can introduce devastating security flaws when working outside their expertise. Cryptographic code requires cryptographic understanding; well-meaning changes by non-cryptographers can have catastrophic consequences.
+
+The Debian weak keys incident demonstrates a critical supply chain principle: even trusted maintainers can introduce devastating security flaws when working outside their expertise.
 
 ## The Cryptographic Library Landscape
 

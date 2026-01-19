@@ -6,6 +6,10 @@ Understanding insider threats in open source requires first defining who qualifi
 
 ## Defining "Insider" in Open Source
 
+!!! info inline end "Open Source Insiders"
+
+    Anyone with commit rights, release authority, or administrative control—often with no formal employment, verified identity, or oversight.
+
 In enterprise contexts, insiders are clearly defined: employees, contractors, and others with formal relationships granting system access. Open source projects lack such clear boundaries.
 
 Consider the levels of access in a typical open source project:
@@ -30,6 +34,10 @@ This creates an insider threat surface quite different from enterprise environme
 ## Rogue Maintainers: Intentional Sabotage
 
 The most direct insider threat occurs when a maintainer intentionally harms their own project or its users. This can manifest as:
+
+!!! warning "Maintainers Can Become Threats"
+
+    Marak Squires (colors.js, faker.js) and Brandon Miller (node-ipc) deliberately sabotaged their own widely-used packages—the former protesting unpaid labor, the latter targeting users by geolocation. Enterprise insider threat models rarely account for maintainers as threats.
 
 **Protestware:**
 

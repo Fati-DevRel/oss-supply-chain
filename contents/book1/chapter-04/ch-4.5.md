@@ -1,6 +1,8 @@
 # 4.5 Threat Modeling as a Continuous Practice
 
-Threat modeling is often treated as a milestone activity—something done during initial design and then filed away. This approach fails for supply chain security. Dependencies update continuously. New packages are adopted. Vulnerabilities are discovered in previously trusted components. Build infrastructure evolves. The threat landscape shifts as attackers develop new techniques. A threat model created once and never revisited quickly becomes obsolete, providing false confidence rather than genuine security insight.
+!!! note "Threat Models Become Obsolete"
+
+    A threat model created once and never revisited quickly becomes obsolete, providing false confidence rather than genuine security insight. Dependencies update continuously. New packages are adopted. Vulnerabilities are discovered. The threat landscape shifts.
 
 Effective supply chain threat modeling must be **continuous**—integrated into development workflows, updated as systems change, and refined as understanding deepens. This section provides practical guidance for making threat modeling an ongoing practice rather than a one-time exercise.
 
@@ -24,15 +26,15 @@ Comprehensive threat modeling—constructing detailed attack trees, applying STR
 
 Lightweight approaches include:
 
-**Structured questions** rather than formal methodology. For dependency adoption decisions, a simple checklist provides guidance without methodology overhead:
+!!! tip "Five-Minute Dependency Evaluation"
 
-1. What does this dependency do, and do we actually need it?
-2. Who maintains it, and what's their security track record?
-3. What privilege level does it require (network, filesystem, build-time execution)?
-4. What happens if it's compromised or becomes unavailable?
-5. Are there alternatives with better security properties?
+    1. What does this dependency do, and do we actually need it?
+    2. Who maintains it, and what's their security track record?
+    3. What privilege level does it require (network, filesystem, build-time execution)?
+    4. What happens if it's compromised or becomes unavailable?
+    5. Are there alternatives with better security properties?
 
-Five minutes answering these questions provides meaningful risk awareness without elaborate process.
+**Structured questions** rather than formal methodology. For dependency adoption decisions, a simple checklist provides guidance without methodology overhead. Five minutes answering these questions provides meaningful risk awareness without elaborate process.
 
 **Timeboxed analysis** constrains effort while ensuring consideration. Allocate 15-30 minutes to threat model a new dependency or feature. Document what you considered, what concerns emerged, and what you decided. Time constraints prevent analysis paralysis while ensuring security receives attention.
 
@@ -44,20 +46,13 @@ Five minutes answering these questions provides meaningful risk awareness withou
 
 Not every situation warrants the same level of analysis. Matching approach intensity to risk level ensures security investment goes where it matters.
 
-**Comprehensive threat modeling** is appropriate for:
+!!! info "Match Analysis Intensity to Risk Level"
 
-- Initial architecture design for new systems
-- Adoption of Tier 1 (crown jewel) dependencies
-- Significant changes to build or deployment infrastructure
-- Response to major supply chain incidents affecting your ecosystem
-- Periodic (annual or semi-annual) review of critical systems
-
-**Lightweight threat modeling** suits:
-
-- Routine dependency updates
-- Adoption of Tier 2-3 dependencies
-- Minor feature additions
-- Regular development cycle activities
+    **Comprehensive**: Initial architecture design, Tier 1 dependencies, build infrastructure changes, major incidents, periodic reviews
+    
+    **Lightweight**: Routine dependency updates, Tier 2-3 dependencies, minor features, regular development activities
+    
+    **Minimal**: Tier 4 dependencies (dev tools), patch-level updates, dependencies covered by organizational standards
 
 **Minimal review** may suffice for:
 
