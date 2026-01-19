@@ -163,11 +163,16 @@ The .NET ecosystem's enterprise orientation means many organizations use private
 
 The Apple ecosystem relies on two primary package management systems: **CocoaPods**, a community-driven dependency manager established in 2011, and **Swift Package Manager (SPM)**, Apple's official tool introduced in 2016 and integrated into Xcode.
 
-**CocoaPods** manages over 100,000 pods (libraries) and remains widely used in iOS, macOS, watchOS, and tvOS development. The CocoaPods Trunk[^cocoapods-trunk] serves as the centralized registry, operated by a small team of volunteers under the CocoaPods organization.
+!!! warning "CocoaPods Entering Read-Only Mode (December 2026)"
+
+    CocoaPods is in **maintenance mode** and the CocoaPods team has announced that **Trunk will become permanently read-only on December 2nd, 2026**. After this date, no new pods or pod versions will be accepted. Organizations should audit their iOS dependencies and prioritize migration to Swift Package Manager before Q3 2026 to allow adequate buffer time. Projects using React Native or Flutter—which rely on CocoaPods as a hidden abstraction—face particular migration challenges.
+
+**CocoaPods** manages over 100,000 pods (libraries) and has historically been widely used in iOS, macOS, watchOS, and tvOS development. However, the project entered **maintenance mode** with no active feature development, and usage is now primarily sustained by React Native and Flutter ecosystems that depend on CocoaPods as a hidden abstraction layer. The CocoaPods Trunk[^cocoapods-trunk] serves as the centralized registry, operated by a small team of volunteers under the CocoaPods organization.
 
 CocoaPods has experienced notable security challenges:
 
 - **Trunk server vulnerabilities** (2021): Security researchers identified a vulnerability in the CocoaPods Trunk API that could have allowed attackers to claim ownership of abandoned pods, potentially affecting millions of iOS applications. The issue stemmed from how the trunk server handled ownership verification for pods whose original maintainers had abandoned their email addresses.
+- **Remote Code Execution vulnerabilities** (2023): Security researchers at evasec.io discovered three separate RCE vulnerabilities in Trunk, including the ability to claim ownership of pods through the verification process, email verification exploits, and shell command execution on the Trunk server. All user sessions were reset following disclosure and patching.
 - **Dependency confusion risks**: Like other ecosystems, CocoaPods is vulnerable to dependency confusion attacks where private pod names could be claimed on the public trunk.
 - **Podspec tampering**: The Podspec files that define pod metadata are fetched from the centralized specs repository, creating a single point where modifications could affect downstream consumers.
 
@@ -177,6 +182,7 @@ Security improvements include:
 - **Session management** improvements following the 2021 vulnerability disclosures
 - **Pod ownership verification** requiring email confirmation
 - **Spec repository mirroring** through CDN for improved availability
+- **`prepare_command` restrictions** (May 2025): New pods using `prepare_command`—which allows arbitrary script execution during pod installation—are now blocked to prevent script-based supply chain attacks
 
 **Swift Package Manager** represents Apple's modern approach, integrated directly into Xcode and the Swift compiler. Unlike CocoaPods' centralized registry, SPM uses a decentralized model similar to Go modules—packages are referenced by their Git repository URLs and fetched directly from source.
 
@@ -214,7 +220,7 @@ Examining these ecosystems reveals both common patterns and significant divergen
 | Go modules | Google (mirror/checksum) | Corporate |
 | Packagist | Private Packagist GmbH | Commercial |
 | NuGet | Microsoft | Corporate |
-| CocoaPods | CocoaPods Volunteers | Community/Donations |
+| CocoaPods | CocoaPods Volunteers | Community/Donations (maintenance mode; read-only Dec 2026) |
 | Swift PM | Apple (decentralized) | N/A (uses Git hosts) |
 
 **Dependency scale varies dramatically by ecosystem:**
