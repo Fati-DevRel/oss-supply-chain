@@ -4,13 +4,28 @@ The open source ecosystem is not a single entity but a collection of distinct co
 
 ## JavaScript/Node.js: npm
 
-The **npm registry** is the largest package ecosystem in the world by a substantial margin, hosting over 2.5 million packages with more than 200 billion downloads per month. This scale reflects JavaScript's ubiquity: it runs in every web browser, powers countless server applications through Node.js, and has expanded into mobile development, desktop applications, and even embedded systems.
+!!! note "npm: The Largest Ecosystem"
+
+    - **2.5+ million** packages hosted
+    - **200+ billion** downloads per month
+    - Acquired by GitHub/Microsoft in 2020
+    - JavaScript's ubiquity makes npm critical infrastructure for web, server, mobile, and desktop development
+
+The **npm registry** is the largest package ecosystem in the world by a substantial margin, hosting over 2.5 million packages with more than 200 billion downloads per month.[^npm-downloads] This scale reflects JavaScript's ubiquity: it runs in every web browser, powers countless server applications through Node.js, and has expanded into mobile development, desktop applications, and even embedded systems.
 
 npm, Inc. was founded in 2014 to provide commercial stewardship of the registry created by Isaac Schlueter in 2010. GitHub acquired npm in 2020, integrating it into Microsoft's developer platform portfolio. The registry operates as a centralized service; there is no federated alternative for the npm ecosystem comparable to what exists in some other language communities.
 
 The npm ecosystem's security posture has evolved significantly following high-profile incidents. The **event-stream compromise** of 2018 demonstrated how social engineering could transfer control of popular packages to malicious actors. The **ua-parser-js**, **coa**, and **rc** hijackings in 2021 showed that even widely-used packages remained vulnerable to account takeover.
 
 In response, npm has implemented substantial security improvements:
+
+!!! tip "npm Security Features"
+
+    - **Mandatory 2FA** for high-impact package maintainers
+    - **npm provenance** using Sigstore for cryptographic build attestation
+    - **Trusted publishing** via OpenID Connect (no long-lived tokens)
+    - **Automated malware detection** on publication
+    - **Security advisories** integrated with GitHub's database
 
 - **Mandatory two-factor authentication** for maintainers of high-impact packages (top 100 by dependents) since 2022, extended to top 500 packages subsequently
 - **npm provenance** using Sigstore, allowing packages built in CI/CD environments to include cryptographic attestation of their build origin
@@ -75,6 +90,10 @@ The Ruby ecosystem experienced one of the earliest high-profile supply chain inc
 The Ruby community's relatively close-knit nature has some security benefits: maintainers often know each other, and unusual activity may be noticed. However, many critical gems are maintained by small teams or individuals, creating bus factor risks.
 
 ## Rust: crates.io
+
+!!! tip inline end "Rust's Security-First Design"
+
+    crates.io was designed after major supply chain incidents raised awareness. **Immutable versions** (once published, cannot be modified), **mandatory source links**, and built-in audit tooling (`cargo-audit`, `cargo-vet`) reflect lessons learned.
 
 **crates.io** hosts over 140,000 crates for the Rust programming language. Operated by the Rust Foundation, crates.io was designed with explicit attention to lessons learned from earlier ecosystems.
 
@@ -144,11 +163,16 @@ The .NET ecosystem's enterprise orientation means many organizations use private
 
 The Apple ecosystem relies on two primary package management systems: **CocoaPods**, a community-driven dependency manager established in 2011, and **Swift Package Manager (SPM)**, Apple's official tool introduced in 2016 and integrated into Xcode.
 
-**CocoaPods** manages over 100,000 pods (libraries) and remains widely used in iOS, macOS, watchOS, and tvOS development. The CocoaPods Trunk[^cocoapods-trunk] serves as the centralized registry, operated by a small team of volunteers under the CocoaPods organization.
+!!! warning "CocoaPods Entering Read-Only Mode (December 2026)"
+
+    CocoaPods is in **maintenance mode** and the CocoaPods team has announced that **Trunk will become permanently read-only on December 2nd, 2026**. After this date, no new pods or pod versions will be accepted. Organizations should audit their iOS dependencies and prioritize migration to Swift Package Manager before Q3 2026 to allow adequate buffer time. Projects using React Native or Flutter—which rely on CocoaPods as a hidden abstraction—face particular migration challenges.
+
+**CocoaPods** manages over 100,000 pods (libraries) and has historically been widely used in iOS, macOS, watchOS, and tvOS development. However, the project entered **maintenance mode** with no active feature development, and usage is now primarily sustained by React Native and Flutter ecosystems that depend on CocoaPods as a hidden abstraction layer. The CocoaPods Trunk[^cocoapods-trunk] serves as the centralized registry, operated by a small team of volunteers under the CocoaPods organization.
 
 CocoaPods has experienced notable security challenges:
 
 - **Trunk server vulnerabilities** (2021): Security researchers identified a vulnerability in the CocoaPods Trunk API that could have allowed attackers to claim ownership of abandoned pods, potentially affecting millions of iOS applications. The issue stemmed from how the trunk server handled ownership verification for pods whose original maintainers had abandoned their email addresses.
+- **Remote Code Execution vulnerabilities** (2023): Security researchers at evasec.io discovered three separate RCE vulnerabilities in Trunk, including the ability to claim ownership of pods through the verification process, email verification exploits, and shell command execution on the Trunk server. All user sessions were reset following disclosure and patching.
 - **Dependency confusion risks**: Like other ecosystems, CocoaPods is vulnerable to dependency confusion attacks where private pod names could be claimed on the public trunk.
 - **Podspec tampering**: The Podspec files that define pod metadata are fetched from the centralized specs repository, creating a single point where modifications could affect downstream consumers.
 
@@ -158,6 +182,7 @@ Security improvements include:
 - **Session management** improvements following the 2021 vulnerability disclosures
 - **Pod ownership verification** requiring email confirmation
 - **Spec repository mirroring** through CDN for improved availability
+- **`prepare_command` restrictions** (May 2025): New pods using `prepare_command`—which allows arbitrary script execution during pod installation—are now blocked to prevent script-based supply chain attacks
 
 **Swift Package Manager** represents Apple's modern approach, integrated directly into Xcode and the Swift compiler. Unlike CocoaPods' centralized registry, SPM uses a decentralized model similar to Go modules—packages are referenced by their Git repository URLs and fetched directly from source.
 
@@ -195,7 +220,7 @@ Examining these ecosystems reveals both common patterns and significant divergen
 | Go modules | Google (mirror/checksum) | Corporate |
 | Packagist | Private Packagist GmbH | Commercial |
 | NuGet | Microsoft | Corporate |
-| CocoaPods | CocoaPods Volunteers | Community/Donations |
+| CocoaPods | CocoaPods Volunteers | Community/Donations (maintenance mode; read-only Dec 2026) |
 | Swift PM | Apple (decentralized) | N/A (uses Git hosts) |
 
 **Dependency scale varies dramatically by ecosystem:**
@@ -258,6 +283,8 @@ Cross-ecosystem dependencies create particular challenges:
 
 Organizations securing multi-ecosystem applications need tooling and processes that span all involved package managers. Single-ecosystem solutions leave gaps that attackers can exploit. Book 2, Chapter 13 explores dependency management strategies that address this cross-ecosystem reality.
 
+[^ds-stack]: Data science stack totals include `pandas`, `scikit-learn`, `matplotlib`, and their shared dependencies (NumPy, etc.). Contributor count shown is for pandas alone.
 [^cocoapods-trunk]: CocoaPods Trunk, https://trunk.cocoapods.org
+[^npm-downloads]: Socket.dev, "npm in Review: A 2023 Retrospective on Growth, Security, and Community" (2023). <https://socket.dev/blog/2023-npm-retrospective>
 
 ![Major package ecosystem comparison showing security features across registries](img/ch-2-package-ecosystems.svg)

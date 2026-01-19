@@ -2,9 +2,15 @@
 
 Threat modeling methodologies provide structured approaches for identifying what can go wrong. They transform the open-ended question "what threats exist?" into systematic analysis that teams can execute consistently. However, these methodologies were developed primarily for applications and systems under organizational control. Applying them to supply chains requires understanding both the methodology's core approach and how supply chain contexts change what you're looking for. This section demonstrates how established methodologies—STRIDE, PASTA, attack trees, and LINDDUN—can be adapted for supply chain threat modeling.
 
-We emphasize at the outset: methodologies are thinking tools, not compliance checklists. Their value lies in helping you ask the right questions and consider threats you might otherwise overlook. Mechanically completing a STRIDE table without genuine analysis produces documentation, not security insight. The goal is structured thinking, not form completion.
+!!! note "Methodologies Are Thinking Tools"
+
+    Methodologies are not compliance checklists. Their value lies in helping you ask the right questions and consider threats you might otherwise overlook. Mechanically completing a STRIDE table without genuine analysis produces documentation, not security insight. The goal is structured thinking, not form completion.
 
 ## STRIDE for Supply Chains
+
+!!! info inline end "STRIDE Categories"
+
+    **S**poofing · **T**ampering · **R**epudiation · **I**nformation Disclosure · **D**enial of Service · **E**levation of Privilege
 
 **STRIDE** is Microsoft's threat categorization framework, developed as part of the Security Development Lifecycle (SDL). The acronym identifies six threat categories: Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, and Elevation of Privilege. For each element in a system diagram, analysts consider which STRIDE categories apply and what specific threats exist.
 
@@ -70,7 +76,11 @@ Mitigations include caching and mirroring dependencies locally, lockfiles that e
 
 **Elevation of Privilege** involves gaining capabilities beyond what was intended. Supply chain EoP threats include:
 
-- **Build-time code execution**: Many package managers execute installation scripts with the installing user's privileges. Malicious packages can exploit this for privilege escalation, as demonstrated by numerous npm and PyPI malware samples.
+!!! danger "Build-Time Code Execution"
+
+    Many package managers execute installation scripts with the installing user's privileges. Malicious packages can exploit this for privilege escalation, as demonstrated by numerous npm and PyPI malware samples.
+
+- **Build-time code execution**: Many package managers execute installation scripts with the installing user's privileges.
 
 - **CI/CD privilege abuse**: Packages or build scripts that access secrets or capabilities beyond what they need for their stated purpose.
 

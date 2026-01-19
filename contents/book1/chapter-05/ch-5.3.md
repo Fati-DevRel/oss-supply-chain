@@ -4,6 +4,10 @@ Security discussions often focus on zero-day vulnerabilities—the unknown flaws
 
 ## Defining Zero-Days
 
+!!! info inline end "Zero-Day"
+
+    A security flaw unknown to those responsible for patching it—defenders have had "zero days" to address it.
+
 A **zero-day vulnerability** is a security flaw unknown to those responsible for patching it. The term derives from the idea that defenders have had "zero days" to address the issue since becoming aware of it. More precisely, a zero-day is a vulnerability for which no patch exists at the time of exploitation.
 
 Zero-days represent the period between vulnerability discovery by an attacker (or researcher) and patch availability—the asymmetric window during which attackers can exploit a flaw while defenders cannot remediate it. Once a vendor releases a patch, the vulnerability is no longer a zero-day, even if most systems remain unpatched.
@@ -36,9 +40,11 @@ The economics shape the threat landscape. High zero-day prices reflect their val
 
 ## Known Vulnerabilities: The Greater Practical Threat
 
-While zero-days capture attention, known vulnerabilities cause most actual damage. The data on this point is consistent across multiple sources:
+!!! note "Known Vulnerabilities Cause Most Damage"
 
-The **[Verizon Data Breach Investigations Report (DBIR)][verizon-dbir]** consistently finds that vulnerability exploitation as an initial access vector predominantly involves known, patchable vulnerabilities. The 2025 DBIR found that vulnerability exploitation as an initial access vector increased 34% from the previous year, now accounting for 20% of all breaches—approaching the frequency of credential abuse at 22%. Edge device and VPN vulnerabilities grew nearly eight-fold, representing 22% of vulnerability targets. These are known vulnerabilities being actively exploited while patches sit unapplied.
+    The 2025 Verizon DBIR found vulnerability exploitation increased 34% from the previous year, now accounting for 20% of all breaches. Edge device and VPN vulnerabilities grew nearly eight-fold. These are known vulnerabilities being actively exploited while patches sit unapplied.
+
+The **[Verizon Data Breach Investigations Report (DBIR)][verizon-dbir]** consistently finds that vulnerability exploitation as an initial access vector predominantly involves known, patchable vulnerabilities.
 
 **[CISA's Known Exploited Vulnerabilities (KEV) catalog][cisa-kev]** tracks vulnerabilities confirmed to be exploited in the wild. Of the 1,000+ vulnerabilities in the KEV catalog, the vast majority had patches available before exploitation was detected. Attackers exploit known vulnerabilities because they work—many organizations fail to patch even actively exploited flaws.
 
@@ -106,16 +112,14 @@ Understanding these distinctions helps explain why CVSS alone is insufficient an
 
 These frameworks share a common insight: CVSS severity alone is insufficient for prioritization. A critical-severity vulnerability in unexposed internal software may be less urgent than a medium-severity vulnerability being actively exploited against internet-facing systems. Context and threat intelligence matter.
 
-We recommend combining multiple signals:
+!!! tip "Combining Multiple Prioritization Signals"
 
-1. **Is it in the KEV catalog?** If yes, prioritize immediately.
-2. **What is the EPSS score?** High scores indicate likely near-term exploitation.
-3. **Is your environment exposed?** Internet-facing systems with known vulnerabilities face the highest risk.
-4. **What is the business impact?** Vulnerabilities in critical systems warrant faster response.
+    1. **Is it in the KEV catalog?** If yes, prioritize immediately.
+    2. **What is the EPSS score?** High scores indicate likely near-term exploitation.
+    3. **Is your environment exposed?** Internet-facing systems face the highest risk.
+    4. **What is the business impact?** Critical systems warrant faster response.
 
-## Practical Implications
-
-The distinction between zero-day and known vulnerability risk should shape security investment:
+These frameworks share a common insight: CVSS severity alone is insufficient for prioritization.
 
 **Patching capability is foundational.** Before investing in advanced zero-day detection, ensure you can effectively patch known vulnerabilities. The basics prevent more breaches than sophisticated controls.
 

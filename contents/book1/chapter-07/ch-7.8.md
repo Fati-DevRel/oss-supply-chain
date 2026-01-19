@@ -6,6 +6,10 @@ Distribution infrastructure often receives less security attention than build sy
 
 ## The Trust Model of Distribution
 
+!!! danger "The Invisible Trust Chain"
+
+    When you install a package, you implicitly trust: the origin server, mirrors, CDNs, DNS infrastructure, TLS certificates, and package managers. Compromise of any component can result in receiving malicious software.
+
 When you install a package or download software, you implicitly trust multiple components:
 
 - **The origin server**: The primary source hosting the canonical version
@@ -103,6 +107,10 @@ Domain hijacking can occur through:
 In late January 2021, [the perl.com domain was discovered to have been hijacked][perl-hijack] through a social engineering attack on the domain registrar. Attackers had actually gained control months earlier, in September 2020, using fraudulent documents. For a period, the domain pointed to an IP address associated with malware distribution. While this primarily affected the website rather than CPAN package distribution, it illustrated how domain control enables comprehensive impersonation.
 
 ## Case Study: Polyfill.io (2024)
+
+!!! example "Polyfill.io: CDN Trust Exploited at Scale"
+
+    Over 100,000 websites included Polyfill.io scripts serving hundreds of millions of users. After domain acquisition by a Chinese CDN company, the service began injecting malicious redirects—demonstrating how CDN trust can be exploited at massive scale.
 
 The **Polyfill.io attack** in 2024 became one of the most significant distribution channel compromises affecting the web ecosystem, demonstrating how CDN trust can be exploited at massive scale.
 

@@ -4,6 +4,10 @@ Throughout the previous sections, we have examined vulnerabilities as individual
 
 ## The Prevalence of Memory Safety Vulnerabilities
 
+!!! note "The 70% Problem"
+
+    Microsoft, Google Chrome, and Android all report that approximately 70% of their high-severity security vulnerabilities are memory safety issues. This convergence reflects the fundamental nature of C and C++—these languages permit errors that safer languages prevent by design.
+
 The data on memory safety vulnerabilities is remarkably consistent across major software projects:
 
 **Microsoft** reported in 2019 that approximately 70% of all security vulnerabilities addressed in Microsoft products over the previous 12 years were memory safety issues. This figure has remained stable over time, despite decades of investment in secure coding practices, static analysis, and code review.
@@ -40,6 +44,10 @@ For supply chain security, the implication is significant: dependencies written 
 
 The prevalence and severity of memory safety vulnerabilities has prompted government agencies to issue formal guidance recommending transition to memory-safe languages.
 
+!!! info "Government Recommendation"
+
+    NSA, CISA, FBI, and international partners recommend organizations use memory-safe languages (Rust, Go, C#, Java, Swift) when possible. CISA calls on software manufacturers to develop plans for transitioning, particularly for security-critical components.
+
 The **[NSA][nsa-memory-safety]** published "Software Memory Safety" in November 2022, explicitly recommending that organizations shift development to memory-safe languages. The guidance stated:
 
 > "NSA recommends that organizations use memory safe languages when possible and bolster protection through code-hardening defenses."
@@ -62,11 +70,11 @@ Major infrastructure projects have begun incorporating Rust:
 
 **Linux kernel** accepted Rust as a supported language for driver development starting with kernel 6.1 (December 2022). While the core kernel remains in C, new drivers can be written in Rust, enabling memory-safe development for new functionality. This represents a significant philosophical shift for a project that has used C exclusively for over 30 years.
 
-**Android** has progressively increased Rust usage. Google reported that as of 2023, roughly 21% of new native Android code was being written in Rust. Google's analysis showed that as Rust adoption increased, memory safety vulnerabilities in Android decreased—providing empirical evidence for the security benefits.
+**Android** has progressively increased Rust usage. Google reported that as of 2023, roughly 21% of new native Android code was being written in Rust.[^android-rust] Google's analysis showed that as Rust adoption increased, memory safety vulnerabilities in Android decreased—providing empirical evidence for the security benefits.
 
 **Windows** includes Rust components, with Microsoft actively rewriting portions of the Windows kernel in Rust. The company has been public about its Rust investment and its motivation in reducing memory safety vulnerabilities.
 
-**curl**, the ubiquitous data transfer library, has integrated HTTP backend support written in Rust (hyper). This allows users to choose a memory-safe implementation for HTTP handling in a tool with over 20 billion installations.
+**curl**, the ubiquitous data transfer library, has integrated HTTP backend support written in Rust (hyper). This allows users to choose a memory-safe implementation for HTTP handling in a tool with over 20 billion installations.[^curl-installs]
 
 **Sudo and su** received a Rust reimplementation (sudo-rs) sponsored by Amazon Web Services' Prossimo project, targeting one of the most security-critical Unix utilities.
 
@@ -106,6 +114,14 @@ These challenges argue against expecting rapid transformation. Memory-safe trans
 
 Given both the security imperative and practical constraints, we recommend a balanced approach:
 
+!!! tip "Memory-Safe Transition Strategy"
+
+    - Favor memory-safe dependencies for new development
+    - Track memory-safe evolution in critical dependencies
+    - Support ecosystem transition through funding or contribution
+    - Apply defense in depth (modern compilers, fuzzing, static analysis) to remaining C/C++ code
+    - Set realistic expectations—this is a generational improvement, not a quick fix
+
 **1. Favor memory-safe dependencies for new development.** When selecting new dependencies, prefer memory-safe implementations where quality options exist. A Rust TLS library may be preferable to another OpenSSL binding.
 
 **2. Track memory-safe evolution in critical dependencies.** Monitor whether key dependencies are adding Rust components or alternatives. Factor this into long-term dependency strategy.
@@ -122,3 +138,5 @@ The memory safety challenge illustrates a broader supply chain security principl
 
 [nsa-memory-safety]: https://media.defense.gov/2022/Nov/10/2003112742/-1/-1/0/CSI_SOFTWARE_MEMORY_SAFETY.PDF
 [cisa-memory-safety]: https://www.cisa.gov/resources-tools/resources/case-memory-safe-roadmaps
+[^android-rust]: Google Security Blog, "Memory Safe Languages in Android 13" (December 1, 2022). <https://security.googleblog.com/2022/12/memory-safe-languages-in-android-13.html>
+[^curl-installs]: Daniel Stenberg, "The world's biggest curl installations" (September 17, 2018). <https://daniel.haxx.se/blog/2018/09/17/the-worlds-biggest-curl-installations/>

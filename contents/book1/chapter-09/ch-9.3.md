@@ -2,11 +2,19 @@
 
 Content Management Systems power a substantial portion of the web, with WordPress alone running over 40% of all websites. These platforms depend on plugin and theme ecosystems that mirror the dependency patterns of npm or PyPI—but with a critical difference: CMS plugins run on publicly-accessible web servers, directly exposed to the internet. A supply chain compromise in a WordPress plugin doesn't just affect developers; it immediately creates millions of vulnerable websites that attackers can discover and exploit at scale.
 
+!!! danger "Internet-Facing by Default"
+
+    Unlike npm packages that affect developers, CMS plugins run on publicly-accessible web servers. A compromised WordPress plugin with 100,000 installations immediately creates 100,000 exploitable websites.
+
 The combination of massive deployment, often-inexperienced administrators, and direct internet exposure makes CMS ecosystems among the highest-impact supply chain targets.
 
 ## The Scale of WordPress
 
 WordPress dominates the CMS landscape with extraordinary reach:
+
+!!! note inline end "WordPress Scale"
+
+    **43.5%** of all websites use WordPress. Over **60,000 plugins** available. A single compromised popular plugin can affect millions of websites within days.
 
 - **Approximately 43.5% of all websites** use WordPress as of 2024 [according to W3Techs data][w3techs-wordpress]
 - Over **75 million websites** run WordPress globally
@@ -96,6 +104,10 @@ WordPress.org's manual initial review provides somewhat better baseline than npm
 **AccessPress Themes/Plugins Backdoor (2021-2022):**
 
 In late 2021, [security researchers discovered][jetpack-accesspress] that **over 90 themes and plugins** (40 themes and 53 plugins) from AccessPress, a popular Nepali development company, contained backdoors. The compromise affected:
+
+!!! example "AccessPress Backdoor (2021-2022)"
+
+    Over **90 themes and plugins** backdoored, affecting **360,000+ websites**. Attackers compromised distribution infrastructure—products were modified before download rather than at the source.
 
 - Over **360,000 websites** running AccessPress products
 - Products distributed through both WordPress.org and the AccessPress website
@@ -217,6 +229,10 @@ WordPress introduced automatic background updates for minor releases and securit
 **The Fundamental Tension:**
 
 For legitimate security updates, automatic deployment is beneficial—the faster sites are patched, the less time attackers have. But this same speed benefits attackers when they control the update.
+
+!!! warning "The Auto-Update Dilemma"
+
+    Automatic updates are a double-edged sword: they rapidly deploy security patches but also propagate supply chain attacks at the same speed. Enterprise deployments typically disable auto-updates in favor of staged rollouts.
 
 Currently, WordPress automatic plugin updates are:
 

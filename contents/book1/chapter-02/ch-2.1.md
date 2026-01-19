@@ -8,10 +8,21 @@ The story begins in 1983, when Richard Stallman, a programmer at MIT's Artificia
 
 Stallman's response was radical: he would create an entire operating system that would be permanently free—not free as in price, but free as in freedom. The GNU Project (a recursive acronym for "GNU's Not Unix") aimed to develop a complete Unix-compatible system that anyone could use, study, modify, and redistribute. In 1985, Stallman formalized these principles by founding the Free Software Foundation (FSF) and articulating the "four freedoms" that define free software:
 
+!!! info "The Four Freedoms of Free Software"
+
+    1. The freedom to **run** the program for any purpose
+    2. The freedom to **study** how the program works and modify it
+    3. The freedom to **redistribute** copies
+    4. The freedom to **distribute modified versions**
+
 1. The freedom to run the program for any purpose
 2. The freedom to study how the program works and modify it
 3. The freedom to redistribute copies
 4. The freedom to distribute modified versions
+
+!!! info inline end "What Is Copyleft?"
+
+    A licensing mechanism where anyone can use, modify, and distribute software, but distributed modifications must also be released under the same license with source code available. This ensures free software remains free.
 
 To protect these freedoms legally, Stallman developed the GNU General Public License (GPL) in 1989. The GPL employed a clever mechanism called **copyleft**: anyone could use, modify, and distribute GPL-licensed software, but any distributed modifications must also be released under the GPL with source code available. This ensured that free software would remain free, preventing companies from taking community work proprietary.
 
@@ -41,7 +52,13 @@ Several core values have shaped open source development, each with implications 
 
 **Community governance** varies widely across projects but generally favors consensus and distributed decision-making over hierarchical authority. This can make security improvements slower to implement when they require coordinated action, but it also prevents single points of failure in project leadership.
 
-The "many eyes" theory—Raymond's suggestion that open inspection leads to rapid bug discovery—deserves particular scrutiny. The theory contains a kernel of truth: some vulnerabilities have been found quickly because source code was available for review. But the theory's limitations have become painfully clear. The [Heartbleed vulnerability][heartbleed] (CVE-2014-0160) in OpenSSL, disclosed in April 2014, had existed in widely-deployed code for over two years despite OpenSSL's critical importance to internet security (see Section 5.3 for a detailed case study of Heartbleed). The reality is that "many eyes" look only when people are motivated to look, have the expertise to understand what they see, and have the time to conduct thorough review. For much open source software, especially infrastructure components maintained by small teams, those conditions rarely hold.
+The "many eyes" theory—Raymond's suggestion that open inspection leads to rapid bug discovery—deserves particular scrutiny. The theory contains a kernel of truth: some vulnerabilities have been found quickly because source code was available for review. But the theory's limitations have become painfully clear.
+
+!!! warning "The 'Many Eyes' Myth"
+
+    Linus's Law states: "Given enough eyeballs, all bugs are shallow." But "many eyes" look only when people are motivated to look, have the expertise to understand what they see, and have the time for thorough review. For most open source software, these conditions rarely hold. Heartbleed existed in OpenSSL for over two years despite the library's critical importance.
+
+The [Heartbleed vulnerability][heartbleed] (CVE-2014-0160) in OpenSSL, disclosed in April 2014, had existed in widely-deployed code for over two years despite OpenSSL's critical importance to internet security (see Section 5.3 for a detailed case study of Heartbleed). The reality is that "many eyes" look only when people are motivated to look, have the expertise to understand what they see, and have the time to conduct thorough review. For much open source software, especially infrastructure components maintained by small teams, those conditions rarely hold.
 
 ## Licensing: Permissive and Copyleft
 

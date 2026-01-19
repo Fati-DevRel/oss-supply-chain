@@ -2,6 +2,10 @@
 
 Browser extensions operate with extraordinary access to users' online activities. An extension with appropriate permissions can read every webpage you visit, capture form data including passwords, modify page content, intercept network requests, and access browsing history. This access makes extensions powerful productivity tools—and potent attack vectors. When extension supply chains are compromised, attackers gain capabilities that rival sophisticated malware, distributed through trusted channels and automatically updated to millions of users.
 
+!!! danger "Extraordinary Access"
+
+    A single permission like `<all_urls>` grants an extension access to content on **all websites**—including banking, email, and corporate applications. This access persists through ownership changes and updates.
+
 The browser extension ecosystem combines the dependency risks familiar from package managers with unique factors: extremely broad permissions, automatic updates, and direct access to users' most sensitive online activities.
 
 ## The Extension Ecosystem Landscape
@@ -77,7 +81,11 @@ When developers abandon extensions, browsers may allow new developers to claim t
 
 **The Great Suspender (2021):**
 
-**The Great Suspender** was a popular Chrome extension with over 2 million users. It suspended inactive tabs to save memory, a genuinely useful function.
+**The Great Suspender** was a popular Chrome extension with over 2 million users.[^great-suspender-users] It suspended inactive tabs to save memory, a genuinely useful function.
+
+!!! example "The Acquisition Attack Pattern"
+
+    The Great Suspender was sold in June 2020. Malicious updates appeared in October 2020. Google removed it in February 2021. **Eight months** of malicious operation in 2 million browsers.
 
 In June 2020, the original developer sold the extension to an unknown entity. The new owners pushed updates in October 2020 that:
 
@@ -96,6 +104,10 @@ The official **MEGA.nz** Chrome extension was compromised through developer acco
 - Stole credentials for sites including Amazon, Microsoft, GitHub, and Google
 - Exfiltrated cryptocurrency wallet keys
 - Captured login forms on banking sites
+
+!!! warning "Speed of Compromise"
+
+    The MEGA.nz malicious version was available for only **4 hours**—yet 1.5 million users were exposed during any browsing in that period. Browser extensions auto-update silently.
 
 The malicious version was available for [approximately 4 hours][mega-incident] before detection. MEGA.nz confirmed that an attacker had compromised their Chrome Web Store account and uploaded a malicious version of the extension.
 
@@ -232,6 +244,10 @@ Enterprise management tools can enforce:
 
 **For Enterprises:**
 
+!!! tip "Most Effective Control"
+
+    Extension allowlisting—permitting only reviewed and approved extensions—is the single most effective control for enterprise browser security.
+
 1. **Implement extension allowlisting.** Permit only reviewed and approved extensions. This is the single most effective control.
 
 2. **Block by permission.** If full allowlisting isn't feasible, block extensions requesting dangerous permission combinations.
@@ -264,3 +280,4 @@ Browser extensions occupy a unique position in the supply chain landscape: they'
 [great-suspender]: https://www.bleepingcomputer.com/news/security/the-great-suspender-chrome-extensions-fall-from-grace/
 [mega-incident]: https://www.bleepingcomputer.com/news/security/mega-chrome-extension-hacked-to-steal-login-credentials-and-cryptocurrency/
 [spinai]: https://spin.ai/
+[^great-suspender-users]: The Register, "What happens when a Chrome extension with 2m+ users changes hands" (January 7, 2021). <https://www.theregister.com/2021/01/07/great_suspender_malware/>

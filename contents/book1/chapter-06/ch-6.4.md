@@ -4,6 +4,10 @@ Abstract analysis of attack techniques provides valuable understanding, but deta
 
 ## event-stream: The Long Game of Trust (2018)
 
+!!! example "The Most Significant Social Engineering Attack"
+
+    The event-stream incident remains the most significant example of social engineering in open source: an attacker ("right9ctrl") patiently built trust through helpful contributions, then took over maintenance from an overwhelmed maintainer to inject a targeted Bitcoin wallet theft payload.
+
 The **event-stream incident** remains the most significant example of social engineering in the open source ecosystem, demonstrating how attackers can patiently build trust to gain access to widely-used packages.
 
 **Background and Timeline:**
@@ -39,7 +43,7 @@ This conditional execution meant that the malicious code:
 
 **Impact:**
 
-- Approximately 8 million downloads occurred during the 2.5 months the malicious versions were available
+- Approximately 8 million downloads occurred during the 2.5 months the malicious versions were available[^event-stream-downloads]
 - Copay released updates to address the compromise
 - Unknown number of Copay users potentially had wallets compromised
 - BitPay (Copay's parent company) warned users to move funds from potentially affected wallets
@@ -56,6 +60,10 @@ This conditional execution meant that the malicious code:
 4. **Community vigilance matters.** The attack was discovered through community member investigation, not automated scanning.
 
 ## ua-parser-js: Credential Compromise at Scale (2021)
+
+!!! danger "Four Hours of Exposure"
+
+    Malicious versions of ua-parser-js (~7 million weekly downloads) were available for approximately 4 hours after attackers compromised the maintainer's npm account. Thousands of installations occurred during this window, with CI/CD pipelines particularly exposed.
 
 The **ua-parser-js compromise** demonstrated how a single credential compromise could immediately affect millions of users.
 
@@ -103,6 +111,10 @@ The attack was discovered when the legitimate maintainer received notifications 
 4. **Monitoring for unexpected publications is valuable.** The maintainer's quick discovery of unauthorized publications enabled rapid response.
 
 ## colors.js and faker.js: Maintainer Protest (2022)
+
+!!! warning "When Maintainers Become the Threat"
+
+    The colors.js and faker.js incident demonstrated that the threat model must include maintainers themselves. A single maintainer's deliberate sabotage broke thousands of projects including Amazon AWS CDK and Facebook Create React App.
 
 The **colors.js and faker.js incident** raised fundamental questions about maintainer trust, demonstrating that the threat model must include maintainers themselves.
 
@@ -290,3 +302,4 @@ These case studies demonstrate that package attacks are not theoretical risks bu
 [snyk-event-stream]: https://snyk.io/blog/a-post-mortem-of-the-malicious-event-stream-backdoor/
 [cisa-ua-parser]: https://www.cisa.gov/news-events/alerts/2021/10/22/malware-discovered-popular-npm-package-ua-parser-js
 [pypi-ultralytics]: https://blog.pypi.org/posts/2024-12-11-ultralytics-attack-analysis/
+[^event-stream-downloads]: Security Boulevard, "Malicious code in npm 'event-stream' package targets a bitcoin wallet and causes 8 million downloads in two months" (November 27, 2018). <https://securityboulevard.com/2018/11/malicious-code-in-npm-event-stream-package-targets-a-bitcoin-wallet-and-causes-8-million-downloads-in-two-months/>

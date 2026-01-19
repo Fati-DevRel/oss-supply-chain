@@ -2,6 +2,10 @@
 
 Mobile applications operate in a supply chain environment distinct from server-side or desktop software. The iOS and Android platforms impose unique constraints: sandboxed execution, platform-controlled distribution, mandatory review processes, and proprietary SDKs. These constraints provide some security benefits—app store review catches certain threats—but they also create blind spots. Mobile developers integrate dozens of third-party SDKs for analytics, advertising, authentication, and other functionality, often with limited visibility into what these components actually do.
 
+!!! warning "Hidden Dependencies"
+
+    Mobile SDKs often operate as black boxes, with limited visibility into their behavior. A crash reporting SDK might depend on networking libraries, serialization frameworks, and other components—each a potential vulnerability source. Enterprise security teams commonly discover hundreds of transitive dependencies from seemingly simple SDK integrations.
+
 Understanding mobile supply chain risks requires examining both the dependency management systems that mirror server-side ecosystems and the mobile-specific elements—SDKs, platform APIs, and distribution channels—that create unique attack surfaces.
 
 ## iOS Supply Chain Architecture
@@ -10,7 +14,11 @@ iOS development relies on several dependency management systems:
 
 **CocoaPods:**
 
-**CocoaPods** remains the most widely used dependency manager for iOS, with [over 100,000 libraries available][cocoapods]. It uses a centralized specification repository that defines how to fetch and build dependencies.
+!!! warning "CocoaPods Read-Only Deadline: December 2026"
+
+    CocoaPods Trunk will become **permanently read-only on December 2nd, 2026**. New projects should use Swift Package Manager. Existing projects should plan migration by Q3 2026. See [Section 2.4](../chapter-02/ch-2.4.md#swiftobjective-c-cocoapods-and-swift-package-manager) for detailed CocoaPods history and vulnerabilities.
+
+**CocoaPods** has historically been the most widely used dependency manager for iOS, with [over 100,000 libraries available][cocoapods]. However, the project is now in **maintenance mode** with no active feature development. Usage is sustained primarily by React Native and Flutter ecosystems that depend on CocoaPods as a hidden abstraction layer. CocoaPods uses a centralized specification repository that defines how to fetch and build dependencies.
 
 CocoaPods pods are typically distributed as source code, built locally during application compilation. This provides some transparency—developers can inspect what they're integrating—but the volume of dependencies often exceeds practical review capacity.
 
@@ -19,8 +27,10 @@ Security considerations specific to CocoaPods include:
 - **Trunk account security**: Pod authors register through CocoaPods Trunk. Compromised Trunk accounts can push malicious updates (similar to npm account compromises)
 - **Podspec manipulation**: The centralized specs repository is a single point of trust
 - **Build script execution**: Podspecs can include build scripts that execute during `pod install`
+- **Remote Code Execution vulnerabilities** (2023): Three separate RCE vulnerabilities were discovered in Trunk by evasec.io, including pod takeover via the claim process, email verification exploits, and shell command execution. All user sessions were reset following patching.
+- **`prepare_command` restrictions** (May 2025): New pods using `prepare_command` are now blocked to prevent script-based attacks during pod installation
 
-[In 2021, security researchers disclosed][cocoapods-vuln] that the CocoaPods Trunk server contained vulnerabilities allowing account takeover, potentially enabling attackers to modify widely-used pods.
+[In 2021, security researchers disclosed][cocoapods-vuln] that the CocoaPods Trunk server contained vulnerabilities allowing account takeover, potentially enabling attackers to modify widely-used pods. Additional RCE vulnerabilities discovered in 2023 further demonstrated the ongoing security challenges of centralized package registries.
 
 **Swift Package Manager:**
 
@@ -62,11 +72,19 @@ Android's more open ecosystem creates additional attack surfaces:
 
 Both platforms share a critical supply chain element: **Software Development Kits (SDKs)** that provide ready-made functionality. Research consistently shows that mobile apps integrate numerous SDKs:[^appfigures-sdks]
 
+!!! note inline end "SDK Scale"
+
+    Average iOS apps include **26 SDKs**, Android apps approximately **18 SDKs**, and popular apps often exceed **40 integrated SDKs**.
+
 - A 2023 study by Appfigures found the average iOS app includes **26 SDKs**
 - Average Android apps include approximately **18 SDKs**
 - Popular apps from major publishers often exceed **40 integrated SDKs**
 
 [^appfigures-sdks]: Appfigures, "Average App Has 26 SDKs," 2023, https://appfigures.com/resources/insights/20230203
+
+!!! tip "SDK Due Diligence"
+
+    Before integrating any SDK: audit data collection practices, use network monitoring during development to observe unexpected connections, and maintain an inventory of all integrated SDKs with their permissions and purposes.
 
 **Common SDK Categories:**
 
@@ -93,6 +111,10 @@ SDKs themselves have dependencies, creating supply chains within supply chains. 
 ## Case Study: XcodeGhost (2015)
 
 **XcodeGhost** remains the most significant iOS supply chain attack documented, demonstrating how attackers can compromise the development toolchain itself.
+
+!!! danger "Toolchain Attacks"
+
+    XcodeGhost infected over 4,000 apps including WeChat—attackers targeted the IDE itself, infecting every app built with it. App Store review did not detect the malicious code.
 
 **What Happened:**
 
