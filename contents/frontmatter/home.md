@@ -107,6 +107,6 @@ Use the **search** feature to find specific topics across all three books.
 
 ## License
 
-This work is dedicated to the public domain under CC0 1.0 Universal[^cc0-license]. You can copy, modify, distribute, and use the work, even for commercial purposes, without asking permission.
+This work is licensed under the MIT License[^mit-license]. You can copy, modify, distribute, and use the work, even for commercial purposes, with attribution.
 
-[^cc0-license]: Creative Commons, "CC0 1.0 Universal," https://creativecommons.org/publicdomain/zero/1.0/
+[^mit-license]: Open Source Initiative, "MIT License," https://opensource.org/licenses/MIT
