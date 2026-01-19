@@ -1,3 +1,9 @@
+---
+title: "Defining the Software Supply Chain"
+description: "Learn the comprehensive framework for understanding the people, processes, and artifacts that make up the software supply chain."
+icon: "lucide/link"
+---
+
 # 1.3 Defining the Software Supply Chain
 
 Having established that modern software is assembled from components (Section 1.1) and that those components are overwhelmingly open source (Section 1.2), we need a precise framework for discussing the security implications. The term "software supply chain" has gained prominence in recent years, but its meaning varies across contexts. This section provides a comprehensive definition that will serve as the foundation for all subsequent discussions in this book.

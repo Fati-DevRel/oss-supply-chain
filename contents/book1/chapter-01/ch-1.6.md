@@ -1,3 +1,9 @@
+---
+title: "Historical Perspective: Supply Chain Attacks Aren't New"
+description: "Trace supply chain vulnerabilities from Ken Thompson's 1984 compiler attack to modern package managers and CI/CD systems."
+icon: "lucide/history"
+---
+
 # 1.6 Historical Perspective: Supply Chain Attacks Aren't New
 
 The previous section documented why supply chain security has become urgent now, but the underlying vulnerabilities are not recent discoveries. The fundamental challenges of trusting code you did not write, verifying that software has not been tampered with, and securing distribution channels have existed since the earliest days of computing. Understanding this history provides perspective: we are not facing an unprecedented crisis but rather the latest chapter in a long-running challenge that technology changes have amplified rather than created.

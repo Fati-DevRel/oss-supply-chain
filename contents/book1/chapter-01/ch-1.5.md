@@ -1,3 +1,9 @@
+---
+title: "Why Supply Chain Security Has Become Urgent Now"
+description: "Examine the incidents, trends, and regulations that transformed supply chain security from niche concern to board-level priority."
+icon: "lucide/alarm-clock"
+---
+
 # 1.5 Why Supply Chain Security Has Become Urgent Now
 
 Software supply chain security is not a new concept. Security researchers have warned about these risks for decades, and sophisticated attackers have exploited supply chains for just as long. Yet within the past five years, supply chain security has transformed from a concern discussed primarily at specialized security conferences to a board-level priority commanding attention from heads of state. This section examines the confluence of factors that created this urgency, establishing why the material in this book matters now more than at any previous moment.

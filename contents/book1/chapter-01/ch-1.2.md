@@ -1,3 +1,9 @@
+---
+title: "The Role of Open Source in Modern Software"
+description: "Understand why open source powers 96% of commercial software and what this unprecedented reliance means for security."
+icon: "lucide/github"
+---
+
 # 1.2 The Role of Open Source in Modern Software
 
 The component-based development model described in the previous section has a defining characteristic: the vast majority of those components are open source. Open source software has become so deeply embedded in modern technology that discussing software security without centering open source is like discussing automotive safety without mentioning roads. Understanding the scale, value, and ubiquity of open source is essential for grasping why supply chain security has become one of the most critical challenges facing the technology industry.

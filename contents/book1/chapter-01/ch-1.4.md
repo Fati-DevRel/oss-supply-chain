@@ -1,3 +1,9 @@
+---
+title: "The Trust Relationships Embedded in Software Development"
+description: "Discover the implicit trust decisions developers make with every dependency and why these relationships are attack vectors."
+icon: "lucide/handshake"
+---
+
 # 1.4 The Trust Relationships Embedded in Software Development
 
 Every line of code that executes on a computer arrived there through a chain of trust. Someone wrote it, someone reviewed it, someone built it, someone distributed it, and someone decided to run it. At each step, trust was extended—sometimes explicitly after careful evaluation, but far more often implicitly, without conscious consideration. Understanding these trust relationships is essential for securing the software supply chain because attacks succeed by exploiting trust, not by overpowering defenses.
