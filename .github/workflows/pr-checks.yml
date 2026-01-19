@@ -82,7 +82,7 @@ jobs:
         run: |
           # Convert newline-separated files to space-separated for markdownlint-cli2
           FILES=$(echo "$MD_FILES" | tr '\n' ' ')
-          markdownlint-cli2 --config .github/workflows/.markdownlint-cli2.jsonc $FILES
+          markdownlint-cli2 --config .github/workflows/.markdownlint-cli2.jsonc "$FILES"
 
   # Spell checking
   spell-check:
