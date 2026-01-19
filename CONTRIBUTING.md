@@ -40,6 +40,35 @@ Each chapter has its own directory (e.g., `chapter-05/`) containing section file
 - `backticks` for package names, commands, and code
 - `> blockquote` for practitioner quotes or notable findings
 
+### Linting and Validation
+
+The repository uses automated linting to ensure markdown quality and Material for MkDocs compatibility:
+
+- **markdownlint-cli2**: Standard Markdown linting rules
+- **mkdocs-material-linter**: Validates Material for MkDocs specific syntax (admonitions, content tabs, etc.)
+- **cspell**: Spell checking
+- **URL validation**: Checks for broken links
+
+These checks run automatically on pull requests. To run them locally:
+
+```bash
+# Install linting tools
+npm install -g markdownlint-cli2 mkdocs-material-linter
+
+# Lint markdown files
+markdownlint-cli2 --config .github/workflows/.markdownlint-cli2.jsonc "contents/**/*.md"
+
+# Auto-fix some issues
+markdownlint-cli2 --fix --config .github/workflows/.markdownlint-cli2.jsonc "contents/**/*.md"
+```
+
+Common Material for MkDocs features that are validated:
+- Admonitions: `!!! note`, `!!! warning`, `!!! tip`, etc.
+- Content tabs: `=== "Tab Name"`
+- Collapsible blocks: `??? "Collapsible Title"`
+- Code block annotations
+- Proper indentation within special blocks
+
 ### Citations
 All factual claims must be cited, with a URL wherever possible. Use Markdown reference links:
 

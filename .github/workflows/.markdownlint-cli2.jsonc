@@ -1,4 +1,5 @@
 {
+  "customRules": ["mkdocs-material-linter"],
   "config": {
     "default": true,
     "MD001": true,
@@ -62,6 +63,21 @@
     "MD051": true,
     "MD052": true,
     "MD053": true,
-    "MD060": false
+    "MD060": false,
+    "material-admonition-types": true,
+    "material-admonition-indentation": true,
+    "material-admonition-empty": true,
+    "material-admonition-empty-title": true,
+    "material-code-annotations": true,
+    "material-content-tabs": true,
+    "material-navigation-structure": true,
+    "material-shell-language-standardization": true,
+    "material-bundle-exec-shell-type": true,
+    "material-blank-lines-spacing": true,
+    "material-code-block-syntax": true,
+    "material-meta-tags": false,
+    "material-icons-valid": false,
+    "material-mermaid-syntax": false,
+    "material-footnotes-syntax": false
   }
 }
