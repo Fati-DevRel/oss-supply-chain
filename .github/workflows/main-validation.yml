@@ -80,6 +80,7 @@ jobs:
       - name: Validate image references in all content files
         run: |
           EXIT_CODE=0
+          TEMP_FILE=$(mktemp)
 
           # Find all markdown files in contents/
           find contents/ -type f -name "*.md" | while IFS= read -r file; do
@@ -105,11 +106,15 @@ jobs:
 
               if [ ! -f "$FULL_PATH" ]; then
                 echo "::error file=$file::Missing image: $img_path"
-                EXIT_CODE=1
+                echo "1" > "$TEMP_FILE"
               fi
             done
           done
 
+          if [ -f "$TEMP_FILE" ] && [ -s "$TEMP_FILE" ]; then
+            EXIT_CODE=1
+          fi
+          rm -f "$TEMP_FILE"
           exit $EXIT_CODE
 
   # Internal link validation
@@ -124,6 +129,7 @@ jobs:
       - name: Validate internal links in all content files
         run: |
           EXIT_CODE=0
+          TEMP_FILE=$(mktemp)
 
           # Find all markdown files in contents/
           find contents/ -type f -name "*.md" | while IFS= read -r file; do
@@ -151,11 +157,15 @@ jobs:
 
               if [ ! -f "$FULL_PATH" ]; then
                 echo "::error file=$file::Broken internal link: $link"
-                EXIT_CODE=1
+                echo "1" > "$TEMP_FILE"
               fi
             done
           done
 
+          if [ -f "$TEMP_FILE" ] && [ -s "$TEMP_FILE" ]; then
+            EXIT_CODE=1
+          fi
+          rm -f "$TEMP_FILE"
           exit $EXIT_CODE
 
   # File naming convention check
