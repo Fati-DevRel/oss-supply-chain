@@ -109,6 +109,6 @@ See [CLAUDE.md](CLAUDE.md) for detailed content standards and writing guidelines
 
 ## License
 
-This work is dedicated to the public domain under [CC0 1.0 Universal](LICENSE). You can copy, modify, distribute, and use the work, even for commercial purposes, without asking permission.
+This work is licensed under the [MIT License](LICENSE). You can copy, modify, distribute, and use the work, even for commercial purposes, with attribution.
 
 
