@@ -36,7 +36,7 @@ This appendix provides a chronological reference of significant software supply 
 
 **Sources:**
 
-- [Thompson, K., "Reflections on Trusting Trust," Communications of the ACM, 1984](https://www.cs.cmu.edu/~rdriley/487/papers/Thompson_1984_ReflectionsonTrustingTrust.pdf)
+- Thompson, K., "Reflections on Trusting Trust," Communications of the ACM, 1984[^thompson-1984]
 
 ---
 
@@ -59,9 +59,9 @@ This appendix provides a chronological reference of significant software supply 
 
 **Sources:**
 
-- [Debian Security Advisory DSA-1571-1](https://www.debian.org/security/2008/dsa-1571)
-- [CVE-2008-0166](https://nvd.nist.gov/vuln/detail/CVE-2008-0166)
-- [Schneier, B., "Random Number Bug in Debian Linux," 2008](https://www.schneier.com/blog/archives/2008/05/random_number_b.html)
+- Debian Security Advisory DSA-1571-1[^debian-dsa-1571]
+- CVE-2008-0166[^cve-2008-0166]
+- Schneier, B., "Random Number Bug in Debian Linux," 2008[^schneier-debian-2008]
 
 ---
 
@@ -84,9 +84,9 @@ This appendix provides a chronological reference of significant software supply 
 
 **Sources:**
 
-- [Heartbleed.com](https://heartbleed.com/)
-- [CVE-2014-0160](https://nvd.nist.gov/vuln/detail/CVE-2014-0160)
-- [Durumeric, Z., et al., "The Matter of Heartbleed," IMC 2014](https://jhalderm.com/pub/papers/heartbleed-imc14.pdf)
+- Heartbleed.com[^heartbleed-site]
+- CVE-2014-0160[^cve-2014-0160]
+- Durumeric, Z., et al., "The Matter of Heartbleed," IMC 2014[^durumeric-heartbleed-2014]
 
 ---
 
@@ -96,7 +96,7 @@ This appendix provides a chronological reference of significant software supply 
 
 **Date:** March 22, 2016
 
-**Summary:** Developer Azer Koçulu unpublished 273 NPM packages, including the 11-line `left-pad` utility, following a trademark dispute with messaging app Kik. Because `left-pad` was a dependency of Babel, React, and thousands of other projects, builds worldwide began failing immediately. NPM took the unprecedented step of un-unpublishing the package to restore service.
+**Summary:** Developer Azer Koculu unpublished 273 NPM packages, including the 11-line `left-pad` utility, following a trademark dispute with messaging app Kik. Because `left-pad` was a dependency of Babel, React, and thousands of other projects, builds worldwide began failing immediately. NPM took the unprecedented step of un-unpublishing the package to restore service.
 
 **Impact Scope:** Thousands of JavaScript projects experienced build failures; major frameworks including React and Babel were affected; incident lasted approximately 2.5 hours before NPM intervention
 
@@ -109,9 +109,9 @@ This appendix provides a chronological reference of significant software supply 
 
 **Sources:**
 
-- [Koçulu, A., "I've Just Liberated My Modules," 2016](https://kodfabrik.com/journal/i-ve-just-liberated-my-modules)
-- [Williams, C., "How one developer just broke Node, Babel and thousands of projects," The Register, 2016](https://www.theregister.com/2016/03/23/npm_left_pad_chaos/)
-- [NPM Blog, "kik, left-pad, and npm," 2016](https://blog.npmjs.org/post/141577284765/kik-left-pad-and-npm)
+- Koculu, A., "I've Just Liberated My Modules," 2016[^koculu-leftpad-2016]
+- Williams, C., "How one developer just broke Node, Babel and thousands of projects," The Register, 2016[^register-leftpad-2016]
+- NPM Blog, "kik, left-pad, and npm," 2016[^npm-leftpad-2016]
 
 ---
 
@@ -134,9 +134,9 @@ This appendix provides a chronological reference of significant software supply 
 
 **Sources:**
 
-- [GitHub Issue #116, "I don't know what to say," dominictarr/event-stream](https://github.com/dominictarr/event-stream/issues/116)
-- [Snyk, "Malicious code found in npm package event-stream," 2018](https://snyk.io/blog/malicious-code-found-in-npm-package-event-stream/)
-- [NPM Security Advisory](https://www.npmjs.com/advisories/737)
+- GitHub Issue #116, "I don't know what to say," dominictarr/event-stream[^eventstream-issue-116]
+- Snyk, "Malicious code found in npm package event-stream," 2018[^snyk-eventstream-2018]
+- NPM Security Advisory[^npm-advisory-737]
 
 ---
 
@@ -160,9 +160,9 @@ This appendix provides a chronological reference of significant software supply 
 
 **Sources:**
 
-- [CISA, "Advanced Persistent Threat Compromise of Government Agencies," Alert AA20-352A](https://www.cisa.gov/news-events/cybersecurity-advisories/aa20-352a)
-- [FireEye, "Highly Evasive Attacker Leverages SolarWinds Supply Chain," 2020](https://www.mandiant.com/resources/blog/evasive-attacker-leverages-solarwinds-supply-chain-compromises-with-sunburst-backdoor)
-- [Microsoft, "Analyzing Solorigate," 2020](https://www.microsoft.com/en-us/security/blog/2020/12/18/analyzing-solorigate-the-compromised-dll-file-that-started-a-sophisticated-cyberattack-and-how-microsoft-defender-helps-protect/)
+- CISA, "Advanced Persistent Threat Compromise of Government Agencies," Alert AA20-352A[^cisa-aa20-352a]
+- FireEye, "Highly Evasive Attacker Leverages SolarWinds Supply Chain," 2020[^fireeye-solarwinds-2020]
+- Microsoft, "Analyzing Solorigate," 2020[^microsoft-solorigate-2020]
 
 ---
 
@@ -185,9 +185,9 @@ This appendix provides a chronological reference of significant software supply 
 
 **Sources:**
 
-- [Codecov, "Bash Uploader Security Update," 2021](https://about.codecov.io/security-update/)
-- [HashiCorp, "Codecov Security Event Impact," 2021](https://discuss.hashicorp.com/t/hcsec-2021-12-codecov-security-event-and-hashicorp-gpg-key-exposure/23512)
-- [Reuters, "Codecov hackers breached hundreds of networks," 2021](https://www.reuters.com/technology/codecov-hackers-breached-hundreds-restricted-customer-sites-sources-2021-04-19/)
+- Codecov, "Bash Uploader Security Update," 2021[^codecov-security-2021]
+- HashiCorp, "Codecov Security Event Impact," 2021[^hashicorp-codecov-2021]
+- Reuters, "Codecov hackers breached hundreds of networks," 2021[^reuters-codecov-2021]
 
 ---
 
@@ -208,9 +208,9 @@ This appendix provides a chronological reference of significant software supply 
 
 **Sources:**
 
-- [GitHub Advisory GHSA-pjwm-rvh2-c87w](https://github.com/advisories/GHSA-pjwm-rvh2-c87w)
-- [CISA, "MAR-10354752-1.v1," 2021](https://www.cisa.gov/news-events/alerts/2021/10/22/malware-discovered-popular-npm-package-ua-parser-js)
-- [Bleeping Computer, "Popular npm library hijacked," 2021](https://www.bleepingcomputer.com/news/security/popular-npm-library-hijacked-to-install-password-stealers-miners/)
+- GitHub Advisory GHSA-pjwm-rvh2-c87w[^ghsa-ua-parser-js]
+- CISA, "MAR-10354752-1.v1," 2021[^cisa-ua-parser-2021]
+- Bleeping Computer, "Popular npm library hijacked," 2021[^bleeping-ua-parser-2021]
 
 ---
 
@@ -232,10 +232,10 @@ This appendix provides a chronological reference of significant software supply 
 
 **Sources:**
 
-- [Apache Log4j Security Vulnerabilities](https://logging.apache.org/log4j/2.x/security.html)
-- [CVE-2021-44228](https://nvd.nist.gov/vuln/detail/CVE-2021-44228)
-- [CISA, "Apache Log4j Vulnerability Guidance," 2021](https://www.cisa.gov/news-events/news/apache-log4j-vulnerability-guidance)
-- [Swiss Government NCSC, "Log4j Analysis," 2021](https://www.ncsc.admin.ch/ncsc/en/home/aktuell/im-fokus/log4j.html)
+- Apache Log4j Security Vulnerabilities[^apache-log4j-security]
+- CVE-2021-44228[^cve-2021-44228]
+- CISA, "Apache Log4j Vulnerability Guidance," 2021[^cisa-log4j-2021]
+- Swiss Government NCSC, "Log4j Analysis," 2021[^swiss-log4j-2021]
 
 ---
 
@@ -259,9 +259,9 @@ This appendix provides a chronological reference of significant software supply 
 
 **Sources:**
 
-- [Bleeping Computer, "Dev corrupts npm libs 'colors' and 'faker'," 2022](https://www.bleepingcomputer.com/news/security/dev-corrupts-npm-libs-colors-and-faker-breaking-thousands-of-apps/)
-- [GitHub Issue, colors.js #317](https://github.com/Marak/colors.js/issues/317)
-- [The Verge, "Open source developer corrupts widely-used libraries," 2022](https://www.theverge.com/2022/1/9/22874949/developer-corrupts-open-source-libraries-colors-faker-protest)
+- Bleeping Computer, "Dev corrupts npm libs 'colors' and 'faker'," 2022[^bleeping-colors-faker-2022]
+- GitHub Issue, colors.js #317[^colors-issue-317]
+- The Verge, "Open source developer corrupts widely-used libraries," 2022[^verge-colors-2022]
 
 ---
 
@@ -283,9 +283,9 @@ This appendix provides a chronological reference of significant software supply 
 
 **Sources:**
 
-- [Snyk, "Protestware: Open Source Malware," 2022](https://snyk.io/blog/peacenotwar-malicious-npm-node-ipc-package-vulnerability/)
-- [CVE-2022-23812](https://nvd.nist.gov/vuln/detail/CVE-2022-23812)
-- [Snyk, "node-ipc protestware analysis," 2022](https://snyk.io/blog/peacenotwar-malicious-npm-node-ipc-package-vulnerability/)
+- Snyk, "Protestware: Open Source Malware," 2022[^snyk-node-ipc-2022]
+- CVE-2022-23812[^cve-2022-23812]
+- Snyk, "node-ipc protestware analysis," 2022[^snyk-node-ipc-analysis-2022]
 
 ---
 
@@ -306,8 +306,8 @@ Limited external exposure; internal systems targeted
 
 **Sources:**
 
-- [PyTorch Security Advisory, December 2022](https://pytorch.org/blog/compromised-nightly-dependency/)
-- [Checkmarx, "PyTorch Dependency Confusion," 2023](https://medium.com/checkmarx-security/py-torch-a-leading-ml-framework-was-poisoned-with-malicious-dependency-e30f88242964)
+- PyTorch Security Advisory, December 2022[^pytorch-advisory-2022]
+- Checkmarx, "PyTorch Dependency Confusion," 2023[^checkmarx-pytorch-2023]
 
 ---
 
@@ -331,9 +331,9 @@ Limited external exposure; internal systems targeted
 
 **Sources:**
 
-- [CrowdStrike, "3CXDesktopApp Supply Chain Attack," 2023](https://www.crowdstrike.com/blog/crowdstrike-detects-and-prevents-active-intrusion-campaign-targeting-3cxdesktopapp-customers/)
-- [Mandiant, "3CX Supply Chain Compromise," 2023](https://www.mandiant.com/resources/blog/3cx-software-supply-chain-compromise)
-- [3CX Security Advisory](https://www.3cx.com/blog/news/security-incident-updates/)
+- CrowdStrike, "3CXDesktopApp Supply Chain Attack," 2023[^crowdstrike-3cx-2023]
+- Mandiant, "3CX Supply Chain Compromise," 2023[^mandiant-3cx-2023]
+- 3CX Security Advisory[^3cx-advisory]
 
 ---
 
@@ -386,9 +386,9 @@ No confirmed large-scale compromise, but repeated near-misses across major repos
 
 **Sources:**
 
-- [Ledger, "Security Incident Report," 2023](https://www.ledger.com/blog/a-letter-from-ledger-chairman-ceo-pascal-gauthier-regarding-ledger-connect-kit-exploit)
-- [Blockaid, "Ledger Connect Kit Incident Analysis," 2023](https://www.blockaid.io/blog/attack-report-ledger-connect-kit)
-- [CoinDesk, "Ledger Library Compromised," 2023](https://www.coindesk.com/tech/2023/12/14/ledgers-connect-kit-compromised-users-warned-not-to-interact-with-dapps/)
+- Ledger, "Security Incident Report," 2023[^ledger-incident-2023]
+- Blockaid, "Ledger Connect Kit Incident Analysis," 2023[^blockaid-ledger-2023]
+- CoinDesk, "Ledger Library Compromised," 2023[^coindesk-ledger-2023]
 
 ---
 
@@ -411,7 +411,7 @@ No confirmed large-scale compromise, but repeated near-misses across major repos
 
 **Sources:**
 
-- [Karlo Zanki, "BIPClip: Malicious PyPI packages target crypto wallet recovery passwords," ReversingLabs, March 12, 2024](https://www.reversinglabs.com/blog/bipclip-malicious-pypi-packages-target-crypto-wallet-recovery-passwords)
+- Karlo Zanki, "BIPClip: Malicious PyPI packages target crypto wallet recovery passwords," ReversingLabs, March 12, 2024[^reversinglabs-bipclip-2024]
 
 ---
 
@@ -434,10 +434,10 @@ No confirmed large-scale compromise, but repeated near-misses across major repos
 
 **Sources:**
 
-- [Freund, A., "Backdoor in upstream xz/liblzma," oss-security mailing list, 2024](https://www.openwall.com/lists/oss-security/2024/03/29/4)
-- [CVE-2024-3094](https://nvd.nist.gov/vuln/detail/CVE-2024-3094)
-- [CISA Alert, "XZ Utils Backdoor," 2024](https://www.cisa.gov/news-events/alerts/2024/03/29/reported-supply-chain-compromise-affecting-xz-utils-data-compression-library-cve-2024-3094)
-- [Arstechnica, "What we know about the xz Utils backdoor," 2024](https://arstechnica.com/security/2024/04/what-we-know-about-the-xz-utils-backdoor-that-almost-infected-the-world/)
+- Freund, A., "Backdoor in upstream xz/liblzma," oss-security mailing list, 2024[^freund-xz-2024]
+- CVE-2024-3094[^cve-2024-3094]
+- CISA Alert, "XZ Utils Backdoor," 2024[^cisa-xz-2024]
+- Arstechnica, "What we know about the xz Utils backdoor," 2024[^arstechnica-xz-2024]
 
 ---
 
@@ -493,9 +493,9 @@ Limited but high-impact for affected projects
 
 **Sources:**
 
-- [Sansec, "Polyfill.io supply chain attack," 2024](https://sansec.io/research/polyfill-supply-chain-attack)
-- [Cloudflare Blog, "Polyfill.io automatic replacement," 2024](https://blog.cloudflare.com/automatically-replacing-polyfill-io-links-with-cloudflares-mirror-for-a-safer-internet/)
-- [Google Ads Policy Update, June 2024](https://support.google.com/adspolicy/answer/14632116)
+- Sansec, "Polyfill.io supply chain attack," 2024[^sansec-polyfill-2024]
+- Cloudflare Blog, "Polyfill.io automatic replacement," 2024[^cloudflare-polyfill-2024]
+- Google Ads Policy Update, June 2024[^google-polyfill-2024]
 
 ---
 
@@ -517,9 +517,9 @@ Limited but high-impact for affected projects
 
 **Sources:**
 
-- [ReversingLabs, "The 2025 Software Supply Chain Security Report," 2025](https://www.reversinglabs.com/sscs-report)
-- [Rapid7, "CVE-2024-4978: Backdoored Justice AV Solutions Viewer Software," May 2024](https://www.rapid7.com/blog/post/2024/05/30/cve-2024-4978-backdoored-justice-av-solutions-viewer-software-used-in-apparent-supply-chain-attack/)
-- [BleepingComputer, "JAVS courtroom recording software backdoored in supply chain attack," May 2024](https://www.bleepingcomputer.com/news/security/javs-courtroom-recording-software-backdoored-in-supply-chain-attack/)
+- ReversingLabs, "The 2025 Software Supply Chain Security Report," 2025[^reversinglabs-sscs-2025]
+- Rapid7, "CVE-2024-4978: Backdoored Justice AV Solutions Viewer Software," May 2024[^rapid7-javs-2024]
+- BleepingComputer, "JAVS courtroom recording software backdoored in supply chain attack," May 2024[^bleeping-javs-2024]
 
 ---
 
@@ -542,8 +542,8 @@ Limited but high-impact for affected projects
 
 **Sources:**
 
-- [Aikido Security, "Shai Hulud GitHub Actions Incident," 2024](https://www.aikido.dev/blog/github-actions-incident-shai-hulud-supply-chain-attack)
-- [Unit 42, "GitHub Actions Supply Chain Attack," 2025](https://unit42.paloaltonetworks.com/github-actions-supply-chain-attack/)
+- Aikido Security, "Shai Hulud GitHub Actions Incident," 2024[^aikido-shai-hulud-2024]
+- Unit 42, "GitHub Actions Supply Chain Attack," 2025[^unit42-github-actions-2025]
 
 ---
 
@@ -563,7 +563,7 @@ Limited but high-impact for affected projects
 
 **Sources:**
 
-- [ReversingLabs, "The 2025 Software Supply Chain Security Report," 2025](https://www.reversinglabs.com/sscs-report)
+- ReversingLabs, "The 2025 Software Supply Chain Security Report," 2025[^reversinglabs-sscs-2025-lottie]
 
 ---
 
@@ -584,7 +584,7 @@ Limited but high-impact for affected projects
 
 **Sources:**
 
-- [Karlo Zanki, "Malicious PyPI crypto pay package aiocpa implants infostealer code," ReversingLabs, November 28, 2024](https://www.reversinglabs.com/blog/malicious-pypi-crypto-pay-package-aiocpa-implants-infostealer-code)
+- Karlo Zanki, "Malicious PyPI crypto pay package aiocpa implants infostealer code," ReversingLabs, November 28, 2024[^reversinglabs-aiocpa-2024]
 
 ---
 
@@ -605,7 +605,7 @@ Limited but high-impact for affected projects
 
 **Sources:**
 
-- [Paul Roberts, "Malware found in Solana npm library raises the bar for crypto security," ReversingLabs, December 5, 2024](https://www.reversinglabs.com/blog/malware-found-in-solana-npm-library-raises-the-bar-for-crypto-security)
+- Paul Roberts, "Malware found in Solana npm library raises the bar for crypto security," ReversingLabs, December 5, 2024[^reversinglabs-solana-2024]
 
 ---
 
@@ -626,7 +626,7 @@ Limited but high-impact for affected projects
 
 **Sources:**
 
-- [Karlo Zanki, "Compromised ultralytics PyPI package delivers crypto coinminer," ReversingLabs, December 9, 2024](https://www.reversinglabs.com/blog/compromised-ultralytics-pypi-package-delivers-crypto-coinminer)
+- Karlo Zanki, "Compromised ultralytics PyPI package delivers crypto coinminer," ReversingLabs, December 9, 2024[^reversinglabs-ultralytics-2024]
 
 ---
 
@@ -646,7 +646,7 @@ Limited but high-impact for affected projects
 
 **Sources:**
 
-- [ReversingLabs, "The 2025 Software Supply Chain Security Report," 2025](https://www.reversinglabs.com/sscs-report)
+- ReversingLabs, "The 2025 Software Supply Chain Security Report," 2025[^reversinglabs-sscs-2025-rspack]
 
 ---
 
@@ -668,9 +668,9 @@ Limited but high-impact for affected projects
 
 **Sources:**
 
-- [Phylum Research, "PyPI Typosquatting," 2024](https://blog.phylum.io/)
-- [PyPI Security Reports, 2024](https://pypi.org/security/)
-- [Checkmarx Supply Chain Security Research, 2024](https://checkmarx.com/blog/)
+- Phylum Research, "PyPI Typosquatting," 2024[^phylum-typosquatting-2024]
+- PyPI Security Reports, 2024[^pypi-security-2024]
+- Checkmarx Supply Chain Security Research, 2024[^checkmarx-2024]
 
 ---
 
@@ -693,7 +693,7 @@ Limited but high-impact for affected projects
 
 **Sources:**
 
-- [Karlo Zanki, "Malicious ML models discovered on Hugging Face platform," ReversingLabs, February 6, 2025](https://www.reversinglabs.com/blog/malicious-ml-models-discovered-on-hugging-face-platform)
+- Karlo Zanki, "Malicious ML models discovered on Hugging Face platform," ReversingLabs, February 6, 2025[^reversinglabs-huggingface-2025]
 
 ---
 
@@ -713,7 +713,7 @@ Limited but high-impact for affected projects
 
 **Sources:**
 
-- [Bill Toulas, "IPany VPN breached in supply-chain attack to push custom malware," BleepingComputer, January 22, 2025](https://www.bleepingcomputer.com/news/security/ipany-vpn-breached-in-supply-chain-attack-to-push-custom-malware/)
+- Bill Toulas, "IPany VPN breached in supply-chain attack to push custom malware," BleepingComputer, January 22, 2025[^bleeping-ipany-2025]
 
 ---
 
@@ -734,7 +734,7 @@ Limited but high-impact for affected projects
 
 **Sources:**
 
-- [Silobreaker, "Supply Chain Attacks in 2025: A Month-by-Month Summary," 2025](https://www.silobreaker.com/blog/cyber-threats/supply-chain-attacks-in-2025-a-month-by-month-summary/)
+- Silobreaker, "Supply Chain Attacks in 2025: A Month-by-Month Summary," 2025[^silobreaker-2025]
 
 ---
 
@@ -755,7 +755,7 @@ Limited but high-impact for affected projects
 
 **Sources:**
 
-- [Unit 42, "Vulnerability Analysis CVE-2025-32433," 2025](https://unit42.paloaltonetworks.com/vulnerability-analysis-cve-2025-32433/)
+- Unit 42, "Vulnerability Analysis CVE-2025-32433," 2025[^unit42-erlang-2025]
 
 ---
 
@@ -776,7 +776,7 @@ Limited but high-impact for affected projects
 
 **Sources:**
 
-- [Socket.dev, "npm Malware Campaign PhantomRaven," 2025](https://socket.dev/blog/npm-malware-campaign-phantomraven)
+- Socket.dev, "npm Malware Campaign PhantomRaven," 2025[^socket-phantomraven-2025]
 
 ---
 
@@ -801,9 +801,9 @@ In November 2025, a second wave dubbed "Shai-Hulud 2.0" emerged with modified ta
 
 **Sources:**
 
-- [Truesec, "500 npm Packages Compromised in Ongoing Supply Chain Attack Shai-Hulud," 2025](https://www.truesec.com/hub/blog/500-npm-packages-compromised-in-ongoing-supply-chain-attack-shai-hulud)
-- [CISA, "Widespread Supply Chain Compromise Impacting npm Ecosystem," September 23, 2025](https://www.cisa.gov/news-events/alerts/2025/09/23/widespread-supply-chain-compromise-impacting-npm-ecosystem)
-- [Microsoft Security Blog, "Shai-Hulud 2.0 Guidance," December 2025](https://www.microsoft.com/en-us/security/blog/2025/12/09/shai-hulud-2-0-guidance-for-detecting-investigating-and-defending-against-the-supply-chain-attack/)
+- Truesec, "500 npm Packages Compromised in Ongoing Supply Chain Attack Shai-Hulud," 2025[^truesec-shai-hulud-2025]
+- CISA, "Widespread Supply Chain Compromise Impacting npm Ecosystem," September 23, 2025[^cisa-shai-hulud-2025]
+- Microsoft Security Blog, "Shai-Hulud 2.0 Guidance," December 2025[^microsoft-shai-hulud-2025]
 
 ---
 
@@ -824,7 +824,7 @@ In November 2025, a second wave dubbed "Shai-Hulud 2.0" emerged with modified ta
 
 **Sources:**
 
-- [The Hacker News, "20 Popular npm Packages with 2 Billion Weekly Downloads Compromised," September 2025](https://thehackernews.com/2025/09/20-popular-npm-packages-with-2-billion.html)
+- The Hacker News, "20 Popular npm Packages with 2 Billion Weekly Downloads Compromised," September 2025[^hackernews-qix-2025]
 
 ---
 
@@ -845,7 +845,7 @@ In November 2025, a second wave dubbed "Shai-Hulud 2.0" emerged with modified ta
 
 **Sources:**
 
-- [CISA, "npm and Go Ecosystem Risks Alert," September 2025](https://www.cisa.gov/news-events/alerts/2025/09/23/widespread-supply-chain-compromise-impacting-npm-ecosystem)
+- CISA, "npm and Go Ecosystem Risks Alert," September 2025[^cisa-boltdb-2025]
 
 ---
 
@@ -866,7 +866,7 @@ In November 2025, a second wave dubbed "Shai-Hulud 2.0" emerged with modified ta
 
 **Sources:**
 
-- [Guardz Security Blog, "Top Recent Data Breaches," 2025](https://guardz.com/blog/top-recent-data-breaches/)
+- Guardz Security Blog, "Top Recent Data Breaches," 2025[^guardz-redhat-2025]
 
 ---
 
@@ -887,7 +887,7 @@ In November 2025, a second wave dubbed "Shai-Hulud 2.0" emerged with modified ta
 
 **Sources:**
 
-- [Secure Code Warrior, "OWASP Top 10 2025: Software Supply Chain Failures," 2025](https://www.securecodewarrior.com/article/owasp-top-10-2025-software-supply-chain-failures)
+- Secure Code Warrior, "OWASP Top 10 2025: Software Supply Chain Failures," 2025[^securecodewarrior-glassworm-2025]
 
 ---
 
@@ -908,7 +908,7 @@ In November 2025, a second wave dubbed "Shai-Hulud 2.0" emerged with modified ta
 
 **Sources:**
 
-- [ReversingLabs, "The 2025 Software Supply Chain Security Report," 2025](https://www.reversinglabs.com/sscs-report)
+- ReversingLabs, "The 2025 Software Supply Chain Security Report," 2025[^reversinglabs-sscs-2025-solana]
 
 ---
 
@@ -929,8 +929,8 @@ In November 2025, a second wave dubbed "Shai-Hulud 2.0" emerged with modified ta
 
 **Sources:**
 
-- [React.dev, "Denial of Service and Source Code Exposure in React Server Components," December 11, 2025](https://react.dev/blog/2025/12/11/denial-of-service-and-source-code-exposure-in-react-server-components)
-- [NVD, CVE-2025-55182](https://nvd.nist.gov/vuln/detail/CVE-2025-55182)
+- React.dev, "Denial of Service and Source Code Exposure in React Server Components," December 11, 2025[^react-cve-2025]
+- NVD, CVE-2025-55182[^nvd-cve-2025-55182]
 
 ---
 
@@ -996,3 +996,155 @@ In November 2025, a second wave dubbed "Shai-Hulud 2.0" emerged with modified ta
 - Multi-factor authentication enforcement
 
 These incidents collectively demonstrate that software supply chain security requires defense in depth across the entire lifecycle—from initial development through build, publication, distribution, and consumption.
+
+[^thompson-1984]: Thompson, K., "Reflections on Trusting Trust," Communications of the ACM, 1984, https://www.cs.cmu.edu/~rdriley/487/papers/Thompson_1984_ReflectionsonTrustingTrust.pdf
+
+[^debian-dsa-1571]: Debian, "Debian Security Advisory DSA-1571-1," 2008, https://www.debian.org/security/2008/dsa-1571
+
+[^cve-2008-0166]: NIST, "CVE-2008-0166," https://nvd.nist.gov/vuln/detail/CVE-2008-0166
+
+[^schneier-debian-2008]: Schneier, B., "Random Number Bug in Debian Linux," 2008, https://www.schneier.com/blog/archives/2008/05/random_number_b.html
+
+[^heartbleed-site]: Heartbleed.com, "Heartbleed Bug," 2014, https://heartbleed.com/
+
+[^cve-2014-0160]: NIST, "CVE-2014-0160," https://nvd.nist.gov/vuln/detail/CVE-2014-0160
+
+[^durumeric-heartbleed-2014]: Durumeric, Z., et al., "The Matter of Heartbleed," IMC 2014, https://jhalderm.com/pub/papers/heartbleed-imc14.pdf
+
+[^koculu-leftpad-2016]: Koculu, A., "I've Just Liberated My Modules," 2016, https://kodfabrik.com/journal/i-ve-just-liberated-my-modules
+
+[^register-leftpad-2016]: Williams, C., "How one developer just broke Node, Babel and thousands of projects," The Register, 2016, https://www.theregister.com/2016/03/23/npm_left_pad_chaos/
+
+[^npm-leftpad-2016]: NPM Blog, "kik, left-pad, and npm," 2016, https://blog.npmjs.org/post/141577284765/kik-left-pad-and-npm
+
+[^eventstream-issue-116]: GitHub, "Issue #116: I don't know what to say," dominictarr/event-stream, 2018, https://github.com/dominictarr/event-stream/issues/116
+
+[^snyk-eventstream-2018]: Snyk, "Malicious code found in npm package event-stream," 2018, https://snyk.io/blog/malicious-code-found-in-npm-package-event-stream/
+
+[^npm-advisory-737]: NPM, "Security Advisory 737," 2018, https://www.npmjs.com/advisories/737
+
+[^cisa-aa20-352a]: CISA, "Advanced Persistent Threat Compromise of Government Agencies," Alert AA20-352A, 2020, https://www.cisa.gov/news-events/cybersecurity-advisories/aa20-352a
+
+[^fireeye-solarwinds-2020]: FireEye/Mandiant, "Highly Evasive Attacker Leverages SolarWinds Supply Chain," 2020, https://www.mandiant.com/resources/blog/evasive-attacker-leverages-solarwinds-supply-chain-compromises-with-sunburst-backdoor
+
+[^microsoft-solorigate-2020]: Microsoft, "Analyzing Solorigate," 2020, https://www.microsoft.com/en-us/security/blog/2020/12/18/analyzing-solorigate-the-compromised-dll-file-that-started-a-sophisticated-cyberattack-and-how-microsoft-defender-helps-protect/
+
+[^codecov-security-2021]: Codecov, "Bash Uploader Security Update," 2021, https://about.codecov.io/security-update/
+
+[^hashicorp-codecov-2021]: HashiCorp, "Codecov Security Event Impact," 2021, https://discuss.hashicorp.com/t/hcsec-2021-12-codecov-security-event-and-hashicorp-gpg-key-exposure/23512
+
+[^reuters-codecov-2021]: Reuters, "Codecov hackers breached hundreds of networks," 2021, https://www.reuters.com/technology/codecov-hackers-breached-hundreds-restricted-customer-sites-sources-2021-04-19/
+
+[^ghsa-ua-parser-js]: GitHub, "Advisory GHSA-pjwm-rvh2-c87w," 2021, https://github.com/advisories/GHSA-pjwm-rvh2-c87w
+
+[^cisa-ua-parser-2021]: CISA, "MAR-10354752-1.v1," 2021, https://www.cisa.gov/news-events/alerts/2021/10/22/malware-discovered-popular-npm-package-ua-parser-js
+
+[^bleeping-ua-parser-2021]: Bleeping Computer, "Popular npm library hijacked," 2021, https://www.bleepingcomputer.com/news/security/popular-npm-library-hijacked-to-install-password-stealers-miners/
+
+[^apache-log4j-security]: Apache, "Log4j Security Vulnerabilities," https://logging.apache.org/log4j/2.x/security.html
+
+[^cve-2021-44228]: NIST, "CVE-2021-44228," https://nvd.nist.gov/vuln/detail/CVE-2021-44228
+
+[^cisa-log4j-2021]: CISA, "Apache Log4j Vulnerability Guidance," 2021, https://www.cisa.gov/news-events/news/apache-log4j-vulnerability-guidance
+
+[^swiss-log4j-2021]: Swiss Government NCSC, "Log4j Analysis," 2021, https://www.ncsc.admin.ch/ncsc/en/home/aktuell/im-fokus/log4j.html
+
+[^bleeping-colors-faker-2022]: Bleeping Computer, "Dev corrupts npm libs 'colors' and 'faker'," 2022, https://www.bleepingcomputer.com/news/security/dev-corrupts-npm-libs-colors-and-faker-breaking-thousands-of-apps/
+
+[^colors-issue-317]: GitHub, "Issue #317," Marak/colors.js, 2022, https://github.com/Marak/colors.js/issues/317
+
+[^verge-colors-2022]: The Verge, "Open source developer corrupts widely-used libraries," 2022, https://www.theverge.com/2022/1/9/22874949/developer-corrupts-open-source-libraries-colors-faker-protest
+
+[^snyk-node-ipc-2022]: Snyk, "Protestware: Open Source Malware," 2022, https://snyk.io/blog/peacenotwar-malicious-npm-node-ipc-package-vulnerability/
+
+[^cve-2022-23812]: NIST, "CVE-2022-23812," https://nvd.nist.gov/vuln/detail/CVE-2022-23812
+
+[^snyk-node-ipc-analysis-2022]: Snyk, "node-ipc protestware analysis," 2022, https://snyk.io/blog/peacenotwar-malicious-npm-node-ipc-package-vulnerability/
+
+[^pytorch-advisory-2022]: PyTorch, "Security Advisory," December 2022, https://pytorch.org/blog/compromised-nightly-dependency/
+
+[^checkmarx-pytorch-2023]: Checkmarx, "PyTorch Dependency Confusion," 2023, https://medium.com/checkmarx-security/py-torch-a-leading-ml-framework-was-poisoned-with-malicious-dependency-e30f88242964
+
+[^crowdstrike-3cx-2023]: CrowdStrike, "3CXDesktopApp Supply Chain Attack," 2023, https://www.crowdstrike.com/blog/crowdstrike-detects-and-prevents-active-intrusion-campaign-targeting-3cxdesktopapp-customers/
+
+[^mandiant-3cx-2023]: Mandiant, "3CX Supply Chain Compromise," 2023, https://www.mandiant.com/resources/blog/3cx-software-supply-chain-compromise
+
+[^3cx-advisory]: 3CX, "Security Advisory," 2023, https://www.3cx.com/blog/news/security-incident-updates/
+
+[^ledger-incident-2023]: Ledger, "Security Incident Report," 2023, https://www.ledger.com/blog/a-letter-from-ledger-chairman-ceo-pascal-gauthier-regarding-ledger-connect-kit-exploit
+
+[^blockaid-ledger-2023]: Blockaid, "Ledger Connect Kit Incident Analysis," 2023, https://www.blockaid.io/blog/attack-report-ledger-connect-kit
+
+[^coindesk-ledger-2023]: CoinDesk, "Ledger Library Compromised," 2023, https://www.coindesk.com/tech/2023/12/14/ledgers-connect-kit-compromised-users-warned-not-to-interact-with-dapps/
+
+[^reversinglabs-bipclip-2024]: Karlo Zanki, "BIPClip: Malicious PyPI packages target crypto wallet recovery passwords," ReversingLabs, March 12, 2024, https://www.reversinglabs.com/blog/bipclip-malicious-pypi-packages-target-crypto-wallet-recovery-passwords
+
+[^freund-xz-2024]: Freund, A., "Backdoor in upstream xz/liblzma," oss-security mailing list, 2024, https://www.openwall.com/lists/oss-security/2024/03/29/4
+
+[^cve-2024-3094]: NIST, "CVE-2024-3094," https://nvd.nist.gov/vuln/detail/CVE-2024-3094
+
+[^cisa-xz-2024]: CISA, "XZ Utils Backdoor Alert," 2024, https://www.cisa.gov/news-events/alerts/2024/03/29/reported-supply-chain-compromise-affecting-xz-utils-data-compression-library-cve-2024-3094
+
+[^arstechnica-xz-2024]: Arstechnica, "What we know about the xz Utils backdoor," 2024, https://arstechnica.com/security/2024/04/what-we-know-about-the-xz-utils-backdoor-that-almost-infected-the-world/
+
+[^sansec-polyfill-2024]: Sansec, "Polyfill.io supply chain attack," 2024, https://sansec.io/research/polyfill-supply-chain-attack
+
+[^cloudflare-polyfill-2024]: Cloudflare Blog, "Polyfill.io automatic replacement," 2024, https://blog.cloudflare.com/automatically-replacing-polyfill-io-links-with-cloudflares-mirror-for-a-safer-internet/
+
+[^google-polyfill-2024]: Google, "Ads Policy Update," June 2024, https://support.google.com/adspolicy/answer/14632116
+
+[^reversinglabs-sscs-2025]: ReversingLabs, "The 2025 Software Supply Chain Security Report," 2025, https://www.reversinglabs.com/sscs-report
+
+[^rapid7-javs-2024]: Rapid7, "CVE-2024-4978: Backdoored Justice AV Solutions Viewer Software," May 2024, https://www.rapid7.com/blog/post/2024/05/30/cve-2024-4978-backdoored-justice-av-solutions-viewer-software-used-in-apparent-supply-chain-attack/
+
+[^bleeping-javs-2024]: BleepingComputer, "JAVS courtroom recording software backdoored in supply chain attack," May 2024, https://www.bleepingcomputer.com/news/security/javs-courtroom-recording-software-backdoored-in-supply-chain-attack/
+
+[^aikido-shai-hulud-2024]: Aikido Security, "Shai Hulud GitHub Actions Incident," 2024, https://www.aikido.dev/blog/github-actions-incident-shai-hulud-supply-chain-attack
+
+[^unit42-github-actions-2025]: Unit 42, "GitHub Actions Supply Chain Attack," 2025, https://unit42.paloaltonetworks.com/github-actions-supply-chain-attack/
+
+[^reversinglabs-sscs-2025-lottie]: ReversingLabs, "The 2025 Software Supply Chain Security Report," 2025, https://www.reversinglabs.com/sscs-report
+
+[^reversinglabs-aiocpa-2024]: Karlo Zanki, "Malicious PyPI crypto pay package aiocpa implants infostealer code," ReversingLabs, November 28, 2024, https://www.reversinglabs.com/blog/malicious-pypi-crypto-pay-package-aiocpa-implants-infostealer-code
+
+[^reversinglabs-solana-2024]: Paul Roberts, "Malware found in Solana npm library raises the bar for crypto security," ReversingLabs, December 5, 2024, https://www.reversinglabs.com/blog/malware-found-in-solana-npm-library-raises-the-bar-for-crypto-security
+
+[^reversinglabs-ultralytics-2024]: Karlo Zanki, "Compromised ultralytics PyPI package delivers crypto coinminer," ReversingLabs, December 9, 2024, https://www.reversinglabs.com/blog/compromised-ultralytics-pypi-package-delivers-crypto-coinminer
+
+[^reversinglabs-sscs-2025-rspack]: ReversingLabs, "The 2025 Software Supply Chain Security Report," 2025, https://www.reversinglabs.com/sscs-report
+
+[^phylum-typosquatting-2024]: Phylum Research, "PyPI Typosquatting," 2024, https://blog.phylum.io/
+
+[^pypi-security-2024]: PyPI, "Security Reports," 2024, https://pypi.org/security/
+
+[^checkmarx-2024]: Checkmarx, "Supply Chain Security Research," 2024, https://checkmarx.com/blog/
+
+[^reversinglabs-huggingface-2025]: Karlo Zanki, "Malicious ML models discovered on Hugging Face platform," ReversingLabs, February 6, 2025, https://www.reversinglabs.com/blog/malicious-ml-models-discovered-on-hugging-face-platform
+
+[^bleeping-ipany-2025]: Bill Toulas, "IPany VPN breached in supply-chain attack to push custom malware," BleepingComputer, January 22, 2025, https://www.bleepingcomputer.com/news/security/ipany-vpn-breached-in-supply-chain-attack-to-push-custom-malware/
+
+[^silobreaker-2025]: Silobreaker, "Supply Chain Attacks in 2025: A Month-by-Month Summary," 2025, https://www.silobreaker.com/blog/cyber-threats/supply-chain-attacks-in-2025-a-month-by-month-summary/
+
+[^unit42-erlang-2025]: Unit 42, "Vulnerability Analysis CVE-2025-32433," 2025, https://unit42.paloaltonetworks.com/vulnerability-analysis-cve-2025-32433/
+
+[^socket-phantomraven-2025]: Socket.dev, "npm Malware Campaign PhantomRaven," 2025, https://socket.dev/blog/npm-malware-campaign-phantomraven
+
+[^truesec-shai-hulud-2025]: Truesec, "500 npm Packages Compromised in Ongoing Supply Chain Attack Shai-Hulud," 2025, https://www.truesec.com/hub/blog/500-npm-packages-compromised-in-ongoing-supply-chain-attack-shai-hulud
+
+[^cisa-shai-hulud-2025]: CISA, "Widespread Supply Chain Compromise Impacting npm Ecosystem," September 23, 2025, https://www.cisa.gov/news-events/alerts/2025/09/23/widespread-supply-chain-compromise-impacting-npm-ecosystem
+
+[^microsoft-shai-hulud-2025]: Microsoft Security Blog, "Shai-Hulud 2.0 Guidance," December 2025, https://www.microsoft.com/en-us/security/blog/2025/12/09/shai-hulud-2-0-guidance-for-detecting-investigating-and-defending-against-the-supply-chain-attack/
+
+[^hackernews-qix-2025]: The Hacker News, "20 Popular npm Packages with 2 Billion Weekly Downloads Compromised," September 2025, https://thehackernews.com/2025/09/20-popular-npm-packages-with-2-billion.html
+
+[^cisa-boltdb-2025]: CISA, "npm and Go Ecosystem Risks Alert," September 2025, https://www.cisa.gov/news-events/alerts/2025/09/23/widespread-supply-chain-compromise-impacting-npm-ecosystem
+
+[^guardz-redhat-2025]: Guardz Security Blog, "Top Recent Data Breaches," 2025, https://guardz.com/blog/top-recent-data-breaches/
+
+[^securecodewarrior-glassworm-2025]: Secure Code Warrior, "OWASP Top 10 2025: Software Supply Chain Failures," 2025, https://www.securecodewarrior.com/article/owasp-top-10-2025-software-supply-chain-failures
+
+[^reversinglabs-sscs-2025-solana]: ReversingLabs, "The 2025 Software Supply Chain Security Report," 2025, https://www.reversinglabs.com/sscs-report
+
+[^react-cve-2025]: React.dev, "Denial of Service and Source Code Exposure in React Server Components," December 11, 2025, https://react.dev/blog/2025/12/11/denial-of-service-and-source-code-exposure-in-react-server-components
+
+[^nvd-cve-2025-55182]: NIST, "CVE-2025-55182," https://nvd.nist.gov/vuln/detail/CVE-2025-55182

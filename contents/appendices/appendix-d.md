@@ -2,7 +2,7 @@
 
 This appendix provides a comprehensive security checklist for open source project maintainers. Use these checklists to assess your project's security posture, identify gaps, and prioritize improvements. Each section includes implementation guidance and links to relevant resources.
 
-The checklist aligns with the [OpenSSF Best Practices Badge](https://www.bestpractices.dev/) criteria and incorporates recommendations from the OpenSSF Scorecard project.
+The checklist aligns with the OpenSSF Best Practices Badge[^openssf-badge] criteria and incorporates recommendations from the OpenSSF Scorecard project.
 
 ---
 
@@ -44,7 +44,7 @@ Configure your source code repository to prevent unauthorized changes and enforc
 - [ ] **Set repository visibility appropriately** — Public for open source; private for sensitive components
 - [ ] **Disable unused features** — Turn off wikis, projects, discussions if not used
 
-**Implementation Guide**: [GitHub Repository Security Settings](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)
+**Implementation Guide**: GitHub Repository Security Settings[^github-repo-security]
 
 ---
 
@@ -84,9 +84,9 @@ Security documentation communicates your project's security posture and provides
 - [ ] **Hardening guide** — Secure configuration recommendations for users
 - [ ] **Dependency policy** — How dependencies are selected and evaluated
 
-**Template**: [GitHub SECURITY.md Template](https://docs.github.com/en/code-security/getting-started/adding-a-security-policy-to-your-repository)
+**Template**: GitHub SECURITY.md Template[^github-security-template]
 
-**Tool**: [OpenSSF Disclosure Check](https://github.com/ossf/disclosure-check) — Verify vulnerability disclosure mechanisms
+**Tool**: OpenSSF Disclosure Check[^openssf-disclosure-check] — Verify vulnerability disclosure mechanisms
 
 ---
 
@@ -142,9 +142,9 @@ Secure build processes prevent tampering and ensure users receive authentic arti
 - [ ] **Include SBOM with release** — Ship bill of materials with artifacts
 - [ ] **Announce releases through official channels** — Prevent impersonation
 
-**Implementation Guide**: [SLSA Requirements](https://slsa.dev/spec/v1.0/requirements)
+**Implementation Guide**: SLSA Requirements[^slsa-requirements]
 
-**Tool**: [Sigstore](https://www.sigstore.dev/) — Free signing infrastructure for open source
+**Tool**: Sigstore[^sigstore] — Free signing infrastructure for open source
 
 ---
 
@@ -188,9 +188,9 @@ Effective vulnerability management protects your users and maintains trust in yo
 - [ ] **Track security debt** — Known issues and their remediation timeline
 - [ ] **Review past vulnerabilities** — Learn from patterns to prevent recurrence
 
-**Implementation Guide**: [CERT Guide to Coordinated Vulnerability Disclosure](https://vuls.cert.org/confluence/display/CVD)
+**Implementation Guide**: CERT Guide to Coordinated Vulnerability Disclosure[^cert-cvd-guide]
 
-**Template**: [GitHub Security Advisory Process](https://docs.github.com/en/code-security/security-advisories/repository-security-advisories/about-repository-security-advisories)
+**Template**: GitHub Security Advisory Process[^github-security-advisory]
 
 ---
 
@@ -231,7 +231,7 @@ Clear governance and community practices ensure security decisions are made tran
 - [ ] **Security improvements communicated** — Share security enhancements publicly
 - [ ] **Annual security report** — Summary of security activities and status
 
-**Implementation Guide**: [OpenSSF Best Practices Badge](https://www.bestpractices.dev/en/criteria)
+**Implementation Guide**: OpenSSF Best Practices Badge[^openssf-badge-criteria]
 
 ---
 
@@ -343,9 +343,39 @@ After scoring, prioritize improvements using this matrix:
 
 ### Additional Resources
 
-- **OpenSSF Best Practices Badge**: [https://www.bestpractices.dev/](https://www.bestpractices.dev/)
-- **OpenSSF Scorecard**: [https://securityscorecards.dev/](https://securityscorecards.dev/)
-- **CISA Secure Software Development Attestation**: [https://www.cisa.gov/secure-software-attestation-form](https://www.cisa.gov/secure-software-attestation-form)
-- **GitHub Security Hardening Guide**: [https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions](https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions)
-- **AllStar (Automated Security Policy Enforcement)**: [https://github.com/ossf/allstar](https://github.com/ossf/allstar)
-- **Scorecard Action**: [https://github.com/ossf/scorecard-action](https://github.com/ossf/scorecard-action)
+- **OpenSSF Best Practices Badge**: https://www.bestpractices.dev/[^openssf-badge-resource]
+- **OpenSSF Scorecard**: https://securityscorecards.dev/[^openssf-scorecard]
+- **CISA Secure Software Development Attestation**: https://www.cisa.gov/secure-software-attestation-form[^cisa-attestation]
+- **GitHub Security Hardening Guide**: https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions[^github-hardening]
+- **AllStar (Automated Security Policy Enforcement)**: https://github.com/ossf/allstar[^allstar]
+- **Scorecard Action**: https://github.com/ossf/scorecard-action[^scorecard-action]
+
+[^openssf-badge]: Open Source Security Foundation, "Best Practices Badge," https://www.bestpractices.dev/
+
+[^github-repo-security]: GitHub, "Managing security and analysis settings for your repository," https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository
+
+[^github-security-template]: GitHub, "Adding a security policy to your repository," https://docs.github.com/en/code-security/getting-started/adding-a-security-policy-to-your-repository
+
+[^openssf-disclosure-check]: Open Source Security Foundation, "Disclosure Check," https://github.com/ossf/disclosure-check
+
+[^slsa-requirements]: SLSA, "Requirements," https://slsa.dev/spec/v1.0/requirements
+
+[^sigstore]: Sigstore, "Sigstore," https://www.sigstore.dev/
+
+[^cert-cvd-guide]: CERT, "Guide to Coordinated Vulnerability Disclosure," https://vuls.cert.org/confluence/display/CVD
+
+[^github-security-advisory]: GitHub, "About repository security advisories," https://docs.github.com/en/code-security/security-advisories/repository-security-advisories/about-repository-security-advisories
+
+[^openssf-badge-criteria]: Open Source Security Foundation, "Best Practices Badge Criteria," https://www.bestpractices.dev/en/criteria
+
+[^openssf-badge-resource]: Open Source Security Foundation, "Best Practices Badge," https://www.bestpractices.dev/
+
+[^openssf-scorecard]: Open Source Security Foundation, "Scorecard," https://securityscorecards.dev/
+
+[^cisa-attestation]: CISA, "Secure Software Development Attestation Form," https://www.cisa.gov/secure-software-attestation-form
+
+[^github-hardening]: GitHub, "Security hardening for GitHub Actions," https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions
+
+[^allstar]: Open Source Security Foundation, "AllStar," https://github.com/ossf/allstar
+
+[^scorecard-action]: Open Source Security Foundation, "Scorecard Action," https://github.com/ossf/scorecard-action

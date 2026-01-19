@@ -223,7 +223,7 @@ However, TLS and CT do not protect against:
 
 3. **Monitor distribution infrastructure.** Alert on unexpected changes to mirrors, CDN configurations, or DNS records.
 
-4. **Implement update mechanism security.** Follow [The Update Framework](https://theupdateframework.io/) (TUF) principles. Verify signatures, check version freshness, and protect against rollback.
+4. **Implement update mechanism security.** Follow The Update Framework[^tuf] (TUF) principles. Verify signatures, check version freshness, and protect against rollback.
 
 5. **Secure domain assets.** Enable registrar lock, use strong authentication, monitor for unauthorized changes, and set long registration periods.
 
@@ -252,6 +252,8 @@ However, TLS and CT do not protect against:
 5. **Consider self-hosting critical resources.** The convenience of CDNs must be weighed against the risk of shared trust.
 
 Distribution attacks exploit the assumption that content from trusted sources remains trustworthy. The Polyfill.io incident demonstrated this assumption's fragility—a legitimate service, trusted by over 100,000 websites, became an attack vector overnight when ownership changed. Defending against distribution attacks requires treating the entire path from publisher to consumer as potential attack surface, implementing verification at every stage, and planning for the possibility that any component in the chain could be compromised.
+
+[^tuf]: The Update Framework, https://theupdateframework.io/
 
 [linux-mint-2016]: https://blog.linuxmint.com/?p=2994
 [sparkle-2016]: https://vulnsec.com/2016/osx-apps-vulnerabilities/

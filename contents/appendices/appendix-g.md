@@ -110,7 +110,7 @@ npm token create --cidr=192.168.1.0/24
 - [ ] Dependencies reviewed before updating lockfile
 - [ ] `postinstall` scripts audited in dependencies
 
-**Documentation**: [npm Security Best Practices](https://docs.npmjs.com/packages-and-modules/securing-your-code)
+**Documentation**: npm Security Best Practices[^npm-security]
 
 ---
 
@@ -155,7 +155,7 @@ pipenv install --deploy
 pipenv lock
 ```
 
-**[uv](https://docs.astral.sh/uv/)** (recommended for new projects):
+**uv**[^uv-docs] (recommended for new projects):
 ```bash
 # Initialize project
 uv init
@@ -178,7 +178,7 @@ uv is an extremely fast Python package manager written in Rust (10-100x faster t
 - Generates cross-platform lockfiles with SHA-256 hashes by default
 - Replaces pip, pip-tools, pipx, poetry, pyenv, and virtualenv with a single tool
 - Hermetic builds ensure reproducibility across environments
-- Active development by [Astral](https://astral.sh/), creators of the Ruff linter
+- Active development by Astral[^astral], creators of the Ruff linter
 
 **Best Practices**:
 
@@ -271,7 +271,7 @@ python -m sigstore verify dist/*.whl
 - [ ] `setup.py` reviewed for code execution during install
 - [ ] Private package index configured if using internal packages
 
-**Documentation**: [PyPI Security](https://pypi.org/security/)
+**Documentation**: PyPI Security[^pypi-security]
 
 ---
 
@@ -420,7 +420,7 @@ mvn org.simplify4u.plugins:pgpverify-maven-plugin:check
 - [ ] SBOM generated with CycloneDX plugin
 - [ ] Transitive dependencies reviewed with `mvn dependency:tree`
 
-**Documentation**: [Maven Central Security](https://central.sonatype.org/publish/requirements/)
+**Documentation**: Maven Central Security[^maven-security]
 
 ---
 
@@ -533,7 +533,7 @@ export GOPROXY=https://proxy.golang.org,https://private.proxy.mycompany.com,dire
 - [ ] Module versions use semantic versioning
 - [ ] Major version changes use `/v2`, `/v3` paths
 
-**Documentation**: [Go Module Security](https://go.dev/blog/supply-chain)
+**Documentation**: Go Module Security[^go-security]
 
 ---
 
@@ -661,7 +661,7 @@ cargo publish --token $CRATES_IO_TOKEN
 - [ ] Build scripts audited for dependencies
 - [ ] `--locked` flag used in CI builds
 
-**Documentation**: [crates.io Security](https://crates.io/policies)
+**Documentation**: crates.io Security[^crates-security]
 
 ---
 
@@ -829,7 +829,7 @@ CMD ["node", "dist/index.js"]
 - [ ] Signature verification enforced at deployment
 - [ ] Image pull policies prevent mutable tags in production
 
-**Documentation**: [Docker Security](https://docs.docker.com/engine/security/), [Sigstore](https://docs.sigstore.dev/)
+**Documentation**: Docker Security[^docker-security], Sigstore[^sigstore-docs]
 
 ---
 
@@ -856,3 +856,21 @@ Use these condensed checklists for rapid security assessment across ecosystems.
 5. **Minimize surface**: Use minimal dependencies and base images
 6. **Automate updates**: Use Dependabot, Renovate, or equivalent
 7. **Monitor advisories**: Subscribe to security notifications for critical dependencies
+
+[^npm-security]: npm, "Securing your code," https://docs.npmjs.com/packages-and-modules/securing-your-code
+
+[^uv-docs]: Astral, "uv Documentation," https://docs.astral.sh/uv/
+
+[^astral]: Astral, https://astral.sh/
+
+[^pypi-security]: Python Software Foundation, "PyPI Security," https://pypi.org/security/
+
+[^maven-security]: Sonatype, "Maven Central Requirements," https://central.sonatype.org/publish/requirements/
+
+[^go-security]: Go Team, "How Go Mitigates Supply Chain Attacks," https://go.dev/blog/supply-chain
+
+[^crates-security]: Rust Foundation, "crates.io Policies," https://crates.io/policies
+
+[^docker-security]: Docker, "Docker Security," https://docs.docker.com/engine/security/
+
+[^sigstore-docs]: Sigstore, "Sigstore Documentation," https://docs.sigstore.dev/

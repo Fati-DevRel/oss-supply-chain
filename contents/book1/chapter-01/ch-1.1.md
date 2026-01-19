@@ -1,3 +1,9 @@
+---
+title: "How Software Is Built Today"
+description: "Explore how software development transformed from artisan craft to assembling applications from thousands of external components."
+icon: "lucide/code"
+---
+
 # 1.1 How Software Is Built Today
 
 Software development has undergone a fundamental transformation over the past three decades. Where engineers once wrote applications largely from scratch—crafting everything from data structures to network protocols—today's developers assemble software from a vast ecosystem of pre-built components. This shift has enabled unprecedented speed and capability, but it has also created a complex web of dependencies that most organizations barely understand. To appreciate why software supply chain security matters, we must first understand how profoundly the practice of building software has changed.
@@ -63,7 +69,7 @@ But this transformation has come with an implicit bargain: we depend on code we 
 
 The chapters that follow examine this bargain in detail—the benefits of open source, the threats that target supply chains, and the practices that can help organizations manage their exposure. But the essential first step is recognizing the nature of modern software development: we are all building on foundations we did not lay, and we must learn to secure what we did not create.
 
-[ossra-2024]: https://www.synopsys.com/software-integrity/resources/analyst-reports/open-source-security-risk-analysis.html
+[ossra-2024]: <https://www.synopsys.com/software-integrity/resources/analyst-reports/open-source-security-risk-analysis.html>
 [sonatype-2024]: https://www.sonatype.com/state-of-the-software-supply-chain/introduction
-[^github-copilot]: GitHub, "The State of Open Source and AI" (2023). https://github.blog/news-insights/research/the-state-of-open-source-and-ai/
-[^npm-stats]: npm, "npm Registry Statistics," npm Blog, 2024. https://www.npmjs.com/; Sonatype, "2024 State of the Software Supply Chain Report," 2024.
+[^github-copilot]: GitHub, "The State of Open Source and AI" (2023). <https://github.blog/news-insights/research/the-state-of-open-source-and-ai/>
+[^npm-stats]: npm, "npm Registry Statistics," npm Blog, 2024. <https://www.npmjs.com/>; Sonatype, "2024 State of the Software Supply Chain Report," 2024.
