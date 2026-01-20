@@ -44,6 +44,7 @@ jobs:
           cp -r contents/frontmatter site/docs/
           cp -r contents/appendices site/docs/
           cp contents/frontmatter/home.md site/docs/index.md
+          cp scripts/robots.txt site/docs/
           cp scripts/zensical.toml site/
           cp scripts/extra.css site/docs/stylesheets/
 

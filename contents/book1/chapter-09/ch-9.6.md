@@ -187,7 +187,7 @@ No central authority reviews charts for security. Artifact Hub provides metadata
 
 [Helm][helm] supports [provenance files][helm-provenance] (`.prov`) for signature verification:
 
-```bash
+```shell
 helm verify mychart-1.0.0.tgz
 ```
 

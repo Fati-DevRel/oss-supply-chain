@@ -17,6 +17,7 @@ cp -r ../contents/frontmatter docs/
 cp -r ../contents/appendices docs/
 
 cp -r ../dist/*.pdf docs/
+cp robots.txt docs/
 
 # Replace the font in all SVG images to use a Zensical-compatible font
 find docs/ -name "*.svg" | while read -r svgfile; do

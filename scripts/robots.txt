@@ -1,0 +1,8 @@
+# Robots.txt for sscsecurity.dev
+# Software Supply Chain Security book series
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://sscsecurity.dev/sitemap.xml
