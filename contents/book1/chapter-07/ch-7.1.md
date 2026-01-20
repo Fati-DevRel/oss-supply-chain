@@ -59,7 +59,7 @@ Each step represents an opportunity for malicious modification. An attacker who 
 
 **Phantom dependencies** exemplify this risk. These are dependencies introduced during the build process that do not appear in declared dependency manifests. A malicious build script might:
 
-```bash
+```shell
 # Legitimate-looking build script that fetches undeclared dependency
 npm install --save-dev legitimate-looking-helper
 ```

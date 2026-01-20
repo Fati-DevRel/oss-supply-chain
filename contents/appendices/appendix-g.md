@@ -12,7 +12,7 @@ The JavaScript ecosystem, centered on npm (Node Package Manager), is the largest
 
 npm uses `package-lock.json` to lock dependency versions. Always commit this file to version control.
 
-```bash
+```shell
 # Generate or update lockfile
 npm install
 
@@ -48,7 +48,7 @@ audit=true
 | Socket | Supply chain threat detection | GitHub App integration |
 | npm-check-updates | Find outdated packages | `ncu` |
 
-```bash
+```shell
 # Run npm audit with JSON output for CI
 npm audit --json > audit-results.json
 
@@ -63,7 +63,7 @@ npm audit fix --force
 
 npm supports package provenance through Sigstore integration since 2023.
 
-```bash
+```shell
 # Publish with provenance (requires npm 9.5.0+)
 npm publish --provenance
 
@@ -80,7 +80,7 @@ npm view <package> --json | jq '.dist.attestations'
 - **npm Organizations**: Use teams and access controls for shared packages
 - **Automated security advisories**: npm automatically creates advisories for reported vulnerabilities
 
-```bash
+```shell
 # Create a read-only automation token
 npm token create --read-only
 
@@ -123,7 +123,7 @@ Python's package ecosystem centers on PyPI (Python Package Index). The ecosystem
 Python has multiple dependency management approaches. Choose based on project needs.
 
 **pip with requirements.txt**:
-```bash
+```shell
 # Generate pinned requirements
 pip freeze > requirements.txt
 
@@ -135,7 +135,7 @@ pip-compile --generate-hashes requirements.in
 ```
 
 **Poetry**:
-```bash
+```shell
 # Install from lockfile
 poetry install --no-root
 
@@ -147,7 +147,7 @@ poetry export -f requirements.txt --output requirements.txt
 ```
 
 **Pipenv**:
-```bash
+```shell
 # Install from Pipfile.lock
 pipenv install --deploy
 
@@ -156,7 +156,7 @@ pipenv lock
 ```
 
 **uv**[^uv-docs] (recommended for new projects):
-```bash
+```shell
 # Initialize project
 uv init
 
@@ -197,7 +197,7 @@ uv is an extremely fast Python package manager written in Rust (10-100x faster t
 | Semgrep | Pattern-based scanning | `semgrep --config=p/python` |
 | pyup.io | Dependency monitoring | SaaS integration |
 
-```bash
+```shell
 # Scan installed packages for vulnerabilities
 pip-audit
 
@@ -226,7 +226,7 @@ jobs:
 ```
 
 **Sigstore signing** is available for packages:
-```bash
+```shell
 # Sign a distribution
 python -m sigstore sign dist/*.whl
 
@@ -242,7 +242,7 @@ python -m sigstore verify dist/*.whl
 - **API tokens**: Scoped tokens for automation
 - **Project quarantine**: New projects held briefly for malware scanning
 
-```bash
+```shell
 # Configure trusted publishing on PyPI
 # 1. Go to PyPI project settings
 # 2. Add GitHub repository as trusted publisher
@@ -320,7 +320,7 @@ Maven doesn't have a native lockfile. Use these approaches for reproducible buil
 ```
 
 **Gradle Lockfiles**:
-```bash
+```shell
 # Generate lockfile
 ./gradlew dependencies --write-locks
 
@@ -354,7 +354,7 @@ Maven doesn't have a native lockfile. Use these approaches for reproducible buil
 </plugin>
 ```
 
-```bash
+```shell
 # Run dependency check
 mvn dependency-check:check
 
@@ -366,7 +366,7 @@ mvn org.cyclonedx:cyclonedx-maven-plugin:makeAggregateBom
 
 Maven Central requires GPG signing for all published artifacts.
 
-```bash
+```shell
 # Generate GPG key
 gpg --gen-key
 
@@ -432,7 +432,7 @@ Go has built-in module support with strong supply chain security features, inclu
 
 Go uses `go.sum` as its lockfile, containing cryptographic checksums of all dependencies.
 
-```bash
+```shell
 # Initialize module
 go mod init example.com/myproject
 
@@ -452,7 +452,7 @@ go mod download
 - Run `go mod verify` in CI to detect tampering
 - Use `go mod tidy` to remove unused dependencies
 
-```bash
+```shell
 # Vendor dependencies for hermetic builds
 go mod vendor
 
@@ -469,7 +469,7 @@ go build -mod=vendor
 | Staticcheck | Comprehensive linter | `staticcheck ./...` |
 | Trivy | Container and filesystem scan | `trivy fs .` |
 
-```bash
+```shell
 # Install and run govulncheck
 go install golang.org/x/vuln/cmd/govulncheck@latest
 govulncheck ./...
@@ -482,7 +482,7 @@ gosec -fmt=json -out=results.json ./...
 
 Go modules use the **checksum database** (sum.golang.org) for verification.
 
-```bash
+```shell
 # Environment variables for checksum verification
 export GOSUMDB=sum.golang.org
 export GOFLAGS="-mod=readonly"
@@ -492,7 +492,7 @@ go mod verify
 ```
 
 **Private modules**: Configure `GOPRIVATE` for internal modules:
-```bash
+```shell
 export GOPRIVATE=github.com/mycompany/*,gitlab.mycompany.com/*
 ```
 
@@ -503,7 +503,7 @@ export GOPRIVATE=github.com/mycompany/*,gitlab.mycompany.com/*
 - **Module Mirror**: Ensures modules remain available even if source disappears
 - **Transparency Log**: Append-only log prevents tampering
 
-```bash
+```shell
 # Configure module proxy
 export GOPROXY=https://proxy.golang.org,direct
 
@@ -545,7 +545,7 @@ Rust's package ecosystem (crates.io) benefits from memory safety guarantees and 
 
 Rust uses `Cargo.lock` for dependency locking.
 
-```bash
+```shell
 # Generate/update lockfile
 cargo build
 
@@ -580,7 +580,7 @@ serde = "1.0"  # Equivalent to ^1.0
 | cargo-crev | Code review system | `cargo crev verify` |
 | clippy | Linting including security | `cargo clippy` |
 
-```bash
+```shell
 # Install and run cargo-audit
 cargo install cargo-audit
 cargo audit
@@ -613,7 +613,7 @@ deny = [
 
 crates.io does not currently require signing, but provides other integrity measures:
 
-```bash
+```shell
 # Verify checksums (automatic with cargo)
 cargo fetch
 
@@ -631,7 +631,7 @@ cargo crev verify
 - **API tokens**: Scoped tokens for automation
 - **Rate limiting**: Prevents abuse
 
-```bash
+```shell
 # Create scoped token
 # Via crates.io web interface
 
@@ -702,7 +702,7 @@ FROM cgr.dev/chainguard/node:latest
 | Docker Scout | Docker-integrated scanning | `docker scout cves myimage:tag` |
 | Snyk Container | Container scanning | `snyk container test myimage:tag` |
 
-```bash
+```shell
 # Scan image for vulnerabilities
 trivy image --severity HIGH,CRITICAL myapp:latest
 
@@ -717,7 +717,7 @@ trivy fs --scanners vuln,secret,misconfig .
 
 Use **Sigstore Cosign** for container signing:
 
-```bash
+```shell
 # Install cosign
 brew install cosign
 
@@ -774,7 +774,7 @@ spec:
 | Google Artifact Registry | Vulnerability scanning, Binary Authorization |
 | Azure Container Registry | Content trust, Defender scanning, managed identities |
 
-```bash
+```shell
 # Enable Docker Content Trust
 export DOCKER_CONTENT_TRUST=1
 
