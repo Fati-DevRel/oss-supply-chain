@@ -1,9 +1,10 @@
 ---
-title: Open Source Software Supply Chain Security
+title: Home
 description: A comprehensive guide to understanding, protecting, and governing the open source software supply chain.
 hide:
     - navigation
     - path
+    - toc
 ---
 
 # Open Source Software Supply Chain Security
