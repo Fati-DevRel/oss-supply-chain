@@ -690,6 +690,9 @@ FROM gcr.io/distroless/nodejs20-debian12
 
 # Chainguard Images (SLSA, signatures, SBOMs)
 FROM cgr.dev/chainguard/node:latest
+
+# Docker Hardened Images (minimal images, SLSA, signatures, SBOMs, version tags)
+FROM dhi.io/node:25 
 ```
 
 #### Security Scanning Tools
