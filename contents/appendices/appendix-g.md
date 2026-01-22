@@ -465,6 +465,7 @@ go build -mod=vendor
 | Tool | Purpose | Command |
 |------|---------|---------|
 | govulncheck | Official vulnerability scanner | `govulncheck ./...` |
+| Capslock | Capability analysis (files, network, exec) | `capslock -packages=./...` |
 | gosec | Static analysis | `gosec ./...` |
 | Staticcheck | Comprehensive linter | `staticcheck ./...` |
 | Trivy | Container and filesystem scan | `trivy fs .` |
@@ -474,9 +475,15 @@ go build -mod=vendor
 go install golang.org/x/vuln/cmd/govulncheck@latest
 govulncheck ./...
 
+# Run Capslock to analyze package capabilities
+go install github.com/google/capslock/cmd/capslock@latest
+capslock -packages=./...
+
 # Run gosec
 gosec -fmt=json -out=results.json ./...
 ```
+
+**Capslock** analyzes what your Go packages and dependencies can actually *do*—file access, network calls, process execution. This is particularly valuable for auditing dependencies, as unexpected capabilities (like a data parser with network access) may indicate supply chain compromise.
 
 #### Signing and Verification
 
