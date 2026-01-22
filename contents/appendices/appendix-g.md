@@ -335,6 +335,7 @@ Maven doesn't have a native lockfile. Use these approaches for reproducible buil
 | OWASP Dependency-Check | Vulnerability scanning | Maven/Gradle plugin |
 | Snyk | Comprehensive scanning | CLI and plugins |
 | SpotBugs + Find Security Bugs | Static analysis | Maven plugin |
+| JCapsLock | Capability analysis | Maven plugin |
 | Checkmarx | Enterprise SAST | CI integration |
 
 ```xml
@@ -360,7 +361,12 @@ mvn dependency-check:check
 
 # Generate SBOM
 mvn org.cyclonedx:cyclonedx-maven-plugin:makeAggregateBom
+
+# Run JCapsLock capability analysis
+mvn capslock:analyze
 ```
+
+**JCapsLock** performs capability analysis on Java dependencies, showing which packages can access files, network, or execute code. This helps detect unexpected behavior in dependencies—useful for identifying supply chain compromises that don't yet have CVEs.
 
 #### Signing and Verification
 
@@ -483,7 +489,7 @@ capslock -packages=./...
 gosec -fmt=json -out=results.json ./...
 ```
 
-**Capslock** analyzes what your Go packages and dependencies can actually *do*—file access, network calls, process execution. This is particularly valuable for auditing dependencies, as unexpected capabilities (like a data parser with network access) may indicate supply chain compromise.
+**Capslock** analyzes what your Go packages and dependencies can actually *do*—file access, network calls, process execution. This is particularly valuable for auditing dependencies, as unexpected capabilities (like a data parser with network access) may indicate supply chain compromise. For Go packages, results are also available on deps.dev without local installation.
 
 #### Signing and Verification
 
@@ -585,6 +591,7 @@ serde = "1.0"  # Equivalent to ^1.0
 | cargo-audit | Vulnerability scanning | `cargo audit` |
 | cargo-deny | License and vulnerability checks | `cargo deny check` |
 | cargo-crev | Code review system | `cargo crev verify` |
+| cargo-capslock | Capability analysis (experimental) | `cargo capslock` |
 | clippy | Linting including security | `cargo clippy` |
 
 ```shell
@@ -597,6 +604,8 @@ cargo install cargo-deny
 cargo deny init
 cargo deny check
 ```
+
+**cargo-capslock** is an experimental Rust Foundation project (Alpha-Omega funded) that performs capability analysis similar to the Go implementation, analyzing what dependencies can access at the LLVM IR level.
 
 **cargo-deny configuration** (`deny.toml`):
 ```toml
