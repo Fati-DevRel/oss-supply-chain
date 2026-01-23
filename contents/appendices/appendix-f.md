@@ -525,7 +525,7 @@ Limited but high-impact for affected projects
 
 #### Shai Hulud GitHub Actions Campaign
 
-**Date:** September-November 2024 (disclosed September 18, 2024)
+**Date:** September-November 2025 (disclosed September 18, 2025)
 
 **Summary:** The Shai Hulud campaign exploited misconfigured GitHub Actions workflows to compromise npm package publishing credentials across major open source projects. Attackers identified repositories using dangerous workflow triggers like `pull_request_target` and submitted malicious pull requests that executed in the context of the target repository with access to secrets. The campaign targeted high-profile projects including AsyncAPI, PostHog, Postman, Zapier, and ENS Domains.
 
@@ -542,7 +542,7 @@ Limited but high-impact for affected projects
 
 **Sources:**
 
-- Aikido Security, "Shai Hulud GitHub Actions Incident," 2024[^aikido-shai-hulud-2024]
+- Aikido Security, "Shai Hulud GitHub Actions Incident," 2025[^aikido-shai-hulud-2025]
 - Unit 42, "GitHub Actions Supply Chain Attack," 2025[^unit42-github-actions-2025]
 
 ---
@@ -855,7 +855,7 @@ In November 2025, a second wave dubbed "Shai-Hulud 2.0" emerged with modified ta
 
 **Summary:** The "Crimson Collective" threat group claimed responsibility for exfiltrating 570GB of data from over 28,000 internal Red Hat repositories. The breach exposed sensitive infrastructure settings, VPN configurations, and Customer Engagement Reports, highlighting the risks of hosting massive open-source and internal codebases on unified platforms.
 
-**Impact Scope:** 28,000+ internal Red Hat repositories; 570GB of data exfiltrated; infrastructure settings, VPN configurations, and customer data exposed
+**Impact Scope (alleged):** 28,000+ internal Red Hat repositories; 570GB of data claimed exfiltrated; infrastructure settings, VPN configurations, and customer data reportedly exposed. Independent confirmation of these claims was not publicly available at time of writing.
 
 **Key Lessons:**
 
@@ -872,7 +872,7 @@ In November 2025, a second wave dubbed "Shai-Hulud 2.0" emerged with modified ta
 
 #### Glass Worm (Open VSX Marketplace)
 
-**Date:** Late 2025
+**Date:** October 2025
 
 **Summary:** The first major self-propagating infection of the Open VSX Marketplace (an open-source alternative to the VS Code Marketplace) was detected. The "Glass Worm" malware embedded invisible code into VS Code extensions that would infect the user's workspace and attempt to re-upload infected versions of any extension the developer was working on. This demonstrated that IDE extension marketplaces face the same supply chain risks as package registries.
 
@@ -887,6 +887,7 @@ In November 2025, a second wave dubbed "Shai-Hulud 2.0" emerged with modified ta
 
 **Sources:**
 
+- Veracode, "The First Self-Propagating VS Code Extension Worm: GlassWorm," October 20, 2025[^veracode-glassworm-2025]
 - Secure Code Warrior, "OWASP Top 10 2025: Software Supply Chain Failures," 2025[^securecodewarrior-glassworm-2025]
 
 ---
@@ -929,7 +930,7 @@ In November 2025, a second wave dubbed "Shai-Hulud 2.0" emerged with modified ta
 
 **Sources:**
 
-- React.dev, "Denial of Service and Source Code Exposure in React Server Components," December 11, 2025[^react-cve-2025]
+- React.dev, "Critical Security Vulnerability in React Server Components," December 3, 2025[^react-cve-2025-55182]
 - NVD, CVE-2025-55182[^nvd-cve-2025-55182]
 
 ---
@@ -955,7 +956,7 @@ In November 2025, a second wave dubbed "Shai-Hulud 2.0" emerged with modified ta
 | XZ Utils | 2024 | Long-term social engineering | Very High |
 | JAVS | 2024 | Distribution infrastructure compromise | High |
 | Polyfill.io | 2024 | Domain acquisition | Medium |
-| Shai Hulud (GitHub Actions) | 2024 | CI/CD workflow exploitation | High |
+| Shai Hulud (GitHub Actions) | 2025 | CI/CD workflow exploitation | High |
 | @lottiefiles/lottie-player | 2024 | Account takeover | Medium |
 | aiocpa | 2024 | Legitimate-to-malicious flip | High |
 | @solana/web3.js | 2024 | Account takeover | Medium |
@@ -1099,7 +1100,7 @@ These incidents collectively demonstrate that software supply chain security req
 
 [^bleeping-javs-2024]: BleepingComputer, "JAVS courtroom recording software backdoored in supply chain attack," May 2024, https://www.bleepingcomputer.com/news/security/javs-courtroom-recording-software-backdoored-in-supply-chain-attack/
 
-[^aikido-shai-hulud-2024]: Aikido Security, "Shai Hulud GitHub Actions Incident," 2024, https://www.aikido.dev/blog/github-actions-incident-shai-hulud-supply-chain-attack
+[^aikido-shai-hulud-2025]: Aikido Security, "Shai Hulud GitHub Actions Incident," November 25, 2025, https://www.aikido.dev/blog/github-actions-incident-shai-hulud-supply-chain-attack
 
 [^unit42-github-actions-2025]: Unit 42, "GitHub Actions Supply Chain Attack," 2025, https://unit42.paloaltonetworks.com/github-actions-supply-chain-attack/
 
@@ -1141,10 +1142,12 @@ These incidents collectively demonstrate that software supply chain security req
 
 [^guardz-redhat-2025]: Guardz Security Blog, "Top Recent Data Breaches," 2025, https://guardz.com/blog/top-recent-data-breaches/
 
+[^veracode-glassworm-2025]: Veracode, "The First Self-Propagating VS Code Extension Worm: GlassWorm," October 20, 2025, https://www.veracode.com/blog/glassworm-vs-code-extension/
+
 [^securecodewarrior-glassworm-2025]: Secure Code Warrior, "OWASP Top 10 2025: Software Supply Chain Failures," 2025, https://www.securecodewarrior.com/article/owasp-top-10-2025-software-supply-chain-failures
 
 [^reversinglabs-sscs-2025-solana]: ReversingLabs, "The 2025 Software Supply Chain Security Report," 2025, https://www.reversinglabs.com/sscs-report
 
-[^react-cve-2025]: React.dev, "Denial of Service and Source Code Exposure in React Server Components," December 11, 2025, https://react.dev/blog/2025/12/11/denial-of-service-and-source-code-exposure-in-react-server-components
+[^react-cve-2025-55182]: React.dev, "Critical Security Vulnerability in React Server Components," December 3, 2025, https://react.dev/blog/2025/12/03/critical-security-vulnerability-in-react-server-components
 
 [^nvd-cve-2025-55182]: NIST, "CVE-2025-55182," https://nvd.nist.gov/vuln/detail/CVE-2025-55182
