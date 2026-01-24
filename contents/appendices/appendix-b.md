@@ -187,6 +187,9 @@ Semantic code analysis engine from GitHub. Query language enables sophisticated 
 **Semgrep**[^semgrep]
 Fast, open source static analysis tool with an extensive rule library. Supports custom rule creation.
 
+**Capslock**[^capslock-appendix]
+Capability analysis for Go, Rust, and Java. Maps what dependencies can access (files, network, exec) to enforce least privilege and detect supply chain anomalies.
+
 **SonarQube**[^sonarqube]
 Platform for continuous code quality and security inspection. Community edition is free and open source.
 
@@ -455,6 +458,8 @@ Commercial vulnerability intelligence with broader coverage than NVD alone.
 [^codeql]: GitHub, "CodeQL," https://codeql.github.com
 
 [^semgrep]: Semgrep, "Semgrep," https://semgrep.dev
+
+[^capslock-appendix]: Capslock Project, https://capslock-project.github.io
 
 [^sonarqube]: SonarSource, "SonarQube," https://www.sonarqube.org
 
