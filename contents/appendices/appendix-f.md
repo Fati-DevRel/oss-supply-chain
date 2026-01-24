@@ -855,7 +855,7 @@ In November 2025, a second wave dubbed "Shai-Hulud 2.0" emerged with modified ta
 
 **Summary:** The "Crimson Collective" threat group claimed responsibility for exfiltrating 570GB of data from over 28,000 internal Red Hat repositories. The breach exposed sensitive infrastructure settings, VPN configurations, and Customer Engagement Reports, highlighting the risks of hosting massive open-source and internal codebases on unified platforms.
 
-**Impact Scope (alleged):** 28,000+ internal Red Hat repositories; 570GB of data claimed exfiltrated; infrastructure settings, VPN configurations, and customer data reportedly exposed. Independent confirmation of these claims was not publicly available at time of writing.
+**Impact Scope (alleged):** 28,000+ internal Red Hat repositories; 570GB of data claimed exfiltrated; infrastructure settings, VPN configurations, and customer data reportedly exposed. Independent confirmation of these claims was not publicly available at the time of writing.
 
 **Key Lessons:**
 
