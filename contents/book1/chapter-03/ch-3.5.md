@@ -55,7 +55,7 @@ The **Polyfill.io incident** (June 2024) demonstrated CDN supply chain risk vivi
 
 !!! danger "Case Study: Polyfill.io (2024)"
 
-    After a Chinese company acquired the polyfill.io domain, they modified JavaScript to redirect mobile users to betting/adult sites. Over **380,000 websites** were affected, including 182 government sites and properties from Warner Bros., Hulu, Mercedes-Benz, and the World Economic Forum. Site operators had delegated trust by including `<script src="https://cdn.polyfill.io/...">`—with no control over what code that URL would serve in the future.
+    After a Chinese company acquired the polyfill.io domain, they modified JavaScript to redirect mobile users to betting/adult sites. Over **380,000 websites** were found to be embedding the script, including 182 government sites and properties from Warner Bros., Hulu, Mercedes-Benz, and the World Economic Forum. Site operators had delegated trust by including `<script src="https://cdn.polyfill.io/...">`—with no control over what code that URL would serve in the future.
 
 **Background**: Polyfill.io was a popular CDN service providing JavaScript polyfills—code that implements modern JavaScript features in older browsers. The service was created in 2014 by the Financial Times as an open source project to help developers support older browsers without bundling unnecessary code for modern browsers. The service dynamically detected browser capabilities and served only the polyfills needed, making it an elegant solution adopted by hundreds of thousands of websites.
 
@@ -69,7 +69,7 @@ The **Polyfill.io incident** (June 2024) demonstrated CDN supply chain risk vivi
 - Included anti-debugging measures to frustrate investigation
 - Executed only under certain conditions (mobile browsers, specific referrers) to reduce detection probability
 
-**Scale and Impact**: Security researchers at Sansec initially identified the attack affecting over 100,000 websites.[^sansec-polyfill] Subsequent analysis by Censys found over 380,000 hosts embedding the malicious polyfill script, including 182 government websites.[^censys-polyfill] High-profile properties operated by major corporations were affected, including Warner Bros., Hulu, Mercedes-Benz, JSTOR, Intuit, and the World Economic Forum.
+**Scale and Impact**: Security researchers at Sansec initially identified the attack affecting over 100,000 websites.[^sansec-polyfill] Subsequent analysis by Censys found over 380,000 hosts embedding the malicious polyfill script, including 182 government websites.[^censys-polyfill] High-profile properties operated by major corporations were found to be embedding the script, including Warner Bros., Hulu, Mercedes-Benz, JSTOR, Intuit, and the World Economic Forum.
 
 **Response**: The CDN providers Cloudflare and Fastly responded by creating their own mirrors of the legitimate polyfill.io library code and automatically redirecting requests for cdn.polyfill.io to their clean versions. Google began warning advertisers that their ads would be blocked if served on pages including polyfill.io scripts. Domain registrars eventually suspended the polyfill.io domain, though the attackers registered alternative domains in attempts to continue operations.
 

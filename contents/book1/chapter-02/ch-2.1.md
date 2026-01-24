@@ -62,9 +62,9 @@ The "many eyes" theory—Raymond's suggestion that open inspection leads to rapi
 
 !!! warning "The 'Many Eyes' Myth"
 
-    Linus's Law states: "Given enough eyeballs, all bugs are shallow." But "many eyes" look only when people are motivated to look, have the expertise to understand what they see, and have the time for thorough review. For most open source software, these conditions rarely hold. Heartbleed existed in OpenSSL for over two years despite the library's critical importance.
+    Linus's Law states: "Given enough eyeballs, all bugs are shallow." But "many eyes" look only when people are motivated to look, have the expertise to understand what they see, and have the time for thorough review. For most open source software, these conditions rarely hold. Heartbleed existed in OpenSSL for an estimated two years despite the library's critical importance.
 
-The [Heartbleed vulnerability][heartbleed] (CVE-2014-0160) in OpenSSL, disclosed in April 2014, had existed in widely-deployed code for over two years despite OpenSSL's critical importance to internet security (see Section 5.3 for a detailed case study of Heartbleed). The reality is that "many eyes" look only when people are motivated to look, have the expertise to understand what they see, and have the time to conduct thorough review. For much open source software, especially infrastructure components maintained by small teams, those conditions rarely hold.
+The [Heartbleed vulnerability][heartbleed] (CVE-2014-0160) in OpenSSL, disclosed in April 2014, had existed in widely-deployed code for an estimated two years despite OpenSSL's critical importance to internet security (see Section 5.3 for a detailed case study of Heartbleed). The reality is that "many eyes" look only when people are motivated to look, have the expertise to understand what they see, and have the time to conduct thorough review. For much open source software, especially infrastructure components maintained by small teams, those conditions rarely hold.
 
 ## Licensing: Permissive and Copyleft
 

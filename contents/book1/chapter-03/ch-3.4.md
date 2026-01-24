@@ -72,7 +72,7 @@ These network effects mean that supply chain risk cannot be understood by examin
 
 !!! example "Case Study: Log4Shell's Cascade"
 
-    Log4j was a direct dependency of 7,800+ Maven packages and transitive dependency of 35,000+. The vulnerability affected products from Apple, Amazon, Google, Microsoft, IBM, Oracle, Cisco, VMware—essentially every major tech company. CISA Director Easterly called it "the most serious vulnerability I have seen in my decades-long career." Total remediation cost likely exceeded **$10 billion globally**.
+    Log4j was a direct dependency of 7,800+ Maven packages and transitive dependency of 35,000+. The vulnerability affected products from Apple, Amazon, Google, Microsoft, IBM, Oracle, Cisco, VMware—essentially every major tech company. CISA Director Easterly called it "the most serious vulnerability I have seen in my decades-long career." Industry estimates suggest total remediation cost likely exceeded **$10 billion globally**.
 
 The Log4Shell vulnerability (CVE-2021-44228), disclosed in December 2021, provides a detailed illustration of cascading supply chain impact.
 
