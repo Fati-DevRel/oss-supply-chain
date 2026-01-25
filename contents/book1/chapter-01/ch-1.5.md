@@ -66,6 +66,22 @@ Governments worldwide have recognized supply chain security as a matter of natio
 
 In the United States, **Executive Order 14028** ("Improving the Nation's Cybersecurity"), issued in May 2021, marked a turning point.[^eo-14028] The order directed federal agencies to enhance software supply chain security and initiated government-wide work on SBOMs.[^eo-14028] OMB memoranda M-22-18 and M-23-16 initially defined mandatory requirements for federal agency use of software, including vendor attestations to secure software development practices.[^omb-m-22-18][^omb-m-23-16] However, OMB M-26-05 (January 2026) rescinded both memoranda in favor of a risk-based approach, making attestation and SBOM requirements optional at agency discretion rather than government-wide mandates.[^omb-m-26-05] The Cyber Incident Reporting for Critical Infrastructure Act (CIRCIA) of 2022 established reporting requirements for covered cyber incidents in critical infrastructure (rulemaking to implement reporting is ongoing).[^circia]
 
+**The Implications of Risk-Based Approach:**
+
+The shift from mandatory attestations to agency discretion creates both opportunities and challenges for organizations navigating federal software supply chain requirements:
+
+- **Fragmented compliance landscape**: Different agencies may interpret "risk-based" differently, creating inconsistent requirements across federal contracts. A vendor selling to multiple agencies may face varying attestation, SBOM, and security practice requirements depending on each agency's risk tolerance.
+
+- **Reduced market pressure**: Mandatory requirements had begun creating market incentives for vendors to invest in supply chain security practices. Optional requirements may slow this momentum, as vendors facing cost pressures may deprioritize security investments that are no longer required for market access.
+
+- **Agency capability gaps**: Not all agencies have the security expertise to effectively implement risk-based approaches. Agencies with mature cybersecurity programs can make informed decisions about when to require attestations; agencies without such expertise may default to minimal requirements, creating inconsistent protection across government systems.
+
+- **Uncertainty as a risk factor**: Organizations must now navigate regulatory uncertainty itself as a supply chain risk. Compliance strategies built around M-22-18 requirements may need revision, and the possibility of future policy changes in either direction complicates long-term planning.
+
+- **Private sector spillover effects**: Federal requirements often influence private sector practices. The retreat from mandatory attestations may slow broader industry adoption of secure software development practices that had been gaining traction.
+
+Organizations should monitor agency-specific guidance closely, as the practical impact of M-26-05 will depend heavily on how individual agencies implement their discretionary authority. The regulatory trajectory remains uncertain, with future administrations potentially reinstating mandatory requirements or Congress potentially codifying supply chain security requirements into law.
+
 The European Union has moved even more aggressively. The **Cyber Resilience Act (CRA)**, published as Regulation (EU) 2024/2847, establishes mandatory cybersecurity requirements for products with digital elements sold in the EU market.[^eu-cra] The CRA entered into force on December 10, 2024, with main obligations applying from December 11, 2027 and reporting obligations from September 11, 2026. Non-compliance with essential cybersecurity requirements can result in administrative fines of up to €15 million or 2.5% of total worldwide annual turnover, whichever is higher.
 
 These regulations transform supply chain security from a best practice to a compliance requirement. Organizations selling to government or operating in regulated industries must demonstrate software supply chain controls, driving investment that market forces alone had not motivated. The regulatory trajectory is clearly toward more requirements, not fewer, with additional jurisdictions likely to follow the US and EU lead.
