@@ -85,7 +85,7 @@ The 2016 left-pad incident illustrated how even tiny packages can have outsize i
 
 The story of core-js illustrates the maintainer crisis in painful detail. Core-js is a JavaScript polyfill library that provides compatibility for modern JavaScript features in older browsers. According to npm download statistics (as of 2023), it is downloaded over 30 million times per week and is a dependency of projects used by virtually every major website and application. It is, by any measure, critical infrastructure for the web.
 
-Denis Pushkarev has been the sole significant maintainer of core-js for years. In 2019, he was sentenced to prison in Russia following a car accident that resulted in a fatality.[^pushkarev-sentence] He continued attempting to maintain the project from prison, but capacity was obviously limited. The project fell behind on compatibility updates and security review.
+Denis Pushkarev has been the sole significant maintainer of core-js for years. According to Pushkarev, in 2019 he was sentenced to prison in Russia following a car accident that resulted in a fatality.[^pushkarev-sentence] He continued attempting to maintain the project from prison, but capacity was obviously limited. The project fell behind on compatibility updates and security review.
 
 After his release, Pushkarev published a lengthy blog post describing the situation. Despite core-js being essential infrastructure, he had received minimal financial support. His attempts to fund development through Patreon and Open Collective generated modest income—nowhere near enough to sustain full-time work on a project of this complexity and importance. Meanwhile, the companies profiting from core-js—and the websites serving billions of users through code that depended on it—contributed nothing.
 
@@ -120,7 +120,7 @@ Maintainers report experiencing harassment, entitlement from users, and unrelent
 
 The always-on nature of open source amplifies stress. Issues can be filed at any hour from any timezone. Security vulnerabilities may demand immediate response regardless of the maintainer's other commitments. The public nature of open source development means that every mistake, delayed response, or unpopular decision is visible to anyone who cares to look.
 
-Several prominent maintainers have spoken publicly about the toll. André Staltz, creator of Cycle.js and contributor to other JavaScript projects, wrote about stepping back due to burnout and the emotional weight of feeling responsible for users' problems. Rich Hickey, creator of Clojure, delivered a talk titled "Open Source is Not About You" pushing back against user entitlement. The frequency of such statements suggests systemic rather than individual problems.
+Several prominent maintainers have spoken publicly about the toll. André Staltz, creator of Cycle.js and contributor to other JavaScript projects, wrote about stepping back due to burnout and the emotional weight of feeling responsible for users' problems. Rich Hickey, creator of Clojure, published an essay titled ["Open Source is Not About You"][hickey-oss] pushing back against user entitlement, arguing that open-sourcing code is "a licensing and delivery mechanism, period"—not an implicit social contract obligating maintainers to accept contributions or fulfill feature requests. The frequency of such statements suggests systemic rather than individual problems.
 
 Lasse Collin's openness about mental health challenges before the XZ attack was notable. He had mentioned on mailing lists that mental health issues affected his capacity to maintain the project. This candor, admirable in itself, may have provided information that attackers used to target him.
 
@@ -151,6 +151,7 @@ For now, the essential insight is that supply chain security is inseparable from
 [tidelift-2024]: https://www.tidelift.com/open-source-maintainer-survey-2024
 [census-ii]: https://www.linuxfoundation.org/research/census-ii-of-free-and-open-source-software-application-libraries
 [core-js-post]: https://github.com/zloirock/core-js/blob/master/docs/2023-02-14-so-whats-next.md
+[hickey-oss]: https://gist.github.com/richhickey/1563cddea1002958f96e7ba9519972d9
 
 [^xz-cve]: NVD, "CVE-2024-3094: XZ Utils Backdoor." https://nvd.nist.gov/vuln/detail/CVE-2024-3094
 [^xz-timeline]: Evan Boehs, "Everything I Know About the XZ Backdoor" (March 2024). https://boehs.org/node/everything-i-know-about-the-xz-backdoor; see also Sam James's comprehensive timeline: https://gist.github.com/thesamesam/223949d5a074ebc3dce9ee78baad9e27

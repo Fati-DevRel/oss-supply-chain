@@ -177,8 +177,8 @@ The Apple ecosystem relies on two primary package management systems: **CocoaPod
 
 CocoaPods has experienced notable security challenges:
 
-- **Trunk server vulnerabilities** (2021): Security researchers identified a vulnerability in the CocoaPods Trunk API that could have allowed attackers to claim ownership of abandoned pods, potentially affecting millions of iOS applications. The issue stemmed from how the trunk server handled ownership verification for pods whose original maintainers had abandoned their email addresses.
-- **Remote Code Execution vulnerabilities** (2023): Security researchers at evasec.io discovered three separate RCE vulnerabilities in Trunk, including the ability to claim ownership of pods through the verification process, email verification exploits, and shell command execution on the Trunk server. All user sessions were reset following disclosure and patching.
+- **Trunk server vulnerabilities** (2021): Security researchers identified a vulnerability in the CocoaPods Trunk API that could have allowed attackers to claim ownership of abandoned pods, with the potential to affect applications using those dependencies. The issue stemmed from how the trunk server handled ownership verification for pods whose original maintainers had abandoned their email addresses.
+- **Remote Code Execution vulnerabilities** (2023): Security researchers at evasec.io discovered three separate RCE vulnerabilities in Trunk, including the ability to claim ownership of pods through the verification process, email verification exploits, and shell command execution on the Trunk server.[^cocoapods-rce-2023] All user sessions were reset following disclosure and patching.
 - **Dependency confusion risks**: Like other ecosystems, CocoaPods is vulnerable to dependency confusion attacks where private pod names could be claimed on the public trunk.
 - **Podspec tampering**: The Podspec files that define pod metadata are fetched from the centralized specs repository, creating a single point where modifications could affect downstream consumers.
 
@@ -291,6 +291,7 @@ Organizations securing multi-ecosystem applications need tooling and processes t
 
 [^ds-stack]: Data science stack totals include `pandas`, `scikit-learn`, `matplotlib`, and their shared dependencies (NumPy, etc.). Contributor count shown is for pandas alone.
 [^cocoapods-trunk]: CocoaPods Trunk, https://trunk.cocoapods.org
+[^cocoapods-rce-2023]: evasec, "Remote Code Execution Vulnerabilities in CocoaPods Trunk," 2023, https://evasec.io/research/cocoapods-vulnerabilities/
 [^npm-downloads]: Socket.dev, "npm in Review: A 2023 Retrospective on Growth, Security, and Community" (2023). <https://socket.dev/blog/2023-npm-retrospective>
 
 ![Major package ecosystem comparison showing security features across registries](img/ch-2-package-ecosystems.svg)

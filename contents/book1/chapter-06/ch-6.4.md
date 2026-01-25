@@ -49,7 +49,7 @@ This conditional execution meant that the malicious code:
 
 **Impact:**
 
-- Approximately 8 million downloads occurred during the 2.5 months the malicious versions were available[^event-stream-downloads]
+- Approximately 8 million downloads were reported during the 2.5 months the malicious versions were available[^event-stream-downloads]
 - Copay released updates to address the compromise
 - Unknown number of Copay users potentially had wallets compromised
 - BitPay (Copay's parent company) warned users to move funds from potentially affected wallets

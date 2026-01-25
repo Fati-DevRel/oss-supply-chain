@@ -94,11 +94,8 @@ Different ecosystems use different conventions (hyphens vs. underscores, dots vs
 - Registering Python's `scipy` name in a Rust repository
 - Using `org.fasterxml.jackson.core` instead of `com.fasterxml.jackson.core` on Maven (exploiting `.org` vs `.com` confusion)
 
-!!! note "Research Proof Point"
 
-    A 2016 academic study by Nikolai Tschacher demonstrated the scale: typosquatting packages uploaded to PyPI, npm, and RubyGems infected over 17,000 machines within days, with half executing the code as administrator.
-
-A [2016 academic study by Nikolai Tschacher][tschacher-2016] at the University of Hamburg demonstrated the scale of the threat: his experiment uploading typosquatting packages to PyPI, npm, and RubyGems infected over 17,000 machines within days, with half executing the code as administrator. This early research proved that typing errors occur frequently enough to make the attack profitable for adversaries.
+A [2016 academic study by Nikolai Tschacher][tschacher-2016] at the University of Hamburg demonstrated the scale of the threat: his experimental typosquatting packages uploaded to PyPI, npm, and RubyGems were downloaded and executed on over 17,000 systems within days, with half executing the code as administrator. This early research proved that typing errors occur frequently enough to make the attack profitable for adversaries.
 
 ## Namesquatting: Claiming Territory
 
@@ -158,7 +155,7 @@ The malicious payload, linked to the **zgRAT** malware family, was embedded in `
 - Harvest browser data (cookies, extension data, credentials)
 - Establish persistence mechanisms to survive reboots
 
-The attack was severe enough that [PyPI suspended new user registration and project creation][pypi-suspension] for 10 hours on March 28, 2024—an unprecedented step demonstrating the operational impact of large-scale typosquatting campaigns.
+The attack was severe enough that [PyPI suspended new user registration and project creation][pypi-suspension] for 10 hours on March 28, 2024—an extraordinary step demonstrating the operational impact of large-scale typosquatting campaigns.
 
 ## Case Study: Maven Central Jackson Typosquatting (2025)
 
