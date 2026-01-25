@@ -43,6 +43,12 @@ Several characteristics distinguish supply chain threat modeling from traditiona
 
 These differences mean that supply chain threat modeling is less about designing security into systems you control and more about understanding and managing risks in systems you inherit.
 
+Academic research is increasingly providing systematic frameworks for this challenge. A recent ACM Transactions on Software Engineering and Methodology (TOSEM) survey identifies research directions in software supply chain security,[^acm-tosem-ssc] while a Systematization of Knowledge (SoK) paper proposes a framework of four attack stages (development, build, distribution, deployment) and three security properties (transparency, validity, separation) for evaluating defenses.[^arxiv-sok-ssc] These academic frameworks complement practitioner methodologies like STRIDE by providing rigorous taxonomies for analyzing supply chain threats.
+
+[^acm-tosem-ssc]: Hasan et al., "Research Directions in Software Supply Chain Security," ACM Transactions on Software Engineering and Methodology, 2025, https://dl.acm.org/doi/abs/10.1145/3714464
+
+[^arxiv-sok-ssc]: Ladisa et al., "SoK: Analysis of Software Supply Chain Security by Establishing Secure Design Properties," arXiv:2406.10109, 2024, https://arxiv.org/abs/2406.10109
+
 ## Defining Scope: Where Does Your Supply Chain Begin and End?
 
 One of the most challenging aspects of supply chain threat modeling is defining scope. Unlike an application with clear boundaries, a supply chain extends outward through dependencies, infrastructure, and trust relationships without obvious limits.
