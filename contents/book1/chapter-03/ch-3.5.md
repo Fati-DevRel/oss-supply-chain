@@ -33,6 +33,91 @@ DNS compromise enables powerful attacks:
 
 Organizations rarely consider DNS in supply chain risk assessments, yet DNS compromise could enable attacks against any package installation that relies on network resolution.
 
+## BGP Hijacking: Routing the Internet Astray
+
+While DNS translates names to IP addresses, the **Border Gateway Protocol (BGP)** determines how traffic actually reaches those addresses across the internet. BGP is the routing protocol that enables autonomous systems (networks operated by ISPs, cloud providers, enterprises, and other organizations) to exchange routing information and direct traffic to its destination. BGP hijacking—the malicious or accidental announcement of false routing information—can redirect internet traffic through attacker-controlled networks, enabling interception or manipulation of software supply chain communications.
+
+!!! danger "BGP: The Internet's Unverified Routing"
+
+    BGP was designed in an era of implicit trust between network operators. Route announcements are not cryptographically verified by default, allowing any network to claim ownership of IP address space. Attackers who control a network—or compromise one—can redirect traffic destined for package registries, build systems, or any internet service.
+
+**How BGP Hijacking Works:**
+
+BGP operates on announcements: networks tell their neighbors which IP address ranges (prefixes) they can reach. When a malicious network announces a more specific prefix than the legitimate owner, traffic flows to the attacker:
+
+1. Legitimate owner announces: "I own 192.0.2.0/24"
+2. Attacker announces: "I own 192.0.2.0/25" (more specific)
+3. BGP routers prefer more specific routes
+4. Traffic intended for 192.0.2.0-127 flows to attacker instead
+
+The attacker can then:
+
+- **Intercept and forward**: Capture traffic, inspect or modify it, and forward to the real destination (man-in-the-middle)
+- **Blackhole**: Simply drop the traffic, creating a denial of service
+- **Impersonate**: Respond to requests as if they were the legitimate service
+
+**Supply Chain Attack Scenarios:**
+
+BGP hijacking could target software supply chains in several ways:
+
+**Package registry hijacking**: An attacker announcing routes for npm, PyPI, or Maven Central IP space could intercept package download requests. Even with TLS protection, attackers could:
+
+- Serve cached older (vulnerable) package versions
+- Present fraudulent certificates if they've also compromised a CA
+- Harvest metadata about which organizations use which packages
+- Cause availability disruptions that force developers to seek alternative sources
+
+**Build infrastructure targeting**: CI/CD systems that fetch dependencies during builds could have their traffic redirected. Attackers could serve modified packages to build pipelines while legitimate users see normal packages—making detection difficult.
+
+**Certificate validation bypass**: Some BGP hijacking attacks have targeted certificate authorities or OCSP responders, potentially undermining the certificate validation that protects TLS connections.
+
+**Notable BGP Incidents:**
+
+Several BGP incidents have demonstrated the protocol's vulnerability:
+
+- **YouTube hijacking (2008)**: Pakistan Telecom accidentally hijacked YouTube's IP space while attempting to block the site domestically, causing a global outage. The incident demonstrated how easily BGP misconfigurations propagate.[^youtube-bgp]
+
+- **Cryptocurrency exchange attacks (2018)**: Attackers used BGP hijacking to redirect traffic from Amazon's Route 53 DNS service, specifically targeting MyEtherWallet to steal cryptocurrency. The attack combined BGP and DNS manipulation.[^myetherwallet-bgp]
+
+- **Russian traffic interception (2017)**: Large portions of internet traffic were routed through Russian networks for brief periods, raising concerns about traffic surveillance or manipulation capabilities.[^russia-bgp]
+
+- **China Telecom routing anomalies**: Researchers have documented numerous instances of traffic being routed through Chinese networks unexpectedly, though intent remains debated.[^china-bgp]
+
+**Why BGP Remains Vulnerable:**
+
+Despite decades of awareness, BGP security improvements have been slow:
+
+- **No authentication by default**: BGP was designed assuming trust between network operators
+- **Global coordination required**: Securing BGP requires cooperation across thousands of independent networks
+- **Backwards compatibility**: Security mechanisms must work alongside networks that haven't upgraded
+- **Detection difficulty**: Short-lived hijacks may complete before detection and response
+
+**Mitigation Approaches:**
+
+Several technologies aim to improve BGP security:
+
+**Resource Public Key Infrastructure (RPKI)** allows network operators to cryptographically sign route origin authorizations, enabling verification that announcements come from legitimate sources. Adoption has grown significantly but remains incomplete—networks that haven't deployed RPKI cannot validate routes, and attackers can target paths through non-validating networks.
+
+**BGPsec** extends RPKI to validate the entire path of a route, not just its origin. However, BGPsec requires universal deployment to be fully effective and has seen limited adoption due to performance and complexity concerns.
+
+**Route filtering** by ISPs can prevent obviously invalid announcements (e.g., small networks claiming large IP blocks), but requires manual configuration and doesn't address sophisticated attacks.
+
+**Implications for Supply Chain Security:**
+
+BGP hijacking is a sophisticated attack requiring network-level access, making it primarily a concern for nation-state adversaries or attackers who have compromised network infrastructure. However, the potential for such attacks means that:
+
+- TLS alone is insufficient if certificate validation can be undermined
+- Geographic diversity in package mirror selection provides some resilience
+- Monitoring for routing anomalies should be part of critical infrastructure defense
+- Organizations with high-value supply chains should understand their BGP exposure
+
+BGP represents the deepest infrastructure layer of supply chain risk—one that most organizations cannot directly mitigate but should understand when assessing their overall threat model.
+
+[^youtube-bgp]: RIPE NCC, "YouTube Hijacking: A RIPE NCC RIS case study" (2008). https://www.ripe.net/publications/news/industry-developments/youtube-hijacking-a-ripe-ncc-ris-case-study
+[^myetherwallet-bgp]: Cloudflare, "BGP leaks and cryptocurrencies" (April 2018). https://blog.cloudflare.com/bgp-leaks-and-crypto-currencies/
+[^russia-bgp]: Oracle, "Russian BGP Hijacks" (November 2017). https://blogs.oracle.com/internetintelligence/post/russian-bgp-hijacks
+[^china-bgp]: Naval War College & Tel Aviv University, "China's Maxim - Leave No Access Point Unexploited: The Hidden Story of China Telecom's BGP Hijacking" (2018). https://scholarcommons.usf.edu/mca/vol3/iss1/7/
+
 ## Cloud Provider Dependencies
 
 Modern software supply chains are deeply entangled with cloud providers. Package registries run on cloud infrastructure. CI/CD systems operate as cloud services. Container images are stored in cloud registries. This concentration creates **shared fate**—the security and availability of your supply chain depends on your cloud provider's security and availability.
