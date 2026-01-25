@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520">
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset in="blur" dx="1" dy="2" result="offsetBlur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.5" result="color"/>
+      <feComposite in="color" in2="offsetBlur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#DC2626"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="520" fill="#F8FAFC"/>
+
+  <!-- Title -->
+  <text x="450" y="35" font-family="Libertinus Sans" font-size="22" font-weight="bold" fill="#1E293B" text-anchor="middle">Attackers Think in Graphs</text>
+  <text x="450" y="55" font-family="Libertinus Sans" font-size="13" fill="#64748B" text-anchor="middle">Defenders protect items; attackers exploit paths between them</text>
+
+  <!-- Left column header - Defender View -->
+  <g filter="url(#shadow)">
+    <rect x="50" y="80" width="360" height="50" rx="8" fill="#2563EB"/>
+    <text x="230" y="112" font-family="Libertinus Sans" font-size="18" font-weight="bold" fill="white" text-anchor="middle">Defender's View</text>
+  </g>
+
+  <!-- Right column header - Attacker View -->
+  <g filter="url(#shadow)">
+    <rect x="490" y="80" width="360" height="50" rx="8" fill="#DC2626"/>
+    <text x="670" y="112" font-family="Libertinus Sans" font-size="18" font-weight="bold" fill="white" text-anchor="middle">Attacker's View</text>
+  </g>
+
+  <!-- Defender checklist panel -->
+  <rect x="50" y="145" width="360" height="320" rx="8" fill="white" stroke="#E5E7EB" stroke-width="1"/>
+
+  <text x="70" y="175" font-family="Libertinus Sans" font-size="12" font-weight="bold" fill="#64748B">SECURITY CHECKLIST</text>
+
+  <!-- Checklist items - disconnected boxes -->
+  <g>
+    <!-- Item 1 -->
+    <rect x="70" y="195" width="320" height="40" rx="6" fill="#EFF6FF" stroke="#BFDBFE" stroke-width="1"/>
+    <rect x="85" y="208" width="16" height="16" rx="3" fill="white" stroke="#2563EB" stroke-width="2"/>
+    <path d="M88 216 L92 220 L98 212" stroke="#2563EB" stroke-width="2" fill="none"/>
+    <text x="115" y="221" font-family="Libertinus Sans" font-size="13" fill="#1E40AF">Patch Jenkins server</text>
+  </g>
+
+  <g>
+    <!-- Item 2 -->
+    <rect x="70" y="245" width="320" height="40" rx="6" fill="#EFF6FF" stroke="#BFDBFE" stroke-width="1"/>
+    <rect x="85" y="258" width="16" height="16" rx="3" fill="white" stroke="#2563EB" stroke-width="2"/>
+    <path d="M88 266 L92 270 L98 262" stroke="#2563EB" stroke-width="2" fill="none"/>
+    <text x="115" y="271" font-family="Libertinus Sans" font-size="13" fill="#1E40AF">Rotate API secrets</text>
+  </g>
+
+  <g>
+    <!-- Item 3 -->
+    <rect x="70" y="295" width="320" height="40" rx="6" fill="#EFF6FF" stroke="#BFDBFE" stroke-width="1"/>
+    <rect x="85" y="308" width="16" height="16" rx="3" fill="white" stroke="#2563EB" stroke-width="2"/>
+    <text x="115" y="321" font-family="Libertinus Sans" font-size="13" fill="#1E40AF">Enable MFA for developers</text>
+  </g>
+
+  <g>
+    <!-- Item 4 -->
+    <rect x="70" y="345" width="320" height="40" rx="6" fill="#EFF6FF" stroke="#BFDBFE" stroke-width="1"/>
+    <rect x="85" y="358" width="16" height="16" rx="3" fill="white" stroke="#2563EB" stroke-width="2"/>
+    <text x="115" y="371" font-family="Libertinus Sans" font-size="13" fill="#1E40AF">Review access logs weekly</text>
+  </g>
+
+  <g>
+    <!-- Item 5 -->
+    <rect x="70" y="395" width="320" height="40" rx="6" fill="#EFF6FF" stroke="#BFDBFE" stroke-width="1"/>
+    <rect x="85" y="408" width="16" height="16" rx="3" fill="white" stroke="#2563EB" stroke-width="2"/>
+    <text x="115" y="421" font-family="Libertinus Sans" font-size="13" fill="#1E40AF">Update dependency scanner</text>
+  </g>
+
+  <!-- Attacker graph panel -->
+  <rect x="490" y="145" width="360" height="320" rx="8" fill="white" stroke="#E5E7EB" stroke-width="1"/>
+
+  <text x="510" y="175" font-family="Libertinus Sans" font-size="12" font-weight="bold" fill="#64748B">ATTACK PATH GRAPH</text>
+
+  <!-- Attack path nodes and connections -->
+  <!-- Node 1: Developer Laptop -->
+  <g>
+    <rect x="580" y="190" width="130" height="36" rx="6" fill="#FEE2E2" stroke="#DC2626" stroke-width="2"/>
+    <text x="645" y="213" font-family="Libertinus Sans" font-size="12" fill="#991B1B" text-anchor="middle">Developer Laptop</text>
+  </g>
+
+  <!-- Arrow 1 to 2 -->
+  <line x1="645" y1="226" x2="645" y2="248" stroke="#DC2626" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- Node 2: GitHub Access -->
+  <g>
+    <rect x="580" y="258" width="130" height="36" rx="6" fill="#FEE2E2" stroke="#DC2626" stroke-width="2"/>
+    <text x="645" y="281" font-family="Libertinus Sans" font-size="12" fill="#991B1B" text-anchor="middle">GitHub Access</text>
+  </g>
+
+  <!-- Arrow 2 to 3 -->
+  <line x1="645" y1="294" x2="645" y2="316" stroke="#DC2626" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- Node 3: Pipeline Secrets -->
+  <g>
+    <rect x="580" y="326" width="130" height="36" rx="6" fill="#FEE2E2" stroke="#DC2626" stroke-width="2"/>
+    <text x="645" y="349" font-family="Libertinus Sans" font-size="12" fill="#991B1B" text-anchor="middle">Pipeline Secrets</text>
+  </g>
+
+  <!-- Arrow 3 to 4 -->
+  <line x1="645" y1="362" x2="645" y2="384" stroke="#DC2626" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- Node 4: Production -->
+  <g>
+    <rect x="570" y="394" width="150" height="36" rx="6" fill="#FEF3C7" stroke="#D97706" stroke-width="2"/>
+    <text x="645" y="417" font-family="Libertinus Sans" font-size="12" fill="#92400E" text-anchor="middle">Production Deploy</text>
+  </g>
+
+  <!-- Alternative path indicator (lateral) -->
+  <text x="515" y="310" font-family="Libertinus Sans" font-size="10" fill="#DC2626" font-style="italic">or via</text>
+  <rect x="505" y="318" width="55" height="28" rx="4" fill="#FEE2E2" stroke="#DC2626" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="532" y="336" font-family="Libertinus Sans" font-size="9" fill="#991B1B" text-anchor="middle">CI/CD</text>
+  <line x1="560" y1="332" x2="577" y2="344" stroke="#DC2626" stroke-width="1.5" stroke-dasharray="4,2" marker-end="url(#arrowhead)"/>
+
+  <!-- Another alternative path -->
+  <rect x="730" y="250" width="55" height="28" rx="4" fill="#FEE2E2" stroke="#DC2626" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="757" y="268" font-family="Libertinus Sans" font-size="9" fill="#991B1B" text-anchor="middle">NPM</text>
+  <line x1="730" y1="264" x2="713" y2="284" stroke="#DC2626" stroke-width="1.5" stroke-dasharray="4,2" marker-end="url(#arrowhead)"/>
+  <text x="762" y="242" font-family="Libertinus Sans" font-size="10" fill="#DC2626" font-style="italic">or via</text>
+
+  <!-- Goal callout -->
+  <rect x="730" y="392" width="100" height="40" rx="6" fill="#DC2626"/>
+  <text x="780" y="410" font-family="Libertinus Sans" font-size="10" fill="white" text-anchor="middle">GOAL:</text>
+  <text x="780" y="424" font-family="Libertinus Sans" font-size="10" fill="white" text-anchor="middle">Customer Data</text>
+  <line x1="720" y1="412" x2="730" y2="412" stroke="#DC2626" stroke-width="2"/>
+
+  <!-- Bottom insight boxes -->
+  <rect x="50" y="475" width="360" height="35" rx="6" fill="#EFF6FF" stroke="#BFDBFE" stroke-width="1"/>
+  <text x="230" y="497" font-family="Libertinus Sans" font-size="11" fill="#1E40AF" text-anchor="middle">Protect everything, hope nothing is missed</text>
+
+  <rect x="490" y="475" width="360" height="35" rx="6" fill="#FEF2F2" stroke="#FECACA" stroke-width="1"/>
+  <text x="670" y="497" font-family="Libertinus Sans" font-size="11" fill="#DC2626" text-anchor="middle">Find ONE path to the goal—any path works</text>
+</svg>
