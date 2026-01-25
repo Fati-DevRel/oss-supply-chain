@@ -52,6 +52,12 @@ Academic treatment of reproducible builds, explaining why they matter and the te
 **"World of Code: An Infrastructure for Mining the Universe of Open Source VCS Data"** by Yuxing Ma et al. (MSR 2019)[^world-of-code]
 Describes infrastructure for large-scale analysis of open source code, relevant for understanding ecosystem-wide security research methodologies.
 
+**"Research Directions in Software Supply Chain Security"** by Hasan et al. (ACM TOSEM 2025)[^acm-tosem-ssc]
+Peer-reviewed survey identifying research gaps and future directions in supply chain security, providing scholarly foundation for the discipline.
+
+**"SoK: Analysis of Software Supply Chain Security by Establishing Secure Design Properties"** by Ladisa et al. (arXiv 2024)[^arxiv-sok-ssc]
+Systematization of Knowledge paper proposing a framework of four attack stages and three security properties (transparency, validity, separation) for evaluating supply chain defenses.
+
 #### Key Industry Reports
 
 **Sonatype State of the Software Supply Chain Report** (Annual)[^sonatype-report]
@@ -71,6 +77,9 @@ Official U.S. government guidance on SBOM implementation, including minimum elem
 
 **Linux Foundation Census Reports**[^lf-research]
 Research identifying the most critical open source packages, informing where security investments should be prioritized.
+
+**CNCF Software Supply Chain Best Practices White Paper v2** (November 2024)[^cncf-sscp-v2]
+Updated guidance from CNCF TAG Security on supply chain security best practices, including persona-based recommendations for developers, operators, and security teams. Referenced by NIST SSDF.
 
 **Synopsys Open Source Security and Risk Analysis (OSSRA) Report** (Annual)[^synopsys-ossra]
 Analysis based on audits of commercial codebases, revealing open source usage patterns and risk exposure.
@@ -385,6 +394,10 @@ Commercial vulnerability intelligence with broader coverage than NVD alone.
 
 [^world-of-code]: Yuxing Ma et al., "World of Code: An Infrastructure for Mining the Universe of Open Source VCS Data," MSR 2019, https://arxiv.org/abs/1906.07083
 
+[^acm-tosem-ssc]: Hasan et al., "Research Directions in Software Supply Chain Security," ACM TOSEM, 2025, https://dl.acm.org/doi/abs/10.1145/3714464
+
+[^arxiv-sok-ssc]: Ladisa et al., "SoK: Analysis of Software Supply Chain Security by Establishing Secure Design Properties," arXiv:2406.10109, 2024, https://arxiv.org/abs/2406.10109
+
 [^sonatype-report]: Sonatype, "State of the Software Supply Chain Report," https://www.sonatype.com/state-of-the-software-supply-chain
 
 [^snyk-report]: Snyk, "State of Open Source Security Report," https://snyk.io/reports/open-source-security/
@@ -498,6 +511,8 @@ Commercial vulnerability intelligence with broader coverage than NVD alone.
 [^openssf-community]: OpenSSF, "OpenSSF Community," https://openssf.org/community/
 
 [^cncf-tag-security]: CNCF, "CNCF Security TAG," https://github.com/cncf/tag-security
+
+[^cncf-sscp-v2]: CNCF TAG Security, "Software Supply Chain Best Practices v2," November 2024, https://tag-security.cncf.io/blog/software-supply-chain-security-best-practices-v2/
 
 [^openssf-training]: OpenSSF, "OpenSSF Training Courses," https://openssf.org/training/courses/
 
