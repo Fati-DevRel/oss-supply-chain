@@ -31,3 +31,7 @@ div.equal-table table td img:hover {
     transform: scale(1.02);
     filter: brightness(1.25);
 }
+
+.nodeLabel, .flowchartTitleText, .edgeLabel {
+  font-family: 'Roboto', sans-serif !important;
+}
