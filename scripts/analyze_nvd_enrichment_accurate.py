@@ -8,36 +8,73 @@ CVSS scores were first added to CVE records, providing true enrichment delays.
 Metrics calculated:
 - Median enrichment delay
 - 90th percentile delay
-- By year: 2021, 2022, 2023, 2024
+- By year: 2021, 2022, 2023, 2024, 2025
 
 Usage:
     export NVD_API_KEY=your_api_key_here
-    python analyze_nvd_enrichment_accurate.py [sample_size]
-
-Arguments:
-    sample_size: Number of CVEs to randomly sample per year (recommended: 500-1000)
-                 If not provided, defaults to 1000 for reasonable runtime
+    python analyze_nvd_enrichment_accurate.py [options]
 
 Examples:
-    python analyze_nvd_enrichment_accurate.py                    # Sample 1000 CVEs (default)
-    python analyze_nvd_enrichment_accurate.py 500                # Sample 500 CVEs per year
-    python analyze_nvd_enrichment_accurate.py YOUR_API_KEY 1000  # With API key + sample
+    python analyze_nvd_enrichment_accurate.py                       # Sample 1000 CVEs (default)
+    python analyze_nvd_enrichment_accurate.py -n 500                # Sample 500 CVEs per year
+    python analyze_nvd_enrichment_accurate.py --api-key KEY -n 1000 # With API key + sample
+    python analyze_nvd_enrichment_accurate.py --seed 42             # Reproducible sampling
 """
 
-import requests
+import argparse
 import json
-import sys
 import os
+import random
+import sys
 import time
-from datetime import datetime
-from collections import defaultdict
 import statistics
+from datetime import datetime
+
+import requests
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
+
+
+def create_session_with_retries(retries=3, backoff_factor=1.0, status_forcelist=(429, 500, 502, 503, 504)):
+    """
+    Create a requests session with automatic retry logic for transient errors.
+
+    Args:
+        retries: Number of retry attempts
+        backoff_factor: Multiplier for exponential backoff (sleep = backoff_factor * (2 ** retry_count))
+        status_forcelist: HTTP status codes to retry on
+    """
+    session = requests.Session()
+    retry_strategy = Retry(
+        total=retries,
+        backoff_factor=backoff_factor,
+        status_forcelist=status_forcelist,
+        allowed_methods=["GET"],
+        raise_on_status=False,
+    )
+    adapter = HTTPAdapter(max_retries=retry_strategy)
+    session.mount("https://", adapter)
+    session.mount("http://", adapter)
+    return session
+
+
+# Global session with retry logic
+_session = None
+
+
+def get_session():
+    """Get or create the global requests session with retry logic."""
+    global _session
+    if _session is None:
+        _session = create_session_with_retries()
+    return _session
 
 def fetch_cve_history(cve_id, api_key=None):
     """
     Fetch the change history for a specific CVE.
 
     Returns the first timestamp when CVSS data was added, or None.
+    Uses automatic retry logic for transient HTTP errors.
     """
     base_url = "https://services.nvd.nist.gov/rest/json/cvehistory/2.0"
 
@@ -53,7 +90,8 @@ def fetch_cve_history(cve_id, api_key=None):
     }
 
     try:
-        response = requests.get(base_url, params=params, headers=headers, timeout=30)
+        session = get_session()
+        response = session.get(base_url, params=params, headers=headers, timeout=30)
         response.raise_for_status()
         data = response.json()
 
@@ -84,6 +122,7 @@ def fetch_nvd_data(year, api_key=None):
     """
     Fetch ALL NVD data for a specific year using pagination and date chunking.
     Note: NVD API 2.0 has a 120-day maximum range limit, so we chunk by quarters.
+    Uses automatic retry logic for transient HTTP errors.
     """
     base_url = "https://services.nvd.nist.gov/rest/json/cves/2.0"
 
@@ -95,6 +134,7 @@ def fetch_nvd_data(year, api_key=None):
         headers['apiKey'] = api_key
 
     all_vulnerabilities = []
+    session = get_session()
 
     # NVD API has 120-day max range, so split year into quarters
     quarters = [
@@ -121,7 +161,7 @@ def fetch_nvd_data(year, api_key=None):
             }
 
             try:
-                response = requests.get(base_url, params=params, headers=headers, timeout=30)
+                response = session.get(base_url, params=params, headers=headers, timeout=30)
                 response.raise_for_status()
                 data = response.json()
 
@@ -176,8 +216,9 @@ def calculate_enrichment_delay_accurate(cve_item, api_key=None):
         published = cve_item.get('published')
 
         # Check if CVSS scores exist
+        # NVD API 2.0 uses: cvssMetricV2, cvssMetricV30, cvssMetricV31, cvssMetricV40
         metrics = cve_item.get('metrics', {})
-        has_cvss = any(metrics.get(f'cvssMetricV{v}') for v in ['2', '3', '30', '31', '40'])
+        has_cvss = any(metrics.get(f'cvssMetricV{v}') for v in ['2', '30', '31', '40'])
 
         if not has_cvss or not published or not cve_id:
             return None
@@ -205,15 +246,16 @@ def calculate_enrichment_delay_accurate(cve_item, api_key=None):
 
         return delay
 
-    except (KeyError, ValueError, AttributeError) as e:
+    except (KeyError, ValueError, AttributeError):
         return None
 
-def analyze_year(year, api_key=None, sample_size=None):
+def analyze_year(year, api_key=None, sample_size=None, seed=None):
     """
     Analyze enrichment delays for a specific year.
 
     WARNING: This makes one API call per CVE to fetch history, which is slow!
     Use sample_size to limit to a random sample for testing.
+    Use seed for reproducible sampling.
     """
     cves = fetch_nvd_data(year, api_key)
 
@@ -222,10 +264,13 @@ def analyze_year(year, api_key=None, sample_size=None):
         return None
 
     # Optionally sample for faster testing
+    total_fetched = len(cves)
     if sample_size and len(cves) > sample_size:
-        import random
+        if seed is not None:
+            # Combine seed with year for reproducible but distinct samples per year
+            random.seed(seed + year)
         cves = random.sample(cves, sample_size)
-        print(f"  Analyzing sample of {sample_size} CVEs (out of {len(cves)} total)...", file=sys.stderr)
+        print(f"  Analyzing sample of {sample_size} CVEs (out of {total_fetched} total)...", file=sys.stderr)
 
     delays = []
     total_cves = len(cves)
@@ -235,7 +280,6 @@ def analyze_year(year, api_key=None, sample_size=None):
 
     for vuln in cves:
         cve_item = vuln.get('cve', {})
-        cve_id = cve_item.get('id')
 
         delay = calculate_enrichment_delay_accurate(cve_item, api_key)
 
@@ -259,8 +303,8 @@ def analyze_year(year, api_key=None, sample_size=None):
     # Calculate statistics
     delays.sort()
     median = statistics.median(delays)
-    percentile_90_idx = int(len(delays) * 0.9)
-    percentile_90 = delays[percentile_90_idx] if percentile_90_idx < len(delays) else delays[-1]
+    percentile_90_idx = int((len(delays) - 1) * 0.9)
+    percentile_90 = delays[percentile_90_idx]
 
     result = {
         'year': year,
@@ -275,37 +319,68 @@ def analyze_year(year, api_key=None, sample_size=None):
 
     return result
 
+def parse_args():
+    """Parse command line arguments."""
+    parser = argparse.ArgumentParser(
+        description='Analyze NVD enrichment delays using the CVE History API.',
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog='''
+Examples:
+  %(prog)s                           # Sample 1000 CVEs (default)
+  %(prog)s -n 500                    # Sample 500 CVEs per year
+  %(prog)s --api-key KEY -n 1000     # With API key + sample size
+  %(prog)s --seed 42                 # Reproducible sampling
+  %(prog)s --years 2023 2024         # Analyze specific years only
+        '''
+    )
+    parser.add_argument(
+        '-k', '--api-key',
+        default=os.environ.get('NVD_API_KEY'),
+        help='NVD API key (default: $NVD_API_KEY environment variable)'
+    )
+    parser.add_argument(
+        '-n', '--sample-size',
+        type=int,
+        default=1000,
+        help='Number of CVEs to sample per year (default: 1000)'
+    )
+    parser.add_argument(
+        '--seed',
+        type=int,
+        default=None,
+        help='Random seed for reproducible sampling'
+    )
+    parser.add_argument(
+        '--years',
+        type=int,
+        nargs='+',
+        default=[2021, 2022, 2023, 2024, 2025],
+        help='Years to analyze (default: 2021-2025)'
+    )
+    return parser.parse_args()
+
+
 def main():
     """Main analysis function."""
-    # Parse command line arguments
-    api_key = os.environ.get('NVD_API_KEY')
-    sample_size = 1000  # Default sample size
+    args = parse_args()
 
-    # Parse args: can be either [sample_size] or [api_key, sample_size]
-    if len(sys.argv) > 1:
-        arg1 = sys.argv[1]
-        # If it's a number, it's sample_size
-        if arg1.isdigit():
-            sample_size = int(arg1)
-        else:
-            # Otherwise it's an API key
-            api_key = arg1
-
-    if len(sys.argv) > 2:
-        # Second arg is sample_size
-        if sys.argv[2].isdigit():
-            sample_size = int(sys.argv[2])
+    api_key = args.api_key
+    sample_size = args.sample_size
+    seed = args.seed
+    years = args.years
 
     if not api_key:
         print("WARNING: No API key provided. Analysis will be VERY slow due to rate limiting.", file=sys.stderr)
         print("Provide API key via:", file=sys.stderr)
         print("  - Environment variable: export NVD_API_KEY=your_key", file=sys.stderr)
-        print("  - Command line argument: python script.py [sample_size]", file=sys.stderr)
+        print("  - Command line argument: --api-key YOUR_KEY", file=sys.stderr)
         print()
     else:
         print(f"Using API key: {api_key[:8]}...", file=sys.stderr)
 
     print(f"Sampling mode: analyzing {sample_size} CVEs per year", file=sys.stderr)
+    if seed is not None:
+        print(f"Random seed: {seed} (reproducible sampling)", file=sys.stderr)
     print()
     print("NVD Enrichment Delay Analysis (Accurate Method)")
     print("=" * 60)
@@ -314,14 +389,12 @@ def main():
     print("=" * 60)
     print()
 
-    # Focus on 2024 for most accurate data
-    years = [2021, 2022, 2023, 2025]
     results = {}
 
     for year in years:
-        result = analyze_year(year, api_key, sample_size=sample_size)
+        result = analyze_year(year, api_key, sample_size=sample_size, seed=seed)
         if result:
-            results[year] = result
+            results[str(year)] = result
             print(f"\n{year} Analysis:")
             print(f"  Total CVEs: {result['total_cves']}")
             print(f"  Enriched CVEs: {result['enriched_cves']} ({result['enrichment_rate']})")
@@ -337,8 +410,9 @@ def main():
     print("| Year | Median Enrichment Delay | 90th Percentile |")
     print("|------|------------------------|-----------------|")
     for year in years:
-        if year in results:
-            r = results[year]
+        year_key = str(year)
+        if year_key in results:
+            r = results[year_key]
             print(f"| {year} | {r['median_delay_days']} days | {r['percentile_90_days']} days |")
         else:
             print(f"| {year} | No data | No data |")
