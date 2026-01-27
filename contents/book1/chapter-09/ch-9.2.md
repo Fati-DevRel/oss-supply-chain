@@ -131,6 +131,27 @@ Within days, the new owners pushed updates that:
 
 The ad-blocking function continued normally, disguising the malicious additions.
 
+**Urban VPN AI Conversation Harvesting (2025):**
+
+In July 2025, security researchers discovered that **Urban VPN Proxy** and seven related extensions were secretly capturing and selling AI conversations from over 8 million users across Chrome and Edge.[^urban-vpn]
+
+The extensions—marketed as privacy and security tools—operated a massive surveillance operation targeting eight AI platforms: ChatGPT, Claude, Gemini, Microsoft Copilot, Perplexity, DeepSeek, Grok, and Meta AI. The harvesting mechanism was sophisticated:
+
+1. When users visited AI platforms, the extension injected scripts that intercepted `fetch()` and `XMLHttpRequest`
+2. All prompts, responses, timestamps, and conversation IDs were extracted before rendering
+3. Data was compressed and transmitted to Urban VPN's analytics servers
+4. The collected data was sold to data brokers for "marketing analytics purposes"
+
+!!! warning "Featured Badges Failed"
+
+    All affected extensions carried "Featured" badges from Google and Microsoft, suggesting they had passed human review. The badges failed to detect this malicious activity despite platform policies prohibiting data broker transfers.
+
+The harvesting functionality was hardcoded with no user toggle and operated regardless of VPN connection status. Users who installed before July 2025 received no updated consent prompts—the auto-update mechanism silently added harvesting capabilities.
+
+This incident demonstrates a concerning evolution: extensions that specifically target AI interactions as high-value data. Users sharing sensitive information, business strategies, or personal details with AI assistants had no indication their conversations were being captured and sold.
+
+[^urban-vpn]: Koi Security Research, "Urban VPN: 8 Million Users' AI Conversations Harvested and Sold," 2025, https://www.koi.ai/blog/urban-vpn-browser-extension-ai-conversations-data-collection
+
 ## Manifest V3: Security Implications
 
 Google introduced **Manifest V3** as a major revision to the Chrome extension platform, with significant security implications:
