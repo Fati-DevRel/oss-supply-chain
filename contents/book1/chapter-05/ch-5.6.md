@@ -16,9 +16,9 @@ Throughout the previous sections, we have examined vulnerabilities as individual
 
 The data on memory safety vulnerabilities is remarkably consistent across major software projects:
 
-**Microsoft** reported in 2019 that approximately 70% of all security vulnerabilities addressed in Microsoft products over the previous 12 years were memory safety issues. This figure has remained stable over time, despite decades of investment in secure coding practices, static analysis, and code review.
+**Microsoft** reported in 2019 that approximately 70% of all security vulnerabilities addressed in Microsoft products over the previous 12 years were memory safety issues.[^msrc-memory-safety] This figure has remained stable over time, despite decades of investment in secure coding practices, static analysis, and code review.
 
-**Google Chrome** security data shows a similar pattern. Google's analysis found that roughly 70% of high-severity security bugs in Chrome are memory safety vulnerabilities—buffer overflows, use-after-free, and related issues.
+**Google Chrome** security data shows a similar pattern. Google's analysis of 912 high or critical severity security bugs since 2015 found that roughly 70% are memory safety vulnerabilities—buffer overflows, use-after-free, and related issues.[^chromium-memory-safety]
 
 **Android** security bulletins reflect the same distribution. Memory safety issues dominate the high-severity vulnerabilities patched in Android releases.
 
@@ -146,3 +146,5 @@ The memory safety challenge illustrates a broader supply chain security principl
 [cisa-memory-safety]: https://www.cisa.gov/resources-tools/resources/case-memory-safe-roadmaps
 [^android-rust]: Google Security Blog, "Memory Safe Languages in Android 13" (December 1, 2022). <https://security.googleblog.com/2022/12/memory-safe-languages-in-android-13.html>
 [^curl-installs]: Daniel Stenberg, "The world's biggest curl installations" (September 17, 2018). <https://daniel.haxx.se/blog/2018/09/17/the-worlds-biggest-curl-installations/>
+[^msrc-memory-safety]: Microsoft Security Response Center, "A Proactive Approach to More Secure Code" (July 2019). <https://msrc.microsoft.com/blog/2019/07/a-proactive-approach-to-more-secure-code/>
+[^chromium-memory-safety]: Chromium Project, "Memory Safety." <https://www.chromium.org/Home/chromium-security/memory-safety/>

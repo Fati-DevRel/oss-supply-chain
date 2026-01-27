@@ -179,6 +179,56 @@ This attack differs from standard dependency confusion. Traditional dependency c
 [orca-dependency-confusion]: https://orca.security/resources/blog/dependency-confusion-supply-chain-attacks/
 [phantom-guard]: https://github.com/matte1782/phantom_guard
 
+## Revival Hijack: Claiming Removed Packages
+
+!!! danger "22,000 PyPI Packages Vulnerable"
+
+    JFrog research identified over 22,000 PyPI packages vulnerable to Revival Hijack—where attackers register package names that were removed by their original owners. These names remain valid targets for re-registration.
+
+**Revival Hijack** exploits a subtle aspect of package registry mechanics: when maintainers remove packages from a registry, the package names often become available for re-registration by anyone. Unlike typosquatting (which targets misspellings) or dependency confusion (which targets private/public namespace collisions), Revival Hijack targets legitimate package names that previously existed.
+
+**Attack mechanism:**
+
+1. A legitimate maintainer removes their package from a registry (for various reasons: deprecation, abandonment, rebranding)
+2. Existing projects that depended on the removed package still have it listed in their dependencies
+3. Attacker registers the now-available package name with malicious code
+4. When dependent projects reinstall dependencies (new environments, CI/CD rebuilds), they receive the attacker's version
+5. Malicious code executes with the trust previously granted to the legitimate package
+
+JFrog security researchers discovered this attack vector and documented its scale: **over 22,000 existing PyPI packages were vulnerable to hijacking**.[^jfrog-revival-hijack] To protect the ecosystem, JFrog proactively created a "security_holding" account to safely claim susceptible package names, registering them with version 0.0.0.1 placeholders to prevent malicious registration.
+
+**Why packages get removed:**
+
+- Maintainer abandonment or loss of interest
+- Project rebranding or consolidation
+- Legal or trademark disputes
+- Security concerns about continued maintenance
+- Organizational changes (acquired companies, project transfers)
+
+**What makes this attack effective:**
+
+- **Legitimate name**: The package name has real history and may appear in production lockfiles
+- **Silent hijack**: Unlike typosquatting, no spelling error is required
+- **Cached dependencies**: Organizations may have old lockfiles referencing removed packages
+- **Build reproducibility gaps**: Rebuilds from source may fetch the hijacked version
+- **No registry warning**: Registries don't typically alert users that a previously-installed package was removed and re-registered
+
+**Detection challenges:**
+
+- Distinguishing legitimate package transfers from malicious re-registration
+- Monitoring for removal and re-registration across thousands of packages
+- Alerting users who previously depended on removed packages
+
+**Defense:**
+
+1. **Pin exact versions and use lockfiles**: Ensures reproducible installations from known-good versions
+2. **Monitor for package removal**: Track when dependencies are removed from registries
+3. **Use package caching/mirroring**: Internal mirrors can retain packages even after upstream removal
+4. **Registry hygiene**: Registries should consider "cooling off" periods before removed names can be re-registered
+5. **Dependency freshness checks**: Flag dependencies on packages that no longer exist in their original form
+
+[^jfrog-revival-hijack]: JFrog Security Research, "Revival Hijack: PyPI Hijack Technique Exploits Removed Package Names," September 2024, https://research.jfrog.com/malicious-packages/
+
 ## Package Aliasing and Redirection
 
 Package managers support various mechanisms for aliasing, redirecting, or substituting packages. **Aliasing attacks** exploit these features to redirect package resolution to attacker-controlled code.

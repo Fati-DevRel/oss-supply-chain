@@ -37,7 +37,11 @@ The **3CX compromise** (March 2023) followed a similar pattern. Attackers, attri
 
 The **XZ Utils backdoor** (discovered March 2024), while not officially attributed at the time of discovery, bore hallmarks of nation-state tradecraft: years of patient social engineering to gain maintainer access, sophisticated code hiding techniques, and targeting of SSH—the protocol used to administer virtually every Linux server on the internet. The operation's scope would have provided access to critical infrastructure globally. It is important to note that public attribution remains unconfirmed, and conclusions about attacker identity drawn from tradecraft analysis alone are inherently uncertain—sophisticated non-state actors can mimic nation-state techniques, and nation-states can deliberately obscure their involvement. The attribution question may never be definitively resolved.
 
-Nation-state actors are distinguished by their capability for long-term operations, their willingness to invest years in developing access, and their targeting of strategic rather than opportunistic objectives. Defense against these actors requires assuming that sufficiently motivated adversaries can eventually succeed and designing systems that limit the impact of compromise.
+Nation-state actors are distinguished by their capability for long-term operations, their willingness to invest years in developing access, and their targeting of strategic rather than opportunistic objectives. The European Union Agency for Cybersecurity (ENISA) documents these patterns in its annual Threat Landscape reports[^enisa-etl], noting that state-linked intrusion sets—particularly those associated with Russia, China, Iran, and North Korea—continue to target public institutions and strategic industries through supply chain compromise, with attacks on IT service providers and software repositories cascading across entire ecosystems.
+
+Defense against these actors requires assuming that sufficiently motivated adversaries can eventually succeed and designing systems that limit the impact of compromise.
+
+[^enisa-etl]: ENISA, "ENISA Threat Landscape 2025," https://www.enisa.europa.eu/publications/enisa-threat-landscape-2025
 
 ## Cybercriminal Organizations
 
