@@ -22,6 +22,34 @@ Different package managers answer this question differently, and none of the def
 
 This is dependency confusion: substituting a public package for a private one by exploiting package resolution logic.
 
+```mermaid
+flowchart TB
+    subgraph Attacker["Attacker"]
+        A["Discovers internal<br/>package name"]
+    end
+
+    subgraph Public["Public Registry (npm/PyPI)"]
+        PUB["internal-utils<br/>v999.0.0 ⚠️<br/>(malicious)"]
+    end
+
+    subgraph Private["Private Registry"]
+        PRIV["internal-utils<br/>v1.2.3 ✓<br/>(legitimate)"]
+    end
+
+    subgraph Build["Build System"]
+        REQ["Requests:<br/>internal-utils"]
+        RESOLVE{"Version<br/>comparison"}
+        INSTALL["Installs<br/>v999.0.0 ⚠️"]
+    end
+
+    A -->|"Registers same name<br/>with high version"| PUB
+    REQ --> RESOLVE
+    PRIV -->|"v1.2.3"| RESOLVE
+    PUB -->|"v999.0.0"| RESOLVE
+    RESOLVE -->|"Prefers higher<br/>version"| INSTALL
+```
+*Figure 6.2.1: Dependency confusion attack. The attacker registers an internal package name on a public registry with a very high version number. When the build system resolves the package, it finds both versions and selects the attacker's package (v999.0.0) over the legitimate internal package (v1.2.3).*
+
 ## Alex Birsan's Research and the $130,000 Bug Bounties
 
 Birsan's research,[^birsan-research] published in February 2021, demonstrated the attack against some of the world's most security-conscious organizations.

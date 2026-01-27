@@ -67,6 +67,35 @@ Supply chain dependencies create patching challenges that go beyond what organiz
 
 Consider a concrete scenario: A critical vulnerability is disclosed in a utility library. Your application uses Framework A, which uses Library B, which uses the vulnerable utility. The fix propagates as follows:
 
+```mermaid
+flowchart LR
+    subgraph Vuln["Day 0: Disclosure"]
+        V["Utility Library<br/>CVE Published"]
+    end
+
+    subgraph Step1["Days 1-14"]
+        U1["Utility<br/>Patched"]
+    end
+
+    subgraph Step2["Days 7-28"]
+        L["Library B<br/>Updates"]
+    end
+
+    subgraph Step3["Days 14-42"]
+        F["Framework A<br/>Updates"]
+    end
+
+    subgraph Step4["Days 21-60+"]
+        A["Your App<br/>Patched"]
+    end
+
+    V -->|"Fix released"| U1
+    U1 -->|"Waiting"| L
+    L -->|"Waiting"| F
+    F -->|"Waiting"| A
+```
+*Figure 5.4.1: The transitive dependency patching cascade. Each layer must wait for its dependency to update before it can incorporate the fix. A vulnerability in a utility library may take weeks or months to reach your application—during which time attackers can exploit it.*
+
 1. Utility maintainer releases patched version
 2. Library B maintainer updates their dependency on the utility (days to weeks)
 3. Library B releases a new version
