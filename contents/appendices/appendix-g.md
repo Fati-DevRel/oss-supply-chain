@@ -689,26 +689,26 @@ Container security spans multiple ecosystems and requires attention to base imag
 
 ```dockerfile
 # Pin to specific digest (most secure)
-FROM node:20.10.0-alpine@sha256:abc123...
+FROM node:24.13.0-alpine3.23@sha256:931d7d...
 
 # Pin to specific version (good)
-FROM node:20.10.0-alpine
+FROM 24.13.0-alpine3.23
 
 # Avoid (mutable tags)
 FROM node:latest
-FROM node:20
+FROM node:24
 ```
 
 **Distroless and minimal images**:
 ```dockerfile
 # Google Distroless (no shell, minimal attack surface)
-FROM gcr.io/distroless/nodejs20-debian12
+FROM gcr.io/distroless/nodejs24-debian12
 
 # Chainguard Images (SLSA, signatures, SBOMs)
 FROM cgr.dev/chainguard/node:latest
 
 # Docker Hardened Images (minimal images, SLSA, signatures, SBOMs, version tags)
-FROM dhi.io/node:25 
+FROM dhi.io/node:24
 ```
 
 #### Security Scanning Tools
