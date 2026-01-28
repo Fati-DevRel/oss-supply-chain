@@ -692,7 +692,7 @@ Container security spans multiple ecosystems and requires attention to base imag
 FROM node:24.13.0-alpine3.23@sha256:931d7d...
 
 # Pin to specific version (good)
-FROM 24.13.0-alpine3.23
+FROM node:24.13.0-alpine3.23
 
 # Avoid (mutable tags)
 FROM node:latest
