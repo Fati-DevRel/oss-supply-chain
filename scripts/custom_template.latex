@@ -96,6 +96,87 @@ $endif$
 \usepackage{tabularray}
 
 \usepackage{xcolor}
+
+% Admonition boxes using tcolorbox
+\usepackage[most]{tcolorbox}
+
+% Define admonition colors
+\definecolor{tipcolor}{RGB}{0, 150, 0}
+\definecolor{tipbg}{RGB}{232, 245, 233}
+\definecolor{infocolor}{RGB}{33, 150, 243}
+\definecolor{infobg}{RGB}{227, 242, 253}
+\definecolor{warningcolor}{RGB}{255, 152, 0}
+\definecolor{warningbg}{RGB}{255, 243, 224}
+\definecolor{dangercolor}{RGB}{244, 67, 54}
+\definecolor{dangerbg}{RGB}{255, 235, 238}
+\definecolor{notecolor}{RGB}{96, 125, 139}
+\definecolor{notebg}{RGB}{236, 239, 241}
+\definecolor{examplecolor}{RGB}{156, 39, 176}
+\definecolor{examplebg}{RGB}{243, 229, 245}
+
+% Base admonition style
+\tcbset{
+  admonitionstyle/.style={
+    enhanced,
+    breakable,
+    boxrule=0pt,
+    frame hidden,
+    borderline west={3pt}{0pt}{#1},
+    colback=#1!5,
+    colframe=#1,
+    coltitle=black,
+    fonttitle=\bfseries\sffamily,
+    left=8pt,
+    right=8pt,
+    top=6pt,
+    bottom=6pt,
+    before skip=12pt,
+    after skip=12pt,
+  }
+}
+
+% Tip admonition
+\newtcolorbox{admonitiontip}[1][Tip]{
+  admonitionstyle=tipcolor,
+  colback=tipbg,
+  title={#1},
+}
+
+% Info admonition
+\newtcolorbox{admonitioninfo}[1][Info]{
+  admonitionstyle=infocolor,
+  colback=infobg,
+  title={#1},
+}
+
+% Warning admonition
+\newtcolorbox{admonitionwarning}[1][Warning]{
+  admonitionstyle=warningcolor,
+  colback=warningbg,
+  title={#1},
+}
+
+% Danger admonition
+\newtcolorbox{admonitiondanger}[1][Danger]{
+  admonitionstyle=dangercolor,
+  colback=dangerbg,
+  title={#1},
+}
+
+% Note admonition
+\newtcolorbox{admonitionnote}[1][Note]{
+  admonitionstyle=notecolor,
+  colback=notebg,
+  title={#1},
+}
+
+% Example admonition
+\newtcolorbox{admonitionexample}[1][Example]{
+  admonitionstyle=examplecolor,
+  colback=examplebg,
+  title={#1},
+}
+
 $if(geometry)$
 \usepackage[$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
 $endif$

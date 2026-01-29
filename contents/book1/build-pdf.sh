@@ -133,9 +133,13 @@ for dir in "$BOOK_DIR"/chapter-*; do
 done
 
 # Build the PDF
+MERMAID_FILTER="$BOOK_DIR/../../scripts/node_modules/.bin/mermaid-filter"
+ADMONITION_FILTER="$BOOK_DIR/../../scripts/admonition-filter.lua"
 pandoc \
     --from=markdown \
     --to=pdf \
+    -F "$MERMAID_FILTER" \
+    --lua-filter="$ADMONITION_FILTER" \
     --pdf-engine=xelatex \
     --template=../../scripts/custom_template.latex \
     --toc \

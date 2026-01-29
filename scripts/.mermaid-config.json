@@ -1,0 +1,7 @@
+{
+  "theme": "neutral",
+  "themeVariables": {
+    "primaryColor": "#1e3a5f",
+    "fontSize": "12px"
+  }
+}
