@@ -9,8 +9,6 @@ site/docs/appendices/
 scripts/_site
 scripts/docs
 scripts/node_modules/
-scripts/package-lock.json
-scripts/package.json
 
 # Intermediate PDFs
 contents/**/img/*.pdf
