@@ -3,7 +3,7 @@
 # Build PDF for Book 3: Governing the Open Source Supply Chain
 #
 
-INCLUDE_COVER=0
+INCLUDE_COVER=1
 BOOK_DIR="$(cd "$(dirname "$0")" && pwd)"
 OUTPUT_FILE="$BOOK_DIR/book-3-governing-the-open-source-supply-chain.pdf"
 COVER_IMAGE="$BOOK_DIR/cover.svg"
@@ -179,8 +179,19 @@ if [ -f "$COVER_IMAGE" ]; then
         "${COVER_IMAGE}" \
         book-3-cover.pdf
 fi
+
+# Front Image from the PNG
+magick \
+    -size 938x1088 \
+    -background white \
+    -gravity center \
+    -units PixelsPerInch \
+    -density 300 \
+    "$BOOK_DIR/cover-front.png" \
+    book-3-cover-front.pdf
+
 if [ "$INCLUDE_COVER" -eq 1 ]; then
-    gs -q -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile=temp_output.pdf book-3-cover.pdf "$OUTPUT_FILE"
+    gs -q -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile=temp_output.pdf book-3-cover-front.pdf "$OUTPUT_FILE"
     mv temp_output.pdf "$OUTPUT_FILE"
 fi
 

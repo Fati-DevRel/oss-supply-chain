@@ -3,7 +3,7 @@
 # Build PDF for Book 2: Protecting the Open Source Supply Chain
 #
 
-INCLUDE_COVER=0
+INCLUDE_COVER=1
 BOOK_DIR="$(cd "$(dirname "$0")" && pwd)"
 OUTPUT_FILE="$BOOK_DIR/book-2-protecting-the-open-source-supply-chain.pdf"
 COVER_IMAGE="$BOOK_DIR/cover.svg"
@@ -124,6 +124,7 @@ FILES=(
     "$BOOK_DIR/../appendices/appendix-c.md"
     "$BOOK_DIR/../appendices/appendix-d.md"
     "$BOOK_DIR/../appendices/appendix-g.md"
+    "$BOOK_DIR/../appendices/appendix-j.md"
 )
 
 # Filter to only existing files
@@ -174,7 +175,7 @@ pandoc \
     --metadata=linkcolor:black \
     --metadata=urlcolor:black \
     --metadata=toccolor:black \
-    --resource-path="$CHAPTERS" \
+    --resource-path="$CHAPTERS:$BOOK_DIR/../appendices" \
     $COVER_OPTS \
     --output="$OUTPUT_FILE" \
     "${EXISTING_FILES[@]}"
@@ -190,8 +191,19 @@ if [ -f "$COVER_IMAGE" ]; then
         "${COVER_IMAGE}" \
         book-2-cover.pdf
 fi
+
+# Front Image from the PNG
+magick \
+    -size 938x1088 \
+    -background white \
+    -gravity center \
+    -units PixelsPerInch \
+    -density 300 \
+    "$BOOK_DIR/cover-front.png" \
+    book-2-cover-front.pdf
+
 if [ "$INCLUDE_COVER" -eq 1 ]; then
-    gs -q -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile=temp_output.pdf book-2-cover.pdf "$OUTPUT_FILE"
+    gs -q -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile=temp_output.pdf book-2-cover-front.pdf "$OUTPUT_FILE"
     mv temp_output.pdf "$OUTPUT_FILE"
 fi
 
