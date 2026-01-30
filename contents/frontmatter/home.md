@@ -16,7 +16,7 @@ A comprehensive guide to understanding, protecting, and governing the open sourc
 | Understanding the Software Supply Chain | Protecting the Software Supply Chain | Governing the Software Supply Chain |
 |:-:|:-:|:-:|
 | [![Book 1 Cover - Understanding the Software Supply Chain](../book1/cover-front.png)](book1) | [![Book 2 - Protecting the Software Supply Chain](../book2/cover-front.png)](book2) | [![Book 3 - Governing the Software Supply Chain](../book3/cover-front-640.png)](book3) |
-| [ [Read Online](book1) ]<br/>[ [Download PDF](book-1-understanding-the-software-supply-chain.pdf) ] | [ [Read Online](book2) ]<br/>[ [Download PDF](book-2-protecting-the-software-supply-chain.pdf) ] | [ [Read Online](book3) ]<br/>[ [Download PDF](book-3-governing-the-software-supply-chain.pdf) ]|
+| [ [Read Online](book1) ]<br/>[ [Download PDF](https://github.com/scovetta/oss-supply-chain/releases/download/v2026.01.29/book-1-understanding-the-software-supply-chain.pdf) ] | [ [Read Online](book2) ]<br/>[ [Download PDF](https://github.com/scovetta/oss-supply-chain/releases/download/v2026.01.29/book-2-protecting-the-software-supply-chain.pdf) ] | [ [Read Online](book3) ]<br/>[ [Download PDF](https://github.com/scovetta/oss-supply-chain/releases/download/v2026.01.29/book-3-governing-the-software-supply-chain.pdf) ]|
 
 </div>
 
@@ -41,7 +41,7 @@ Provides a comprehensive foundation for understanding software supply chain secu
 - **Part I - Foundations**: How software is built, supply chain threats, historical attacks
 - **Part II - Attack Patterns**: Malicious packages, dependency confusion, typosquatting, build system attacks, insider threats, social engineering
 
-[Start Reading Book 1](book1/chapter-01/)
+[Start Reading Book 1](book1/)
 
 [Download PDF](book-1-understanding-the-software-supply-chain.pdf)
 
@@ -57,7 +57,7 @@ Translates threat knowledge into practical defenses across the development lifec
 - **Part IV - Defense & Response**: Securing development environments, CI/CD pipelines, distribution, incident response, crisis communication
 - **Part V - Operationalizing Defense**: Building security programs, platform engineering
 
-[Start Reading Book 2](book2/chapter-11/)
+[Start Reading Book 2](book2/)
 
 [Download PDF](book-2-protecting-the-software-supply-chain.pdf)
 
@@ -73,7 +73,7 @@ Addresses human, policy, and strategic dimensions: organizational commitment, re
 - **Part VI - Regulatory & Legal**: Regulatory landscape, compliance frameworks, legal considerations, industry initiatives
 - **Part VII - Context & Future**: Economics, geopolitics, lessons from other industries, future directions
 
-[Start Reading Book 3](book3/chapter-23/)
+[Start Reading Book 3](book3/)
 
 [Download PDF](book-3-governing-the-software-supply-chain.pdf)
 
@@ -89,6 +89,8 @@ Addresses human, policy, and strategic dimensions: organizational commitment, re
 - [Appendix F: Incident Timeline](appendices/appendix-f.md) - Historical supply chain incidents
 - [Appendix G: Ecosystem Guides](appendices/appendix-g.md) - Language and ecosystem-specific guidance
 - [Appendix H: Compliance Mapping](appendices/appendix-h.md) - Mapping to compliance frameworks
+- [Appendix I: Legal Disclaimers](appendices/appendix-i.md) - Legal disclaimers and limitations
+- [Appendix J: Platform Security Configuration Guides](appendices/appendix-j.md) - Step-by-step GitHub and GitLab security setup
 
 ---
 
@@ -100,7 +102,7 @@ Addresses human, policy, and strategic dimensions: organizational commitment, re
 
 **For executives and managers**: Book 3 covers organizational programs, regulatory requirements, and strategic considerations.
 
-**For open source maintainers**: See Chapter 24 in Book 3 for guidance specific to your role.
+**For open source maintainers**: See Chapter 24 in Book 3 for guidance specific to your role, and Appendices D and J for reference material and walk-throughs.
 
 Use the **search** feature to find specific topics across all three books.
 
