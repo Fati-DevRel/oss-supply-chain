@@ -152,6 +152,14 @@ This incident demonstrates a concerning evolution: extensions that specifically 
 
 [^urban-vpn]: Koi Security Research, "Urban VPN: 8 Million Users' AI Conversations Harvested and Sold," 2025, https://www.koi.ai/blog/urban-vpn-browser-extension-ai-conversations-data-collection
 
+**Fake ClawdBot VS Code Extension (2026):**
+
+In January 2026, a VS Code extension branded "ClawdBot Agent" was discovered to be a trojan that installed ScreenConnect RAT on victim machines.[^aikido-clawdbot-ext] The extension appeared in the marketplace before the legitimate Clawdbot project—an open-source AI personal agent later renamed to Moltbot, then OpenClaw—had published any official extension. This is a form of **namesquatting**: attackers claim a project's name in a distribution channel before the project itself does.
+
+The attack exploited the brand confusion surrounding Clawdbot's rapid renames (Clawdbot → Moltbot → OpenClaw). Users searching for official tooling had no reliable way to distinguish the trojan from a legitimate extension. The case illustrates that extension marketplace impersonation is particularly effective when targeting viral, fast-moving projects where users do not know what "official" looks like yet. For the broader OpenClaw supply chain attack campaign—including malicious skills, a one-click RCE vulnerability, and an agent platform database exposure—see Section 10.3.
+
+[^aikido-clawdbot-ext]: Aikido Security, "Fake Clawdbot VS Code Extension Installs ScreenConnect RAT," January 2026, https://www.aikido.dev/blog/fake-clawdbot-vscode-extension-malware
+
 ## Manifest V3: Security Implications
 
 Google introduced **Manifest V3** as a major revision to the Chrome extension platform, with significant security implications:

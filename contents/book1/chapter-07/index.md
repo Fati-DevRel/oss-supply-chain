@@ -20,3 +20,4 @@ The chapter concludes with distribution channel attacks, including the Polyfill.
 - 7.6 CI/CD Pipeline Vulnerabilities
 - 7.7 Code Signing and Its Limitations
 - 7.8 Attacks on Distribution Channels
+- 7.9 Case Study: Notepad++ Update Hijacking (2025)

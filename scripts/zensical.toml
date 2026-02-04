@@ -12,10 +12,6 @@ site_dir = "_site"
 extra_css = ["stylesheets/extra.css"]
 nav = [
   {"Home" = "index.md"},
-  {"Frontmatter" = [
-    {"About the Author" = "frontmatter/preamble-author.md"},
-    {"Legal Notice" = "frontmatter/preamble-legal.md"}
-  ]},
   {"Book 1: Understanding" = [
     "book1/index.md",
     {"Chapter 1: How Software Is Built" = [
@@ -79,7 +75,8 @@ nav = [
       {"7.5 Case Study: XZ Utils Backdoor (2024)" = "book1/chapter-07/ch-7.5.md"},
       {"7.6 CI/CD Pipeline Vulnerabilities" = "book1/chapter-07/ch-7.6.md"},
       {"7.7 Code Signing and Its Limitations" = "book1/chapter-07/ch-7.7.md"},
-      {"7.8 Attacks on Distribution Channels" = "book1/chapter-07/ch-7.8.md"}
+      {"7.8 Attacks on Distribution Channels" = "book1/chapter-07/ch-7.8.md"},
+      {"7.9 Case Study: Notepad++ Update Hijacking (2025)" = "book1/chapter-07/ch-7.9.md"}
     ]},
     {"Chapter 8: Insider Threats and Social Engineering" = [
       "book1/chapter-08/index.md",
@@ -241,7 +238,8 @@ nav = [
       {"25.1 Evaluating Vendor Supply Chain Practices" = "book3/chapter-25/ch-25.1.md"},
       {"25.2 Contractual Considerations" = "book3/chapter-25/ch-25.2.md"},
       {"25.3 Open Source Consumption Policies" = "book3/chapter-25/ch-25.3.md"},
-      {"25.4 Managing Commercial Software with Open Source Components" = "book3/chapter-25/ch-25.4.md"}
+      {"25.4 Managing Commercial Software with Open Source Components" = "book3/chapter-25/ch-25.4.md"},
+      {"25.5 Board-Level Governance of Supply Chain Risk" = "book3/chapter-25/ch-25.5.md"}
     ]},
     {"Chapter 26: Regulatory Landscape" = [
       "book3/chapter-26/index.md",
@@ -310,6 +308,8 @@ nav = [
     ]}
   ]},
   {"Appendices" = [
+    {"About the Author" = "frontmatter/preamble-author.md"},
+    {"Legal Notice" = "frontmatter/preamble-legal.md"},
     {"Appendix A: Glossary" = "appendices/appendix-a.md"},
     {"Appendix B: Resource Guide" = "appendices/appendix-b.md"},
     {"Appendix C: SBOM and AI-BOM Guide" = "appendices/appendix-c.md"},
