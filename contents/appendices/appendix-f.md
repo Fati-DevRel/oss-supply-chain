@@ -960,6 +960,39 @@ In November 2025, a second wave dubbed "Shai-Hulud 2.0" emerged with modified ta
 
 ---
 
+### 2026
+
+#### OpenClaw Ecosystem Attacks (ClawHavoc / CVE-2026-25253 / Moltbook)
+
+**Date:** January–February 2026
+
+**Summary:** A cluster of supply chain attacks targeted **OpenClaw** (formerly Clawdbot, then Moltbot), an open-source autonomous AI personal assistant that gained over 100,000 GitHub stars within two months of its November 2025 release. The incidents demonstrated that AI agent ecosystems reproduce the full spectrum of package-registry attack patterns at accelerated timescales. Between January 27 and February 2, 2026, the ecosystem experienced four overlapping attack waves:
+
+- **ClawHavoc**: Researchers audited all 2,857 skills on ClawHub, OpenClaw's plugin registry, and found 341 malicious entries (335 from a single campaign) delivering infostealers that harvested API keys, cryptocurrency wallet private keys, SSH credentials, and browser passwords.
+- **CVE-2026-25253** (CVSS 8.8): A cross-site WebSocket hijacking vulnerability allowed one-click remote code execution. A developer visiting a malicious web page would have their authentication token exfiltrated, granting the attacker full gateway control and command execution. Patched in version 2026.1.29.
+- **Fake VS Code extension**: A trojan branded "ClawdBot Agent" appeared on the VS Code Marketplace before the legitimate project published an official extension, installing ScreenConnect RAT on victim machines.
+- **Moltbook database exposure**: Moltbook, an AI-agent social network, suffered a backend misconfiguration exposing emails, private messages, and large volumes of authentication tokens, enabling agent impersonation.
+
+**Impact Scope:** OpenClaw users globally; developers running OpenClaw with system-level permissions; ClawHub skill ecosystem; Moltbook platform users and connected agents
+
+**Key Lessons:**
+
+- AI agent plugin registries ("skills") face the same malicious-package risks as npm/PyPI, but with higher impact due to deep system access
+- Browser-to-agent trust boundaries (WebSocket connections from web pages to local agents) are a novel attack surface requiring explicit origin validation
+- Rapid project renames create ideal conditions for impersonation, typosquatting, and namesquatting across distribution channels
+- Agent-to-agent platforms introduce a new "content supply chain" where compromised tokens enable upstream influence on other agents' behavior
+- The speed of attack (341 malicious skills within one week of viral adoption) outpaced governance: agent platform providers should pre-deploy automated skill scanning and allowlisting before opening plugin registries to public submissions
+
+**Sources:**
+
+- Koi Security, "ClawHavoc: 341 Malicious Clawed Skills Found by the Bot They Were Targeting," February 2, 2026[^koi-clawhavoc-2026]
+- BleepingComputer, "Malicious MoltBot skills used to push password-stealing malware," 2026[^bleeping-moltbot-2026]
+- The Hacker News, "OpenClaw Bug Enables One-Click Remote Code Execution via Malicious Link," February 2026[^hackernews-openclaw-2026]
+- Aikido Security, "Fake Clawdbot VS Code Extension Installs ScreenConnect RAT," January 2026[^aikido-clawdbot-2026]
+- Reuters, "'Moltbook' social media site for AI agents had big security hole, cyber firm Wiz says," February 2, 2026[^reuters-moltbook-2026]
+
+---
+
 ### Summary of Attack Vectors by Incident
 
 | Incident | Year | Primary Vector | Sophistication |
@@ -1000,6 +1033,7 @@ In November 2025, a second wave dubbed "Shai-Hulud 2.0" emerged with modified ta
 | Glass Worm | 2025 | Self-replicating malware | High |
 | Solana Monkey-Patching | 2025 | Runtime library manipulation | High |
 | React2Shell | 2025 | Code vulnerability | Low (unintentional) |
+| OpenClaw Ecosystem | 2026 | Multi-vector (malicious skills, RCE, impersonation) | High |
 
 ---
 
@@ -1187,3 +1221,13 @@ These incidents collectively demonstrate that software supply chain security req
 [^react-cve-2025-55182]: React.dev, "Critical Security Vulnerability in React Server Components," December 3, 2025, https://react.dev/blog/2025/12/03/critical-security-vulnerability-in-react-server-components
 
 [^nvd-cve-2025-55182]: NIST, "CVE-2025-55182," https://nvd.nist.gov/vuln/detail/CVE-2025-55182
+
+[^koi-clawhavoc-2026]: Koi Security, "ClawHavoc: 341 Malicious Clawed Skills Found by the Bot They Were Targeting," February 2, 2026, https://www.koi.ai/blog/clawhavoc-341-malicious-clawedbot-skills-found-by-the-bot-they-were-targeting
+
+[^bleeping-moltbot-2026]: BleepingComputer, "Malicious MoltBot skills used to push password-stealing malware," 2026, https://www.bleepingcomputer.com/news/security/malicious-moltbot-skills-used-to-push-password-stealing-malware/
+
+[^hackernews-openclaw-2026]: The Hacker News, "OpenClaw Bug Enables One-Click Remote Code Execution via Malicious Link," February 2026, https://thehackernews.com/2026/02/openclaw-bug-enables-one-click-remote.html
+
+[^aikido-clawdbot-2026]: Aikido Security, "Fake Clawdbot VS Code Extension Installs ScreenConnect RAT," January 2026, https://www.aikido.dev/blog/fake-clawdbot-vscode-extension-malware
+
+[^reuters-moltbook-2026]: Reuters, "'Moltbook' social media site for AI agents had big security hole, cyber firm Wiz says," February 2, 2026, https://www.reuters.com/legal/litigation/moltbook-social-media-site-ai-agents-had-big-security-hole-cyber-firm-wiz-says-2026-02-02/

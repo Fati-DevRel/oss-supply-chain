@@ -94,6 +94,12 @@ Different ecosystems use different conventions (hyphens vs. underscores, dots vs
 - Registering Python's `scipy` name in a Rust repository
 - Using `org.fasterxml.jackson.core` instead of `com.fasterxml.jackson.core` on Maven (exploiting `.org` vs `.com` confusion)
 
+**Brand-volatility typosquatting** exploits rapid project renames to create confusion about which name is "real." When the open-source AI agent Clawdbot renamed to Moltbot in January 2026 (following a trademark request), attackers immediately registered typosquat domains and cloned GitHub repositories impersonating the project under both old and new names.[^malwarebytes-moltbot-typo] A second rename to OpenClaw compounded the confusion.[^cnbc-openclaw-typo]
+
+Unlike traditional typosquatting, which relies on a user's typing mistake, this pattern exploits legitimate naming instability: users genuinely do not know which name to trust, and search results return a mix of real and impersonated sources. Projects undergoing rapid growth and frequent renames should be treated as high-risk for spoofed distribution (see Section 10.3 for the full OpenClaw case study).
+
+[^malwarebytes-moltbot-typo]: Malwarebytes, "Clawdbot's rename to Moltbot sparks impersonation campaign," January 2026, https://www.malwarebytes.com/blog/threat-intel/2026/01/clawdbots-rename-to-moltbot-sparks-impersonation-campaign
+[^cnbc-openclaw-typo]: CNBC, "Inside OpenClaw: The open-source AI agent's meteoric rise and the controversy surrounding Clawdbot, Moltbot, and Moltbook," February 2, 2026, https://www.cnbc.com/2026/02/02/openclaw-open-source-ai-agent-rise-controversy-clawdbot-moltbot-moltbook.html
 
 A [2016 academic study by Nikolai Tschacher][tschacher-2016] at the University of Hamburg demonstrated the scale of the threat: his experimental typosquatting packages uploaded to PyPI, npm, and RubyGems were downloaded and executed on over 17,000 systems within days, with half executing the code as administrator. This early research proved that typing errors occur frequently enough to make the attack profitable for adversaries.
 
