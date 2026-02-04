@@ -117,6 +117,10 @@ Software updates present a unique attack surface because they leverage existing 
 
 [^asus-shadowhammer]: Kim Zetter, "The Hunt for the Missing Data from the World's Biggest Hack," Wired, October 23, 2019; Kaspersky, "Operation ShadowHammer: a high-profile supply chain attack," Kaspersky Securelist, March 2019.
 
+**Hosting infrastructure compromise** represents a different model for attacking update mechanisms. In 2025, attackers attributed to a state-sponsored group compromised the shared hosting provider used by Notepad++ to intercept update requests and selectively redirect targeted victims to malicious servers — while legitimate users received normal updates.[^kaspersky-notepadpp] Unlike ShadowHammer, where all users received the same backdoored binary and targeting was implemented in the payload, the Notepad++ attack served entirely different binaries to different users based on network-level targeting. The attack persisted for approximately five months, in part because most users never encountered malicious content. See Section 7.9 for the full case study.
+
+[^kaspersky-notepadpp]: Kaspersky Securelist, "A Supply Chain Attack on Notepad++," February 2, 2026, https://securelist.com/notepad-supply-chain-attack/118708/
+
 **Dependency update automation** creates opportunities when tools like Dependabot or Renovate automatically create pull requests for new dependency versions. If attackers can publish malicious versions that appear legitimate, automation may incorporate them with minimal human review.
 
 ## Developer-to-Developer Trust

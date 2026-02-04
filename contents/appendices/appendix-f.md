@@ -759,6 +759,31 @@ Limited but high-impact for affected projects
 
 ---
 
+#### Notepad++ Update Hijacking
+
+**Date:** June 2025 (infrastructure compromised); July-October 2025 (active infection campaigns); December 2025 (full remediation); February 2026 (disclosure)
+
+**Summary:** Attackers attributed to the Chinese APT group Lotus Blossom/Spring Dragon (attribution by Kaspersky) compromised the shared hosting provider used by Notepad++ to hijack update traffic. Rather than compromising the build system, attackers intercepted requests to the legitimate update endpoint and selectively redirected targeted victims to malicious update servers while legitimate users received normal updates. The attack employed three distinct infection chains over several months: a ProShow vulnerability exploit delivering Cobalt Strike, Lua interpreter abuse for payload delivery, and DLL sideloading with the Chrysalis backdoor. The selective targeting made detection difficult, and the attack persisted for approximately five months before discovery and remediation.
+
+**Impact Scope:** Targeted victims including government organizations (Philippines), financial institutions (El Salvador), and IT service providers (Vietnam); approximately a dozen confirmed infections representing a state-sponsored espionage operation—a small number that likely belies significant intelligence value, comparable to how SolarWinds actively exploited roughly 100 of its 18,000 infected organizations
+
+**Key Lessons:**
+
+- Infrastructure dependencies (hosting providers, CDNs) are part of the supply chain attack surface
+- Signature verification must confirm the expected publisher, not just certificate validity—Notepad++'s updater (WinGUp) verified that a valid certificate existed but did not verify it belonged to the expected publisher
+- Signed update manifests (e.g., XMLDSig) can prevent tampering even when traffic is redirected, though comprehensive frameworks like TUF[^tuf] provide broader protections
+- Selective targeting allows attackers to evade broad security monitoring
+- User reports of unusual network connections (e.g., to `temp.sh`) can provide early detection signals—organizations should formalize channels for reporting anomalous software behavior
+
+**Sources:**
+
+- Kaspersky Securelist, "A Supply Chain Attack on Notepad++," February 2, 2026[^kaspersky-notepadpp-2026]
+- Notepad++, "Hijacked Incident Info Update," February 2, 2026[^notepadpp-incident-2026]
+- Notepad++, "v8.8.9 Released," December 9, 2025[^notepadpp-v889-2025]
+
+
+---
+
 #### PhantomRaven npm Campaign
 
 **Date:** August 2025
@@ -966,6 +991,7 @@ In November 2025, a second wave dubbed "Shai-Hulud 2.0" emerged with modified ta
 | nullifAI (Hugging Face) | 2025 | Malicious ML models | Medium |
 | tj-actions/changed-files | 2025 | CI/CD workflow exploitation | High |
 | Erlang/OTP SSH | 2025 | Code vulnerability | Low (unintentional) |
+| Notepad++ Update Hijacking | 2025 | Distribution infrastructure compromise / selective targeting | High |
 | PhantomRaven | 2025 | Malicious npm packages | Medium |
 | Shai-Hulud npm Worm (1.0 & 2.0) | 2025 | Self-replicating malware + phishing | Very High |
 | Josh Junon (Qix) | 2025 | Account takeover | High |
@@ -991,6 +1017,8 @@ In November 2025, a second wave dubbed "Shai-Hulud 2.0" emerged with modified ta
 **Defensive Gaps Highlighted:**
 
 - Build system integrity verification
+- Distribution infrastructure and update mechanism verification
+- Expected-publisher certificate validation (not just signature existence)
 - Maintainer succession and vetting processes
 - Behavioral analysis of package changes
 - SBOM adoption and dependency visibility
@@ -1127,6 +1155,14 @@ These incidents collectively demonstrate that software supply chain security req
 [^silobreaker-2025]: Silobreaker, "Supply Chain Attacks in 2025: A Month-by-Month Summary," 2025, https://www.silobreaker.com/blog/cyber-threats/supply-chain-attacks-in-2025-a-month-by-month-summary/
 
 [^unit42-erlang-2025]: Unit 42, "Vulnerability Analysis CVE-2025-32433," 2025, https://unit42.paloaltonetworks.com/vulnerability-analysis-cve-2025-32433/
+
+[^kaspersky-notepadpp-2026]: Kaspersky Securelist, "A Supply Chain Attack on Notepad++," February 2, 2026, https://securelist.com/notepad-supply-chain-attack/118708/
+
+[^notepadpp-incident-2026]: Notepad++, "Hijacked Incident Info Update," February 2, 2026, https://notepad-plus-plus.org/news/hijacked-incident-info-update/
+
+[^notepadpp-v889-2025]: Notepad++, "v8.8.9 Released," December 9, 2025, https://notepad-plus-plus.org/news/v889-released/
+
+[^tuf]: The Update Framework (TUF), https://theupdateframework.io/
 
 [^socket-phantomraven-2025]: Socket.dev, "npm Malware Campaign PhantomRaven," 2025, https://socket.dev/blog/npm-malware-campaign-phantomraven
 
