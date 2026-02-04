@@ -781,7 +781,6 @@ Limited but high-impact for affected projects
 - Notepad++, "Hijacked Incident Info Update," February 2, 2026[^notepadpp-incident-2026]
 - Notepad++, "v8.8.9 Released," December 9, 2025[^notepadpp-v889-2025]
 
-
 ---
 
 #### PhantomRaven npm Campaign
