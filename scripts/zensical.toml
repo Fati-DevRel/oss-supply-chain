@@ -309,7 +309,7 @@ nav = [
   ]},
   {"Appendices" = [
     {"About the Author" = "frontmatter/preamble-author.md"},
-    {"Legal Notice" = "frontmatter/preamble-legal.md"},    
+    {"Legal Notice" = "frontmatter/preamble-legal.md"},
     {"Appendix A: Glossary" = "appendices/appendix-a.md"},
     {"Appendix B: Resource Guide" = "appendices/appendix-b.md"},
     {"Appendix C: SBOM and AI-BOM Guide" = "appendices/appendix-c.md"},
