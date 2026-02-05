@@ -160,7 +160,7 @@ The attack's reach was extraordinary:
 - Millions of end users received malicious redirects
 - E-commerce sites exposed customer sessions to potential theft
 
-[Security researchers at Sansec][^polyfill-sansec] characterized the attack as a supply chain compromise that weaponized infrastructure trusted by web developers for years.
+Security researchers at Sansec[^polyfill-sansec] characterized the attack as a supply chain compromise that weaponized infrastructure trusted by web developers for years.
 
 **Response:**
 
