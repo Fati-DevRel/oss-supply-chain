@@ -130,7 +130,7 @@ Polyfill.io was a service that automatically provided JavaScript polyfills—cod
 
 The service was extremely popular. Estimates suggested over 100,000 websites included Polyfill.io scripts, serving hundreds of millions of users. The service was particularly common on e-commerce sites, media outlets, and enterprise applications.
 
-The original Polyfill.io service was created by Andrew Betts, a developer at the Financial Times. In February 2024, [the domain and GitHub account were acquired][^polyfill-sansec] by Funnull, a Chinese CDN company.
+The original Polyfill.io service was created by Andrew Betts, a developer at the Financial Times. In February 2024, the domain and GitHub account were acquired[^polyfill-sansec] by Funnull, a Chinese CDN company.
 
 **The Attack:**
 
