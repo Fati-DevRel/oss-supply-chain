@@ -65,7 +65,7 @@ Automatic updates are both security feature and attack vector. They ensure users
 
 **Update mechanism vulnerabilities** can allow attackers to trigger false updates:
 
-- In early 2016, [security researcher Radek disclosed vulnerabilities in Sparkle][^sparkle-2016], the open-source update framework used by many macOS applications. Attackers could intercept update checks and deliver malicious updates.
+- In early 2016, security researcher Radek disclosed vulnerabilities in Sparkle[^sparkle-2016], the open-source update framework used by many macOS applications. Attackers could intercept update checks and deliver malicious updates.
 
 - Multiple applications have been found to check for updates over HTTP, allowing network attackers to inject malicious updates.
 
