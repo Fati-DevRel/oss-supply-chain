@@ -91,7 +91,7 @@ Defenses against rollback attacks include:
 - **Minimum version enforcement**: Refusing to install versions older than what's installed
 - **Transparency logs**: Recording all published versions to detect inconsistent serving
 
-[The Update Framework (TUF)][^tuf], designed specifically for secure software updates, includes rollback protection as a core feature.
+The Update Framework (TUF)[^tuf], designed specifically for secure software updates, includes rollback protection as a core feature.
 
 ## Domain and DNS Hijacking
 
