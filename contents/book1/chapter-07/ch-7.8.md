@@ -33,7 +33,7 @@ Compromise of any component in this chain can result in users receiving maliciou
 
 Mirror compromise can affect all users fetching from that mirror:
 
-- In February 2016, [attackers compromised the Linux Mint website][^linux-mint-2016] and modified download links to point to backdoored ISOs containing the Tsunami IRC backdoor. The compromised images only affected Linux Mint 17.3 Cinnamon edition downloads on specific dates.
+- In February 2016, attackers compromised the Linux Mint website[^linux-mint-2016] and modified download links to point to backdoored ISOs containing the Tsunami IRC backdoor. The compromised images only affected Linux Mint 17.3 Cinnamon edition downloads on specific dates.
 
 - In 2018, the Arch Linux AUR (Arch User Repository) helper tool `acroread` was modified by an attacker who gained access to the orphaned package, inserting a malicious script. While not a mirror compromise per se, it illustrated how abandoned distribution points become attack vectors.
 
