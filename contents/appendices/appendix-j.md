@@ -189,6 +189,7 @@ Fine-grained tokens replace classic tokens with scoped access:
 3. Under **Permissions**, grant only the specific permissions needed (e.g., only **Contents: Read** for a token used to clone)
 
 **Organization policy**: Organization owners can restrict which token types are allowed. Navigate to **Organization Settings** > **Personal access tokens** and configure:
+
 - Whether fine-grained tokens are allowed
 - Whether classic tokens are allowed (we recommend disabling classic tokens)
 - Whether tokens require admin approval before use
@@ -337,6 +338,7 @@ integrations maintained by other parties are out of scope.
 ##### Security Policy Discoverability [D.B.2]
 
 Once you create `SECURITY.md`, GitHub automatically:
+
 - Displays a **Security policy** link in the repository's **Security** tab
 - Shows a notice in the sidebar when someone opens a new issue, directing security reports to the proper channel
 
@@ -896,6 +898,7 @@ Click **Enable**. Once enabled, a **Report a vulnerability** button appears on y
 **Process Guidance**: Document your security contacts in `SECURITY.md`. GitHub does not have a dedicated "security contact" field, but the private vulnerability reporting feature routes reports to all repository administrators and organization owners.
 
 To ensure the right people receive reports:
+
 1. Add your security team members as repository collaborators with at least **Triage** access
 2. List security contacts explicitly in your `SECURITY.md`
 3. Consider creating a `security@your-project.org` email alias
@@ -1069,6 +1072,7 @@ Define custom roles that match your governance model (e.g., a "Security Reviewer
 **Navigation** (Organization): **Organization Settings** > **Audit log**
 
 The audit log records administrative actions including:
+
 - Permission changes
 - Repository creation/deletion
 - Branch protection rule changes
@@ -1152,6 +1156,7 @@ Or use a CLA assistant like `cla-assistant/cla-assistant`.
 ##### New Contributor Review Requirements [D.E.9]
 
 **Process Guidance**: Document in `CONTRIBUTING.md` that:
+
 - All first-time contributions receive additional review
 - Contributions touching security-sensitive areas require security team review
 - Large changes should be discussed in an issue before submitting a PR
@@ -1503,6 +1508,7 @@ GitLab does not have a built-in "private vulnerability reporting" form equivalen
 **Navigation**: Project > **Settings** > **General** > expand **Visibility, project features, permissions**
 
 Set **Project visibility** to:
+
 - **Public** for open source projects
 - **Internal** for organization-internal projects (visible to all authenticated users)
 - **Private** for restricted projects
@@ -1512,6 +1518,7 @@ Set **Project visibility** to:
 **Navigation**: Project > **Settings** > **General** > expand **Visibility, project features, permissions**
 
 Toggle off any features your project does not use:
+
 - **Wiki**
 - **Snippets**
 - **Container Registry**
@@ -2032,7 +2039,7 @@ dependency_check:
 
 GitLab does not have a built-in Dependabot equivalent. Options:
 
-1. **Renovate Bot**: Self-hosted or use the Mend Renovate GitLab app. Configure with `renovate.json`:
+**Renovate Bot**: Self-hosted or use the Mend Renovate GitLab app. Configure with `renovate.json`:
 
 ```json
 {
@@ -2041,7 +2048,7 @@ GitLab does not have a built-in Dependabot equivalent. Options:
 }
 ```
 
-2. **Scheduled pipelines**: Create a scheduled pipeline that checks for updates:
+**Scheduled pipelines**: Create a scheduled pipeline that checks for updates:
 
 **Navigation**: Project > **Build** > **Pipeline schedules** > **New schedule**
 
@@ -2192,6 +2199,7 @@ Establish a quarterly process using the group/project members page (see [D.A.13]
 ##### Security in Communications [D.E.12]
 
 GitLab does not have a Discussions feature like GitHub. Use:
+
 - Project issues with a `security` label for non-sensitive discussions
 - Confidential issues for sensitive topics
 - Project wiki for persistent security documentation

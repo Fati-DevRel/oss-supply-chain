@@ -33,7 +33,7 @@ Compromise of any component in this chain can result in users receiving maliciou
 
 Mirror compromise can affect all users fetching from that mirror:
 
-- In February 2016, [attackers compromised the Linux Mint website][linux-mint-2016] and modified download links to point to backdoored ISOs containing the Tsunami IRC backdoor. The compromised images only affected Linux Mint 17.3 Cinnamon edition downloads on specific dates.
+- In February 2016, attackers compromised the Linux Mint website[^linux-mint-2016] and modified download links to point to backdoored ISOs containing the Tsunami IRC backdoor. The compromised images only affected Linux Mint 17.3 Cinnamon edition downloads on specific dates.
 
 - In 2018, the Arch Linux AUR (Arch User Repository) helper tool `acroread` was modified by an attacker who gained access to the orphaned package, inserting a malicious script. While not a mirror compromise per se, it illustrated how abandoned distribution points become attack vectors.
 
@@ -65,7 +65,7 @@ Automatic updates are both security feature and attack vector. They ensure users
 
 **Update mechanism vulnerabilities** can allow attackers to trigger false updates:
 
-- In early 2016, [security researcher Radek disclosed vulnerabilities in Sparkle][sparkle-2016], the open-source update framework used by many macOS applications. Attackers could intercept update checks and deliver malicious updates.
+- In early 2016, security researcher Radek disclosed vulnerabilities in Sparkle[^sparkle-2016], the open-source update framework used by many macOS applications. Attackers could intercept update checks and deliver malicious updates.
 
 - Multiple applications have been found to check for updates over HTTP, allowing network attackers to inject malicious updates.
 
@@ -91,7 +91,7 @@ Defenses against rollback attacks include:
 - **Minimum version enforcement**: Refusing to install versions older than what's installed
 - **Transparency logs**: Recording all published versions to detect inconsistent serving
 
-[The Update Framework (TUF)][tuf], designed specifically for secure software updates, includes rollback protection as a core feature.
+The Update Framework (TUF)[^tuf], designed specifically for secure software updates, includes rollback protection as a core feature.
 
 ## Domain and DNS Hijacking
 
@@ -110,7 +110,7 @@ Domain hijacking can occur through:
 
 **DNS hijacking** achieves similar results by modifying DNS resolution without transferring domain ownership. Attackers who compromise DNS infrastructure can redirect traffic to their servers.
 
-In late January 2021, [the perl.com domain was discovered to have been hijacked][perl-hijack] through a social engineering attack on the domain registrar. Attackers had actually gained control months earlier, in September 2020, using fraudulent documents. For a period, the domain pointed to an IP address associated with malware distribution. While this primarily affected the website rather than CPAN package distribution, it illustrated how domain control enables comprehensive impersonation.
+In late January 2021, the perl.com domain was discovered to have been hijacked[^perl-hijack] through a social engineering attack on the domain registrar. Attackers had actually gained control months earlier, in September 2020, using fraudulent documents. For a period, the domain pointed to an IP address associated with malware distribution. While this primarily affected the website rather than CPAN package distribution, it illustrated how domain control enables comprehensive impersonation.
 
 ## Case Study: Polyfill.io (2024)
 
@@ -130,7 +130,7 @@ Polyfill.io was a service that automatically provided JavaScript polyfills—cod
 
 The service was extremely popular. Estimates suggested over 100,000 websites included Polyfill.io scripts, serving hundreds of millions of users. The service was particularly common on e-commerce sites, media outlets, and enterprise applications.
 
-The original Polyfill.io service was created by Andrew Betts, a developer at the Financial Times. In February 2024, [the domain and GitHub account were acquired][polyfill-sansec] by Funnull, a Chinese CDN company.
+The original Polyfill.io service was created by Andrew Betts, a developer at the Financial Times. In February 2024, the domain and GitHub account were acquired[^polyfill-sansec] by Funnull, a Chinese CDN company.
 
 **The Attack:**
 
@@ -155,18 +155,18 @@ Because the attack used the legitimate Polyfill.io domain with valid TLS certifi
 
 The attack's reach was extraordinary:
 
-- Initial estimates suggested over 100,000 websites potentially affected; [subsequent analysis by Censys][censys-polyfill] identified over 380,000 hosts still embedding the malicious script as of early July 2024
+- Initial estimates suggested over 100,000 websites potentially affected; subsequent analysis by Censys[^censys-polyfill] identified over 380,000 hosts still embedding the malicious script as of early July 2024
 - Domains associated with major brands including Hulu, Mercedes-Benz, and Warner Bros. were found referencing the compromised endpoint
 - Millions of end users received malicious redirects
 - E-commerce sites exposed customer sessions to potential theft
 
-[Security researchers at Sansec][polyfill-sansec] characterized the attack as a supply chain compromise that weaponized infrastructure trusted by web developers for years.
+Security researchers at Sansec[^polyfill-sansec] characterized the attack as a supply chain compromise that weaponized infrastructure trusted by web developers for years.
 
 **Response:**
 
 The response required coordination across the web ecosystem:
 
-- **[Cloudflare][cloudflare-polyfill]** and **[Fastly][fastly-polyfill]** created replacement Polyfill.io services, serving legitimate polyfill code from trustworthy infrastructure
+- **Cloudflare[^cloudflare-polyfill]** and **Fastly[^fastly-polyfill]** created replacement Polyfill.io services, serving legitimate polyfill code from trustworthy infrastructure
 - **Google** began warning advertisers using affected domains
 - **Domain registrars** worked to take down the malicious domain
 - **CDN providers** blocked the compromised domain at the edge
@@ -268,12 +268,10 @@ However, TLS and CT do not protect against:
 Distribution attacks exploit the assumption that content from trusted sources remains trustworthy. The Polyfill.io incident demonstrated this assumption's fragility—a legitimate service, trusted by over 100,000 websites, became an attack vector overnight when ownership changed. Defending against distribution attacks requires treating the entire path from publisher to consumer as potential attack surface, implementing verification at every stage, and planning for the possibility that any component in the chain could be compromised.
 
 [^tuf]: The Update Framework, https://theupdateframework.io/
-
-[linux-mint-2016]: https://blog.linuxmint.com/?p=2994
-[sparkle-2016]: https://vulnsec.com/2016/osx-apps-vulnerabilities/
-[tuf]: https://theupdateframework.io/
-[perl-hijack]: Perl.com, "The Hijacking of Perl.com" (March 2021). https://www.perl.com/article/the-hijacking-of-perl-com/
-[polyfill-sansec]: https://sansec.io/research/polyfill-supply-chain-attack
-[censys-polyfill]: https://censys.com/blog/july-2-polyfill-io-supply-chain-attack-digging-into-the-web-of-compromised-domains
-[cloudflare-polyfill]: https://blog.cloudflare.com/polyfill-io-now-available-on-cdnjs-reduce-your-supply-chain-risk
-[fastly-polyfill]: https://community.fastly.com/t/new-options-for-polyfill-io-users/2540
+[^linux-mint-2016]: https://blog.linuxmint.com/?p=2994
+[^sparkle-2016]: https://vulnsec.com/2016/osx-apps-vulnerabilities/
+[^perl-hijack]: Perl.com, "The Hijacking of Perl.com" (March 2021). https://www.perl.com/article/the-hijacking-of-perl-com/
+[^polyfill-sansec]: https://sansec.io/research/polyfill-supply-chain-attack
+[^censys-polyfill]: https://censys.com/blog/july-2-polyfill-io-supply-chain-attack-digging-into-the-web-of-compromised-domains
+[^cloudflare-polyfill]: https://blog.cloudflare.com/polyfill-io-now-available-on-cdnjs-reduce-your-supply-chain-risk
+[^fastly-polyfill]: https://community.fastly.com/t/new-options-for-polyfill-io-users/2540

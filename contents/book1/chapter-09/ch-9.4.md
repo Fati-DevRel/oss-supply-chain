@@ -103,7 +103,7 @@ Public CDNs serve JavaScript libraries to millions of websites. Their compromise
 
 **Major JavaScript CDNs:**
 
-- **[cdnjs][cdnjs]** (Cloudflare): Over 4,500 libraries, serving over 12.5% of websites
+- **cdnjs[^cdnjs]** (Cloudflare): Over 4,500 libraries, serving over 12.5% of websites
 - **jsDelivr**: Aggregates npm, GitHub, and custom packages
 - **unpkg**: Serves npm packages directly
 - **Google Hosted Libraries**: jQuery, Angular, and other popular libraries
@@ -124,9 +124,9 @@ A failure at any point compromises every site using that resource.
 
 While major CDN compromises have been rare, close calls exist:
 
-- In 2021, [a researcher discovered a vulnerability in cdnjs][cdnjs-vuln] that could have allowed arbitrary code injection into any hosted library
+- In 2021, a researcher discovered a vulnerability in cdnjs[^cdnjs-vuln] that could have allowed arbitrary code injection into any hosted library
 - CDN configuration errors have occasionally served incorrect file versions
-- The [Polyfill.io incident][polyfill] (Section 7.8) demonstrated CDN trust being weaponized through ownership transfer
+- The Polyfill.io incident[^polyfill] (Section 7.8) demonstrated CDN trust being weaponized through ownership transfer
 
 **The Centralization Paradox:**
 
@@ -145,7 +145,7 @@ Section 7.8 detailed the Polyfill.io attack, but its relevance to client-side su
 
 **Why It Worked:**
 
-- Sites included `<script src="https://cdn.polyfill.io/...">` 
+- Sites included `<script src="https://cdn.polyfill.io/...">`
 - No SRI was possible (scripts were dynamically generated)
 - Ownership change triggered no notifications
 - Detection relied on security researchers noticing anomalies
@@ -158,7 +158,7 @@ Section 7.8 detailed the Polyfill.io attack, but its relevance to client-side su
 
 ## Case Study: Ledger Connect Kit Attack (2023)
 
-In December 2023, a [supply chain attack on Ledger's Connect Kit][ledger-attack] JavaScript library demonstrated how client-side compromises can target cryptocurrency assets.
+In December 2023, a supply chain attack on Ledger's Connect Kit[^ledger-attack] JavaScript library demonstrated how client-side compromises can target cryptocurrency assets.
 
 !!! example "Ledger Connect Kit Attack (2023)"
 
@@ -170,7 +170,7 @@ Ledger produces hardware cryptocurrency wallets. The **Ledger Connect Kit** is a
 
 **The Attack:**
 
-On December 14, 2023, attackers [compromised a former Ledger employee's npm account][ledger-incident] through a phishing attack. Using this access, they:
+On December 14, 2023, attackers compromised a former Ledger employee's npm account[^ledger-incident] through a phishing attack. Using this access, they:
 
 1. Published malicious versions of `@ledgerhq/connect-kit` to npm
 2. The compromised package was loaded by dApps using the Ledger Connect Kit
@@ -295,66 +295,65 @@ These tools observe script execution in production, detecting suspicious behavio
 
 ## Recommendations
 
-**For Web Developers:**
+### For Web Developers
 
-1. **Audit third-party scripts.** Know what's loading on your pages. Use browser developer tools to inventory scripts and their sources.
+**Audit third-party scripts.** Know what's loading on your pages. Use browser developer tools to inventory scripts and their sources.
 
-2. **Use SRI for static libraries.** When loading stable libraries from CDNs, implement Subresource Integrity:
+**Use SRI for static libraries.** When loading stable libraries from CDNs, implement Subresource Integrity:
 
-   ```html
-   <script src="https://cdn.example.com/lib.js"
-           integrity="sha384-..."
-           crossorigin="anonymous"></script>
-   ```
+```html
+<script src="https://cdn.example.com/lib.js"
+        integrity="sha384-..."
+        crossorigin="anonymous"></script>
+```
 
-3. **Self-host when feasible.** For critical libraries, bundle at build time or host on your own infrastructure rather than trusting external CDNs.
+**Self-host when feasible.** For critical libraries, bundle at build time or host on your own infrastructure rather than trusting external CDNs.
 
 !!! tip "Self-Hosting for Critical Libraries"
 
     For critical libraries, bundle at build time or host on your own infrastructure. This eliminates continuous trust in external CDNs and enables version verification at deployment.
 
-4. **Implement Content Security Policy.** Even imperfect CSP provides defense-in-depth against unexpected script sources.
+**Implement Content Security Policy.** Even imperfect CSP provides defense-in-depth against unexpected script sources.
 
-5. **Minimize third-party scripts.** Each external script is a trust relationship. Remove unused scripts and consolidate where possible.
+**Minimize third-party scripts.** Each external script is a trust relationship. Remove unused scripts and consolidate where possible.
 
-6. **Load scripts asynchronously with appropriate sandboxing.** Use `async` or `defer` attributes and consider iframe sandboxing for untrusted content.
+**Load scripts asynchronously with appropriate sandboxing.** Use `async` or `defer` attributes and consider iframe sandboxing for untrusted content.
 
-7. **Monitor for script changes.** Implement monitoring that alerts when third-party script behavior changes.
+**Monitor for script changes.** Implement monitoring that alerts when third-party script behavior changes.
 
-**For Security Teams:**
+### For Security Teams
 
-1. **Inventory client-side dependencies.** Maintain visibility into what third-party scripts run on your sites.
+**Inventory client-side dependencies.** Maintain visibility into what third-party scripts run on your sites.
 
-2. **Assess third-party vendors.** Evaluate the security practices of companies whose scripts you load.
+**Assess third-party vendors.** Evaluate the security practices of companies whose scripts you load.
 
-3. **Implement client-side protection.** Consider specialized tools for monitoring runtime JavaScript behavior.
+**Implement client-side protection.** Consider specialized tools for monitoring runtime JavaScript behavior.
 
-4. **Define policies for script inclusion.** Require security review before adding new third-party scripts.
+**Define policies for script inclusion.** Require security review before adding new third-party scripts.
 
-5. **Test CSP implementation.** Regularly verify that Content Security Policy is implemented correctly.
+**Test CSP implementation.** Regularly verify that Content Security Policy is implemented correctly.
 
-6. **Plan for third-party compromise.** Know how you'll respond when a third-party script is compromised.
+**Plan for third-party compromise.** Know how you'll respond when a third-party script is compromised.
 
-**For Organizations Using Cryptocurrency or Payment Applications:**
+### For Organizations Using Cryptocurrency or Payment Applications
 
-1. **Minimize runtime dependencies.** Bundle as much as possible at build time with verified versions.
+**Minimize runtime dependencies.** Bundle as much as possible at build time with verified versions.
 
-2. **Implement strict CSP.** Payment flows warrant the development investment for tight CSP policies.
+**Implement strict CSP.** Payment flows warrant the development investment for tight CSP policies.
 
-3. **Use SRI universally.** Every external script in payment contexts should have integrity verification.
+**Use SRI universally.** Every external script in payment contexts should have integrity verification.
 
-4. **Monitor transaction anomalies.** Detection systems should flag unusual transaction patterns that might indicate script compromise.
+**Monitor transaction anomalies.** Detection systems should flag unusual transaction patterns that might indicate script compromise.
 
-5. **Consider isolation.** Load sensitive functionality (wallet connections, payment forms) in isolated contexts.
+**Consider isolation.** Load sensitive functionality (wallet connections, payment forms) in isolated contexts.
 
 Client-side JavaScript supply chains represent perhaps the most immediate supply chain risk: compromises affect users within milliseconds, without any action by site operators. The Ledger Connect Kit attack demonstrated that sophisticated attackers understand this leverage. While SRI and CSP provide partial protection, the fundamental challenge remains: every external script is a continuously trusted dependency, executing with full access to your users' browsers.
 
 [http-archive-third-parties]: https://almanac.httparchive.org/en/2024/third-parties
 [http-archive-security]: https://almanac.httparchive.org/en/2024/security
-
 [^http-archive-js]: HTTP Archive, "Web Almanac 2024: JavaScript," https://almanac.httparchive.org/en/2024/javascript
-[cdnjs]: https://cdnjs.com/
-[cdnjs-vuln]: https://blog.cloudflare.com/cloudflares-handling-of-an-rce-vulnerability-in-cdnjs/
-[polyfill]: https://www.sonatype.com/blog/polyfill.io-supply-chain-attack-hits-100000-websites-all-you-need-to-know
-[ledger-attack]: https://www.bleepingcomputer.com/news/security/ledger-dapp-supply-chain-attack-steals-600k-from-crypto-wallets/
-[ledger-incident]: https://www.ledger.com/blog/security-incident-report
+[^cdnjs]: https://cdnjs.com/
+[^cdnjs-vuln]: https://blog.cloudflare.com/cloudflares-handling-of-an-rce-vulnerability-in-cdnjs/
+[^polyfill]: https://www.sonatype.com/blog/polyfill.io-supply-chain-attack-hits-100000-websites-all-you-need-to-know
+[^ledger-attack]: https://www.bleepingcomputer.com/news/security/ledger-dapp-supply-chain-attack-steals-600k-from-crypto-wallets/
+[^ledger-incident]: https://www.ledger.com/blog/security-incident-report

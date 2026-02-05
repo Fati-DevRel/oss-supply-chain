@@ -72,6 +72,7 @@ Malicious "fixes" use techniques to hide their true nature:
 A fake report claims: "Your URL parsing library is vulnerable to SSRF because it doesn't validate protocols."
 
 The submitted "fix":
+
 ```python
 def parse_url(url):
     # Security fix: validate protocol to prevent SSRF

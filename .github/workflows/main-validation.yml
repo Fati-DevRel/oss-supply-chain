@@ -145,6 +145,12 @@ jobs:
           find contents/ -type f -name "*.md" | while IFS= read -r file; do
             DIR=$(dirname "$file")
 
+            # home.md is copied to the docs root as index.md during site build,
+            # so its .md links are relative to contents/, not contents/frontmatter/
+            if [[ "$file" == "contents/frontmatter/home.md" ]]; then
+              DIR="contents"
+            fi
+
             # Find markdown links to .md files: [text](path.md) or [text](path.md#anchor)
             grep -oP '\[[^\]]*\]\(\K[^)]+\.md[^)]*' "$file" 2>/dev/null | while IFS= read -r link; do
               # Remove anchor if present

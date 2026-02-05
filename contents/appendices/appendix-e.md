@@ -503,26 +503,26 @@ This playbook addresses incidents involving:
 **8.1 Internal Notification (Initial)**
 
 > **Subject: [SEVERITY] Security Incident - Supply Chain Component**
-> 
+>
 > A security incident involving [COMPONENT NAME] has been identified. The incident response team has been activated.
-> 
+>
 > **Current Status**: [INVESTIGATING/CONTAINED/REMEDIATED]
 > **Affected Systems**: [DESCRIPTION]
 > **Immediate Actions Required**: [ACTIONS]
-> 
+>
 > Updates will be provided every [TIMEFRAME]. Direct questions to [CONTACT].
 
 **8.2 Customer Notification (if required)**
 
 > **Subject: Security Advisory - [PRODUCT NAME]**
-> 
+>
 > [ORGANIZATION NAME] has identified and addressed a security issue affecting [PRODUCT/SERVICE].
-> 
+>
 > **What Happened**: [BRIEF DESCRIPTION]
 > **Impact**: [WHAT CUSTOMERS SHOULD KNOW]
 > **Actions Taken**: [OUR RESPONSE]
 > **Customer Action Required**: [IF ANY]
-> 
+>
 > We are committed to transparency and security. Contact [SUPPORT CHANNEL] with questions.
 
 **9. Post-Incident Activities**

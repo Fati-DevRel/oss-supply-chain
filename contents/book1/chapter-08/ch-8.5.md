@@ -45,6 +45,7 @@ Hooks reside in `.git/hooks/` and are not transferred during clone or fetch oper
 Projects sometimes include hook scripts in the repository (often in a `hooks/` or `.githooks/` directory) with setup scripts that symlink them into `.git/hooks/`. If an attacker can modify these committed scripts, they achieve code execution when contributors run the setup.
 
 **Example pattern**:
+
 ```shell
 # setup-hooks.sh - legitimate but exploitable pattern
 ln -sf ../../hooks/pre-commit .git/hooks/pre-commit
@@ -67,7 +68,7 @@ This has implications for shared development environments or CI/CD systems where
 
 CI/CD systems often run Git operations that trigger hooks. A `post-checkout` hook in a CI environment executes with the CI runner's privileges—potentially accessing secrets, deployment credentials, and other sensitive resources.
 
-**Defense**: 
+**Defense:**
 
 - Audit any scripts that install hooks from repository content
 - In CI/CD, consider running with `core.hooksPath` set to an empty directory

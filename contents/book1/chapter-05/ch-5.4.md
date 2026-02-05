@@ -94,6 +94,7 @@ flowchart LR
     L -->|"Waiting"| F
     F -->|"Waiting"| A
 ```
+
 *Figure 5.4.1: The transitive dependency patching cascade. Each layer must wait for its dependency to update before it can incorporate the fix. A vulnerability in a utility library may take weeks or months to reach your application—during which time attackers can exploit it.*
 
 1. Utility maintainer releases patched version

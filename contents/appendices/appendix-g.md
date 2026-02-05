@@ -123,6 +123,7 @@ Python's package ecosystem centers on PyPI (Python Package Index). The ecosystem
 Python has multiple dependency management approaches. Choose based on project needs.
 
 **pip with requirements.txt**:
+
 ```shell
 # Generate pinned requirements
 pip freeze > requirements.txt
@@ -135,6 +136,7 @@ pip-compile --generate-hashes requirements.in
 ```
 
 **Poetry**:
+
 ```shell
 # Install from lockfile
 poetry install --no-root
@@ -147,6 +149,7 @@ poetry export -f requirements.txt --output requirements.txt
 ```
 
 **Pipenv**:
+
 ```shell
 # Install from Pipfile.lock
 pipenv install --deploy
@@ -156,6 +159,7 @@ pipenv lock
 ```
 
 **uv**[^uv-docs] (recommended for new projects):
+
 ```shell
 # Initialize project
 uv init
@@ -226,6 +230,7 @@ jobs:
 ```
 
 **Sigstore signing** is available for packages:
+
 ```shell
 # Sign a distribution
 python -m sigstore sign dist/*.whl
@@ -284,6 +289,7 @@ The Java ecosystem uses Maven Central as its primary repository. The ecosystem h
 Maven doesn't have a native lockfile. Use these approaches for reproducible builds:
 
 **Dependency Management BOM**:
+
 ```xml
 <dependencyManagement>
   <dependencies>
@@ -299,6 +305,7 @@ Maven doesn't have a native lockfile. Use these approaches for reproducible buil
 ```
 
 **Maven Enforcer Plugin**:
+
 ```xml
 <plugin>
   <groupId>org.apache.maven.plugins</groupId>
@@ -320,6 +327,7 @@ Maven doesn't have a native lockfile. Use these approaches for reproducible buil
 ```
 
 **Gradle Lockfiles**:
+
 ```shell
 # Generate lockfile
 ./gradlew dependencies --write-locks
@@ -505,6 +513,7 @@ go mod verify
 ```
 
 **Private modules**: Configure `GOPRIVATE` for internal modules:
+
 ```shell
 export GOPRIVATE=github.com/mycompany/*,gitlab.mycompany.com/*
 ```
@@ -608,6 +617,7 @@ cargo deny check
 **cargo-capslock** is an experimental Rust Foundation project (Alpha-Omega funded) that performs capability analysis similar to the Go implementation, analyzing what dependencies can access at the LLVM IR level.
 
 **cargo-deny configuration** (`deny.toml`):
+
 ```toml
 [advisories]
 vulnerability = "deny"
@@ -700,6 +710,7 @@ FROM node:24
 ```
 
 **Distroless and minimal images**:
+
 ```dockerfile
 # Google Distroless (no shell, minimal attack surface)
 FROM gcr.io/distroless/nodejs24-debian12
@@ -751,6 +762,7 @@ cosign attest --predicate sbom.json myregistry/myimage:tag
 ```
 
 **Policy enforcement with Kyverno or OPA Gatekeeper**:
+
 ```yaml
 # Kyverno policy: require signed images
 apiVersion: kyverno.io/v1
@@ -812,6 +824,7 @@ docker login --username $USER --password-stdin myregistry.com < token.txt
 | Exposed ports | Unnecessary services | Minimize exposed ports |
 
 **Dockerfile security best practices**:
+
 ```dockerfile
 # Use non-root user
 FROM node:20-alpine

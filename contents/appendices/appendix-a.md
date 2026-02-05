@@ -4,7 +4,7 @@ This glossary provides definitions for key terms used throughout this book. Term
 
 ---
 
-#### A {.unlisted .unnumbered}
+### A {.unlisted .unnumbered}
 
 **Account hijacking**: An attack in which an adversary gains unauthorized access to a legitimate user's credentials on a source code repository, package registry, or other software development platform. Once compromised, attackers can publish malicious code, modify existing packages, or exfiltrate sensitive information. Account hijacking is frequently mitigated through multi-factor authentication and the use of scoped access tokens. *See also: Multi-factor authentication (MFA), Trusted publishing.*
 
@@ -18,7 +18,7 @@ This glossary provides definitions for key terms used throughout this book. Term
 
 ---
 
-#### B {.unlisted .unnumbered}
+### B {.unlisted .unnumbered}
 
 **Binary hardening**: A collection of techniques applied during compilation or post-compilation to make compiled software more resistant to exploitation. Common hardening measures include enabling stack canaries, position-independent executables (PIE), ASLR support, and Control Flow Integrity. Binary hardening represents a defense-in-depth approach that reduces the likelihood that vulnerabilities will be successfully exploited. *See also: Address Space Layout Randomization (ASLR), Control Flow Integrity (CFI).*
 
@@ -28,7 +28,7 @@ This glossary provides definitions for key terms used throughout this book. Term
 
 ---
 
-#### C {.unlisted .unnumbered}
+### C {.unlisted .unnumbered}
 
 **CI/CD (Continuous Integration/Continuous Delivery)**: A software development practice that automates the building, testing, and deployment of code changes. CI/CD pipelines are critical infrastructure in modern software development but also represent a significant attack surface. Securing CI/CD systems involves protecting secrets, validating inputs, and ensuring the integrity of the build environment. *See also: Trusted publishing, Hermetic build.*
 
@@ -48,7 +48,7 @@ This glossary provides definitions for key terms used throughout this book. Term
 
 ---
 
-#### D {.unlisted .unnumbered}
+### D {.unlisted .unnumbered}
 
 **DAST (Dynamic Application Security Testing)**: A security testing methodology that analyzes applications while they are running to identify vulnerabilities. DAST tools probe applications from the outside, simulating attacks to discover issues such as injection vulnerabilities, authentication flaws, and configuration errors. DAST complements static analysis by finding runtime-specific vulnerabilities. *See also: IAST, SAST, Fuzzing.*
 
@@ -62,13 +62,13 @@ This glossary provides definitions for key terms used throughout this book. Term
 
 ---
 
-#### F {.unlisted .unnumbered}
+### F {.unlisted .unnumbered}
 
 **Fuzzing**: An automated software testing technique that provides invalid, unexpected, or random data as inputs to a program to discover bugs and security vulnerabilities. Fuzzers monitor program behavior for crashes, assertion failures, memory leaks, and other anomalies. Modern fuzzing approaches include coverage-guided fuzzing (e.g., AFL, libFuzzer) and structure-aware fuzzing. Google's OSS-Fuzz project provides continuous fuzzing for critical open source projects. *See also: DAST, OSS-Fuzz.*
 
 ---
 
-#### H {.unlisted .unnumbered}
+### H {.unlisted .unnumbered}
 
 **Hermetic build**: A build process that is isolated from the host environment and produces the same output regardless of when or where it is executed. Hermetic builds achieve reproducibility by explicitly declaring all inputs (source code, dependencies, tools, and environment) and preventing access to external resources during the build. Hermetic builds are a key requirement for achieving higher SLSA levels. *See also: Reproducible build, Build provenance, SLSA.*
 
@@ -76,7 +76,7 @@ This glossary provides definitions for key terms used throughout this book. Term
 
 ---
 
-#### I {.unlisted .unnumbered}
+### I {.unlisted .unnumbered}
 
 **IAST (Interactive Application Security Testing)**: A security testing approach that combines elements of static and dynamic analysis by instrumenting applications during testing to monitor internal behavior. IAST tools can identify vulnerabilities with lower false positive rates than traditional SAST or DAST by observing actual data flows during execution. *See also: DAST, SAST.*
 
@@ -84,13 +84,13 @@ This glossary provides definitions for key terms used throughout this book. Term
 
 ---
 
-#### L {.unlisted .unnumbered}
+### L {.unlisted .unnumbered}
 
 **Lockfile**: A file that records the exact versions (and often cryptographic hashes) of all dependencies resolved for a project at a specific point in time. Lockfiles ensure reproducible installations by preventing automatic upgrades to newer versions and enabling verification that downloaded packages match expected content. Examples include `package-lock.json` (npm), `Pipfile.lock` (Python), and `Cargo.lock` (Rust). *See also: Dependency management, Reproducible build.*
 
 ---
 
-#### M {.unlisted .unnumbered}
+### M {.unlisted .unnumbered}
 
 **Malicious package**: A software package that intentionally contains harmful functionality such as data exfiltration, cryptocurrency mining, backdoors, or destructive payloads. Malicious packages may be published under names designed to deceive (typosquatting), may compromise legitimate packages through account hijacking, or may be introduced by malicious maintainers. Package registries employ automated scanning and community reporting to detect and remove malicious packages. *See also: Typosquatting, Account hijacking, Protestware.*
 
@@ -100,7 +100,7 @@ This glossary provides definitions for key terms used throughout this book. Term
 
 ---
 
-#### N {.unlisted .unnumbered}
+### N {.unlisted .unnumbered}
 
 **National Vulnerability Database (NVD)**: A U.S. government repository of standards-based vulnerability management data maintained by NIST. The NVD catalogs CVE entries with additional analysis including CVSS severity scores, CWE classifications, and affected product information (CPE). The NVD serves as a primary reference for vulnerability data used by security tools and organizations worldwide. *See also: CVE, CVSS, CWE.*
 
@@ -108,13 +108,13 @@ This glossary provides definitions for key terms used throughout this book. Term
 
 ---
 
-#### O {.unlisted .unnumbered}
+### O {.unlisted .unnumbered}
 
 **OSS-Fuzz**: Google's continuous fuzzing service for open source software. OSS-Fuzz runs fuzzing tests against critical open source projects 24/7, automatically reporting discovered bugs to maintainers. As of 2024, OSS-Fuzz has found over 10,000 vulnerabilities and 36,000 bugs across 1,000+ open source projects. *See also: Fuzzing.*
 
 ---
 
-#### P {.unlisted .unnumbered}
+### P {.unlisted .unnumbered}
 
 **Package management system**: A collection of software tools that automates the process of installing, upgrading, configuring, and removing software packages. Package managers maintain databases of available packages, resolve dependencies, and handle versioning. Major package managers include npm (JavaScript), PyPI/pip (Python), Maven Central (Java), NuGet (.NET), and RubyGems (Ruby). *See also: Package registry, Dependency management.*
 
@@ -128,7 +128,7 @@ This glossary provides definitions for key terms used throughout this book. Term
 
 ---
 
-#### R {.unlisted .unnumbered}
+### R {.unlisted .unnumbered}
 
 **RASP (Runtime Application Self-Protection)**: A security technology that runs within an application to detect and prevent attacks in real-time. RASP solutions instrument applications to monitor behavior and can block malicious activities such as SQL injection, command injection, and authentication bypass attempts. *See also: DAST, IAST.*
 
@@ -138,7 +138,7 @@ This glossary provides definitions for key terms used throughout this book. Term
 
 ---
 
-#### S {.unlisted .unnumbered}
+### S {.unlisted .unnumbered}
 
 **SAST (Static Application Security Testing)**: Security testing that analyzes source code, bytecode, or binary code without executing the program. SAST tools identify potential vulnerabilities by examining code structure, data flows, and patterns associated with known vulnerability types. SAST can find issues early in development but may produce false positives and cannot detect runtime-specific vulnerabilities. Also referred to as static analysis. *See also: DAST, IAST, Software Composition Analysis (SCA).*
 
@@ -166,7 +166,7 @@ This glossary provides definitions for key terms used throughout this book. Term
 
 ---
 
-#### T {.unlisted .unnumbered}
+### T {.unlisted .unnumbered}
 
 **Threat modeling**: A structured process for identifying potential security threats, vulnerabilities, and attack vectors affecting a system. Threat modeling typically involves creating diagrams of system architecture, identifying trust boundaries, enumerating potential threats using frameworks like STRIDE, and prioritizing risks for mitigation. Threat models should be updated as systems evolve. *See also: Attack surface, Security audit.*
 
@@ -178,7 +178,7 @@ This glossary provides definitions for key terms used throughout this book. Term
 
 ---
 
-#### V {.unlisted .unnumbered}
+### V {.unlisted .unnumbered}
 
 **Vendoring**: The practice of copying dependency source code directly into a project's repository rather than fetching it from a package registry at build time. Vendoring provides protection against dependency availability issues and supply chain attacks but increases maintenance burden and may complicate license compliance. Vendoring is common in Go projects and is sometimes used for critical dependencies in other ecosystems. *See also: Dependency management, Lockfile.*
 
@@ -188,7 +188,7 @@ This glossary provides definitions for key terms used throughout this book. Term
 
 ---
 
-#### Z {.unlisted .unnumbered}
+### Z {.unlisted .unnumbered}
 
 **Zero-day vulnerability**: A vulnerability that is unknown to the parties responsible for patching or otherwise fixing the flaw. The term "zero-day" refers to the fact that developers have had zero days to address the vulnerability before it may be exploited. Zero-day vulnerabilities are particularly dangerous because no patches or mitigations are available. Once a zero-day is publicly disclosed, it becomes an "n-day" vulnerability. *See also: CVE, Responsible disclosure, Coordinated vulnerability disclosure.*
 
