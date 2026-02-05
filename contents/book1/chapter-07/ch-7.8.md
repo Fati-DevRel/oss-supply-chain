@@ -166,7 +166,7 @@ The attack's reach was extraordinary:
 
 The response required coordination across the web ecosystem:
 
-- **[Cloudflare][^cloudflare-polyfill]** and **[Fastly][^fastly-polyfill]** created replacement Polyfill.io services, serving legitimate polyfill code from trustworthy infrastructure
+- **Cloudflare[^cloudflare-polyfill]** and **Fastly[^fastly-polyfill]** created replacement Polyfill.io services, serving legitimate polyfill code from trustworthy infrastructure
 - **Google** began warning advertisers using affected domains
 - **Domain registrars** worked to take down the malicious domain
 - **CDN providers** blocked the compromised domain at the edge
