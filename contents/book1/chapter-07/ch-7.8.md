@@ -110,7 +110,7 @@ Domain hijacking can occur through:
 
 **DNS hijacking** achieves similar results by modifying DNS resolution without transferring domain ownership. Attackers who compromise DNS infrastructure can redirect traffic to their servers.
 
-In late January 2021, [the perl.com domain was discovered to have been hijacked][^perl-hijack] through a social engineering attack on the domain registrar. Attackers had actually gained control months earlier, in September 2020, using fraudulent documents. For a period, the domain pointed to an IP address associated with malware distribution. While this primarily affected the website rather than CPAN package distribution, it illustrated how domain control enables comprehensive impersonation.
+In late January 2021, the perl.com domain was discovered to have been hijacked[^perl-hijack] through a social engineering attack on the domain registrar. Attackers had actually gained control months earlier, in September 2020, using fraudulent documents. For a period, the domain pointed to an IP address associated with malware distribution. While this primarily affected the website rather than CPAN package distribution, it illustrated how domain control enables comprehensive impersonation.
 
 ## Case Study: Polyfill.io (2024)
 
