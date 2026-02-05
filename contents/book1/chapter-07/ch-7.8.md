@@ -155,7 +155,7 @@ Because the attack used the legitimate Polyfill.io domain with valid TLS certifi
 
 The attack's reach was extraordinary:
 
-- Initial estimates suggested over 100,000 websites potentially affected; [subsequent analysis by Censys][^censys-polyfill] identified over 380,000 hosts still embedding the malicious script as of early July 2024
+- Initial estimates suggested over 100,000 websites potentially affected; subsequent analysis by Censys[^censys-polyfill] identified over 380,000 hosts still embedding the malicious script as of early July 2024
 - Domains associated with major brands including Hulu, Mercedes-Benz, and Warner Bros. were found referencing the compromised endpoint
 - Millions of end users received malicious redirects
 - E-commerce sites exposed customer sessions to potential theft
