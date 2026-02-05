@@ -170,7 +170,7 @@ Ledger produces hardware cryptocurrency wallets. The **Ledger Connect Kit** is a
 
 **The Attack:**
 
-On December 14, 2023, attackers [compromised a former Ledger employee's npm account][^ledger-incident] through a phishing attack. Using this access, they:
+On December 14, 2023, attackers compromised a former Ledger employee's npm account[^ledger-incident] through a phishing attack. Using this access, they:
 
 1. Published malicious versions of `@ledgerhq/connect-kit` to npm
 2. The compromised package was loaded by dApps using the Ledger Connect Kit
