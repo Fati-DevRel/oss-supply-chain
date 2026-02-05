@@ -270,7 +270,6 @@ Distribution attacks exploit the assumption that content from trusted sources re
 [^tuf]: The Update Framework, https://theupdateframework.io/
 [^linux-mint-2016]: https://blog.linuxmint.com/?p=2994
 [^sparkle-2016]: https://vulnsec.com/2016/osx-apps-vulnerabilities/
-[^tuf]: https://theupdateframework.io/
 [^perl-hijack]: Perl.com, "The Hijacking of Perl.com" (March 2021). https://www.perl.com/article/the-hijacking-of-perl-com/
 [^polyfill-sansec]: https://sansec.io/research/polyfill-supply-chain-attack
 [^censys-polyfill]: https://censys.com/blog/july-2-polyfill-io-supply-chain-attack-digging-into-the-web-of-compromised-domains
