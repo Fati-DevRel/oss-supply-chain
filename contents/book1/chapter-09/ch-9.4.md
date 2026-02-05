@@ -126,7 +126,7 @@ While major CDN compromises have been rare, close calls exist:
 
 - In 2021, a researcher discovered a vulnerability in cdnjs[^cdnjs-vuln] that could have allowed arbitrary code injection into any hosted library
 - CDN configuration errors have occasionally served incorrect file versions
-- The [Polyfill.io incident][^polyfill] (Section 7.8) demonstrated CDN trust being weaponized through ownership transfer
+- The Polyfill.io incident[^polyfill] (Section 7.8) demonstrated CDN trust being weaponized through ownership transfer
 
 **The Centralization Paradox:**
 
