@@ -180,7 +180,7 @@ Similar risks exist whenever websites load resources from external domains:
 - Font services like Google Fonts serve typography resources with potential for tracking or malicious modification
 - Analytics scripts execute on pages with access to page content and user interactions
 
-As noted above, SRI provides partial mitigation by specifying expected cryptographic hashes for externally loaded resources. Browsers verify loaded content against these hashes and refuse to execute content that doesn't match. However, SRI adoption remains limited, and it requires knowing the expected hash in advance, which is problematic for services that update JavaScript content regularly and doesn't cover dynamically-loaded dependencies, images, or other types of content. 
+As noted above, SRI provides partial mitigation by specifying expected cryptographic hashes for externally loaded resources. Browsers verify loaded content against these hashes and refuse to execute content that doesn't match. However, SRI adoption remains limited, and it requires knowing the expected hash in advance, which is problematic for services that update JavaScript content regularly and doesn't cover dynamically-loaded dependencies, images, or other types of content.
 
 ## Certificate Authorities and Trust
 

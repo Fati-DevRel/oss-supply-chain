@@ -48,6 +48,7 @@ flowchart TB
     PUB -->|"v999.0.0"| RESOLVE
     RESOLVE -->|"Prefers higher<br/>version"| INSTALL
 ```
+
 *Figure 6.2.1: Dependency confusion attack. The attacker registers an internal package name on a public registry with a very high version number. When the build system resolves the package, it finds both versions and selects the attacker's package (v999.0.0) over the legitimate internal package (v1.2.3).*
 
 ## Alex Birsan's Research and the $130,000 Bug Bounties
@@ -154,6 +155,7 @@ Migrate internal packages to scoped naming:
 For pip, use `--index-url` with your private registry and `--extra-index-url` for PyPI (reversing the common pattern). Or use pip's dependency link features to explicitly specify sources.
 
 For npm, use scoped packages and configure scopes to route to appropriate registries:
+
 ```ini
 @yourcompany:registry=https://your-internal-registry.com
 ```
