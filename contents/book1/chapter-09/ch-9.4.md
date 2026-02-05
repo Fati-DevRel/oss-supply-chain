@@ -158,7 +158,7 @@ Section 7.8 detailed the Polyfill.io attack, but its relevance to client-side su
 
 ## Case Study: Ledger Connect Kit Attack (2023)
 
-In December 2023, a [supply chain attack on Ledger's Connect Kit][^ledger-attack] JavaScript library demonstrated how client-side compromises can target cryptocurrency assets.
+In December 2023, a supply chain attack on Ledger's Connect Kit[^ledger-attack] JavaScript library demonstrated how client-side compromises can target cryptocurrency assets.
 
 !!! example "Ledger Connect Kit Attack (2023)"
 
