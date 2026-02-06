@@ -126,7 +126,7 @@ While major CDN compromises have been rare, close calls exist:
 
 - In 2021, a researcher discovered a vulnerability in cdnjs[^cdnjs-vuln] that could have allowed arbitrary code injection into any hosted library
 - CDN configuration errors have occasionally served incorrect file versions
-- The [Polyfill.io incident][^polyfill] (Section 7.8) demonstrated CDN trust being weaponized through ownership transfer
+- The Polyfill.io incident[^polyfill] (Section 7.8) demonstrated CDN trust being weaponized through ownership transfer
 
 **The Centralization Paradox:**
 
@@ -158,7 +158,7 @@ Section 7.8 detailed the Polyfill.io attack, but its relevance to client-side su
 
 ## Case Study: Ledger Connect Kit Attack (2023)
 
-In December 2023, a [supply chain attack on Ledger's Connect Kit][^ledger-attack] JavaScript library demonstrated how client-side compromises can target cryptocurrency assets.
+In December 2023, a supply chain attack on Ledger's Connect Kit[^ledger-attack] JavaScript library demonstrated how client-side compromises can target cryptocurrency assets.
 
 !!! example "Ledger Connect Kit Attack (2023)"
 
@@ -170,7 +170,7 @@ Ledger produces hardware cryptocurrency wallets. The **Ledger Connect Kit** is a
 
 **The Attack:**
 
-On December 14, 2023, attackers [compromised a former Ledger employee's npm account][^ledger-incident] through a phishing attack. Using this access, they:
+On December 14, 2023, attackers compromised a former Ledger employee's npm account[^ledger-incident] through a phishing attack. Using this access, they:
 
 1. Published malicious versions of `@ledgerhq/connect-kit` to npm
 2. The compromised package was loaded by dApps using the Ledger Connect Kit
