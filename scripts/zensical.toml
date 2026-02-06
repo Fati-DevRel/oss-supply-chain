@@ -109,7 +109,7 @@ nav = [
       {"10.9 Post-Quantum Cryptography Transition" = "book1/chapter-10/ch-10.9.md"},
       {"10.10 CI/CD Pipeline Supply Chain Attacks" = "book1/chapter-10/ch-10.10.md"},
       {"10.11 Ecosystem-Scale Package Malware Campaigns" = "book1/chapter-10/ch-10.11.md"},
-      {"10.12 Identity and Ownership Hijacking" = "book1/chapter-10/ch-10.12.md"}
+      {"10.12 Identity and Ownership Hijacking" = "book1/chapter-10/ch-10.12.md"},
       {"10.13 Prompt Worms: Self-Replicating AI Malware" = "book1/chapter-10/ch-10.13.md"}
     ]}
   ]},
