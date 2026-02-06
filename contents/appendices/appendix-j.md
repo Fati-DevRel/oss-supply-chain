@@ -347,8 +347,7 @@ To increase discoverability, add a link to your security policy in your `README.
 ```markdown
 ## Security
 
-See [SECURITY.md](SECURITY.md) for our security policy and
-vulnerability reporting instructions.
+See SECURITY.md for our security policy and vulnerability reporting instructions.
 ```
 
 ##### Supported Versions Documentation [D.B.3]
@@ -1549,7 +1548,7 @@ Add a link to your security policy in your `README.md`:
 ```markdown
 ## Security
 
-See [SECURITY.md](SECURITY.md) for our security policy and
+See SECURITY.md for our security policy and
 vulnerability reporting instructions.
 ```
 
