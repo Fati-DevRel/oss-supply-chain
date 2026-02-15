@@ -112,6 +112,12 @@ Understanding these distinctions helps explain why CVSS alone is insufficient an
 
 **[CISA Known Exploited Vulnerabilities (KEV)][cisa-kev]** catalogs vulnerabilities confirmed to be actively exploited. Federal agencies must remediate KEV entries within specified timeframes. For any organization, KEV entries deserve priority attention—these are not theoretical risks but active threats.
 
+!!! info "KEV Now Covers Developer Toolchains"
+
+    KEV entries are not limited to production-facing software. In early 2026, CISA added two developer-toolchain vulnerabilities: **CVE-2025-11953** (React Native Metro server OS command injection, CVSS 9.8) and **CVE-2025-15556** (Notepad++ WinGUp updater missing integrity check, CVSS 7.5). These additions signal that CISA treats developer-facing software as infrastructure warranting the same remediation urgency as production systems — a meaningful reframing for supply chain defenders.
+
+The KEV catalog's expansion into developer tooling has direct implications for supply chain security prioritization. Developer workstations and CI/CD runners hold signing keys, publishing tokens, cloud credentials, and source code. A vulnerability on a developer machine is not merely an endpoint risk — it is a potential entry point for upstream supply-chain attacks. Organizations should ensure their KEV monitoring and remediation workflows cover developer-facing software, build tooling, and IDE components, not just production infrastructure.
+
 **[Exploit Prediction Scoring System (EPSS)][epss]**, maintained by FIRST, predicts the probability that a vulnerability will be exploited in the next 30 days. EPSS uses machine learning on vulnerability characteristics and threat intelligence to estimate exploitation likelihood. High EPSS scores indicate vulnerabilities that, even if not yet exploited, are likely to be soon.
 
 **Stakeholder-Specific Vulnerability Categorization (SSVC)**, developed by CISA and Carnegie Mellon, provides a decision-tree approach to prioritization. SSVC considers exploitation status, technical impact, and the specific organization's exposure to generate actionable recommendations: track, track*, attend, or act.

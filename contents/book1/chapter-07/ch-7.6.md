@@ -185,6 +185,54 @@ If a PR title contains shell metacharacters or command injection payloads, they 
 4. Implement workflow review requirements for changes to CI configuration
 5. Use `permissions:` to minimize workflow token scope
 
+## Webhook Filter Bypass: The CodeBreach Class of Risk (2026)
+
+Webhook filters are a common mechanism for constraining which events trigger privileged CI/CD builds — for example, allowing only pull requests from trusted maintainers to run builds with access to secrets. When these filters rely on pattern matching rather than exact identity verification, they introduce a subtle but critical vulnerability class.
+
+In January 2026, security researchers at Wiz disclosed what they termed the "CodeBreach" class of risk: a webhook filter misconfiguration in AWS CodeBuild affecting four AWS-managed open-source GitHub repositories, including `aws-sdk-js-v3`, `aws-lc`, `amazon-corretto-crypto-provider`, and `awslabs/open-data-registry`.[^codebreach-aws][^codebreach-wiz]
+
+**Root Cause — Unanchored Regex:**
+
+The CodeBuild webhook filters used regex patterns to match trusted GitHub actor IDs (the numeric user IDs assigned sequentially by GitHub). Critically, these patterns lacked anchors (`^` and `$`), meaning the filter performed a *contains* match rather than an *exact* match:
+
+```
+# Intended: match actor ID "12345" exactly
+# Actual regex: 12345 (no anchors)
+# Matches: 12345, 112345, 123456, 9123450 — any ID containing "12345"
+```
+
+Because GitHub assigns numeric user IDs sequentially, an attacker could create new accounts until obtaining an ID that contained a trusted maintainer's ID as a substring, effectively bypassing the allowlist.
+
+**Attack Chain:**
+
+```mermaid
+flowchart TD
+    A["Attacker obtains GitHub actor ID\nthat matches allowlist regex by substring"] --> B[Open PR against target repository]
+    B --> C["Webhook filter performs 'contains' match\non actor ID — filter passes"]
+    C --> D[CodeBuild triggers privileged build\nwith access to repository secrets]
+    D --> E["Attacker-controlled build steps execute\nin privileged context"]
+    E --> F["Extract repo tokens and credentials\nfrom build environment memory"]
+    F --> G["Push malicious code or tamper\nwith release workflows"]
+    G --> H[Downstream users install\ncompromised artifacts]
+```
+
+**Impact Assessment:**
+
+AWS reported that researchers demonstrated the ability to commit code to one repository but did not do so maliciously, and AWS found no evidence of exploitation by other actors. AWS performed credential rotations and conducted a broader audit of similar configurations.[^codebreach-aws] However, the *potential* impact — if exploited — included repository admin token theft, malicious commits to widely-consumed libraries (the AWS SDK for JavaScript alone has millions of weekly npm downloads), and cascading supply-chain compromise.
+
+**Lessons:**
+
+1. **Webhook filters are security controls and must be treated as such.** Regex-based actor identity matching is inherently fragile. Use exact-match allowlists or cryptographic identity verification instead.
+
+2. **CI/CD build environments are credential-theft surfaces.** Build memory may contain repository tokens, cloud credentials, and signing keys. Minimize token scope, use ephemeral credentials, and rotate aggressively.
+
+3. **Audit CI trigger logic periodically.** Webhook filter configurations can drift and may never have been correct. Include CI trigger policies in security reviews alongside pipeline definitions.
+
+4. **Assume untrusted PRs will attempt to trigger privileged builds.** Implement explicit approval gates (comment-based or role-based) before running builds that have access to secrets, rather than relying solely on identity-based filtering.
+
+[^codebreach-aws]: AWS, "Security Bulletin 2026-002: AWS Open Source Repository Webhook Configuration," January 15, 2026.
+[^codebreach-wiz]: Wiz Research, "CodeBreach: Breaking Out of AWS CodeBuild via Webhook Filter Bypass," January 15, 2026.
+
 ## Dependency Caching Vulnerabilities
 
 CI/CD systems cache dependencies to accelerate builds. These caches create attack surfaces when shared across security boundaries.

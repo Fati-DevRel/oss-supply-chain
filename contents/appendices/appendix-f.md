@@ -780,6 +780,8 @@ Limited but high-impact for affected projects
 - Kaspersky Securelist, "A Supply Chain Attack on Notepad++," February 2, 2026[^kaspersky-notepadpp-2026]
 - Notepad++, "Hijacked Incident Info Update," February 2, 2026[^notepadpp-incident-2026]
 - Notepad++, "v8.8.9 Released," December 9, 2025[^notepadpp-v889-2025]
+- NVD, CVE-2025-15556 (CWE-494, CVSS 7.5): Missing cryptographic verification in WinGUp updater[^nvd-cve-2025-15556]
+- CISA KEV catalog: CVE-2025-15556 added February 12, 2026; federal remediation due March 5, 2026[^kev-cve-2025-15556]
 
 ---
 
@@ -961,6 +963,114 @@ In November 2025, a second wave dubbed "Shai-Hulud 2.0" emerged with modified ta
 
 ### 2026
 
+#### AWS CodeBreach: CodeBuild Webhook Filter Bypass
+
+**Date:** January 15, 2026
+
+**Summary:** Security researchers at Wiz disclosed a webhook filter misconfiguration in AWS CodeBuild affecting four AWS-managed open-source GitHub repositories (`aws-sdk-js-v3`, `aws-lc`, `amazon-corretto-crypto-provider`, `awslabs/open-data-registry`). Unanchored regex patterns in webhook actor-ID filters performed substring matches rather than exact matches, enabling an attacker who obtained a GitHub user ID containing a trusted maintainer's ID as a substring to bypass the filter and trigger privileged builds with access to repository secrets. AWS reported no downstream compromise and performed credential rotations and broader audit.
+
+**Impact Scope:** Four AWS-managed open-source repositories; potential (unrealized) impact on downstream consumers of AWS SDK for JavaScript and other libraries
+
+**Key Lessons:**
+
+- Webhook filters are security controls and must use exact-match allowlists, not fragile regex
+- CI/CD build environments are credential-theft surfaces; minimize token scope
+- Audit CI trigger logic periodically as part of security reviews
+- Untrusted PRs should require explicit approval gates before triggering privileged builds
+
+**Sources:**
+
+- AWS Security Bulletin 2026-002, January 15, 2026[^aws-codebreach-2026]
+- Wiz Research, "CodeBreach: Breaking Out of AWS CodeBuild via Webhook Filter Bypass," January 15, 2026[^wiz-codebreach-2026]
+
+---
+
+#### PyPI Spellchecker Lookalikes (Fileless RAT)
+
+**Date:** January 23, 2026
+
+**Summary:** Aikido Security reported a cluster of PyPI packages masquerading as spellchecker utilities that delivered a fileless Python remote access trojan. The malicious `setup.py` spawned a detached child process that downloaded and executed a RAT entirely in memory, reducing forensic artifacts. The shift from cryptocurrency-only payloads to general-purpose RATs signals that attackers increasingly view developer workstations as high-value foothold targets.
+
+**Impact Scope:** PyPI ecosystem; developer machines running `pip install` on the malicious packages; download counts limited/uncertain
+
+**Key Lessons:**
+
+- Fileless execution models evade file-based detection and reduce forensic artifacts
+- Attacker ROI is shifting from cryptocurrency theft to general-purpose developer footholds
+- Package installation sandboxing and behavioral monitoring are essential CI/CD controls
+- Verify package identity (download counts, maintainer history, repository links) before installation
+
+**Sources:**
+
+- Aikido Security, "Malicious PyPI 'spellchecker' packages deliver fileless Python RAT," January 23, 2026[^aikido-spellchecker-2026]
+
+---
+
+#### GlassWorm Open VSX Publisher Credential Compromise (Wave 2)
+
+**Date:** January 30, 2026
+
+**Summary:** Socket Security reported that four established Open VSX extensions received malicious updates via compromised publisher credentials, delivering the GlassWorm staged loader. Unlike the October 2025 self-propagating GlassWorm worm, this wave used publisher account compromise (likely leaked tokens) to push targeted malicious updates. The payload used runtime decryption, locale avoidance, and dynamic C2 discovery via Solana transaction memos (EtherHiding-style dead-drop resolver). The second-stage targeted developer credentials: `~/.aws`, `~/.ssh`, browser passwords, and cryptocurrency wallets.
+
+**Impact Scope:** Four established Open VSX extensions; users of VSCodium, Eclipse Theia, Gitpod, and other Open VSX-consuming editors; developer credential theft
+
+**Key Lessons:**
+
+- Publisher credential compromise can bypass static pre-publication checks
+- Open VSX and VS Code Marketplace have different security models; both require governance
+- Developer credential theft from IDE extensions enables upstream supply-chain attacks
+- The Eclipse Foundation's pre-publish security checks initiative (announced January 28, 2026) was directly catalyzed by this incident
+
+**Sources:**
+
+- Socket Security, "GlassWorm Strikes Open VSX," January 30, 2026[^socket-glassworm-2026]
+
+---
+
+#### Metro4Shell: React Native Metro Server KEV Inclusion
+
+**Date:** February 5, 2026 (KEV addition); exploitation observed December 2025–January 2026
+
+**Summary:** CISA added CVE-2025-11953 to the Known Exploited Vulnerabilities catalog. The vulnerability is an OS command injection in the Metro Development Server opened by the React Native Community CLI. Metro binds to all network interfaces by default and exposes an unauthenticated endpoint enabling command execution (fully controlled arguments on Windows). VulnCheck reported exploitation activity beginning in late December 2025. The CVSS 9.8 score and KEV addition make this one of the first developer-tooling vulnerabilities to receive mandatory federal remediation timelines.
+
+**Impact Scope:** React Native developers with Metro servers exposed beyond localhost; developer workstations and CI runners; KEV remediation due date February 26, 2026
+
+**Key Lessons:**
+
+- Developer-only services accidentally exposed to networks are functionally internet-facing services
+- Developer workstations hold signing keys, registry tokens, and cloud credentials—RCE is a supply-chain entry point
+- Default bind behaviors (0.0.0.0) must be overridden with policy, not individual choice
+- KEV now covers developer toolchains, not just production infrastructure
+
+**Sources:**
+
+- NVD, CVE-2025-11953 (CVSS 9.8)[^nvd-metro4shell-2026]
+- CISA KEV catalog, entry for CVE-2025-11953, added February 5, 2026[^kev-metro4shell-2026]
+- VulnCheck, "Metro4Shell exploitation activity," 2026[^vulncheck-metro4shell-2026]
+
+---
+
+#### dYdX Maintainer Compromise (npm + PyPI)
+
+**Date:** February 6, 2026
+
+**Summary:** Attackers compromised the maintainer accounts for legitimate dYdX-related packages on both npm and PyPI, publishing malicious versions that stole cryptocurrency wallet credentials and established remote access tooling. The dual-registry attack doubled the victim surface, and the legitimate package histories enabled trust inheritance—the malicious updates were pulled automatically by CI/CD pipelines and developers running routine dependency updates.
+
+**Impact Scope:** dYdX ecosystem users on npm and PyPI; cryptocurrency wallet theft; remote access established on developer machines; precise victim count unspecified
+
+**Key Lessons:**
+
+- Multi-registry attacks multiply blast radius when maintainers reuse credentials across ecosystems
+- Legitimate-to-malicious flips exploit trust inheritance in established packages
+- Combination of credential theft and RAT deployment suggests interest in persistent developer access
+- Cross-registry credential hygiene (unique, scoped credentials per registry) is essential
+
+**Sources:**
+
+- Socket Security research and public reporting, February 6, 2026[^socket-dydx-2026]
+
+---
+
 #### OpenClaw Ecosystem Attacks (ClawHavoc / CVE-2026-25253 / Moltbook)
 
 **Date:** January–February 2026
@@ -1032,6 +1142,11 @@ In November 2025, a second wave dubbed "Shai-Hulud 2.0" emerged with modified ta
 | Glass Worm | 2025 | Self-replicating malware | High |
 | Solana Monkey-Patching | 2025 | Runtime library manipulation | High |
 | React2Shell | 2025 | Code vulnerability | Low (unintentional) |
+| AWS CodeBreach | 2026 | CI/CD webhook filter bypass | High |
+| PyPI Spellchecker RAT | 2026 | Typosquatting / fileless RAT | Medium |
+| GlassWorm (Wave 2) | 2026 | Publisher credential compromise | High |
+| Metro4Shell (KEV) | 2026 | Developer tooling exploitation | Critical |
+| dYdX | 2026 | Multi-registry maintainer compromise | High |
 | OpenClaw Ecosystem | 2026 | Multi-vector (malicious skills, RCE, impersonation) | High |
 
 ---
@@ -1216,6 +1331,26 @@ These incidents collectively demonstrate that software supply chain security req
 [^securecodewarrior-glassworm-2025]: Secure Code Warrior, "OWASP Top 10 2025: Software Supply Chain Failures," 2025, https://www.securecodewarrior.com/article/owasp-top-10-2025-software-supply-chain-failures
 
 [^reversinglabs-sscs-2025-solana]: ReversingLabs, "The 2025 Software Supply Chain Security Report," 2025, https://www.reversinglabs.com/sscs-report
+
+[^nvd-cve-2025-15556]: NIST, "CVE-2025-15556," NVD, https://nvd.nist.gov/vuln/detail/CVE-2025-15556
+
+[^kev-cve-2025-15556]: CISA, Known Exploited Vulnerabilities Catalog, entry for CVE-2025-15556, added February 12, 2026.
+
+[^aws-codebreach-2026]: AWS, "Security Bulletin 2026-002: AWS Open Source Repository Webhook Configuration," January 15, 2026.
+
+[^wiz-codebreach-2026]: Wiz Research, "CodeBreach: Breaking Out of AWS CodeBuild via Webhook Filter Bypass," January 15, 2026.
+
+[^aikido-spellchecker-2026]: Aikido Security, "Malicious PyPI 'spellchecker' packages deliver fileless Python RAT," January 23, 2026.
+
+[^socket-glassworm-2026]: Socket Security, "GlassWorm Strikes Open VSX: Four Legitimate Extensions Compromised via Publisher Credential Theft," January 30, 2026, https://socket.dev/blog/glassworm-open-vsx-publisher-compromise
+
+[^nvd-metro4shell-2026]: NIST, "CVE-2025-11953," NVD, https://nvd.nist.gov/vuln/detail/CVE-2025-11953
+
+[^kev-metro4shell-2026]: CISA, Known Exploited Vulnerabilities Catalog, entry for CVE-2025-11953, added February 5, 2026.
+
+[^vulncheck-metro4shell-2026]: VulnCheck, "Metro4Shell exploitation activity," 2026.
+
+[^socket-dydx-2026]: Socket Security research and public reporting on dYdX package compromise, February 6, 2026.
 
 [^react-cve-2025-55182]: React.dev, "Critical Security Vulnerability in React Server Components," December 3, 2025, https://react.dev/blog/2025/12/03/critical-security-vulnerability-in-react-server-components
 
