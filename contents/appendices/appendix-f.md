@@ -1334,23 +1334,23 @@ These incidents collectively demonstrate that software supply chain security req
 
 [^nvd-cve-2025-15556]: NIST, "CVE-2025-15556," NVD, https://nvd.nist.gov/vuln/detail/CVE-2025-15556
 
-[^kev-cve-2025-15556]: CISA, Known Exploited Vulnerabilities Catalog, entry for CVE-2025-15556, added February 12, 2026.
+[^kev-cve-2025-15556]: CISA, Known Exploited Vulnerabilities Catalog, entry for CVE-2025-15556, added February 12, 2026, https://www.cisa.gov/known-exploited-vulnerabilities-catalog
 
-[^aws-codebreach-2026]: AWS, "Security Bulletin 2026-002: AWS Open Source Repository Webhook Configuration," January 15, 2026.
+[^aws-codebreach-2026]: AWS, "Security Bulletin 2026-002: Unanchored ACCOUNT_ID webhook filters for CodeBuild," https://aws.amazon.com/security/security-bulletins/2026-002-AWS/, January 15, 2026.
 
-[^wiz-codebreach-2026]: Wiz Research, "CodeBreach: Breaking Out of AWS CodeBuild via Webhook Filter Bypass," January 15, 2026.
+[^wiz-codebreach-2026]: Wiz Research, "CodeBreach: Infiltrating the AWS Console Supply Chain and Hijacking AWS GitHub Repositories via CodeBuild," https://www.wiz.io/blog/wiz-research-codebreach-vulnerability-aws-codebuild, January 15, 2026.
 
-[^aikido-spellchecker-2026]: Aikido Security, "Malicious PyPI 'spellchecker' packages deliver fileless Python RAT," January 23, 2026.
+[^aikido-spellchecker-2026]: Aikido Security, "Malicious PyPI 'spellchecker' packages deliver fileless Python RAT," https://www.aikido.dev/blog/malicious-pypi-packages-spellcheckpy-and-spellcheckerpy-deliver-python-rat, January 23, 2026.
 
-[^socket-glassworm-2026]: Socket Security, "GlassWorm Strikes Open VSX: Four Legitimate Extensions Compromised via Publisher Credential Theft," January 30, 2026, https://socket.dev/blog/glassworm-open-vsx-publisher-compromise
+[^socket-glassworm-2026]: Socket Security, "GlassWorm Loader Hits Open VSX via Developer Account Compromise," January 31, 2026, https://socket.dev/blog/glassworm-loader-hits-open-vsx-via-suspected-developer-account-compromise
 
 [^nvd-metro4shell-2026]: NIST, "CVE-2025-11953," NVD, https://nvd.nist.gov/vuln/detail/CVE-2025-11953
 
 [^kev-metro4shell-2026]: CISA, Known Exploited Vulnerabilities Catalog, entry for CVE-2025-11953, added February 5, 2026.
 
-[^vulncheck-metro4shell-2026]: VulnCheck, "Metro4Shell exploitation activity," 2026.
+[^vulncheck-metro4shell-2026]: VulnCheck, "Metro4Shell: Exploitation of React Native’s Metro Server in the Wild," https://www.vulncheck.com/blog/metro4shell_eitw, February 3, 2026.
 
-[^socket-dydx-2026]: Socket Security research and public reporting on dYdX package compromise, February 6, 2026.
+[^socket-dydx-2026]: Socket Security research and public reporting on dYdX package compromise, https://socket.dev/blog/malicious-dydx-packages-published-to-npm-and-pypi, February 6, 2026.
 
 [^react-cve-2025-55182]: React.dev, "Critical Security Vulnerability in React Server Components," December 3, 2025, https://react.dev/blog/2025/12/03/critical-security-vulnerability-in-react-server-components
 
