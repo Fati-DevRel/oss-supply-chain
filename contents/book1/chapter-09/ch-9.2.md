@@ -263,6 +263,43 @@ Enterprise management tools can enforce:
 - Allowlisting requires ongoing maintenance
 - Legacy extensions may lack modern security features
 
+## IDE Extension Marketplaces: A Distinct Ecosystem
+
+While browser extensions target end users' browsing activity, **IDE extension marketplaces** represent a related but distinct supply chain ecosystem that targets *developers specifically* — and the consequences of compromise are correspondingly more severe for upstream software security.
+
+The two major IDE extension distribution channels are:
+
+- **VS Code Marketplace**: Microsoft's official marketplace for Visual Studio Code, the most widely used code editor. Extensions are reviewed but run without sandbox isolation.
+- **Open VSX**: The Eclipse Foundation's open-source alternative, used by VSCodium, Eclipse Theia, Gitpod, and other editors. Open VSX operates with a different governance model and historically lighter publisher vetting.
+
+**How IDE Extensions Differ from Browser Extensions:**
+
+| Dimension | Browser Extensions | IDE Extensions |
+|-----------|-------------------|----------------|
+| **Primary victims** | End users (consumers) | Developers (producers) |
+| **Access scope** | Web browsing data, cookies | Source code, credentials, terminal, file system |
+| **Sandbox model** | Partial (permission-gated) | None — full IDE privileges |
+| **Supply chain leverage** | Steals user data | Enables upstream attacks via stolen developer credentials |
+| **Update model** | Auto-update via browser | Auto-update via editor |
+| **Manifest version controls** | Chrome Manifest V3 restrictions | No equivalent restriction framework |
+
+The critical difference is **supply chain leverage**: a compromised browser extension steals passwords and browsing data from end users. A compromised IDE extension steals signing keys, registry tokens, SSH keys, and cloud credentials from developers — enabling the attacker to publish malicious packages, tamper with CI/CD pipelines, or access production infrastructure. A single compromised developer can become the vector for an upstream supply-chain attack affecting thousands of downstream users.
+
+**GlassWorm and the Open VSX Attack Pattern:**
+
+The GlassWorm malware cluster demonstrated this risk concretely. First identified as a self-propagating worm in October 2025 (the first major such infection on Open VSX), GlassWorm resurfaced in January 2026 through a **publisher credential compromise** that poisoned four established extensions with staged loaders targeting developer credentials (`~/.aws`, `~/.ssh`, browser passwords, cryptocurrency wallets).[^glassworm-openvsx] See Chapter 16, Section 16.3 for the full case study.
+
+[^glassworm-openvsx]: Socket Security, "GlassWorm Strikes Open VSX," January 30, 2026; Veracode, "The First Self-Propagating VS Code Extension Worm: GlassWorm," October 20, 2025.
+
+The Eclipse Foundation's response signals an ecosystem-level shift: in January 2026, they announced a commitment to **pre-publish security checks** for Open VSX, with a monitoring phase beginning February 2026 and staged enforcement in March 2026. The announcement explicitly framed Open VSX as "core infrastructure in the developer supply chain" and named recurring abuse modes: impersonation, secrets leakage, malicious code patterns, and quiet supply-chain propagation through trusted extensions.
+
+**Recommendations for IDE Extension Ecosystems:**
+
+1. **Treat IDE extensions as supply chain dependencies.** Apply the same governance (allowlisting, review, monitoring) that you apply to npm or PyPI packages.
+2. **Inventory all IDE extension distribution channels.** Organizations may not realize that VSCodium, Gitpod, or Eclipse Theia installations pull from Open VSX rather than the VS Code Marketplace.
+3. **Monitor for publisher credential compromise.** Sudden behavioral changes in established extensions (new network calls, new permissions, obfuscated code) warrant investigation regardless of the extension's reputation.
+4. **Support and adopt pre-publish verification.** As marketplaces move toward pre-publish checks, participate in feedback cycles and adopt verification features as they become available.
+
 ## Recommendations
 
 **For Individual Users:**

@@ -257,6 +257,78 @@ PyPI's historically more limited security infrastructure compared to npm meant:
 
 Recent improvements including malware scanning, Trusted Publishers, and enhanced authentication have improved PyPI's security posture, but the ecosystem remains an active attacker target.
 
+## dYdX: Maintainer Compromise Across Two Registries (2026)
+
+!!! danger "Multi-Registry Trust Inheritance"
+
+    The dYdX compromise demonstrated that attackers can flip legitimate, trusted packages to malicious across multiple registries simultaneously. Dual npm + PyPI maintainer account takeover doubled the victim surface, and established download histories meant malicious updates were pulled automatically by CI/CD pipelines.
+
+The **dYdX package compromise** in February 2026 demonstrated a multi-registry maintainer account takeover that used trust in a legitimate project's name to distribute credential-stealing malware across both npm and PyPI simultaneously.[^dydx-compromise]
+
+[^dydx-compromise]: Socket Security research and public reporting on dYdX package compromise, https://socket.dev/blog/malicious-dydx-packages-published-to-npm-and-pypi, February 6, 2026.
+
+**Background and Timeline:**
+
+dYdX is a decentralized derivatives exchange with significant usage in the cryptocurrency ecosystem. Legitimate dYdX-related packages on npm and PyPI were used by developers building trading bots, portfolio managers, and DeFi integrations. On February 6, 2026, Socket Security reported that malicious versions had been published to both registries.
+
+**Technical Details:**
+
+Attackers compromised the maintainer's accounts on both registries and published malicious versions of existing, trusted packages. Because the packages were already established with legitimate histories and download counts, the malicious updates were pulled automatically by CI/CD pipelines and developers running routine dependency updates.
+
+The malicious versions included two complementary capabilities:
+
+1. **Cryptocurrency wallet stealers**: Targeted wallet credentials, private keys, and seed phrases stored on developer machines
+2. **Remote access tooling**: Established persistent backdoor access enabling follow-on operations, including exfiltration of source code and additional credentials
+
+**Impact:**
+
+The dYdX incident illustrates several trends in package attack evolution:
+
+- **Multi-registry attacks**: Rather than targeting a single ecosystem, attackers compromised the same project across npm and PyPI, doubling the victim surface
+- **Legitimate-to-malicious flip**: Unlike typosquatting, the packages were genuine projects with established trust — the "supply-chain trust inheritance" problem
+- **Follow-on capability**: The combination of credential theft and remote access suggests interest in persistent access to developer environments as a staging ground for further supply-chain attacks
+
+**Lessons:**
+
+1. **Cross-registry credential hygiene matters.** Maintainers using the same credentials or tokens across registries create correlated compromise risk. Use unique, scoped credentials per registry.
+2. **Maintainer account compromise remains the highest-leverage attack on registries.** Trusted publishing (OIDC) eliminates stored publishing tokens; phishing-resistant MFA (WebAuthn) protects account login.
+3. **Monitor for unexpected version publications of established packages.** Anomaly detection on publication cadence, payload size changes, and new dependency additions is more effective than static scanning alone.
+
+## PyPI Spellchecker Lookalikes: Fileless RAT via Typosquatting (2026)
+
+!!! warning "Fileless Execution Evades Detection"
+
+    Malicious PyPI packages masquerading as spellchecker utilities delivered a fileless Python RAT — executing entirely in memory with no files written to disk. The shift from cryptocurrency-only payloads to general-purpose RATs signals that attackers increasingly view developer machines as high-value foothold targets.
+
+In January 2026, Aikido Security reported a cluster of PyPI packages masquerading as spellchecker utilities that delivered a fileless Python remote access trojan (RAT).[^aikido-spellchecker] The incident demonstrates attacker ROI shifting from pure cryptocurrency theft to general-purpose developer foothold acquisition.
+
+[^aikido-spellchecker]: Aikido Security, "Malicious PyPI 'spellchecker' packages deliver fileless Python RAT," https://www.aikido.dev/blog/malicious-pypi-packages-spellcheckpy-and-spellcheckerpy-deliver-python-rat, January 23, 2026.
+
+**Technical Details:**
+
+The packages used names designed to appear as legitimate spellchecking libraries — a common pattern targeting developers who search for common functionality and install the first plausible result. The malicious `setup.py` executed during `pip install` and:
+
+1. Spawned a detached child process (not dependent on the parent installer)
+2. Downloaded and executed a Python RAT entirely in memory — no files written to disk
+3. Established persistence-like behavior through process respawning
+
+The fileless execution model represents an evolution beyond the typical "drop a file and execute" pattern common in earlier malware campaigns. By keeping the payload in memory and spawning detached processes, the malware reduces forensic artifacts and evades file-based detection.
+
+**Impact:**
+
+The shift from cryptocurrency-only payloads to **general-purpose RATs** signals that attackers increasingly view developer workstations as high-value *foothold* targets with follow-on options — not merely as sources of cryptocurrency credentials. A developer machine compromised with a RAT enables:
+
+- Source code theft and modification
+- CI/CD credential harvesting
+- Lateral movement to internal systems
+- Long-term persistent access for future supply-chain attacks
+
+**Lessons:**
+
+1. **Verify package identity before installation.** Check the package's PyPI page for download counts, maintainer history, and repository links before running `pip install`.
+2. **Use `--no-deps` and `--dry-run` for unfamiliar packages.** Inspect what will be installed before executing install scripts.
+3. **Monitor for detached processes spawned during package installation** in CI/CD environments — this is anomalous behavior that sandboxed install environments can detect.
+
 ## Synthesis: Common Patterns Across Incidents
 
 These case studies reveal recurring patterns that inform defensive strategy:
