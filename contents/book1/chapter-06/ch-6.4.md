@@ -265,7 +265,7 @@ Recent improvements including malware scanning, Trusted Publishers, and enhanced
 
 The **dYdX package compromise** in February 2026 demonstrated a multi-registry maintainer account takeover that used trust in a legitimate project's name to distribute credential-stealing malware across both npm and PyPI simultaneously.[^dydx-compromise]
 
-[^dydx-compromise]: Socket Security research and public reporting on dYdX package compromise, February 6, 2026.
+[^dydx-compromise]: Socket Security research and public reporting on dYdX package compromise, https://socket.dev/blog/malicious-dydx-packages-published-to-npm-and-pypi, February 6, 2026.
 
 **Background and Timeline:**
 
