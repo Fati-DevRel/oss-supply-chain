@@ -230,8 +230,8 @@ AWS reported that researchers demonstrated the ability to commit code to one rep
 
 4. **Assume untrusted PRs will attempt to trigger privileged builds.** Implement explicit approval gates (comment-based or role-based) before running builds that have access to secrets, rather than relying solely on identity-based filtering.
 
-[^codebreach-aws]: AWS, "Security Bulletin 2026-002: AWS Open Source Repository Webhook Configuration," January 15, 2026.
-[^codebreach-wiz]: Wiz Research, "CodeBreach: Breaking Out of AWS CodeBuild via Webhook Filter Bypass," January 15, 2026.
+[^codebreach-aws]: AWS, "Security Bulletin 2026-002: AWS Open Source Repository Webhook Configuration," January 15, 2026, https://aws.amazon.com/security/security-bulletins/AWS-2026-002/.
+[^codebreach-wiz]: Wiz Research, "CodeBreach: Breaking Out of AWS CodeBuild via Webhook Filter Bypass," January 15, 2026, https://www.wiz.io/blog/codebreach-breaking-out-of-aws-codebuild-via-webhook-filter-bypass.
 
 ## Dependency Caching Vulnerabilities
 
