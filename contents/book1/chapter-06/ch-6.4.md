@@ -302,7 +302,7 @@ The dYdX incident illustrates several trends in package attack evolution:
 
 In January 2026, Aikido Security reported a cluster of PyPI packages masquerading as spellchecker utilities that delivered a fileless Python remote access trojan (RAT).[^aikido-spellchecker] The incident demonstrates attacker ROI shifting from pure cryptocurrency theft to general-purpose developer foothold acquisition.
 
-[^aikido-spellchecker]: Aikido Security, "Malicious PyPI 'spellchecker' packages deliver fileless Python RAT," January 23, 2026.
+[^aikido-spellchecker]: Aikido Security, "Malicious PyPI 'spellchecker' packages deliver fileless Python RAT," https://www.aikido.dev/blog/malicious-pypi-packages-spellcheckpy-and-spellcheckerpy-deliver-python-rat, January 23, 2026.
 
 **Technical Details:**
 
