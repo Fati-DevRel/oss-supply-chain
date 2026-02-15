@@ -1144,7 +1144,7 @@ In November 2025, a second wave dubbed "Shai-Hulud 2.0" emerged with modified ta
 | React2Shell | 2025 | Code vulnerability | Low (unintentional) |
 | AWS CodeBreach | 2026 | CI/CD webhook filter bypass | High |
 | PyPI Spellchecker RAT | 2026 | Typosquatting / fileless RAT | Medium |
-| GlassWorm (Wave 2) | 2026 | Publisher credential compromise | High |
+| Glass Worm (Wave 2) | 2026 | Publisher credential compromise | High |
 | Metro4Shell (KEV) | 2026 | Developer tooling exploitation | Critical |
 | dYdX | 2026 | Multi-registry maintainer compromise | High |
 | OpenClaw Ecosystem | 2026 | Multi-vector (malicious skills, RCE, impersonation) | High |
